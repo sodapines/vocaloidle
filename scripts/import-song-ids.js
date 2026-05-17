@@ -216,7 +216,7 @@ async function main() {
   const inputIds = unique(
     (await fs.readFile(inputPath, "utf8"))
       .split(/\r?\n/)
-      .map((line) => line.match(/\d+/)?.[0])
+      .map((line) => line.match(/(\d+)\s*$/)?.[1])
       .filter(Boolean),
   ).map(Number);
   const existingIdLines = (await fs.readFile(idListPath, "utf8"))

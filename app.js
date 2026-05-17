@@ -63,6 +63,7 @@ const STRINGS = {
     noGuesses: "No guesses yet",
     correct: "Correct",
     wrong: "Wrong",
+    artistMatch: "Artist match",
     skipped: "Skipped",
     answer: "Answer",
     gaveUp: "Gave up",
@@ -98,6 +99,7 @@ const STRINGS = {
     achievementCategorySecret: "Secret",
     toastStatsReset: "Stats have been reset",
     toastAlreadyGuessed: "Already guessed.",
+    toastArtistMatch: "Artist matches, but the song title is different.",
     toastSelectSong: "Select a song from the list.",
     heardleDaily: "VOCALOID Heardle Daily",
     heardleUnlimited: "VOCALOID Heardle Unlimited",
@@ -180,11 +182,15 @@ const STRINGS = {
     statsFirstTry: "First-try solves",
     statsRarestSolve: "Rarest solve",
     statsRarestFirstTry: "Rarest 1/6",
+    statsBestPublishYear: "Best publish year",
+    statsMostPlayedYear: "Most played year",
     statsArchiveGroup: "Archive Mode",
     statsArchiveProgress: "Progress",
     statsAchievementsGroup: "Achievements",
     statsAchievementsProgress: "Progress",
     statsNoneYet: "None yet",
+    statsYearLine: (year, won, played, rate) => `${year} - ${rate}% (${won}/${played})`,
+    statsYearPlayedLine: (year, played) => `${year} - ${played} played`,
     statsRarestLine: (title, rate) => `${title} — ${rate}% global solve`,
     statsArchiveProgressLine: (solved, total, rate) => `${solved}/${total} solved · ${rate}%`,
     statsAchievementsProgressLine: (unlocked, total, rate) => `${unlocked}/${total} unlocked · ${rate}%`,
@@ -280,7 +286,7 @@ const STRINGS = {
     navSettings: "Settings",
     navUpdates: "Updates",
     linkReleaseNotes: "Release Notes",
-    linkReleaseVersion: "Release v1.1",
+    linkReleaseVersion: "Release v1.2",
     linkAchievements: "Achievements",
     linkSongPool: "Song Pool",
     linkSuggestSong: "Suggest a Song",
@@ -638,7 +644,7 @@ Object.assign(STRINGS.jp, {
   modalReleasePolish: "ニコニコ風レトロUIの調整、オートコンプリート改善、Cloudflare配信音声への対応。",
   navUpdates: "更新情報",
   linkReleaseNotes: "更新情報",
-  linkReleaseVersion: "リリース v1.1",
+  linkReleaseVersion: "リリース v1.2",
   linkAchievements: "\u5B9F\u7E3E",
 });
 
@@ -649,10 +655,23 @@ Object.assign(STRINGS.jp, {
   modalReleaseCommunity: "曲の提案、問題報告フォーム、今後の追加曲向けコミュニティ推薦タグに対応。",
 });
 
-let currentReleaseVersion = "v1.1";
+let currentReleaseVersion = "v1.2";
 
 const RELEASE_NOTES = {
   en: {
+    "v1.2": {
+      version: "Release v1.2",
+      intro: "This update expands the song pool and adds clearer feedback for close guesses and personal listening stats.",
+      items: [
+        "Added 78 new playable songs from the latest batch, bringing the pool to 1079 songs.",
+        "Artist-match partial credit: if the guessed song or typed artist matches the correct song's producer credit, the attempt is marked as Artist match instead of plain Wrong.",
+        "Artist matches now appear as yellow in guess history, sidebar attempt boxes, and shared result squares.",
+        "The cover-art question mark now changes color based on the latest pre-answer state: white by default, red after a wrong guess, yellow after an artist match, and gray after a skip.",
+        "Sidebar current-attempt boxes are neutral white so they no longer look like an artist-match result before any guess is made.",
+        "Stats now track publish-year performance locally, including Best publish year and Most played year.",
+        "Added two new hidden achievements: a Miku-themed language easter egg and a top-50 hardest-song challenge.",
+      ],
+    },
     "v1.1": {
       version: "Release v1.1",
       intro: "This update expands the game around stats, personal progress, achievements, visual polish, and unlimited mode history.",
@@ -688,6 +707,19 @@ const RELEASE_NOTES = {
     },
   },
   jp: {
+    "v1.2": {
+      version: "リリース v1.2",
+      intro: "この更新では、曲プールの追加、惜しい回答のフィードバック、公開年ごとの個人統計を強化しました。",
+      items: [
+        "最新バッチから78曲のプレイ可能曲を追加し、曲プールは1079曲になりました。",
+        "アーティスト一致の部分点を追加しました。回答した曲、または入力したアーティストが正解曲のプロデューサー表記と一致した場合、通常の不正解ではなく「Artist match」として表示されます。",
+        "アーティスト一致は、回答履歴、サイドバーの試行マス、共有結果のマスで黄色表示になります。",
+        "正解前のカバー欄の「?」が直近の状態に応じて変化します。初期状態は白、不正解後は赤、アーティスト一致後は黄色、スキップ後は灰色になります。",
+        "サイドバーの現在の試行マスを白に変更し、未回答の状態でアーティスト一致のように見えないようにしました。",
+        "公開年ごとのローカル統計を追加し、「得意な公開年」と「よくプレイする公開年」を表示するようにしました。",
+        "ミクテーマの言語イースターエッグと、難関上位50曲チャレンジの2つの隠し実績を追加しました。",
+      ],
+    },
     "v1.1": {
       version: "リリース v1.1",
       intro: "この更新では、統計・個人の進捗・実績・ビジュアル・無制限モードの履歴機能を中心に拡張しました。",
@@ -1260,6 +1292,32 @@ const ACHIEVEMENTS = [
       jp: "弾幕コメントを最大にして「千本桜」に正解する。",
     },
   },
+  {
+    id: "secret_mikumiku_jp",
+    category: "secret",
+    hidden: true,
+    title: {
+      en: "みくみくにしてあげる♪",
+      jp: "みくみくにしてあげる♪",
+    },
+    description: {
+      en: "Guess Miku Miku ni Shite Ageru♪ while the interface language is Japanese.",
+      jp: "インターフェース言語を日本語にして「みくみくにしてあげる♪」に正解する。",
+    },
+  },
+  {
+    id: "secret_top_50_hardest",
+    category: "secret",
+    hidden: true,
+    title: {
+      en: "Deep Cut Certified",
+      jp: "難関常連",
+    },
+    description: {
+      en: "Solve a song currently ranked in the top 50 hardest global songs.",
+      jp: "グローバルランキングで難関上位50曲に入っている曲に正解する。",
+    },
+  },
 ];
 
 const achievementById = new Map(ACHIEVEMENTS.map((achievement) => [achievement.id, achievement]));
@@ -1822,6 +1880,7 @@ function getDefaultStats() {
     firstTrySolves: 0,
     hardestSolved: null,
     rarestFirstTry: null,
+    yearStats: {},
     distribution: {
       1: 0,
       2: 0,
@@ -1833,6 +1892,21 @@ function getDefaultStats() {
     },
     results: {},
   };
+}
+
+function normalizeYearStats(raw = {}) {
+  if (!raw || typeof raw !== "object") return {};
+  return Object.fromEntries(
+    Object.entries(raw)
+      .filter(([year]) => /^\d{4}$/.test(String(year)))
+      .map(([year, value]) => [
+        year,
+        {
+          played: Number(value?.played) || 0,
+          won: Number(value?.won) || 0,
+        },
+      ]),
+  );
 }
 
 function normalizeStats(parsedStats = {}, options = {}) {
@@ -1850,6 +1924,7 @@ function normalizeStats(parsedStats = {}, options = {}) {
       : Number(distribution[1]) || 0,
     hardestSolved: parsedStats.hardestSolved || null,
     rarestFirstTry: parsedStats.rarestFirstTry || null,
+    yearStats: normalizeYearStats(parsedStats.yearStats),
     distribution,
     results: options.keepResults === false
       ? {}
@@ -2068,6 +2143,7 @@ function renderAchievements() {
       isUnlocked ? "is-unlocked" : "is-locked",
       isHidden ? "is-hidden" : "",
       achievement.id === "secret_senbonzakura" ? "is-senbonzakura" : "",
+      achievement.id === "secret_mikumiku_jp" ? "is-mikumiku" : "",
     ].filter(Boolean).join(" ");
 
     return `
@@ -2229,7 +2305,10 @@ function checkLocalAchievements(result, context = {}) {
     if (attempts === 1) unlockAchievement("first_try");
     if (attempts === 2) unlockAchievement("challenge_second_try");
     if (!guesses.some((guess) => guess.result === "Skipped")) unlockAchievement("no_skip_win");
-    if (!guesses.some((guess) => guess.result === "Wrong" || guess.result === "Skipped")) unlockAchievement("challenge_no_wrong");
+    if (!guesses.some((guess) => guess.result === "Wrong" || guess.result === "Artist" || guess.result === "Skipped")) unlockAchievement("challenge_no_wrong");
+    if (String(result.vocadbId) === "1355" && getLang() === "jp") {
+      unlockAchievement("secret_mikumiku_jp");
+    }
 
     // Clutch solve tracking
     if (attempts === clipStages.length) {
@@ -2551,15 +2630,54 @@ function formatRarestStat(record) {
   return t("statsRarestLine", escapeHtml(record.title), record.rate);
 }
 
+function getPublishYearSummaries(yearStats = {}) {
+  const rows = Object.entries(normalizeYearStats(yearStats))
+    .map(([year, data]) => ({
+      year,
+      played: Number(data.played) || 0,
+      won: Number(data.won) || 0,
+      rate: data.played > 0 ? Math.round((data.won / data.played) * 100) : 0,
+    }))
+    .filter((row) => row.played > 0);
+
+  const best = [...rows].sort((a, b) => (
+    b.rate - a.rate ||
+    b.won - a.won ||
+    b.played - a.played ||
+    Number(b.year) - Number(a.year)
+  ))[0] || null;
+
+  const mostPlayed = [...rows].sort((a, b) => (
+    b.played - a.played ||
+    b.won - a.won ||
+    Number(b.year) - Number(a.year)
+  ))[0] || null;
+
+  return { best, mostPlayed };
+}
+
+function formatBestYearStat(row) {
+  if (!row) return t("statsNoneYet");
+  return t("statsYearLine", row.year, row.won, row.played, row.rate);
+}
+
+function formatMostPlayedYearStat(row) {
+  if (!row) return t("statsNoneYet");
+  return t("statsYearPlayedLine", row.year, row.played);
+}
+
 function renderStatsDetails(stats) {
   if (!statsDetailList) return;
   const summary = getLocalStatsSummary(stats);
+  const yearSummary = getPublishYearSummaries(stats.yearStats);
   const archive = getArchiveStatsSummary();
   const achievements = getAchievementStatsSummary();
   const rows = [
     [t("statsFirstTry"), String(summary.firstTrySolves)],
     [t("statsRarestSolve"), formatRarestStat(summary.rarestSolve)],
     [t("statsRarestFirstTry"), formatRarestStat(summary.rarestFirstTry)],
+    [t("statsBestPublishYear"), formatBestYearStat(yearSummary.best)],
+    [t("statsMostPlayedYear"), formatMostPlayedYearStat(yearSummary.mostPlayed)],
   ];
 
   const statRows = rows.map(([label, value]) => `
@@ -3519,6 +3637,7 @@ function resetRound() {
   hideSuggestions();
   gamePanel.classList.remove("is-loss");
   coverPlaceholderMark.hidden = false;
+  updateCoverPlaceholderState();
   coverImage.hidden = true;
   coverImage.removeAttribute("src");
   coverImage.alt = "";
@@ -3717,6 +3836,20 @@ function updateMylist() {
   }
 }
 
+function getPublishYear(song) {
+  const year = String(song?.publishDate || "").match(/\d{4}/)?.[0];
+  return year || "";
+}
+
+function recordPublishYearStats(stats, song, won) {
+  const year = getPublishYear(song);
+  if (!year) return;
+  stats.yearStats = normalizeYearStats(stats.yearStats);
+  stats.yearStats[year] = stats.yearStats[year] || { played: 0, won: 0 };
+  stats.yearStats[year].played += 1;
+  if (won) stats.yearStats[year].won += 1;
+}
+
 function recordResult(won) {
   const isDaily = state.mode === "daily";
   const isUnlimited = state.mode === "unlimited";
@@ -3754,6 +3887,7 @@ function recordResult(won) {
   }
 
   stats.played += 1;
+  recordPublishYearStats(stats, state.puzzle, won);
 
   if (isDaily) {
     stats.results[resultKey] = result;
@@ -3907,6 +4041,7 @@ async function loadGlobalStats(songId, context = {}) {
       showGlobalComparisonToast(buildGlobalComparisonHtml(avg, context.result));
     }
     checkGlobalAchievements(rate, context);
+    await maybeUnlockTop50HardestAchievement(context);
     maybeUpdateRarestSolvedStats(rate, context);
   } catch {
     // silent — stats backend hiccup shouldn't break the answer reveal
@@ -3915,6 +4050,18 @@ async function loadGlobalStats(songId, context = {}) {
 
 // If the player just solved this song and its global solve rate is lower than
 // their previous rarest records, update the per-mode local stats blob.
+async function maybeUnlockTop50HardestAchievement(context = {}) {
+  const result = context.result || state.lastResult;
+  const puzzle = context.puzzle || state.puzzle;
+  if (!result?.won || !puzzle?.vocadbId) return;
+  const hardest = await fetchRankings("hardest");
+  if (!Array.isArray(hardest)) return;
+  const top50Ids = new Set(hardest.slice(0, 50).map((entry) => String(entry.songId)));
+  if (top50Ids.has(String(puzzle.vocadbId))) {
+    unlockAchievement("secret_top_50_hardest");
+  }
+}
+
 function maybeUpdateRarestSolvedStats(globalRate, context = {}) {
   const mode = context.mode || state.mode;
   const puzzle = context.puzzle || state.puzzle;
@@ -4175,11 +4322,13 @@ function render() {
   updateProgress(0);
   updateGiveUpVisibility();
   updateAttemptDots();
+  updateCoverPlaceholderState();
   renderGuesses();
   updateNextDailyCountdown();
 }
 
 function getResultIcon(result) {
+  if (result === "Artist") return "~";
   if (result === "Correct") return "✓";
   if (result === "Wrong") return "✗";
   if (result === "Skipped") return "→";
@@ -4188,6 +4337,7 @@ function getResultIcon(result) {
 }
 
 function getResultLabel(result) {
+  if (result === "Artist") return t("artistMatch");
   if (result === "Correct") return t("correct");
   if (result === "Wrong") return t("wrong");
   if (result === "Skipped") return t("skipped");
@@ -4220,6 +4370,29 @@ function renderGuesses() {
       `;
     })
     .join("");
+}
+
+function updateCoverPlaceholderState() {
+  if (!coverPlaceholderMark) return;
+  coverPlaceholderMark.classList.remove("is-default", "is-wrong", "is-artist", "is-skipped");
+
+  if (state.isComplete) return;
+
+  const lastGuess = [...state.guesses].reverse().find((guess) => (
+    guess.result === "Wrong" ||
+    guess.result === "Artist" ||
+    guess.result === "Skipped"
+  ));
+
+  const stateClass = lastGuess?.result === "Wrong"
+    ? "is-wrong"
+    : lastGuess?.result === "Artist"
+      ? "is-artist"
+      : lastGuess?.result === "Skipped"
+        ? "is-skipped"
+        : "is-default";
+
+  coverPlaceholderMark.classList.add(stateClass);
 }
 
 function escapeHtml(value) {
@@ -4453,6 +4626,7 @@ function buildShareText() {
       const guess = state.guesses[index];
       if (guess?.result === "Answer") { gaveUp = true; return "\u2B1B"; }
       if (guess?.result === "Wrong") return "\uD83D\uDFE5";
+      if (guess?.result === "Artist") return "\uD83D\uDFE8";
       if (guess?.result === "Skipped") return "\u2B1B";
       if (guess?.result === "Correct") return "\uD83D\uDFE9";
       if (!state.lastResult.won) return "\u2B1B";
@@ -4705,6 +4879,47 @@ function isCorrectGuess(guess) {
   return acceptedTitles.some((title) => normalizeGuess(guess) === normalizeGuess(title));
 }
 
+function getSongMatchedByTitle(guess) {
+  const normalized = normalizeGuess(guess);
+  return songs.find((song) => {
+    const titles = [song.title, song.vocadbName, ...(song.acceptedTitles || [])].filter(Boolean);
+    return titles.some((title) => normalizeGuess(title) === normalized);
+  }) || null;
+}
+
+function getArtistCreditKeys(song) {
+  const singerKeys = new Set((song?.singerNames || []).map(normalizeGuess));
+  const names = [
+    song?.artist,
+    ...(song?.producerNames || []),
+    ...(song?.artistSearchNames || []).filter((name) => {
+      const normalized = normalizeGuess(name);
+      return !singerKeys.has(normalized) && !/\bfeat\b/i.test(String(name));
+    }),
+  ];
+  return new Set(
+    names
+      .map(normalizeGuess)
+      .filter((name) => name.length >= 3),
+  );
+}
+
+function isArtistCreditGuess(guess) {
+  const normalized = normalizeGuess(guess);
+  return getArtistCreditKeys(state.puzzle).has(normalized);
+}
+
+function isArtistCreditMatch(song) {
+  if (!song || !state.puzzle) return false;
+  const puzzleCredits = getArtistCreditKeys(state.puzzle);
+  return [...getArtistCreditKeys(song)].some((credit) => puzzleCredits.has(credit));
+}
+
+function isPartialArtistGuess(guess, guessedSong = null) {
+  if (isCorrectGuess(guess)) return false;
+  return isArtistCreditGuess(guess) || isArtistCreditMatch(guessedSong);
+}
+
 function advanceAttempt() {
   if (state.isComplete || state.attempt >= clipStages.length) {
     state.isComplete = true;
@@ -4755,7 +4970,7 @@ guessForm.addEventListener("submit", (event) => {
   // ── Duplicate guess protection ──
   const normalizedGuess = normalizeGuess(guess);
   const alreadyGuessed = state.guesses.some(
-    (g) => g.result === "Wrong" && normalizeGuess(g.label) === normalizedGuess,
+    (g) => (g.result === "Wrong" || g.result === "Artist") && normalizeGuess(g.label) === normalizedGuess,
   );
   if (alreadyGuessed) {
     showLossToast(t("toastAlreadyGuessed"));
@@ -4766,12 +4981,11 @@ guessForm.addEventListener("submit", (event) => {
   // If what was typed doesn't match any song title (only artist fields), and the
   // user didn't explicitly pick from the suggestion list, block the submission.
   // This prevents a bare producer name like "maretu" from burning an attempt.
-  const matchesTitleDirectly = songs.some((song) => {
-    const titles = [song.title, song.vocadbName, ...(song.acceptedTitles || [])].filter(Boolean);
-    return titles.some((t) => normalizeGuess(t) === normalizedGuess);
-  });
+  const guessedSong = getSongMatchedByTitle(guess);
+  const matchesTitleDirectly = Boolean(guessedSong);
+  const matchesPuzzleArtist = isPartialArtistGuess(guess, guessedSong);
 
-  if (!matchesTitleDirectly && !suggestionWasSelected) {
+  if (!matchesTitleDirectly && !matchesPuzzleArtist && !suggestionWasSelected) {
     // Show the suggestions (in case debounce hasn't fired yet) and warn
     clearTimeout(_suggestionDebounceTimer);
     renderSuggestions();
@@ -4786,6 +5000,19 @@ guessForm.addEventListener("submit", (event) => {
     completeRound(true);
     guessForm.reset();
     hideSuggestions();
+  } else if (matchesPuzzleArtist) {
+    addGuess(guess, "Artist", guessedSong?.vocadbId || null);
+    showLossToast(t("toastArtistMatch"));
+    const clearOnWrong = localStorage.getItem("vh-clearwrong") !== "false";
+    if (clearOnWrong) {
+      guessInput.value = "";
+      hideSuggestions();
+    }
+    if (state.attempt >= clipStages.length) {
+      completeRound(false);
+    } else {
+      advanceAttempt();
+    }
   } else {
     addGuess(guess, "Wrong");
     const clearOnWrong = localStorage.getItem("vh-clearwrong") !== "false";
@@ -4850,6 +5077,8 @@ function updateAttemptDots() {
     let cls = "sb-attempt-dot";
     if (state.isComplete && state.lastResult?.won && attemptNum === state.lastResult.attempts) {
       cls += " is-correct";
+    } else if (guess?.result === "Artist") {
+      cls += " is-artist";
     } else if (guess?.result === "Wrong" || guess?.result === "Answer") {
       cls += " is-used";
     } else if (guess?.result === "Skipped") {
@@ -5127,7 +5356,7 @@ statsUnlimitedButton.addEventListener("click", () => {
 
 document.querySelectorAll(".release-tab").forEach((button) => {
   button.addEventListener("click", () => {
-    currentReleaseVersion = button.dataset.releaseVersion || "v1.1";
+    currentReleaseVersion = button.dataset.releaseVersion || "v1.2";
     renderReleaseNotes();
   });
 });

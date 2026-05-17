@@ -685,6 +685,7 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .guess-history li:nth-child(even) { background: #fafafa; }
 .guess-history .guess-result { font-weight: 700; font-size: 12px; }
 .guess-history .is-correct { color: var(--red); }
+.guess-history .is-artist { color: #b8860b; }
 .guess-history .is-wrong { color: var(--muted); }
 .guess-history .is-skipped { color: var(--faint); }
 .guess-history .empty-guess { justify-content: center; color: var(--faint); font-style: italic; }
@@ -1707,6 +1708,52 @@ body.dark-mode .achievement-card.is-senbonzakura p {
 body.dark-mode .achievement-card.is-senbonzakura small {
   color: #806870;
 }
+
+/* Miku language secret achievement special styling */
+.achievement-card.is-mikumiku {
+  background: linear-gradient(135deg, #e6fbf6 0%, #d7f1ee 48%, #f5dfe9 100%);
+  border-bottom-color: #7ac7bf;
+}
+.achievement-card.is-mikumiku.is-unlocked {
+  border-left-color: #39bdb4;
+  background: linear-gradient(135deg, #e8fff9 0%, #c9f2ec 46%, #ffddea 100%);
+}
+.achievement-card.is-mikumiku .achievement-card-head strong {
+  color: #073b3a;
+  font-family: "MS PGothic","Hiragino Kaku Gothic Pro","Meiryo",Arial,sans-serif;
+  letter-spacing: 0.05em;
+}
+.achievement-card.is-mikumiku .achievement-card-head span {
+  color: #d65a93;
+}
+.achievement-card.is-mikumiku.is-locked .achievement-card-head span {
+  color: #6aa8a3;
+}
+.achievement-card.is-mikumiku p {
+  color: #315b58;
+}
+.achievement-card.is-mikumiku small {
+  color: #7b6a78;
+}
+body.dark-mode .achievement-card.is-mikumiku {
+  background: linear-gradient(135deg, #102b2a 0%, #123532 48%, #2d1828 100%);
+  border-bottom-color: #255b58;
+}
+body.dark-mode .achievement-card.is-mikumiku.is-unlocked {
+  border-left-color: #39bdb4;
+}
+body.dark-mode .achievement-card.is-mikumiku .achievement-card-head strong {
+  color: #d7fff7;
+}
+body.dark-mode .achievement-card.is-mikumiku .achievement-card-head span {
+  color: #ff8fc0;
+}
+body.dark-mode .achievement-card.is-mikumiku p {
+  color: #90c9c2;
+}
+body.dark-mode .achievement-card.is-mikumiku small {
+  color: #b28ca0;
+}
 .achievement-card p {
   margin: 0;
   color: var(--muted);
@@ -2265,6 +2312,7 @@ body.no-autocomplete .suggestion-list { display: none !important; }
   margin-right: 2px;
 }
 .is-correct .guess-icon { color: var(--red); }
+.is-artist .guess-icon  { color: #b8860b; }
 .is-wrong .guess-icon   { color: var(--muted); }
 .is-skipped .guess-icon { color: var(--faint); }
 .is-answer .guess-icon  { color: var(--faint); }
@@ -2424,17 +2472,28 @@ body.dark-mode .suggestion-list mark { background: rgba(204,0,0,0.25); }
   display: block;
   font-size: 4rem;
   font-weight: 900;
-  color: #444444;
   font-family: "MS PGothic","Hiragino Kaku Gothic Pro","Meiryo",Arial,sans-serif;
   line-height: 1;
-  border: 3px solid #333333;
+  border: 3px solid #777777;
   width: 72px;
   height: 72px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #1a1a1a;
+  background: #242424;
+  color: #ffffff;
+}
+.cover-placeholder-inner.is-wrong .cover-placeholder-q {
+  border-color: #990000;
   color: #cc0000;
+}
+.cover-placeholder-inner.is-artist .cover-placeholder-q {
+  border-color: #aa8800;
+  color: #ffcc00;
+}
+.cover-placeholder-inner.is-skipped .cover-placeholder-q {
+  border-color: #555555;
+  color: #888888;
 }
 .cover-placeholder-hint {
   display: block;
@@ -2471,8 +2530,9 @@ body.compact-mode .nnd-main { padding-right: 0; }
   font-size: 0;
 }
 .sb-attempt-dot.is-used { background: #cc0000; border-color: #990000; }
+.sb-attempt-dot.is-artist { background: #ffcc00; border-color: #aa8800; }
 .sb-attempt-dot.is-skipped { background: #888888; border-color: #555555; }
-.sb-attempt-dot.is-current { background: #ffcc00; border-color: #aa8800; }
+.sb-attempt-dot.is-current { background: #ffffff; border-color: #bbbbbb; }
 .sb-attempt-dot.is-correct { background: #22aa44; border-color: #116622; }
 
 /* ── SETTINGS PARENT/CHILD GROUPING ── */
