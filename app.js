@@ -5,6 +5,7 @@ const statsKey = "vocaloid-heardle-stats";
 const unlimitedStatsKey = "vocaloid-heardle-unlimited-stats";
 const archiveResultsKey = "vocaloid-heardle-archive-results";
 const achievementsKey = "vocaloid-heardle-achievements";
+const bookmarksKey = "vocaloid-heardle-bookmarks";
 const unlimitedRecentKey = "vocaloid-heardle-unlimited-recent";
 const unlimitedRecentLimit = 100;
 const unlimitedHistoryKey = "vocaloid-heardle-unlimited-history";
@@ -63,7 +64,9 @@ const STRINGS = {
     noGuesses: "No guesses yet",
     correct: "Correct",
     wrong: "Wrong",
+    strongMatch: "Strong match",
     artistMatch: "Artist match",
+    vocalMatch: "Vocal match",
     skipped: "Skipped",
     answer: "Answer",
     gaveUp: "Gave up",
@@ -97,9 +100,25 @@ const STRINGS = {
     achievementCategoryKnowledge: "Knowledge",
     achievementCategoryChallenge: "Challenge",
     achievementCategorySecret: "Secret",
+    achievementSearchLabel: "Search achievements",
+    achievementSearchPlaceholder: "Search by name, description, or category",
+    achievementNoResults: "No achievements match that search.",
+    bookmark: "Bookmark",
+    bookmarked: "Bookmarked",
+    modalBookmarksTitle: "Bookmarks",
+    bookmarksIntro: "Saved songs stay on this device. Audio previews use the hosted puzzle clips.",
+    bookmarksSearchPlaceholder: "Search bookmarks...",
+    bookmarksEmpty: "No bookmarks yet.",
+    bookmarksNoResults: "No bookmarked songs match that search.",
+    bookmarksPlay: "Play",
+    bookmarksPause: "Pause",
+    bookmarksRemove: "Remove",
+    bookmarksYear: "Year",
     toastStatsReset: "Stats have been reset",
     toastAlreadyGuessed: "Already guessed.",
+    toastStrongMatch: "Artist and vocal match, but the song title is different.",
     toastArtistMatch: "Artist matches, but the song title is different.",
+    toastVocalMatch: "Vocal matches, but the song title is different.",
     toastSelectSong: "Select a song from the list.",
     heardleDaily: "VOCALOID Heardle Daily",
     heardleUnlimited: "VOCALOID Heardle Unlimited",
@@ -286,7 +305,7 @@ const STRINGS = {
     navSettings: "Settings",
     navUpdates: "Updates",
     linkReleaseNotes: "Release Notes",
-    linkReleaseVersion: "Release v1.2",
+    linkReleaseVersion: "Release v1.3",
     linkAchievements: "Achievements",
     linkSongPool: "Song Pool",
     linkSuggestSong: "Suggest a Song",
@@ -401,6 +420,20 @@ const STRINGS = {
     achievementCategoryKnowledge: "\u77E5\u8B58",
     achievementCategoryChallenge: "\u30C1\u30E3\u30EC\u30F3\u30B8",
     achievementCategorySecret: "\u30B7\u30FC\u30AF\u30EC\u30C3\u30C8",
+    achievementSearchLabel: "\u5B9F\u7E3E\u3092\u691C\u7D22",
+    achievementSearchPlaceholder: "\u540D\u524D\u30FB\u8AAC\u660E\u30FB\u30AB\u30C6\u30B4\u30EA\u3067\u691C\u7D22",
+    achievementNoResults: "\u6761\u4EF6\u306B\u4E00\u81F4\u3059\u308B\u5B9F\u7E3E\u306F\u3042\u308A\u307E\u305B\u3093\u3002",
+    bookmark: "\u30D6\u30C3\u30AF\u30DE\u30FC\u30AF",
+    bookmarked: "\u30D6\u30C3\u30AF\u30DE\u30FC\u30AF\u6E08\u307F",
+    modalBookmarksTitle: "\u30D6\u30C3\u30AF\u30DE\u30FC\u30AF",
+    bookmarksIntro: "\u4FDD\u5B58\u3057\u305F\u66F2\u306F\u3053\u306E\u7AEF\u672B\u306B\u6B8B\u308A\u307E\u3059\u3002\u97F3\u58F0\u30D7\u30EC\u30D3\u30E5\u30FC\u306F\u30D1\u30BA\u30EB\u7528\u306E\u914D\u4FE1\u30AF\u30EA\u30C3\u30D7\u3092\u4F7F\u7528\u3057\u307E\u3059\u3002",
+    bookmarksSearchPlaceholder: "\u30D6\u30C3\u30AF\u30DE\u30FC\u30AF\u3092\u691C\u7D22...",
+    bookmarksEmpty: "\u307E\u3060\u30D6\u30C3\u30AF\u30DE\u30FC\u30AF\u304C\u3042\u308A\u307E\u305B\u3093\u3002",
+    bookmarksNoResults: "\u6761\u4EF6\u306B\u4E00\u81F4\u3059\u308B\u30D6\u30C3\u30AF\u30DE\u30FC\u30AF\u306F\u3042\u308A\u307E\u305B\u3093\u3002",
+    bookmarksPlay: "\u518D\u751F",
+    bookmarksPause: "\u4E00\u6642\u505C\u6B62",
+    bookmarksRemove: "\u524A\u9664",
+    bookmarksYear: "\u5E74",
     toastStatsReset: "統計をリセットしました",
     toastAlreadyGuessed: "すでに回答済みです。",
     toastSelectSong: "リストから曲を選んでください。",
@@ -649,16 +682,40 @@ Object.assign(STRINGS.jp, {
 });
 
 Object.assign(STRINGS.jp, {
+  linkReleaseVersion: "\u30EA\u30EA\u30FC\u30B9 v1.3",
+  strongMatch: "\u5F37\u4E00\u81F4",
+  artistMatch: "\u30A2\u30FC\u30C6\u30A3\u30B9\u30C8\u4E00\u81F4",
+  vocalMatch: "\u30DC\u30FC\u30AB\u30EB\u4E00\u81F4",
+  toastStrongMatch: "\u30A2\u30FC\u30C6\u30A3\u30B9\u30C8\u3068\u30DC\u30FC\u30AB\u30EB\u306F\u4E00\u81F4\u3057\u3066\u3044\u307E\u3059\u304C\u3001\u66F2\u540D\u304C\u9055\u3044\u307E\u3059\u3002",
+  toastArtistMatch: "\u30A2\u30FC\u30C6\u30A3\u30B9\u30C8\u306F\u4E00\u81F4\u3057\u3066\u3044\u307E\u3059\u304C\u3001\u66F2\u540D\u304C\u9055\u3044\u307E\u3059\u3002",
+  toastVocalMatch: "\u30DC\u30FC\u30AB\u30EB\u306F\u4E00\u81F4\u3057\u3066\u3044\u307E\u3059\u304C\u3001\u66F2\u540D\u304C\u9055\u3044\u307E\u3059\u3002",
+});
+
+Object.assign(STRINGS.jp, {
   modalReleaseArchive: "過去のデイリーパズル、月ごとの達成サマリー、最難関/最易デイリーのメモを追加。",
   modalReleaseRandom: "日付を選ばず過去のデイリーに飛べるランダムアーカイブ問題を追加。",
   modalReleaseStats: "グローバル楽曲統計、正解率、平均挑戦回数、低平均/高平均タブ付きランキングを追加。",
   modalReleaseCommunity: "曲の提案、問題報告フォーム、今後の追加曲向けコミュニティ推薦タグに対応。",
 });
 
-let currentReleaseVersion = "v1.2";
+let currentReleaseVersion = "v1.3";
 
 const RELEASE_NOTES = {
   en: {
+    "v1.3": {
+      version: "Release v1.3",
+      intro: "This update focuses on finding, saving, and identifying songs more comfortably while keeping the core game intact.",
+      items: [
+        "Added achievement search so the achievements list can be filtered by name, description, or category.",
+        "Added local bookmarks for saving revealed songs on this device, with searchable bookmark history, thumbnails, VocaDB links, and hosted audio previews.",
+        "Bookmark audio previews now respect the volume setting and show elapsed playback time.",
+        "Improved bookmark thumbnail fallback handling so saved songs can try alternate cover sources when a low-quality placeholder appears.",
+        "Added Strong match for guesses that share both producer credit and main vocal synth with the correct song.",
+        "Added vocal-match partial credit: guesses with the correct main vocal synth now show as Vocal match instead of plain Wrong.",
+        "Strong, artist, and vocal matches now have separate purple, yellow, and blue feedback states in history, sidebar attempt boxes, cover-placeholder feedback, and copied result squares.",
+        "Fixed same-title variants so selecting one version no longer blocks another version just because the displayed title is identical.",
+      ],
+    },
     "v1.2": {
       version: "Release v1.2",
       intro: "This update expands the song pool and adds clearer feedback for close guesses and personal listening stats.",
@@ -707,6 +764,20 @@ const RELEASE_NOTES = {
     },
   },
   jp: {
+    "v1.3": {
+      version: "\u30EA\u30EA\u30FC\u30B9 v1.3",
+      intro: "\u3053\u306E\u66F4\u65B0\u3067\u306F\u3001\u57FA\u672C\u306E\u30B2\u30FC\u30E0\u6027\u306F\u305D\u306E\u307E\u307E\u306B\u3001\u66F2\u3092\u63A2\u3059\u30FB\u4FDD\u5B58\u3059\u308B\u30FB\u8FD1\u3044\u56DE\u7B54\u3092\u898B\u5206\u3051\u308B\u4F53\u9A13\u3092\u6539\u5584\u3057\u307E\u3057\u305F\u3002",
+      items: [
+        "\u5B9F\u7E3E\u691C\u7D22\u3092\u8FFD\u52A0\u3057\u3001\u540D\u524D\u30FB\u8AAC\u660E\u30FB\u30AB\u30C6\u30B4\u30EA\u3067\u7D5E\u308A\u8FBC\u3081\u308B\u3088\u3046\u306B\u3057\u307E\u3057\u305F\u3002",
+        "\u89E3\u7B54\u5F8C\u306E\u66F2\u3092\u3053\u306E\u7AEF\u672B\u306B\u4FDD\u5B58\u3067\u304D\u308B\u30ED\u30FC\u30AB\u30EB\u30D6\u30C3\u30AF\u30DE\u30FC\u30AF\u3092\u8FFD\u52A0\u3057\u3001\u691C\u7D22\u3001\u30B5\u30E0\u30CD\u30A4\u30EB\u3001VocaDB\u30EA\u30F3\u30AF\u3001\u914D\u4FE1\u97F3\u58F0\u30D7\u30EC\u30D3\u30E5\u30FC\u306B\u5BFE\u5FDC\u3057\u307E\u3057\u305F\u3002",
+        "\u30D6\u30C3\u30AF\u30DE\u30FC\u30AF\u306E\u97F3\u58F0\u30D7\u30EC\u30D3\u30E5\u30FC\u304C\u97F3\u91CF\u8A2D\u5B9A\u3092\u53CD\u6620\u3057\u3001\u518D\u751F\u6642\u9593\u3082\u8868\u793A\u3059\u308B\u3088\u3046\u306B\u306A\u308A\u307E\u3057\u305F\u3002",
+        "\u4FDD\u5B58\u6E08\u307F\u66F2\u306E\u30B5\u30E0\u30CD\u30A4\u30EB\u304C\u4F4E\u753B\u8CEA\u306E\u30D7\u30EC\u30FC\u30B9\u30DB\u30EB\u30C0\u306B\u306A\u3063\u305F\u5834\u5408\u3001\u5225\u306E\u30AB\u30D0\u30FC\u5019\u88DC\u3092\u8A66\u3059\u3088\u3046\u306B\u3057\u307E\u3057\u305F\u3002",
+        "\u30D7\u30ED\u30C7\u30E5\u30FC\u30B5\u30FC\u8868\u8A18\u3068\u30E1\u30A4\u30F3\u30DC\u30FC\u30AB\u30EB\u30B7\u30F3\u30BB\u306E\u4E21\u65B9\u304C\u6B63\u89E3\u66F2\u3068\u4E00\u81F4\u3059\u308B\u56DE\u7B54\u3092\u300CStrong match\u300D\u3068\u3057\u3066\u8868\u793A\u3059\u308B\u3088\u3046\u306B\u3057\u307E\u3057\u305F\u3002",
+        "\u30DC\u30FC\u30AB\u30EB\u4E00\u81F4\u306E\u90E8\u5206\u70B9\u3092\u8FFD\u52A0\u3057\u3001\u6B63\u89E3\u66F2\u3068\u540C\u3058\u30E1\u30A4\u30F3\u30DC\u30FC\u30AB\u30EB\u30B7\u30F3\u30BB\u306E\u66F2\u3092\u56DE\u7B54\u3057\u305F\u5834\u5408\u3001\u901A\u5E38\u306E\u4E0D\u6B63\u89E3\u3067\u306F\u306A\u304F\u300CVocal match\u300D\u3068\u3057\u3066\u8868\u793A\u3055\u308C\u307E\u3059\u3002",
+        "\u5F37\u4E00\u81F4\u3001\u30A2\u30FC\u30C6\u30A3\u30B9\u30C8\u4E00\u81F4\u3001\u30DC\u30FC\u30AB\u30EB\u4E00\u81F4\u306F\u3001\u56DE\u7B54\u5C65\u6B74\u3001\u30B5\u30A4\u30C9\u30D0\u30FC\u306E\u8A66\u884C\u30DE\u30B9\u3001\u30AB\u30D0\u30FC\u6B04\u306E\u30D5\u30A3\u30FC\u30C9\u30D0\u30C3\u30AF\u3001\u5171\u6709\u7D50\u679C\u3067\u305D\u308C\u305E\u308C\u7D2B\u3001\u9EC4\u8272\u3001\u9752\u3068\u3057\u3066\u8868\u793A\u3055\u308C\u307E\u3059\u3002",
+        "\u540C\u3058\u66F2\u540D\u306E\u5225\u30D0\u30FC\u30B8\u30E7\u30F3\u3092\u9078\u3093\u3060\u5834\u5408\u3001\u8868\u793A\u540D\u304C\u540C\u3058\u3067\u3082\u300C\u3059\u3067\u306B\u56DE\u7B54\u6E08\u307F\u300D\u306B\u306A\u3089\u306A\u3044\u3088\u3046\u4FEE\u6B63\u3057\u307E\u3057\u305F\u3002",
+      ],
+    },
     "v1.2": {
       version: "リリース v1.2",
       intro: "この更新では、曲プールの追加、惜しい回答のフィードバック、公開年ごとの個人統計を強化しました。",
@@ -1405,6 +1476,9 @@ function refreshTitleSurfaces() {
   if (activeModal?.id === "rankings") {
     loadModalRankings(currentModalTab);
   }
+  if (activeModal?.id === "bookmarks") {
+    renderBookmarks();
+  }
 }
 
 function applyLanguage() {
@@ -1491,6 +1565,13 @@ function applyLanguage() {
   set("#report-issue-title", "modalReportTitle");
   set("#stats-title", "modalStatsTitle");
   set("#achievements-title", "modalAchievementsTitle");
+  set("#achievement-search-label", "achievementSearchLabel");
+  const achievementSearchInputEl = document.querySelector("#achievement-search-input");
+  if (achievementSearchInputEl) achievementSearchInputEl.placeholder = t("achievementSearchPlaceholder");
+  set("#bookmarks-title", "modalBookmarksTitle");
+  set("#bookmarks-intro", "bookmarksIntro");
+  const bookmarksSearchInputEl = document.querySelector("#bookmarks-search-input");
+  if (bookmarksSearchInputEl) bookmarksSearchInputEl.placeholder = t("bookmarksSearchPlaceholder");
   set("#settings-title", "settingsTitle");
   set("#stats-daily-button", "modalStatsDailyBtn");
   set("#stats-unlimited-button", "modalStatsUnlimitedBtn");
@@ -1698,6 +1779,7 @@ function applyLanguage() {
     if (target === "about") a.textContent = t("navAbout");
     if (target === "support") a.textContent = t("navSupport");
     if (target === "achievements") a.textContent = t("linkAchievements");
+    if (target === "bookmarks") a.textContent = t("modalBookmarksTitle");
     if (target === "release-notes") a.textContent = t("navUpdates");
     if (target === "settings") a.textContent = t("navSettings");
     if (target === "song-pool") a.textContent = t("linkSongPool");
@@ -1708,6 +1790,7 @@ function applyLanguage() {
     if (target === "about") a.textContent = t("navAbout");
     if (target === "support") a.textContent = t("navSupport");
     if (target === "achievements") a.textContent = t("linkAchievements");
+    if (target === "bookmarks") a.textContent = t("modalBookmarksTitle");
     if (target === "release-notes") a.textContent = t("navUpdates");
     if (target === "settings") a.textContent = "⚙ " + t("navSettings");
     // Ko-fi link has no data-modal-target — leave its text alone.
@@ -1731,6 +1814,7 @@ function applyLanguage() {
     else if (target === "suggest-song") a.textContent = t("linkSuggestSong");
     else if (target === "release-notes") a.textContent = t("linkReleaseNotes");
     else if (target === "achievements") a.textContent = t("linkAchievements");
+    else if (target === "bookmarks") a.textContent = t("modalBookmarksTitle");
     else if (target === "about") a.textContent = t("linkAbout");
     else if (target === "support") a.textContent = t("linkContact");
   });
@@ -1742,6 +1826,7 @@ function applyLanguage() {
     else if (target === "suggest-song") a.textContent = t("linkSuggestSong");
     else if (target === "release-notes") a.textContent = t("linkReleaseVersion");
     else if (target === "achievements") a.textContent = t("linkAchievements");
+    else if (target === "bookmarks") a.textContent = t("modalBookmarksTitle");
   });
 
   // sidebar rankings
@@ -1772,6 +1857,8 @@ function applyLanguage() {
   renderGuesses();
   if (typeof renderStats === "function") renderStats();
   if (typeof renderAchievements === "function") renderAchievements();
+  if (typeof renderBookmarkButton === "function") renderBookmarkButton();
+  if (typeof renderBookmarks === "function") renderBookmarks();
 
   // re-render the cached global win rate line so it switches language too
   renderGlobalStats();
@@ -1800,6 +1887,8 @@ const state = {
   unlimitedQueue: [],
   statsMode: "daily",
   achievementCategory: "all",
+  achievementSearch: "",
+  bookmarksSearch: "",
   archiveDate: null,
   archiveMonth: null,
 };
@@ -1821,6 +1910,7 @@ const unlimitedModeButton = document.querySelector("#unlimited-mode-button");
 const archiveModeButton = document.querySelector("#archive-mode-button");
 const nextButton = document.querySelector("#next-button");
 const shareButton = document.querySelector("#share-button");
+const bookmarkButton = document.querySelector("#bookmark-button");
 const shareOutput = document.querySelector("#share-output");
 const coverImage = document.querySelector("#cover-image");
 const coverFallback = document.querySelector("#cover-fallback");
@@ -1852,6 +1942,9 @@ const statsImportConfirm = document.querySelector("#stats-import-confirm");
 const statsImportCancel = document.querySelector("#stats-import-cancel");
 const achievementsSummary = document.querySelector("#achievements-summary");
 const achievementsList = document.querySelector("#achievements-list");
+const achievementSearchInput = document.querySelector("#achievement-search-input");
+const bookmarksList = document.querySelector("#bookmarks-list");
+const bookmarksSearchInput = document.querySelector("#bookmarks-search-input");
 const modalBackdrop = document.querySelector("#modal-backdrop");
 const modalButtons = document.querySelectorAll("[data-modal-target]");
 const modalCloseButtons = document.querySelectorAll(".modal-close, .modal-action");
@@ -1867,9 +1960,13 @@ const reportIssueForm = document.querySelector("#report-issue-form");
 const reportContext = document.querySelector("#report-context");
 let activeModal = null;
 let currentAudio = null;
+let bookmarkAudio = null;
+let bookmarkAudioId = null;
+let bookmarkProgressTimer = null;
 let clipTimer = null;
 let progressFrame = null;
 let activeSuggestionIndex = -1;
+let selectedSuggestionSongId = null;
 
 function getDefaultStats() {
   return {
@@ -1970,6 +2067,40 @@ function loadArchiveResults() {
 
 function saveArchiveResults(results) {
   localStorage.setItem(archiveResultsKey, JSON.stringify(results));
+}
+
+function normalizeBookmarks(value) {
+  if (!Array.isArray(value)) return [];
+  return [...new Set(value.map(String).filter(Boolean))];
+}
+
+function loadBookmarks() {
+  try {
+    return normalizeBookmarks(JSON.parse(localStorage.getItem(bookmarksKey)) || []);
+  } catch {
+    return [];
+  }
+}
+
+function saveBookmarks(bookmarks) {
+  localStorage.setItem(bookmarksKey, JSON.stringify(normalizeBookmarks(bookmarks)));
+}
+
+function isBookmarked(vocadbId) {
+  if (!vocadbId) return false;
+  return loadBookmarks().includes(String(vocadbId));
+}
+
+function toggleBookmark(song = state.puzzle) {
+  if (!song?.vocadbId) return;
+  const id = String(song.vocadbId);
+  const bookmarks = loadBookmarks();
+  const nextBookmarks = bookmarks.includes(id)
+    ? bookmarks.filter((bookmarkId) => bookmarkId !== id)
+    : [id, ...bookmarks];
+  saveBookmarks(nextBookmarks);
+  renderBookmarkButton();
+  renderBookmarks();
 }
 
 function getDefaultAchievements() {
@@ -2104,6 +2235,17 @@ function renderAchievementTabs() {
   });
 }
 
+function achievementMatchesSearch(achievement, query, unlocked) {
+  if (!query) return true;
+  const isUnlocked = Boolean(unlocked[achievement.id]);
+  const isHidden = achievement.hidden && !isUnlocked;
+  const title = isHidden ? t("achievementHiddenTitle") : getAchievementText(achievement, "title");
+  const description = isHidden ? t("achievementHiddenDesc") : getAchievementText(achievement, "description");
+  const categoryLabel = t(getAchievementCategoryKey(achievement.category));
+  const searchable = [title, description, categoryLabel, achievement.category].join(" ");
+  return normalizeGuess(searchable).includes(query);
+}
+
 function renderAchievements() {
   if (!achievementsList || !achievementsSummary) return;
   const achievements = loadAchievements();
@@ -2112,11 +2254,15 @@ function renderAchievements() {
   const totalCount = ACHIEVEMENTS.length;
   const unlockedRate = totalCount > 0 ? Math.round((unlockedCount / totalCount) * 100) : 0;
   const currentCategory = state.achievementCategory || "all";
+  const searchQuery = normalizeGuess(state.achievementSearch || "");
+  if (achievementSearchInput && achievementSearchInput.value !== (state.achievementSearch || "")) {
+    achievementSearchInput.value = state.achievementSearch || "";
+  }
   const filtered = ACHIEVEMENTS.filter((achievement) => (
     currentCategory === "all" ||
     achievement.category === currentCategory ||
     (currentCategory === "secret" && achievement.hidden)
-  ));
+  )).filter((achievement) => achievementMatchesSearch(achievement, searchQuery, unlocked));
 
   achievementsSummary.innerHTML = `
     <div class="achievements-summary-top">
@@ -2127,6 +2273,14 @@ function renderAchievements() {
       <span style="width:${unlockedRate}%"></span>
     </div>
   `;
+
+  if (filtered.length === 0) {
+    achievementsList.innerHTML = `
+      <div class="achievement-empty">${escapeHtml(t("achievementNoResults"))}</div>
+    `;
+    renderAchievementTabs();
+    return;
+  }
 
   achievementsList.innerHTML = filtered.map((achievement) => {
     const unlockedAt = unlocked[achievement.id];
@@ -2159,6 +2313,164 @@ function renderAchievements() {
   }).join("");
 
   renderAchievementTabs();
+}
+
+function renderBookmarkButton() {
+  if (!bookmarkButton) return;
+  const canBookmark = Boolean(state.isComplete && state.puzzle?.vocadbId);
+  bookmarkButton.hidden = !canBookmark;
+  if (!canBookmark) return;
+  const bookmarked = isBookmarked(state.puzzle.vocadbId);
+  bookmarkButton.classList.toggle("is-bookmarked", bookmarked);
+  bookmarkButton.textContent = bookmarked ? "★" : "☆";
+  bookmarkButton.title = t(bookmarked ? "bookmarked" : "bookmark");
+  bookmarkButton.setAttribute("aria-label", t(bookmarked ? "bookmarked" : "bookmark"));
+}
+
+function getBookmarkSearchText(song) {
+  return [
+    getDisplayTitle(song),
+    song.title,
+    song.vocadbName,
+    getSuggestionArtist(song),
+    song.artistString,
+    getPublishYear(song),
+    ...(song.acceptedTitles || []),
+    ...(song.producerNames || []),
+    ...(song.singerNames || []),
+  ].filter(Boolean).join(" ");
+}
+
+function renderBookmarks() {
+  if (!bookmarksList) return;
+  const bookmarkIds = loadBookmarks();
+  const bookmarkedSongs = bookmarkIds
+    .map((id) => getSongById(id))
+    .filter(Boolean);
+  const query = normalizeGuess(state.bookmarksSearch || "");
+  if (bookmarksSearchInput && bookmarksSearchInput.value !== (state.bookmarksSearch || "")) {
+    bookmarksSearchInput.value = state.bookmarksSearch || "";
+  }
+
+  if (bookmarkedSongs.length === 0) {
+    bookmarksList.innerHTML = `<div class="bookmarks-empty">${escapeHtml(t("bookmarksEmpty"))}</div>`;
+    return;
+  }
+
+  const filteredSongs = query
+    ? bookmarkedSongs.filter((song) => normalizeGuess(getBookmarkSearchText(song)).includes(query))
+    : bookmarkedSongs;
+
+  if (filteredSongs.length === 0) {
+    bookmarksList.innerHTML = `<div class="bookmarks-empty">${escapeHtml(t("bookmarksNoResults"))}</div>`;
+    return;
+  }
+
+  bookmarksList.innerHTML = filteredSongs.map((song) => {
+    const id = String(song.vocadbId);
+    const title = truncateTitle(getDisplayTitle(song), 52);
+    const artist = truncateTitle(getSuggestionArtist(song), 60);
+    const year = getPublishYear(song);
+    const isPlaying = bookmarkAudioId === id && bookmarkAudio && !bookmarkAudio.paused;
+    const elapsed = isPlaying ? formatBookmarkTime(bookmarkAudio.currentTime || 0) : "0:00";
+    const duration = isPlaying && Number.isFinite(bookmarkAudio.duration)
+      ? formatBookmarkTime(bookmarkAudio.duration)
+      : "";
+    const timeText = duration ? `${elapsed} / ${duration}` : elapsed;
+    const coverArts = getCoverArts(song);
+    const cover = coverArts[0] || "";
+    const coverList = coverArts.join("|");
+
+    return `
+      <article class="bookmark-card">
+        <div class="bookmark-thumb">
+          ${cover
+            ? `<img src="${escapeHtml(cover)}" alt="" loading="lazy" data-cover-index="0" data-cover-list="${escapeHtml(coverList)}">`
+            : `<span>?</span>`}
+        </div>
+        <div class="bookmark-info">
+          <div class="bookmark-title-row">
+            <strong>${escapeHtml(title)}</strong>
+            ${year ? `<small>${escapeHtml(year)}</small>` : ""}
+          </div>
+          <span>${escapeHtml(artist)}</span>
+          <div class="bookmark-actions">
+            <button type="button" data-bookmark-play="${escapeHtml(id)}">${escapeHtml(t(isPlaying ? "bookmarksPause" : "bookmarksPlay"))}</button>
+            <span class="bookmark-time">${escapeHtml(timeText)}</span>
+            <a href="${escapeHtml(song.vocadbUrl || "https://vocadb.net")}" target="_blank" rel="noreferrer">VocaDB</a>
+            <button class="bookmark-remove" type="button" data-bookmark-remove="${escapeHtml(id)}" title="${escapeHtml(t("bookmarksRemove"))}" aria-label="${escapeHtml(t("bookmarksRemove"))}">×</button>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function showNextBookmarkThumb(img) {
+  if (!img) return false;
+  const urls = String(img.dataset.coverList || "").split("|").filter(Boolean);
+  const nextIndex = Number(img.dataset.coverIndex || 0) + 1;
+  if (nextIndex < urls.length) {
+    img.dataset.coverIndex = String(nextIndex);
+    img.src = urls[nextIndex];
+    return true;
+  }
+
+  const thumb = img.closest(".bookmark-thumb");
+  if (thumb) thumb.innerHTML = "<span>?</span>";
+  return false;
+}
+
+function isLowQualityBookmarkThumb(img) {
+  const imageUrl = img?.currentSrc || img?.src || "";
+  if (!imageUrl.includes("ytimg.com")) return false;
+  if (img.naturalWidth <= 320 || img.naturalHeight <= 180) return true;
+  return imageUrl.includes("/maxresdefault.jpg") && img.naturalWidth < 1000;
+}
+
+function stopBookmarkAudio() {
+  if (bookmarkProgressTimer) {
+    clearInterval(bookmarkProgressTimer);
+    bookmarkProgressTimer = null;
+  }
+  if (bookmarkAudio) {
+    bookmarkAudio.pause();
+    bookmarkAudio.currentTime = 0;
+  }
+  bookmarkAudio = null;
+  bookmarkAudioId = null;
+}
+
+function toggleBookmarkAudio(vocadbId) {
+  const song = getSongById(vocadbId);
+  if (!song?.audioClip) return;
+  const id = String(vocadbId);
+  if (bookmarkAudioId === id && bookmarkAudio && !bookmarkAudio.paused) {
+    stopBookmarkAudio();
+    renderBookmarks();
+    return;
+  }
+
+  stopClip();
+  stopBookmarkAudio();
+  bookmarkAudioId = id;
+  bookmarkAudio = new Audio(song.audioClip);
+  bookmarkAudio.volume = getVolume();
+  bookmarkAudio.addEventListener("ended", () => {
+    stopBookmarkAudio();
+    renderBookmarks();
+  });
+  bookmarkProgressTimer = setInterval(renderBookmarks, 500);
+  bookmarkAudio.play().catch(() => {
+    stopBookmarkAudio();
+  }).finally(renderBookmarks);
+}
+
+function formatBookmarkTime(seconds) {
+  const safeSeconds = Math.max(0, Math.floor(Number(seconds) || 0));
+  const minutes = Math.floor(safeSeconds / 60);
+  const remainingSeconds = String(safeSeconds % 60).padStart(2, "0");
+  return `${minutes}:${remainingSeconds}`;
 }
 
 function getArchiveMonthCompletion(dateKey) {
@@ -2305,7 +2617,7 @@ function checkLocalAchievements(result, context = {}) {
     if (attempts === 1) unlockAchievement("first_try");
     if (attempts === 2) unlockAchievement("challenge_second_try");
     if (!guesses.some((guess) => guess.result === "Skipped")) unlockAchievement("no_skip_win");
-    if (!guesses.some((guess) => guess.result === "Wrong" || guess.result === "Artist" || guess.result === "Skipped")) unlockAchievement("challenge_no_wrong");
+    if (!guesses.some((guess) => guess.result === "Wrong" || guess.result === "Strong" || guess.result === "Artist" || guess.result === "Vocal" || guess.result === "Skipped")) unlockAchievement("challenge_no_wrong");
     if (String(result.vocadbId) === "1355" && getLang() === "jp") {
       unlockAchievement("secret_mikumiku_jp");
     }
@@ -2418,6 +2730,7 @@ function buildStatsBackup() {
     unlimitedStats: normalizeStats(loadUnlimitedStats(), { keepResults: false }),
     archiveResults: loadArchiveResults(),
     achievements: loadAchievements(),
+    bookmarks: loadBookmarks(),
     unlimitedHistory: loadUnlimitedHistory(),
   };
 }
@@ -2449,6 +2762,7 @@ function parseStatsBackup(text) {
     unlimitedStats: normalizeStats(unlimitedSource, { keepResults: false }),
     archiveResults: sanitizeArchiveResults(archiveSource),
     achievements: normalizeAchievements(achievementsSource),
+    bookmarks: normalizeBookmarks(backup.bookmarks || []),
     unlimitedHistory: Array.isArray(backup.unlimitedHistory) ? backup.unlimitedHistory.slice(0, unlimitedHistoryLimit) : [],
   };
 }
@@ -2456,6 +2770,8 @@ function parseStatsBackup(text) {
 function refreshAfterStatsImport() {
   renderStats();
   renderAchievements();
+  renderBookmarkButton();
+  renderBookmarks();
   renderArchiveCalendar();
   renderSourceTags();
   checkNewBadge();
@@ -3141,6 +3457,7 @@ function openModal(modalId) {
 
 function closeModal() {
   if (activeModal) {
+    if (activeModal.id === "bookmarks") stopBookmarkAudio();
     activeModal.hidden = true;
     activeModal = null;
   }
@@ -3633,6 +3950,7 @@ function resetRound() {
   state.lastResult = null;
   currentAudio = null;
   clipTimer = null;
+  selectedSuggestionSongId = null;
   guessForm.reset();
   hideSuggestions();
   gamePanel.classList.remove("is-loss");
@@ -3660,6 +3978,7 @@ function resetRound() {
   scheduleMessage.hidden = true;
   nextButton.hidden = true;
   shareButton.hidden = true;
+  if (bookmarkButton) bookmarkButton.hidden = true;
   shareButton.innerHTML = `<span id="share-button-text">${t("copyResult")}</span>`;
   shareOutput.hidden = true;
   shareOutput.value = "";
@@ -4261,6 +4580,7 @@ function completeRound(won) {
   guessInput.disabled = true;
   nextButton.hidden = false;
   shareButton.hidden = false;
+  renderBookmarkButton();
   if (giveUpButton) giveUpButton.hidden = true;
   if (state.mode === "daily") {
     localStorage.setItem("vh-last-played-date", getDateKey());
@@ -4312,6 +4632,7 @@ function render() {
   }
   nextButton.hidden = !state.isComplete;
   shareButton.hidden = !state.isComplete;
+  renderBookmarkButton();
   shareOutput.value = state.isComplete ? buildShareText() : "";
   if (resultTools) resultTools.hidden = !state.isComplete;
   if (kofiNudgeEl) kofiNudgeEl.hidden = !state.isComplete;
@@ -4328,7 +4649,9 @@ function render() {
 }
 
 function getResultIcon(result) {
+  if (result === "Strong") return "*";
   if (result === "Artist") return "~";
+  if (result === "Vocal") return "v";
   if (result === "Correct") return "✓";
   if (result === "Wrong") return "✗";
   if (result === "Skipped") return "→";
@@ -4337,7 +4660,9 @@ function getResultIcon(result) {
 }
 
 function getResultLabel(result) {
+  if (result === "Strong") return t("strongMatch");
   if (result === "Artist") return t("artistMatch");
+  if (result === "Vocal") return t("vocalMatch");
   if (result === "Correct") return t("correct");
   if (result === "Wrong") return t("wrong");
   if (result === "Skipped") return t("skipped");
@@ -4374,23 +4699,29 @@ function renderGuesses() {
 
 function updateCoverPlaceholderState() {
   if (!coverPlaceholderMark) return;
-  coverPlaceholderMark.classList.remove("is-default", "is-wrong", "is-artist", "is-skipped");
+  coverPlaceholderMark.classList.remove("is-default", "is-wrong", "is-strong", "is-artist", "is-vocal", "is-skipped");
 
   if (state.isComplete) return;
 
   const lastGuess = [...state.guesses].reverse().find((guess) => (
     guess.result === "Wrong" ||
+    guess.result === "Strong" ||
     guess.result === "Artist" ||
+    guess.result === "Vocal" ||
     guess.result === "Skipped"
   ));
 
   const stateClass = lastGuess?.result === "Wrong"
     ? "is-wrong"
-    : lastGuess?.result === "Artist"
-      ? "is-artist"
-      : lastGuess?.result === "Skipped"
-        ? "is-skipped"
-        : "is-default";
+    : lastGuess?.result === "Strong"
+      ? "is-strong"
+      : lastGuess?.result === "Artist"
+        ? "is-artist"
+        : lastGuess?.result === "Vocal"
+          ? "is-vocal"
+          : lastGuess?.result === "Skipped"
+            ? "is-skipped"
+            : "is-default";
 
   coverPlaceholderMark.classList.add(stateClass);
 }
@@ -4425,8 +4756,8 @@ function renderSuggestions() {
   const normalizedQuery = normalizeGuess(query);
 
   // Remember what title is currently highlighted so we can restore it after re-render
-  const previousActiveTitle = activeSuggestionIndex >= 0
-    ? suggestionList.querySelectorAll("li")[activeSuggestionIndex]?.dataset.title
+  const previousActiveSongId = activeSuggestionIndex >= 0
+    ? suggestionList.querySelectorAll("li")[activeSuggestionIndex]?.dataset.songId
     : null;
 
   activeSuggestionIndex = -1;
@@ -4439,7 +4770,7 @@ function renderSuggestions() {
   suggestionList.innerHTML = matches
     .map(
       (song, index) => `
-        <li role="option" data-index="${index}" data-title="${escapeHtml(getDisplayTitle(song))}">
+        <li role="option" data-index="${index}" data-song-id="${escapeHtml(String(song.vocadbId))}" data-title="${escapeHtml(getDisplayTitle(song))}">
           <span class="suggestion-title">${highlightMatch(getDisplayTitle(song), normalizedQuery)}</span>
           <span class="suggestion-artist">${escapeHtml(getSuggestionArtist(song))}</span>
         </li>
@@ -4451,9 +4782,9 @@ function renderSuggestions() {
 
   // Restore highlighted selection by title rather than by index so fast typing
   // doesn't silently shift what's highlighted when results reorder
-  if (previousActiveTitle) {
+  if (previousActiveSongId) {
     const items = Array.from(suggestionList.querySelectorAll("li"));
-    const restored = items.findIndex((li) => li.dataset.title === previousActiveTitle);
+    const restored = items.findIndex((li) => li.dataset.songId === previousActiveSongId);
     if (restored >= 0) {
       activeSuggestionIndex = restored;
       items[restored].classList.add("is-active");
@@ -4466,6 +4797,7 @@ function renderSuggestions() {
 let _suggestionDebounceTimer = null;
 function renderSuggestionsDebounced() {
   suggestionWasSelected = false;
+  selectedSuggestionSongId = null;
   clearTimeout(_suggestionDebounceTimer);
   _suggestionDebounceTimer = setTimeout(renderSuggestions, 80);
 }
@@ -4476,9 +4808,10 @@ function hideSuggestions() {
   guessInput.setAttribute("aria-expanded", "false");
 }
 
-function selectSuggestion(title) {
+function selectSuggestion(title, songId = null) {
   guessInput.value = title;
   suggestionWasSelected = true;
+  selectedSuggestionSongId = songId ? String(songId) : null;
   hideSuggestions();
   guessInput.focus();
 }
@@ -4626,7 +4959,9 @@ function buildShareText() {
       const guess = state.guesses[index];
       if (guess?.result === "Answer") { gaveUp = true; return "\u2B1B"; }
       if (guess?.result === "Wrong") return "\uD83D\uDFE5";
+      if (guess?.result === "Strong") return "\uD83D\uDFEA";
       if (guess?.result === "Artist") return "\uD83D\uDFE8";
+      if (guess?.result === "Vocal") return "\uD83D\uDFE6";
       if (guess?.result === "Skipped") return "\u2B1B";
       if (guess?.result === "Correct") return "\uD83D\uDFE9";
       if (!state.lastResult.won) return "\u2B1B";
@@ -4879,12 +5214,48 @@ function isCorrectGuess(guess) {
   return acceptedTitles.some((title) => normalizeGuess(guess) === normalizeGuess(title));
 }
 
-function getSongMatchedByTitle(guess) {
+function isCorrectSubmission(guess, guessedSong = null) {
+  if (suggestionWasSelected && guessedSong?.vocadbId) {
+    return String(guessedSong.vocadbId) === String(state.puzzle.vocadbId);
+  }
+
+  return isCorrectGuess(guess);
+}
+
+function songTitleMatchesGuess(song, guess) {
   const normalized = normalizeGuess(guess);
-  return songs.find((song) => {
-    const titles = [song.title, song.vocadbName, ...(song.acceptedTitles || [])].filter(Boolean);
-    return titles.some((title) => normalizeGuess(title) === normalized);
-  }) || null;
+  const titles = [song.title, song.vocadbName, ...(song.acceptedTitles || [])].filter(Boolean);
+  return titles.some((title) => normalizeGuess(title) === normalized);
+}
+
+function getSongMatchedByTitle(guess) {
+  if (selectedSuggestionSongId) {
+    const selectedSong = getSongById(selectedSuggestionSongId);
+    if (selectedSong && songTitleMatchesGuess(selectedSong, guess)) {
+      return selectedSong;
+    }
+  }
+
+  return songs.find((song) => songTitleMatchesGuess(song, guess)) || null;
+}
+
+function isDuplicateGuess(guess, guessedSong = null) {
+  const checkedResults = new Set(["Wrong", "Strong", "Artist", "Vocal"]);
+
+  if (guessedSong?.vocadbId) {
+    return state.guesses.some((entry) => (
+      checkedResults.has(entry.result) &&
+      entry.songId &&
+      String(entry.songId) === String(guessedSong.vocadbId)
+    ));
+  }
+
+  const normalizedGuess = normalizeGuess(guess);
+  return state.guesses.some((entry) => (
+    checkedResults.has(entry.result) &&
+    !entry.songId &&
+    normalizeGuess(entry.label) === normalizedGuess
+  ));
 }
 
 function getArtistCreditKeys(song) {
@@ -4904,6 +5275,15 @@ function getArtistCreditKeys(song) {
   );
 }
 
+function getProducerCreditKeys(song) {
+  const names = (song?.producerNames?.length ? song.producerNames : [song?.artist]).filter(Boolean);
+  return new Set(
+    names
+      .map(normalizeGuess)
+      .filter((name) => name.length >= 3),
+  );
+}
+
 function isArtistCreditGuess(guess) {
   const normalized = normalizeGuess(guess);
   return getArtistCreditKeys(state.puzzle).has(normalized);
@@ -4911,13 +5291,41 @@ function isArtistCreditGuess(guess) {
 
 function isArtistCreditMatch(song) {
   if (!song || !state.puzzle) return false;
-  const puzzleCredits = getArtistCreditKeys(state.puzzle);
-  return [...getArtistCreditKeys(song)].some((credit) => puzzleCredits.has(credit));
+  const puzzleCredits = getProducerCreditKeys(state.puzzle);
+  return [...getProducerCreditKeys(song)].some((credit) => puzzleCredits.has(credit));
 }
 
 function isPartialArtistGuess(guess, guessedSong = null) {
   if (isCorrectGuess(guess)) return false;
   return isArtistCreditGuess(guess) || isArtistCreditMatch(guessedSong);
+}
+
+function getVocalCreditKeys(song) {
+  return new Set(
+    (song?.singerNames || [])
+      .map(normalizeGuess)
+      .filter((name) => name.length >= 2),
+  );
+}
+
+function isVocalCreditGuess(guess) {
+  const normalized = normalizeGuess(guess);
+  return getVocalCreditKeys(state.puzzle).has(normalized);
+}
+
+function isVocalCreditMatch(song) {
+  if (!song || !state.puzzle) return false;
+  const puzzleVocals = getVocalCreditKeys(state.puzzle);
+  return [...getVocalCreditKeys(song)].some((credit) => puzzleVocals.has(credit));
+}
+
+function isPartialVocalGuess(guess, guessedSong = null) {
+  if (isCorrectGuess(guess)) return false;
+  return isVocalCreditGuess(guess) || isVocalCreditMatch(guessedSong);
+}
+
+function isStrongCreditMatch(guessedSong = null) {
+  return Boolean(guessedSong && isArtistCreditMatch(guessedSong) && isVocalCreditMatch(guessedSong));
 }
 
 function advanceAttempt() {
@@ -4968,24 +5376,22 @@ guessForm.addEventListener("submit", (event) => {
   }
 
   // ── Duplicate guess protection ──
-  const normalizedGuess = normalizeGuess(guess);
-  const alreadyGuessed = state.guesses.some(
-    (g) => (g.result === "Wrong" || g.result === "Artist") && normalizeGuess(g.label) === normalizedGuess,
-  );
-  if (alreadyGuessed) {
-    showLossToast(t("toastAlreadyGuessed"));
-    return;
-  }
-
   // ── Producer-only guard ──
   // If what was typed doesn't match any song title (only artist fields), and the
   // user didn't explicitly pick from the suggestion list, block the submission.
   // This prevents a bare producer name like "maretu" from burning an attempt.
   const guessedSong = getSongMatchedByTitle(guess);
+  if (isDuplicateGuess(guess, guessedSong)) {
+    showLossToast(t("toastAlreadyGuessed"));
+    return;
+  }
+
   const matchesTitleDirectly = Boolean(guessedSong);
   const matchesPuzzleArtist = isPartialArtistGuess(guess, guessedSong);
+  const matchesPuzzleVocal = isPartialVocalGuess(guess, guessedSong);
+  const matchesPuzzleStrong = isStrongCreditMatch(guessedSong);
 
-  if (!matchesTitleDirectly && !matchesPuzzleArtist && !suggestionWasSelected) {
+  if (!matchesTitleDirectly && !matchesPuzzleArtist && !matchesPuzzleVocal && !suggestionWasSelected) {
     // Show the suggestions (in case debounce hasn't fired yet) and warn
     clearTimeout(_suggestionDebounceTimer);
     renderSuggestions();
@@ -4993,13 +5399,26 @@ guessForm.addEventListener("submit", (event) => {
     return;
   }
 
-  const isCorrect = isCorrectGuess(guess);
+  const isCorrect = isCorrectSubmission(guess, guessedSong);
 
   if (isCorrect) {
     addGuess(state.puzzle.title, "Correct", state.puzzle.vocadbId);
     completeRound(true);
     guessForm.reset();
     hideSuggestions();
+  } else if (matchesPuzzleStrong) {
+    addGuess(guess, "Strong", guessedSong?.vocadbId || null);
+    showLossToast(t("toastStrongMatch"));
+    const clearOnWrong = localStorage.getItem("vh-clearwrong") !== "false";
+    if (clearOnWrong) {
+      guessInput.value = "";
+      hideSuggestions();
+    }
+    if (state.attempt >= clipStages.length) {
+      completeRound(false);
+    } else {
+      advanceAttempt();
+    }
   } else if (matchesPuzzleArtist) {
     addGuess(guess, "Artist", guessedSong?.vocadbId || null);
     showLossToast(t("toastArtistMatch"));
@@ -5013,8 +5432,21 @@ guessForm.addEventListener("submit", (event) => {
     } else {
       advanceAttempt();
     }
+  } else if (matchesPuzzleVocal) {
+    addGuess(guess, "Vocal", guessedSong?.vocadbId || null);
+    showLossToast(t("toastVocalMatch"));
+    const clearOnWrong = localStorage.getItem("vh-clearwrong") !== "false";
+    if (clearOnWrong) {
+      guessInput.value = "";
+      hideSuggestions();
+    }
+    if (state.attempt >= clipStages.length) {
+      completeRound(false);
+    } else {
+      advanceAttempt();
+    }
   } else {
-    addGuess(guess, "Wrong");
+    addGuess(guess, "Wrong", guessedSong?.vocadbId || null);
     const clearOnWrong = localStorage.getItem("vh-clearwrong") !== "false";
     if (clearOnWrong) {
       guessInput.value = "";
@@ -5027,6 +5459,7 @@ guessForm.addEventListener("submit", (event) => {
     }
   }
   suggestionWasSelected = false;
+  selectedSuggestionSongId = null;
   render();
 });
 
@@ -5050,7 +5483,7 @@ guessInput.addEventListener("keydown", (event) => {
   if (event.key === "Enter" && activeSuggestionIndex >= 0) {
     event.preventDefault();
     const option = suggestionList.querySelectorAll("li")[activeSuggestionIndex];
-    selectSuggestion(option.dataset.title);
+    selectSuggestion(option.dataset.title, option.dataset.songId);
   }
 
   if (event.key === "Escape") {
@@ -5077,8 +5510,12 @@ function updateAttemptDots() {
     let cls = "sb-attempt-dot";
     if (state.isComplete && state.lastResult?.won && attemptNum === state.lastResult.attempts) {
       cls += " is-correct";
+    } else if (guess?.result === "Strong") {
+      cls += " is-strong";
     } else if (guess?.result === "Artist") {
       cls += " is-artist";
+    } else if (guess?.result === "Vocal") {
+      cls += " is-vocal";
     } else if (guess?.result === "Wrong" || guess?.result === "Answer") {
       cls += " is-used";
     } else if (guess?.result === "Skipped") {
@@ -5140,6 +5577,7 @@ if (statsImportConfirm) {
       saveUnlimitedStats(imported.unlimitedStats);
       saveArchiveResults(imported.archiveResults);
       saveAchievements(imported.achievements);
+      saveBookmarks(imported.bookmarks);
       if (imported.unlimitedHistory) saveUnlimitedHistory(imported.unlimitedHistory);
       if (statsImportPanel) statsImportPanel.hidden = true;
       if (statsImportInput) statsImportInput.value = "";
@@ -5169,6 +5607,7 @@ if (resetStatsYes) {
     localStorage.removeItem(unlimitedStatsKey);
     localStorage.removeItem(archiveResultsKey);
     localStorage.removeItem(achievementsKey);
+    localStorage.removeItem(bookmarksKey);
     localStorage.removeItem(unlimitedRecentKey);
     localStorage.removeItem(unlimitedHistoryKey);
     localStorage.removeItem("vocaloid-heardle-mylist");
@@ -5176,6 +5615,8 @@ if (resetStatsYes) {
     initMylist();
     renderStats();
     renderAchievements();
+    renderBookmarkButton();
+    renderBookmarks();
     renderArchiveCalendar();
     showToast(t("toastStatsReset"));
     if (resetStatsConfirm) resetStatsConfirm.hidden = true;
@@ -5193,7 +5634,7 @@ suggestionList.addEventListener("mousedown", (event) => {
   const option = event.target.closest("li");
   if (!option) return;
   event.preventDefault();
-  selectSuggestion(option.dataset.title);
+  selectSuggestion(option.dataset.title, option.dataset.songId);
 });
 
 dailyModeButton.addEventListener("click", () => {
@@ -5356,7 +5797,7 @@ statsUnlimitedButton.addEventListener("click", () => {
 
 document.querySelectorAll(".release-tab").forEach((button) => {
   button.addEventListener("click", () => {
-    currentReleaseVersion = button.dataset.releaseVersion || "v1.2";
+    currentReleaseVersion = button.dataset.releaseVersion || "v1.3";
     renderReleaseNotes();
   });
 });
@@ -5367,6 +5808,47 @@ document.querySelectorAll("[data-achievement-category]").forEach((button) => {
     renderAchievements();
   });
 });
+
+achievementSearchInput?.addEventListener("input", () => {
+  state.achievementSearch = achievementSearchInput.value;
+  renderAchievements();
+});
+
+bookmarkButton?.addEventListener("click", () => {
+  toggleBookmark();
+});
+
+bookmarksSearchInput?.addEventListener("input", () => {
+  state.bookmarksSearch = bookmarksSearchInput.value;
+  renderBookmarks();
+});
+
+bookmarksList?.addEventListener("click", (event) => {
+  const playButtonEl = event.target.closest("[data-bookmark-play]");
+  const removeButtonEl = event.target.closest("[data-bookmark-remove]");
+  if (playButtonEl) {
+    toggleBookmarkAudio(playButtonEl.dataset.bookmarkPlay);
+  }
+  if (removeButtonEl) {
+    const id = String(removeButtonEl.dataset.bookmarkRemove || "");
+    if (bookmarkAudioId === id) stopBookmarkAudio();
+    saveBookmarks(loadBookmarks().filter((bookmarkId) => bookmarkId !== id));
+    renderBookmarkButton();
+    renderBookmarks();
+  }
+});
+
+bookmarksList?.addEventListener("load", (event) => {
+  if (event.target.matches(".bookmark-thumb img") && isLowQualityBookmarkThumb(event.target)) {
+    showNextBookmarkThumb(event.target);
+  }
+}, true);
+
+bookmarksList?.addEventListener("error", (event) => {
+  if (event.target.matches(".bookmark-thumb img")) {
+    showNextBookmarkThumb(event.target);
+  }
+}, true);
 
 modalButtons.forEach((button) => {
   button.addEventListener("click", (event) => {
@@ -5383,6 +5865,9 @@ modalButtons.forEach((button) => {
     }
     if (button.dataset.modalTarget === "unlimited-history") {
       renderUnlimitedHistory();
+    }
+    if (button.dataset.modalTarget === "bookmarks") {
+      renderBookmarks();
     }
 
     openModal(button.dataset.modalTarget);

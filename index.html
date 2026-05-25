@@ -41,6 +41,8 @@
         <span class="nnd-divider">|</span>
         <a href="#" data-modal-target="achievements">Achievements</a>
         <span class="nnd-divider">|</span>
+        <a href="#" data-modal-target="bookmarks">Bookmarks</a>
+        <span class="nnd-divider">|</span>
         <a href="#" data-modal-target="release-notes">Updates</a>
         <span class="nnd-divider">|</span>
         <a href="#" data-modal-target="settings">Settings</a>
@@ -50,6 +52,7 @@
       <div class="nnd-mobile-settings">
         <a href="#" data-modal-target="about">About</a>
         <a href="#" data-modal-target="achievements">Achievements</a>
+        <a href="#" data-modal-target="bookmarks">Bookmarks</a>
         <a href="#" data-modal-target="release-notes">Updates</a>
         <a href="#" data-modal-target="settings">&#9881; Settings</a>
         <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Ko-fi</a>
@@ -161,7 +164,10 @@
           </form>
           <button class="give-up-button secondary-button" id="give-up-button" type="button" hidden>Give Up</button>
 
-          <button class="next-button" id="next-button" type="button" hidden>Next Song</button>
+          <div class="result-action-row">
+            <button class="next-button" id="next-button" type="button" hidden>Next Song</button>
+            <button class="bookmark-button" id="bookmark-button" type="button" hidden title="Bookmark" aria-label="Bookmark">☆</button>
+          </div>
           <button class="share-button secondary-button" id="share-button" type="button" hidden><span id="share-button-text">Copy Result</span></button>
           <textarea class="share-output" id="share-output" readonly hidden></textarea>
 
@@ -246,6 +252,7 @@
             <a href="https://nicovideo.jp" target="_blank" class="sidebar-link">NicoNico ↗</a>
             <hr style="border:none;border-top:1px solid var(--line);margin:4px 0;">
             <a href="#" data-modal-target="suggest-song" class="sidebar-link">Suggest a Song</a>
+            <a href="#" data-modal-target="bookmarks" class="sidebar-link">Bookmarks</a>
             <a href="#" data-modal-target="support" class="sidebar-link">Contact / Support</a>
           </div>
         </div>
@@ -254,7 +261,7 @@
     </div>
 
     <footer class="site-footer">
-      <p>VOCALOID Heardle: fan-made daily guessing game &copy; 2026 &nbsp;|&nbsp; Not affiliated with Crypton Future Media, NicoNico, or VocaDB &nbsp;|&nbsp; Song data from <a href="https://vocadb.net" target="_blank">VocaDB</a> &nbsp;|&nbsp; <a href="#" data-modal-target="song-pool">Song Pool</a> &nbsp;|&nbsp; <a href="#" data-modal-target="release-notes">Release v1.2</a></p>
+      <p>VOCALOID Heardle: fan-made daily guessing game &copy; 2026 &nbsp;|&nbsp; Not affiliated with Crypton Future Media, NicoNico, or VocaDB &nbsp;|&nbsp; Song data from <a href="https://vocadb.net" target="_blank">VocaDB</a> &nbsp;|&nbsp; <a href="#" data-modal-target="song-pool">Song Pool</a> &nbsp;|&nbsp; <a href="#" data-modal-target="release-notes">Release v1.3</a></p>
     </footer>
 
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
@@ -289,20 +296,22 @@
       <button class="modal-close" type="button" aria-label="Close dialog">x</button>
       <h2 id="release-notes-title">Release Notes</h2>
       <div class="release-tabs" aria-label="Release versions">
-        <button class="release-tab is-active" data-release-version="v1.2" type="button">v1.2</button>
+        <button class="release-tab is-active" data-release-version="v1.3" type="button">v1.3</button>
+        <button class="release-tab" data-release-version="v1.2" type="button">v1.2</button>
         <button class="release-tab" data-release-version="v1.1" type="button">v1.1</button>
         <button class="release-tab" data-release-version="v1.0" type="button">v1.0</button>
       </div>
-      <p class="release-version" id="release-version">Release v1.2</p>
+      <p class="release-version" id="release-version">Release v1.3</p>
       <p id="release-intro">This release collects the major updates being prepared for the public site.</p>
       <ul class="release-list">
-        <li id="release-item-archive">Daily Archive with playable past puzzles, monthly completion summaries, and hardest/easiest daily notes.</li>
-        <li id="release-item-random">Random Archive Puzzle for jumping into older dailies without picking a date.</li>
-        <li id="release-item-stats">Global song stats, solve rates, average attempts, and expanded rankings.</li>
-        <li id="release-item-pool">Song Pool credits, VocaDB source information, and clearer project disclaimers.</li>
-        <li id="release-item-community">Suggest a Song, Report Issue forms, and Community Suggested tags for future additions.</li>
-        <li id="release-item-language">English/Japanese interface support with song title display options.</li>
-        <li id="release-item-polish">Retro NicoNico-inspired layout polish, improved autocomplete, and Cloudflare-hosted audio support.</li>
+        <li>Achievement search for filtering by name, description, or category.</li>
+        <li>Local bookmarks with thumbnails, VocaDB links, searchable history, and hosted audio previews.</li>
+        <li>Bookmark audio previews respect the volume setting and show elapsed playback time.</li>
+        <li>Improved bookmark thumbnail fallback handling for low-quality placeholders.</li>
+        <li>Strong-match partial credit for guesses with both the correct producer credit and main vocal synth.</li>
+        <li>Vocal-match partial credit for guesses with the correct main vocal synth.</li>
+        <li>Strong, artist, and vocal matches now use separate purple, yellow, and blue feedback states.</li>
+        <li>Same-title variants can be guessed separately when selected from autocomplete.</li>
       </ul>
     </section>
 
@@ -396,6 +405,10 @@
       <button class="modal-close" type="button" aria-label="Close dialog">x</button>
       <h2 id="achievements-title">Achievements</h2>
       <div class="achievements-summary" id="achievements-summary" aria-live="polite"></div>
+      <label class="achievement-search" for="achievement-search-input">
+        <span id="achievement-search-label">Search achievements</span>
+        <input id="achievement-search-input" type="search" autocomplete="off" placeholder="Search by name, description, or category">
+      </label>
       <div class="achievement-tabs" aria-label="Achievement categories">
         <button class="achievement-tab is-active" data-achievement-category="all" type="button">All</button>
         <button class="achievement-tab" data-achievement-category="general" type="button">General</button>
@@ -407,6 +420,14 @@
         <button class="achievement-tab" data-achievement-category="secret" type="button">Secret</button>
       </div>
       <div class="achievements-list" id="achievements-list" aria-live="polite"></div>
+    </section>
+
+    <section class="modal" id="bookmarks" role="dialog" aria-modal="true" aria-labelledby="bookmarks-title" hidden>
+      <button class="modal-close" type="button" aria-label="Close dialog">x</button>
+      <h2 id="bookmarks-title">Bookmarks</h2>
+      <p class="modal-note" id="bookmarks-intro">Saved songs stay on this device. Audio previews use the hosted puzzle clips.</p>
+      <input class="bookmarks-search" id="bookmarks-search-input" type="search" autocomplete="off" placeholder="Search bookmarks...">
+      <div class="bookmarks-list" id="bookmarks-list" aria-live="polite"></div>
     </section>
 
     <section class="modal" id="settings" role="dialog" aria-modal="true" aria-labelledby="settings-title" hidden>
