@@ -10,7 +10,17 @@ const unlimitedRecentKey = "vocaloid-heardle-unlimited-recent";
 const unlimitedRecentLimit = 100;
 const unlimitedHistoryKey = "vocaloid-heardle-unlimited-history";
 const unlimitedHistoryLimit = 100;
+const unlimitedActiveRoundKey = "vocaloid-heardle-unlimited-active-round";
+const unlimitedDifficultyStatsKey = "vocaloid-heardle-unlimited-difficulty-stats";
+const unlimitedDifficultyHistoryKey = "vocaloid-heardle-unlimited-difficulty-history";
+const unlimitedDifficultyRecentKey = "vocaloid-heardle-unlimited-difficulty-recent";
+const sessionModeKey = "vocaloid-heardle-session-mode";
+const sessionDifficultyKey = "vocaloid-heardle-session-difficulty";
 const contactEmail = "kzen@sodapines.dev";
+
+const UNLIMITED_DIFFICULTIES = ["all", "free", "easy", "medium", "hard", "unknown"];
+const UNLIMITED_PRACTICE_DIFFICULTIES = UNLIMITED_DIFFICULTIES.filter((key) => key !== "all");
+const DIFFICULTY_MIN_PLAYS = 100;
 
 // ── DANMAKU COMMENT POOL ──
 const DANMAKU_POOL = [
@@ -47,10 +57,21 @@ const STRINGS = {
   en: {
     dailyPuzzle: "daily puzzle",
     unlimitedPuzzle: "unlimited puzzle",
+    unlimitedPracticePuzzle: (label) => `${label} practice`,
     daily: "Daily",
     unlimited: "Unlimited",
     archive: "Archive",
     archivePuzzle: "archive puzzle",
+    difficultyAll: "All",
+    difficultyFreeShort: "Free",
+    difficultyEasyShort: "Easy",
+    difficultyMediumShort: "Medium",
+    difficultyHardShort: "Hard",
+    difficultyUnknownShort: "???",
+    difficultyAllNote: "Unlimited mode · counted in global rankings",
+    difficultyPracticeNote: "Practice mode · not counted in global rankings",
+    difficultyLoading: "Loading difficulty pools...",
+    difficultyUnavailable: "No eligible songs in this difficulty yet.",
     attempt: (n, total) => `Attempt ${n} of ${total}`,
     coverCaption: "cover art appears after the answer",
     noSchedule: "No puzzle is scheduled for today yet.",
@@ -61,6 +82,16 @@ const STRINGS = {
     nextSong: "Next Song",
     copyResult: "Copy Result",
     pastGuesses: "Past Guesses",
+    videoBracket: "[VIDEO]",
+    videoOpeningClip: "Opening Clip",
+    metaViewsBracket: "[views]",
+    metaCategoryBracket: "[category]",
+    metaMylistBracket: "[mylist]",
+    metaSourceBracket: "[source]",
+    logBracket: "[LOG]",
+    modalMylistPrefix: "[MYLIST]",
+    modalUpdatePrefix: "[UPDATE]",
+    modalSourcePrefix: "[SOURCE]",
     noGuesses: "No guesses yet",
     correct: "Correct",
     wrong: "Wrong",
@@ -122,6 +153,7 @@ const STRINGS = {
     toastSelectSong: "Select a song from the list.",
     heardleDaily: "VOCALOID Heardle Daily",
     heardleUnlimited: "VOCALOID Heardle Unlimited",
+    heardleUnlimitedDifficulty: (label) => `VOCALOID Heardle Unlimited — ${label}`,
     heardleArchive: "VOCALOID Heardle Archive",
     shareGlobalStats: (rate, avg) => `${rate}% solve${avg !== null ? ` · ${avg.toFixed(1)}/6 avg` : ""}`,
     shareSelectResult: "Select Result",
@@ -168,6 +200,13 @@ const STRINGS = {
     modalSongPoolDisclaimer: "VOCALOID Heardle is a fan-made project and is not affiliated with Crypton Future Media, NicoNico, VocaDB, or the artists represented in the song pool.",
     modalSuggestTitle: "Suggest a Song",
     modalSuggestIntro: "Send a song for future puzzle consideration. Suggestions are not guaranteed, but they help improve the pool.",
+    modalSuggestCheckTitle: "Check the current pool",
+    modalSuggestCheckIntro: "Search first to see if the song is already playable.",
+    modalSuggestCheckLabel: "Song search",
+    modalSuggestCheckPlaceholder: "type a song title, producer, or vocal synth...",
+    modalSuggestCheckStart: "Start typing to check the song pool.",
+    modalSuggestCheckNone: "No close matches found in the current pool.",
+    modalSuggestCheckStatus: "Already in game",
     modalSuggestLabelTitle: "Song title",
     modalSuggestLabelProducer: "Producer",
     modalSuggestLabelVocal: "Vocal synth",
@@ -305,7 +344,7 @@ const STRINGS = {
     navSettings: "Settings",
     navUpdates: "Updates",
     linkReleaseNotes: "Release Notes",
-    linkReleaseVersion: "Release v1.3",
+    linkReleaseVersion: "Release v1.4",
     linkAchievements: "Achievements",
     linkSongPool: "Song Pool",
     linkSuggestSong: "Suggest a Song",
@@ -370,10 +409,21 @@ const STRINGS = {
   jp: {
     dailyPuzzle: "毎日のパズル",
     unlimitedPuzzle: "無制限モード",
+    unlimitedPracticePuzzle: (label) => `${label}練習`,
     daily: "毎日",
     unlimited: "無制限",
     archive: "アーカイブ",
     archivePuzzle: "アーカイブ問題",
+    difficultyAll: "すべて",
+    difficultyFreeShort: "サービス",
+    difficultyEasyShort: "簡単",
+    difficultyMediumShort: "普通",
+    difficultyHardShort: "難しい",
+    difficultyUnknownShort: "???",
+    difficultyAllNote: "無制限モード・グローバルランキング対象",
+    difficultyPracticeNote: "練習モード・グローバルランキング対象外",
+    difficultyLoading: "難易度プールを読み込み中...",
+    difficultyUnavailable: "この難易度には対象曲がまだありません。",
     attempt: (n, total) => `挑戦 ${n} / ${total}`,
     coverCaption: "正解後にジャケット画像が表示されます",
     noSchedule: "本日のパズルはまだ準備されていません。",
@@ -439,6 +489,7 @@ const STRINGS = {
     toastSelectSong: "リストから曲を選んでください。",
     heardleDaily: "VOCALOID Heardle 毎日",
     heardleUnlimited: "VOCALOID Heardle 無制限",
+    heardleUnlimitedDifficulty: (label) => `VOCALOID Heardle 無制限 — ${label}`,
     heardleArchive: "VOCALOID Heardle アーカイブ",
     shareGlobalStats: (rate, avg) => `正解率${rate}%${avg !== null ? `・平均${avg.toFixed(1)}/6` : ""}`,
     shareSelectResult: "結果を選択",
@@ -475,6 +526,13 @@ const STRINGS = {
     modalSongPoolDisclaimer: "VOCALOID Heardleはファンメイドのプロジェクトであり、クリプトン・フューチャー・メディア、ニコニコ動画、VocaDB、および曲プールに含まれるアーティストとは無関係です。",
     modalSuggestTitle: "曲を提案する",
     modalSuggestIntro: "今後のパズル候補として曲を送ってください。採用は保証されませんが、プール改善に役立ちます。",
+    modalSuggestCheckTitle: "現在のプールを確認",
+    modalSuggestCheckIntro: "送信前に、すでに遊べる曲か検索で確認できます。",
+    modalSuggestCheckLabel: "曲検索",
+    modalSuggestCheckPlaceholder: "曲名、プロデューサー、ボーカル合成を入力...",
+    modalSuggestCheckStart: "入力して曲プールを確認してください。",
+    modalSuggestCheckNone: "現在のプールに近い一致はありません。",
+    modalSuggestCheckStatus: "ゲームに登録済み",
     modalSuggestLabelTitle: "曲名",
     modalSuggestLabelProducer: "プロデューサー",
     modalSuggestLabelVocal: "ボーカル合成",
@@ -682,7 +740,7 @@ Object.assign(STRINGS.jp, {
 });
 
 Object.assign(STRINGS.jp, {
-  linkReleaseVersion: "\u30EA\u30EA\u30FC\u30B9 v1.3",
+  linkReleaseVersion: "\u30EA\u30EA\u30FC\u30B9 v1.4",
   strongMatch: "\u5F37\u4E00\u81F4",
   artistMatch: "\u30A2\u30FC\u30C6\u30A3\u30B9\u30C8\u4E00\u81F4",
   vocalMatch: "\u30DC\u30FC\u30AB\u30EB\u4E00\u81F4",
@@ -698,10 +756,701 @@ Object.assign(STRINGS.jp, {
   modalReleaseCommunity: "曲の提案、問題報告フォーム、今後の追加曲向けコミュニティ推薦タグに対応。",
 });
 
-let currentReleaseVersion = "v1.3";
+STRINGS.es = {
+  ...STRINGS.en,
+};
+
+Object.assign(STRINGS.es, {
+  dailyPuzzle: "puzle diario",
+  unlimitedPuzzle: "puzle ilimitado",
+  unlimitedPracticePuzzle: (label) => `práctica ${label.toLowerCase()}`,
+  daily: "Diario",
+  unlimited: "Ilimitado",
+  archive: "Archivo",
+  archivePuzzle: "puzle de archivo",
+  difficultyAll: "Todo",
+  difficultyFreeShort: "Libre",
+  difficultyEasyShort: "Fácil",
+  difficultyMediumShort: "Medio",
+  difficultyHardShort: "Difícil",
+  difficultyUnknownShort: "???",
+  difficultyAllNote: "Modo ilimitado · cuenta para las clasificaciones globales",
+  difficultyPracticeNote: "Modo de práctica · no cuenta para las clasificaciones globales",
+  difficultyLoading: "Cargando grupos de dificultad...",
+  difficultyUnavailable: "Todavía no hay canciones disponibles en esta dificultad.",
+  attempt: (n, total) => `Intento ${n} de ${total}`,
+  coverCaption: "la portada aparece después de la respuesta",
+  noSchedule: "Todavía no hay puzle programado para hoy.",
+  songTitle: "Título de la canción",
+  submit: "Enviar",
+  skip: "Saltar",
+  giveUp: "Rendirse",
+  nextSong: "Siguiente canción",
+  copyResult: "Copiar resultado",
+  pastGuesses: "Intentos anteriores",
+  noGuesses: "Aún no hay intentos",
+  correct: "Correcto",
+  wrong: "Incorrecto",
+  strongMatch: "Coincidencia fuerte",
+  artistMatch: "Artista correcto",
+  vocalMatch: "Voz correcta",
+  skipped: "Saltado",
+  answer: "Respuesta",
+  gaveUp: "Revelado",
+  dailyStats: "Estadísticas diarias",
+  unlimitedStats: "Estadísticas ilimitadas",
+  played: "Jugadas",
+  won: "Ganadas",
+  winRate: "Tasa de victoria",
+  streak: "Racha",
+  bestStreak: "Mejor racha",
+  songsInPool: "Canciones en el pool",
+  viewFullStats: "Ver estadísticas completas →",
+  howToPlay: "Cómo jugar",
+  hallOfMyths: "Salón de mitos",
+  links: "Enlaces",
+  toastCorrect: (title) => `¡Correcto! — ${title}`,
+  toastAnswer: (title) => `La respuesta era: ${title}`,
+  toastCopied: "Resultado copiado al portapapeles",
+  toastAchievementUnlocked: "Logro desbloqueado",
+  modalAchievementsTitle: "Logros",
+  achievementsSummary: (unlocked, total) => `${unlocked} / ${total} desbloqueados`,
+  achievementStatusUnlocked: (date) => `Desbloqueado ${date}`,
+  achievementStatusLocked: "Bloqueado",
+  achievementHiddenDesc: "Este logro sigue oculto.",
+  achievementCategoryAll: "Todo",
+  achievementCategoryGeneral: "General",
+  achievementCategoryDaily: "Diario",
+  achievementCategoryUnlimited: "Ilimitado",
+  achievementCategoryArchive: "Archivo",
+  achievementCategoryKnowledge: "Conocimiento",
+  achievementCategoryChallenge: "Reto",
+  achievementCategorySecret: "Secreto",
+  achievementSearchLabel: "Buscar logros",
+  achievementSearchPlaceholder: "Buscar por nombre, descripción o categoría",
+  achievementNoResults: "No hay logros que coincidan con esa búsqueda.",
+  bookmark: "Marcar",
+  bookmarked: "Marcada",
+  modalBookmarksTitle: "Marcadores",
+  bookmarksIntro: "Las canciones guardadas se quedan en este dispositivo. Las vistas previas usan los clips alojados del juego.",
+  bookmarksSearchPlaceholder: "Buscar marcadores...",
+  bookmarksEmpty: "Todavía no hay marcadores.",
+  bookmarksNoResults: "Ningún marcador coincide con esa búsqueda.",
+  bookmarksPlay: "Reproducir",
+  bookmarksPause: "Pausar",
+  bookmarksRemove: "Quitar",
+  bookmarksYear: "Año",
+  toastStatsReset: "Las estadísticas se han reiniciado",
+  toastAlreadyGuessed: "Ya has usado ese intento.",
+  toastStrongMatch: "El artista y la voz coinciden, pero el título es distinto.",
+  toastArtistMatch: "El artista coincide, pero el título es distinto.",
+  toastVocalMatch: "La voz coincide, pero el título es distinto.",
+  toastSelectSong: "Selecciona una canción de la lista.",
+  heardleDaily: "VOCALOID Heardle Diario",
+  heardleUnlimited: "VOCALOID Heardle Ilimitado",
+  heardleUnlimitedDifficulty: (label) => `VOCALOID Heardle Ilimitado — ${label}`,
+  heardleArchive: "VOCALOID Heardle Archivo",
+  shareGlobalStats: (rate, avg) => `${rate}% de aciertos${avg !== null ? ` · media ${avg.toFixed(1)}/6` : ""}`,
+  shareSelectResult: "Seleccionar resultado",
+  placeholder: "escribe tu intento...",
+  disclaimer: "Algunas canciones pueden no empezar a sonar durante el primer segundo.",
+  marquee: "★ Hay un nuevo puzle diario cada día ★ Usa el modo ilimitado para practicar cuando quieras ★ Adivina la canción VOCALOID con el clip inicial en 6 intentos o menos ★ ¡Comparte tu resultado con tus amigos! ★ Canciones obtenidas de VocaDB ★",
+  introCopy: "Adivina la canción VOCALOID a partir del clip inicial.",
+  breadcrumb: "Juegos › Música › VOCALOID › Heardle",
+  footerText: "VOCALOID Heardle: juego diario fan-made de adivinar canciones © 2026 | No afiliado con Crypton Future Media ni NicoNico | Datos de canciones de",
+  howToPlayStep1: "Pulsa ▶ para escuchar el clip inicial",
+  howToPlayStep2: "Escribe el título de la canción y envíalo",
+  howToPlayStep3: "¿Fallaste o saltaste? Se desbloquea más clip",
+  howToPlayStep4: "Acierta en 6 intentos para ganar",
+  howToPlayStep5: "¡Comparte tu puntuación al terminar!",
+  hofNote: "Canciones VOCALOID más vistas en NicoNico",
+  modalHowToPlayTitle: "Cómo jugar",
+  modalHowToPlayP1: "Escucha la intro y encuentra la canción VOCALOID correcta.",
+  modalHowToPlayP2: "Los saltos o intentos incorrectos desbloquean más parte del clip.",
+  modalHowToPlayP3: "Acierta en el menor número de intentos posible y comparte tu resultado.",
+  modalHowToPlayPlay: "Jugar",
+  modalAboutTitle: "Acerca de",
+  modalAboutP1: "VOCALOID Heardle es un juego diario de adivinar canciones centrado en música VOCALOID y vocal synth.",
+  modalAboutP2: "Cada puzle revela un poco más de la intro después de cada fallo o salto. Los detalles de la canción y los enlaces a VocaDB aparecen después de revelar la respuesta.",
+  modalSupportTitle: "Soporte",
+  modalSupportP1: "VOCALOID Heardle es mantenido por sodapines como un pequeño proyecto fan-made de puzles musicales.",
+  modalSupportP2: "Para bugs, correcciones de canciones o sugerencias, escribe a",
+  modalSupportP3: "El alojamiento y el backend de estadísticas tienen un coste mensual. Si disfrutas del juego, una propina ayuda a mantenerlo funcionando.",
+  modalReleaseTitle: "Notas de versión",
+  modalReleaseVersion: "Lanzamiento oficial v1.0",
+  modalReleaseIntro: "Esta versión reúne las principales actualizaciones preparadas para el sitio público.",
+  modalReleaseArchive: "Archivo diario con puzles anteriores jugables, resúmenes mensuales y notas de diarios más fáciles/difíciles.",
+  modalReleaseRandom: "Puzle aleatorio del archivo para saltar a diarios antiguos sin elegir fecha.",
+  modalReleaseStats: "Estadísticas globales de canciones, tasas de acierto, intentos medios y clasificaciones ampliadas.",
+  modalReleasePool: "Créditos del pool de canciones, información de VocaDB y avisos más claros del proyecto.",
+  modalReleaseCommunity: "Formularios para sugerir canciones, reportar problemas y etiquetas de sugerencia comunitaria para futuras adiciones.",
+  modalReleaseLanguage: "Interfaz en inglés, japonés, coreano y español con opciones de visualización de títulos.",
+  modalReleasePolish: "Pulido visual retro inspirado en NicoNico, mejor autocompletado y soporte para audio alojado en Cloudflare.",
+  modalSongPoolTitle: "Pool de canciones",
+  modalSongPoolSummary: "Las canciones se obtienen de VocaDB. Los puzles diarios se eligen de una base curada de música VOCALOID.",
+  modalSongPoolTotal: "Total de canciones en el pool",
+  modalSongPoolSources: "Fuentes usadas",
+  modalSongPoolSourcesValue: "VocaDB, YouTube, NicoNico y audio alojado en Cloudflare R2",
+  modalSongPoolCredit: "Crédito de datos de canciones",
+  modalSongPoolDisclaimer: "VOCALOID Heardle es un proyecto fan-made y no está afiliado con Crypton Future Media, NicoNico, VocaDB ni los artistas representados en el pool.",
+  modalSuggestTitle: "Sugerir una canción",
+  modalSuggestIntro: "Envía una canción para considerarla en futuros puzles. Las sugerencias no están garantizadas, pero ayudan a mejorar el pool.",
+  modalSuggestCheckTitle: "Comprobar el pool actual",
+  modalSuggestCheckIntro: "Busca primero para ver si la canción ya está disponible.",
+  modalSuggestCheckLabel: "Buscar canción",
+  modalSuggestCheckPlaceholder: "escribe un título, productor o vocal synth...",
+  modalSuggestCheckStart: "Empieza a escribir para comprobar el pool.",
+  modalSuggestCheckNone: "No se encontraron coincidencias cercanas en el pool actual.",
+  modalSuggestCheckStatus: "Ya está en el juego",
+  modalSuggestLabelTitle: "Título de la canción",
+  modalSuggestLabelProducer: "Productor",
+  modalSuggestLabelVocal: "Vocal synth",
+  modalSuggestLabelVocadb: "Enlace de VocaDB",
+  modalSuggestLabelSource: "Enlace de YouTube/NicoNico",
+  modalSuggestLabelReason: "¿Por qué debería incluirse?",
+  modalSuggestSubmit: "Enviar sugerencia por email",
+  modalReportTitle: "Reportar problema",
+  modalReportIntro: "Usa este formulario para reportar un problema con el puzle actual.",
+  modalReportLabelReason: "Motivo",
+  modalReportLabelDetails: "Detalles",
+  modalReportDetailPlaceholder: "¿Qué ocurrió?",
+  modalReportSubmit: "Enviar reporte por email",
+  modalReportOptMetadata: "Metadatos incorrectos",
+  modalReportOptAudio: "El audio no se reproduce",
+  modalReportOptSource: "Fuente incorrecta",
+  modalReportOptDuplicate: "Canción duplicada",
+  modalReportOptStartpoint: "Mal punto de inicio",
+  modalReportOptAnswer: "No acepta la respuesta",
+  modalReportOptOther: "Otro",
+  reportIssue: "Reportar problema",
+  modalStatsTitle: "Estadísticas",
+  modalStatsDailyBtn: "Diario",
+  modalStatsUnlimitedBtn: "Ilimitado",
+  statsPlayed: "Jugadas",
+  statsWon: "Ganadas",
+  statsWinRate: "Tasa de victoria",
+  statsCurrentStreak: "Racha actual",
+  statsMaxStreak: "Racha máxima",
+  statsAvgAttempts: "Intentos medios al ganar",
+  statsFirstTry: "Aciertos al primer intento",
+  statsRarestSolve: "Acierto más raro",
+  statsRarestFirstTry: "1/6 más raro",
+  statsBestPublishYear: "Mejor año de publicación",
+  statsMostPlayedYear: "Año más jugado",
+  statsArchiveGroup: "Modo Archivo",
+  statsArchiveProgress: "Progreso",
+  statsAchievementsGroup: "Logros",
+  statsAchievementsProgress: "Progreso",
+  statsNoneYet: "Todavía nada",
+  statsYearLine: (year, won, played, rate) => `${year} - ${rate}% (${won}/${played})`,
+  statsYearPlayedLine: (year, played) => `${year} - ${played} jugadas`,
+  statsRarestLine: (title, rate) => `${title} — ${rate}% de acierto global`,
+  statsArchiveProgressLine: (solved, total, rate) => `${solved}/${total} resueltos · ${rate}%`,
+  statsAchievementsProgressLine: (unlocked, total, rate) => `${unlocked}/${total} desbloqueados · ${rate}%`,
+  statsCopyProfile: "Copiar perfil",
+  profileCopied: "Perfil copiado al portapapeles",
+  profileDaily: "Diario",
+  profileUnlimited: "Ilimitado",
+  profileArchive: "Archivo",
+  profileAchievements: "Logros",
+  profileAvgSolve: "Media de acierto",
+  profileBestStreak: "Mejor racha",
+  profileRarestSolve: "Acierto más raro",
+  profileRarestFirstTry: "1/6 más raro",
+  profileFirstTry: "Primeros intentos",
+  profilePlayed: "jugadas",
+  profileWinRate: "tasa de victoria",
+  profileSolved: "resueltos",
+  profileOpened: "abiertos",
+  profileNoData: "todavía nada",
+  sbAvgAttempts: "Intentos medios",
+  nextDailyCountdown: (h, m, s) => `Siguiente puzle en <strong>${h}h ${m}m ${s}s</strong>`,
+  nextDailyReady: "¡Hay un nuevo puzle diario disponible!",
+  archiveSolved: "Resuelto",
+  archiveFailed: "Abierto",
+  archiveUnplayed: "Disponible",
+  archiveSummaryOpened: "Jugados",
+  archiveSummarySolved: "Resueltos",
+  archiveSummaryRevealed: "Revelados",
+  archiveSummaryComplete: "Completo",
+  archiveMonthBadge: (solved, total, rate) => `${solved}/${total} resueltos · ${rate}%`,
+  archiveHardest: "Diario más difícil",
+  archiveEasiest: "Diario más fácil",
+  archiveInsightsLoading: "Cargando dificultad mensual...",
+  archiveInsightsEmpty: "La dificultad del mes aparece después de abrir puzles del archivo.",
+  archiveRandom: "Puzle aleatorio del archivo",
+  archiveRandomEmpty: "Todavía no hay puzles de archivo disponibles.",
+  tagCommunitySuggested: "Sugerido por la comunidad",
+  tagSpecialTest: "Etiqueta especial de prueba",
+  kofiNudgeText: "¿Te gusta el proyecto? Las propinas ayudan a mantenerlo.",
+  kofiNudgeLink: "Apoyar en Ko-fi →",
+  settingsTitle: "Ajustes",
+  settingDarkMode: "Modo oscuro",
+  settingDarkModeDesc: "Cambiar entre tema claro y oscuro",
+  settingBulletComments: "Comentarios danmaku",
+  settingBulletCommentsDesc: "Texto flotante sobre la portada",
+  settingCommentSpeed: "Velocidad de comentarios",
+  settingCommentSpeedDesc: "Qué tan rápido se mueven los comentarios",
+  settingSpeedSlow: "Lento",
+  settingSpeedNormal: "Normal",
+  settingSpeedFast: "Rápido",
+  settingCompactMode: "Modo compacto",
+  settingCompactModeDesc: "Oculta marquesina, etiquetas y barra lateral a la vez",
+  settingMarqueeBar: "Barra de avisos",
+  settingMarqueeBarDesc: "Anuncio desplazable en la parte superior",
+  settingSidebar: "Barra lateral",
+  settingSidebarDesc: "Panel de estadísticas e información a la derecha",
+  settingAutocomplete: "Autocompletar",
+  settingAutocompleteDesc: "Mostrar sugerencias de canciones al escribir",
+  settingDensity: "Densidad de comentarios",
+  settingDensityDesc: "Cuántos comentarios aparecen en pantalla",
+  settingDensityFew: "Pocos",
+  settingDensityMedium: "Medio",
+  settingDensityMany: "Muchos",
+  settingVolume: "Volumen",
+  settingVolumeDesc: "Volumen del clip",
+  settingTitleDisplay: "Visualización de títulos",
+  settingTitleDisplayDesc: "Cómo aparecen los títulos en sugerencias e historial",
+  settingClearInput: "Limpiar al fallar",
+  settingClearInputDesc: "Limpia el campo después de una respuesta incorrecta",
+  settingBackupStats: "Copia de estadísticas",
+  settingBackupStatsDesc: "Exportar o importar datos locales",
+  settingExportStats: "Exportar",
+  settingImportStats: "Importar",
+  settingImportPlaceholder: "Pega aquí el JSON exportado",
+  toastStatsExported: "Copia de estadísticas copiada al portapapeles",
+  toastStatsImported: "Copia de estadísticas importada",
+  toastStatsImportFailed: "No se pudo importar. Revisa el texto de la copia.",
+  settingReportIssue: "Reportar problema",
+  settingReportIssueDesc: "Enviar problemas de metadatos, audio, duplicados o respuestas",
+  settingReportIssueBtn: "Reportar",
+  settingResetStats: "Reiniciar estadísticas",
+  settingResetStatsDesc: "Borrar permanentemente todas tus estadísticas",
+  settingResetBtn: "Reiniciar",
+  settingResetConfirm: "¿Seguro? Esto no se puede deshacer.",
+  settingResetYes: "Sí, reiniciar",
+  settingResetNo: "Cancelar",
+  infoLabel: "[INFO]",
+  metaViews: "▶ Reproducciones:",
+  metaCategory: "Categoría:",
+  metaSource: "Fuente:",
+  navAbout: "Acerca de",
+  navSupport: "Soporte",
+  navSettings: "Ajustes",
+  navUpdates: "Actualizaciones",
+  linkReleaseNotes: "Notas de versión",
+  linkReleaseVersion: "Versión v1.4",
+  linkAchievements: "Logros",
+  linkSongPool: "Pool de canciones",
+  linkSuggestSong: "Sugerir una canción",
+  linkVocaDB: "VocaDB ↗",
+  linkNicoNico: "NicoNico ↗",
+  linkAbout: "Acerca de este sitio",
+  linkContact: "Contacto / Soporte",
+  rankingsHeader: "Clasificaciones globales",
+  rankingsTabPlays: "Popular",
+  rankingsTabHardest: "Más difícil",
+  rankingsTabEasiest: "Más fácil",
+  rankingsTabAvgLow: "Media más baja",
+  rankingsTabAvgHigh: "Media más alta",
+  rankingsSeeAll: "Ver todo →",
+  rankingsNote: "Basado solo en partidas del modo ilimitado. Se excluyen canciones con menos de 5 jugadas.",
+  rankingsModalTitle: "Clasificaciones globales",
+  rankingsPlays: (n) => `${n} jugadas`,
+  rankingsWin: (n) => `${n}%`,
+  rankingsAvgAttempts: (n) => `${n} intentos de media`,
+  rankingsNoData: "Aún no hay datos.",
+  rankingsNoDataModal: "Aún no hay datos, ¡juega algunas canciones en ilimitado primero!",
+  rankingsLoading: "Cargando...",
+  archiveTitle: "Archivo diario",
+  archiveNote: "Juega puzles diarios anteriores. Los diarios completados aparecen aquí automáticamente.",
+  archiveEmpty: "Sin puzle",
+  globalStats: (rate, avg, plays) => `Tasa global de acierto: <span class="gs-rate${rate < 30 ? ' gs-hard' : ''}">${rate}%</span> · Intentos medios al ganar: <span class="gs-rate">${avg}/6</span> · ${plays.toLocaleString()} jugadas`,
+  globalStatsNoWins: (rate, plays) => `Tasa global de acierto: <span class="gs-rate gs-hard">${rate}%</span> · ${plays.toLocaleString()} jugadas`,
+  globalStatsNone: "",
+  globalComparisonBeat: "Superaste la media global.",
+  globalComparisonMatched: "Igualaste la media global.",
+  globalComparisonClose: "Cerca de la media global.",
+  globalComparisonLate: "Más tarde que la media.",
+  globalComparisonRevealed: "Respuesta revelada.",
+  globalComparisonLine: (attempts, avg, verdict) => `Tu resultado: <span>${attempts}/6</span> · Media global: <span>${avg}/6</span><br>${verdict}`,
+  globalComparisonRevealLine: (avg, verdict) => `Media global: <span>${avg}/6</span><br>${verdict}`,
+  difficultyLabel: (label) => `Dificultad: ${label}`,
+  difficultyFree: "Libre",
+  difficultyEasy: "Fácil",
+  difficultyMedium: "Medio",
+  difficultyHard: "Difícil",
+  difficultyUnknown: "¿qué canción es esta???",
+});
+
+let currentReleaseVersion = "v1.4";
+
+
+STRINGS.ko = {
+  ...STRINGS.en,
+};
+
+Object.assign(STRINGS.ko, {
+  dailyPuzzle: "데일리 퍼즐",
+  unlimitedPuzzle: "무제한 퍼즐",
+  unlimitedPracticePuzzle: (label) => `${label} 연습`,
+  daily: "데일리",
+  unlimited: "무제한",
+  archive: "아카이브",
+  archivePuzzle: "아카이브 퍼즐",
+  difficultyAll: "전체",
+  difficultyFreeShort: "프리",
+  difficultyEasyShort: "쉬움",
+  difficultyMediumShort: "보통",
+  difficultyHardShort: "어려움",
+  difficultyUnknownShort: "???",
+  difficultyAllNote: "무제한 모드 · 글로벌 랭킹에 반영됨",
+  difficultyPracticeNote: "연습 모드 · 글로벌 랭킹에 반영되지 않음",
+  difficultyLoading: "난이도 풀을 불러오는 중...",
+  difficultyUnavailable: "아직 이 난이도에 해당하는 곡이 없습니다.",
+  attempt: (n, total) => `도전 ${n} / ${total}`,
+  coverCaption: "정답을 맞히면 커버 아트가 표시됩니다",
+  noSchedule: "오늘 예정된 퍼즐이 아직 없습니다.",
+  songTitle: "곡 제목",
+  submit: "제출",
+  skip: "스킵",
+  giveUp: "포기",
+  nextSong: "다음 곡",
+  copyResult: "결과 복사",
+  pastGuesses: "이전 추측",
+  noGuesses: "아직 추측이 없습니다",
+  correct: "정답",
+  wrong: "오답",
+  strongMatch: "강한 일치",
+  artistMatch: "아티스트 일치",
+  vocalMatch: "보컬 일치",
+  skipped: "스킵",
+  answer: "정답",
+  gaveUp: "포기",
+  dailyStats: "데일리 통계",
+  unlimitedStats: "무제한 통계",
+  played: "플레이",
+  won: "승리",
+  winRate: "승률",
+  streak: "연속 기록",
+  bestStreak: "최고 연속 기록",
+  songsInPool: "곡 풀",
+  viewFullStats: "전체 통계 보기 →",
+  howToPlay: "플레이 방법",
+  hallOfMyths: "명곡 전당",
+  links: "링크",
+  toastCorrect: (title) => `정답! — ${title}`,
+  toastAnswer: (title) => `정답은 ${title}였습니다`,
+  toastCopied: "결과를 클립보드에 복사했습니다",
+  toastAchievementUnlocked: "업적 달성",
+  modalAchievementsTitle: "업적",
+  achievementsSummary: (unlocked, total) => `${unlocked} / ${total} 달성`,
+  achievementStatusUnlocked: (date) => `${date} 달성`,
+  achievementStatusLocked: "잠김",
+  achievementHiddenTitle: "???",
+  achievementHiddenDesc: "아직 숨겨진 업적입니다.",
+  achievementCategoryAll: "전체",
+  achievementCategoryGeneral: "일반",
+  achievementCategoryDaily: "데일리",
+  achievementCategoryUnlimited: "무제한",
+  achievementCategoryArchive: "아카이브",
+  achievementCategoryKnowledge: "지식",
+  achievementCategoryChallenge: "도전",
+  achievementCategorySecret: "비밀",
+  achievementSearchLabel: "업적 검색",
+  achievementSearchPlaceholder: "이름, 설명, 카테고리로 검색",
+  achievementNoResults: "검색과 일치하는 업적이 없습니다.",
+  bookmark: "북마크",
+  bookmarked: "북마크됨",
+  modalBookmarksTitle: "북마크",
+  bookmarksIntro: "저장한 곡은 이 기기에 남습니다. 오디오 미리듣기는 호스팅된 퍼즐 클립을 사용합니다.",
+  bookmarksSearchPlaceholder: "북마크 검색...",
+  bookmarksEmpty: "아직 북마크가 없습니다.",
+  bookmarksNoResults: "검색과 일치하는 북마크가 없습니다.",
+  bookmarksPlay: "재생",
+  bookmarksPause: "일시정지",
+  bookmarksRemove: "삭제",
+  bookmarksYear: "연도",
+  toastStatsReset: "통계를 초기화했습니다",
+  toastAlreadyGuessed: "이미 추측했습니다.",
+  toastStrongMatch: "아티스트와 보컬은 맞지만 곡 제목이 다릅니다.",
+  toastArtistMatch: "아티스트는 맞지만 곡 제목이 다릅니다.",
+  toastVocalMatch: "보컬은 맞지만 곡 제목이 다릅니다.",
+  toastSelectSong: "목록에서 곡을 선택하세요.",
+  heardleDaily: "VOCALOID Heardle 데일리",
+  heardleUnlimited: "VOCALOID Heardle 무제한",
+  heardleUnlimitedDifficulty: (label) => `VOCALOID Heardle 무제한 — ${label}`,
+  heardleArchive: "VOCALOID Heardle 아카이브",
+  shareGlobalStats: (rate, avg) => `${rate}% 정답률${avg !== null ? ` · 평균 ${avg.toFixed(1)}/6` : ""}`,
+  shareSelectResult: "결과 선택",
+  placeholder: "추측을 입력하세요...",
+  disclaimer: "일부 곡은 첫 1초 안에 소리가 바로 나오지 않을 수 있습니다.",
+  marquee: "★ 매일 새로운 데일리 퍼즐이 열립니다 ★ 무제한 모드로 언제든 연습하세요 ★ 6번 안에 오프닝 클립의 VOCALOID 곡을 맞혀보세요 ★ 친구에게 결과를 공유하세요! ★ 곡 정보는 VocaDB에서 가져옵니다 ★",
+  introCopy: "오프닝 클립을 듣고 VOCALOID 곡을 맞혀보세요.",
+  breadcrumb: "게임 › 음악 › VOCALOID › Heardle",
+  footerText: "VOCALOID Heardle: 팬메이드 데일리 추측 게임 © 2026 | Crypton Future Media 또는 NicoNico와 관련이 없습니다 | 곡 데이터:",
+  howToPlayStep1: "▶를 눌러 오프닝 클립을 듣기",
+  howToPlayStep2: "곡 제목을 입력하고 제출하기",
+  howToPlayStep3: "오답 또는 스킵하면 더 긴 클립이 열립니다",
+  howToPlayStep4: "6번 안에 맞히면 승리",
+  howToPlayStep5: "끝나면 결과를 공유하세요!",
+  hofNote: "NicoNico에서 많이 재생된 VOCALOID 곡",
+  modalHowToPlayTitle: "플레이 방법",
+  modalHowToPlayP1: "인트로를 듣고 올바른 VOCALOID 곡을 찾아보세요.",
+  modalHowToPlayP2: "스킵하거나 틀리면 클립이 조금 더 열립니다.",
+  modalHowToPlayP3: "가능한 적은 시도로 맞히고 점수를 공유하세요.",
+  modalHowToPlayPlay: "플레이",
+  modalAboutTitle: "소개",
+  modalAboutP1: "VOCALOID Heardle은 VOCALOID와 보컬 신스 음악을 중심으로 만든 데일리 곡 추측 게임입니다.",
+  modalAboutP2: "오답이나 스킵을 할 때마다 인트로가 조금씩 더 공개됩니다. 정답 후에는 곡 정보와 VocaDB 링크가 표시됩니다.",
+  modalSupportTitle: "지원",
+  modalSupportP1: "VOCALOID Heardle은 sodapines가 운영하는 작은 팬메이드 음악 퍼즐 프로젝트입니다.",
+  modalSupportP2: "버그, 곡 정보 수정, 제안은 이메일로 보내주세요:",
+  modalSupportP3: "호스팅과 통계 백엔드는 매달 비용이 듭니다. 게임을 즐기셨다면 작은 후원도 운영에 도움이 됩니다.",
+  modalReleaseTitle: "업데이트 내역",
+  modalReleaseVersion: "공식 릴리스 v1.0",
+  modalReleaseIntro: "공개 사이트를 위해 준비한 주요 업데이트를 모았습니다.",
+  modalReleaseArchive: "지난 데일리 퍼즐을 플레이할 수 있는 아카이브, 월별 달성 요약, 가장 어려운/쉬운 데일리 메모를 추가했습니다.",
+  modalReleaseRandom: "날짜를 고르지 않고 예전 데일리로 바로 들어가는 랜덤 아카이브 퍼즐을 추가했습니다.",
+  modalReleaseStats: "글로벌 곡 통계, 정답률, 평균 시도 수, 확장 랭킹을 추가했습니다.",
+  modalReleasePool: "곡 풀 크레딧, VocaDB 출처 정보, 프로젝트 면책 문구를 정리했습니다.",
+  modalReleaseCommunity: "곡 제안, 문제 신고 폼, 향후 추가곡용 커뮤니티 추천 태그를 추가했습니다.",
+  modalReleaseLanguage: "영어/일본어/한국어 인터페이스와 곡 제목 표시 옵션을 지원합니다.",
+  modalReleasePolish: "레트로 NicoNico풍 레이아웃, 자동완성 개선, Cloudflare 호스팅 오디오를 지원합니다.",
+  modalSongPoolTitle: "곡 풀",
+  modalSongPoolSummary: "곡 정보는 VocaDB에서 가져옵니다. 데일리 퍼즐은 선별된 VOCALOID/음악 데이터베이스에서 선택됩니다.",
+  modalSongPoolTotal: "풀의 총 곡 수",
+  modalSongPoolSources: "사용한 출처",
+  modalSongPoolSourcesValue: "VocaDB, YouTube, NicoNico, Cloudflare R2 오디오 호스팅",
+  modalSongPoolCredit: "곡 데이터 출처",
+  modalSongPoolDisclaimer: "VOCALOID Heardle은 팬메이드 프로젝트이며 Crypton Future Media, NicoNico, VocaDB 또는 수록 아티스트와 관련이 없습니다.",
+  modalSuggestTitle: "곡 제안",
+  modalSuggestIntro: "향후 퍼즐에 들어갈 곡을 제안하세요. 제안이 반드시 반영되지는 않지만 곡 풀 개선에 도움이 됩니다.",
+  modalSuggestCheckTitle: "현재 풀 확인",
+  modalSuggestCheckIntro: "먼저 검색해서 이미 플레이 가능한 곡인지 확인하세요.",
+  modalSuggestCheckLabel: "곡 검색",
+  modalSuggestCheckPlaceholder: "곡 제목, 프로듀서, 보컬 신스를 입력...",
+  modalSuggestCheckStart: "곡 풀을 확인하려면 입력을 시작하세요.",
+  modalSuggestCheckNone: "현재 풀에서 가까운 결과를 찾지 못했습니다.",
+  modalSuggestCheckStatus: "이미 게임에 있음",
+  modalSuggestLabelTitle: "곡 제목",
+  modalSuggestLabelProducer: "프로듀서",
+  modalSuggestLabelVocal: "보컬 신스",
+  modalSuggestLabelVocadb: "VocaDB 링크",
+  modalSuggestLabelSource: "YouTube/NicoNico 링크",
+  modalSuggestLabelReason: "왜 포함되어야 하나요?",
+  modalSuggestSubmit: "이메일로 제안",
+  modalReportTitle: "문제 신고",
+  modalReportIntro: "현재 퍼즐의 문제를 신고할 수 있습니다.",
+  modalReportLabelReason: "사유",
+  modalReportLabelDetails: "상세 내용",
+  modalReportDetailPlaceholder: "무슨 일이 있었나요?",
+  modalReportSubmit: "이메일로 신고",
+  modalReportOptMetadata: "곡 정보가 잘못됨",
+  modalReportOptAudio: "오디오가 재생되지 않음",
+  modalReportOptSource: "출처가 잘못됨",
+  modalReportOptDuplicate: "중복 곡",
+  modalReportOptStartpoint: "시작 지점이 좋지 않음",
+  modalReportOptAnswer: "정답이 인정되지 않음",
+  modalReportOptOther: "기타",
+  reportIssue: "문제 신고",
+  modalStatsTitle: "통계",
+  modalStatsDailyBtn: "데일리",
+  modalStatsUnlimitedBtn: "무제한",
+  statsPlayed: "플레이",
+  statsWon: "승리",
+  statsWinRate: "승률",
+  statsCurrentStreak: "현재 연속 기록",
+  statsMaxStreak: "최고 연속 기록",
+  statsAvgAttempts: "평균 정답 시도",
+  statsFirstTry: "1회 정답",
+  statsRarestSolve: "가장 희귀한 정답",
+  statsRarestFirstTry: "가장 희귀한 1/6",
+  statsBestPublishYear: "가장 잘 맞힌 공개 연도",
+  statsMostPlayedYear: "가장 많이 플레이한 연도",
+  statsArchiveGroup: "아카이브 모드",
+  statsArchiveProgress: "진행도",
+  statsAchievementsGroup: "업적",
+  statsAchievementsProgress: "진행도",
+  statsNoneYet: "아직 없음",
+  statsYearLine: (year, won, played, rate) => `${year} - ${rate}% (${won}/${played})`,
+  statsYearPlayedLine: (year, played) => `${year} - ${played}회 플레이`,
+  statsRarestLine: (title, rate) => `${title} — 글로벌 정답률 ${rate}%`,
+  statsArchiveProgressLine: (solved, total, rate) => `${solved}/${total} 해결 · ${rate}%`,
+  statsAchievementsProgressLine: (unlocked, total, rate) => `${unlocked}/${total} 달성 · ${rate}%`,
+  statsCopyProfile: "프로필 복사",
+  profileCopied: "프로필을 클립보드에 복사했습니다",
+  profileDaily: "데일리",
+  profileUnlimited: "무제한",
+  profileArchive: "아카이브",
+  profileAchievements: "업적",
+  profileAvgSolve: "평균 정답",
+  profileBestStreak: "최고 연속 기록",
+  profileRarestSolve: "가장 희귀한 정답",
+  profileRarestFirstTry: "가장 희귀한 1/6",
+  profileFirstTry: "1회 정답",
+  profilePlayed: "플레이",
+  profileWinRate: "승률",
+  profileSolved: "해결",
+  profileOpened: "열림",
+  profileNoData: "아직 없음",
+  sbAvgAttempts: "평균 시도",
+  nextDailyCountdown: (h, m, s) => `다음 퍼즐까지 <strong>${h}시간 ${m}분 ${s}초</strong>`,
+  nextDailyReady: "새 데일리 퍼즐이 열렸습니다!",
+  archiveSolved: "해결",
+  archiveFailed: "공개",
+  archiveUnplayed: "가능",
+  archiveSummaryOpened: "플레이",
+  archiveSummarySolved: "해결",
+  archiveSummaryRevealed: "공개",
+  archiveSummaryComplete: "완료",
+  archiveMonthBadge: (solved, total, rate) => `${solved}/${total} 해결 · ${rate}%`,
+  archiveHardest: "가장 어려운 데일리",
+  archiveEasiest: "가장 쉬운 데일리",
+  archiveInsightsLoading: "월별 난이도 불러오는 중...",
+  archiveInsightsEmpty: "아카이브 퍼즐을 열면 월별 난이도가 표시됩니다.",
+  archiveRandom: "랜덤 아카이브 퍼즐",
+  archiveRandomEmpty: "아직 이용 가능한 아카이브 퍼즐이 없습니다.",
+  archiveEmpty: "퍼즐 없음",
+  globalStats: (rate, avg, plays) => `글로벌 정답률: <span class="gs-rate${rate < 30 ? ' gs-hard' : ''}">${rate}%</span> · 평균 정답 시도: <span class="gs-rate">${avg}/6</span> · ${plays.toLocaleString()}회`,
+  globalStatsNoWins: (rate, plays) => `글로벌 정답률: <span class="gs-rate gs-hard">${rate}%</span> · ${plays.toLocaleString()}회`,
+  globalStatsNone: "",
+  globalComparisonBeat: "글로벌 평균보다 빠르게 맞혔습니다.",
+  globalComparisonMatched: "글로벌 평균과 같은 결과입니다.",
+  globalComparisonClose: "글로벌 평균에 가까운 결과입니다.",
+  globalComparisonLate: "글로벌 평균보다 늦었습니다.",
+  globalComparisonRevealed: "정답을 공개했습니다.",
+  globalComparisonLine: (attempts, avg, verdict) => `내 결과: <span>${attempts}/6</span> · 글로벌 평균: <span>${avg}/6</span><br>${verdict}`,
+  globalComparisonRevealLine: (avg, verdict) => `글로벌 평균: <span>${avg}/6</span><br>${verdict}`,
+  difficultyLabel: (label) => `난이도: ${label}`,
+  difficultyFree: "프리",
+  difficultyEasy: "쉬움",
+  difficultyMedium: "보통",
+  difficultyHard: "어려움",
+  difficultyUnknown: "이게 무슨 곡이지???",
+  tagCommunitySuggested: "커뮤니티 추천",
+  tagSpecialTest: "특별 테스트 라벨",
+  kofiNudgeText: "프로젝트가 마음에 드셨나요? 후원은 운영에 도움이 됩니다.",
+  kofiNudgeLink: "Ko-fi에서 후원 →",
+  settingsTitle: "설정",
+  settingDarkMode: "다크 모드",
+  settingDarkModeDesc: "라이트/다크 테마 전환",
+  settingBulletComments: "탄막 댓글",
+  settingBulletCommentsDesc: "커버 아트 위에 흐르는 탄막 오버레이",
+  settingCommentSpeed: "댓글 속도",
+  settingCommentSpeedDesc: "탄막 댓글이 흐르는 속도",
+  settingSpeedSlow: "느림",
+  settingSpeedNormal: "보통",
+  settingSpeedFast: "빠름",
+  settingCompactMode: "컴팩트 모드",
+  settingCompactModeDesc: "마키, 태그, 사이드바를 한 번에 숨김",
+  settingMarqueeBar: "마키 바",
+  settingMarqueeBarDesc: "상단 스크롤 공지",
+  settingSidebar: "사이드바",
+  settingSidebarDesc: "오른쪽 통계와 정보 패널",
+  settingAutocomplete: "자동완성",
+  settingAutocompleteDesc: "입력 중 곡 제안 표시",
+  settingDensity: "탄막 밀도",
+  settingDensityDesc: "화면에 표시되는 댓글 수",
+  settingDensityFew: "적게",
+  settingDensityMedium: "보통",
+  settingDensityMany: "많이",
+  settingVolume: "음량",
+  settingVolumeDesc: "클립 재생 음량",
+  settingTitleDisplay: "곡 제목 표시",
+  settingTitleDisplayDesc: "제안과 기록에 표시되는 곡 제목 언어",
+  settingClearInput: "오답 후 입력 지우기",
+  settingClearInputDesc: "오답일 때 추측 입력칸을 비움",
+  settingBackupStats: "통계 백업",
+  settingBackupStatsDesc: "로컬 통계 데이터를 내보내거나 가져오기",
+  settingExportStats: "내보내기",
+  settingImportStats: "가져오기",
+  settingImportPlaceholder: "내보낸 통계 JSON을 여기에 붙여넣기",
+  toastStatsExported: "통계 백업을 클립보드에 복사했습니다",
+  toastStatsImported: "통계 백업을 가져왔습니다",
+  toastStatsImportFailed: "통계 가져오기에 실패했습니다. 백업 텍스트를 확인하세요.",
+  settingReportIssue: "문제 신고",
+  settingReportIssueDesc: "메타데이터, 오디오, 중복, 정답 문제 보내기",
+  settingReportIssueBtn: "신고",
+  settingResetStats: "통계 초기화",
+  settingResetStatsDesc: "모든 통계를 영구적으로 삭제",
+  settingResetBtn: "초기화",
+  settingResetConfirm: "정말 초기화할까요? 되돌릴 수 없습니다.",
+  settingResetYes: "네, 초기화",
+  settingResetNo: "취소",
+  infoLabel: "[정보]",
+  metaViews: "▶ 재생수:",
+  metaCategory: "카테고리:",
+  metaSource: "출처:",
+  navAbout: "소개",
+  navSupport: "지원",
+  navSettings: "설정",
+  navUpdates: "업데이트",
+  linkReleaseNotes: "업데이트 내역",
+  linkReleaseVersion: "릴리스 v1.4",
+  linkAchievements: "업적",
+  linkSongPool: "곡 풀",
+  linkSuggestSong: "곡 제안",
+  hofSong1: "천본앵",
+  hofSong2: "미쿠미쿠하게 해줄게",
+  hofSong3: "멜트",
+  hofSong4: "월즈 엔드 댄스홀",
+  hofSong5: "마트료시카",
+  linkVocaDB: "VocaDB ↗",
+  linkNicoNico: "NicoNico ↗",
+  linkAbout: "사이트 소개",
+  linkContact: "문의 / 지원",
+  rankingsHeader: "글로벌 랭킹",
+  rankingsTabPlays: "인기",
+  rankingsTabHardest: "어려움",
+  rankingsTabEasiest: "쉬움",
+  rankingsTabAvgLow: "낮은 평균",
+  rankingsTabAvgHigh: "높은 평균",
+  rankingsSeeAll: "전체 보기 →",
+  rankingsNote: "무제한 모드 플레이만 기준입니다. 5회 미만 플레이된 곡은 제외됩니다.",
+  rankingsModalTitle: "글로벌 랭킹",
+  rankingsPlays: (n) => `${n}회 플레이`,
+  rankingsWin: (n) => `${n}%`,
+  rankingsAvgAttempts: (n) => `${n} 평균 시도`,
+  rankingsLoading: "불러오는 중...",
+  rankingsNoData: "아직 데이터 없음",
+  rankingsNoDataModal: "아직 표시할 데이터가 없습니다.",
+  archiveTitle: "데일리 아카이브",
+  archiveNote: "지난 데일리 퍼즐을 플레이하세요. 완료한 데일리는 자동으로 여기에 나타납니다.",
+});
+
+const SYSTEM_LABEL_STRINGS = {
+  videoBracket: "[VIDEO]",
+  metaViewsBracket: "[views]",
+  metaCategoryBracket: "[category]",
+  metaMylistBracket: "[mylist]",
+  metaSourceBracket: "[source]",
+  logBracket: "[LOG]",
+  modalMylistPrefix: "[MYLIST]",
+  modalUpdatePrefix: "[UPDATE]",
+  modalSourcePrefix: "[SOURCE]",
+};
+
+Object.assign(STRINGS.jp, SYSTEM_LABEL_STRINGS, { videoOpeningClip: "Opening Clip" });
+Object.assign(STRINGS.es, SYSTEM_LABEL_STRINGS, { videoOpeningClip: "Clip inicial" });
+Object.assign(STRINGS.ko, SYSTEM_LABEL_STRINGS, { videoOpeningClip: "Opening Clip" });
 
 const RELEASE_NOTES = {
   en: {
+    "v1.4": {
+      version: "Release v1.4",
+      intro: "This update adds difficulty practice modes to Unlimited, plus new local achievements and polish around practice play.",
+      items: [
+        "Added Unlimited practice filters for free, easy, medium, hard, and ??? songs while keeping All as the normal Unlimited mode.",
+        "The free practice tier now starts at 85% global solve rate instead of 90%, giving it a healthier song pool.",
+        "Practice modes use the same active-round protection as normal Unlimited, so refreshing or rerolling cannot preserve a streak for free.",
+        "Added new practice achievements, including a hidden challenge for dedicated practice clears.",
+        "Suggest a Song now includes a pool checker, so players can search the current database before sending a request.",
+        "The PV area now reads more like an old embedded NicoNico-style video module, with a compact [VIDEO] strip and attached metadata bar.",
+        "Sidebar charts were tightened into rank, title, and stat columns so Hall of Myths and Global Rankings feel more like old chart widgets.",
+        "Fixed the Copy Result button being hidden by some browser extensions, and corrected the Japanese artist display for AMARA.",
+      ],
+    },
     "v1.3": {
       version: "Release v1.3",
       intro: "This update focuses on finding, saving, and identifying songs more comfortably while keeping the core game intact.",
@@ -714,6 +1463,7 @@ const RELEASE_NOTES = {
         "Added vocal-match partial credit: guesses with the correct main vocal synth now show as Vocal match instead of plain Wrong.",
         "Strong, artist, and vocal matches now have separate purple, yellow, and blue feedback states in history, sidebar attempt boxes, cover-placeholder feedback, and copied result squares.",
         "Fixed same-title variants so selecting one version no longer blocks another version just because the displayed title is identical.",
+        "Added Unlimited difficulty practice submodes for Free, Easy, Medium, Hard, and ??? songs. These practice stats stay local and do not affect global rankings.",
       ],
     },
     "v1.2": {
@@ -764,6 +1514,20 @@ const RELEASE_NOTES = {
     },
   },
   jp: {
+    "v1.4": {
+      version: "\u30EA\u30EA\u30FC\u30B9 v1.4",
+      intro: "\u3053\u306E\u66F4\u65B0\u3067\u306F\u3001\u7121\u5236\u9650\u30E2\u30FC\u30C9\u306B\u96E3\u6613\u5EA6\u5225\u306E\u7DF4\u7FD2\u30E2\u30FC\u30C9\u3068\u65B0\u3057\u3044\u30ED\u30FC\u30AB\u30EB\u5B9F\u7E3E\u3092\u8FFD\u52A0\u3057\u307E\u3057\u305F\u3002",
+      items: [
+        "\u7121\u5236\u9650\u30E2\u30FC\u30C9\u306B\u3001free\u3001easy\u3001medium\u3001hard\u3001??? \u306E\u7DF4\u7FD2\u30D5\u30A3\u30EB\u30BF\u30FC\u3092\u8FFD\u52A0\u3057\u307E\u3057\u305F\u3002All \u306F\u5F93\u6765\u3069\u304A\u308A\u306E\u7121\u5236\u9650\u30E2\u30FC\u30C9\u3067\u3059\u3002",
+        "free \u7DF4\u7FD2\u306E\u57FA\u6E96\u3092\u30B0\u30ED\u30FC\u30D0\u30EB\u6B63\u89E3\u738785%\u4EE5\u4E0A\u306B\u5909\u66F4\u3057\u3001\u5BFE\u8C61\u66F2\u3092\u5897\u3084\u3057\u307E\u3057\u305F\u3002",
+        "\u7DF4\u7FD2\u30E2\u30FC\u30C9\u306B\u3082\u901A\u5E38\u306E\u7121\u5236\u9650\u30E2\u30FC\u30C9\u3068\u540C\u3058\u4E2D\u65AD\u4FDD\u8B77\u3092\u9069\u7528\u3057\u3001\u66F4\u65B0\u3084\u518D\u62BD\u9078\u3067\u30B9\u30C8\u30EA\u30FC\u30AF\u3092\u7DAD\u6301\u3067\u304D\u306A\u3044\u3088\u3046\u306B\u3057\u307E\u3057\u305F\u3002",
+        "\u7DF4\u7FD2\u30E2\u30FC\u30C9\u7528\u306E\u65B0\u3057\u3044\u5B9F\u7E3E\u3092\u8FFD\u52A0\u3057\u307E\u3057\u305F\u3002\u3058\u3063\u304F\u308A\u904A\u3076\u3068\u898B\u3064\u304B\u308B\u96A0\u3057\u5B9F\u7E3E\u3082\u3042\u308A\u307E\u3059\u3002",
+        "\u300C\u66F2\u3092\u63D0\u6848\u300D\u306B\u73FE\u5728\u306E\u66F2\u30D7\u30FC\u30EB\u691C\u7D22\u3092\u8FFD\u52A0\u3057\u3001\u9001\u4FE1\u524D\u306B\u3059\u3067\u306B\u767B\u9332\u6E08\u307F\u304B\u78BA\u8A8D\u3067\u304D\u308B\u3088\u3046\u306B\u3057\u307E\u3057\u305F\u3002",
+        "\u30AB\u30D0\u30FC/PV\u8868\u793A\u3092\u3001[VIDEO]\u30B9\u30C8\u30EA\u30C3\u30D7\u3068\u30E1\u30BF\u60C5\u5831\u884C\u304C\u4E00\u4F53\u306B\u306A\u3063\u305F\u53E4\u3044\u30CB\u30B3\u30CB\u30B3\u98A8\u306E\u52D5\u753B\u30E2\u30B8\u30E5\u30FC\u30EB\u306B\u8ABF\u6574\u3057\u307E\u3057\u305F\u3002",
+        "\u30B5\u30A4\u30C9\u30D0\u30FC\u306E\u30C1\u30E3\u30FC\u30C8\u3092\u9806\u4F4D\u3001\u66F2\u540D\u3001\u60C5\u5831\u306E3\u5217\u306B\u6574\u5217\u3057\u3001Hall of Myths\u3068\u30B0\u30ED\u30FC\u30D0\u30EB\u30E9\u30F3\u30AD\u30F3\u30B0\u3092\u3088\u308A\u53E4\u3044\u30C1\u30E3\u30FC\u30C8\u8868\u793A\u3089\u3057\u304F\u3057\u307E\u3057\u305F\u3002",
+        "\u4E00\u90E8\u306E\u30D6\u30E9\u30A6\u30B6\u62E1\u5F35\u3067 Copy Result \u30DC\u30BF\u30F3\u304C\u975E\u8868\u793A\u306B\u306A\u308B\u554F\u984C\u3092\u907F\u3051\u3001AMARA \u306E\u65E5\u672C\u8A9E\u30A2\u30FC\u30C6\u30A3\u30B9\u30C8\u8868\u793A\u3082\u4FEE\u6B63\u3057\u307E\u3057\u305F\u3002",
+      ],
+    },
     "v1.3": {
       version: "\u30EA\u30EA\u30FC\u30B9 v1.3",
       intro: "\u3053\u306E\u66F4\u65B0\u3067\u306F\u3001\u57FA\u672C\u306E\u30B2\u30FC\u30E0\u6027\u306F\u305D\u306E\u307E\u307E\u306B\u3001\u66F2\u3092\u63A2\u3059\u30FB\u4FDD\u5B58\u3059\u308B\u30FB\u8FD1\u3044\u56DE\u7B54\u3092\u898B\u5206\u3051\u308B\u4F53\u9A13\u3092\u6539\u5584\u3057\u307E\u3057\u305F\u3002",
@@ -776,6 +1540,7 @@ const RELEASE_NOTES = {
         "\u30DC\u30FC\u30AB\u30EB\u4E00\u81F4\u306E\u90E8\u5206\u70B9\u3092\u8FFD\u52A0\u3057\u3001\u6B63\u89E3\u66F2\u3068\u540C\u3058\u30E1\u30A4\u30F3\u30DC\u30FC\u30AB\u30EB\u30B7\u30F3\u30BB\u306E\u66F2\u3092\u56DE\u7B54\u3057\u305F\u5834\u5408\u3001\u901A\u5E38\u306E\u4E0D\u6B63\u89E3\u3067\u306F\u306A\u304F\u300CVocal match\u300D\u3068\u3057\u3066\u8868\u793A\u3055\u308C\u307E\u3059\u3002",
         "\u5F37\u4E00\u81F4\u3001\u30A2\u30FC\u30C6\u30A3\u30B9\u30C8\u4E00\u81F4\u3001\u30DC\u30FC\u30AB\u30EB\u4E00\u81F4\u306F\u3001\u56DE\u7B54\u5C65\u6B74\u3001\u30B5\u30A4\u30C9\u30D0\u30FC\u306E\u8A66\u884C\u30DE\u30B9\u3001\u30AB\u30D0\u30FC\u6B04\u306E\u30D5\u30A3\u30FC\u30C9\u30D0\u30C3\u30AF\u3001\u5171\u6709\u7D50\u679C\u3067\u305D\u308C\u305E\u308C\u7D2B\u3001\u9EC4\u8272\u3001\u9752\u3068\u3057\u3066\u8868\u793A\u3055\u308C\u307E\u3059\u3002",
         "\u540C\u3058\u66F2\u540D\u306E\u5225\u30D0\u30FC\u30B8\u30E7\u30F3\u3092\u9078\u3093\u3060\u5834\u5408\u3001\u8868\u793A\u540D\u304C\u540C\u3058\u3067\u3082\u300C\u3059\u3067\u306B\u56DE\u7B54\u6E08\u307F\u300D\u306B\u306A\u3089\u306A\u3044\u3088\u3046\u4FEE\u6B63\u3057\u307E\u3057\u305F\u3002",
+        "\u7121\u5236\u9650\u30E2\u30FC\u30C9\u306B\u3001\u30B5\u30FC\u30D3\u30B9\u3001\u7C21\u5358\u3001\u666E\u901A\u3001\u96E3\u3057\u3044\u3001??? \u306E\u96E3\u6613\u5EA6\u7DF4\u7FD2\u30B5\u30D6\u30E2\u30FC\u30C9\u3092\u8FFD\u52A0\u3057\u307E\u3057\u305F\u3002\u7DF4\u7FD2\u7D71\u8A08\u306F\u30ED\u30FC\u30AB\u30EB\u306E\u307F\u306B\u4FDD\u5B58\u3055\u308C\u3001\u30B0\u30ED\u30FC\u30D0\u30EB\u30E9\u30F3\u30AD\u30F3\u30B0\u306B\u306F\u53CD\u6620\u3055\u308C\u307E\u305B\u3093\u3002",
       ],
     },
     "v1.2": {
@@ -824,6 +1589,146 @@ const RELEASE_NOTES = {
         "ニコニコ風レトロUIの調整、オートコンプリート改善、Cloudflare配信音声への対応。",
       ],
     },
+  },
+};
+
+
+RELEASE_NOTES.ko = {
+  "v1.4": {
+    version: "릴리스 v1.4",
+    intro: "이번 업데이트는 무제한 모드에 난이도별 연습 필터와 새로운 로컬 업적을 추가합니다.",
+    items: [
+      "무제한 모드에 프리, 쉬움, 보통, 어려움, ??? 연습 필터를 추가했습니다. 전체는 기존 무제한 모드처럼 작동합니다.",
+      "프리 연습 기준을 글로벌 정답률 85% 이상으로 조정해 대상 곡을 늘렸습니다.",
+      "연습 모드에도 무제한 모드와 같은 중단 보호를 적용해 새로고침이나 재추첨으로 기록을 유지할 수 없게 했습니다.",
+      "곡 제안 화면에 현재 곡 풀 검색을 추가해 제출 전에 이미 등록된 곡인지 확인할 수 있습니다.",
+      "PV 영역을 오래된 임베드 비디오 모듈처럼 다듬고, [VIDEO] 헤더와 연결된 메타 정보 바를 추가했습니다.",
+      "사이드바 차트를 순위, 곡명, 제작자/통계 열로 정렬해 Hall of Myths와 Global Rankings가 오래된 차트 위젯처럼 보이도록 했습니다.",
+      "일부 브라우저 확장에서 결과 복사 버튼이 사라지는 문제를 피하고, AMARA의 일본어 아티스트 표시를 수정했습니다.",
+    ],
+  },
+  "v1.3": {
+    version: "릴리스 v1.3",
+    intro: "이번 업데이트는 곡 검색, 저장, 가까운 추측 피드백을 개선했습니다.",
+    items: [
+      "업적 검색을 추가해 이름, 설명, 카테고리로 필터링할 수 있습니다.",
+      "정답 후 곡을 이 기기에 저장하는 로컬 북마크를 추가했습니다. 검색, 썸네일, VocaDB 링크, 오디오 미리듣기를 지원합니다.",
+      "북마크 오디오 미리듣기가 음량 설정을 반영하고 재생 시간을 표시합니다.",
+      "정답 곡과 프로듀서 및 메인 보컬 신스가 모두 일치하는 추측을 강한 일치로 표시합니다.",
+      "메인 보컬 신스가 맞으면 일반 오답 대신 보컬 일치로 표시하는 부분 점수를 추가했습니다.",
+      "같은 제목의 다른 버전을 선택해도 제목이 같다는 이유만으로 이미 추측한 것으로 막히지 않게 수정했습니다.",
+      "무제한 모드에 난이도별 연습 서브모드를 추가했습니다. 연습 통계는 로컬에만 저장되고 글로벌 랭킹에는 반영되지 않습니다.",
+    ],
+  },
+  "v1.2": {
+    version: "릴리스 v1.2",
+    intro: "이번 업데이트는 곡 풀 확장, 가까운 정답 피드백, 공개 연도별 개인 통계를 추가했습니다.",
+    items: [
+      "최신 배치에서 새 플레이 가능 곡을 추가했습니다.",
+      "추측한 곡이나 입력한 아티스트가 정답 곡의 프로듀서와 일치하면 아티스트 일치로 표시합니다.",
+      "아티스트 일치는 추측 기록, 사이드바 칸, 공유 결과에서 노란색으로 표시됩니다.",
+      "정답 전 커버 박스의 물음표가 최근 상태에 따라 바뀝니다.",
+      "공개 연도별 로컬 통계를 추가해 가장 잘 맞힌 연도와 가장 많이 플레이한 연도를 표시합니다.",
+      "새 숨겨진 업적을 추가했습니다.",
+    ],
+  },
+  "v1.1": {
+    version: "릴리스 v1.1",
+    intro: "이번 업데이트는 통계, 개인 진행도, 업적, 시각적 polish, 무제한 모드 기록을 확장했습니다.",
+    items: [
+      "일반, 데일리, 무제한, 아카이브, 지식, 도전, 비밀 카테고리에 업적 시스템을 추가했습니다.",
+      "인기, 어려움, 쉬움, 낮은 평균, 높은 평균 탭이 있는 전체 글로벌 랭킹 모달을 추가했습니다.",
+      "1회 정답, 가장 희귀한 정답, 가장 희귀한 1/6, 아카이브 진행도, 업적 진행도를 포함해 개인 통계를 확장했습니다.",
+      "계정 없이 진행도를 공유할 수 있는 프로필 복사 버튼을 추가했습니다.",
+      "정답 후 내 결과와 글로벌 평균을 비교하는 알림을 추가했습니다.",
+      "로컬 통계, 아카이브 진행도, 무제한 기록을 내보내고 가져올 수 있는 백업 도구를 추가했습니다.",
+      "아카이브 캘린더에 정답 시도 횟수를 색상으로 표시합니다.",
+      "무제한 통계 탭에서 최근 100개의 무제한 퍼즐 기록을 확인할 수 있습니다.",
+      "탄막 댓글 풀과 전용 곡 댓글 세트를 확장했습니다.",
+    ],
+  },
+  "v1.0": {
+    version: "공식 릴리스 v1.0",
+    intro: "공개 사이트를 위해 준비한 주요 업데이트를 모은 릴리스입니다.",
+    items: [
+      "지난 데일리 퍼즐을 플레이할 수 있는 데일리 아카이브를 추가했습니다.",
+      "날짜를 고르지 않고 과거 데일리로 들어가는 랜덤 아카이브 퍼즐을 추가했습니다.",
+      "글로벌 곡 통계, 정답률, 평균 시도 수, 확장 랭킹을 추가했습니다.",
+      "곡 풀 크레딧, VocaDB 출처 정보, 프로젝트 면책 문구를 정리했습니다.",
+      "곡 제안, 문제 신고 폼, 향후 추가곡을 위한 커뮤니티 추천 태그를 추가했습니다.",
+      "영어/일본어/한국어 인터페이스와 곡 제목 표시 옵션을 지원합니다.",
+      "레트로 NicoNico풍 레이아웃, 자동완성 개선, Cloudflare 호스팅 오디오를 지원합니다.",
+    ],
+  },
+};
+
+RELEASE_NOTES.es = {
+  "v1.4": {
+    version: "Versión v1.4",
+    intro: "Esta actualización añade filtros de práctica por dificultad al modo ilimitado y nuevos logros locales.",
+    items: [
+      "El modo ilimitado ahora tiene filtros de práctica: Libre, Fácil, Medio, Difícil y ???. Todo funciona como el ilimitado normal.",
+      "El umbral de práctica Libre se ajustó a 85% o más de acierto global para incluir más canciones.",
+      "La protección contra reiniciar o cambiar de canción para conservar rachas también se aplica a los modos de práctica.",
+      "La página de sugerir canción ahora permite comprobar si una canción ya está en el juego antes de enviarla.",
+      "El área PV ahora se siente más como un reproductor de vídeo incrustado retro, con cabecera [VIDEO] y una barra de metadatos conectada.",
+      "Las listas laterales Hall of Myths y Global Rankings ahora se alinean como filas compactas de rango, título y productor/estadística.",
+      "Se corrigieron casos donde el botón de copiar resultado desaparecía con algunas extensiones del navegador y se ajustó la visualización japonesa de AMARA.",
+      "Se añadió traducción de interfaz en español.",
+    ],
+  },
+  "v1.3": {
+    version: "Versión v1.3",
+    intro: "Esta actualización mejora cómo buscas, guardas y reconoces respuestas cercanas sin cambiar el flujo principal del juego.",
+    items: [
+      "Se añadió búsqueda de logros por nombre, descripción o categoría.",
+      "Se añadieron marcadores locales para guardar canciones reveladas en este dispositivo, con búsqueda, miniaturas, enlaces a VocaDB y vista previa de audio.",
+      "Las vistas previas de audio de marcadores respetan el volumen configurado y muestran el tiempo de reproducción.",
+      "Si una miniatura guardada cae en un placeholder de baja calidad, el juego intenta otras opciones de portada.",
+      "Las respuestas con el productor y la voz principal correctos aparecen como coincidencia fuerte.",
+      "Se añadió coincidencia de voz cuando la canción elegida comparte la voz principal con la respuesta.",
+      "Las coincidencias fuerte, de artista y de voz se muestran con colores distintos en historial, resumen y resultados compartidos.",
+      "Las versiones distintas con el mismo título ya no quedan bloqueadas solo por compartir nombre.",
+    ],
+  },
+  "v1.2": {
+    version: "Versión v1.2",
+    intro: "Esta actualización amplía el pool de canciones y añade más feedback para respuestas parciales.",
+    items: [
+      "Se añadieron nuevas canciones jugables al pool.",
+      "Las coincidencias de artista ahora dan crédito parcial cuando el productor coincide con la canción correcta.",
+      "Las coincidencias de artista se muestran en amarillo en el historial, los cuadros de intento y el resultado compartido.",
+      "El signo de interrogación de la portada cambia de color según el último estado: blanco, rojo, amarillo o gris.",
+      "Se añadieron estadísticas locales por año de publicación, incluyendo mejor año y año más jugado.",
+      "Se añadieron nuevos logros secretos.",
+    ],
+  },
+  "v1.1": {
+    version: "Versión v1.1",
+    intro: "Esta actualización amplía estadísticas, progreso personal, logros y herramientas de respaldo.",
+    items: [
+      "Se añadió un sistema local de logros con categorías generales, diarias, ilimitadas, archivo, conocimiento, reto y secreto.",
+      "Se añadió un modal completo de clasificaciones globales con pestañas de popularidad, dificultad y media de intentos.",
+      "Se ampliaron las estadísticas personales con aciertos al primer intento, aciertos raros, progreso del archivo y progreso de logros.",
+      "Se añadió un perfil copiable sin cuentas, usando solo datos locales.",
+      "Tras resolver un puzle, el juego compara tu resultado con la media global.",
+      "Se añadieron exportación e importación de estadísticas locales.",
+      "El calendario del archivo muestra más información de progreso y resultados.",
+      "El modo ilimitado guarda historial reciente para consultar desde estadísticas.",
+    ],
+  },
+  "v1.0": {
+    version: "Lanzamiento oficial v1.0",
+    intro: "El primer lanzamiento público reúne el juego diario, el archivo y las funciones comunitarias básicas.",
+    items: [
+      "Archivo diario con puzles anteriores jugables y resumen mensual.",
+      "Puzle aleatorio del archivo para jugar diarios antiguos sin elegir una fecha.",
+      "Estadísticas globales de canciones, tasas de acierto e intentos medios.",
+      "Créditos del pool de canciones e información de VocaDB.",
+      "Formularios para sugerir canciones y reportar problemas.",
+      "Soporte de interfaz en inglés, japonés, coreano y español.",
+      "Diseño retro inspirado en NicoNico, autocompletado mejorado y audio alojado en Cloudflare.",
+    ],
   },
 };
 
@@ -1351,6 +2256,19 @@ const ACHIEVEMENTS = [
     },
   },
   {
+    id: "secret_daily_no_preview",
+    category: "secret",
+    hidden: true,
+    title: {
+      en: "Cheater?",
+      jp: "ãƒãƒ¼ã‚¿ãƒ¼ï¼Ÿ",
+    },
+    description: {
+      en: "Solve the daily puzzle without playing the audio preview.",
+      jp: "éŸ³å£°ãƒ—ãƒ¬ãƒ“ãƒ¥ãƒ¼ã‚’å†ç”Ÿã›ãšã«ãƒ‡ã‚¤ãƒªãƒ¼ãƒ‘ã‚ºãƒ«ã‚’æ­£è§£ã™ã‚‹ã€‚",
+    },
+  },
+  {
     id: "secret_senbonzakura",
     category: "secret",
     hidden: true,
@@ -1389,7 +2307,160 @@ const ACHIEVEMENTS = [
       jp: "グローバルランキングで難関上位50曲に入っている曲に正解する。",
     },
   },
+  {
+    id: "practice_first_clear",
+    category: "unlimited",
+    hidden: false,
+    title: {
+      en: "Practice Room",
+      jp: "\u7DF4\u7FD2\u958B\u59CB",
+    },
+    description: {
+      en: "Solve any Unlimited practice puzzle.",
+      jp: "\u7121\u5236\u9650\u306E\u7DF4\u7FD2\u30D1\u30BA\u30EB\u30921\u554F\u6B63\u89E3\u3059\u308B\u3002",
+    },
+  },
+  {
+    id: "practice_all_tiers",
+    category: "challenge",
+    hidden: false,
+    title: {
+      en: "Across the Board",
+      jp: "\u5168\u96E3\u6613\u5EA6\u5236\u8987",
+    },
+    description: {
+      en: "Solve at least one practice puzzle in every difficulty tier.",
+      jp: "\u3059\u3079\u3066\u306E\u96E3\u6613\u5EA6\u306E\u7DF4\u7FD2\u30D1\u30BA\u30EB\u30921\u554F\u4EE5\u4E0A\u6B63\u89E3\u3059\u308B\u3002",
+    },
+  },
+  {
+    id: "secret_unknown_first_try_10",
+    category: "secret",
+    hidden: true,
+    title: {
+      en: "Beyond the Unknown",
+      jp: "\u672A\u77E5\u306E\u5965\u3078",
+    },
+    description: {
+      en: "Solve 10 ??? practice puzzles in a row on the first try.",
+      jp: "??? \u7DF4\u7FD2\u309210\u9023\u7D9A\u30671\u56DE\u6B63\u89E3\u3059\u308B\u3002",
+    },
+  },
 ];
+
+const ACHIEVEMENT_KO = {
+  first_solve: ["첫 클리어", "어떤 퍼즐이든 하나 해결하기."],
+  first_try: ["즉시 인식", "첫 번째 시도에 퍼즐 해결하기."],
+  daily_streak_5: ["꾸준한 리스너", "데일리 5일 연속 정답 기록 만들기."],
+  daily_streak_10: ["데일리 약속", "데일리 10일 연속 정답 기록 만들기."],
+  unlimited_10_wins: ["반복 재생", "무제한 퍼즐 10회 승리."],
+  unlimited_50_wins: ["똑똑한 팬", "무제한 퍼즐 50회 승리."],
+  archive_first: ["아카이브 개봉", "아카이브 퍼즐 플레이하기."],
+  archive_10_solved: ["아카이브 탐색", "아카이브 퍼즐 10개 해결하기."],
+  archive_month_complete: ["한 달 완료", "한 달의 이용 가능한 모든 퍼즐 열기."],
+  rare_solve: ["딥 컷", "글로벌 정답률 20% 미만의 곡 해결하기."],
+  rare_first_try: ["진짜 팬", "희귀한 곡을 첫 번째 시도에 해결하기."],
+  no_skip_win: ["첫 귀에 알았다", "스킵 없이 퍼즐 해결하기."],
+  clutch_solve: ["아슬아슬", "여섯 번째 시도에 퍼즐 해결하기."],
+  full_reveal: ["그거 아는 곡이었는데", "모든 시도를 사용한 뒤 퍼즐 정답 공개하기."],
+  daily_played_30: ["습관", "데일리 퍼즐 30회 플레이."],
+  daily_streak_30: ["헌신", "데일리 30일 연속 정답 기록 만들기."],
+  daily_win_rate_90: ["날카로운 귀", "데일리 퍼즐 승률 90% 달성(최소 10회 플레이)."],
+  unlimited_100_wins: ["아는 것이 힘", "무제한 퍼즐 100회 승리."],
+  unlimited_first_try_streak_3: ["뜨거운 연속 기록", "무제한 퍼즐 3개를 연속으로 첫 번째 시도에 해결하기."],
+  archive_25_solved: ["금고 깊숙이", "아카이브 퍼즐 25개 해결하기."],
+  archive_2_months_complete: ["완주자", "서로 다른 2개월의 모든 퍼즐 완료하기."],
+  knowledge_very_rare_solve: ["마이너 취향", "글로벌 정답률 10% 미만의 곡 해결하기."],
+  knowledge_100_unique: ["방대한 라이브러리", "모든 모드에서 서로 다른 곡 100개 해결하기."],
+  challenge_no_wrong: ["무실점", "오답 없이 퍼즐 해결하기."],
+  challenge_perfect_daily_week: ["완벽한 일주일", "데일리 퍼즐 7개를 연속으로 첫 번째 시도에 해결하기."],
+  challenge_second_try: ["거의 즉답", "두 번째 시도에 퍼즐 해결하기."],
+  secret_play_midnight: ["올빼미형", "자정부터 새벽 4시 사이에 퍼즐 플레이하기."],
+  secret_share_result: ["친구에게 알리기", "결과 공유하기."],
+  daily_played_all_month: ["개근", "한 달 동안 매일 퍼즐 플레이하기."],
+  daily_bounce_back: ["다시 시작", "연속 기록을 잃은 다음 날 플레이하기."],
+  unlimited_200_wins: ["현생 없음", "무제한 퍼즐 200회 승리."],
+  unlimited_500_wins: ["이것만 하고 있음", "무제한 퍼즐 500회 승리."],
+  unlimited_quick_win: ["스피드런", "전체 클립을 끝까지 듣지 않고 무제한 퍼즐 승리하기."],
+  archive_50_solved: ["먼 과거까지", "아카이브 퍼즐 50개 해결하기."],
+  knowledge_same_song_twice: ["이미 알고 있던 곡", "같은 곡을 서로 다른 모드에서 두 번 해결하기."],
+  knowledge_rare_5_solves: ["꾸준히 마이너", "글로벌 정답률 20% 미만의 서로 다른 곡 5개 해결하기."],
+  challenge_clutch_3: ["항상 끝까지", "여섯 번째 시도에 퍼즐 3개 해결하기."],
+  secret_open_achievements: ["업적 사냥꾼", "업적 페이지 열기."],
+  secret_switch_language: ["바이링구얼", "인터페이스 언어 바꾸기."],
+  secret_weekend_play: ["오늘 약속 없음", "주말에 퍼즐 플레이하기."],
+  secret_senbonzakura: ["천본앵", "탄막 댓글을 최대로 설정하고 천본앵 맞히기."],
+  secret_mikumiku_jp: ["미쿠미쿠하게 해줄게♪", "인터페이스 언어를 일본어로 설정한 상태에서 미쿠미쿠하게 해줄게♪ 맞히기."],
+  secret_top_50_hardest: ["딥 컷 인증", "현재 글로벌 어려운 곡 상위 50위 안의 곡 해결하기."],
+  practice_first_clear: ["연습실", "무제한 연습 퍼즐 하나 해결하기."],
+  practice_all_tiers: ["전 구간 제패", "모든 난이도 티어에서 연습 퍼즐을 하나 이상 해결하기."],
+  secret_unknown_first_try_10: ["미지의 너머", "??? 연습 퍼즐 10개를 연속으로 첫 번째 시도에 해결하기."],
+};
+
+const ACHIEVEMENT_ES = {
+  first_solve: ["Primer clear", "Resuelve cualquier puzle."],
+  first_try: ["Reconocimiento instantáneo", "Resuelve un puzle al primer intento."],
+  daily_streak_5: ["Oyente constante", "Consigue una racha diaria de 5 victorias."],
+  daily_streak_10: ["Compromiso diario", "Consigue una racha diaria de 10 victorias."],
+  unlimited_10_wins: ["En repetición", "Gana 10 puzles ilimitados."],
+  unlimited_50_wins: ["Fan con memoria", "Gana 50 puzles ilimitados."],
+  archive_first: ["Archivo abierto", "Juega un puzle de archivo."],
+  archive_10_solved: ["Revisando el archivo", "Resuelve 10 puzles de archivo."],
+  archive_month_complete: ["Mes completo", "Abre todos los puzles disponibles de un mes."],
+  rare_solve: ["Corte profundo", "Resuelve una canción con menos de 20% de acierto global."],
+  rare_first_try: ["Fan de verdad", "Resuelve una canción rara al primer intento."],
+  no_skip_win: ["Sin saltos", "Resuelve un puzle sin usar Saltar."],
+  clutch_solve: ["Por los pelos", "Resuelve un puzle en el sexto intento."],
+  full_reveal: ["Yo sí la conocía", "Revela un puzle después de usar todos los intentos."],
+  daily_played_30: ["Hábito", "Juega 30 puzles diarios."],
+  daily_streak_30: ["Constancia", "Consigue una racha diaria de 30 victorias."],
+  daily_win_rate_90: ["Oído fino", "Alcanza 90% de victorias en diarios (mínimo 10 jugados)."],
+  unlimited_100_wins: ["El saber es poder", "Gana 100 puzles ilimitados."],
+  unlimited_first_try_streak_3: ["Racha encendida", "Resuelve 3 puzles ilimitados seguidos al primer intento."],
+  archive_25_solved: ["Dentro de la bóveda", "Resuelve 25 puzles de archivo."],
+  archive_2_months_complete: ["Completista", "Completa todos los puzles de 2 meses distintos."],
+  knowledge_very_rare_solve: ["Gusto oscuro", "Resuelve una canción con menos de 10% de acierto global."],
+  knowledge_100_unique: ["Biblioteca extensa", "Resuelve 100 canciones distintas entre todos los modos."],
+  challenge_no_wrong: ["Hoja limpia", "Resuelve un puzle sin intentos incorrectos."],
+  challenge_perfect_daily_week: ["Semana perfecta", "Resuelve 7 diarios seguidos al primer intento."],
+  challenge_second_try: ["Casi instantáneo", "Resuelve un puzle en el segundo intento."],
+  secret_play_midnight: ["Ave nocturna", "Juega un puzle entre medianoche y las 4 a. m."],
+  secret_share_result: ["Cuéntaselo a tus amigos", "Comparte tu resultado."],
+  daily_played_all_month: ["Asistencia perfecta", "Juega todos los días durante un mes calendario completo."],
+  daily_bounce_back: ["De vuelta", "Juega al día siguiente de perder una racha."],
+  unlimited_200_wins: ["Sin vida", "Gana 200 puzles ilimitados."],
+  unlimited_500_wins: ["Esto es todo lo que hago", "Gana 500 puzles ilimitados."],
+  unlimited_quick_win: ["Speedrun", "Gana un puzle ilimitado sin dejar que suene el clip completo."],
+  archive_50_solved: ["Hasta el fondo", "Resuelve 50 puzles de archivo."],
+  knowledge_same_song_twice: ["Ya me la sabía", "Resuelve la misma canción en dos modos distintos."],
+  knowledge_rare_5_solves: ["Siempre de nicho", "Resuelve 5 canciones distintas con menos de 20% de acierto global."],
+  challenge_clutch_3: ["Siempre al límite", "Resuelve 3 puzles en el sexto intento."],
+  secret_open_achievements: ["Cazalogros", "Abre la página de logros."],
+  secret_switch_language: ["Bilingüe", "Cambia el idioma de la interfaz."],
+  secret_weekend_play: ["Sin planes hoy", "Juega un puzle durante el fin de semana."],
+  secret_senbonzakura: ["Senbonzakura", "Acierta Senbonzakura con los comentarios danmaku al máximo."],
+  secret_mikumiku_jp: ["Miku Miku ni Shite Ageru♪", "Acierta Miku Miku ni Shite Ageru♪ con la interfaz en japonés."],
+  secret_top_50_hardest: ["Deep cut certificado", "Resuelve una canción que esté entre las 50 más difíciles globales."],
+  practice_first_clear: ["Sala de práctica", "Resuelve cualquier puzle de práctica ilimitada."],
+  practice_all_tiers: ["De lado a lado", "Resuelve al menos un puzle de práctica en cada dificultad."],
+  secret_unknown_first_try_10: ["Más allá de lo desconocido", "Resuelve 10 puzles de práctica ??? seguidos al primer intento."],
+};
+
+ACHIEVEMENT_KO.secret_daily_no_preview = ["Cheater?", "Solve the daily puzzle without playing the audio preview."];
+ACHIEVEMENT_ES.secret_daily_no_preview = ["¿Trampa?", "Resuelve el puzle diario sin reproducir la vista previa de audio."];
+
+ACHIEVEMENTS.forEach((achievement) => {
+  const ko = ACHIEVEMENT_KO[achievement.id];
+  if (ko) {
+    achievement.title.ko = ko[0];
+    achievement.description.ko = ko[1];
+  }
+  const es = ACHIEVEMENT_ES[achievement.id];
+  if (es) {
+    achievement.title.es = es[0];
+    achievement.description.es = es[1];
+  }
+});
 
 const achievementById = new Map(ACHIEVEMENTS.map((achievement) => [achievement.id, achievement]));
 const achievementToastQueue = [];
@@ -1399,10 +2470,59 @@ function getLang() {
   return localStorage.getItem("vh-lang") || "en";
 }
 
+function getDateLocale() {
+  const lang = getLang();
+  if (lang === "jp") return "ja-JP";
+  if (lang === "ko") return "ko-KR";
+  if (lang === "es") return "es-ES";
+  return "en-US";
+}
+
 function t(key, ...args) {
   const lang = getLang();
   const val = STRINGS[lang]?.[key] ?? STRINGS.en[key];
   return typeof val === "function" ? val(...args) : val;
+}
+
+function getDifficultyLabel(key = "all") {
+  const map = {
+    all: "difficultyAll",
+    free: "difficultyFreeShort",
+    easy: "difficultyEasyShort",
+    medium: "difficultyMediumShort",
+    hard: "difficultyHardShort",
+    unknown: "difficultyUnknownShort",
+  };
+  return t(map[key] || "difficultyAll");
+}
+
+function getDifficultyPracticeLabel(key = "all") {
+  const label = getDifficultyLabel(key);
+  return getLang() === "jp" ? label : label.toLowerCase();
+}
+
+function isUnlimitedPracticeMode() {
+  return state.mode === "unlimited" && state.unlimitedDifficulty !== "all";
+}
+
+function rememberCurrentMode() {
+  try {
+    sessionStorage.setItem(sessionModeKey, state.mode || "daily");
+    sessionStorage.setItem(sessionDifficultyKey, state.unlimitedDifficulty || "all");
+  } catch {
+    // Session storage is only a convenience for same-tab refresh behavior.
+  }
+}
+
+function getRememberedSessionMode() {
+  try {
+    return {
+      mode: sessionStorage.getItem(sessionModeKey) || "",
+      difficulty: sessionStorage.getItem(sessionDifficultyKey) || "all",
+    };
+  } catch {
+    return { mode: "", difficulty: "all" };
+  }
 }
 
 function renderReleaseNotes() {
@@ -1427,9 +2547,18 @@ function hasJapanese(str) {
   return /[\u3040-\u30ff\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff\uff66-\uff9f]/.test(str);
 }
 
+function hasKorean(str) {
+  return /[\uac00-\ud7af]/.test(str);
+}
+
 function getJpTitle(song) {
   const jpTitle = (song.acceptedTitles || []).find(hasJapanese);
   return jpTitle || song.title;
+}
+
+function getKrTitle(song) {
+  const krTitle = (song.acceptedTitles || []).find(hasKorean);
+  return krTitle || song.title;
 }
 
 // Truncate long titles with ellipsis to keep layouts from breaking.
@@ -1443,9 +2572,10 @@ function truncateTitle(title, max = 40) {
 function getDisplayTitle(song) {
   const titleMode = localStorage.getItem("vh-title-mode") || "en";
   if (titleMode === "jp") return getJpTitle(song);
+  if (titleMode === "kr") return getKrTitle(song);
   if (titleMode === "romaji") {
     const titles = song.acceptedTitles || [];
-    const romaji = titles.find(t => !hasJapanese(t) && t !== song.title && /^[a-zA-Z]/.test(t));
+    const romaji = titles.find(t => !hasJapanese(t) && !hasKorean(t) && t !== song.title && /^[a-zA-Z]/.test(t));
     return romaji || song.title;
   }
   if (titleMode === "en") {
@@ -1454,6 +2584,7 @@ function getDisplayTitle(song) {
   }
   // fallback: if no explicit mode, follow language
   if (getLang() === "jp") return getJpTitle(song);
+  if (getLang() === "ko") return getKrTitle(song);
   return song.title;
 }
 
@@ -1483,7 +2614,7 @@ function refreshTitleSurfaces() {
 
 function applyLanguage() {
   const lang = getLang();
-  document.documentElement.lang = lang === "jp" ? "ja" : "en";
+  document.documentElement.lang = lang === "jp" ? "ja" : lang === "ko" ? "ko" : lang === "es" ? "es" : "en";
 
   // flag buttons
   document.querySelectorAll(".lang-btn").forEach(btn => {
@@ -1501,8 +2632,26 @@ function applyLanguage() {
   set("#skip-button", "skip");
   set("#give-up-button", "giveUp");
   set("#next-button", "nextSong");
-  set("#share-button-text", "copyResult");
-  set(".guess-history h3", "pastGuesses");
+  set("#copy-result-button-text", "copyResult");
+  const videoBracketLabel = document.querySelector("#video-bracket-label");
+  if (videoBracketLabel) videoBracketLabel.textContent = t("videoBracket");
+  const videoTitleLabel = document.querySelector("#video-title-label");
+  if (videoTitleLabel) videoTitleLabel.textContent = t("videoOpeningClip");
+  const videoMetaLabels = document.querySelectorAll(".nnd-meta-row .nnd-meta-label");
+  if (videoMetaLabels[0]) videoMetaLabels[0].textContent = t("metaViewsBracket");
+  if (videoMetaLabels[1]) videoMetaLabels[1].textContent = t("metaCategoryBracket");
+  if (videoMetaLabels[2]) videoMetaLabels[2].textContent = t("metaSourceBracket");
+  const mylistItem = document.querySelector(".nnd-meta-row .nnd-meta-item:nth-child(3)");
+  if (mylistItem && !mylistItem.querySelector(".nnd-meta-label")) {
+    const mylistLabel = document.createElement("span");
+    mylistLabel.className = "nnd-meta-label";
+    mylistLabel.id = "meta-mylist-label";
+    mylistItem.prepend(mylistLabel, " ");
+  }
+  const mylistLabel = document.querySelector("#meta-mylist-label");
+  if (mylistLabel) mylistLabel.textContent = t("metaMylistBracket");
+  const historyTitle = document.querySelector(".guess-history h3");
+  if (historyTitle) historyTitle.textContent = `${t("logBracket")} ${t("pastGuesses")}`;
   set(".nnd-marquee-inner", "marquee");
   set(".intro-copy", "introCopy");
   const clipNote = document.querySelector(".clip-note");
@@ -1544,6 +2693,20 @@ function applyLanguage() {
   if (daily) daily.childNodes[0].textContent = t("daily") + " ";
   if (unlimited) unlimited.textContent = t("unlimited");
   if (archive) archive.textContent = t("archive");
+  difficultyModeButtons.forEach((button) => {
+    const key = button.dataset.unlimitedDifficulty || "all";
+    const countEl = button.querySelector("[data-difficulty-count]");
+    button.childNodes[0].textContent = getDifficultyLabel(key) + " ";
+    if (countEl) button.appendChild(countEl);
+  });
+  statsDifficultyButtons.forEach((button) => {
+    button.textContent = getDifficultyLabel(button.dataset.statsDifficulty || "all");
+  });
+  if (difficultyPracticeNote) {
+    difficultyPracticeNote.textContent = state.unlimitedDifficulty === "all"
+      ? t("difficultyAllNote")
+      : t("difficultyPracticeNote");
+  }
 
   // input placeholder
   if (guessInput) guessInput.placeholder = t("placeholder");
@@ -1558,9 +2721,11 @@ function applyLanguage() {
   set("#how-to-play-title", "modalHowToPlayTitle");
   set("#about-title", "modalAboutTitle");
   set("#support-title", "modalSupportTitle");
-  set("#release-notes-title", "modalReleaseTitle");
+  const releaseTitle = document.querySelector("#release-notes-title");
+  if (releaseTitle) releaseTitle.textContent = `${t("modalUpdatePrefix")} ${t("modalReleaseTitle")}`;
   renderReleaseNotes();
-  set("#song-pool-title", "modalSongPoolTitle");
+  const songPoolTitle = document.querySelector("#song-pool-title");
+  if (songPoolTitle) songPoolTitle.textContent = `${t("modalSourcePrefix")} ${t("modalSongPoolTitle")}`;
   set("#suggest-song-title", "modalSuggestTitle");
   set("#report-issue-title", "modalReportTitle");
   set("#stats-title", "modalStatsTitle");
@@ -1568,7 +2733,8 @@ function applyLanguage() {
   set("#achievement-search-label", "achievementSearchLabel");
   const achievementSearchInputEl = document.querySelector("#achievement-search-input");
   if (achievementSearchInputEl) achievementSearchInputEl.placeholder = t("achievementSearchPlaceholder");
-  set("#bookmarks-title", "modalBookmarksTitle");
+  const bookmarksTitle = document.querySelector("#bookmarks-title");
+  if (bookmarksTitle) bookmarksTitle.textContent = `${t("modalMylistPrefix")} ${t("modalBookmarksTitle")}`;
   set("#bookmarks-intro", "bookmarksIntro");
   const bookmarksSearchInputEl = document.querySelector("#bookmarks-search-input");
   if (bookmarksSearchInputEl) bookmarksSearchInputEl.placeholder = t("bookmarksSearchPlaceholder");
@@ -1620,6 +2786,11 @@ function applyLanguage() {
   if (songPoolFinePrint) songPoolFinePrint.textContent = t("modalSongPoolDisclaimer");
   const suggestIntro = document.querySelector("#suggest-song > p");
   if (suggestIntro) suggestIntro.textContent = t("modalSuggestIntro");
+  set("#suggest-check-title", "modalSuggestCheckTitle");
+  set("#suggest-check-intro", "modalSuggestCheckIntro");
+  set("#suggest-check-label", "modalSuggestCheckLabel");
+  if (suggestCheckInput) suggestCheckInput.placeholder = t("modalSuggestCheckPlaceholder");
+  renderSuggestCheckResults();
   // suggest-song form labels
   const sLabelTitle = document.querySelector("#suggest-label-title");
   if (sLabelTitle) { sLabelTitle.firstChild.textContent = t("modalSuggestLabelTitle") + " "; }
@@ -1758,9 +2929,7 @@ function applyLanguage() {
   const dateEl = document.querySelector("#nnd-date");
   if (dateEl) {
     const d = new Date();
-    dateEl.textContent = lang === "jp"
-      ? new Intl.DateTimeFormat("ja-JP", { year: "numeric", month: "long", day: "numeric" }).format(d)
-      : d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+    dateEl.textContent = new Intl.DateTimeFormat(getDateLocale(), { year: "numeric", month: "long", day: "numeric" }).format(d);
   }
 
   // [INFO] marquee label
@@ -1768,10 +2937,11 @@ function applyLanguage() {
   if (marqueeLabel) marqueeLabel.textContent = t("infoLabel");
 
   // meta row labels
-  const metaLabels = document.querySelectorAll(".nnd-meta-label");
-  if (metaLabels[0]) metaLabels[0].textContent = t("metaViews");
-  if (metaLabels[1]) metaLabels[1].textContent = t("metaCategory");
-  if (metaLabels[2]) metaLabels[2].textContent = t("metaSource");
+  const currentMetaLabels = document.querySelectorAll(".nnd-meta-row .nnd-meta-label");
+  if (currentMetaLabels[0]) currentMetaLabels[0].textContent = t("metaViewsBracket");
+  if (currentMetaLabels[1]) currentMetaLabels[1].textContent = t("metaCategoryBracket");
+  if (currentMetaLabels[2]) currentMetaLabels[2].textContent = t("metaMylistBracket");
+  if (currentMetaLabels[3]) currentMetaLabels[3].textContent = t("metaSourceBracket");
 
   // top-right nav
   document.querySelectorAll(".nnd-header-links a").forEach(a => {
@@ -1882,10 +3052,13 @@ const state = {
   guesses: [],
   puzzle: null,
   isComplete: false,
+  hasPlayedPreview: false,
   lastResult: null,
   lastUnlimitedTitle: "",
   unlimitedQueue: [],
+  unlimitedDifficulty: "all",
   statsMode: "daily",
+  statsDifficulty: "all",
   achievementCategory: "all",
   achievementSearch: "",
   bookmarksSearch: "",
@@ -1897,6 +3070,7 @@ const gamePanel = document.querySelector("#game-panel");
 const puzzleDate = document.querySelector("#puzzle-date");
 const attemptCount = document.querySelector("#attempt-count");
 const clipLength = document.querySelector("#clip-length");
+const videoHeaderLength = document.querySelector("#video-header-length");
 const playButton = document.querySelector("#play-button");
 const skipButton = document.querySelector("#skip-button");
 const guessForm = document.querySelector("#guess-form");
@@ -1908,10 +3082,15 @@ const modeEyebrow = document.querySelector("#mode-eyebrow");
 const dailyModeButton = document.querySelector("#daily-mode-button");
 const unlimitedModeButton = document.querySelector("#unlimited-mode-button");
 const archiveModeButton = document.querySelector("#archive-mode-button");
+const difficultyModePanel = document.querySelector("#difficulty-mode-panel");
+const difficultyPracticeNote = document.querySelector("#difficulty-practice-note");
+const difficultyModeButtons = [...document.querySelectorAll("[data-unlimited-difficulty]")];
+const statsDifficultySwitch = document.querySelector("#stats-difficulty-switch");
+const statsDifficultyButtons = [...document.querySelectorAll("[data-stats-difficulty]")];
 const nextButton = document.querySelector("#next-button");
-const shareButton = document.querySelector("#share-button");
+const shareButton = document.querySelector("#copy-result-button");
 const bookmarkButton = document.querySelector("#bookmark-button");
-const shareOutput = document.querySelector("#share-output");
+const shareOutput = document.querySelector("#copy-result-output");
 const coverImage = document.querySelector("#cover-image");
 const coverFallback = document.querySelector("#cover-fallback");
 const coverPlaceholderMark = document.querySelector("#cover-placeholder-mark");
@@ -1956,6 +3135,8 @@ const archiveRandomButton = document.querySelector("#archive-random-button");
 const archivePrevMonth = document.querySelector("#archive-prev-month");
 const archiveNextMonth = document.querySelector("#archive-next-month");
 const suggestSongForm = document.querySelector("#suggest-song-form");
+const suggestCheckInput = document.querySelector("#suggest-check-input");
+const suggestCheckResults = document.querySelector("#suggest-check-results");
 const reportIssueForm = document.querySelector("#report-issue-form");
 const reportContext = document.querySelector("#report-context");
 let activeModal = null;
@@ -2055,6 +3236,30 @@ function loadUnlimitedStats() {
 
 function saveUnlimitedStats(stats) {
   localStorage.setItem(unlimitedStatsKey, JSON.stringify(stats));
+}
+
+function loadUnlimitedDifficultyStatsMap() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(unlimitedDifficultyStatsKey)) || {};
+    return isPlainObject(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveUnlimitedDifficultyStatsMap(map) {
+  localStorage.setItem(unlimitedDifficultyStatsKey, JSON.stringify(map));
+}
+
+function loadUnlimitedDifficultyStats(difficulty = state.statsDifficulty || state.unlimitedDifficulty) {
+  const map = loadUnlimitedDifficultyStatsMap();
+  return normalizeStats(map[difficulty] || {}, { keepResults: false });
+}
+
+function saveUnlimitedDifficultyStats(difficulty, stats) {
+  const map = loadUnlimitedDifficultyStatsMap();
+  map[difficulty] = normalizeStats(stats, { keepResults: false });
+  saveUnlimitedDifficultyStatsMap(map);
 }
 
 function loadArchiveResults() {
@@ -2205,8 +3410,7 @@ function unlockAchievement(id, unlockedAt = new Date().toISOString()) {
 function formatAchievementDate(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return "";
-  const lang = getLang();
-  return new Intl.DateTimeFormat(lang === "jp" ? "ja-JP" : "en-US", {
+  return new Intl.DateTimeFormat(getDateLocale(), {
     year: "numeric",
     month: "short",
     day: "numeric",
@@ -2523,6 +3727,53 @@ function getUnlimitedFirstTryStreak() {
   return Number(achievements.unlimitedFirstTryStreak) || 0;
 }
 
+const practiceAchievementDifficulties = ["free", "easy", "medium", "hard", "unknown"];
+
+function resetUnknownPracticeFirstTryStreak() {
+  const achievements = loadAchievements();
+  if ((Number(achievements.unknownPracticeFirstTryStreak) || 0) === 0) return;
+  achievements.unknownPracticeFirstTryStreak = 0;
+  saveAchievements(achievements);
+}
+
+function trackPracticeAchievements(result, won, attempts) {
+  const difficulty = result?.difficulty || "all";
+  if (!practiceAchievementDifficulties.includes(difficulty)) return;
+
+  const achievements = loadAchievements();
+  let shouldUnlockFirstClear = false;
+  let shouldUnlockAllTiers = false;
+  let shouldUnlockUnknownStreak = false;
+
+  if (won) {
+    shouldUnlockFirstClear = true;
+    const solved = Array.isArray(achievements.practiceSolvedDifficulties)
+      ? achievements.practiceSolvedDifficulties.map(String)
+      : [];
+    if (!solved.includes(difficulty)) {
+      solved.push(difficulty);
+      achievements.practiceSolvedDifficulties = solved;
+    }
+    if (practiceAchievementDifficulties.every((key) => solved.includes(key))) {
+      shouldUnlockAllTiers = true;
+    }
+  }
+
+  if (difficulty === "unknown") {
+    achievements.unknownPracticeFirstTryStreak = won && attempts === 1
+      ? (Number(achievements.unknownPracticeFirstTryStreak) || 0) + 1
+      : 0;
+    if (achievements.unknownPracticeFirstTryStreak >= 10) {
+      shouldUnlockUnknownStreak = true;
+    }
+  }
+
+  saveAchievements(achievements);
+  if (shouldUnlockFirstClear) unlockAchievement("practice_first_clear");
+  if (shouldUnlockAllTiers) unlockAchievement("practice_all_tiers");
+  if (shouldUnlockUnknownStreak) unlockAchievement("secret_unknown_first_try_10");
+}
+
 function countCompletedArchiveMonths() {
   const archiveSongs = getArchiveSongs();
   const archiveResults = loadArchiveResults();
@@ -2654,6 +3905,10 @@ function checkLocalAchievements(result, context = {}) {
   }
 
   if (mode === "daily") {
+    if (won && result.playedPreview === false) {
+      unlockAchievement("secret_daily_no_preview");
+    }
+
     const stats = loadStats();
     if (stats.currentStreak >= 5) unlockAchievement("daily_streak_5");
     if (stats.currentStreak >= 10) unlockAchievement("daily_streak_10");
@@ -2691,6 +3946,10 @@ function checkLocalAchievements(result, context = {}) {
     }
   }
 
+  if (mode === "unlimited-practice") {
+    trackPracticeAchievements(result, won, attempts);
+  }
+
   if (mode === "archive") {
     unlockAchievement("archive_first");
     const archive = getArchiveStatsSummary();
@@ -2724,14 +3983,16 @@ function checkGlobalAchievements(globalRate, context = {}) {
 function buildStatsBackup() {
   return {
     app: "vocaloid-heardle",
-    version: 2,
+    version: 3,
     exportedAt: new Date().toISOString(),
     stats: normalizeStats(loadStats()),
     unlimitedStats: normalizeStats(loadUnlimitedStats(), { keepResults: false }),
+    unlimitedDifficultyStats: loadUnlimitedDifficultyStatsMap(),
     archiveResults: loadArchiveResults(),
     achievements: loadAchievements(),
     bookmarks: loadBookmarks(),
     unlimitedHistory: loadUnlimitedHistory(),
+    unlimitedDifficultyHistory: loadUnlimitedDifficultyHistoryMap(),
   };
 }
 
@@ -2760,15 +4021,18 @@ function parseStatsBackup(text) {
   return {
     stats: normalizeStats(dailySource),
     unlimitedStats: normalizeStats(unlimitedSource, { keepResults: false }),
+    unlimitedDifficultyStats: isPlainObject(backup.unlimitedDifficultyStats) ? backup.unlimitedDifficultyStats : {},
     archiveResults: sanitizeArchiveResults(archiveSource),
     achievements: normalizeAchievements(achievementsSource),
     bookmarks: normalizeBookmarks(backup.bookmarks || []),
     unlimitedHistory: Array.isArray(backup.unlimitedHistory) ? backup.unlimitedHistory.slice(0, unlimitedHistoryLimit) : [],
+    unlimitedDifficultyHistory: isPlainObject(backup.unlimitedDifficultyHistory) ? backup.unlimitedDifficultyHistory : {},
   };
 }
 
 function refreshAfterStatsImport() {
   renderStats();
+  renderDifficultyModeControls();
   renderAchievements();
   renderBookmarkButton();
   renderBookmarks();
@@ -2823,21 +4087,51 @@ function getAchievementStatsSummary() {
 }
 
 function getStatsForMode(mode) {
-  return mode === "unlimited" ? loadUnlimitedStats() : loadStats();
+  if (mode === "unlimited") {
+    return state.statsDifficulty === "all"
+      ? loadUnlimitedStats()
+      : loadUnlimitedDifficultyStats(state.statsDifficulty);
+  }
+  return loadStats();
 }
 
 function saveStatsForMode(mode, stats) {
   if (mode === "unlimited") {
-    saveUnlimitedStats(stats);
+    if ((state.unlimitedDifficulty || "all") === "all") {
+      saveUnlimitedStats(stats);
+    } else {
+      saveUnlimitedDifficultyStats(state.unlimitedDifficulty, stats);
+    }
     return;
   }
   saveStats(stats);
 }
 
+function renderDifficultyModeControls() {
+  if (difficultyModePanel) difficultyModePanel.hidden = state.mode !== "unlimited";
+  if (difficultyPracticeNote) {
+    difficultyPracticeNote.hidden = state.mode !== "unlimited";
+    difficultyPracticeNote.textContent = state.unlimitedDifficulty === "all"
+      ? t("difficultyAllNote")
+      : t("difficultyPracticeNote");
+  }
+
+  difficultyModeButtons.forEach((button) => {
+    const key = button.dataset.unlimitedDifficulty || "all";
+    const isAll = key === "all";
+    const count = isAll ? songs.filter((song) => song.audioClip).length : Number(difficultyPools.counts[key]) || 0;
+    const countEl = button.querySelector("[data-difficulty-count]");
+    button.classList.toggle("is-active", key === state.unlimitedDifficulty);
+    button.disabled = !isAll && (difficultyPools.status === "loading" || difficultyPools.status === "idle" || count === 0);
+    if (countEl) countEl.textContent = `(${count})`;
+  });
+}
+
 function renderUnlimitedHistory() {
   const list = document.querySelector("#unlimited-history-list");
   if (!list) return;
-  const history = loadUnlimitedHistory();
+  const difficulty = state.statsMode === "unlimited" ? state.statsDifficulty : "all";
+  const history = loadUnlimitedHistoryForDifficulty(difficulty);
   if (history.length === 0) {
     list.innerHTML = `<div class="unlimited-history-empty">No unlimited puzzles played yet.</div>`;
     return;
@@ -2868,7 +4162,11 @@ function renderUnlimitedHistory() {
 }
 
 function renderStats() {
-  const stats = state.statsMode === "daily" ? loadStats() : loadUnlimitedStats();
+  const stats = state.statsMode === "daily"
+    ? loadStats()
+    : state.statsDifficulty === "all"
+      ? loadUnlimitedStats()
+      : loadUnlimitedDifficultyStats(state.statsDifficulty);
   const winRate = stats.played > 0 ? Math.round((stats.won / stats.played) * 100) : 0;
   const maxDistribution = Math.max(...Object.values(stats.distribution), 1);
 
@@ -2901,9 +4199,17 @@ function renderStats() {
 
   statsDailyButton.classList.toggle("is-active", state.statsMode === "daily");
   statsUnlimitedButton.classList.toggle("is-active", state.statsMode === "unlimited");
+  if (statsDifficultySwitch) statsDifficultySwitch.hidden = state.statsMode !== "unlimited";
+  statsDifficultyButtons.forEach((button) => {
+    button.classList.toggle("is-active", button.dataset.statsDifficulty === state.statsDifficulty);
+  });
 
   // sync sidebar stats
-  const sbMode = state.mode === "unlimited" ? loadUnlimitedStats() : loadStats();
+  const sbMode = state.mode === "unlimited"
+    ? state.unlimitedDifficulty === "all"
+      ? loadUnlimitedStats()
+      : loadUnlimitedDifficultyStats(state.unlimitedDifficulty)
+    : loadStats();
   const sbWinRate = sbMode.played > 0 ? Math.round((sbMode.won / sbMode.played) * 100) : 0;
   const sbPlayed = document.querySelector("#sb-played");
   const sbWon = document.querySelector("#sb-won");
@@ -2934,7 +4240,12 @@ function renderStats() {
 
   // update sidebar label
   const sbLabel = document.querySelector("#sb-mode-label");
-  if (sbLabel) sbLabel.textContent = state.mode === "unlimited" ? t("unlimitedStats") : t("dailyStats");
+  if (sbLabel) {
+    const statsLabel = state.mode === "unlimited" && state.unlimitedDifficulty !== "all"
+      ? `${getDifficultyLabel(state.unlimitedDifficulty)} ${t("unlimitedStats")}`
+      : state.mode === "unlimited" ? t("unlimitedStats") : t("dailyStats");
+    sbLabel.textContent = statsLabel;
+  }
 
   // show history link only on unlimited tab
   const historyLink = document.querySelector("#unlimited-history-link");
@@ -3227,7 +4538,7 @@ function renderArchiveCalendar() {
   const firstDay = new Date(year, month, 1);
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-  const monthLabel = new Intl.DateTimeFormat(lang === "jp" ? "ja-JP" : "en-US", {
+  const monthLabel = new Intl.DateTimeFormat(getDateLocale(), {
     month: "long",
     year: "numeric",
   }).format(monthStart);
@@ -3469,7 +4780,14 @@ function formatToday() {
   const lang = getLang();
   const today = new Date();
   if (lang === "jp") {
-    return new Intl.DateTimeFormat("ja-JP", {
+    return new Intl.DateTimeFormat(getDateLocale(), {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    }).format(today);
+  }
+  if (lang === "ko") {
+    return new Intl.DateTimeFormat(getDateLocale(), {
       year: "numeric",
       month: "long",
       day: "numeric",
@@ -3573,7 +4891,7 @@ const JP_NAME_MAP = {
   "kz": "kz",
   "livetune": "livetune",
   "samfree": "samfree",
-  "sasakure.UK": "さつき が てんこもり",
+  "sasakure.UK": "sasakure.UK",
   "Satsuki ga Tenkomori": "さつき が てんこもり",
   "syudou": "しゅーず",
   "inabakumori": "稲葉曇",
@@ -3753,6 +5071,44 @@ function getMatchingSongs(value) {
   return scored.slice(0, 12).map((s) => s.song);
 }
 
+function renderSuggestCheckResults() {
+  if (!suggestCheckInput || !suggestCheckResults) return;
+
+  const query = suggestCheckInput.value.trim();
+  if (!query) {
+    suggestCheckResults.innerHTML = `<p class="suggest-check-empty">${escapeHtml(t("modalSuggestCheckStart"))}</p>`;
+    return;
+  }
+
+  const idMatch = query.match(/(?:vocadb\.net\/S\/|\b)(\d{2,})\b/i);
+  const idSong = idMatch
+    ? songs.find((song) => String(song.vocadbId) === String(idMatch[1]))
+    : null;
+  const matches = [
+    ...(idSong ? [idSong] : []),
+    ...getMatchingSongs(query).filter((song) => !idSong || String(song.vocadbId) !== String(idSong.vocadbId)),
+  ].slice(0, 6);
+  if (!matches.length) {
+    suggestCheckResults.innerHTML = `<p class="suggest-check-empty">${escapeHtml(t("modalSuggestCheckNone"))}</p>`;
+    return;
+  }
+
+  suggestCheckResults.innerHTML = matches.map((song) => {
+    const year = song.publishYear || song.year || "";
+    const artist = getSuggestionArtist(song);
+    const meta = [artist, year].filter(Boolean).join(" · ");
+    return `
+      <div class="suggest-check-result">
+        <span>
+          <strong>${escapeHtml(getDisplayTitle(song))}</strong>
+          ${meta ? `<small>${escapeHtml(meta)}</small>` : ""}
+        </span>
+        <span class="suggest-check-status">${escapeHtml(t("modalSuggestCheckStatus"))}</span>
+      </div>
+    `;
+  }).join("");
+}
+
 // Returns true if `query` appears at a word boundary inside `text`
 function wordBoundaryMatch(text, query) {
   if (!text.includes(query)) return false;
@@ -3781,8 +5137,7 @@ function parseDateKey(dateKey) {
 
 function formatArchiveDate(dateKey) {
   const date = parseDateKey(dateKey);
-  const lang = getLang();
-  return new Intl.DateTimeFormat(lang === "jp" ? "ja-JP" : "en-US", {
+  return new Intl.DateTimeFormat(getDateLocale(), {
     month: "short",
     day: "numeric",
     year: "numeric",
@@ -3820,9 +5175,12 @@ function clearArchiveUrl(replace = false) {
 
 function loadArchiveDate(dateKey, replaceUrl = false) {
   if (!isArchiveDatePlayable(dateKey)) return false;
+  // Save but don't forfeit the active unlimited round — player can return to it.
+  saveActiveUnlimitedIfNeeded();
   state.mode = "archive";
   state.archiveDate = dateKey;
   state.archiveMonth = new Date(parseDateKey(dateKey).getFullYear(), parseDateKey(dateKey).getMonth(), 1);
+  rememberCurrentMode();
   setArchiveUrl(dateKey, replaceUrl);
   document.title = `VOCALOID Heardle - ${formatArchiveDate(dateKey)}`;
   loadPuzzle();
@@ -3865,6 +5223,113 @@ function saveUnlimitedHistory(history) {
   localStorage.setItem(unlimitedHistoryKey, JSON.stringify(history.slice(0, unlimitedHistoryLimit)));
 }
 
+function loadUnlimitedDifficultyHistoryMap() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(unlimitedDifficultyHistoryKey)) || {};
+    return isPlainObject(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveUnlimitedDifficultyHistoryMap(map) {
+  localStorage.setItem(unlimitedDifficultyHistoryKey, JSON.stringify(map));
+}
+
+function loadUnlimitedHistoryForDifficulty(difficulty = "all") {
+  if (difficulty === "all") return loadUnlimitedHistory();
+  const map = loadUnlimitedDifficultyHistoryMap();
+  const history = map[difficulty] || [];
+  return Array.isArray(history) ? history.slice(0, unlimitedHistoryLimit) : [];
+}
+
+function saveUnlimitedHistoryForDifficulty(difficulty, history) {
+  if (difficulty === "all") {
+    saveUnlimitedHistory(history);
+    return;
+  }
+  const map = loadUnlimitedDifficultyHistoryMap();
+  map[difficulty] = history.slice(0, unlimitedHistoryLimit);
+  saveUnlimitedDifficultyHistoryMap(map);
+}
+
+function loadActiveUnlimitedRound() {
+  return loadActiveUnlimitedRoundForDifficulty(state.unlimitedDifficulty || "all");
+}
+
+function loadActiveUnlimitedRoundsMap() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(unlimitedActiveRoundKey)) || null;
+    if (!parsed || typeof parsed !== "object") return {};
+
+    if (parsed.songId) {
+      const difficulty = parsed.difficulty || "all";
+      return { [difficulty]: parsed };
+    }
+
+    const source = isPlainObject(parsed.rounds) ? parsed.rounds : parsed;
+    return Object.fromEntries(
+      Object.entries(source).filter(([difficulty, round]) => (
+        UNLIMITED_DIFFICULTIES.includes(difficulty) && round?.songId
+      ))
+    );
+  } catch {
+    return {};
+  }
+}
+
+function saveActiveUnlimitedRoundsMap(map) {
+  const rounds = Object.fromEntries(
+    Object.entries(map).filter(([difficulty, round]) => (
+      UNLIMITED_DIFFICULTIES.includes(difficulty) && round?.songId
+    ))
+  );
+  localStorage.setItem(unlimitedActiveRoundKey, JSON.stringify({ version: 2, rounds }));
+}
+
+function loadActiveUnlimitedRoundForDifficulty(difficulty = state.unlimitedDifficulty || "all") {
+  const map = loadActiveUnlimitedRoundsMap();
+  return map[difficulty] || null;
+}
+
+function loadMostRecentActiveUnlimitedRound() {
+  const rounds = Object.values(loadActiveUnlimitedRoundsMap());
+  return rounds.sort((a, b) => (Number(b.updatedAt) || 0) - (Number(a.updatedAt) || 0))[0] || null;
+}
+
+function saveActiveUnlimitedRound(difficulty = state.unlimitedDifficulty || "all") {
+  if (state.mode !== "unlimited" || state.isComplete || !state.puzzle?.vocadbId) {
+    return;
+  }
+
+  const map = loadActiveUnlimitedRoundsMap();
+  const existing = map[difficulty];
+  map[difficulty] = {
+    songId: String(state.puzzle.vocadbId),
+    difficulty,
+    attempt: state.attempt,
+    clipStage: state.clipStage,
+    guesses: state.guesses,
+    startedAt: existing?.songId === String(state.puzzle.vocadbId) && existing?.difficulty === difficulty ? existing.startedAt : Date.now(),
+    updatedAt: Date.now(),
+  };
+  saveActiveUnlimitedRoundsMap(map);
+}
+
+function clearActiveUnlimitedRound(difficulty = state.unlimitedDifficulty || "all") {
+  const map = loadActiveUnlimitedRoundsMap();
+  delete map[difficulty];
+  if (Object.keys(map).length === 0) {
+    localStorage.removeItem(unlimitedActiveRoundKey);
+    return;
+  }
+  saveActiveUnlimitedRoundsMap(map);
+}
+
+function clearAllActiveUnlimitedRounds() {
+  localStorage.removeItem(unlimitedActiveRoundKey);
+}
+
 function recordUnlimitedHistory(result) {
   const entry = {
     title: result.title,
@@ -3872,11 +5337,13 @@ function recordUnlimitedHistory(result) {
     artist: result.artist,
     attempts: result.attempts,
     won: result.won,
+    difficulty: result.difficulty || "all",
     completedAt: result.completedAt || Date.now(),
   };
-  const history = loadUnlimitedHistory();
+  const difficulty = entry.difficulty || "all";
+  const history = loadUnlimitedHistoryForDifficulty(difficulty);
   history.unshift(entry);
-  saveUnlimitedHistory(history);
+  saveUnlimitedHistoryForDifficulty(difficulty, history);
 }
 
 function loadUnlimitedRecentIds() {
@@ -3892,15 +5359,127 @@ function saveUnlimitedRecentIds(ids) {
   localStorage.setItem(unlimitedRecentKey, JSON.stringify(ids.slice(0, unlimitedRecentLimit)));
 }
 
+function loadUnlimitedDifficultyRecentMap() {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(unlimitedDifficultyRecentKey)) || {};
+    return isPlainObject(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function loadUnlimitedRecentIdsForDifficulty(difficulty = state.unlimitedDifficulty || "all") {
+  if (difficulty === "all") return loadUnlimitedRecentIds();
+  const map = loadUnlimitedDifficultyRecentMap();
+  const ids = Array.isArray(map[difficulty]) ? map[difficulty] : [];
+  return ids.map(String).slice(0, unlimitedRecentLimit);
+}
+
+function saveUnlimitedRecentIdsForDifficulty(difficulty, ids) {
+  if (difficulty === "all") {
+    saveUnlimitedRecentIds(ids);
+    return;
+  }
+  const map = loadUnlimitedDifficultyRecentMap();
+  map[difficulty] = ids.slice(0, unlimitedRecentLimit);
+  localStorage.setItem(unlimitedDifficultyRecentKey, JSON.stringify(map));
+}
+
 function rememberUnlimitedSong(song) {
   if (!song?.vocadbId) return;
   const songId = String(song.vocadbId);
-  const recentIds = loadUnlimitedRecentIds().filter((id) => id !== songId);
-  saveUnlimitedRecentIds([songId, ...recentIds]);
+  const difficulty = state.unlimitedDifficulty || "all";
+  const recentIds = loadUnlimitedRecentIdsForDifficulty(difficulty).filter((id) => id !== songId);
+  saveUnlimitedRecentIdsForDifficulty(difficulty, [songId, ...recentIds]);
+}
+
+const difficultyPools = {
+  status: "idle",
+  counts: {},
+  ids: {},
+};
+
+function getDifficultyKeyFromWinRate(winRate) {
+  const rate = Number(winRate) * 100;
+  if (!Number.isFinite(rate)) return null;
+  if (rate >= 85) return "free";
+  if (rate >= 70) return "easy";
+  if (rate >= 40) return "medium";
+  if (rate >= 15) return "hard";
+  return "unknown";
+}
+
+function normalizeDifficultyPools(payload) {
+  const source = payload?.pools || payload?.ids || payload || {};
+  const normalized = { counts: {}, ids: {} };
+  UNLIMITED_PRACTICE_DIFFICULTIES.forEach((key) => {
+    const value = source[key] || {};
+    const ids = Array.isArray(value) ? value : value.ids || [];
+    normalized.ids[key] = ids.map(String);
+    normalized.counts[key] = Number(value.count ?? payload?.counts?.[key] ?? ids.length) || 0;
+  });
+  return normalized;
+}
+
+async function fetchDifficultyPools() {
+  if (difficultyPools.status === "loading") return difficultyPools;
+  difficultyPools.status = "loading";
+  renderDifficultyModeControls();
+  try {
+    const res = await fetch(`${WORKER_URL}/difficulty-pools`);
+    if (!res.ok) throw new Error("difficulty pools unavailable");
+    const normalized = normalizeDifficultyPools(await res.json());
+    difficultyPools.ids = normalized.ids;
+    difficultyPools.counts = normalized.counts;
+    difficultyPools.status = "ready";
+  } catch {
+    try {
+      const fallbackRes = await fetch(`${WORKER_URL}/leaderboard?sort=plays&limit=1000`);
+      if (!fallbackRes.ok) throw new Error("difficulty fallback unavailable");
+      const rows = await fallbackRes.json();
+      const ids = Object.fromEntries(UNLIMITED_PRACTICE_DIFFICULTIES.map((key) => [key, []]));
+      (rows || []).forEach((entry) => {
+        if ((Number(entry?.plays) || 0) < DIFFICULTY_MIN_PLAYS || !entry?.songId) return;
+        const key = getDifficultyKeyFromWinRate(entry.winRate);
+        if (key && ids[key]) ids[key].push(String(entry.songId));
+      });
+      difficultyPools.ids = ids;
+      difficultyPools.counts = Object.fromEntries(UNLIMITED_PRACTICE_DIFFICULTIES.map((key) => [key, ids[key].length]));
+      difficultyPools.status = "fallback";
+    } catch {
+      difficultyPools.ids = {};
+      difficultyPools.counts = {};
+      difficultyPools.status = "error";
+    }
+  }
+  renderDifficultyModeControls();
+  return difficultyPools;
+}
+
+function getSongsForUnlimitedDifficulty() {
+  if (state.unlimitedDifficulty === "all") return songs.filter((song) => song.audioClip);
+  const ids = new Set((difficultyPools.ids[state.unlimitedDifficulty] || []).map(String));
+  return songs.filter((song) => song.audioClip && ids.has(String(song.vocadbId)));
+}
+
+function getActiveUnlimitedSong() {
+  const activeRound = loadActiveUnlimitedRound();
+  if (!activeRound?.songId) return null;
+
+  const song = songs.find((candidate) => String(candidate.vocadbId) === String(activeRound.songId));
+  if (!song?.audioClip) {
+    clearActiveUnlimitedRound(activeRound.difficulty || "all");
+    return null;
+  }
+
+  state.attempt = Math.max(1, Math.min(Number(activeRound.attempt) || 1, clipStages.length));
+  state.clipStage = Math.max(0, Math.min(Number(activeRound.clipStage) || 0, clipStages.length - 1));
+  state.guesses = Array.isArray(activeRound.guesses) ? activeRound.guesses : [];
+  return song;
 }
 
 function refillUnlimitedQueue(playableSongs) {
-  const recentIds = new Set(loadUnlimitedRecentIds());
+  const recentIds = new Set(loadUnlimitedRecentIdsForDifficulty(state.unlimitedDifficulty || "all"));
   const freshSongs = playableSongs.filter((song) => !recentIds.has(String(song.vocadbId)));
   const queueSongs = freshSongs.length >= Math.min(10, playableSongs.length)
     ? freshSongs
@@ -3920,7 +5499,12 @@ function refillUnlimitedQueue(playableSongs) {
 }
 
 function getUnlimitedPuzzle() {
-  const playableSongs = songs.filter((song) => song.audioClip);
+  const activeSong = getActiveUnlimitedSong();
+  if (activeSong) {
+    return activeSong;
+  }
+
+  const playableSongs = getSongsForUnlimitedDifficulty();
 
   if (playableSongs.length === 0) {
     return null;
@@ -3947,6 +5531,7 @@ function resetRound() {
   state.clipStage = 0;
   state.guesses = [];
   state.isComplete = false;
+  state.hasPlayedPreview = false;
   state.lastResult = null;
   currentAudio = null;
   clipTimer = null;
@@ -3979,7 +5564,7 @@ function resetRound() {
   nextButton.hidden = true;
   shareButton.hidden = true;
   if (bookmarkButton) bookmarkButton.hidden = true;
-  shareButton.innerHTML = `<span id="share-button-text">${t("copyResult")}</span>`;
+  shareButton.innerHTML = `<span id="copy-result-button-text">${t("copyResult")}</span>`;
   shareOutput.hidden = true;
   shareOutput.value = "";
   playButton.disabled = false;
@@ -3993,7 +5578,7 @@ function loadPuzzle() {
 
   if (!state.puzzle) {
     scheduleMessage.hidden = false;
-    scheduleMessage.textContent = t("noSchedule");
+    scheduleMessage.textContent = isUnlimitedPracticeMode() ? t("difficultyUnavailable") : t("noSchedule");
     playButton.disabled = true;
     skipButton.disabled = true;
     guessInput.disabled = true;
@@ -4007,6 +5592,7 @@ function loadPuzzle() {
 
   if (state.mode === "unlimited") {
     state.lastUnlimitedTitle = state.puzzle.title;
+    saveActiveUnlimitedRound();
     render();
     guessInput.focus();
     pulsePlayButton();
@@ -4172,6 +5758,8 @@ function recordPublishYearStats(stats, song, won) {
 function recordResult(won) {
   const isDaily = state.mode === "daily";
   const isUnlimited = state.mode === "unlimited";
+  const unlimitedDifficulty = isUnlimited ? (state.unlimitedDifficulty || "all") : null;
+  const isUnlimitedAll = isUnlimited && unlimitedDifficulty === "all";
   const isArchive = state.mode === "archive";
   const todayKey = getDateKey();
   const resultKey = isArchive ? state.archiveDate : todayKey;
@@ -4185,8 +5773,10 @@ function recordResult(won) {
     vocadbId: state.puzzle.vocadbId,
     date: resultKey,
     mode: state.mode,
+    difficulty: unlimitedDifficulty,
     completedAt: Date.now(),
     guesses: state.guesses,
+    playedPreview: Boolean(state.hasPlayedPreview),
   };
 
   if (!isDaily && !isUnlimited) {
@@ -4199,7 +5789,11 @@ function recordResult(won) {
     return result;
   }
 
-  const stats = isDaily ? loadStats() : loadUnlimitedStats();
+  const stats = isDaily
+    ? loadStats()
+    : isUnlimitedAll
+      ? loadUnlimitedStats()
+      : loadUnlimitedDifficultyStats(unlimitedDifficulty);
   if (isDaily && stats.results[resultKey]) {
     renderStats();
     return stats.results[resultKey];
@@ -4220,7 +5814,7 @@ function recordResult(won) {
     if (state.attempt === 1) {
       stats.firstTrySolves = (Number(stats.firstTrySolves) || 0) + 1;
     }
-    if (isUnlimited) {
+    if (isUnlimitedAll) {
       const achievements = loadAchievements();
       achievements.unlimitedFirstTryStreak = state.attempt === 1
         ? (Number(achievements.unlimitedFirstTryStreak) || 0) + 1
@@ -4230,7 +5824,7 @@ function recordResult(won) {
   } else {
     stats.currentStreak = 0;
     stats.distribution.fail += 1;
-    if (isUnlimited) {
+    if (isUnlimitedAll) {
       const achievements = loadAchievements();
       achievements.unlimitedFirstTryStreak = 0;
       saveAchievements(achievements);
@@ -4241,9 +5835,62 @@ function recordResult(won) {
 
   if (isUnlimited) {
     recordUnlimitedHistory(result);
+    clearActiveUnlimitedRound(unlimitedDifficulty);
   }
 
-  checkLocalAchievements(result, { mode: state.mode });
+  checkLocalAchievements(result, { mode: isUnlimitedAll ? state.mode : "unlimited-practice" });
+  renderStats();
+  return result;
+}
+
+function recordAbandonedUnlimitedRound(activeRound = loadActiveUnlimitedRound()) {
+  if (!activeRound?.songId) return null;
+
+  // Don't count as a forfeit if the player never made a guess — just switching
+  // difficulty or reloading before attempting anything shouldn't hit the stats.
+  const guesses = Array.isArray(activeRound.guesses) ? activeRound.guesses : [];
+  if (guesses.length === 0) {
+    clearActiveUnlimitedRound(activeRound.difficulty || "all");
+    return null;
+  }
+
+  const puzzle = songs.find((song) => String(song.vocadbId) === String(activeRound.songId));
+  if (!puzzle) {
+    clearActiveUnlimitedRound(activeRound.difficulty || "all");
+    return null;
+  }
+
+  const result = {
+    won: false,
+    attempts: null,
+    title: puzzle.title,
+    displayTitle: getDisplayTitle(puzzle),
+    artist: getSuggestionArtist(puzzle),
+    vocadbId: puzzle.vocadbId,
+    date: null,
+    mode: "unlimited",
+    difficulty: activeRound.difficulty || "all",
+    completedAt: Date.now(),
+    guesses,
+  };
+  const difficulty = result.difficulty || "all";
+  const stats = difficulty === "all" ? loadUnlimitedStats() : loadUnlimitedDifficultyStats(difficulty);
+  stats.played += 1;
+  stats.currentStreak = 0;
+  stats.distribution.fail += 1;
+  recordPublishYearStats(stats, puzzle, false);
+  if (difficulty === "all") saveUnlimitedStats(stats);
+  else saveUnlimitedDifficultyStats(difficulty, stats);
+  recordUnlimitedHistory(result);
+
+  if (difficulty === "all") {
+    const achievements = loadAchievements();
+    achievements.unlimitedFirstTryStreak = 0;
+    saveAchievements(achievements);
+  } else if (difficulty === "unknown") {
+    resetUnknownPracticeFirstTryStreak();
+  }
+  clearActiveUnlimitedRound(difficulty);
   renderStats();
   return result;
 }
@@ -4315,7 +5962,7 @@ let lastGlobalStats = null;
 // Returns one of: "free" | "easy" | "medium" | "hard" | "unknown"
 // Also exposes the threshold logic in one place so labels and color stay in sync.
 function getDifficultyKey(rate) {
-  if (rate >= 90) return "free";
+  if (rate >= 85) return "free";
   if (rate >= 70) return "easy";
   if (rate >= 40) return "medium";
   if (rate >= 15) return "hard";
@@ -4387,7 +6034,11 @@ function maybeUpdateRarestSolvedStats(globalRate, context = {}) {
   const result = context.result || state.lastResult;
   if (mode !== "daily" && mode !== "unlimited") return;
   if (!puzzle || !result || !result.won) return;
-  const stats = getStatsForMode(mode);
+  const stats = mode === "unlimited"
+    ? state.unlimitedDifficulty === "all"
+      ? loadUnlimitedStats()
+      : loadUnlimitedDifficultyStats(state.unlimitedDifficulty)
+    : loadStats();
   let changed = false;
   const record = {
     vocadbId: puzzle.vocadbId,
@@ -4621,11 +6272,14 @@ function render() {
       : t("unlimited");
   attemptCount.textContent = t("attempt", state.attempt, clipStages.length);
   clipLength.textContent = `${clipStages[state.clipStage]}s`;
+  if (videoHeaderLength) videoHeaderLength.textContent = clipLength.textContent;
   modeEyebrow.textContent = state.mode === "daily"
     ? t("dailyPuzzle")
     : state.mode === "archive"
       ? t("archivePuzzle")
-      : t("unlimitedPuzzle");
+      : state.unlimitedDifficulty === "all"
+        ? t("unlimitedPuzzle")
+        : t("unlimitedPracticePuzzle", getDifficultyPracticeLabel(state.unlimitedDifficulty));
   if (sourceLink) {
     sourceLink.href = state.isComplete && state.puzzle?.vocadbUrl ? state.puzzle.vocadbUrl : "https://vocadb.net";
     sourceLink.textContent = "VocaDB";
@@ -4640,6 +6294,7 @@ function render() {
   dailyModeButton.classList.toggle("is-active", state.mode === "daily");
   unlimitedModeButton.classList.toggle("is-active", state.mode === "unlimited");
   if (archiveModeButton) archiveModeButton.classList.toggle("is-active", state.mode === "archive");
+  renderDifficultyModeControls();
   updateProgress(0);
   updateGiveUpVisibility();
   updateAttemptDots();
@@ -4890,6 +6545,7 @@ function playClip() {
   stopClip();
   currentAudio.currentTime = 0;
   currentAudio.volume = getVolume();
+  state.hasPlayedPreview = true;
   playButton.classList.add("is-playing");
   playButton.setAttribute("aria-label", "Pause clip");
   updateProgress(0);
@@ -4944,7 +6600,9 @@ function buildShareText() {
     ? t("heardleDaily")
     : state.mode === "archive"
       ? t("heardleArchive")
-      : t("heardleUnlimited");
+      : state.unlimitedDifficulty === "all"
+        ? t("heardleUnlimited")
+        : t("heardleUnlimitedDifficulty", getDifficultyLabel(state.unlimitedDifficulty));
   const score = state.lastResult.won ? `${state.lastResult.attempts}/${clipStages.length}` : `X/${clipStages.length}`;
   const context = state.mode === "daily"
     ? formatToday()
@@ -5062,13 +6720,15 @@ async function loadSidebarRankings(sort) {
   }
   list.innerHTML = data.slice(0, 5).map((entry, index) => {
     const song = getSongById(entry.songId);
-    const title = song ? truncateTitle(getDisplayTitle(song), 28) : `Song #${entry.songId}`;
+    const fullTitle = song ? getDisplayTitle(song) : `Song #${entry.songId}`;
+    const title = truncateTitle(fullTitle, 28);
     const winRate = Math.round((entry.winRate || 0) * 100);
+    const stat = t("rankingsWin", winRate);
     return `
       <div class="sb-rankings-row">
         <span class="sb-rankings-rank">${index + 1}</span>
-        <span class="sb-rankings-song">${escapeHtml(title)}</span>
-        <span class="sb-rankings-pct">${t("rankingsWin", winRate)}</span>
+        <span class="sb-rankings-song" title="${escapeHtml(fullTitle)}">${escapeHtml(title)}</span>
+        <span class="sb-rankings-pct" title="${escapeHtml(stat)}">${escapeHtml(stat)}</span>
       </div>
     `;
   }).join("");
@@ -5336,6 +6996,7 @@ function advanceAttempt() {
 
   state.attempt += 1;
   state.clipStage += 1;
+  saveActiveUnlimitedRound();
   render();
 }
 
@@ -5575,10 +7236,13 @@ if (statsImportConfirm) {
       const imported = parseStatsBackup(statsImportInput?.value || "");
       saveStats(imported.stats);
       saveUnlimitedStats(imported.unlimitedStats);
+      saveUnlimitedDifficultyStatsMap(imported.unlimitedDifficultyStats);
       saveArchiveResults(imported.archiveResults);
       saveAchievements(imported.achievements);
       saveBookmarks(imported.bookmarks);
       if (imported.unlimitedHistory) saveUnlimitedHistory(imported.unlimitedHistory);
+      if (imported.unlimitedDifficultyHistory) saveUnlimitedDifficultyHistoryMap(imported.unlimitedDifficultyHistory);
+      clearAllActiveUnlimitedRounds();
       if (statsImportPanel) statsImportPanel.hidden = true;
       if (statsImportInput) statsImportInput.value = "";
       refreshAfterStatsImport();
@@ -5605,11 +7269,15 @@ if (resetStatsYes) {
   resetStatsYes.addEventListener("click", () => {
     localStorage.removeItem(statsKey);
     localStorage.removeItem(unlimitedStatsKey);
+    localStorage.removeItem(unlimitedDifficultyStatsKey);
     localStorage.removeItem(archiveResultsKey);
     localStorage.removeItem(achievementsKey);
     localStorage.removeItem(bookmarksKey);
     localStorage.removeItem(unlimitedRecentKey);
     localStorage.removeItem(unlimitedHistoryKey);
+    localStorage.removeItem(unlimitedDifficultyHistoryKey);
+    localStorage.removeItem(unlimitedDifficultyRecentKey);
+    localStorage.removeItem(unlimitedActiveRoundKey);
     localStorage.removeItem("vocaloid-heardle-mylist");
     mylistCount = 0;
     initMylist();
@@ -5637,10 +7305,29 @@ suggestionList.addEventListener("mousedown", (event) => {
   selectSuggestion(option.dataset.title, option.dataset.songId);
 });
 
+function abandonActiveUnlimitedIfNeeded() {
+  if (state.mode === "unlimited" && !state.isComplete && state.puzzle) {
+    saveActiveUnlimitedRound();
+    recordAbandonedUnlimitedRound();
+  }
+}
+
+function saveActiveUnlimitedIfNeeded() {
+  if (state.mode === "unlimited" && !state.isComplete && state.puzzle) {
+    saveActiveUnlimitedRound();
+  }
+}
+
 dailyModeButton.addEventListener("click", () => {
+  // Save the active unlimited round so it can be resumed later, but don't record it
+  // as abandoned — the player is just switching modes, not forfeiting.
+  if (state.mode === "unlimited" && !state.isComplete && state.puzzle) {
+    saveActiveUnlimitedRound();
+  }
   state.mode = "daily";
   state.statsMode = "daily";
   state.archiveDate = null;
+  rememberCurrentMode();
   clearArchiveUrl();
   document.title = "VOCALOID Heardle — Daily";
   loadPuzzle();
@@ -5654,10 +7341,18 @@ if (archiveModeButton) {
 }
 
 unlimitedModeButton.addEventListener("click", () => {
+  // Only abandon if already in unlimited mid-round and resetting difficulty to "all".
+  // Coming from daily/archive: the active round was already saved on departure, don't wipe it.
+  if (state.mode === "unlimited") {
+    saveActiveUnlimitedIfNeeded();
+    state.unlimitedDifficulty = "all";
+    state.statsDifficulty = "all";
+    state.unlimitedQueue = [];
+  }
   state.mode = "unlimited";
   state.statsMode = "unlimited";
   state.archiveDate = null;
-  state.unlimitedQueue = [];
+  rememberCurrentMode();
   clearArchiveUrl();
   document.title = "VOCALOID Heardle — Unlimited";
   loadPuzzle();
@@ -5666,9 +7361,41 @@ unlimitedModeButton.addEventListener("click", () => {
 
 nextButton.addEventListener("click", () => {
   state.mode = "unlimited";
+  state.statsMode = "unlimited";
+  state.statsDifficulty = state.unlimitedDifficulty;
   state.archiveDate = null;
+  rememberCurrentMode();
   clearArchiveUrl();
   loadPuzzle();
+  renderStats();
+});
+
+difficultyModeButtons.forEach((button) => {
+  button.addEventListener("click", async () => {
+    const difficulty = button.dataset.unlimitedDifficulty || "all";
+    if (difficulty === state.unlimitedDifficulty && state.mode === "unlimited") return;
+    if (difficulty !== "all" && difficultyPools.status !== "ready" && difficultyPools.status !== "fallback") {
+      showToast(t("difficultyLoading"));
+      await fetchDifficultyPools();
+    }
+    const count = difficulty === "all" ? songs.filter((song) => song.audioClip).length : Number(difficultyPools.counts[difficulty]) || 0;
+    if (difficulty !== "all" && count === 0) {
+      showLossToast(t("difficultyUnavailable"));
+      return;
+    }
+    saveActiveUnlimitedIfNeeded();
+    state.mode = "unlimited";
+    state.statsMode = "unlimited";
+    state.unlimitedDifficulty = difficulty;
+    state.statsDifficulty = difficulty;
+    state.archiveDate = null;
+    state.unlimitedQueue = [];
+    rememberCurrentMode();
+    clearArchiveUrl();
+    document.title = `VOCALOID Heardle — ${difficulty === "all" ? "Unlimited" : `${getDifficultyLabel(difficulty)} Practice`}`;
+    loadPuzzle();
+    renderStats();
+  });
 });
 
 if (archivePrevMonth) {
@@ -5765,6 +7492,8 @@ if (suggestSongForm) {
   });
 }
 
+suggestCheckInput?.addEventListener("input", renderSuggestCheckResults);
+
 if (reportIssueForm) {
   reportIssueForm.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -5792,12 +7521,22 @@ statsDailyButton.addEventListener("click", () => {
 
 statsUnlimitedButton.addEventListener("click", () => {
   state.statsMode = "unlimited";
+  state.statsDifficulty = state.statsDifficulty || "all";
   renderStats();
+});
+
+statsDifficultyButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    state.statsMode = "unlimited";
+    state.statsDifficulty = button.dataset.statsDifficulty || "all";
+    renderStats();
+    renderUnlimitedHistory();
+  });
 });
 
 document.querySelectorAll(".release-tab").forEach((button) => {
   button.addEventListener("click", () => {
-    currentReleaseVersion = button.dataset.releaseVersion || "v1.3";
+    currentReleaseVersion = button.dataset.releaseVersion || "v1.4";
     renderReleaseNotes();
   });
 });
@@ -5901,6 +7640,10 @@ document.querySelectorAll(".lang-btn").forEach(btn => {
     localStorage.setItem("vh-lang", newLang);
     if (newLang === "jp") {
       localStorage.setItem("vh-title-mode", "jp");
+    } else if (newLang === "ko") {
+      localStorage.setItem("vh-title-mode", "kr");
+    } else if (newLang === "es") {
+      localStorage.setItem("vh-title-mode", "en");
     } else {
       localStorage.setItem("vh-title-mode", "en");
     }
@@ -5932,8 +7675,31 @@ function initTitleMode() {
 }
 
 const initialArchiveDate = getArchiveDateFromUrl();
-if (!initialArchiveDate || !loadArchiveDate(initialArchiveDate, true)) {
-  if (initialArchiveDate) clearArchiveUrl(true);
+const initialActiveUnlimitedRound = loadMostRecentActiveUnlimitedRound();
+const initialSession = getRememberedSessionMode();
+if (initialArchiveDate && loadArchiveDate(initialArchiveDate, true)) {
+  // Archive URLs are explicit and should win over any saved unlimited round.
+} else if (initialArchiveDate) {
+  clearArchiveUrl(true);
+  state.mode = "daily";
+  state.statsMode = "daily";
+  state.archiveDate = null;
+  rememberCurrentMode();
+  loadPuzzle();
+} else if (initialSession.mode === "unlimited" && initialActiveUnlimitedRound?.songId) {
+  state.mode = "unlimited";
+  state.statsMode = "unlimited";
+  state.unlimitedDifficulty = initialSession.difficulty || initialActiveUnlimitedRound.difficulty || "all";
+  if (initialActiveUnlimitedRound.difficulty) {
+    state.unlimitedDifficulty = initialActiveUnlimitedRound.difficulty;
+  }
+  state.statsDifficulty = state.unlimitedDifficulty;
+  loadPuzzle();
+} else {
+  state.mode = "daily";
+  state.statsMode = "daily";
+  state.archiveDate = null;
+  rememberCurrentMode();
   loadPuzzle();
 }
 renderStats();
@@ -5941,3 +7707,4 @@ checkNewBadge();
 applyLanguage();
 initTitleMode();
 initMylist();
+fetchDifficultyPools();

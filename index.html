@@ -18,6 +18,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
   </head>
   <body>
+    <div class="page-rail page-rail-left" aria-hidden="true">
+      <span>VOCALOID HEARDLE</span>
+    </div>
+    <div class="page-rail page-rail-right" aria-hidden="true">
+      <span>DAILY / UNLIMITED / ARCHIVE</span>
+    </div>
 
     <div class="nnd-topbar">
       <div class="nnd-topbar-left">
@@ -34,7 +40,9 @@
       </a>
       <div class="nnd-lang-switch">
         <button class="lang-btn is-active" data-lang="en" type="button" title="English"><span class="fi fi-us"></span></button>
+        <button class="lang-btn" data-lang="es" type="button" title="Español"><span class="fi fi-es"></span></button>
         <button class="lang-btn" data-lang="jp" type="button" title="日本語"><span class="fi fi-jp"></span></button>
+        <button class="lang-btn" data-lang="ko" type="button" title="한국어"><span class="fi fi-kr"></span></button>
       </div>
       <div class="nnd-header-links">
         <a href="#" data-modal-target="about">About</a>
@@ -93,10 +101,28 @@
             <button class="mode-button" id="archive-mode-button" type="button" data-modal-target="archive">Archive</button>
           </div>
         </div>
+        <div class="difficulty-mode-panel" id="difficulty-mode-panel" hidden>
+          <div class="difficulty-mode-label">Difficulty</div>
+          <div class="difficulty-mode-switch" aria-label="Unlimited difficulty">
+            <button class="difficulty-mode-button is-active" data-unlimited-difficulty="all" type="button">All <span class="difficulty-count" data-difficulty-count="all"></span></button>
+            <button class="difficulty-mode-button" data-unlimited-difficulty="free" type="button">Free <span class="difficulty-count" data-difficulty-count="free"></span></button>
+            <button class="difficulty-mode-button" data-unlimited-difficulty="easy" type="button">Easy <span class="difficulty-count" data-difficulty-count="easy"></span></button>
+            <button class="difficulty-mode-button" data-unlimited-difficulty="medium" type="button">Medium <span class="difficulty-count" data-difficulty-count="medium"></span></button>
+            <button class="difficulty-mode-button" data-unlimited-difficulty="hard" type="button">Hard <span class="difficulty-count" data-difficulty-count="hard"></span></button>
+            <button class="difficulty-mode-button" data-unlimited-difficulty="unknown" type="button">??? <span class="difficulty-count" data-difficulty-count="unknown"></span></button>
+          </div>
+          <p class="difficulty-practice-note" id="difficulty-practice-note" hidden>Unlimited mode · counted in global rankings</p>
+        </div>
 
         <section class="game-panel" id="game-panel" aria-label="Song puzzle">
 
-          <div class="nnd-player-wrap">
+          <div class="nnd-video-module">
+            <div class="nnd-video-header">
+              <span><span class="system-bracket" id="video-bracket-label">[VIDEO]</span> <span id="video-title-label">Opening Clip</span></span>
+              <span class="nnd-video-length" id="video-header-length">1s</span>
+            </div>
+
+            <div class="nnd-player-wrap">
             <div class="cover-placeholder" id="cover-art-box">
               <div id="cover-placeholder-mark" class="cover-placeholder-inner" aria-hidden="true">
                 <span class="cover-placeholder-q">?</span>
@@ -110,10 +136,11 @@
 
           <div class="nnd-meta-row">
             <span class="nnd-meta-item"><span class="nnd-meta-label">▶ Views:</span> —</span>
-            <span class="nnd-meta-item"><span class="nnd-meta-label">Category:</span> Music / VOCALOID</span>
+            <span class="nnd-meta-item"><span class="nnd-meta-label">Category:</span> VOCALOID</span>
             <span class="nnd-meta-item"><span class="nnd-mylist-heart">♥</span> <span id="nnd-mylist-count">0</span></span>
             <span class="nnd-meta-item"><span class="nnd-meta-label">Source:</span> <a id="source-link" href="https://vocadb.net" target="_blank" rel="noreferrer">VocaDB</a></span>
             <span class="nnd-meta-item next-daily-countdown" id="next-daily-countdown" hidden></span>
+          </div>
           </div>
 
           <p class="source-tags" id="source-tags" hidden></p>
@@ -168,8 +195,8 @@
             <button class="next-button" id="next-button" type="button" hidden>Next Song</button>
             <button class="bookmark-button" id="bookmark-button" type="button" hidden title="Bookmark" aria-label="Bookmark">☆</button>
           </div>
-          <button class="share-button secondary-button" id="share-button" type="button" hidden><span id="share-button-text">Copy Result</span></button>
-          <textarea class="share-output" id="share-output" readonly hidden></textarea>
+          <button class="copy-result-button secondary-button" id="copy-result-button" type="button" hidden><span id="copy-result-button-text">Copy Result</span></button>
+          <textarea class="copy-result-output" id="copy-result-output" readonly hidden></textarea>
 
           <p class="kofi-nudge" id="kofi-nudge" hidden>
             <span class="kofi-nudge-text">Enjoying the project? Tips help keep it running.</span>
@@ -221,11 +248,11 @@
         <div class="nnd-sidebar-box">
           <div class="nnd-sidebar-header sb-hallofmyths-header">Hall of Myths</div>
           <div class="nnd-sidebar-body">
-            <div class="sidebar-hof-item"><span class="hof-rank">1st</span><span class="hof-song">Senbonzakura</span><span class="hof-artist">Kurousa</span></div>
-            <div class="sidebar-hof-item"><span class="hof-rank">2nd</span><span class="hof-song">I'll Make You Do the Miku Miku</span><span class="hof-artist">ika</span></div>
-            <div class="sidebar-hof-item"><span class="hof-rank">3rd</span><span class="hof-song">Melt</span><span class="hof-artist">ryo</span></div>
-            <div class="sidebar-hof-item"><span class="hof-rank">4th</span><span class="hof-song">World's End Dancehall</span><span class="hof-artist">wowaka</span></div>
-            <div class="sidebar-hof-item"><span class="hof-rank">5th</span><span class="hof-song">Matryoshka</span><span class="hof-artist">hachi</span></div>
+            <div class="sidebar-hof-item"><span class="hof-rank">1st</span><span class="hof-song" title="Senbonzakura">Senbonzakura</span><span class="hof-artist" title="Kurousa">Kurousa</span></div>
+            <div class="sidebar-hof-item"><span class="hof-rank">2nd</span><span class="hof-song" title="I'll Make You Do the Miku Miku">I'll Make You Do the Miku Miku</span><span class="hof-artist" title="ika">ika</span></div>
+            <div class="sidebar-hof-item"><span class="hof-rank">3rd</span><span class="hof-song" title="Melt">Melt</span><span class="hof-artist" title="ryo">ryo</span></div>
+            <div class="sidebar-hof-item"><span class="hof-rank">4th</span><span class="hof-song" title="World's End Dancehall">World's End Dancehall</span><span class="hof-artist" title="wowaka">wowaka</span></div>
+            <div class="sidebar-hof-item"><span class="hof-rank">5th</span><span class="hof-song" title="Matryoshka">Matryoshka</span><span class="hof-artist" title="hachi">hachi</span></div>
             <p class="sidebar-hof-note">Most viewed VOCALOID songs on NicoNico</p>
           </div>
         </div>
@@ -252,7 +279,6 @@
             <a href="https://nicovideo.jp" target="_blank" class="sidebar-link">NicoNico ↗</a>
             <hr style="border:none;border-top:1px solid var(--line);margin:4px 0;">
             <a href="#" data-modal-target="suggest-song" class="sidebar-link">Suggest a Song</a>
-            <a href="#" data-modal-target="bookmarks" class="sidebar-link">Bookmarks</a>
             <a href="#" data-modal-target="support" class="sidebar-link">Contact / Support</a>
           </div>
         </div>
@@ -261,7 +287,7 @@
     </div>
 
     <footer class="site-footer">
-      <p>VOCALOID Heardle: fan-made daily guessing game &copy; 2026 &nbsp;|&nbsp; Not affiliated with Crypton Future Media, NicoNico, or VocaDB &nbsp;|&nbsp; Song data from <a href="https://vocadb.net" target="_blank">VocaDB</a> &nbsp;|&nbsp; <a href="#" data-modal-target="song-pool">Song Pool</a> &nbsp;|&nbsp; <a href="#" data-modal-target="release-notes">Release v1.3</a></p>
+      <p>VOCALOID Heardle: fan-made daily guessing game &copy; 2026 &nbsp;|&nbsp; Not affiliated with Crypton Future Media, NicoNico, or VocaDB &nbsp;|&nbsp; Song data from <a href="https://vocadb.net" target="_blank">VocaDB</a> &nbsp;|&nbsp; <a href="#" data-modal-target="song-pool">Song Pool</a> &nbsp;|&nbsp; <a href="#" data-modal-target="release-notes">Release v1.4</a></p>
     </footer>
 
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
@@ -296,22 +322,20 @@
       <button class="modal-close" type="button" aria-label="Close dialog">x</button>
       <h2 id="release-notes-title">Release Notes</h2>
       <div class="release-tabs" aria-label="Release versions">
-        <button class="release-tab is-active" data-release-version="v1.3" type="button">v1.3</button>
+        <button class="release-tab is-active" data-release-version="v1.4" type="button">v1.4</button>
+        <button class="release-tab" data-release-version="v1.3" type="button">v1.3</button>
         <button class="release-tab" data-release-version="v1.2" type="button">v1.2</button>
         <button class="release-tab" data-release-version="v1.1" type="button">v1.1</button>
         <button class="release-tab" data-release-version="v1.0" type="button">v1.0</button>
       </div>
-      <p class="release-version" id="release-version">Release v1.3</p>
+      <p class="release-version" id="release-version">Release v1.4</p>
       <p id="release-intro">This release collects the major updates being prepared for the public site.</p>
       <ul class="release-list">
-        <li>Achievement search for filtering by name, description, or category.</li>
-        <li>Local bookmarks with thumbnails, VocaDB links, searchable history, and hosted audio previews.</li>
-        <li>Bookmark audio previews respect the volume setting and show elapsed playback time.</li>
-        <li>Improved bookmark thumbnail fallback handling for low-quality placeholders.</li>
-        <li>Strong-match partial credit for guesses with both the correct producer credit and main vocal synth.</li>
-        <li>Vocal-match partial credit for guesses with the correct main vocal synth.</li>
-        <li>Strong, artist, and vocal matches now use separate purple, yellow, and blue feedback states.</li>
-        <li>Same-title variants can be guessed separately when selected from autocomplete.</li>
+        <li>Added Unlimited practice filters for free, easy, medium, hard, and ??? songs.</li>
+        <li>Practice modes are local-only and do not affect global rankings.</li>
+        <li>The free practice tier now starts at 85% global solve rate.</li>
+        <li>Practice mode tabs and notes were cleaned up for a less cramped layout.</li>
+        <li>Added new practice achievements, including a hidden ??? first-try streak challenge.</li>
       </ul>
     </section>
 
@@ -331,6 +355,15 @@
       <button class="modal-close" type="button" aria-label="Close dialog">x</button>
       <h2 id="suggest-song-title">Suggest a Song</h2>
       <p>Send a song for future puzzle consideration. Suggestions are not guaranteed, but they help improve the pool.</p>
+      <div class="suggest-check" aria-labelledby="suggest-check-title">
+        <h3 id="suggest-check-title">Check the current pool</h3>
+        <p id="suggest-check-intro">Search first to see if the song is already playable.</p>
+        <label id="suggest-check-label" for="suggest-check-input">Song search</label>
+        <input id="suggest-check-input" type="search" autocomplete="off" placeholder="type a song title, producer, or vocal synth...">
+        <div class="suggest-check-results" id="suggest-check-results" aria-live="polite">
+          <p class="suggest-check-empty">Start typing to check the song pool.</p>
+        </div>
+      </div>
       <form class="mail-form" id="suggest-song-form">
         <label id="suggest-label-title">Song title <input id="suggest-title" name="title" type="text" required></label>
         <label id="suggest-label-producer">Producer <input id="suggest-producer" name="producer" type="text"></label>
@@ -369,6 +402,14 @@
       <div class="stats-mode-switch">
         <button class="stats-mode-button is-active" id="stats-daily-button" type="button">Daily</button>
         <button class="stats-mode-button" id="stats-unlimited-button" type="button">Unlimited</button>
+      </div>
+      <div class="stats-difficulty-switch" id="stats-difficulty-switch" hidden>
+        <button class="stats-difficulty-button is-active" data-stats-difficulty="all" type="button">All</button>
+        <button class="stats-difficulty-button" data-stats-difficulty="free" type="button">Free</button>
+        <button class="stats-difficulty-button" data-stats-difficulty="easy" type="button">Easy</button>
+        <button class="stats-difficulty-button" data-stats-difficulty="medium" type="button">Medium</button>
+        <button class="stats-difficulty-button" data-stats-difficulty="hard" type="button">Hard</button>
+        <button class="stats-difficulty-button" data-stats-difficulty="unknown" type="button">???</button>
       </div>
       <div class="guess-scale">
         <div><span>1</span><i class="guess-bar"></i><strong data-distribution="1">0</strong></div>
@@ -529,6 +570,7 @@
             <button class="settings-choice is-active" data-title-mode="en" type="button">EN</button>
             <button class="settings-choice" data-title-mode="romaji" type="button">Romaji</button>
             <button class="settings-choice" data-title-mode="jp" type="button">JP</button>
+            <button class="settings-choice" data-title-mode="kr" type="button">KR</button>
           </div>
         </div>
 
@@ -619,9 +661,8 @@
     <script>
       const d = new Date();
       const lang = localStorage.getItem('vh-lang') || 'en';
-      document.getElementById('nnd-date').textContent = lang === 'jp'
-        ? new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' }).format(d)
-        : d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      const locale = lang === 'jp' ? 'ja-JP' : lang === 'ko' ? 'ko-KR' : lang === 'es' ? 'es-ES' : 'en-US';
+      document.getElementById('nnd-date').textContent = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
     </script>
     <script src="settings.js"></script>
   </body>
