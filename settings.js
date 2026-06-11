@@ -3,9 +3,11 @@
 
 const SETTINGS = {
   darkmode:     { key: 'vh-darkmode',     bodyClass: 'dark-mode',       default: false },
+  beigebg:      { key: 'vh-beigebg',      bodyClass: 'beige-bg',        default: false },
   danmaku:      { key: 'vh-danmaku',      bodyClass: 'no-danmaku',      default: true  },
   marquee:      { key: 'vh-marquee',      bodyClass: 'no-marquee',      default: true  },
   sidebar:      { key: 'vh-sidebar',      bodyClass: 'no-sidebar',      default: true  },
+  tags:         { key: 'vh-tags',         bodyClass: 'no-tags',         default: true  },
   autocomplete: { key: 'vh-autocomplete', bodyClass: 'no-autocomplete', default: true  },
   compact:      { key: 'vh-compact',      bodyClass: 'compact-mode',    default: false },
   clearwrong:   { key: 'vh-clearwrong',   bodyClass: '',                default: true  },
@@ -25,6 +27,9 @@ function applySetting(id, value) {
   if (id === 'darkmode') {
     document.documentElement.classList.toggle('dark-mode', value);
     document.body.classList.toggle('dark-mode', value);
+  } else if (id === 'beigebg') {
+    document.documentElement.classList.toggle('beige-bg', value);
+    document.body.classList.toggle('beige-bg', value);
   } else if (id === 'compact') {
     document.body.classList.toggle('compact-mode', value);
     const children = document.getElementById('compact-children');
@@ -65,7 +70,7 @@ function applyAllSettings() {
 applyAllSettings();
 
 // Wire up toggle buttons
-['darkmode', 'danmaku', 'marquee', 'sidebar', 'autocomplete', 'compact', 'clearwrong'].forEach(id => {
+['darkmode', 'beigebg', 'danmaku', 'marquee', 'sidebar', 'tags', 'autocomplete', 'compact', 'clearwrong'].forEach(id => {
   const btn = document.getElementById('setting-' + id);
   if (!btn) return;
   btn.addEventListener('click', () => {

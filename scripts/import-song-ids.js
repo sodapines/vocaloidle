@@ -9,6 +9,19 @@ const idListPath = path.join(dataDir, "song-ids.txt");
 const inputPath = process.argv[2];
 const audioBaseUrl = (process.env.AUDIO_BASE_URL || "https://audio.sodapines.dev").replace(/\/+$/, "");
 const audioExtension = (process.env.AUDIO_EXTENSION || "mp3").replace(/^\./, "");
+const importDate = new Date().toISOString().slice(0, 10);
+const importBatch = `batch-${importDate}`;
+const poolLists = [
+  { id: 186, tag: "nnd-100k", name: "(NND) More than 100K views" },
+  { id: 30, tag: "nnd-1m", name: "(NND) More than 1M views" },
+  { id: 6477, tag: "nnd-10m", name: "(NND) More than 10M views" },
+  { id: 2665, tag: "yt-1m", name: "(YT) More than 1M views" },
+  { id: 6478, tag: "yt-10m", name: "(YT) More than 10M views" },
+  { id: 10463, tag: "yt-100m", name: "(YT) More than 100M views" },
+  { id: 12694, tag: "project-sekai", name: "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku" },
+  { id: 9375, tag: "project-sekai", name: "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)" },
+  { id: 10219, tag: "project-sekai", name: "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)" },
+];
 
 if (!inputPath) {
   throw new Error("Usage: node scripts/import-song-ids.js <path-to-id-list>");
@@ -175,6 +188,10 @@ function getAcceptedTitles(song) {
   return [...new Set(titles)];
 }
 
+function getPoolNames(details) {
+  return unique((details?.pools || []).map((pool) => pool.name));
+}
+
 function addDays(date, days) {
   const nextDate = new Date(date);
   nextDate.setUTCDate(nextDate.getUTCDate() + days);
@@ -194,6 +211,55 @@ async function fetchSong(id) {
   }
 
   return response.json();
+}
+
+async function fetchPoolSongIds(pool) {
+  const ids = new Set();
+  const maxResults = 100;
+  let start = 0;
+
+  while (true) {
+    const url = new URL(`https://vocadb.net/api/songLists/${pool.id}/songs`);
+    url.searchParams.set("start", String(start));
+    url.searchParams.set("maxResults", String(maxResults));
+    url.searchParams.set("getTotalCount", "true");
+    url.searchParams.set("fields", "AdditionalNames");
+    url.searchParams.set("lang", "English");
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      console.warn(`${pool.name} returned ${response.status}; pool tags skipped`);
+      return ids;
+    }
+
+    const data = await response.json();
+    const items = data.items || [];
+    items.forEach((item) => {
+      const id = item?.song?.id;
+      if (id) ids.add(String(id));
+    });
+
+    start += items.length;
+    if (items.length === 0 || start >= (data.totalCount || 0)) break;
+  }
+
+  return ids;
+}
+
+async function fetchPoolMemberships() {
+  const memberships = new Map();
+
+  for (const pool of poolLists) {
+    const ids = await fetchPoolSongIds(pool);
+    ids.forEach((id) => {
+      const current = memberships.get(id) || [];
+      current.push(pool);
+      memberships.set(id, current);
+    });
+  }
+
+  return memberships;
 }
 
 async function mapWithConcurrency(items, limit, worker) {
@@ -239,8 +305,12 @@ async function main() {
   console.log(`New IDs: ${newIds.length}`);
   console.log(`Fetching from VocaDB: ${idsToFetch.length}`);
 
+  const poolMemberships = await fetchPoolMemberships();
+
   const fetchedSongs = await mapWithConcurrency(idsToFetch, 6, async (id, index) => {
     const vocadbSong = await fetchSong(id);
+    const poolMatches = poolMemberships.get(String(id)) || [];
+    const vocadbPools = getPoolNames({ pools: poolMatches });
     const coverArts = getCoverArtCandidates(vocadbSong);
     const generatedSong = {
       date: toDateKey(addDays(startDate, index)),
@@ -255,6 +325,10 @@ async function main() {
       publishDate: vocadbSong.publishDate || "",
       acceptedTitles: getAcceptedTitles(vocadbSong),
       audioClip: `${audioBaseUrl}/${id}.${audioExtension}`,
+      vocadbPools,
+      sourceTags: unique(["community", "new", ...poolMatches.map((pool) => pool.tag)]),
+      addedBatch: importBatch,
+      addedAt: importDate,
     };
 
     return {

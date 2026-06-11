@@ -36,6 +36,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wowaka",
       "wowaka feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -86,6 +96,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iroha(sasaki)",
       "iroha(sasaki) feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(SC) More than 100K views",
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -124,6 +143,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ryo",
       "ryo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 100K views",
+      "Game: MikuFlick (ミクフリック)",
+      "(NND) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "project-sekai"
     ]
   },
   {
@@ -165,6 +194,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -210,6 +247,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "VocaDB: Monthly Top Rated Songs (since 2007)",
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -257,6 +303,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "n-buna feat. Hatsune Miku V3 (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(Piapro) More than 10K views",
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -299,6 +354,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -346,6 +409,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "niki",
       "niki feat. Lily",
       "Lily"
+    ],
+    "vocadbPools": [
+      "(YT) More than 100K views",
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -389,6 +459,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Stag BeetleP",
       "Stag BeetleP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(Piapro) More than 10K views",
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -431,6 +508,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga",
       "Giga feat. KAFU",
       "KAFU"
+    ],
+    "vocadbPools": [
+      "VocaDB: Monthly Top Rated Songs (since 2007)",
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -466,6 +552,14 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "rice",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "VocaDB: Monthly Top Rated Songs (since 2007)",
+      "YouTube Music: Vocaloid Hits",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -509,6 +603,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "emon(Tes.)",
       "emon(Tes.) feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "VocaDB: Monthly Top Rated Songs (since 2007)",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -554,6 +655,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Rockwell",
       "Hatsune Miku",
       "Hatsune Miku V4"
+    ],
+    "vocadbPools": [
+      "(BB) More than 1M views",
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -598,6 +708,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "samfree",
       "samfree feat. Nekomura Iroha",
       "Nekomura Iroha"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -645,6 +761,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Hatsune Miku V4X",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(BB) More than 1M views",
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -704,6 +829,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa feat. Kasane Teto, Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -742,6 +875,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "nanou feat. Hatsune Miku Append (Soft)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -787,6 +930,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MikitoP feat. Kagamine Rin V4X (Power)",
       "Kagamine Rin",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -835,6 +988,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST",
       "GHOST feat. MAIKA",
       "MAIKA"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -886,6 +1045,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "WONDERFUL★OPPORTUNITY!",
       "Kagamine Rin",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -928,6 +1097,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kemu",
       "kemu feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -968,6 +1145,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "NILFRUITS feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -1013,6 +1198,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo feat. Hatsune Miku V3 (Sweet)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -1050,6 +1243,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HitoshizukuP, yama△ feat. various",
       "yama△",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -1098,6 +1299,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "AhmingP feat. Megurine Luka, Camui Gackpo",
       "Megurine Luka",
       "Camui Gackpo"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -1141,6 +1348,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JIN",
       "JIN feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -1203,6 +1420,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nanahoshi Orchestra feat. Megurine Luka V4X (Hard)",
       "Megurine Luka",
       "Megurine Luka V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -1267,6 +1492,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27, Rockwell feat. Hatsune Miku",
       "Rockwell",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -1307,7 +1540,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DaijoubuP",
       "DaijoubuP feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-05-31",
@@ -1359,6 +1594,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Porter Robinson",
       "Porter Robinson feat. AVANNA",
       "AVANNA"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -1401,6 +1642,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Tatsuro Ariki",
       "KAITO",
       "KAITO V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -1440,6 +1689,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "yanagiP",
       "yanagiP feat. KAITO",
       "KAITO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -1485,6 +1740,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -1538,6 +1801,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OTOIRO",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -1579,6 +1850,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -1619,6 +1898,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M",
       "Hatsune Miku",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -1658,6 +1948,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Teniwoha feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -1702,6 +2002,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Qǐxuān",
       "Qǐxuān"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -1736,6 +2044,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kz",
       "kz feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -1790,6 +2104,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iroha(sasaki) feat. Kagamine Rin Append (Sweet)",
       "Kagamine Rin",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -1834,6 +2154,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "tepe",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-100m"
     ]
   },
   {
@@ -1876,6 +2204,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "otetsu",
       "otetsu feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -1919,6 +2253,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP",
       "cosMo@BousouP feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -1963,6 +2305,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27, emon(Tes.) feat. Hatsune Miku",
       "emon(Tes.)",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -2007,6 +2357,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "inabakumori",
       "inabakumori feat. Kaai Yuki",
       "Kaai Yuki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -2051,6 +2409,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OTOIRO",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -2095,6 +2461,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M feat. Hatsune Miku, Kagamine Rin",
       "Hatsune Miku",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -2139,6 +2513,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -2191,6 +2573,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota feat. Hatsune Miku Append (Sweet)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -2239,6 +2627,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "John feat. Hatsune Miku Append (Sweet), Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -2287,6 +2681,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Teniwoha feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -2324,6 +2726,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "EZFG",
       "EZFG feat. VY1",
       "VY1"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -2365,6 +2775,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Tone Rion",
       "Tone Rion"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -2406,6 +2824,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M",
       "Mitchie M feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -2448,6 +2874,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "jon-YAKITORY feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -2484,6 +2918,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nhato, Taishi feat. various",
       "Taishi",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -2535,6 +2975,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -2573,6 +3021,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KEI",
       "KEI feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -2610,6 +3066,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "samfree",
       "samfree feat. SF-A2 Codename miki",
       "SF-A2 Codename miki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -2653,6 +3115,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M",
       "Mitchie M feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -2701,6 +3173,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DIVELA",
       "DIVELA feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -2749,6 +3229,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OK GLASS",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -2794,6 +3280,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Camellia feat. Hatsune Miku V3 (Original)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -2836,6 +3330,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yukopi",
       "Yukopi feat. Kaai Yuki",
       "Kaai Yuki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-100m"
     ]
   },
   {
@@ -2893,7 +3395,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. Ci flower",
       "Ci flower"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-07-06",
@@ -2930,6 +3434,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Vocaliod-P",
       "Vocaliod-P feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -2969,7 +3479,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Popopopopcorn",
       "Popopopopcorn feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-07-08",
@@ -3013,6 +3525,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "regulus feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -3052,6 +3570,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "nulut",
       "nulut feat. v flower",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -3092,6 +3618,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota",
       "siinamota feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -3142,6 +3676,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -3193,6 +3733,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -3234,6 +3782,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27, Naoki Itai feat. Hatsune Miku",
       "Naoki Itai",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -3278,6 +3834,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M feat. Hatsune Miku, Megurine Luka",
       "Hatsune Miku",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -3319,6 +3881,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuyoyuppe",
       "Yuyoyuppe feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -3362,6 +3930,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "WADATAKEAKI feat. Hatsune Miku Append (Soft)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -3404,6 +3980,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OwataP",
       "OwataP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -3459,6 +4043,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ePiaeon feat. Hatsune Miku V3 (English)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -3498,6 +4088,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Dasu feat. Kagamine Len Append (Power)",
       "Kagamine Len",
       "Kagamine Len Append"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -3542,6 +4138,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OwataP feat. Megurine Luka, Hatsune Miku",
       "Megurine Luka",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -3584,6 +4188,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. v flower",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -3626,6 +4236,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "emon(Tes.)",
       "emon(Tes.) feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -3670,6 +4288,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "YM",
       "YM feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -3714,6 +4340,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP",
       "cosMo@BousouP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m"
     ]
   },
   {
@@ -3754,6 +4386,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Noboru",
       "Noboru feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -3796,6 +4436,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Junky",
       "Junky feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "project-sekai"
     ]
   },
   {
@@ -3840,6 +4486,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Dark), Hatsune Miku V4X (Solid)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -3886,6 +4540,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Maiki P feat. Hatsune Miku V4X (Dark), Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -3928,6 +4593,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo feat. Hatsune Miku V3 (Sweet)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -3987,6 +4660,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Goboumen",
       "Goboumen feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -4033,6 +4712,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OTOIRO",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -4084,6 +4773,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Eipu feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -4129,6 +4826,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "nulut feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -4173,6 +4880,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Kagamine Len Append",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -4215,6 +4928,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "shr",
       "shr feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -4264,6 +4985,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kitani Tatsuya",
       "Hatsune Miku",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -4310,6 +5042,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Kagamine Rin",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -4356,6 +5096,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M feat. Hatsune Miku, Hatsune Miku V3 (English)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -4397,6 +5145,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HachioujiP, Giga feat. various",
       "Giga",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -4436,7 +5194,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HACHI",
       "HACHI feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-08-10",
@@ -4483,6 +5243,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ryo, supercell feat. Hatsune Miku",
       "supercell",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -4520,6 +5288,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ryo feat. Hatsune Miku V3 (Solid), Hatsune Miku V3 (Original)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -4571,6 +5347,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "r-906",
       "r-906 feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -4618,6 +5402,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -4664,6 +5459,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "23.exe",
       "23.exe feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -4720,6 +5523,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Kagamine Len V4X",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -4764,6 +5575,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota feat. Hatsune Miku Append (Light)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -4810,6 +5629,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "rerulili",
       "rerulili feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -4856,6 +5683,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -4902,6 +5737,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Vane Lily",
       "Team 6×111",
       "Kevin"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -4956,6 +5797,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OTOIRO",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -4995,6 +5844,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Switch",
       "Switch feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -5042,6 +5899,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -5088,6 +5951,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuzuhiko",
       "Yuzuhiko feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -5131,6 +6000,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Picon feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -5174,6 +6051,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mothy",
       "mothy feat. Camui Gackpo",
       "Camui Gackpo"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -5224,6 +6109,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "daniwell",
       "daniwell feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -5269,6 +6160,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "LamazeP feat. Kagamine Rin V4X (Power)",
       "Kagamine Rin",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -5325,7 +6224,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Megurine Luka",
       "Hatsune Miku V3",
       "Megurine Luka V4X English"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-08-29",
@@ -5384,6 +6285,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MEIKO",
       "Hatsune Miku V4X",
       "MEIKO V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -5424,6 +6333,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wowaka feat. Hatsune Miku, Megurine Luka",
       "Hatsune Miku",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -5472,7 +6391,9 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "Jamie Paige",
       "Various artists"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-09-01",
@@ -5514,6 +6435,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "r-906",
       "r-906 feat. Adachi Rei",
       "Adachi Rei"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -5556,6 +6485,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mothy",
       "mothy feat. Kagamine Len",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -5605,6 +6540,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MIMI",
       "MIMI feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -5641,6 +6584,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuyoyuppe, meola feat. Megurine Luka",
       "meola",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -5686,6 +6635,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "bestgt",
       "KAITO",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -5739,6 +6694,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa feat. Hatsune Miku, Hanakuma Chifuyu",
       "Hatsune Miku",
       "Hanakuma Chifuyu"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -5783,6 +6746,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -5826,7 +6797,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P feat. Synthesizer V AI Megpoid",
       "Synthesizer V Megpoid",
       "Synthesizer V AI Megpoid"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-09-09",
@@ -5865,6 +6838,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Crusher feat. Hatsune Miku V4 (English)",
       "Hatsune Miku",
       "Hatsune Miku V4"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -5905,6 +6884,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota feat. Kagamine Rin Append (Power)",
       "Kagamine Rin",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-100m"
     ]
   },
   {
@@ -5939,6 +6926,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuyoyuppe",
       "Yuyoyuppe feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -5984,6 +6977,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "baker feat. Hatsune Miku Append (Sweet)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -6026,6 +7025,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Sasanomaly feat. Hatsune Miku Append (Soft)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -6078,6 +7085,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -6131,6 +7144,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Rockwell",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -6184,6 +7205,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "KAITO",
       "KAITO V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -6227,7 +7258,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Kagamine Rin",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-09-18",
@@ -6276,6 +7309,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HitoshizukuP, yama△ feat. various",
       "yama△",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -6314,6 +7355,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mafumafu feat. Kagamine Len V4X (Power)",
       "Kagamine Len",
       "Kagamine Len V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -6358,6 +7407,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kemu",
       "kemu feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -6399,6 +7456,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Agoaniki",
       "Agoaniki feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -6438,6 +7503,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "nulut",
       "nulut feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -6483,6 +7558,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -6523,6 +7606,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Minato Takahiro",
       "Minato Takahiro feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -6573,6 +7662,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Kagamine Len V4X",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -6619,6 +7716,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len",
       "Kagamine Len V4X",
       "Kagamine Len V4"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -6661,6 +7764,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear",
       "Kairiki bear feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -6705,6 +7816,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "scop",
       "scop feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -6745,6 +7862,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Chaa",
       "Chaa feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -6788,6 +7911,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HitoshizukuP feat. Kagamine Rin, Kagamine Len",
       "Kagamine Rin",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -6835,6 +7966,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Azari feat. Kaai Yuki V4",
       "Kaai Yuki",
       "Kaai Yuki V4"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -6876,6 +8015,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuyoyuppe",
       "Yuyoyuppe feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -6925,6 +8070,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Tsumiki",
       "Tsumiki feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -6969,6 +8122,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -7012,6 +8173,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hiiragi Magnetite",
       "Hiiragi Magnetite feat. KAFU",
       "KAFU"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -7053,6 +8222,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OSTER project",
       "OSTER project feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -7097,6 +8274,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "NAKISO feat. Hatsune Miku V3 (Soft)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -7140,6 +8325,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga, Ore BananaP feat. GUMI",
       "Ore BananaP",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -7185,7 +8378,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wowaka",
       "wowaka feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-10-10",
@@ -7235,6 +8430,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nunununununununununununununununu",
       "Nunununununununununununununununu feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -7278,6 +8481,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST",
       "GHOST feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -7326,6 +8535,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Masarada feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -7365,6 +8582,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -7416,6 +8641,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Heavenz",
       "Heavenz feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -7460,6 +8691,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MAYU",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -7502,6 +8739,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MomomomoP",
       "MomomomoP feat. Momone Momo",
       "Momone Momo"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -7550,6 +8793,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "sasakure.UK, DECO*27 feat. Hatsune Miku",
       "sasakure.UK",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -7593,6 +8844,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "n.k",
       "n.k feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -7637,7 +8896,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CircusP",
       "CircusP feat. Megurine Luka",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-10-20",
@@ -7685,6 +8946,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27",
       "DECO*27 feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -7732,6 +9001,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -7784,6 +9061,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HachioujiP",
       "HachioujiP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -7830,6 +9113,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP",
       "cosMo@BousouP feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -7880,6 +9171,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "SuzukiP",
       "SuzukiP feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -7927,6 +9224,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -7968,6 +9273,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "x0o0x_ feat. Hatsune Miku, v flower",
       "Hatsune Miku",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -8001,6 +9312,12 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "Vane Lily",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -8051,6 +9368,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mothy",
       "mothy feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -8093,6 +9418,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kanzaki Iori",
       "Kanzaki Iori feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -8129,6 +9464,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mikuru396",
       "mikuru396 feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -8170,6 +9511,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Masarada feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -8219,6 +9568,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Police Piccadilly feat. V3 GUMI (English)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -8287,6 +9644,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len",
       "Kagamine Rin",
       "Kagamine Len Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -8325,6 +9690,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuuyu",
       "Yuuyu feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -8381,6 +9752,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27, kous feat. Hatsune Miku",
       "kous",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -8430,6 +9809,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -8472,6 +9859,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "otetsu",
       "otetsu feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -8516,6 +9909,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HACHI feat. Hatsune Miku, GUMI",
       "Hatsune Miku",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -8562,6 +9963,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Creep-P",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -8601,6 +10008,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "40mP, 1640mP feat. Hatsune Miku",
       "1640mP",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -8640,7 +10057,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MakarafaP",
       "MakarafaP feat. Megurine Luka",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-11-11",
@@ -8683,7 +10102,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-11-12",
@@ -8728,6 +10149,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Kagamine Len V4X",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -8779,6 +10211,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -8824,6 +10262,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kz, livetune feat. Hatsune Miku",
       "livetune",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -8870,6 +10314,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "THREE",
       "Surii",
       "すりぃ"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -8920,6 +10374,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "yuzy feat. Hatsune Miku V3 (Sweet)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -8976,7 +10440,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ex-Dr. WILLY",
       "ex-Dr. WILLY feat. Megurine Luka",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-11-18",
@@ -9038,6 +10504,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga",
       "Ore BananaP",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -9084,6 +10558,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Kagamine Len Append",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -9119,7 +10599,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Ryuuuu",
       "Ryuuuu feat. Megurine Luka",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-11-21",
@@ -9156,6 +10638,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "R Sound Design",
       "R Sound Design feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -9201,6 +10691,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "40mP",
       "40mP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -9242,6 +10740,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "syudou feat. Hatsune Miku Append (Soft)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -9287,6 +10793,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Dios/SignalP feat. Hatsune Miku, KAITO",
       "Hatsune Miku",
       "KAITO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -9328,6 +10840,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Orangestar",
       "Orangestar feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -9373,6 +10893,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ryo feat. Hatsune Miku Append (Unknown)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -9413,6 +10941,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P feat. Hatsune Miku V4 (English)",
       "Hatsune Miku",
       "Hatsune Miku V4"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -9455,6 +10993,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "SLAVE.V-V-R feat. Hatsune Miku V4X (Soft)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -9491,6 +11037,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "shu-t",
       "shu-t feat. MEIKO",
       "MEIKO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -9540,6 +11092,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota feat. V3 GUMI (Sweet)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -9578,6 +11138,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wowaka",
       "wowaka feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -9632,6 +11200,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OTOIRO",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -9674,7 +11250,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Guity",
       "Guity feat. Megurine Luka",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-12-04",
@@ -9714,6 +11292,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "LamazeP",
       "LamazeP feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -9765,6 +11351,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Team MOER",
       "Hatsune Miku",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -9811,7 +11403,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-12-07",
@@ -9871,6 +11465,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "is",
       "absorb",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -9914,6 +11516,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "R.I.P feat. Tsuina-chan AI",
       "Tsuina-chan",
       "Tsuina-chan AI"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -9968,6 +11576,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hitoshizuku×Yama△",
       "Kagamine Len",
       "Kagamine Len V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -10008,6 +11624,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -10043,6 +11665,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "lovelyP",
       "lovelyP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -10085,6 +11713,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -10127,6 +11763,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "inabakumori",
       "inabakumori feat. Kaai Yuki",
       "Kaai Yuki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -10170,6 +11816,12 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "natsuP",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -10216,6 +11868,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Harumaki Gohan",
       "Harumaki Gohan feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -10264,6 +11924,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "samfree",
       "samfree feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -10310,6 +11978,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len",
       "Kagamine Rin V4X",
       "Kagamine Len V4X"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -10352,6 +12028,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Stag BeetleP",
       "Stag BeetleP feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -10405,6 +12087,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota",
       "siinamota feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -10449,6 +12137,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "nulut",
       "nulut feat. v flower",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -10504,6 +12200,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kemu",
       "kemu feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -10553,6 +12257,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -10594,6 +12306,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Aku P",
       "ryutsu",
       "POPY"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -10642,6 +12360,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nanahoshi Orchestra",
       "Nanahoshi Orchestra feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -10703,6 +12427,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "syudou feat. Hatsune Miku Append (Soft)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -10745,7 +12480,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KIRA feat. Hatsune Miku V4 (English)",
       "Hatsune Miku",
       "Hatsune Miku V4"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2026-12-27",
@@ -10790,6 +12527,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MASA WORKS DESIGN feat. GUMI, Hatsune Miku",
       "GUMI",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -10845,6 +12590,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hayato Yamamoto",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -10893,6 +12646,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hayato Yamamoto",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -10949,6 +12710,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -10998,6 +12767,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "n-buna feat. V3 GUMI (Power), V3 GUMI (Whisper)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -11047,6 +12824,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "natsuP, SCL Project feat. various",
       "SCL Project",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -11097,6 +12882,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Rana",
       "Otomachi Una Spicy",
       "Rana V4"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -11142,6 +12935,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nashimoto Ui",
       "Nashimoto Ui feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -11201,6 +13000,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DeadballP",
       "DeadballP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -11250,6 +13055,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST",
       "GHOST feat. MAIKA",
       "MAIKA"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -11297,6 +13108,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Eve, Tomoki Numano feat. Hatsune Miku",
       "Tomoki Numano",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "project-sekai"
     ]
   },
   {
@@ -11344,6 +13163,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Joruzin feat. Kagamine Rin V4X (Power)",
       "Kagamine Rin",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -11385,6 +13212,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JIN",
       "JIN feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -11433,6 +13268,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST",
       "GHOST feat. Macne Nana (English)",
       "Macne Nana"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -11482,6 +13323,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OTOIRO",
       "Hatsune Miku",
       "Shigure Ui"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -11519,6 +13368,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota feat. Kagamine Rin Append (Power)",
       "Kagamine Rin",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -11557,6 +13414,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Police Piccadilly",
       "Police Piccadilly feat. Yamine Renri",
       "Yamine Renri"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -11596,6 +13461,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "164",
       "164 feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m"
     ]
   },
   {
@@ -11634,6 +13505,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -11679,7 +13558,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Koronba feat. Koronba No. 4, Utane Uta",
       "Koronba No. 4",
       "Utane Uta"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-01-16",
@@ -11731,6 +13612,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len",
       "Kagamine Rin Append",
       "Kagamine Len Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -11773,6 +13662,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "otetsu",
       "otetsu feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -11812,6 +13709,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kiichi",
       "kiichi feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -11852,6 +13755,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hiiragi Kirai feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -11896,6 +13807,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -11941,6 +13858,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa",
       "iyowa feat. KAFU",
       "KAFU"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-100m"
     ]
   },
   {
@@ -11987,6 +13912,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Megurine Luka",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -12031,6 +13966,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Chom P.",
       "Chom P. feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -12071,6 +14014,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Ore BananaP",
       "Kagamine Rin",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -12125,6 +14076,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Jamie Paige feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -12164,7 +14121,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yamadakkk",
       "Yamadakkk feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-01-27",
@@ -12206,6 +14165,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Tsumiki",
       "Tsumiki feat. KAFU",
       "KAFU"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -12261,6 +14228,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DIVELA",
       "DIVELA feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -12313,6 +14288,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear feat. GUMI, Kagamine Rin",
       "GUMI",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -12356,6 +14339,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Ayase",
       "Ayase feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -12398,6 +14389,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "nakano4",
       "nakano4 feat. Sekka Yufu",
       "Sekka Yufu"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -12440,6 +14439,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "r-906 feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -12486,6 +14493,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mothy",
       "mothy feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -12534,7 +14547,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GUMI",
       "Hatsune Miku",
       "Hatsune Miku Append"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-02-04",
@@ -12576,6 +14591,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -12619,6 +14642,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "LonePi",
       "LonePi feat. Reml",
       "Reml"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -12664,6 +14695,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "dennoko-P",
       "dennoko-P feat. Aoki Lapis",
       "Aoki Lapis"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -12702,6 +14739,12 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "CircusP",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -12753,6 +14796,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -12813,6 +14864,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "YurryCanon feat. V4 GUMI (Power)",
       "GUMI",
       "V4 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -12853,6 +14912,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GUMI",
       "Kagamine Rin Append",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -12891,6 +14958,14 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "DECO*27",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -12939,6 +15014,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "WADATAKEAKI feat. Hatsune Miku Append (Solid)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -12982,6 +15067,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -13036,6 +15129,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Jamie Paige feat. Synthesizer V AI Megpoid",
       "Synthesizer V Megpoid",
       "Synthesizer V AI Megpoid"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -13081,6 +15180,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Ro2noki",
       "Ro2noki feat. Kasane Teto",
       "Kasane Teto"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -13125,6 +15232,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -13175,6 +15290,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -13213,6 +15334,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nashimoto Ui",
       "Nashimoto Ui feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -13260,6 +15387,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OwataP",
       "OwataP feat. Kagamine Len",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -13304,7 +15439,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga feat. GUMI, KYO",
       "GUMI",
       "KYO"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-02-21",
@@ -13352,6 +15489,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M",
       "Mitchie M feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -13405,7 +15553,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MASA WORKS DESIGN feat. GUMI, Hatsune Miku",
       "GUMI",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-02-23",
@@ -13447,6 +15597,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "balloon",
       "balloon feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -13489,7 +15647,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. Miyamai Moca",
       "Miyamai Moca"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-02-25",
@@ -13542,6 +15702,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "YuchaP",
       "YuchaP feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -13580,7 +15746,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hondou Shouta",
       "Hondou Shouta feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-02-27",
@@ -13620,6 +15788,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "yasuo",
       "yasuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -13662,7 +15838,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Project DIVA Channel",
       "Hatsune Miku",
       "Hatsune Miku Append"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-03-01",
@@ -13717,6 +15895,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KurousaP feat. KAITO V3 (Soft)",
       "KAITO",
       "KAITO V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -13763,6 +15949,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Masarada feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -13802,6 +15996,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kz",
       "kz feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -13843,6 +16043,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GojimajiP",
       "GojimajiP feat. Kasane Teto",
       "Kasane Teto"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -13885,6 +16091,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "WADATAKEAKI feat. Otomachi Una Spicy, Otomachi Una (Talk Ex)",
       "Otomachi Una",
       "Otomachi Una Spicy"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -13926,6 +16140,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga, KIRA feat. various",
       "KIRA",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -13976,6 +16198,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto",
       "Hatsune Miku V4X",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-100m"
     ]
   },
   {
@@ -14016,6 +16246,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kiichi",
       "kiichi feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -14049,6 +16285,14 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "Jamie Paige",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -14096,6 +16340,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "R Sound Design feat. Hatsune Miku Append (Sweet)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -14139,6 +16391,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "baker",
       "baker feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -14186,6 +16444,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M",
       "Mitchie M feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -14231,6 +16497,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Fujiwo",
       "Fujiwo feat. Hatsune Miku NT (Original+)",
       "Hatsune Miku NT"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -14278,6 +16552,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "tuna maru feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -14324,7 +16604,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ippo.tsk",
       "ippo.tsk feat. Eleanor Forte",
       "Eleanor Forte"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-03-16",
@@ -14364,6 +16646,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JinseiP",
       "JinseiP feat. Nekomura Iroha",
       "Nekomura Iroha"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -14402,6 +16690,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear",
       "Kairiki bear feat. Meika Mikoto",
       "Meika Mikoto"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -14440,6 +16736,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Machigerita",
       "Machigerita feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -14490,6 +16792,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -14542,6 +16852,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -14590,6 +16908,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hitoshizuku×Yama△",
       "Kagamine Rin",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -14636,6 +16962,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ryutsu",
       "Tsurumaki Maki",
       "Tsurumaki Maki AI"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -14677,6 +17009,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wowaka",
       "wowaka feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -14720,6 +17060,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear",
       "Kairiki bear feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -14762,6 +17110,12 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "KIRA",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -14811,6 +17165,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "doriko",
       "doriko feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-1m"
     ]
   },
   {
@@ -14852,7 +17214,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MASA WORKS DESIGN",
       "MASA WORKS DESIGN feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-03-28",
@@ -14896,6 +17260,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa",
       "iyowa feat. Adachi Rei",
       "Adachi Rei"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -14949,6 +17321,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kamiyanagi feat. Hatsune Miku, Megurine Luka",
       "Hatsune Miku",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -15006,6 +17386,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HachioujiP",
       "HachioujiP feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -15045,6 +17433,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "tilt-six",
       "tilt-six feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -15084,6 +17478,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Junky",
       "Junky feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -15126,6 +17528,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "r-906",
       "r-906 feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -15168,6 +17578,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HACHI",
       "HACHI feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -15213,6 +17631,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hayato Yamamoto",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-100m"
     ]
   },
   {
@@ -15266,7 +17692,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wowaka feat. Hatsune Miku, Megurine Luka",
       "Hatsune Miku",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-04-06",
@@ -15310,6 +17738,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len",
       "Kagamine Rin V4X",
       "Kagamine Len V4X"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -15351,6 +17785,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "doriko",
       "doriko feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -15393,6 +17833,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "muship",
       "muship feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -15435,6 +17883,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -15488,6 +17942,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JIN",
       "JIN feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -15530,6 +17992,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "niki",
       "niki feat. Lily",
       "Lily"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -15572,6 +18042,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "NAKISO feat. Kaai Yuki V4",
       "Kaai Yuki",
       "Kaai Yuki V4"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -15610,6 +18088,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "keeno feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -15648,6 +18134,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "dBu Usagi",
       "dBu Usagi feat. KAITO",
       "KAITO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -15689,6 +18181,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Harumaki Gohan",
       "Harumaki Gohan feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -15743,6 +18246,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M",
       "Mitchie M feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -15783,6 +18296,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "NILFRUITS feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -15825,6 +18346,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga feat. Kagamine Rin, Kagamine Len",
       "Kagamine Rin",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -15862,6 +18393,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -15905,6 +18442,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "rusino feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -15952,6 +18497,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Last Note.",
       "Last Note. feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -16005,6 +18556,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -16056,6 +18615,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hiiragi Magnetite",
       "Hiiragi Magnetite feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -16098,6 +18665,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kanaria feat. V3 GUMI (English)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-100m"
     ]
   },
   {
@@ -16150,6 +18725,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -16190,6 +18771,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CircusP feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -16237,6 +18824,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yunosuke, Osamu feat. Hatsune Miku",
       "Osamu",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -16277,6 +18870,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "40mP",
       "40mP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -16320,6 +18921,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -16364,6 +18973,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "tennen",
       "tennen feat. KAITO",
       "KAITO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -16407,6 +19022,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "T-POCKET, FujidouYayoi feat. Hatsune Miku",
       "FujidouYayoi",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -16455,6 +19078,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "32ki",
       "32ki feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -16501,6 +19134,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27",
       "DECO*27 feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -16547,6 +19188,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Sasuke Haraguchi",
       "Sasuke Haraguchi feat. Adachi Rei",
       "Adachi Rei"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -16587,6 +19236,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HachioujiP feat. Hatsune Miku V3 (Original)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -16631,6 +19288,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Kagamine Len Append",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -16677,6 +19342,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CIRCRUSH",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 100M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-100m",
+      "project-sekai"
     ]
   },
   {
@@ -16718,6 +19393,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa",
       "iyowa feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -16758,6 +19441,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "emon(Tes.)",
       "emon(Tes.) feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -16802,6 +19493,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -16841,6 +19540,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "40mP",
       "40mP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -16887,7 +19594,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "syudou",
       "syudou feat. Ado",
       "Ado"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-05-13",
@@ -16936,6 +19645,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nashimoto Ui",
       "Nashimoto Ui feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -16992,6 +19709,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -17035,6 +19760,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mothy",
       "mothy feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -17079,6 +19810,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M feat. Hatsune Miku V3 (Original)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -17116,7 +19855,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utero",
       "Utero feat. Nekomura Iroha",
       "Nekomura Iroha"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-05-18",
@@ -17153,6 +19894,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "halyosy, is feat. Kagamine Len",
       "is",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -17206,6 +19955,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Last Note. T",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -17247,6 +20004,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "otetsu",
       "otetsu feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -17310,6 +20073,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Machigerita, Project DIVA Channel feat. Hatsune Miku",
       "Project DIVA Channel",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -17348,6 +20117,14 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "KIRA",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -17388,6 +20165,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP feat. Megurine Luka, Kagamine Rin",
       "Megurine Luka",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -17428,6 +20211,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "lumo, Project DIVA Channel feat. Hatsune Miku",
       "Project DIVA Channel",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -17468,6 +20257,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear",
       "Kairiki bear feat. Meika Mikoto",
       "Meika Mikoto"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -17511,6 +20308,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Junky",
       "Junky feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -17558,7 +20363,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -17614,6 +20425,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nashimoto Ui",
       "Nashimoto Ui feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -17688,6 +20507,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Rockwell",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -17758,6 +20585,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HitoshizukuP, yama△ feat. various",
       "yama△",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -17813,6 +20648,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OSTER project, Mitchie M feat. Hatsune Miku",
       "OSTER project",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -17859,6 +20702,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27",
       "DECO*27 feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -17897,6 +20748,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "EZFG",
       "EZFG feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -17939,6 +20796,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -17982,7 +20847,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MASA WORKS DESIGN feat. GUMI, Hatsune Miku",
       "GUMI",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-06-05",
@@ -18031,7 +20898,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. GUMI",
       "GUMI"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-06-06",
@@ -18070,6 +20939,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga",
       "Giga feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -18121,7 +20998,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -18158,6 +21041,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KotsBeirne",
       "KotsBeirne feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -18204,6 +21093,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Hatsune Miku V4",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -18241,7 +21136,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MakarafaP",
       "MakarafaP feat. Megurine Luka",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-06-11",
@@ -18285,6 +21182,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HitoshizukuP, yama△ feat. various",
       "yama△",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -18324,6 +21229,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Koronba feat. Koronba No. 4, Utane Uta",
       "Koronba No. 4",
       "Utane Uta"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -18372,6 +21283,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kanaria",
       "Kanaria feat. Koharu Rikka Standard",
       "Koharu Rikka Standard"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -18414,7 +21333,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-06-15",
@@ -18455,6 +21376,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kobayashi Onyx",
       "Kobayashi Onyx feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -18494,6 +21421,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Tohma",
       "Tohma feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -18536,6 +21471,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Guchiry feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -18595,6 +21538,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "marasy feat. Kagamine Rin Append (Power)",
       "Kagamine Rin",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -18638,6 +21589,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -18682,6 +21641,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "flower",
       "Kasane Teto SV",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -18724,6 +21689,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27, kous feat. Hatsune Miku",
       "kous",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -18770,6 +21743,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Orangestar",
       "Orangestar feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -18807,6 +21788,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ryo feat. Hatsune Miku Append (Unknown)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -18853,6 +21840,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kz",
       "kz feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -18901,6 +21894,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -18948,6 +21949,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OwataP",
       "OwataP feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -18989,6 +21998,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Bang Si-Hyuk",
       "Narinder Singh",
       "SeeU"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -19031,7 +22046,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Pogini",
       "Pogini feat. Kagamine Rin",
       "Kagamine Rin"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-06-29",
@@ -19073,6 +22090,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CircusP feat. Hatsune Miku V3 (English)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -19112,6 +22135,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "SAWTOWNE feat. Hatsune Miku V4 (English)",
       "Hatsune Miku",
       "Hatsune Miku V4"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -19172,6 +22201,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Rockwell",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -19213,6 +22250,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST",
       "GHOST feat. Oliver",
       "Oliver"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -19256,6 +22299,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -19306,6 +22357,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa",
       "iyowa feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -19369,6 +22430,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HachioujiP feat. anon, kanon",
       "anon",
       "kanon"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -19407,6 +22474,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "daniwell",
       "daniwell feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -19461,6 +22534,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "r-906",
       "r-906 feat. IA (CeVIO AI)",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -19503,6 +22584,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Machigerita",
       "Machigerita feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -19545,7 +22634,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "r-906",
       "r-906 feat. IA :[R]",
       "IA :[R]"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-07-10",
@@ -19583,6 +22674,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ChouchouP",
       "ChouchouP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -19629,7 +22728,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2027-07-12",
@@ -19681,6 +22781,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MikitoP feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -19723,6 +22829,12 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "Vane Lily",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "yt-100m"
     ]
   },
   {
@@ -19761,6 +22873,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "AVTechNO!",
       "AVTechNO! feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -19814,6 +22932,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Rockwell",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -19861,6 +22987,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "niki",
       "niki feat. Lily",
       "Lily"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -19906,6 +23038,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MikitoP feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -19953,6 +23093,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "nulut",
       "nulut feat. v flower",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -20010,7 +23158,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. ROSE",
       "ROSE"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-07-20",
@@ -20053,6 +23203,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ANGL",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -20098,6 +23256,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -20147,6 +23311,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Dios/SignalP feat. Kagamine Rin, Kagamine Len",
       "Kagamine Rin",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -20193,6 +23365,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "hinayukki feat. KAITO, MEIKO",
       "KAITO",
       "MEIKO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -20232,6 +23410,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "samfree feat. Kagamine Rin, Hatsune Miku",
       "Kagamine Rin",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -20274,6 +23458,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Frog96",
       "Frog96 feat. Kasane Teto",
       "Kasane Teto"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -20323,6 +23515,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Lemm feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -20365,6 +23563,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "WADATAKEAKI",
       "WADATAKEAKI feat. Yuzuki Yukari",
       "Yuzuki Yukari"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -20405,6 +23611,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ryo, supercell feat. Hatsune Miku",
       "supercell",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "project-sekai"
     ]
   },
   {
@@ -20446,6 +23660,16 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "marasy",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -20485,6 +23709,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuyoyuppe",
       "Yuyoyuppe feat. Natsuki Karin",
       "Natsuki Karin"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -20527,6 +23757,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ryo",
       "ryo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -20568,6 +23804,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear, Mafumafu feat. Hatsune Miku",
       "Mafumafu",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -20613,6 +23855,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP",
       "cosMo@BousouP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -20669,6 +23921,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto",
       "Kagamine Rin",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -20720,6 +23980,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hanyuu Maigo",
       "Hanyuu Maigo feat. v flower",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -20757,6 +24025,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Tohma",
       "Tohma feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -20800,6 +24076,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HitoshizukuP, yama△ feat. various",
       "yama△",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -20849,7 +24131,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "nagimiso feat. Hatsune Miku, Female Voice 1 (SofTalk)",
       "Hatsune Miku",
       "Female Voice 1"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-08-08",
@@ -20889,6 +24173,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Koronba",
       "Koronba feat. Kasane Teto",
       "Kasane Teto"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -20931,6 +24221,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -20975,7 +24273,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Reol",
       "Hatsune Miku",
       "Hatsune Miku Append"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-08-11",
@@ -21018,6 +24318,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "samfree",
       "samfree feat. Utatane Piko",
       "Utatane Piko"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -21070,6 +24376,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Tohma, Sakana feat. Hatsune Miku",
       "Sakana",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -21113,6 +24427,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CircusP feat. V3 GUMI (English)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -21152,7 +24474,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "sasakure.UK",
       "sasakure.UK feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-08-15",
@@ -21195,6 +24519,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Naoki Itai",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -21235,6 +24567,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kemu",
       "kemu feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -21278,6 +24618,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hikari Syuyo",
       "Hikari Syuyo feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -21326,6 +24672,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Ultra-Noob",
       "Ultra-Noob feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -21372,6 +24724,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku Append (Solid)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -21413,7 +24773,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
     ]
   },
   {
@@ -21459,6 +24827,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Crusher feat. V3 GUMI (English)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -21497,6 +24873,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kz",
       "kz feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -21538,6 +24924,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Police Piccadilly",
       "Police Piccadilly feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -21583,6 +24980,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Neru feat. Kagamine Len V4X (Power)",
       "Kagamine Len",
       "Kagamine Len V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -21632,6 +25039,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -21675,6 +25090,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear",
       "Kairiki bear feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -21718,6 +25141,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "UtataP",
       "UtataP feat. Yuzuki Yukari, Yuzuki Yukari",
       "Yuzuki Yukari"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -21770,6 +25201,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Last Note. T",
       "LasNo",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -21809,6 +25246,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Machigerita",
       "Machigerita feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -21854,6 +25297,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU, Kairiki bear feat. Hatsune Miku",
       "Kairiki bear",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -21898,6 +25349,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "THREE",
       "Surii",
       "すりぃ"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -21948,7 +25407,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2027-09-02",
@@ -21991,6 +25451,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "sasakure.UK",
       "sasakure.UK feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -22032,6 +25503,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Treow",
       "Treow feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -22074,6 +25551,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nem feat. Kagamine Len Append (Power)",
       "Kagamine Len",
       "Kagamine Len Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -22125,6 +25608,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mochiutsune",
       "mochiutsune feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -22162,7 +25653,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "AkibawotaP",
       "AkibawotaP feat. Sekka Yufu",
       "Sekka Yufu"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-09-07",
@@ -22213,6 +25706,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Neru feat. Kagamine Rin Append (Power)",
       "Kagamine Rin",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -22259,6 +25760,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -22299,6 +25808,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kiichi",
       "kiichi feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -22348,6 +25863,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Minatsuki Toka",
       "Minatsuki Toka feat. Sukone Tei",
       "Sukone Tei"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -22403,6 +25924,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KurousaP",
       "KurousaP feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -22445,6 +25972,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nashimoto Ui",
       "Nashimoto Ui feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -22502,6 +26037,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "zoccon",
       "zoccon feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -22552,6 +26093,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Dixie Flatline feat. Kagamine Rin, Kagamine Len",
       "Kagamine Rin",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -22591,6 +26138,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HACHI",
       "HACHI feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -22640,6 +26195,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -22684,6 +26247,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kz",
       "kz feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -22727,6 +26298,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "nyanyannya",
       "nyanyannya feat. KAITO",
       "KAITO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -22769,6 +26350,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mathru",
       "mathru feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -22807,7 +26396,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "paraoka",
       "paraoka feat. Acme Iku",
       "Acme Iku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-09-21",
@@ -22850,6 +26441,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CircusP feat. KAITO, SF-A2 Codename miki",
       "KAITO",
       "SF-A2 Codename miki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -22897,6 +26496,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Gussy",
       "Sakana",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -22939,6 +26546,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GUMI",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -22984,6 +26599,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "takamatt feat. V3 GUMI (Power)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -23031,6 +26654,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Camellia feat. Hatsune Miku Append (Sweet)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -23072,6 +26701,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kz",
       "kz feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -23117,6 +26754,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ryo, supercell feat. Hatsune Miku",
       "supercell",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -23168,6 +26813,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ChouchouP feat. V3 GUMI (Whisper), V3 GUMI (Power)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -23213,6 +26866,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27, kous feat. Hatsune Miku",
       "DECO*27",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -23250,7 +26911,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ex-Dr. WILLY feat. Megurine Luka V4X (Hard)",
       "Megurine Luka",
       "Megurine Luka V4X"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-10-01",
@@ -23295,6 +26958,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Sasuke Haraguchi",
       "Sasuke Haraguchi feat. Kasane Teto",
       "Kasane Teto"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -23338,6 +27009,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Kagamine Len V4X",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -23380,6 +27059,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OSTER project",
       "OSTER project feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -23431,6 +27118,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yunosuke, Osamu feat. Hatsune Miku",
       "Osamu",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -23483,7 +27180,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin Append"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -23523,7 +27226,9 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "Jamie Paige",
       "Various artists"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-10-07",
@@ -23571,6 +27276,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "doriko",
       "doriko feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -23609,6 +27322,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "UtataP",
       "UtataP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -23652,6 +27373,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -23701,6 +27430,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Makimiya Fuki",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -23743,6 +27480,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "r-906",
       "r-906 feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -23784,6 +27529,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kaai Yuki",
       "Kagamine Len",
       "Kagamine Len V4X"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -23827,6 +27578,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. v flower",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -23869,6 +27626,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Azari feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -23910,6 +27675,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GonGoss",
       "GonGoss feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -23952,6 +27723,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JIN",
       "JIN feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -24006,6 +27785,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Hatsune Miku V4X",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -24058,6 +27848,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -24097,6 +27895,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M",
       "Mitchie M feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -24144,6 +27950,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Hatsune Miku V4",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -24185,6 +27999,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Minato Takahiro feat. Hatsune Miku, Megurine Luka",
       "Hatsune Miku",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -24241,6 +28061,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Tsukiri, Niang Donglong feat. GUMI",
       "Niang Donglong",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -24285,6 +28113,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto",
       "Riot feat. Kasane Teto",
       "Riot"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -24325,6 +28159,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HACHI",
       "HACHI feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -24367,6 +28209,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Sohta",
       "Sohta feat. Kaai Yuki",
       "Kaai Yuki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -24408,6 +28258,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kemu, Ore BananaP feat. GUMI",
       "Ore BananaP",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -24449,6 +28307,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -24489,6 +28355,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Machigerita feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -24528,6 +28400,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Harumaki Gohan feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -24571,6 +28453,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "niki",
       "niki feat. Lily",
       "Lily"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -24612,7 +28502,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ex-Dr. WILLY",
       "ex-Dr. WILLY feat. Megurine Luka",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-11-01",
@@ -24658,6 +28550,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JIN",
       "JIN feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -24707,6 +28607,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -24753,6 +28661,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nunununununununununununununununu feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -24796,6 +28712,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "noripy",
       "noripy feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -24843,6 +28767,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27, Naoki Itai feat. Hatsune Miku",
       "Naoki Itai",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -24891,6 +28823,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Chinozo",
       "Chinozo feat. v flower",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-100m"
     ]
   },
   {
@@ -24946,6 +28886,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto",
       "Hatsune Miku V4X",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -24987,6 +28935,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "EZFG feat. VY2, VY1V3",
       "VY2",
       "VY1V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -25024,6 +28980,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JimmyThumbP",
       "JimmyThumbP feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -25072,6 +29036,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JesusP",
       "JesusP feat. Kagamine Len",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -25114,6 +29084,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "YugamiP",
       "YugamiP feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -25166,6 +29142,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "40mP",
       "40mP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -25224,6 +29210,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Solid)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -25271,6 +29265,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear feat. Hatsune Miku V3 (Soft)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -25316,7 +29318,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "fummy",
       "fummy feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-11-16",
@@ -25365,6 +29369,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OSTER project feat. Hatsune Miku, Kagamine Rin",
       "Hatsune Miku",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -25407,6 +29417,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-100m"
     ]
   },
   {
@@ -25449,6 +29467,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HACHI",
       "HACHI feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -25502,7 +29528,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Hatsune Miku V4",
       "Hatsune Miku V4X"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-11-20",
@@ -25546,6 +29574,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "sunzriverP feat. Kagamine Rin, Hatsune Miku",
       "Kagamine Rin",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -25585,6 +29619,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Narushima Takashi feat. Kagamine Rin Append (Sweet), Kagamine Rin Append (Power)",
       "Kagamine Rin",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -25624,6 +29664,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mafumafu",
       "Mafumafu feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -25663,6 +29711,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "LamazeP",
       "LamazeP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -25706,6 +29760,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Harumaki Gohan",
       "Harumaki Gohan feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -25748,6 +29810,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga feat. Kagamine Len Append (Power)",
       "Kagamine Len",
       "Kagamine Len Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -25797,7 +29867,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "hosaka1988",
       "hosaka1988 feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-11-27",
@@ -25840,6 +29912,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota",
       "siinamota feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -25884,6 +29962,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wowaka",
       "wowaka feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -25924,6 +30010,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yoshida Yasei feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-100m"
     ]
   },
   {
@@ -25962,6 +30056,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kz",
       "kz feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -26000,6 +30102,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -26046,6 +30154,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "NILFRUITS feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -26108,6 +30224,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -26156,6 +30280,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -26208,6 +30340,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -26249,6 +30389,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "YuchaP, kaichi feat. Megurine Luka",
       "kaichi",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -26289,6 +30437,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HACHI",
       "HACHI feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -26333,6 +30489,16 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "DECO*27",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -26380,6 +30546,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear",
       "Kairiki bear feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -26442,6 +30614,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MikitoP feat. GUMI, Kagamine Rin",
       "GUMI",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -26496,6 +30676,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -26532,6 +30718,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Oonuma Parsley",
       "Oonuma Parsley feat. v flower",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -26573,6 +30767,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JevanniP",
       "JevanniP feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -26617,6 +30817,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kashii Moimi",
       "Kashii Moimi feat. KAFU",
       "KAFU"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -26653,6 +30861,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga",
       "Giga feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -26698,7 +30917,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "shotarouP",
       "shotarouP feat. Kagamine Rin",
       "Kagamine Rin"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-12-17",
@@ -26741,6 +30962,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -26792,6 +31021,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -26839,6 +31074,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Kagamine Rin",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -26879,7 +31120,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "halyosy feat. KAITO V3 (Straight)",
       "KAITO",
       "KAITO V3"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-12-21",
@@ -26919,6 +31162,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MimiroboP feat. Kasane Teto Old",
       "Kasane Teto",
       "Kasane Teto Old"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -26962,7 +31211,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P feat. Hatsune Miku V4X (Dark), Hatsune Miku V4X (Solid)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-12-23",
@@ -27010,6 +31261,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kanaria feat. V3 GUMI (English)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -27055,6 +31314,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Fururi feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -27099,6 +31364,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -27149,6 +31424,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku Append (Dark), Hatsune Miku Append (Solid)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -27198,7 +31481,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Megurine Luka",
       "Hatsune Miku V4X",
       "Megurine Luka V4X"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-12-28",
@@ -27242,6 +31527,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "picdo",
       "picdo feat. Adachi Rei",
       "Adachi Rei"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -27278,7 +31571,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kiichi",
       "kiichi feat. Megurine Luka",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2027-12-30",
@@ -27315,6 +31610,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OSTER project feat. Kagamine Rin, Kagamine Len",
       "Kagamine Rin",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -27366,7 +31667,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "IA"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -27413,6 +31720,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota feat. Hatsune Miku Append (Vivid)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -27464,6 +31777,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "r-906",
       "r-906 feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -27522,6 +31843,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Daibaku Hashin, Sevgasaki Eight feat. various",
       "Sevgasaki Eight",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -27562,6 +31891,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "tanakaB",
       "tanakaB feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -27606,6 +31943,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -27661,6 +32006,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "inabakumori feat. Hatsune Miku, Kaai Yuki",
       "Hatsune Miku",
       "Kaai Yuki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -27702,6 +32055,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -27745,6 +32106,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "inabakumori",
       "inabakumori feat. Kaai Yuki",
       "Kaai Yuki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -27789,6 +32161,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27",
       "DECO*27 feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -27836,6 +32216,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Meddmia feat. Hatsune Miku, KAFU",
       "Hatsune Miku",
       "KAFU"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -27885,6 +32273,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Kagamine Len Append",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -27941,6 +32337,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -27990,6 +32394,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST",
       "GHOST feat. YOHIOloid (English)",
       "YOHIOloid"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -28033,6 +32443,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Tohma",
       "Tohma feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -28075,6 +32493,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KIRA feat. Hatsune Miku V4 (English)",
       "Hatsune Miku",
       "Hatsune Miku V4"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -28115,6 +32539,14 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "Harumaki Gohan",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -28159,6 +32591,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -28200,6 +32640,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP feat. Hatsune Miku V4X (Solid)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -28247,6 +32693,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -28291,6 +32745,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wowaka",
       "wowaka feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -28345,6 +32809,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HitoshizukuP, yama△ feat. various",
       "yama△",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -28394,6 +32866,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Kasane Teto",
       "Kasane Teto Old"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -28439,6 +32919,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku V4X (Soft), Hatsune Miku V4X (Sweet)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -28478,6 +32966,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "LamazeP feat. Hatsune Miku V3 (Original)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -28531,6 +33027,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "UtataP",
       "UtataP feat. MAYU",
       "MAYU"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -28581,6 +33085,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "UtataP feat. Hatsune Miku Append (Soft), Hatsune Miku Append (Solid)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -28619,6 +33131,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OSTER project",
       "OSTER project feat. MEIKO",
       "MEIKO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -28661,6 +33179,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Toraboruta",
       "Toraboruta feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -28705,6 +33229,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PolyphonicBranch",
       "PolyphonicBranch feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -28745,7 +33275,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MakarafaP",
       "MakarafaP feat. Megurine Luka",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-01-31",
@@ -28798,6 +33330,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa",
       "iyowa feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -28864,6 +33404,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "sasakure.UK",
       "sasakure.UK feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -28906,6 +33452,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Police Piccadilly",
       "Police Piccadilly feat. Yamine Renri",
       "Yamine Renri"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -28949,6 +33503,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JimmyThumbP",
       "JimmyThumbP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -28991,6 +33551,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "E.L.V.N",
       "E.L.V.N feat. MEIKO",
       "MEIKO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -29031,6 +33597,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kitani Tatsuya",
       "Kitani Tatsuya feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -29078,6 +33652,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GUMI",
       "Hatsune Miku V4X",
       "V4 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -29123,6 +33705,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Moja",
       "Kagamine Len",
       "Kagamine Len Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -29160,7 +33750,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P feat. Hatsune Miku Append (Solid)",
       "Hatsune Miku",
       "Hatsune Miku Append"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-02-09",
@@ -29203,6 +33795,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hayato Yamamoto",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -29240,6 +33840,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CircusP feat. Hatsune Miku V3 (English)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -29277,6 +33883,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP",
       "cosMo@BousouP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -29316,6 +33930,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Umetora",
       "Umetora feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -29362,6 +33986,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Solid), Hatsune Miku V4X (Soft)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -29404,6 +34036,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "koyori feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "project-sekai"
     ]
   },
   {
@@ -29451,6 +34091,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear feat. Hatsune Miku Append (Soft)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -29489,6 +34137,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "samfree",
       "samfree feat. Lily",
       "Lily"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -29533,6 +34187,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KAITO",
       "MEIKO V3",
       "KAITO V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -29571,6 +34233,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mathru",
       "mathru feat. Camui Gackpo",
       "Camui Gackpo"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -29620,6 +34290,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "TAK feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -29658,6 +34334,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KuchibashiP",
       "KuchibashiP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -29704,6 +34386,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "NayutalieN",
       "NayutalieN feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -29753,6 +34443,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "LiveP",
       "LiveP feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -29796,6 +34492,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Kagamine Len V4X",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -29829,6 +34533,12 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "Jamie Paige",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -29874,6 +34584,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto",
       "Zundamon",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -29914,6 +34632,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -29967,6 +34693,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "WADATAKEAKI feat. Otomachi Una Spicy",
       "Otomachi Una",
       "Otomachi Una Spicy"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -30008,6 +34742,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Jamie Paige feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -30049,6 +34789,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "hapi⇒",
       "hapi⇒ feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -30094,6 +34840,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "MEIKO",
       "MEIKO V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -30129,6 +34883,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Neru",
       "Neru feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -30167,6 +34929,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga, Ore BananaP feat. Kagamine Len",
       "Ore BananaP",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -30238,6 +35008,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27",
       "DECO*27 feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -30281,6 +35057,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kemu",
       "kemu feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -30324,6 +35108,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Masarada feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -30367,6 +35159,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len",
       "Kagamine Rin Append",
       "Kagamine Len Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -30411,7 +35211,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku Append"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -30475,6 +35281,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KURIS",
       "IA",
       "OИE"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -30523,6 +35335,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Rockwell",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -30568,6 +35388,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Police Piccadilly",
       "Police Piccadilly feat. KAFU",
       "KAFU"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -30623,6 +35451,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len",
       "Kagamine Rin Append",
       "Kagamine Len Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -30675,6 +35513,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KulfiQ feat. Kagamine Rin, Hatsune Miku",
       "Kagamine Rin",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -30725,6 +35569,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Crusher, MystSaphyr feat. Kikyuune Aiko",
       "Crusher",
       "Kikyuune Aiko"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -30768,6 +35620,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota",
       "siinamota feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -30819,6 +35679,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MikitoP feat. V3 GUMI (Native)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -30863,6 +35731,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MikitoP feat. Hatsune Miku, Kagamine Rin",
       "Hatsune Miku",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -30909,7 +35785,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "FantasticPlanets",
       "Hatsune Miku",
       "IA"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-03-19",
@@ -30960,7 +35838,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -31015,6 +35899,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KIRA feat. V3 GUMI (English)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -31063,7 +35955,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -31114,6 +36012,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Dixie Flatline",
       "Dixie Flatline feat. MAYU",
       "MAYU"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -31155,6 +36061,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Sasuke Haraguchi",
       "Sasuke Haraguchi feat. Kasane Teto",
       "Kasane Teto"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -31198,7 +36114,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-03-25",
@@ -31247,6 +36165,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "scop feat. Hatsune Miku Append (Soft)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -31306,6 +36232,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "malo",
       "malo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -31348,6 +36280,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kanaria feat. V3 GUMI (English)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -31395,6 +36335,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "19's Sound Factory",
       "19's Sound Factory feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -31441,6 +36387,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga",
       "Giga feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -31489,6 +36443,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto",
       "Hatsune Miku V4X",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -31527,6 +36489,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -31575,7 +36545,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kamiyanagi feat. Hatsune Miku, Megurine Luka",
       "Hatsune Miku",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-04-02",
@@ -31612,6 +36584,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M",
       "Mitchie M feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -31665,6 +36643,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OPA, 0-9 feat. MEIKO",
       "0-9",
       "MEIKO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -31709,6 +36693,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Jamie Paige feat. Hatsune Miku V4 (English)",
       "Hatsune Miku",
       "Hatsune Miku V4"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -31754,6 +36744,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27",
       "DECO*27 feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -31799,6 +36797,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "n-buna feat. Hatsune Miku V3 (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -31845,6 +36853,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -31879,6 +36895,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga",
       "Giga feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -31924,6 +36948,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP",
       "cosMo@BousouP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -31967,6 +37001,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "NayutalieN",
       "NayutalieN feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -32018,6 +37060,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Kagamine Len V4X",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -32067,6 +37117,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JesusP feat. Kagamine Rin, Kagamine Len",
       "Kagamine Rin",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -32115,7 +37173,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto SV"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -32162,6 +37226,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Toraboruta",
       "Toraboruta feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -32210,6 +37282,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Sakurai",
       "Omoi",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -32254,6 +37336,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "NayutalieN",
       "NayutalieN feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -32304,6 +37396,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Noboru",
       "Noboru feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -32348,6 +37448,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HACHI",
       "HACHI feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -32394,6 +37502,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP",
       "cosMo@BousouP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -32441,6 +37557,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Rockwell",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -32482,6 +37606,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "BuriruP",
       "BuriruP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -32545,6 +37675,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GYARI feat. Kotonoha Akane, Yuzuki Yukari",
       "Kotonoha Akane",
       "Yuzuki Yukari"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -32592,6 +37730,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OSTER project",
       "OSTER project feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -32636,6 +37784,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mothy",
       "mothy feat. MEIKO",
       "MEIKO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -32699,6 +37855,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Rockwell",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -32741,6 +37905,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST feat. V3 GUMI (English)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -32785,6 +37955,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cillia",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -32833,7 +38011,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MASA WORKS DESIGN feat. GUMI, Hatsune Miku",
       "GUMI",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-04-29",
@@ -32886,6 +38066,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len",
       "Otomachi Una Spicy",
       "Kagamine Len V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -32928,6 +38116,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga feat. Kagamine Len Append (Power)",
       "Kagamine Len",
       "Kagamine Len Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -32972,6 +38168,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa",
       "iyowa feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -33017,6 +38221,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GYARI",
       "GYARI feat. Kizuna Akari",
       "Kizuna Akari"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -33068,7 +38280,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Ui"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -33111,7 +38329,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. KAFU",
       "KAFU"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-05-05",
@@ -33168,6 +38388,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Sakurai",
       "Omoi",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -33225,6 +38455,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HitoshizukuP, yama△ feat. various",
       "yama△",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -33285,6 +38523,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa",
       "iyowa feat. RIME",
       "RIME"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -33331,6 +38577,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len",
       "Kagamine Rin Append",
       "Kagamine Len Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -33393,6 +38647,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Chilichizu",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -33441,6 +38701,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -33478,6 +38746,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kiichi",
       "kiichi feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -33518,6 +38794,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuukisan",
       "Yuukisan feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -33564,7 +38848,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Eiji Hirasawa",
       "Eiji Hirasawa feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-05-14",
@@ -33615,6 +38901,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P feat. GUMI, Kagamine Rin",
       "GUMI",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -33664,6 +38956,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mothy",
       "mothy feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views"
     ]
   },
   {
@@ -33707,6 +39009,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "inabakumori",
       "inabakumori feat. Kaai Yuki",
       "Kaai Yuki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -33745,7 +39055,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto SV"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -33792,6 +39106,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Stag BeetleP",
       "Stag BeetleP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -33833,6 +39153,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hiiragi Magnetite feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 100M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-100m"
     ]
   },
   {
@@ -33878,6 +39206,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Rokuro feat. Hatsune Miku, GUMI",
       "Hatsune Miku",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -33923,6 +39259,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -33965,6 +39309,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CircusP",
       "CircusP feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -34009,6 +39361,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "UK Rampage",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -34053,6 +39413,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "NAKISO feat. Hatsune Miku V3 (Soft)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -34095,6 +39465,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MonochroMenace feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -34145,7 +39521,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -34189,6 +39571,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "rerulili feat. GUMI, Hatsune Miku",
       "GUMI",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -34245,6 +39635,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Jamie Paige",
       "Jamie Paige feat. Adachi Rei Arpasing",
       "Adachi Rei Arpasing"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -34298,6 +39694,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Last Note. T",
       "LasNo",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -34339,6 +39741,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "halyosy",
       "halyosy feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -34381,6 +39793,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Otomania",
       "Otomania feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -34425,6 +39843,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuuyu",
       "Yuuyu feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -34467,6 +39893,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Gom, HoneyWorks feat. Hatsune Miku",
       "HoneyWorks",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -34513,7 +39947,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Jamie Paige feat. Hatsune Miku V4 (English)",
       "Hatsune Miku",
       "Hatsune Miku V4"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-06-04",
@@ -34553,6 +39989,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "balloon",
       "balloon feat. v flower",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -34594,6 +40040,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GUMI",
       "YOHIOloid",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -34643,6 +40095,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GUMI",
       "Kagamine Rin V4X",
       "V4 GUMI"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -34684,7 +40142,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ex-Dr. WILLY",
       "ex-Dr. WILLY feat. Megurine Luka",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-06-08",
@@ -34726,6 +40186,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -34768,6 +40236,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "rerulili feat. GUMI, Hatsune Miku",
       "GUMI",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -34806,6 +40282,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KurousaP",
       "KurousaP feat. KAITO",
       "KAITO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -34857,6 +40339,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "THREE",
       "Surii",
       "すりぃ"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -34920,6 +40410,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "niki",
       "niki feat. Lily",
       "Lily"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -34969,6 +40467,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MikitoP",
       "MikitoP feat. MAYU",
       "MAYU"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -35020,6 +40524,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GUMI",
       "Kagamine Rin",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -35063,6 +40575,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Megurine Luka",
       "KAITO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -35105,6 +40623,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "R.I.P feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -35155,6 +40679,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kz, livetune feat. Hatsune Miku",
       "livetune",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -35205,7 +40735,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto SV"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -35251,6 +40785,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Hatsune Miku V4X",
       "Hatsune Miku V4"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -35299,7 +40841,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Synthesizer V Megpoid",
       "Kasane Teto SV",
       "Synthesizer V AI Megpoid"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-06-21",
@@ -35343,6 +40887,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "V3 GUMI",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -35388,6 +40942,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Creep-P",
       "Kagamine Rin",
       "Kagamine Rin V4"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -35440,6 +41002,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "KAITO",
       "MEIKO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -35478,6 +41046,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HitoshizukuP, yama△ feat. various",
       "yama△",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -35526,6 +41102,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MikitoP feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -35565,6 +41149,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Minato Takahiro",
       "Minato Takahiro feat. Kagamine Len",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -35617,6 +41207,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -35660,6 +41258,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HachioujiP, kz feat. Hatsune Miku",
       "HachioujiP",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -35709,6 +41313,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "¿?shimon feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -35746,7 +41360,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
     ]
   },
   {
@@ -35799,6 +41417,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Gom, HoneyWorks feat. v flower",
       "HoneyWorks",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -35843,6 +41469,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "THREE",
       "Surii",
       "すりぃ"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -35885,6 +41519,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KIRA feat. V3 GUMI (English)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -35931,6 +41573,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wowaka",
       "wowaka feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -35974,6 +41624,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -36016,6 +41674,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "inabakumori",
       "inabakumori feat. Kaai Yuki",
       "Kaai Yuki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -36060,6 +41726,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Neru",
       "Neru feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -36105,7 +41779,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku, Kagamine Rin",
       "Hatsune Miku",
       "Kagamine Rin"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-07-09",
@@ -36142,6 +41818,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kanaria feat. V3 GUMI (English)",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -36196,7 +41880,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto SV"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -36245,6 +41933,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yunosuke, Osamu feat. various",
       "Osamu",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -36295,6 +41991,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nurse Robot Type T",
       "Hatsune Miku V4X",
       "AI Nurse Robot Type T"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -36346,6 +42048,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kuriyama Yuri, Koh Hashikura feat. Hatsune Miku",
       "Koh Hashikura",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -36383,6 +42093,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "SAWTOWNE feat. Hatsune Miku V4 (English)",
       "Hatsune Miku",
       "Hatsune Miku V4"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -36432,7 +42150,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P feat. Hatsune Miku, Hatsune Miku V4 (English)",
       "Hatsune Miku",
       "Hatsune Miku V4"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-07-16",
@@ -36482,6 +42202,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hayato Yamamoto",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -36526,6 +42254,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Police Piccadilly",
       "Police Piccadilly feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -36564,6 +42300,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Ginsaku",
       "Ginsaku feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -36611,6 +42353,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KurousaP",
       "KurousaP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -36652,6 +42404,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear feat. Hatsune Miku Append (Soft)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -36697,6 +42457,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -36742,7 +42510,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "TamazP feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-07-23",
@@ -36783,6 +42553,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Anamanaguchi feat. Hatsune Miku V3 (English)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -36846,6 +42622,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -36891,6 +42673,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Naoki Itai",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -36949,6 +42739,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Rockwell",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -36990,6 +42788,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CIRCRUSH",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -37044,6 +42848,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KuchibashiP",
       "KuchibashiP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -37084,6 +42894,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HachioujiP",
       "HachioujiP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -37123,6 +42941,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST",
       "GHOST feat. DEX",
       "DEX"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -37169,6 +42993,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto",
       "Hatsune Miku V4X",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -37212,6 +43042,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OSTER project",
       "OSTER project feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -37248,6 +43084,12 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "Jamie Paige",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -37283,7 +43125,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yamadakkk",
       "Yamadakkk feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-08-04",
@@ -37323,6 +43167,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "inabakumori",
       "inabakumori feat. Kaai Yuki",
       "Kaai Yuki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -37360,6 +43212,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Camellia",
       "Camellia feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -37407,6 +43265,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ika_mo",
       "ika_mo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -37452,6 +43320,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku Append (Solid)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -37495,6 +43371,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Hatsune Miku V4",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -37540,6 +43424,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Mitchie M",
       "Mitchie M feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -37598,6 +43490,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -37653,6 +43551,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -37689,7 +43595,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "BELLINI",
       "BELLINI feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-08-13",
@@ -37730,7 +43638,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "syudou",
       "syudou feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-08-14",
@@ -37787,6 +43697,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "inabakumori",
       "inabakumori feat. Kaai Yuki",
       "Kaai Yuki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -37830,7 +43748,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HACHI",
       "HACHI feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-08-16",
@@ -37868,7 +43788,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MakarafaP",
       "MakarafaP feat. Megurine Luka",
       "Megurine Luka"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-08-17",
@@ -37912,6 +43834,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga feat. Hatsune Miku V3 (Solid)",
       "Hatsune Miku",
       "Hatsune Miku V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -37974,6 +43906,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "nyanyannya feat. MEIKO V3 (Power)",
       "MEIKO",
       "MEIKO V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -38016,6 +43956,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hiiragi Kirai feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -38070,6 +44018,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27, kous feat. Hatsune Miku",
       "kous",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -38118,7 +44074,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto SV"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -38160,6 +44122,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -38226,6 +44196,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "OSTER project",
       "OSTER project feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -38284,6 +44260,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "40mP",
       "40mP feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -38329,6 +44313,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -38378,6 +44370,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Misumi",
       "Misumi feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -38418,6 +44418,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MikitoP",
       "MikitoP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -38473,6 +44483,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27",
       "DECO*27 feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-1m"
     ]
   },
   {
@@ -38515,6 +44533,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "HSP",
       "HSP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -38557,6 +44583,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wotaku feat. Hatsune Miku Append (Soft)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -38608,6 +44642,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "natsuP, SCL Project feat. various",
       "SCL Project",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -38655,7 +44697,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "gasmasko",
       "gasmasko feat. GUMI",
       "GUMI"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-09-02",
@@ -38693,6 +44737,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Ayase",
       "Ayase feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -38734,6 +44789,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku V4X (Original), Hatsune Miku V4X (Solid)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -38779,6 +44842,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Porter Robinson",
       "Porter Robinson feat. AVANNA",
       "AVANNA"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -38836,6 +44905,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ARuFa",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -38876,6 +44953,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -38915,6 +44998,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "kz, livetune feat. Hatsune Miku",
       "livetune",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -38964,7 +45055,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len Append"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -39010,6 +45107,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DaijoubuP",
       "DaijoubuP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -39052,6 +45155,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Kagamine Rin",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -39097,6 +45206,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "YM",
       "YM feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -39145,6 +45262,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Masarada feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -39192,6 +45317,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP",
       "cosMo@BousouP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -39233,7 +45366,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utero, Araki Jakkan feat. Hatsune Miku",
       "Araki Jakkan",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-09-15",
@@ -39289,6 +45424,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear feat. Kagamine Rin V4X (Power)",
       "Kagamine Rin",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -39342,6 +45485,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "Hatsune Miku V4X",
       "Hatsune Miku V4"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -39392,6 +45541,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "syudou",
       "syudou feat. KAFU",
       "KAFU"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -39440,6 +45597,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP",
       "cosMo@BousouP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -39489,6 +45656,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Jamie Paige feat. Kasane Teto SV",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -39542,6 +45715,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hayato Yamamoto",
       "OTOIRO",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -39584,6 +45765,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -39626,6 +45815,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Azari feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -39669,6 +45866,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "r-906",
       "r-906 feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -39717,6 +45922,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GHOST",
       "GHOST feat. DAINA",
       "DAINA"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -39756,6 +45967,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU feat. Hatsune Miku V4X (Original)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -39794,7 +46013,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "dronemania feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-09-27",
@@ -39832,6 +46053,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JIN",
       "JIN feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -39869,6 +46098,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Giga",
       "Giga feat. various",
       "various"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -39913,7 +46153,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "atsuzoukun",
       "atsuzoukun feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-09-30",
@@ -39970,6 +46212,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JIN, Nakanishi Ryousuke feat. IA",
       "Nakanishi Ryousuke",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -40016,6 +46266,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "40mP",
       "40mP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -40056,6 +46314,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CIRCRUSH",
       "GUMI",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -40102,6 +46366,14 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "HitoshizukuP",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -40141,6 +46413,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Megurine Luka",
       "Hatsune Miku",
       "Samune Zimi"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -40186,6 +46466,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Satsuki ga Tenkomori",
       "Satsuki ga Tenkomori feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -40232,6 +46520,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ryutsu",
       "Kasane Teto",
       "Kasane Teto SV"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -40280,6 +46574,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GUMI",
       "Hatsune Miku Append",
       "V3 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -40323,6 +46625,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "niki",
       "niki feat. Lily",
       "Lily"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -40362,6 +46672,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -40405,6 +46723,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JIN",
       "JIN feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -40459,6 +46783,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota feat. Hatsune Miku Append (Sweet)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -40513,6 +46843,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -40554,6 +46892,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "UtataP",
       "UtataP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -40592,6 +46938,12 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "rice",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -40650,6 +47002,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Otomachi Una Spicy",
       "Kagamine Rin V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -40687,6 +47049,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "SEDO Sounder",
       "SEDO Sounder feat. MAYU",
       "MAYU"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -40725,7 +47093,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Minatsuki Toka",
       "Minatsuki Toka feat. Sukone Tei",
       "Sukone Tei"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-10-18",
@@ -40772,7 +47142,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GUMI",
       "Hatsune Miku",
       "Hatsune Miku Append"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-10-19",
@@ -40817,6 +47189,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear",
       "Kairiki bear feat. v flower",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -40868,6 +47248,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin",
       "Kagamine Len",
       "Kagamine Len Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -40909,6 +47297,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "inabakumori feat. Hatsune Miku, Hatsune Miku Append (Soft)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -40950,6 +47346,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -40995,6 +47399,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "cosMo@BousouP, Storyteller feat. Hatsune Miku",
       "Storyteller",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -41046,6 +47456,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -41086,7 +47504,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-10-26",
@@ -41124,7 +47544,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DaijoubuP",
       "DaijoubuP feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-10-27",
@@ -41164,7 +47586,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "dronemania",
       "dronemania feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-10-28",
@@ -41205,6 +47629,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuyoyuppe",
       "Yuyoyuppe feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -41249,6 +47679,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku",
       "KAITO",
       "KAITO V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-10m"
     ]
   },
   {
@@ -41292,6 +47730,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "inabakumori feat. Tsurumaki Maki AI (Japanese)",
       "Tsurumaki Maki",
       "Tsurumaki Maki AI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -41338,6 +47784,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wotaku feat. KAITO V3 (Straight)",
       "KAITO",
       "KAITO V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -41391,6 +47845,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JIN",
       "JIN feat. IA",
       "IA"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -41431,6 +47893,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Satsuki ga Tenkomori",
       "Satsuki ga Tenkomori feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -41485,6 +47953,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "WONDERFUL★OPPORTUNITY!",
       "Kagamine Rin",
       "Kagamine Len"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -41526,6 +48002,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CircusP feat. Megurine Luka V4X English (Straight)",
       "Megurine Luka",
       "Megurine Luka V4X English"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -41567,6 +48051,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JimmyThumbP",
       "JimmyThumbP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -41624,7 +48116,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "SEKAI"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -41669,6 +48167,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "inabakumori",
       "inabakumori feat. Kaai Yuki",
       "Kaai Yuki"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -41718,6 +48224,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Harumaki Gohan",
       "Harumaki Gohan feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -41762,6 +48276,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Sasuke Haraguchi",
       "Sasuke Haraguchi feat. Kasane Teto",
       "Kasane Teto"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -41804,6 +48326,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hitorie",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -41842,7 +48374,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hondou Shouta",
       "Hondou Shouta feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-11-12",
@@ -41881,6 +48415,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "asa, Oyamano Mayo feat. Kasane Teto",
       "asa",
       "Kasane Teto"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -41933,6 +48475,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "balloon",
       "balloon feat. v flower",
       "v flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -41975,6 +48525,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ryo",
       "ryo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -42019,6 +48577,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku V4X (Dark)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -42062,6 +48628,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "WADATAKEAKI",
       "WADATAKEAKI feat. Yuzuki Yukari",
       "Yuzuki Yukari"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -42112,6 +48686,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear",
       "Kairiki bear feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -42162,7 +48744,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DaijoubuP",
       "Kagamine Rin",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-11-19",
@@ -42207,6 +48791,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Eve, Tomoki Numano feat. Hatsune Miku",
       "Tomoki Numano",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "project-sekai"
     ]
   },
   {
@@ -42250,6 +48842,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PolyphonicBranch",
       "PolyphonicBranch feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -42297,7 +48895,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -42353,6 +48957,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -42396,6 +49008,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "john",
       "john feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -42445,6 +49065,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kikuo",
       "Kikuo feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -42491,6 +49117,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "r-906 feat. Hatsune Miku V4X (Soft)",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -42532,6 +49166,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hiiragi Kirai feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -42579,6 +49223,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "YurryCanon feat. V4 GUMI (Power)",
       "GUMI",
       "V4 GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -42626,6 +49278,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Toa",
       "Toa feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -42676,6 +49338,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "tepe",
       "Hatsune Miku",
       "Hatsune Miku V4X"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -42719,6 +49391,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "mothy",
       "mothy feat. KAITO",
       "KAITO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -42766,6 +49444,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Creep-P, Prismatic feat. CYBER DIVA",
       "Prismatic",
       "CYBER DIVA"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "yt-10m"
     ]
   },
   {
@@ -42811,6 +49495,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP feat. Hatsune Miku Append (Dark), Hatsune Miku Append (Solid)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -42854,6 +49546,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "siinamota feat. Hatsune Miku Append (Sweet)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -42895,6 +49595,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "sasakure.UK",
       "sasakure.UK feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -42947,6 +49655,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -43000,6 +49716,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Nashimoto Ui",
       "Nashimoto Ui feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -43053,6 +49775,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DECO*27, kous feat. Hatsune Miku",
       "kous",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -43092,6 +49822,17 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear",
       "Kairiki bear feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -43142,6 +49883,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -43182,6 +49931,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa",
       "iyowa feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -43217,6 +49974,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuyoyuppe",
       "Yuyoyuppe feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -43276,6 +50041,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "scop",
       "scop feat. GUMI",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -43317,6 +50090,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "sasakure.UK",
       "sasakure.UK feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -43362,6 +50145,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -43403,6 +50194,12 @@ window.VOCALOID_HEARDLE_SONGS = [
     "artistSearchNames": [
       "Vane Lily",
       "Various artists"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -43444,6 +50241,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iroha(sasaki)",
       "iroha(sasaki) feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -43491,6 +50294,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "niki",
       "niki feat. Lily",
       "Lily"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -43528,6 +50337,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "JimmyThumbP",
       "JimmyThumbP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -43572,6 +50389,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "SLAVE.V-V-R",
       "SLAVE.V-V-R feat. KAFU",
       "KAFU"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -43618,6 +50441,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Utsu-P",
       "Utsu-P feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -43657,6 +50486,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "tokuP",
       "tokuP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -43707,6 +50542,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hiiragi Kirai feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -43752,6 +50595,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KusoinakaP",
       "KusoinakaP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -43797,6 +50646,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "ATOLS feat. Hatsune Miku Append (Dark)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -43838,6 +50695,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "WADATAKEAKI",
       "WADATAKEAKI feat. Kagamine Rin",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -43883,6 +50748,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "CircusP",
       "Hatsune Miku",
       "Hatsune Miku V4"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -43922,7 +50793,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2028-12-28",
@@ -43966,6 +50839,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Suzumu, Giga feat. Kagamine Rin",
       "Giga",
       "Kagamine Rin"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -44010,6 +50891,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "EasyPop feat. Megurine Luka, GUMI",
       "Megurine Luka",
       "GUMI"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -44051,6 +50942,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa",
       "iyowa feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -44091,6 +50990,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wowaka",
       "wowaka feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -44129,6 +51034,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear",
       "Kairiki bear feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -44173,6 +51086,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Last Note. T",
       "Hatsune Miku",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -44213,6 +51132,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -44254,6 +51181,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "samfree",
       "samfree feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -44299,6 +51234,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Noboru",
       "Noboru feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -44340,6 +51281,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "yuukiss",
       "yuukiss feat. MEIKO",
       "MEIKO"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "project-sekai"
     ]
   },
   {
@@ -44380,7 +51329,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2029-01-08",
@@ -44424,6 +51375,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KIRA feat. Hatsune Miku V4 (English)",
       "Hatsune Miku",
       "Hatsune Miku V4"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
     ]
   },
   {
@@ -44469,6 +51426,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "WADATAKEAKI feat. Otomachi Una Spicy",
       "Otomachi Una",
       "Otomachi Una Spicy"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -44508,6 +51473,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GUMI",
       "Kagamine Rin",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -44549,6 +51522,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "DeadballP",
       "DeadballP feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -44588,6 +51567,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -44636,7 +51623,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -44688,6 +51681,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -44739,6 +51740,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "iyowa feat. Hanakuma Chifuyu, Hanakuma Chifuyu Talk Voice",
       "Hanakuma Chifuyu",
       "Hanakuma Chifuyu Talk Voice"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -44782,6 +51791,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "SLAVE.V-V-R feat. MEIKO V3 (Power), MEIKO V3 (English), MEIKO V3 (Whisper)",
       "MEIKO",
       "MEIKO V3"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
     ]
   },
   {
@@ -44828,6 +51845,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Dixie Flatline",
       "Dixie Flatline feat. Megurine Luka",
       "Megurine Luka"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
     ]
   },
   {
@@ -44869,6 +51896,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "tokuP",
       "tokuP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
     ]
   },
   {
@@ -44916,6 +51949,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Neru feat. Kagamine Rin Append (Power)",
       "Kagamine Rin",
       "Kagamine Rin Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 10M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-10m",
+      "yt-10m"
     ]
   },
   {
@@ -44973,6 +52014,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PinocchioP",
       "PinocchioP feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -45014,6 +52063,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -45064,6 +52121,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "wowaka",
       "wowaka feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
     ]
   },
   {
@@ -45102,6 +52165,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "MARETU",
       "MARETU feat. Hatsune Miku",
       "Hatsune Miku"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
     ]
   },
   {
@@ -45146,6 +52217,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Sasanomaly feat. Hatsune Miku Append (Soft)",
       "Hatsune Miku",
       "Hatsune Miku Append"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
     ]
   },
   {
@@ -45197,7 +52278,9 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Ho-ong-i",
       "Ho-ong-i feat. SeeU (Korean)",
       "SeeU"
-    ]
+    ],
+    "vocadbPools": [],
+    "sourceTags": []
   },
   {
     "date": "2029-01-26",
@@ -45237,6 +52320,14 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kairiki bear feat. v4 flower",
       "flower",
       "v4 flower"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-1m"
     ]
   },
   {
@@ -45287,7 +52378,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -45332,7 +52429,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-01-29",
@@ -45372,7 +52470,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-01-30",
@@ -45420,7 +52519,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-01-31",
@@ -45458,7 +52558,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-01",
@@ -45511,7 +52612,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -45553,7 +52660,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-03",
@@ -45600,7 +52708,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "v4 flower"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -45649,7 +52763,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto SV"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -45701,7 +52821,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "v flower"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -45750,7 +52876,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Satoishi Yuka"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -45799,7 +52931,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-08",
@@ -45845,7 +52978,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kaai Yuki"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -45902,7 +53041,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-10",
@@ -45943,7 +53083,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-11",
@@ -45991,7 +53132,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-12",
@@ -46040,7 +53182,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-13",
@@ -46084,7 +53227,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Luo Tianyi"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -46134,7 +53281,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -46184,7 +53335,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-16",
@@ -46234,7 +53386,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-17",
@@ -46279,7 +53432,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-18",
@@ -46325,7 +53479,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-19",
@@ -46382,7 +53537,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -46435,7 +53596,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "SeeU"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -46488,7 +53653,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Otomachi Una Spicy"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -46530,7 +53701,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-23",
@@ -46573,7 +53745,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Adachi Rei"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -46619,7 +53795,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-02-25",
@@ -46664,7 +53841,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -46709,7 +53892,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -46758,7 +53945,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
     ]
   },
   {
@@ -46798,7 +53989,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -46844,7 +54039,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
     ]
   },
   {
@@ -46889,7 +54088,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -46939,7 +54142,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -46999,7 +54208,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -47041,7 +54254,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -47084,7 +54301,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len Append"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -47133,7 +54354,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -47180,7 +54405,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KAFU"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -47235,7 +54466,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "v4 flower"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -47278,7 +54515,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KAFU"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -47325,7 +54568,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "v flower"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -47377,7 +54626,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -47427,7 +54682,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-03-14",
@@ -47471,7 +54727,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "v flower"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -47513,7 +54778,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -47567,7 +54840,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "IA"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -47616,7 +54895,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "IA"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -47669,7 +54954,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "IA"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -47720,7 +55011,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -47768,7 +55065,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -47819,7 +55122,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -47873,7 +55182,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "IA"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -47919,7 +55234,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "IA"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -47966,7 +55287,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -48019,7 +55346,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -48073,7 +55409,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Otomachi Una Spicy"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -48118,7 +55460,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
     ]
   },
   {
@@ -48167,7 +55517,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "v4 flower"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -48215,7 +55571,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -48266,7 +55628,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto SV"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -48312,7 +55680,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto SV2"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -48380,7 +55754,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -48442,7 +55822,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku Append"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -48502,7 +55888,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku Append"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -48562,7 +55954,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -48611,7 +56009,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -48657,7 +56059,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "V3 GUMI"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -48703,7 +56111,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "V3 GUMI"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -48751,7 +56165,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "V3 GUMI"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -48797,7 +56217,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -48854,7 +56278,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Synthesizer V AI Megpoid"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -48906,7 +56334,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -48949,7 +56383,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Chis-A"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -48998,7 +56436,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto SV"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -49047,7 +56491,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto SV"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -49094,7 +56544,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-04-16",
@@ -49146,7 +56597,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-04-17",
@@ -49192,7 +56644,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-04-18",
@@ -49237,7 +56690,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-04-19",
@@ -49291,7 +56745,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -49341,7 +56799,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-04-21",
@@ -49381,7 +56840,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-04-22",
@@ -49441,7 +56901,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -49483,7 +56949,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-04-24",
@@ -49537,7 +57004,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -49587,7 +57058,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -49636,7 +57113,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -49685,7 +57168,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "VY1"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -49737,7 +57226,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -49785,7 +57280,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -49836,7 +57337,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "POYOROID"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -49878,7 +57385,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
     ]
   },
   {
@@ -49926,7 +57437,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KAFU"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -49965,7 +57482,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "PlainTalk"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -50017,7 +57538,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "すりぃ"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -50073,7 +57603,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "すりぃ"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50124,7 +57660,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "すりぃ"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50174,7 +57716,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "すりぃ"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50221,7 +57769,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "v4 flower"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50266,7 +57820,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KAFU"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50309,7 +57869,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50357,7 +57923,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -50403,7 +57975,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KAFU"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50452,7 +58030,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50497,7 +58079,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -50547,7 +58137,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kotonoha Akane"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -50599,7 +58195,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Touhoku Kiritan"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -50654,7 +58256,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50709,7 +58317,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Tsurumaki Maki"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50758,7 +58372,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "various"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50807,7 +58427,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "various"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50850,7 +58476,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "various"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50896,7 +58528,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "various"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50942,7 +58580,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Miyamai Moca"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -50990,7 +58634,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto SV"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51035,7 +58685,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51079,7 +58735,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51129,7 +58791,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51179,7 +58847,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51230,7 +58904,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KAITO V3"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51280,7 +58960,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51322,7 +59008,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -51369,7 +59059,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51419,7 +59118,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -51468,7 +59173,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -51521,7 +59235,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51569,7 +59289,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51616,7 +59342,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51662,7 +59394,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51710,7 +59448,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51763,7 +59507,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Otomachi Una Spicy"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51810,7 +59560,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -51860,7 +59614,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -51912,7 +59672,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hanakuma Chifuyu"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -51960,7 +59726,18 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -52019,7 +59796,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Otomachi Una Spicy"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -52068,7 +59851,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "v4 flower"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -52122,7 +59909,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KAITO V3"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -52167,7 +59962,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "various"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -52215,7 +60018,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KAITO V3"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -52260,7 +60069,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "various"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -52311,7 +60126,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "GUMI"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -52362,7 +60183,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "v flower"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
     ]
   },
   {
@@ -52409,7 +60234,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "v flower"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -52456,7 +60287,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku Append"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -52506,7 +60343,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku Append"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
     ]
   },
   {
@@ -52549,7 +60390,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -52603,7 +60453,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Len V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -52650,7 +60504,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -52697,7 +60557,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
     ]
   },
   {
@@ -52736,7 +60600,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
     ]
   },
   {
@@ -52783,7 +60651,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kagamine Rin V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
     ]
   },
   {
@@ -52829,7 +60701,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -52876,7 +60752,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -52922,7 +60804,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -52969,7 +60857,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53015,7 +60909,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53061,7 +60961,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Kasane Teto"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53108,7 +61014,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Xin Hua V4 Japanese"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53156,7 +61068,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Xin Hua V4 Japanese"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53196,7 +61114,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "COKO"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53244,7 +61168,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "KAFU"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
     ]
   },
   {
@@ -53290,7 +61222,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Zundamon"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -53347,7 +61285,16 @@ window.VOCALOID_HEARDLE_SONGS = [
       "SEKAI"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53389,7 +61336,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "various"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53437,7 +61390,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
     ]
   },
   {
@@ -53483,7 +61442,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53523,7 +61488,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53568,7 +61539,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53622,7 +61599,15 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Zundamon"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
     ]
   },
   {
@@ -53676,7 +61661,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "various"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53721,7 +61712,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuzuki Yukari V4"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53761,7 +61756,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Yuzuki Yukari V4"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53806,7 +61805,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "V3 GUMI"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -53853,7 +61856,11 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
     ]
   },
   {
@@ -53905,7 +61912,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-07-25",
@@ -53945,7 +61953,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-07-26",
@@ -53984,7 +61993,8 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community"
-    ]
+    ],
+    "vocadbPools": []
   },
   {
     "date": "2029-07-28",
@@ -54023,7 +62033,13 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Meika Mikoto"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   },
   {
@@ -54069,8 +62085,15672 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-07-30",
+    "vocadbId": 148979,
+    "title": "Proof Geometric Construction Can Solve All Love Affairs",
+    "artist": "You Takahashi",
+    "artistString": "You Takahashi, manbo-p feat. GUMI",
+    "vocadbName": "Proof Geometric Construction Can Solve All Love Affairs",
+    "vocadbUrl": "https://vocadb.net/S/148979",
+    "coverArt": "https://i.ytimg.com/vi/yoHR8qwuqmY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/yoHR8qwuqmY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/yoHR8qwuqmY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/30675843/30675843",
+      "https://i.ytimg.com/vi/yoHR8qwuqmY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/yoHR8qwuqmY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/yoHR8qwuqmY/default.jpg"
+    ],
+    "publishDate": "2017-02-21T00:00:00Z",
+    "acceptedTitles": [
+      "色恋沙汰は全て作図で解決可能であることの証明",
+      "Proof Geometric Construction Can Solve All Love Affairs",
+      "Irokoizata wa Subete Sakuzu de Kaiketsu Kanou Aru Koto no Shoumei"
+    ],
+    "audioClip": "https://audio.sodapines.dev/148979.mp3",
+    "producerNames": [
+      "You Takahashi",
+      "manbo-p"
+    ],
+    "singerNames": [
+      "GUMI"
+    ],
+    "displayArtist": "You Takahashi, manbo-p feat. GUMI",
+    "suggestionArtistString": "You Takahashi, manbo-p feat. GUMI",
+    "artistSearchNames": [
+      "You Takahashi",
+      "You Takahashi, manbo-p feat. GUMI",
+      "manbo-p",
+      "GUMI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2029-07-31",
+    "vocadbId": 29911,
+    "title": "liberal pops",
+    "artist": "HikkieP",
+    "artistString": "HikkieP feat. Kagamine Rin",
+    "vocadbName": "liberal pops",
+    "vocadbUrl": "https://vocadb.net/S/29911",
+    "coverArt": "https://i.ytimg.com/vi/d3XaAWgT4Vs/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/d3XaAWgT4Vs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/i-O2L3seNTo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/VCCGSBo3EwI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/d3XaAWgT4Vs/sddefault.jpg",
+      "https://i.ytimg.com/vi/i-O2L3seNTo/sddefault.jpg",
+      "https://i.ytimg.com/vi/VCCGSBo3EwI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/2627010/2627010",
+      "https://i.ytimg.com/vi/d3XaAWgT4Vs/hqdefault.jpg",
+      "https://i.ytimg.com/vi/i-O2L3seNTo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/VCCGSBo3EwI/hqdefault.jpg",
+      "https://res.piapro.jp/r/images/card/250/rin.png?20260120",
+      "https://f4.bcbits.com/img/a3881221739_5.jpg",
+      "https://i.ytimg.com/vi/d3XaAWgT4Vs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/i-O2L3seNTo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/VCCGSBo3EwI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/d3XaAWgT4Vs/default.jpg",
+      "https://i.ytimg.com/vi/i-O2L3seNTo/default.jpg",
+      "https://i.ytimg.com/vi/VCCGSBo3EwI/default.jpg"
+    ],
+    "publishDate": "2008-03-12T00:00:00Z",
+    "acceptedTitles": [
+      "liberal pops"
+    ],
+    "audioClip": "https://audio.sodapines.dev/29911.mp3",
+    "producerNames": [
+      "HikkieP"
+    ],
+    "singerNames": [
+      "Kagamine Rin"
+    ],
+    "displayArtist": "HikkieP feat. Kagamine Rin",
+    "suggestionArtistString": "HikkieP feat. Kagamine Rin",
+    "artistSearchNames": [
+      "HikkieP",
+      "HikkieP feat. Kagamine Rin",
+      "Kagamine Rin"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-01",
+    "vocadbId": 21210,
+    "title": "Yankee Boy, Yankee Girl",
+    "artist": "Tohma",
+    "artistString": "Tohma feat. GUMI",
+    "vocadbName": "Yankee Boy, Yankee Girl",
+    "vocadbUrl": "https://vocadb.net/S/21210",
+    "coverArt": "https://i.ytimg.com/vi/coDKGxdL8tw/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/coDKGxdL8tw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/coDKGxdL8tw/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/20252366/20252366",
+      "https://i.ytimg.com/vi/coDKGxdL8tw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/coDKGxdL8tw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/coDKGxdL8tw/default.jpg"
+    ],
+    "publishDate": "2013-03-05T00:00:00Z",
+    "acceptedTitles": [
+      "ヤンキーボーイ・ヤンキーガール",
+      "Yankee Boy, Yankee Girl",
+      "Yankee Boy・Yankee Girl",
+      "양키보이 양키걸"
+    ],
+    "audioClip": "https://audio.sodapines.dev/21210.mp3",
+    "producerNames": [
+      "Tohma"
+    ],
+    "singerNames": [
+      "GUMI"
+    ],
+    "displayArtist": "Tohma feat. GUMI",
+    "suggestionArtistString": "Tohma feat. GUMI",
+    "artistSearchNames": [
+      "Tohma",
+      "Tohma feat. GUMI",
+      "GUMI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-08-02",
+    "vocadbId": 581322,
+    "title": "Asking you",
+    "artist": "Inemuri",
+    "artistString": "Inemuri feat. Utane Uta",
+    "vocadbName": "Asking you",
+    "vocadbUrl": "https://vocadb.net/S/581322",
+    "coverArt": "https://i.ytimg.com/vi/zP7ux8WsYYI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/zP7ux8WsYYI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/lgzGr311MfQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/kCPGR3VKQMc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/zP7ux8WsYYI/sddefault.jpg",
+      "https://i.ytimg.com/vi/lgzGr311MfQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/kCPGR3VKQMc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/43340135/43340135.18009476",
+      "https://i.ytimg.com/vi/zP7ux8WsYYI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/lgzGr311MfQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/kCPGR3VKQMc/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/11ca9a8eec0314669a156cbe854f2ba903202605.jpg",
+      "https://i.ytimg.com/vi/zP7ux8WsYYI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/lgzGr311MfQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/kCPGR3VKQMc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/zP7ux8WsYYI/default.jpg",
+      "https://i.ytimg.com/vi/lgzGr311MfQ/default.jpg",
+      "https://i.ytimg.com/vi/kCPGR3VKQMc/default.jpg"
+    ],
+    "publishDate": "2024-02-01T00:00:00Z",
+    "acceptedTitles": [
+      "うらみ交信",
+      "Asking you",
+      "Urami Koushin",
+      "Resent Correspondence"
+    ],
+    "audioClip": "https://audio.sodapines.dev/581322.mp3",
+    "producerNames": [
+      "Inemuri"
+    ],
+    "singerNames": [
+      "Utane Uta"
+    ],
+    "displayArtist": "Inemuri feat. Utane Uta",
+    "suggestionArtistString": "Inemuri feat. Utane Uta",
+    "artistSearchNames": [
+      "Inemuri",
+      "Inemuri feat. Utane Uta",
+      "Utane Uta"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-03",
+    "vocadbId": 4979,
+    "title": "Heat-Haze Daze",
+    "artist": "JIN",
+    "artistString": "JIN feat. Hatsune Miku Append (Vivid), Hatsune Miku Append (Sweet)",
+    "vocadbName": "Heat-Haze Daze",
+    "vocadbUrl": "https://vocadb.net/S/4979",
+    "coverArt": "https://nicovideo.cdn.nimg.jp/thumbnails/15751190/15751190",
+    "coverArts": [
+      "https://nicovideo.cdn.nimg.jp/thumbnails/15751190/15751190"
+    ],
+    "publishDate": "2011-09-30T00:00:00Z",
+    "acceptedTitles": [
+      "カゲロウデイズ",
+      "Heat-Haze Daze",
+      "Kagerou Daze",
+      "Kagerou Days",
+      "Heat-Haze Days"
+    ],
+    "audioClip": "https://audio.sodapines.dev/4979.mp3",
+    "producerNames": [
+      "JIN"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "JIN feat. Hatsune Miku",
+    "suggestionArtistString": "JIN feat. Hatsune Miku",
+    "artistSearchNames": [
+      "JIN",
+      "JIN feat. Hatsune Miku Append (Vivid), Hatsune Miku Append (Sweet)",
+      "Hatsune Miku",
+      "Hatsune Miku Append"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-08-04",
+    "vocadbId": 982533,
+    "title": "Shanimuni Hanabi",
+    "artist": "PinocchioP",
+    "artistString": "PinocchioP, maxilla feat. Hatsune Miku",
+    "vocadbName": "Shanimuni Hanabi",
+    "vocadbUrl": "https://vocadb.net/S/982533",
+    "coverArt": "https://i.ytimg.com/vi/X4hjLt4kiUM/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/X4hjLt4kiUM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/zvQqxUPED4k/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/X4hjLt4kiUM/sddefault.jpg",
+      "https://i.ytimg.com/vi/zvQqxUPED4k/sddefault.jpg",
+      "https://i.ytimg.com/vi/X4hjLt4kiUM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/zvQqxUPED4k/hqdefault.jpg",
+      "https://i.ytimg.com/vi/X4hjLt4kiUM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/zvQqxUPED4k/mqdefault.jpg",
+      "https://i.ytimg.com/vi/X4hjLt4kiUM/default.jpg",
+      "https://i.ytimg.com/vi/zvQqxUPED4k/default.jpg"
+    ],
+    "publishDate": "2026-06-03T00:00:00Z",
+    "acceptedTitles": [
+      "シャニムニ花火",
+      "Shanimuni Hanabi"
+    ],
+    "audioClip": "https://audio.sodapines.dev/982533.mp3",
+    "producerNames": [
+      "PinocchioP",
+      "maxilla"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "PinocchioP, maxilla feat. Hatsune Miku",
+    "suggestionArtistString": "PinocchioP, maxilla feat. Hatsune Miku",
+    "artistSearchNames": [
+      "PinocchioP",
+      "PinocchioP, maxilla feat. Hatsune Miku",
+      "maxilla",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-05",
+    "vocadbId": 982536,
+    "title": "Heart First Class",
+    "artist": "koyori",
+    "artistString": "koyori feat. Hatsune Miku",
+    "vocadbName": "Heart First Class",
+    "vocadbUrl": "https://vocadb.net/S/982536",
+    "coverArt": "https://i.ytimg.com/vi/nmvDwVYVgEo/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/nmvDwVYVgEo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/-KWwO-pIkFs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/eUnnNut2_Ko/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/nmvDwVYVgEo/sddefault.jpg",
+      "https://i.ytimg.com/vi/-KWwO-pIkFs/sddefault.jpg",
+      "https://i.ytimg.com/vi/eUnnNut2_Ko/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46368327/46368327.67595623",
+      "https://i.ytimg.com/vi/nmvDwVYVgEo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/-KWwO-pIkFs/hqdefault.jpg",
+      "https://i.ytimg.com/vi/eUnnNut2_Ko/hqdefault.jpg",
+      "https://i.ytimg.com/vi/nmvDwVYVgEo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/-KWwO-pIkFs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/eUnnNut2_Ko/mqdefault.jpg",
+      "https://i.ytimg.com/vi/nmvDwVYVgEo/default.jpg",
+      "https://i.ytimg.com/vi/-KWwO-pIkFs/default.jpg",
+      "https://i.ytimg.com/vi/eUnnNut2_Ko/default.jpg"
+    ],
+    "publishDate": "2026-06-03T00:00:00Z",
+    "acceptedTitles": [
+      "心一等",
+      "Heart First Class",
+      "KokoroIttou",
+      "Kokoro Ittou"
+    ],
+    "audioClip": "https://audio.sodapines.dev/982536.mp3",
+    "producerNames": [
+      "koyori"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "koyori feat. Hatsune Miku",
+    "suggestionArtistString": "koyori feat. Hatsune Miku",
+    "artistSearchNames": [
+      "koyori",
+      "koyori feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-06",
+    "vocadbId": 983850,
+    "title": "Hinge/Butterfly",
+    "artist": "Utsu-P",
+    "artistString": "Utsu-P, AudAi feat. Namine Ritsu (VOX Factory)",
+    "vocadbName": "Hinge/Butterfly",
+    "vocadbUrl": "https://vocadb.net/S/983850",
+    "coverArt": "https://i.ytimg.com/vi/mXGUoSDlV68/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/mXGUoSDlV68/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/mXGUoSDlV68/sddefault.jpg",
+      "https://i.ytimg.com/vi/mXGUoSDlV68/hqdefault.jpg",
+      "https://i.ytimg.com/vi/mXGUoSDlV68/mqdefault.jpg",
+      "https://i.ytimg.com/vi/mXGUoSDlV68/default.jpg"
+    ],
+    "publishDate": "2026-06-05T00:00:00Z",
+    "acceptedTitles": [
+      "蝶番",
+      "Hinge/Butterfly",
+      "Choutsugai"
+    ],
+    "audioClip": "https://audio.sodapines.dev/983850.mp3",
+    "producerNames": [
+      "Utsu-P",
+      "AudAi"
+    ],
+    "singerNames": [
+      "Namine Ritsu"
+    ],
+    "displayArtist": "Utsu-P, AudAi feat. Namine Ritsu",
+    "suggestionArtistString": "Utsu-P, AudAi feat. Namine Ritsu",
+    "artistSearchNames": [
+      "Utsu-P",
+      "Utsu-P, AudAi feat. Namine Ritsu (VOX Factory)",
+      "AudAi",
+      "Namine Ritsu"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-07",
+    "vocadbId": 979768,
+    "title": "Cocho Cocho",
+    "artist": "Utsu-P",
+    "artistString": "Utsu-P feat. Hatsune Miku",
+    "vocadbName": "Cocho Cocho",
+    "vocadbUrl": "https://vocadb.net/S/979768",
+    "coverArt": "https://i.ytimg.com/vi/bY4JAa_vPVA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/bY4JAa_vPVA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/j1BgbG-JkXs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/bY4JAa_vPVA/sddefault.jpg",
+      "https://i.ytimg.com/vi/j1BgbG-JkXs/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46358965/46358965.76241954",
+      "https://i.ytimg.com/vi/bY4JAa_vPVA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/j1BgbG-JkXs/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/93a699c138dee3f87a3eeb17bcdf0bd9efb7a7dd.jpg",
+      "https://i.ytimg.com/vi/bY4JAa_vPVA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/j1BgbG-JkXs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/bY4JAa_vPVA/default.jpg",
+      "https://i.ytimg.com/vi/j1BgbG-JkXs/default.jpg"
+    ],
+    "publishDate": "2026-05-29T00:00:00Z",
+    "acceptedTitles": [
+      "Cocho Cocho",
+      "こちょこちょ"
+    ],
+    "audioClip": "https://audio.sodapines.dev/979768.mp3",
+    "producerNames": [
+      "Utsu-P"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Utsu-P feat. Hatsune Miku",
+    "suggestionArtistString": "Utsu-P feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Utsu-P",
+      "Utsu-P feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-08",
+    "vocadbId": 974560,
+    "title": "numb numb",
+    "artist": "TAK",
+    "artistString": "TAK feat. Hatsune Miku V4X (Original), Hatsune Miku V4 (English), Kasane Teto SV",
+    "vocadbName": "numb numb",
+    "vocadbUrl": "https://vocadb.net/S/974560",
+    "coverArt": "https://i.ytimg.com/vi/ba7YbGO2aq4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ba7YbGO2aq4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/B0Czvaxvzt4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ba7YbGO2aq4/sddefault.jpg",
+      "https://i.ytimg.com/vi/B0Czvaxvzt4/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46329645/46329645.74113135",
+      "https://i.ytimg.com/vi/ba7YbGO2aq4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/B0Czvaxvzt4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ba7YbGO2aq4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/B0Czvaxvzt4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ba7YbGO2aq4/default.jpg",
+      "https://i.ytimg.com/vi/B0Czvaxvzt4/default.jpg"
+    ],
+    "publishDate": "2026-05-20T00:00:00Z",
+    "acceptedTitles": [
+      "numb numb"
+    ],
+    "audioClip": "https://audio.sodapines.dev/974560.mp3",
+    "producerNames": [
+      "TAK"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kasane Teto"
+    ],
+    "displayArtist": "TAK feat. Hatsune Miku, Kasane Teto",
+    "suggestionArtistString": "TAK feat. Hatsune Miku, Kasane Teto",
+    "artistSearchNames": [
+      "TAK",
+      "TAK feat. Hatsune Miku V4X (Original), Hatsune Miku V4 (English), Kasane Teto SV",
+      "Hatsune Miku",
+      "Kasane Teto",
+      "Hatsune Miku V4X",
+      "Hatsune Miku V4",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-09",
+    "vocadbId": 977825,
+    "title": "YARARARA",
+    "artist": "AnythingBecomeMoe",
+    "artistString": "AnythingBecomeMoe feat. Kasane Teto SV2",
+    "vocadbName": "YARARARA",
+    "vocadbUrl": "https://vocadb.net/S/977825",
+    "coverArt": "https://i.ytimg.com/vi/T24rF_x0TmQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/T24rF_x0TmQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/_oTaQXf_iX8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/T24rF_x0TmQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/_oTaQXf_iX8/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46354721/46354721.59519818",
+      "https://i.ytimg.com/vi/T24rF_x0TmQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/_oTaQXf_iX8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/T24rF_x0TmQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/_oTaQXf_iX8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/T24rF_x0TmQ/default.jpg",
+      "https://i.ytimg.com/vi/_oTaQXf_iX8/default.jpg"
+    ],
+    "publishDate": "2026-05-25T00:00:00Z",
+    "acceptedTitles": [
+      "ヤラララ",
+      "YARARARA",
+      "야라라라"
+    ],
+    "audioClip": "https://audio.sodapines.dev/977825.mp3",
+    "producerNames": [
+      "AnythingBecomeMoe"
+    ],
+    "singerNames": [
+      "Kasane Teto SV2"
+    ],
+    "displayArtist": "AnythingBecomeMoe feat. Kasane Teto SV2",
+    "suggestionArtistString": "AnythingBecomeMoe feat. Kasane Teto SV2",
+    "artistSearchNames": [
+      "AnythingBecomeMoe",
+      "AnythingBecomeMoe feat. Kasane Teto SV2",
+      "Kasane Teto SV2"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-10",
+    "vocadbId": 975762,
+    "title": "FANTASY★DiSCO NIGHT",
+    "artist": "SAWTOWNE",
+    "artistString": "SAWTOWNE feat. Hatsune Miku",
+    "vocadbName": "FANTASY★DiSCO NIGHT",
+    "vocadbUrl": "https://vocadb.net/S/975762",
+    "coverArt": "https://i.ytimg.com/vi/_t3XkHDrH-o/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/_t3XkHDrH-o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/w1OsW4DfQjU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/_t3XkHDrH-o/sddefault.jpg",
+      "https://i.ytimg.com/vi/w1OsW4DfQjU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46385859/46385859.75215149",
+      "https://i.ytimg.com/vi/_t3XkHDrH-o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/w1OsW4DfQjU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/_t3XkHDrH-o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/w1OsW4DfQjU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/_t3XkHDrH-o/default.jpg",
+      "https://i.ytimg.com/vi/w1OsW4DfQjU/default.jpg"
+    ],
+    "publishDate": "2026-05-21T00:00:00Z",
+    "acceptedTitles": [
+      "FANTASY★DiSCO NIGHT",
+      "幻想ディスコ★ナイト",
+      "Gensou Disco ★ Night"
+    ],
+    "audioClip": "https://audio.sodapines.dev/975762.mp3",
+    "producerNames": [
+      "SAWTOWNE"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "SAWTOWNE feat. Hatsune Miku",
+    "suggestionArtistString": "SAWTOWNE feat. Hatsune Miku",
+    "artistSearchNames": [
+      "SAWTOWNE",
+      "SAWTOWNE feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-11",
+    "vocadbId": 965455,
+    "title": "Call Me!!!!!!!!!! (Because the World Is About to End)",
+    "artist": "SLAVE.V-V-R",
+    "artistString": "SLAVE.V-V-R feat. Hatsune Miku V4X (Sweet)",
+    "vocadbName": "Call Me!!!!!!!!!! (Because the World Is About to End)",
+    "vocadbUrl": "https://vocadb.net/S/965455",
+    "coverArt": "https://i.ytimg.com/vi/isYkd3Taunc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/isYkd3Taunc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/isYkd3Taunc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46288319/46288319.5766758",
+      "https://i.ytimg.com/vi/isYkd3Taunc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/isYkd3Taunc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/isYkd3Taunc/default.jpg"
+    ],
+    "publishDate": "2026-05-09T00:00:00Z",
+    "acceptedTitles": [
+      "電話して!!!!!!!!!!（だって今から世界が終わるので）",
+      "Call Me!!!!!!!!!! (Because the World Is About to End)",
+      "Denwa Shite!!!!!!!!!! (Datte Ima Kara Sekai ga Owaru no de)"
+    ],
+    "audioClip": "https://audio.sodapines.dev/965455.mp3",
+    "producerNames": [
+      "SLAVE.V-V-R"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "SLAVE.V-V-R feat. Hatsune Miku",
+    "suggestionArtistString": "SLAVE.V-V-R feat. Hatsune Miku",
+    "artistSearchNames": [
+      "SLAVE.V-V-R",
+      "SLAVE.V-V-R feat. Hatsune Miku V4X (Sweet)",
+      "Hatsune Miku",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-12",
+    "vocadbId": 962719,
+    "title": "MIKUdashi",
+    "artist": "hya",
+    "artistString": "hya feat. Hatsune Miku",
+    "vocadbName": "MIKUdashi",
+    "vocadbUrl": "https://vocadb.net/S/962719",
+    "coverArt": "https://i.ytimg.com/vi/G7DTmvaLD1Q/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/G7DTmvaLD1Q/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/G7DTmvaLD1Q/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46267842/46267842.33289290",
+      "https://i.ytimg.com/vi/G7DTmvaLD1Q/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/d84376eda412b3d277d3e907217c01298a464704.jpg",
+      "https://i.ytimg.com/vi/G7DTmvaLD1Q/mqdefault.jpg",
+      "https://i.ytimg.com/vi/G7DTmvaLD1Q/default.jpg"
+    ],
+    "publishDate": "2026-05-04T00:00:00Z",
+    "acceptedTitles": [
+      "ミクだし",
+      "MIKUdashi",
+      "Under My Heel"
+    ],
+    "audioClip": "https://audio.sodapines.dev/962719.mp3",
+    "producerNames": [
+      "hya"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "hya feat. Hatsune Miku",
+    "suggestionArtistString": "hya feat. Hatsune Miku",
+    "artistSearchNames": [
+      "hya",
+      "hya feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-13",
+    "vocadbId": 980255,
+    "title": "Approve please, Genie!",
+    "artist": "TRAP CHICK",
+    "artistString": "TRAP CHICK feat. Kasane Teto SV, Kasane Teto (VOICEPEAK), Synthesizer V AI Otomachi Una",
+    "vocadbName": "Approve please, Genie!",
+    "vocadbUrl": "https://vocadb.net/S/980255",
+    "coverArt": "https://i.ytimg.com/vi/XKZIQlqVjjk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/XKZIQlqVjjk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/XKZIQlqVjjk/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46374656/46374656.76645696",
+      "https://i.ytimg.com/vi/XKZIQlqVjjk/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/019fb8f06e85bf14e14632b9302d5a200bd9b038.jpg",
+      "https://i.ytimg.com/vi/XKZIQlqVjjk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/XKZIQlqVjjk/default.jpg"
+    ],
+    "publishDate": "2026-05-30T00:00:00Z",
+    "acceptedTitles": [
+      "승인해주세요 지니님!",
+      "Approve please, Genie!",
+      "承認してください、ジーニーさん！",
+      "Seungin Haejuseyo Genie-nim!",
+      "Shounin shite Kudasai, Genie-san!"
+    ],
+    "audioClip": "https://audio.sodapines.dev/980255.mp3",
+    "producerNames": [
+      "TRAP CHICK"
+    ],
+    "singerNames": [
+      "Kasane Teto",
+      "Synthesizer V Otomachi Una"
+    ],
+    "displayArtist": "TRAP CHICK feat. Kasane Teto, Synthesizer V Otomachi Una",
+    "suggestionArtistString": "TRAP CHICK feat. Kasane Teto, Synthesizer V Otomachi Una",
+    "artistSearchNames": [
+      "TRAP CHICK",
+      "TRAP CHICK feat. Kasane Teto SV, Kasane Teto (VOICEPEAK), Synthesizer V AI Otomachi Una",
+      "Kasane Teto",
+      "Synthesizer V Otomachi Una",
+      "Kasane Teto SV",
+      "Synthesizer V AI Otomachi Una"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-14",
+    "vocadbId": 476755,
+    "title": "One Sheep",
+    "artist": "Peg",
+    "artistString": "Peg, NISHIKI feat. Kagamine Rin V4X (Power)",
+    "vocadbName": "One Sheep",
+    "vocadbUrl": "https://vocadb.net/S/476755",
+    "coverArt": "https://i.ytimg.com/vi/4J1O5NA8Nek/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/4J1O5NA8Nek/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/iRXu20pucfM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/4J1O5NA8Nek/sddefault.jpg",
+      "https://i.ytimg.com/vi/iRXu20pucfM/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/41849883/41849883.99733740",
+      "https://i.ytimg.com/vi/4J1O5NA8Nek/hqdefault.jpg",
+      "https://i.ytimg.com/vi/iRXu20pucfM/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/4442a6dae13b25063b5b32581863927af634189a.jpg",
+      "https://i.ytimg.com/vi/4J1O5NA8Nek/mqdefault.jpg",
+      "https://i.ytimg.com/vi/iRXu20pucfM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/4J1O5NA8Nek/default.jpg",
+      "https://i.ytimg.com/vi/iRXu20pucfM/default.jpg"
+    ],
+    "publishDate": "2023-02-19T00:00:00Z",
+    "acceptedTitles": [
+      "ひつじがいっぴき",
+      "One Sheep",
+      "Hitsuji ga Ippiki",
+      "A Lone Sheep",
+      "A Pair of Sheep",
+      "양이 한마리"
+    ],
+    "audioClip": "https://audio.sodapines.dev/476755.mp3",
+    "producerNames": [
+      "Peg",
+      "NISHIKI"
+    ],
+    "singerNames": [
+      "Kagamine Rin"
+    ],
+    "displayArtist": "Peg, NISHIKI feat. Kagamine Rin",
+    "suggestionArtistString": "Peg, NISHIKI feat. Kagamine Rin",
+    "artistSearchNames": [
+      "Peg",
+      "Peg, NISHIKI feat. Kagamine Rin V4X (Power)",
+      "NISHIKI",
+      "Kagamine Rin",
+      "Kagamine Rin V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ]
+  },
+  {
+    "date": "2029-08-15",
+    "vocadbId": 261630,
+    "title": "Geng Shiba at Nightfall ",
+    "artist": "Peg",
+    "artistString": "Peg feat. Hatsune Miku",
+    "vocadbName": "Geng Shiba at Nightfall ",
+    "vocadbUrl": "https://vocadb.net/S/261630",
+    "coverArt": "https://i.ytimg.com/vi/ZR4j3WHsbfw/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ZR4j3WHsbfw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ZR4j3WHsbfw/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36125801/36125801.91941903",
+      "https://i.ytimg.com/vi/ZR4j3WHsbfw/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/f68b382b80ba0dbed6eef23876d00a2000ab5230.jpg",
+      "https://i.ytimg.com/vi/ZR4j3WHsbfw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ZR4j3WHsbfw/default.jpg"
+    ],
+    "publishDate": "2019-11-17T00:00:00Z",
+    "acceptedTitles": [
+      "夜になったら耿十八は",
+      "Geng Shiba at Nightfall ",
+      "Yoru ni Nattara Koujuuhachi wa"
+    ],
+    "audioClip": "https://audio.sodapines.dev/261630.mp3",
+    "producerNames": [
+      "Peg"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Peg feat. Hatsune Miku",
+    "suggestionArtistString": "Peg feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Peg",
+      "Peg feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-08-16",
+    "vocadbId": 460,
+    "title": "NEXT STAGE",
+    "artist": "MuryokuP",
+    "artistString": "MuryokuP feat. Megurine Luka",
+    "vocadbName": "NEXT STAGE",
+    "vocadbUrl": "https://vocadb.net/S/460",
+    "coverArt": "https://i.ytimg.com/vi/b8PfM1HdwqA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/b8PfM1HdwqA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/MwzFh1hbPvw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/b8PfM1HdwqA/sddefault.jpg",
+      "https://i.ytimg.com/vi/MwzFh1hbPvw/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/15866685/15866685",
+      "https://i.ytimg.com/vi/b8PfM1HdwqA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/MwzFh1hbPvw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/b8PfM1HdwqA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/MwzFh1hbPvw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/b8PfM1HdwqA/default.jpg",
+      "https://i.ytimg.com/vi/MwzFh1hbPvw/default.jpg"
+    ],
+    "publishDate": "2011-10-12T00:00:00Z",
+    "acceptedTitles": [
+      "NEXT STAGE"
+    ],
+    "audioClip": "https://audio.sodapines.dev/460.mp3",
+    "producerNames": [
+      "MuryokuP"
+    ],
+    "singerNames": [
+      "Megurine Luka"
+    ],
+    "displayArtist": "MuryokuP feat. Megurine Luka",
+    "suggestionArtistString": "MuryokuP feat. Megurine Luka",
+    "artistSearchNames": [
+      "MuryokuP",
+      "MuryokuP feat. Megurine Luka",
+      "Megurine Luka"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-08-17",
+    "vocadbId": 54241,
+    "title": "Deus Ex Machina",
+    "artist": "BuriruP",
+    "artistString": "BuriruP feat. Hatsune Miku",
+    "vocadbName": "Deus Ex Machina",
+    "vocadbUrl": "https://vocadb.net/S/54241",
+    "coverArt": "https://i.ytimg.com/vi/RqS6nQYrUSA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/RqS6nQYrUSA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/g5ACzGujbFM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/UDik4VFOR9Y/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/RqS6nQYrUSA/sddefault.jpg",
+      "https://i.ytimg.com/vi/g5ACzGujbFM/sddefault.jpg",
+      "https://i.ytimg.com/vi/UDik4VFOR9Y/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/23508101/23508101",
+      "https://i.ytimg.com/vi/RqS6nQYrUSA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/g5ACzGujbFM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/UDik4VFOR9Y/hqdefault.jpg",
+      "https://i.ytimg.com/vi/RqS6nQYrUSA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/g5ACzGujbFM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/UDik4VFOR9Y/mqdefault.jpg",
+      "https://i.ytimg.com/vi/RqS6nQYrUSA/default.jpg",
+      "https://i.ytimg.com/vi/g5ACzGujbFM/default.jpg",
+      "https://i.ytimg.com/vi/UDik4VFOR9Y/default.jpg"
+    ],
+    "publishDate": "2014-04-26T00:00:00Z",
+    "acceptedTitles": [
+      "デウス・エクス・マキナ",
+      "Deus Ex Machina",
+      "데우스 엑스 마키나"
+    ],
+    "audioClip": "https://audio.sodapines.dev/54241.mp3",
+    "producerNames": [
+      "BuriruP"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "BuriruP feat. Hatsune Miku",
+    "suggestionArtistString": "BuriruP feat. Hatsune Miku",
+    "artistSearchNames": [
+      "BuriruP",
+      "BuriruP feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-08-18",
+    "vocadbId": 98005,
+    "title": "Rocket Cider",
+    "artist": "NayutalieN",
+    "artistString": "NayutalieN feat. Hatsune Miku",
+    "vocadbName": "Rocket Cider",
+    "vocadbUrl": "https://vocadb.net/S/98005",
+    "coverArt": "https://i.ytimg.com/vi/JqYZfghhsdM/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/JqYZfghhsdM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/wWNN3I7pwG8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/3x9_LpnRtAk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/JqYZfghhsdM/sddefault.jpg",
+      "https://i.ytimg.com/vi/wWNN3I7pwG8/sddefault.jpg",
+      "https://i.ytimg.com/vi/3x9_LpnRtAk/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/26848673/26848673",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/26848673/26848673.62409260",
+      "https://i.ytimg.com/vi/JqYZfghhsdM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/wWNN3I7pwG8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/3x9_LpnRtAk/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/181dbb388153a87e0f7e1c2c21bcdfd6e9a5f932.jpg",
+      "https://i.ytimg.com/vi/JqYZfghhsdM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/wWNN3I7pwG8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/3x9_LpnRtAk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/JqYZfghhsdM/default.jpg",
+      "https://i.ytimg.com/vi/wWNN3I7pwG8/default.jpg",
+      "https://i.ytimg.com/vi/3x9_LpnRtAk/default.jpg"
+    ],
+    "publishDate": "2015-08-04T00:00:00Z",
+    "acceptedTitles": [
+      "ロケットサイダー",
+      "Rocket Cider"
+    ],
+    "audioClip": "https://audio.sodapines.dev/98005.mp3",
+    "producerNames": [
+      "NayutalieN"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "NayutalieN feat. Hatsune Miku",
+    "suggestionArtistString": "NayutalieN feat. Hatsune Miku",
+    "artistSearchNames": [
+      "NayutalieN",
+      "NayutalieN feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-08-19",
+    "vocadbId": 84148,
+    "title": "Suicidal Season",
+    "artist": "Noko",
+    "artistString": "Noko feat. Hatsune Miku",
+    "vocadbName": "Suicidal Season",
+    "vocadbUrl": "https://vocadb.net/S/84148",
+    "coverArt": "https://i.ytimg.com/vi/S5jPmqmwPmY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/S5jPmqmwPmY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/S5jPmqmwPmY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/23177995/23177995",
+      "https://i.ytimg.com/vi/S5jPmqmwPmY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/S5jPmqmwPmY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/S5jPmqmwPmY/default.jpg"
+    ],
+    "publishDate": "2014-03-25T00:00:00Z",
+    "acceptedTitles": [
+      "死にたい季節",
+      "Suicidal Season",
+      "Shinitai Kisetsu"
+    ],
+    "audioClip": "https://audio.sodapines.dev/84148.mp3",
+    "producerNames": [
+      "Noko"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Noko feat. Hatsune Miku",
+    "suggestionArtistString": "Noko feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Noko",
+      "Noko feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-20",
+    "vocadbId": 51137,
+    "title": "Henry Cat",
+    "artist": "YASUHIRO",
+    "artistString": "YASUHIRO feat. Hatsune Miku",
+    "vocadbName": "Henry Cat",
+    "vocadbUrl": "https://vocadb.net/S/51137",
+    "coverArt": "https://i.ytimg.com/vi/3N7Fm_1H0zk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/3N7Fm_1H0zk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ulkwWIvenIo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/uWF_G36WyOc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/3N7Fm_1H0zk/sddefault.jpg",
+      "https://i.ytimg.com/vi/ulkwWIvenIo/sddefault.jpg",
+      "https://i.ytimg.com/vi/uWF_G36WyOc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/23151949/23151949",
+      "https://i.ytimg.com/vi/3N7Fm_1H0zk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ulkwWIvenIo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/uWF_G36WyOc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/3N7Fm_1H0zk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ulkwWIvenIo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/uWF_G36WyOc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/3N7Fm_1H0zk/default.jpg",
+      "https://i.ytimg.com/vi/ulkwWIvenIo/default.jpg",
+      "https://i.ytimg.com/vi/uWF_G36WyOc/default.jpg"
+    ],
+    "publishDate": "2014-03-22T00:00:00Z",
+    "acceptedTitles": [
+      "ヘンリー・キャット",
+      "Henry Cat"
+    ],
+    "audioClip": "https://audio.sodapines.dev/51137.mp3",
+    "producerNames": [
+      "YASUHIRO"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "YASUHIRO feat. Hatsune Miku",
+    "suggestionArtistString": "YASUHIRO feat. Hatsune Miku",
+    "artistSearchNames": [
+      "YASUHIRO",
+      "YASUHIRO feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-08-21",
+    "vocadbId": 1144,
+    "title": "Forgetful Person",
+    "artist": "Agoaniki",
+    "artistString": "Agoaniki feat. Kagamine Rin",
+    "vocadbName": "Forgetful Person",
+    "vocadbUrl": "https://vocadb.net/S/1144",
+    "coverArt": "https://i.ytimg.com/vi/XO5UV3atrWc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/XO5UV3atrWc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/XO5UV3atrWc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/12154823/12154823",
+      "https://i.ytimg.com/vi/XO5UV3atrWc/hqdefault.jpg",
+      "https://res.piapro.jp/r/images/card/250/rin.png?20260120",
+      "https://i.ytimg.com/vi/XO5UV3atrWc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/XO5UV3atrWc/default.jpg"
+    ],
+    "publishDate": "2010-09-18T00:00:00Z",
+    "acceptedTitles": [
+      "わすれんぼう",
+      "Forgetful Person",
+      "Wasurenbou",
+      "Space Cadet",
+      "Scatterbrain"
+    ],
+    "audioClip": "https://audio.sodapines.dev/1144.mp3",
+    "producerNames": [
+      "Agoaniki"
+    ],
+    "singerNames": [
+      "Kagamine Rin"
+    ],
+    "displayArtist": "Agoaniki feat. Kagamine Rin",
+    "suggestionArtistString": "Agoaniki feat. Kagamine Rin",
+    "artistSearchNames": [
+      "Agoaniki",
+      "Agoaniki feat. Kagamine Rin",
+      "Kagamine Rin"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-08-22",
+    "vocadbId": 519290,
+    "title": "badger game",
+    "artist": "ze",
+    "artistString": "ze feat. Hatsune Miku V4X (Dark)",
+    "vocadbName": "badger game",
+    "vocadbUrl": "https://vocadb.net/S/519290",
+    "coverArt": "https://i.ytimg.com/vi/QmS_CjK2RMY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/QmS_CjK2RMY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/dGrTP_0-gQo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/QmS_CjK2RMY/sddefault.jpg",
+      "https://i.ytimg.com/vi/dGrTP_0-gQo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/42573221/42573221.67990684",
+      "https://i.ytimg.com/vi/QmS_CjK2RMY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/dGrTP_0-gQo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/QmS_CjK2RMY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/dGrTP_0-gQo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/QmS_CjK2RMY/default.jpg",
+      "https://i.ytimg.com/vi/dGrTP_0-gQo/default.jpg"
+    ],
+    "publishDate": "2023-08-05T00:00:00Z",
+    "acceptedTitles": [
+      "美人局",
+      "badger game",
+      "Tsutsumotase",
+      "미인계"
+    ],
+    "audioClip": "https://audio.sodapines.dev/519290.mp3",
+    "producerNames": [
+      "ze"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "ze feat. Hatsune Miku",
+    "suggestionArtistString": "ze feat. Hatsune Miku",
+    "artistSearchNames": [
+      "ze",
+      "ze feat. Hatsune Miku V4X (Dark)",
+      "Hatsune Miku",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-08-23",
+    "vocadbId": 1607,
+    "title": "Self-Destruct",
+    "artist": "Utsu-P",
+    "artistString": "Utsu-P feat. Hatsune Miku",
+    "vocadbName": "Self-Destruct",
+    "vocadbUrl": "https://vocadb.net/S/1607",
+    "coverArt": "https://i.ytimg.com/vi/ImpAXcY9upo/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ImpAXcY9upo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/RwVCNCz-hnk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ImpAXcY9upo/sddefault.jpg",
+      "https://i.ytimg.com/vi/RwVCNCz-hnk/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/8092413/8092413",
+      "https://i.ytimg.com/vi/ImpAXcY9upo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/RwVCNCz-hnk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ImpAXcY9upo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/RwVCNCz-hnk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ImpAXcY9upo/default.jpg",
+      "https://i.ytimg.com/vi/RwVCNCz-hnk/default.jpg"
+    ],
+    "publishDate": "2009-08-30T00:00:00Z",
+    "acceptedTitles": [
+      "自爆",
+      "Self-Destruct",
+      "Jibaku"
+    ],
+    "audioClip": "https://audio.sodapines.dev/1607.mp3",
+    "producerNames": [
+      "Utsu-P"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Utsu-P feat. Hatsune Miku",
+    "suggestionArtistString": "Utsu-P feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Utsu-P",
+      "Utsu-P feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-08-24",
+    "vocadbId": 693496,
+    "title": "「SUPERCHAT」I Don't Think This Parasocial Relationship Is Working Out",
+    "artist": "3xBlast",
+    "artistString": "3xBlast feat. Hatsune Miku V4 (English)",
+    "vocadbName": "「SUPERCHAT」I Don't Think This Parasocial Relationship Is Working Out",
+    "vocadbUrl": "https://vocadb.net/S/693496",
+    "coverArt": "https://i.ytimg.com/vi/FVpo-_0Xok4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/FVpo-_0Xok4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/dtJpbFu5Xp8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/FVpo-_0Xok4/sddefault.jpg",
+      "https://i.ytimg.com/vi/dtJpbFu5Xp8/sddefault.jpg",
+      "https://i.ytimg.com/vi/FVpo-_0Xok4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/dtJpbFu5Xp8/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a1056130855_5.jpg",
+      "https://i.ytimg.com/vi/FVpo-_0Xok4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/dtJpbFu5Xp8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/FVpo-_0Xok4/default.jpg",
+      "https://i.ytimg.com/vi/dtJpbFu5Xp8/default.jpg"
+    ],
+    "publishDate": "2024-10-31T00:00:00Z",
+    "acceptedTitles": [
+      "「SUPERCHAT」I Don't Think This Parasocial Relationship Is Working Out",
+      "[SUPERCHAT] I Don't Think This Parasocial Relationship Is Working Out"
+    ],
+    "audioClip": "https://audio.sodapines.dev/693496.mp3",
+    "producerNames": [
+      "3xBlast"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "3xBlast feat. Hatsune Miku",
+    "suggestionArtistString": "3xBlast feat. Hatsune Miku",
+    "artistSearchNames": [
+      "3xBlast",
+      "3xBlast feat. Hatsune Miku V4 (English)",
+      "Hatsune Miku",
+      "Hatsune Miku V4"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-25",
+    "vocadbId": 950409,
+    "title": "Machine Love Extended Medley",
+    "artist": "0TS",
+    "artistString": "Various artists",
+    "vocadbName": "Machine Love Extended Medley",
+    "vocadbUrl": "https://vocadb.net/S/950409",
+    "coverArt": "https://i.ytimg.com/vi/xNGKUt9fNuQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/xNGKUt9fNuQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/gdIIVXVQ0LM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/xNGKUt9fNuQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/gdIIVXVQ0LM/sddefault.jpg",
+      "https://i.ytimg.com/vi/xNGKUt9fNuQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/gdIIVXVQ0LM/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/f18087be477f1492656469812d128e8e0859ee14.jpg",
+      "https://i.ytimg.com/vi/xNGKUt9fNuQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/gdIIVXVQ0LM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/xNGKUt9fNuQ/default.jpg",
+      "https://i.ytimg.com/vi/gdIIVXVQ0LM/default.jpg"
+    ],
+    "publishDate": "2026-04-15T00:00:00Z",
+    "acceptedTitles": [
+      "Machine Love Extended Medley",
+      "The Project"
+    ],
+    "audioClip": "https://audio.sodapines.dev/950409.mp3",
+    "producerNames": [
+      "Various artists"
+    ],
+    "singerNames": [],
+    "displayArtist": "Various artists",
+    "suggestionArtistString": "Various artists",
+    "artistSearchNames": [
+      "0TS",
+      "Various artists"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-26",
+    "vocadbId": 947388,
+    "title": "It's fiction.",
+    "artist": "pepensow",
+    "artistString": "pepensow, Nakazato Ryosuke, Chenomio feat. Kasane Teto SV",
+    "vocadbName": "It's fiction.",
+    "vocadbUrl": "https://vocadb.net/S/947388",
+    "coverArt": "https://i.ytimg.com/vi/LxVv4QneUuU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/LxVv4QneUuU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/FVEm7HvJVzA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/LxVv4QneUuU/sddefault.jpg",
+      "https://i.ytimg.com/vi/FVEm7HvJVzA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46149209/46149209.96935203",
+      "https://i.ytimg.com/vi/LxVv4QneUuU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/FVEm7HvJVzA/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/c4b6235ffec61d63f495657a801c79d94868ceb8.jpg",
+      "https://i.ytimg.com/vi/LxVv4QneUuU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/FVEm7HvJVzA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/LxVv4QneUuU/default.jpg",
+      "https://i.ytimg.com/vi/FVEm7HvJVzA/default.jpg"
+    ],
+    "publishDate": "2026-04-10T00:00:00Z",
+    "acceptedTitles": [
+      "フィクションです。",
+      "It's fiction.",
+      "Fiction desu."
+    ],
+    "audioClip": "https://audio.sodapines.dev/947388.mp3",
+    "producerNames": [
+      "pepensow",
+      "Nakazato Ryosuke",
+      "Chenomio"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "pepensow, Nakazato Ryosuke, Chenomio feat. Kasane Teto",
+    "suggestionArtistString": "pepensow, Nakazato Ryosuke, Chenomio feat. Kasane Teto",
+    "artistSearchNames": [
+      "pepensow",
+      "pepensow, Nakazato Ryosuke, Chenomio feat. Kasane Teto SV",
+      "Nakazato Ryosuke",
+      "Chenomio",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-27",
+    "vocadbId": 941854,
+    "title": "Ghost Experience",
+    "artist": "Satsuki",
+    "artistString": "Satsuki feat. Kasane Teto",
+    "vocadbName": "Ghost Experience",
+    "vocadbUrl": "https://vocadb.net/S/941854",
+    "coverArt": "https://i.ytimg.com/vi/hbGFPAF9-_Q/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/hbGFPAF9-_Q/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/m9In9Jr9lcY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/hbGFPAF9-_Q/sddefault.jpg",
+      "https://i.ytimg.com/vi/m9In9Jr9lcY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46278358/46278358.50282759",
+      "https://i.ytimg.com/vi/hbGFPAF9-_Q/hqdefault.jpg",
+      "https://i.ytimg.com/vi/m9In9Jr9lcY/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/471bd5ae69e463376ee6c9ca4e10d6436671d00a.jpg",
+      "https://i.ytimg.com/vi/hbGFPAF9-_Q/mqdefault.jpg",
+      "https://i.ytimg.com/vi/m9In9Jr9lcY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/hbGFPAF9-_Q/default.jpg",
+      "https://i.ytimg.com/vi/m9In9Jr9lcY/default.jpg"
+    ],
+    "publishDate": "2026-04-25T00:00:00Z",
+    "acceptedTitles": [
+      "おばけ体験",
+      "Ghost Experience",
+      "Obake Taiken",
+      "Experiência Fantasma"
+    ],
+    "audioClip": "https://audio.sodapines.dev/941854.mp3",
+    "producerNames": [
+      "Satsuki"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "Satsuki feat. Kasane Teto",
+    "suggestionArtistString": "Satsuki feat. Kasane Teto",
+    "artistSearchNames": [
+      "Satsuki",
+      "Satsuki feat. Kasane Teto",
+      "Kasane Teto"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-28",
+    "vocadbId": 948940,
+    "title": "FRAGILE HEART",
+    "artist": "bunnycat",
+    "artistString": "bunnycat feat. AI Tsuina-chan",
+    "vocadbName": "FRAGILE HEART",
+    "vocadbUrl": "https://vocadb.net/S/948940",
+    "coverArt": "https://i.ytimg.com/vi/VTTOeR3IpD4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/VTTOeR3IpD4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/DXViXPswSJA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/VTTOeR3IpD4/sddefault.jpg",
+      "https://i.ytimg.com/vi/DXViXPswSJA/sddefault.jpg",
+      "https://i.ytimg.com/vi/VTTOeR3IpD4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/DXViXPswSJA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/VTTOeR3IpD4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/DXViXPswSJA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/VTTOeR3IpD4/default.jpg",
+      "https://i.ytimg.com/vi/DXViXPswSJA/default.jpg"
+    ],
+    "publishDate": "2026-04-12T00:00:00Z",
+    "acceptedTitles": [
+      "FRAGILE HEART"
+    ],
+    "audioClip": "https://audio.sodapines.dev/948940.mp3",
+    "producerNames": [
+      "bunnycat"
+    ],
+    "singerNames": [
+      "Tsuina-chan"
+    ],
+    "displayArtist": "bunnycat feat. Tsuina-chan",
+    "suggestionArtistString": "bunnycat feat. Tsuina-chan",
+    "artistSearchNames": [
+      "bunnycat",
+      "bunnycat feat. AI Tsuina-chan",
+      "Tsuina-chan",
+      "AI Tsuina-chan"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-08-29",
+    "vocadbId": 950490,
+    "title": "CRASH THE PARTY",
+    "artist": "KIRA",
+    "artistString": "Various artists",
+    "vocadbName": "CRASH THE PARTY",
+    "vocadbUrl": "https://vocadb.net/S/950490",
+    "coverArt": "https://i.ytimg.com/vi/tjL4KK2RWgQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/tjL4KK2RWgQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/lF_HTbK5iQ4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/tjL4KK2RWgQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/lF_HTbK5iQ4/sddefault.jpg",
+      "https://i.ytimg.com/vi/tjL4KK2RWgQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/lF_HTbK5iQ4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/tjL4KK2RWgQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/lF_HTbK5iQ4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/tjL4KK2RWgQ/default.jpg",
+      "https://i.ytimg.com/vi/lF_HTbK5iQ4/default.jpg"
+    ],
+    "publishDate": "2026-04-16T00:00:00Z",
+    "acceptedTitles": [
+      "CRASH THE PARTY"
+    ],
+    "audioClip": "https://audio.sodapines.dev/950490.mp3",
+    "producerNames": [
+      "Various artists"
+    ],
+    "singerNames": [],
+    "displayArtist": "Various artists",
+    "suggestionArtistString": "Various artists",
+    "artistSearchNames": [
+      "KIRA",
+      "Various artists"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ]
+  },
+  {
+    "date": "2029-08-30",
+    "vocadbId": 941835,
+    "title": "Character T",
+    "artist": "Atena",
+    "artistString": "Atena feat. Kasane Teto (OpenUTAU), Kasane Teto SV",
+    "vocadbName": "Character T",
+    "vocadbUrl": "https://vocadb.net/S/941835",
+    "coverArt": "https://i.ytimg.com/vi/YSBZFVSvqL0/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/YSBZFVSvqL0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/OWE2_mOKVlM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/YSBZFVSvqL0/sddefault.jpg",
+      "https://i.ytimg.com/vi/OWE2_mOKVlM/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46267757/46267757.70059206",
+      "https://i.ytimg.com/vi/YSBZFVSvqL0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/OWE2_mOKVlM/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/9e19f112857415a212ae69dff2d59a0c1fded1ac.jpg",
+      "https://i.ytimg.com/vi/YSBZFVSvqL0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/OWE2_mOKVlM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/YSBZFVSvqL0/default.jpg",
+      "https://i.ytimg.com/vi/OWE2_mOKVlM/default.jpg"
+    ],
+    "publishDate": "2026-04-25T00:00:00Z",
+    "acceptedTitles": [
+      "キャラクターT",
+      "Character T",
+      "캐릭터 T"
+    ],
+    "audioClip": "https://audio.sodapines.dev/941835.mp3",
+    "producerNames": [
+      "Atena"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "Atena feat. Kasane Teto",
+    "suggestionArtistString": "Atena feat. Kasane Teto",
+    "artistSearchNames": [
+      "Atena",
+      "Atena feat. Kasane Teto (OpenUTAU), Kasane Teto SV",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-08-31",
+    "vocadbId": 944008,
+    "title": "FRESH FLESH",
+    "artist": "SOOOO",
+    "artistString": "SOOOO feat. Kagamine Len V4X (Power), Kagamine Len V4X (Serious)",
+    "vocadbName": "FRESH FLESH",
+    "vocadbUrl": "https://vocadb.net/S/944008",
+    "coverArt": "https://i.ytimg.com/vi/rDpKQZjmRzg/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/rDpKQZjmRzg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/rDpKQZjmRzg/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46126903/46126903.2336265",
+      "https://i.ytimg.com/vi/rDpKQZjmRzg/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/9b218cb58f39a97d0f770dddec2c877920155d2b.jpg",
+      "https://i.ytimg.com/vi/rDpKQZjmRzg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/rDpKQZjmRzg/default.jpg"
+    ],
+    "publishDate": "2026-04-04T00:00:00Z",
+    "acceptedTitles": [
+      "FRESH FLESH",
+      "フレッシュフレッシュ"
+    ],
+    "audioClip": "https://audio.sodapines.dev/944008.mp3",
+    "producerNames": [
+      "SOOOO"
+    ],
+    "singerNames": [
+      "Kagamine Len"
+    ],
+    "displayArtist": "SOOOO feat. Kagamine Len",
+    "suggestionArtistString": "SOOOO feat. Kagamine Len",
+    "artistSearchNames": [
+      "SOOOO",
+      "SOOOO feat. Kagamine Len V4X (Power), Kagamine Len V4X (Serious)",
+      "Kagamine Len",
+      "Kagamine Len V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-01",
+    "vocadbId": 951616,
+    "title": "Adachi Rei",
+    "artist": "ByTheWay Sato",
+    "artistString": "ByTheWay Sato feat. Adachi Rei, Kasane Teto",
+    "vocadbName": "Adachi Rei",
+    "vocadbUrl": "https://vocadb.net/S/951616",
+    "coverArt": "https://i.ytimg.com/vi/cRnjetMobw8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/cRnjetMobw8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/S4Khn4GEbYQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/cRnjetMobw8/sddefault.jpg",
+      "https://i.ytimg.com/vi/S4Khn4GEbYQ/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46191454/46191454.1272486",
+      "https://i.ytimg.com/vi/cRnjetMobw8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/S4Khn4GEbYQ/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/2cac90e12664cb7da91f0f0faa9b4b99479336f4.jpg",
+      "https://i.ytimg.com/vi/cRnjetMobw8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/S4Khn4GEbYQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/cRnjetMobw8/default.jpg",
+      "https://i.ytimg.com/vi/S4Khn4GEbYQ/default.jpg"
+    ],
+    "publishDate": "2026-04-18T00:00:00Z",
+    "acceptedTitles": [
+      "アダチ・レイ",
+      "Adachi Rei"
+    ],
+    "audioClip": "https://audio.sodapines.dev/951616.mp3",
+    "producerNames": [
+      "ByTheWay Sato"
+    ],
+    "singerNames": [
+      "Adachi Rei",
+      "Kasane Teto"
+    ],
+    "displayArtist": "ByTheWay Sato feat. Adachi Rei, Kasane Teto",
+    "suggestionArtistString": "ByTheWay Sato feat. Adachi Rei, Kasane Teto",
+    "artistSearchNames": [
+      "ByTheWay Sato",
+      "ByTheWay Sato feat. Adachi Rei, Kasane Teto",
+      "Adachi Rei",
+      "Kasane Teto"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-02",
+    "vocadbId": 950780,
+    "title": "gONE",
+    "artist": "Utsu-P",
+    "artistString": "Utsu-P feat. Kasane Teto SV2",
+    "vocadbName": "gONE",
+    "vocadbUrl": "https://vocadb.net/S/950780",
+    "coverArt": "https://i.ytimg.com/vi/lv1M-a8baCQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/lv1M-a8baCQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/lv1M-a8baCQ/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46180736/46180736.80823751",
+      "https://i.ytimg.com/vi/lv1M-a8baCQ/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/e0c62207490577ecaf35c1cd0ec7f1b76766b470.jpg",
+      "https://i.ytimg.com/vi/lv1M-a8baCQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/lv1M-a8baCQ/default.jpg"
+    ],
+    "publishDate": "2026-04-17T00:00:00Z",
+    "acceptedTitles": [
+      "gONE"
+    ],
+    "audioClip": "https://audio.sodapines.dev/950780.mp3",
+    "producerNames": [
+      "Utsu-P"
+    ],
+    "singerNames": [
+      "Kasane Teto SV2"
+    ],
+    "displayArtist": "Utsu-P feat. Kasane Teto SV2",
+    "suggestionArtistString": "Utsu-P feat. Kasane Teto SV2",
+    "artistSearchNames": [
+      "Utsu-P",
+      "Utsu-P feat. Kasane Teto SV2",
+      "Kasane Teto SV2"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-03",
+    "vocadbId": 960517,
+    "title": "Love Para",
+    "artist": "DECO*27",
+    "artistString": "DECO*27, Hayato Yamamoto, OTOIRO feat. Hatsune Miku",
+    "vocadbName": "Love Para",
+    "vocadbUrl": "https://vocadb.net/S/960517",
+    "coverArt": "https://i.ytimg.com/vi/RgVLBtRLX9k/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/RgVLBtRLX9k/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/RgVLBtRLX9k/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46224745/46224745.26294937",
+      "https://i.ytimg.com/vi/RgVLBtRLX9k/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/1b26361f911dc6767843c3b801d1824dc41446ee.jpg",
+      "https://i.ytimg.com/vi/RgVLBtRLX9k/mqdefault.jpg",
+      "https://i.ytimg.com/vi/RgVLBtRLX9k/default.jpg"
+    ],
+    "publishDate": "2026-05-01T00:00:00Z",
+    "acceptedTitles": [
+      "ラブパラ",
+      "Love Para",
+      "러브파라"
+    ],
+    "audioClip": "https://audio.sodapines.dev/960517.mp3",
+    "producerNames": [
+      "DECO*27",
+      "Hayato Yamamoto",
+      "OTOIRO"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "DECO*27, Hayato Yamamoto, OTOIRO feat. Hatsune Miku",
+    "suggestionArtistString": "DECO*27, Hayato Yamamoto, OTOIRO feat. Hatsune Miku",
+    "artistSearchNames": [
+      "DECO*27",
+      "DECO*27, Hayato Yamamoto, OTOIRO feat. Hatsune Miku",
+      "Hayato Yamamoto",
+      "OTOIRO",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-04",
+    "vocadbId": 946815,
+    "title": "OSHIOSHIOSHIOSHI / MONEYMONEYMONEYMONEY",
+    "artist": "Kikuo",
+    "artistString": "Kikuo feat. Hatsune Miku, Hatsune Miku V6 (Original)",
+    "vocadbName": "OSHIOSHIOSHIOSHI / MONEYMONEYMONEYMONEY",
+    "vocadbUrl": "https://vocadb.net/S/946815",
+    "coverArt": "https://i.ytimg.com/vi/lb2iKSm4_fY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/lb2iKSm4_fY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/lCJlanvC5Pw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/lb2iKSm4_fY/sddefault.jpg",
+      "https://i.ytimg.com/vi/lCJlanvC5Pw/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46147325/46147325.61529022",
+      "https://i.ytimg.com/vi/lb2iKSm4_fY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/lCJlanvC5Pw/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/e35594a1b27ca7b5de795c18e0a5dc935594685e.jpg",
+      "https://i.ytimg.com/vi/lb2iKSm4_fY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/lCJlanvC5Pw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/lb2iKSm4_fY/default.jpg",
+      "https://i.ytimg.com/vi/lCJlanvC5Pw/default.jpg"
+    ],
+    "publishDate": "2026-04-09T00:00:00Z",
+    "acceptedTitles": [
+      "推推推推推推推推金金金金金金金金",
+      "OSHIOSHIOSHIOSHI / MONEYMONEYMONEYMONEY",
+      "OSHIOSHIOSHIOSHI MONEYMONEYMONEYMONEY",
+      "Oshi Oshi Oshi Oshi Oshi Oshi Oshi Oshi Kane Kane Kane Kane Kane Kane Kane Kane",
+      "推推推推金金金金",
+      "Oshi Money",
+      "OSHIOSHIOSHIOSHI / PAISAPAISAPAISAPAISA",
+      "وشی وشی وشی وشی / پیسا پیسا پیسا پیسا",
+      "ओशिओशिओशिओशि / पैसापैसापैसापैसा",
+      "CINTA CINTA CINTA CINTA / DUIT DUIT DUIT DUIT",
+      "OSHI OSHI OSHI OSHI / PÉNZ PÉNZ PÉNZ PÉNZ",
+      "OSHI OSHI OSHI OSHI / KASA KASA KASA KASA",
+      "OSHI OSHI OSHI OSHI / DINHEIRO DINHEIRO DINHEIRO DINHEIRO",
+      "OSHI OSHI OSHI OSHI / DINERO DINERO DINERO DINERO"
+    ],
+    "audioClip": "https://audio.sodapines.dev/946815.mp3",
+    "producerNames": [
+      "Kikuo"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Kikuo feat. Hatsune Miku",
+    "suggestionArtistString": "Kikuo feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Kikuo",
+      "Kikuo feat. Hatsune Miku, Hatsune Miku V6 (Original)",
+      "Hatsune Miku",
+      "Hatsune Miku V6"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-05",
+    "vocadbId": 960388,
+    "title": "magnet -recall-",
+    "artist": "Minato Takahiro",
+    "artistString": "Minato Takahiro feat. Hatsune Miku, Megurine Luka",
+    "vocadbName": "magnet -recall-",
+    "vocadbUrl": "https://vocadb.net/S/960388",
+    "coverArt": "https://i.ytimg.com/vi/cf1ryWClGpU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/cf1ryWClGpU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/_1ci-xlJq_w/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/cf1ryWClGpU/sddefault.jpg",
+      "https://i.ytimg.com/vi/_1ci-xlJq_w/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46253942/46253942.70089796",
+      "https://i.ytimg.com/vi/cf1ryWClGpU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/_1ci-xlJq_w/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/4736a04faa15a422c6a10242b2391151874b180d.jpg",
+      "https://i.ytimg.com/vi/cf1ryWClGpU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/_1ci-xlJq_w/mqdefault.jpg",
+      "https://i.ytimg.com/vi/cf1ryWClGpU/default.jpg",
+      "https://i.ytimg.com/vi/_1ci-xlJq_w/default.jpg"
+    ],
+    "publishDate": "2026-05-01T00:00:00Z",
+    "acceptedTitles": [
+      "magnet -recall-"
+    ],
+    "audioClip": "https://audio.sodapines.dev/960388.mp3",
+    "producerNames": [
+      "Minato Takahiro"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Megurine Luka"
+    ],
+    "displayArtist": "Minato Takahiro feat. Hatsune Miku, Megurine Luka",
+    "suggestionArtistString": "Minato Takahiro feat. Hatsune Miku, Megurine Luka",
+    "artistSearchNames": [
+      "Minato Takahiro",
+      "Minato Takahiro feat. Hatsune Miku, Megurine Luka",
+      "Hatsune Miku",
+      "Megurine Luka"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-09-06",
+    "vocadbId": 929762,
+    "title": "Like a Shooting Star",
+    "artist": "Crusher",
+    "artistString": "Crusher, Fruutella, YZYX feat. Hatsune Miku V6 (Original)",
+    "vocadbName": "Like a Shooting Star",
+    "vocadbUrl": "https://vocadb.net/S/929762",
+    "coverArt": "https://i.ytimg.com/vi/teA1BPNCAQY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/teA1BPNCAQY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/teA1BPNCAQY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46205460/46205460.59243629",
+      "https://i.ytimg.com/vi/teA1BPNCAQY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/teA1BPNCAQY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/teA1BPNCAQY/default.jpg"
+    ],
+    "publishDate": "2026-03-09T00:00:00Z",
+    "acceptedTitles": [
+      "Like a Shooting Star"
+    ],
+    "audioClip": "https://audio.sodapines.dev/929762.mp3",
+    "producerNames": [
+      "Crusher",
+      "Fruutella",
+      "YZYX"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Crusher, Fruutella, YZYX feat. Hatsune Miku",
+    "suggestionArtistString": "Crusher, Fruutella, YZYX feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Crusher",
+      "Crusher, Fruutella, YZYX feat. Hatsune Miku V6 (Original)",
+      "Fruutella",
+      "YZYX",
+      "Hatsune Miku",
+      "Hatsune Miku V6"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-07",
+    "vocadbId": 931423,
+    "title": "Super Complex",
+    "artist": "¿?shimon",
+    "artistString": "¿?shimon feat. Adachi Rei",
+    "vocadbName": "Super Complex",
+    "vocadbUrl": "https://vocadb.net/S/931423",
+    "coverArt": "https://i.ytimg.com/vi/a8JbWRz5m6Y/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/a8JbWRz5m6Y/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/a8JbWRz5m6Y/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46047787/46047787.56978253",
+      "https://i.ytimg.com/vi/a8JbWRz5m6Y/hqdefault.jpg",
+      "https://i.ytimg.com/vi/a8JbWRz5m6Y/mqdefault.jpg",
+      "https://i.ytimg.com/vi/a8JbWRz5m6Y/default.jpg"
+    ],
+    "publishDate": "2026-03-13T00:00:00Z",
+    "acceptedTitles": [
+      "すーぱーこんぷれっくす",
+      "Super Complex"
+    ],
+    "audioClip": "https://audio.sodapines.dev/931423.mp3",
+    "producerNames": [
+      "¿?shimon"
+    ],
+    "singerNames": [
+      "Adachi Rei"
+    ],
+    "displayArtist": "¿?shimon feat. Adachi Rei",
+    "suggestionArtistString": "¿?shimon feat. Adachi Rei",
+    "artistSearchNames": [
+      "¿?shimon",
+      "¿?shimon feat. Adachi Rei",
+      "Adachi Rei"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-08",
+    "vocadbId": 934969,
+    "title": "I’m talking to you!!!",
+    "artist": "pinata",
+    "artistString": "pinata feat. Kasane Teto",
+    "vocadbName": "I’m talking to you!!!",
+    "vocadbUrl": "https://vocadb.net/S/934969",
+    "coverArt": "https://i.ytimg.com/vi/V4elF7---KQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/V4elF7---KQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/V4elF7---KQ/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46121265/46121265.96712412",
+      "https://i.ytimg.com/vi/V4elF7---KQ/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/0b5141c6adbf787dc013b388f934dc2effd95103.jpg",
+      "https://i.ytimg.com/vi/V4elF7---KQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/V4elF7---KQ/default.jpg"
+    ],
+    "publishDate": "2026-03-20T00:00:00Z",
+    "acceptedTitles": [
+      "アンタに言ってんの！！！",
+      "I’m talking to you!!!",
+      "Anta ni Itten no!!!",
+      "Anta ni Ittenno!!!",
+      "É com quem estou falando!!!",
+      "Estou falando com você!!!"
+    ],
+    "audioClip": "https://audio.sodapines.dev/934969.mp3",
+    "producerNames": [
+      "pinata"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "pinata feat. Kasane Teto",
+    "suggestionArtistString": "pinata feat. Kasane Teto",
+    "artistSearchNames": [
+      "pinata",
+      "pinata feat. Kasane Teto",
+      "Kasane Teto"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-09-09",
+    "vocadbId": 935321,
+    "title": "King-o'-Lantern",
+    "artist": "Satsuki",
+    "artistString": "Satsuki feat. Hatsune Miku, Kasane Teto, Hatsune Miku V4X (Solid)",
+    "vocadbName": "King-o'-Lantern",
+    "vocadbUrl": "https://vocadb.net/S/935321",
+    "coverArt": "https://i.ytimg.com/vi/C1FnUXjmi6s/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/C1FnUXjmi6s/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/xNhpxKLEx2s/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/C1FnUXjmi6s/sddefault.jpg",
+      "https://i.ytimg.com/vi/xNhpxKLEx2s/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46074535/46074535.16369152",
+      "https://i.ytimg.com/vi/C1FnUXjmi6s/hqdefault.jpg",
+      "https://i.ytimg.com/vi/xNhpxKLEx2s/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/488f844c1413ee5b7c842b8e1343fe8675996cc9.jpg",
+      "https://i.ytimg.com/vi/C1FnUXjmi6s/mqdefault.jpg",
+      "https://i.ytimg.com/vi/xNhpxKLEx2s/mqdefault.jpg",
+      "https://i.ytimg.com/vi/C1FnUXjmi6s/default.jpg",
+      "https://i.ytimg.com/vi/xNhpxKLEx2s/default.jpg"
+    ],
+    "publishDate": "2026-03-21T00:00:00Z",
+    "acceptedTitles": [
+      "キング・オ・ランタン",
+      "King-o'-Lantern",
+      "킹 오 랜턴"
+    ],
+    "audioClip": "https://audio.sodapines.dev/935321.mp3",
+    "producerNames": [
+      "Satsuki"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kasane Teto"
+    ],
+    "displayArtist": "Satsuki feat. Hatsune Miku, Kasane Teto",
+    "suggestionArtistString": "Satsuki feat. Hatsune Miku, Kasane Teto",
+    "artistSearchNames": [
+      "Satsuki",
+      "Satsuki feat. Hatsune Miku, Kasane Teto, Hatsune Miku V4X (Solid)",
+      "Hatsune Miku",
+      "Kasane Teto",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-10",
+    "vocadbId": 932343,
+    "title": "Dadadadadaru",
+    "artist": "Amala",
+    "artistString": "Amala feat. Hatsune Miku, Kasane Teto SV",
+    "vocadbName": "Dadadadadaru",
+    "vocadbUrl": "https://vocadb.net/S/932343",
+    "coverArt": "https://i.ytimg.com/vi/CgxOQjYBmss/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/CgxOQjYBmss/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/VQ2UguUKUj0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/CgxOQjYBmss/sddefault.jpg",
+      "https://i.ytimg.com/vi/VQ2UguUKUj0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46051553/46051553.74508207",
+      "https://i.ytimg.com/vi/CgxOQjYBmss/hqdefault.jpg",
+      "https://i.ytimg.com/vi/VQ2UguUKUj0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/CgxOQjYBmss/mqdefault.jpg",
+      "https://i.ytimg.com/vi/VQ2UguUKUj0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/CgxOQjYBmss/default.jpg",
+      "https://i.ytimg.com/vi/VQ2UguUKUj0/default.jpg"
+    ],
+    "publishDate": "2026-03-15T00:00:00Z",
+    "acceptedTitles": [
+      "ダダダダダル",
+      "Dadadadadaru"
+    ],
+    "audioClip": "https://audio.sodapines.dev/932343.mp3",
+    "producerNames": [
+      "Amala"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kasane Teto"
+    ],
+    "displayArtist": "Amala feat. Hatsune Miku, Kasane Teto",
+    "suggestionArtistString": "Amala feat. Hatsune Miku, Kasane Teto",
+    "artistSearchNames": [
+      "Amala",
+      "Amala feat. Hatsune Miku, Kasane Teto SV",
+      "Hatsune Miku",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-09-11",
+    "vocadbId": 928953,
+    "title": "Yurail",
+    "artist": "inabakumori",
+    "artistString": "inabakumori feat. Synthesizer V 2 AI Tsurumaki Maki",
+    "vocadbName": "Yurail",
+    "vocadbUrl": "https://vocadb.net/S/928953",
+    "coverArt": "https://i.ytimg.com/vi/2r4W_LoVFxA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/2r4W_LoVFxA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/a-7FA2gdfCE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/2r4W_LoVFxA/sddefault.jpg",
+      "https://i.ytimg.com/vi/a-7FA2gdfCE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46033795/46033795.52589133",
+      "https://i.ytimg.com/vi/2r4W_LoVFxA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/a-7FA2gdfCE/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/9fcada545aa9bcc55905fbeff0e8160d24e03711.jpg",
+      "https://i.ytimg.com/vi/2r4W_LoVFxA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/a-7FA2gdfCE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/2r4W_LoVFxA/default.jpg",
+      "https://i.ytimg.com/vi/a-7FA2gdfCE/default.jpg"
+    ],
+    "publishDate": "2026-03-07T00:00:00Z",
+    "acceptedTitles": [
+      "ユレール",
+      "Yurail",
+      "Sway-Always"
+    ],
+    "audioClip": "https://audio.sodapines.dev/928953.mp3",
+    "producerNames": [
+      "inabakumori"
+    ],
+    "singerNames": [
+      "Synthesizer V 2 Tsurumaki Maki"
+    ],
+    "displayArtist": "inabakumori feat. Synthesizer V 2 Tsurumaki Maki",
+    "suggestionArtistString": "inabakumori feat. Synthesizer V 2 Tsurumaki Maki",
+    "artistSearchNames": [
+      "inabakumori",
+      "inabakumori feat. Synthesizer V 2 AI Tsurumaki Maki",
+      "Synthesizer V 2 Tsurumaki Maki",
+      "Synthesizer V 2 AI Tsurumaki Maki"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-12",
+    "vocadbId": 929149,
+    "title": "artificial heartache",
+    "artist": "reiilumina",
+    "artistString": "reiilumina feat. Utane Uta, Momone Momo Continuous Sound Whisper",
+    "vocadbName": "artificial heartache",
+    "vocadbUrl": "https://vocadb.net/S/929149",
+    "coverArt": "https://i.ytimg.com/vi/spbtI5hZ79I/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/spbtI5hZ79I/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/mudGTRIFyFY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/spbtI5hZ79I/sddefault.jpg",
+      "https://i.ytimg.com/vi/mudGTRIFyFY/sddefault.jpg",
+      "https://i.ytimg.com/vi/spbtI5hZ79I/hqdefault.jpg",
+      "https://i.ytimg.com/vi/mudGTRIFyFY/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a3050261159_5.jpg",
+      "https://i.ytimg.com/vi/spbtI5hZ79I/mqdefault.jpg",
+      "https://i.ytimg.com/vi/mudGTRIFyFY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/spbtI5hZ79I/default.jpg",
+      "https://i.ytimg.com/vi/mudGTRIFyFY/default.jpg"
+    ],
+    "publishDate": "2026-03-07T00:00:00Z",
+    "acceptedTitles": [
+      "artificial heartache"
+    ],
+    "audioClip": "https://audio.sodapines.dev/929149.mp3",
+    "producerNames": [
+      "reiilumina"
+    ],
+    "singerNames": [
+      "Utane Uta",
+      "Momone Momo Continuous Sound"
+    ],
+    "displayArtist": "reiilumina feat. Utane Uta, Momone Momo Continuous Sound",
+    "suggestionArtistString": "reiilumina feat. Utane Uta, Momone Momo Continuous Sound",
+    "artistSearchNames": [
+      "reiilumina",
+      "reiilumina feat. Utane Uta, Momone Momo Continuous Sound Whisper",
+      "Utane Uta",
+      "Momone Momo Continuous Sound",
+      "Momone Momo Continuous Sound Whisper"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-13",
+    "vocadbId": 937525,
+    "title": "Wanderlast (Remaster ver)",
+    "artist": "sasakure.UK",
+    "artistString": "sasakure.UK feat. Megurine Luka",
+    "vocadbName": "Wanderlast (Remaster ver)",
+    "vocadbUrl": "https://vocadb.net/S/937525",
+    "coverArt": "https://i.ytimg.com/vi/NneNmdW44BI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/NneNmdW44BI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/VGKQ8WXBx8s/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/NneNmdW44BI/sddefault.jpg",
+      "https://i.ytimg.com/vi/VGKQ8WXBx8s/sddefault.jpg",
+      "https://i.ytimg.com/vi/NneNmdW44BI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/VGKQ8WXBx8s/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/964e31a952847e2bf2dea2cd659b9ff1dc63c168.jpg",
+      "https://i.ytimg.com/vi/NneNmdW44BI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/VGKQ8WXBx8s/mqdefault.jpg",
+      "https://i.ytimg.com/vi/NneNmdW44BI/default.jpg",
+      "https://i.ytimg.com/vi/VGKQ8WXBx8s/default.jpg"
+    ],
+    "publishDate": "2026-03-25T00:00:00Z",
+    "acceptedTitles": [
+      "ワンダーラスト (Remaster ver)",
+      "Wanderlast (Remaster ver)",
+      "THE WANDERLAST (Remaster ver)",
+      "The \"WANDERLAST\" (Remaster ver)"
+    ],
+    "audioClip": "https://audio.sodapines.dev/937525.mp3",
+    "producerNames": [
+      "sasakure.UK"
+    ],
+    "singerNames": [
+      "Megurine Luka"
+    ],
+    "displayArtist": "sasakure.UK feat. Megurine Luka",
+    "suggestionArtistString": "sasakure.UK feat. Megurine Luka",
+    "artistSearchNames": [
+      "sasakure.UK",
+      "sasakure.UK feat. Megurine Luka",
+      "Megurine Luka"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-14",
+    "vocadbId": 932592,
+    "title": "Sound Source Revealed",
+    "artist": "Avogado 6",
+    "artistString": "Avogado 6 feat. Calogado, Mayoi Heki",
+    "vocadbName": "Sound Source Revealed",
+    "vocadbUrl": "https://vocadb.net/S/932592",
+    "coverArt": "https://i.ytimg.com/vi/NQgNP67WSck/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/NQgNP67WSck/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/NQgNP67WSck/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46062437/46062437.30691820",
+      "https://i.ytimg.com/vi/NQgNP67WSck/hqdefault.jpg",
+      "https://i.ytimg.com/vi/NQgNP67WSck/mqdefault.jpg",
+      "https://i.ytimg.com/vi/NQgNP67WSck/default.jpg"
+    ],
+    "publishDate": "2026-03-15T00:00:00Z",
+    "acceptedTitles": [
+      "音源吐露",
+      "Sound Source Revealed",
+      "Ongen Toro",
+      "Ongentoro",
+      "Voicebank Speaking Out"
+    ],
+    "audioClip": "https://audio.sodapines.dev/932592.mp3",
+    "producerNames": [
+      "Avogado 6"
+    ],
+    "singerNames": [
+      "Calogado",
+      "Mayoi Heki"
+    ],
+    "displayArtist": "Avogado 6 feat. Calogado, Mayoi Heki",
+    "suggestionArtistString": "Avogado 6 feat. Calogado, Mayoi Heki",
+    "artistSearchNames": [
+      "Avogado 6",
+      "Avogado 6 feat. Calogado, Mayoi Heki",
+      "Calogado",
+      "Mayoi Heki"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-09-15",
+    "vocadbId": 931436,
+    "title": "Candy",
+    "artist": "r-906",
+    "artistString": "r-906 feat. Kagamine Rin V4X (Sweet)",
+    "vocadbName": "Candy",
+    "vocadbUrl": "https://vocadb.net/S/931436",
+    "coverArt": "https://i.ytimg.com/vi/shutpbWwm_w/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/shutpbWwm_w/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/s2DhNzNTg4M/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/shutpbWwm_w/sddefault.jpg",
+      "https://i.ytimg.com/vi/s2DhNzNTg4M/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46053228/46053228.3109857",
+      "https://i.ytimg.com/vi/shutpbWwm_w/hqdefault.jpg",
+      "https://i.ytimg.com/vi/s2DhNzNTg4M/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/b4edc9070484bb17665b458cb30f04ab1c710c22.jpg",
+      "https://i.ytimg.com/vi/shutpbWwm_w/mqdefault.jpg",
+      "https://i.ytimg.com/vi/s2DhNzNTg4M/mqdefault.jpg",
+      "https://i.ytimg.com/vi/shutpbWwm_w/default.jpg",
+      "https://i.ytimg.com/vi/s2DhNzNTg4M/default.jpg"
+    ],
+    "publishDate": "2026-03-13T00:00:00Z",
+    "acceptedTitles": [
+      "キャンデー",
+      "Candy"
+    ],
+    "audioClip": "https://audio.sodapines.dev/931436.mp3",
+    "producerNames": [
+      "r-906"
+    ],
+    "singerNames": [
+      "Kagamine Rin"
+    ],
+    "displayArtist": "r-906 feat. Kagamine Rin",
+    "suggestionArtistString": "r-906 feat. Kagamine Rin",
+    "artistSearchNames": [
+      "r-906",
+      "r-906 feat. Kagamine Rin V4X (Sweet)",
+      "Kagamine Rin",
+      "Kagamine Rin V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-16",
+    "vocadbId": 932041,
+    "title": "Herencia",
+    "artist": "dilukha",
+    "artistString": "dilukha feat. Synthesizer V 2 AI Otomachi Una",
+    "vocadbName": "Herencia",
+    "vocadbUrl": "https://vocadb.net/S/932041",
+    "coverArt": "https://i.ytimg.com/vi/BSgSbhw7okQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/BSgSbhw7okQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/BSgSbhw7okQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/BSgSbhw7okQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/BSgSbhw7okQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/BSgSbhw7okQ/default.jpg"
+    ],
+    "publishDate": "2026-03-14T00:00:00Z",
+    "acceptedTitles": [
+      "Herencia",
+      "遺産",
+      "Heritage"
+    ],
+    "audioClip": "https://audio.sodapines.dev/932041.mp3",
+    "producerNames": [
+      "dilukha"
+    ],
+    "singerNames": [
+      "Synthesizer V 2 Otomachi Una"
+    ],
+    "displayArtist": "dilukha feat. Synthesizer V 2 Otomachi Una",
+    "suggestionArtistString": "dilukha feat. Synthesizer V 2 Otomachi Una",
+    "artistSearchNames": [
+      "dilukha",
+      "dilukha feat. Synthesizer V 2 AI Otomachi Una",
+      "Synthesizer V 2 Otomachi Una",
+      "Synthesizer V 2 AI Otomachi Una"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-17",
+    "vocadbId": 927942,
+    "title": "Katte",
+    "artist": "Yuyoyuppe",
+    "artistString": "Yuyoyuppe feat. Natsuki Karin AI 2",
+    "vocadbName": "Katte",
+    "vocadbUrl": "https://vocadb.net/S/927942",
+    "coverArt": "https://i.ytimg.com/vi/4ZfpWrBFjlU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/4ZfpWrBFjlU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/4ZfpWrBFjlU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46017532/46017532.9037571",
+      "https://i.ytimg.com/vi/4ZfpWrBFjlU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/4ZfpWrBFjlU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/4ZfpWrBFjlU/default.jpg"
+    ],
+    "publishDate": "2026-03-05T00:00:00Z",
+    "acceptedTitles": [
+      "Katte",
+      "かって"
+    ],
+    "audioClip": "https://audio.sodapines.dev/927942.mp3",
+    "producerNames": [
+      "Yuyoyuppe"
+    ],
+    "singerNames": [
+      "Natsuki Karin 2"
+    ],
+    "displayArtist": "Yuyoyuppe feat. Natsuki Karin 2",
+    "suggestionArtistString": "Yuyoyuppe feat. Natsuki Karin 2",
+    "artistSearchNames": [
+      "Yuyoyuppe",
+      "Yuyoyuppe feat. Natsuki Karin AI 2",
+      "Natsuki Karin 2",
+      "Natsuki Karin AI 2"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-18",
+    "vocadbId": 932478,
+    "title": "RUSSIAN ROULETTE ",
+    "artist": "Staircatte",
+    "artistString": "Staircatte feat. Hatsune Miku V4 (English)",
+    "vocadbName": "RUSSIAN ROULETTE ",
+    "vocadbUrl": "https://vocadb.net/S/932478",
+    "coverArt": "https://i.ytimg.com/vi/ofPBu1stIxc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ofPBu1stIxc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ofPBu1stIxc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46067870/46067870.23090863",
+      "https://i.ytimg.com/vi/ofPBu1stIxc/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a1247161795_5.jpg",
+      "https://i0.hdslb.com/bfs/archive/31bc07e95dccb269f2d8b330c3124412d5cf6417.jpg",
+      "https://i.ytimg.com/vi/ofPBu1stIxc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ofPBu1stIxc/default.jpg"
+    ],
+    "publishDate": "2026-03-15T00:00:00Z",
+    "acceptedTitles": [
+      "RUSSIAN ROULETTE "
+    ],
+    "audioClip": "https://audio.sodapines.dev/932478.mp3",
+    "producerNames": [
+      "Staircatte"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Staircatte feat. Hatsune Miku",
+    "suggestionArtistString": "Staircatte feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Staircatte",
+      "Staircatte feat. Hatsune Miku V4 (English)",
+      "Hatsune Miku",
+      "Hatsune Miku V4"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-09-19",
+    "vocadbId": 938593,
+    "title": "Mu (Reverse)",
+    "artist": "Daibaku Hashin",
+    "artistString": "Daibaku Hashin, yasai31 feat. various",
+    "vocadbName": "Mu (Reverse)",
+    "vocadbUrl": "https://vocadb.net/S/938593",
+    "coverArt": "https://i.ytimg.com/vi/T7t4aFaolSA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/T7t4aFaolSA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/T7t4aFaolSA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46100280/46100280.3748813",
+      "https://i.ytimg.com/vi/T7t4aFaolSA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/T7t4aFaolSA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/T7t4aFaolSA/default.jpg"
+    ],
+    "publishDate": "2026-03-27T00:00:00Z",
+    "acceptedTitles": [
+      "む (裏)",
+      "Mu (Reverse)",
+      "Mu (Ura)"
+    ],
+    "audioClip": "https://audio.sodapines.dev/938593.mp3",
+    "producerNames": [
+      "Daibaku Hashin",
+      "yasai31"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "Daibaku Hashin, yasai31 feat. various",
+    "suggestionArtistString": "Daibaku Hashin, yasai31 feat. various",
+    "artistSearchNames": [
+      "Daibaku Hashin",
+      "Daibaku Hashin, yasai31 feat. various",
+      "yasai31",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-20",
+    "vocadbId": 913860,
+    "title": "Bluffman",
+    "artist": "NILFRUITS",
+    "artistString": "NILFRUITS feat. Soyogi Soyogi",
+    "vocadbName": "Bluffman",
+    "vocadbUrl": "https://vocadb.net/S/913860",
+    "coverArt": "https://i.ytimg.com/vi/Iz5_kFY0pi8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Iz5_kFY0pi8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/_AjAPuXTpiI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/5bt82-woHUo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Iz5_kFY0pi8/sddefault.jpg",
+      "https://i.ytimg.com/vi/_AjAPuXTpiI/sddefault.jpg",
+      "https://i.ytimg.com/vi/5bt82-woHUo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45919615/45919615.79296805",
+      "https://i.ytimg.com/vi/Iz5_kFY0pi8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/_AjAPuXTpiI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/5bt82-woHUo/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/7d66b447ede6e742ecad24cbbe6c50cd5a993899.jpg",
+      "https://i.ytimg.com/vi/Iz5_kFY0pi8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/_AjAPuXTpiI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/5bt82-woHUo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Iz5_kFY0pi8/default.jpg",
+      "https://i.ytimg.com/vi/_AjAPuXTpiI/default.jpg",
+      "https://i.ytimg.com/vi/5bt82-woHUo/default.jpg"
+    ],
+    "publishDate": "2026-02-11T00:00:00Z",
+    "acceptedTitles": [
+      "ブラフマン",
+      "Bluffman"
+    ],
+    "audioClip": "https://audio.sodapines.dev/913860.mp3",
+    "producerNames": [
+      "NILFRUITS"
+    ],
+    "singerNames": [
+      "Soyogi Soyogi"
+    ],
+    "displayArtist": "NILFRUITS feat. Soyogi Soyogi",
+    "suggestionArtistString": "NILFRUITS feat. Soyogi Soyogi",
+    "artistSearchNames": [
+      "NILFRUITS",
+      "NILFRUITS feat. Soyogi Soyogi",
+      "Soyogi Soyogi"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-09-21",
+    "vocadbId": 914833,
+    "title": "SPLIT DANCE",
+    "artist": "Eipu",
+    "artistString": "Eipu feat. Hatsune Miku, Kasane Teto SV",
+    "vocadbName": "SPLIT DANCE",
+    "vocadbUrl": "https://vocadb.net/S/914833",
+    "coverArt": "https://i.ytimg.com/vi/R401j1QAvEg/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/R401j1QAvEg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/pqFfiE_Q-eo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/R401j1QAvEg/sddefault.jpg",
+      "https://i.ytimg.com/vi/pqFfiE_Q-eo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45942069/45942069.58103698",
+      "https://i.ytimg.com/vi/R401j1QAvEg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/pqFfiE_Q-eo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/R401j1QAvEg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/pqFfiE_Q-eo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/R401j1QAvEg/default.jpg",
+      "https://i.ytimg.com/vi/pqFfiE_Q-eo/default.jpg"
+    ],
+    "publishDate": "2026-02-13T00:00:00Z",
+    "acceptedTitles": [
+      "スプリットダンス ",
+      "SPLIT DANCE"
+    ],
+    "audioClip": "https://audio.sodapines.dev/914833.mp3",
+    "producerNames": [
+      "Eipu"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kasane Teto"
+    ],
+    "displayArtist": "Eipu feat. Hatsune Miku, Kasane Teto",
+    "suggestionArtistString": "Eipu feat. Hatsune Miku, Kasane Teto",
+    "artistSearchNames": [
+      "Eipu",
+      "Eipu feat. Hatsune Miku, Kasane Teto SV",
+      "Hatsune Miku",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-09-22",
+    "vocadbId": 913455,
+    "title": "Sell a Friend",
+    "artist": "Azari",
+    "artistString": "Azari feat. Kasane Teto SV",
+    "vocadbName": "Sell a Friend",
+    "vocadbUrl": "https://vocadb.net/S/913455",
+    "coverArt": "https://i.ytimg.com/vi/yJ1hNjuAKtM/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/yJ1hNjuAKtM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/r3oVhBlvsto/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/yJ1hNjuAKtM/sddefault.jpg",
+      "https://i.ytimg.com/vi/r3oVhBlvsto/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45928458/45928458.70075329",
+      "https://i.ytimg.com/vi/yJ1hNjuAKtM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/r3oVhBlvsto/hqdefault.jpg",
+      "https://i.ytimg.com/vi/yJ1hNjuAKtM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/r3oVhBlvsto/mqdefault.jpg",
+      "https://i.ytimg.com/vi/yJ1hNjuAKtM/default.jpg",
+      "https://i.ytimg.com/vi/r3oVhBlvsto/default.jpg"
+    ],
+    "publishDate": "2026-02-09T00:00:00Z",
+    "acceptedTitles": [
+      "Sell a Friend"
+    ],
+    "audioClip": "https://audio.sodapines.dev/913455.mp3",
+    "producerNames": [
+      "Azari"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "Azari feat. Kasane Teto",
+    "suggestionArtistString": "Azari feat. Kasane Teto",
+    "artistSearchNames": [
+      "Azari",
+      "Azari feat. Kasane Teto SV",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-09-23",
+    "vocadbId": 915768,
+    "title": "You've Got Mail!",
+    "artist": "Phantoskii",
+    "artistString": "Phantoskii feat. Utane Uta, Adachi Rei",
+    "vocadbName": "You've Got Mail!",
+    "vocadbUrl": "https://vocadb.net/S/915768",
+    "coverArt": "https://i.ytimg.com/vi/FCCq7PYrr4Q/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/FCCq7PYrr4Q/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/zVAvU18sY_w/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/FCCq7PYrr4Q/sddefault.jpg",
+      "https://i.ytimg.com/vi/zVAvU18sY_w/sddefault.jpg",
+      "https://i.ytimg.com/vi/FCCq7PYrr4Q/hqdefault.jpg",
+      "https://i.ytimg.com/vi/zVAvU18sY_w/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a3727885235_5.jpg",
+      "https://i.ytimg.com/vi/FCCq7PYrr4Q/mqdefault.jpg",
+      "https://i.ytimg.com/vi/zVAvU18sY_w/mqdefault.jpg",
+      "https://i.ytimg.com/vi/FCCq7PYrr4Q/default.jpg",
+      "https://i.ytimg.com/vi/zVAvU18sY_w/default.jpg"
+    ],
+    "publishDate": "2026-02-14T00:00:00Z",
+    "acceptedTitles": [
+      "You've Got Mail!"
+    ],
+    "audioClip": "https://audio.sodapines.dev/915768.mp3",
+    "producerNames": [
+      "Phantoskii"
+    ],
+    "singerNames": [
+      "Utane Uta",
+      "Adachi Rei"
+    ],
+    "displayArtist": "Phantoskii feat. Utane Uta, Adachi Rei",
+    "suggestionArtistString": "Phantoskii feat. Utane Uta, Adachi Rei",
+    "artistSearchNames": [
+      "Phantoskii",
+      "Phantoskii feat. Utane Uta, Adachi Rei",
+      "Utane Uta",
+      "Adachi Rei"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-24",
+    "vocadbId": 920492,
+    "title": "Matryoshka - iyowa remix",
+    "artist": "iyowa",
+    "artistString": "iyowa feat. Hatsune Miku, GUMI",
+    "vocadbName": "Matryoshka - iyowa remix",
+    "vocadbUrl": "https://vocadb.net/S/920492",
+    "coverArt": "https://i.ytimg.com/vi/GlsELmhjH1k/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/GlsELmhjH1k/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/GlsELmhjH1k/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45974457/45974457.11166982",
+      "https://i.ytimg.com/vi/GlsELmhjH1k/hqdefault.jpg",
+      "https://i.ytimg.com/vi/GlsELmhjH1k/mqdefault.jpg",
+      "https://i.ytimg.com/vi/GlsELmhjH1k/default.jpg"
+    ],
+    "publishDate": "2026-02-21T00:00:00Z",
+    "acceptedTitles": [
+      "マトリョシカ - いよわremix",
+      "Matryoshka - iyowa remix",
+      "MATORYOSHKA - iyowa remix"
+    ],
+    "audioClip": "https://audio.sodapines.dev/920492.mp3",
+    "producerNames": [
+      "iyowa"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "GUMI"
+    ],
+    "displayArtist": "iyowa feat. Hatsune Miku, GUMI",
+    "suggestionArtistString": "iyowa feat. Hatsune Miku, GUMI",
+    "artistSearchNames": [
+      "iyowa",
+      "iyowa feat. Hatsune Miku, GUMI",
+      "Hatsune Miku",
+      "GUMI"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-25",
+    "vocadbId": 926017,
+    "title": "the box",
+    "artist": "11vein",
+    "artistString": "11vein feat. Synthesizer V 2 AI SF-A2 Codename miki",
+    "vocadbName": "the box",
+    "vocadbUrl": "https://vocadb.net/S/926017",
+    "coverArt": "https://i.ytimg.com/vi/y3aoKu5vTMg/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/y3aoKu5vTMg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/4AWerPxwZ68/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/y3aoKu5vTMg/sddefault.jpg",
+      "https://i.ytimg.com/vi/4AWerPxwZ68/sddefault.jpg",
+      "https://i.ytimg.com/vi/y3aoKu5vTMg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/4AWerPxwZ68/hqdefault.jpg",
+      "https://i1.sndcdn.com/artworks-Ph01qqxNNOrKRCmC-3S4vBQ-t500x500.jpg",
+      "https://f4.bcbits.com/img/a1757044659_5.jpg",
+      "https://i.ytimg.com/vi/y3aoKu5vTMg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/4AWerPxwZ68/mqdefault.jpg",
+      "https://i.ytimg.com/vi/y3aoKu5vTMg/default.jpg",
+      "https://i.ytimg.com/vi/4AWerPxwZ68/default.jpg"
+    ],
+    "publishDate": "2026-03-01T00:00:00Z",
+    "acceptedTitles": [
+      "the box"
+    ],
+    "audioClip": "https://audio.sodapines.dev/926017.mp3",
+    "producerNames": [
+      "11vein"
+    ],
+    "singerNames": [
+      "Synthesizer V 2 SF-A2 Codename miki"
+    ],
+    "displayArtist": "11vein feat. Synthesizer V 2 SF-A2 Codename miki",
+    "suggestionArtistString": "11vein feat. Synthesizer V 2 SF-A2 Codename miki",
+    "artistSearchNames": [
+      "11vein",
+      "11vein feat. Synthesizer V 2 AI SF-A2 Codename miki",
+      "Synthesizer V 2 SF-A2 Codename miki",
+      "Synthesizer V 2 AI SF-A2 Codename miki"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-26",
+    "vocadbId": 911812,
+    "title": "Punish Then Save",
+    "artist": "NAKISO",
+    "artistString": "NAKISO feat. Hatsune Miku V3 (Soft)",
+    "vocadbName": "Punish Then Save",
+    "vocadbUrl": "https://vocadb.net/S/911812",
+    "coverArt": "https://i.ytimg.com/vi/9wD-XL07Rbw/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/9wD-XL07Rbw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/KX-aaMezrAI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/9wD-XL07Rbw/sddefault.jpg",
+      "https://i.ytimg.com/vi/KX-aaMezrAI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45915754/45915754.30626111",
+      "https://i.ytimg.com/vi/9wD-XL07Rbw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/KX-aaMezrAI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/9wD-XL07Rbw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/KX-aaMezrAI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/9wD-XL07Rbw/default.jpg",
+      "https://i.ytimg.com/vi/KX-aaMezrAI/default.jpg"
+    ],
+    "publishDate": "2026-02-06T00:00:00Z",
+    "acceptedTitles": [
+      "罰して光",
+      "Punish Then Save",
+      "Basshite Hikari"
+    ],
+    "audioClip": "https://audio.sodapines.dev/911812.mp3",
+    "producerNames": [
+      "NAKISO"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "NAKISO feat. Hatsune Miku",
+    "suggestionArtistString": "NAKISO feat. Hatsune Miku",
+    "artistSearchNames": [
+      "NAKISO",
+      "NAKISO feat. Hatsune Miku V3 (Soft)",
+      "Hatsune Miku",
+      "Hatsune Miku V3"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-09-27",
+    "vocadbId": 920262,
+    "title": "INDIVIDIVIDIVIDIVIDUAL",
+    "artist": "Sohbana",
+    "artistString": "Sohbana feat. Hatsune Miku",
+    "vocadbName": "INDIVIDIVIDIVIDIVIDUAL",
+    "vocadbUrl": "https://vocadb.net/S/920262",
+    "coverArt": "https://i.ytimg.com/vi/MJL9LuyX-Bk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/MJL9LuyX-Bk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/TF-r4s-st98/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/MJL9LuyX-Bk/sddefault.jpg",
+      "https://i.ytimg.com/vi/TF-r4s-st98/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45961898/45961898.84943754",
+      "https://i.ytimg.com/vi/MJL9LuyX-Bk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/TF-r4s-st98/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/da4a6fa842e79323391a8237edf8d61d9dabcb67.jpg",
+      "https://i.ytimg.com/vi/MJL9LuyX-Bk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/TF-r4s-st98/mqdefault.jpg",
+      "https://i.ytimg.com/vi/MJL9LuyX-Bk/default.jpg",
+      "https://i.ytimg.com/vi/TF-r4s-st98/default.jpg"
+    ],
+    "publishDate": "2026-02-21T00:00:00Z",
+    "acceptedTitles": [
+      "個々々々々々人",
+      "INDIVIDIVIDIVIDIVIDUAL",
+      "Kokokokokokojin"
+    ],
+    "audioClip": "https://audio.sodapines.dev/920262.mp3",
+    "producerNames": [
+      "Sohbana"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Sohbana feat. Hatsune Miku",
+    "suggestionArtistString": "Sohbana feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Sohbana",
+      "Sohbana feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-09-28",
+    "vocadbId": 917218,
+    "title": "Special Relief Committee",
+    "artist": "Satsuki",
+    "artistString": "Satsuki feat. various",
+    "vocadbName": "Special Relief Committee",
+    "vocadbUrl": "https://vocadb.net/S/917218",
+    "coverArt": "https://i.ytimg.com/vi/qbm1nn9yoSc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/qbm1nn9yoSc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/FQwbGJbKqN4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/qbm1nn9yoSc/sddefault.jpg",
+      "https://i.ytimg.com/vi/FQwbGJbKqN4/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45876576/45876576.61615418",
+      "https://i.ytimg.com/vi/qbm1nn9yoSc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/FQwbGJbKqN4/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/1696f738808899a71636171a879d2db02656d23b.jpg",
+      "https://i.ytimg.com/vi/qbm1nn9yoSc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/FQwbGJbKqN4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/qbm1nn9yoSc/default.jpg",
+      "https://i.ytimg.com/vi/FQwbGJbKqN4/default.jpg"
+    ],
+    "publishDate": "2026-02-19T00:00:00Z",
+    "acceptedTitles": [
+      "特別救済委員会",
+      "Special Relief Committee",
+      "Tokubetsu Kyuusai Iinkai",
+      "특별구제위원회"
+    ],
+    "audioClip": "https://audio.sodapines.dev/917218.mp3",
+    "producerNames": [
+      "Satsuki"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "Satsuki feat. various",
+    "suggestionArtistString": "Satsuki feat. various",
+    "artistSearchNames": [
+      "Satsuki",
+      "Satsuki feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-29",
+    "vocadbId": 920407,
+    "title": "The 30-Something Office Lady's Salvation",
+    "artist": "Ro2noki",
+    "artistString": "Ro2noki feat. Yokune Ruko ♀, Adachi Rei, Kasane Teto",
+    "vocadbName": "The 30-Something Office Lady's Salvation",
+    "vocadbUrl": "https://vocadb.net/S/920407",
+    "coverArt": "https://i.ytimg.com/vi/pmoKnB3DALc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/pmoKnB3DALc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/pmoKnB3DALc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45974483/45974483.34429507",
+      "https://i.ytimg.com/vi/pmoKnB3DALc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/pmoKnB3DALc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/pmoKnB3DALc/default.jpg"
+    ],
+    "publishDate": "2026-02-20T00:00:00Z",
+    "acceptedTitles": [
+      "三十路OLの救済",
+      "The 30-Something Office Lady's Salvation",
+      "Misoji OL no Kyuusai",
+      "Save the 30-Something Office Lady"
+    ],
+    "audioClip": "https://audio.sodapines.dev/920407.mp3",
+    "producerNames": [
+      "Ro2noki"
+    ],
+    "singerNames": [
+      "Yokune Ruko ♀",
+      "Adachi Rei",
+      "Kasane Teto"
+    ],
+    "displayArtist": "Ro2noki feat. Yokune Ruko ♀, Adachi Rei, Kasane Teto",
+    "suggestionArtistString": "Ro2noki feat. Yokune Ruko ♀, Adachi Rei, Kasane Teto",
+    "artistSearchNames": [
+      "Ro2noki",
+      "Ro2noki feat. Yokune Ruko ♀, Adachi Rei, Kasane Teto",
+      "Yokune Ruko ♀",
+      "Adachi Rei",
+      "Kasane Teto"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-09-30",
+    "vocadbId": 910540,
+    "title": "Miss Crazyspeed",
+    "artist": "cosMo@BousouP",
+    "artistString": "cosMo@BousouP feat. Hatsune Miku",
+    "vocadbName": "Miss Crazyspeed",
+    "vocadbUrl": "https://vocadb.net/S/910540",
+    "coverArt": "https://i.ytimg.com/vi/eXuuBCAozCk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/eXuuBCAozCk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/moYpxxeOIyg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/eXuuBCAozCk/sddefault.jpg",
+      "https://i.ytimg.com/vi/moYpxxeOIyg/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45908830/45908830.68369918",
+      "https://i.ytimg.com/vi/eXuuBCAozCk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/moYpxxeOIyg/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/d07f13775357045fc649c10cf70760c233b39c1d.jpg",
+      "https://i.ytimg.com/vi/eXuuBCAozCk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/moYpxxeOIyg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/eXuuBCAozCk/default.jpg",
+      "https://i.ytimg.com/vi/moYpxxeOIyg/default.jpg"
+    ],
+    "publishDate": "2026-02-04T00:00:00Z",
+    "acceptedTitles": [
+      "ミスクレイジースピード",
+      "Miss Crazyspeed"
+    ],
+    "audioClip": "https://audio.sodapines.dev/910540.mp3",
+    "producerNames": [
+      "cosMo@BousouP"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "cosMo@BousouP feat. Hatsune Miku",
+    "suggestionArtistString": "cosMo@BousouP feat. Hatsune Miku",
+    "artistSearchNames": [
+      "cosMo@BousouP",
+      "cosMo@BousouP feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-01",
+    "vocadbId": 911959,
+    "title": "You Make Me Sick",
+    "artist": "bitbreaker",
+    "artistString": "bitbreaker feat. Kasane Teto SV",
+    "vocadbName": "You Make Me Sick",
+    "vocadbUrl": "https://vocadb.net/S/911959",
+    "coverArt": "https://i.ytimg.com/vi/I4ME8iID7Bk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/I4ME8iID7Bk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/I4ME8iID7Bk/sddefault.jpg",
+      "https://i.ytimg.com/vi/I4ME8iID7Bk/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a0428478057_5.jpg",
+      "https://i.ytimg.com/vi/I4ME8iID7Bk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/I4ME8iID7Bk/default.jpg"
+    ],
+    "publishDate": "2026-02-06T00:00:00Z",
+    "acceptedTitles": [
+      "You Make Me Sick"
+    ],
+    "audioClip": "https://audio.sodapines.dev/911959.mp3",
+    "producerNames": [
+      "bitbreaker"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "bitbreaker feat. Kasane Teto",
+    "suggestionArtistString": "bitbreaker feat. Kasane Teto",
+    "artistSearchNames": [
+      "bitbreaker",
+      "bitbreaker feat. Kasane Teto SV",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-02",
+    "vocadbId": 920291,
+    "title": "ADAM",
+    "artist": "Amala",
+    "artistString": "Amala feat. Yi Xi",
+    "vocadbName": "ADAM",
+    "vocadbUrl": "https://vocadb.net/S/920291",
+    "coverArt": "https://i.ytimg.com/vi/Ot0UesRFHug/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Ot0UesRFHug/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/2Ki6xnWTB7g/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Ot0UesRFHug/sddefault.jpg",
+      "https://i.ytimg.com/vi/2Ki6xnWTB7g/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45912499/45912499.42262557",
+      "https://i.ytimg.com/vi/Ot0UesRFHug/hqdefault.jpg",
+      "https://i.ytimg.com/vi/2Ki6xnWTB7g/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Ot0UesRFHug/mqdefault.jpg",
+      "https://i.ytimg.com/vi/2Ki6xnWTB7g/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Ot0UesRFHug/default.jpg",
+      "https://i.ytimg.com/vi/2Ki6xnWTB7g/default.jpg"
+    ],
+    "publishDate": "2026-02-21T00:00:00Z",
+    "acceptedTitles": [
+      "ADAM",
+      "010000010100010001000001010011010010000001100110011101000010111001111001011010010111100001101001"
+    ],
+    "audioClip": "https://audio.sodapines.dev/920291.mp3",
+    "producerNames": [
+      "Amala"
+    ],
+    "singerNames": [
+      "Yi Xi"
+    ],
+    "displayArtist": "Amala feat. Yi Xi",
+    "suggestionArtistString": "Amala feat. Yi Xi",
+    "artistSearchNames": [
+      "Amala",
+      "Amala feat. Yi Xi",
+      "Yi Xi"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-03",
+    "vocadbId": 920306,
+    "title": "Just Like Her",
+    "artist": "Kareki Kashiwagi",
+    "artistString": "Kareki Kashiwagi feat. Kasane Teto SV, Chis-A",
+    "vocadbName": "Just Like Her",
+    "vocadbUrl": "https://vocadb.net/S/920306",
+    "coverArt": "https://i.ytimg.com/vi/uUreb0bRlTY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/uUreb0bRlTY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/APqmumS8X_s/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/uUreb0bRlTY/sddefault.jpg",
+      "https://i.ytimg.com/vi/APqmumS8X_s/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45962260/45962260.91856117",
+      "https://i.ytimg.com/vi/uUreb0bRlTY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/APqmumS8X_s/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/4a53d8c97b613270369727943343102a7ea617a3.jpg",
+      "https://i.ytimg.com/vi/uUreb0bRlTY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/APqmumS8X_s/mqdefault.jpg",
+      "https://i.ytimg.com/vi/uUreb0bRlTY/default.jpg",
+      "https://i.ytimg.com/vi/APqmumS8X_s/default.jpg"
+    ],
+    "publishDate": "2026-02-20T00:00:00Z",
+    "acceptedTitles": [
+      "あの子みたいに",
+      "Just Like Her",
+      "Ano Ko Mitai ni"
+    ],
+    "audioClip": "https://audio.sodapines.dev/920306.mp3",
+    "producerNames": [
+      "Kareki Kashiwagi"
+    ],
+    "singerNames": [
+      "Kasane Teto",
+      "Chis-A"
+    ],
+    "displayArtist": "Kareki Kashiwagi feat. Kasane Teto, Chis-A",
+    "suggestionArtistString": "Kareki Kashiwagi feat. Kasane Teto, Chis-A",
+    "artistSearchNames": [
+      "Kareki Kashiwagi",
+      "Kareki Kashiwagi feat. Kasane Teto SV, Chis-A",
+      "Kasane Teto",
+      "Chis-A",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-04",
+    "vocadbId": 922041,
+    "title": "Chururira Chururira Daddadda!",
+    "artist": "WADATAKEAKI",
+    "artistString": "WADATAKEAKI feat. Yuzuki Yukari Rei, Cherico",
+    "vocadbName": "Chururira Chururira Daddadda!",
+    "vocadbUrl": "https://vocadb.net/S/922041",
+    "coverArt": "https://i.ytimg.com/vi/X-7FuRFjbJo/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/X-7FuRFjbJo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/5yV7wtAEhD0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/X-7FuRFjbJo/sddefault.jpg",
+      "https://i.ytimg.com/vi/5yV7wtAEhD0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45980448/45980448.54733884",
+      "https://i.ytimg.com/vi/X-7FuRFjbJo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/5yV7wtAEhD0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/X-7FuRFjbJo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/5yV7wtAEhD0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/X-7FuRFjbJo/default.jpg",
+      "https://i.ytimg.com/vi/5yV7wtAEhD0/default.jpg"
+    ],
+    "publishDate": "2026-02-22T00:00:00Z",
+    "acceptedTitles": [
+      "チュルリラ・チュルリラ・ダッダッダ！",
+      "Chururira Chururira Daddadda!",
+      "チュルリラ・チュルリラ・ダッダッダ！ (10周年記念再録版)",
+      "チュルリラ・チュルリラ・ダッダッダ！ [10th Anniversary Rerecorded]",
+      "Chururira Chururira Daddadda! [10th Anniversary Rerecorded]"
+    ],
+    "audioClip": "https://audio.sodapines.dev/922041.mp3",
+    "producerNames": [
+      "WADATAKEAKI"
+    ],
+    "singerNames": [
+      "Yuzuki Yukari Rei",
+      "Cherico"
+    ],
+    "displayArtist": "WADATAKEAKI feat. Yuzuki Yukari Rei, Cherico",
+    "suggestionArtistString": "WADATAKEAKI feat. Yuzuki Yukari Rei, Cherico",
+    "artistSearchNames": [
+      "WADATAKEAKI",
+      "WADATAKEAKI feat. Yuzuki Yukari Rei, Cherico",
+      "Yuzuki Yukari Rei",
+      "Cherico"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-05",
+    "vocadbId": 927354,
+    "title": "HIROIN RE♡Quest",
+    "artist": "samsa",
+    "artistString": "samsa feat. Adachi Rei, Kasane Teto SV",
+    "vocadbName": "HIROIN RE♡Quest",
+    "vocadbUrl": "https://vocadb.net/S/927354",
+    "coverArt": "https://i.ytimg.com/vi/VXA0PEjkIGU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/VXA0PEjkIGU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/bnAS0PUwgrI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/VXA0PEjkIGU/sddefault.jpg",
+      "https://i.ytimg.com/vi/bnAS0PUwgrI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46009675/46009675.45803937",
+      "https://i.ytimg.com/vi/VXA0PEjkIGU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/bnAS0PUwgrI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/VXA0PEjkIGU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/bnAS0PUwgrI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/VXA0PEjkIGU/default.jpg",
+      "https://i.ytimg.com/vi/bnAS0PUwgrI/default.jpg"
+    ],
+    "publishDate": "2026-03-01T00:00:00Z",
+    "acceptedTitles": [
+      "ヒロインRE♡クエスト",
+      "HIROIN RE♡Quest"
+    ],
+    "audioClip": "https://audio.sodapines.dev/927354.mp3",
+    "producerNames": [
+      "samsa"
+    ],
+    "singerNames": [
+      "Adachi Rei",
+      "Kasane Teto"
+    ],
+    "displayArtist": "samsa feat. Adachi Rei, Kasane Teto",
+    "suggestionArtistString": "samsa feat. Adachi Rei, Kasane Teto",
+    "artistSearchNames": [
+      "samsa",
+      "samsa feat. Adachi Rei, Kasane Teto SV",
+      "Adachi Rei",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-10-06",
+    "vocadbId": 918240,
+    "title": "Broadcast✴︎",
+    "artist": "Sasuke Haraguchi",
+    "artistString": "Sasuke Haraguchi feat. Kasane Teto",
+    "vocadbName": "Broadcast✴︎",
+    "vocadbUrl": "https://vocadb.net/S/918240",
+    "coverArt": "https://i.ytimg.com/vi/Tp4pTeTTQz4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Tp4pTeTTQz4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Tp4pTeTTQz4/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45965243/45965243.75777486",
+      "https://i.ytimg.com/vi/Tp4pTeTTQz4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Tp4pTeTTQz4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Tp4pTeTTQz4/default.jpg"
+    ],
+    "publishDate": "2026-02-19T00:00:00Z",
+    "acceptedTitles": [
+      "放送✴︎",
+      "Broadcast✴︎",
+      "Housou✴︎"
+    ],
+    "audioClip": "https://audio.sodapines.dev/918240.mp3",
+    "producerNames": [
+      "Sasuke Haraguchi"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "Sasuke Haraguchi feat. Kasane Teto",
+    "suggestionArtistString": "Sasuke Haraguchi feat. Kasane Teto",
+    "artistSearchNames": [
+      "Sasuke Haraguchi",
+      "Sasuke Haraguchi feat. Kasane Teto",
+      "Kasane Teto"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-07",
+    "vocadbId": 922144,
+    "title": "Just a Dick",
+    "artist": "Nashimoto Ui",
+    "artistString": "Nashimoto Ui feat. Hatsune Miku",
+    "vocadbName": "Just a Dick",
+    "vocadbUrl": "https://vocadb.net/S/922144",
+    "coverArt": "https://i.ytimg.com/vi/IJkft02R2IA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/IJkft02R2IA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/IJkft02R2IA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45983137/45983137.29113028",
+      "https://i.ytimg.com/vi/IJkft02R2IA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/IJkft02R2IA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/IJkft02R2IA/default.jpg"
+    ],
+    "publishDate": "2026-02-23T00:00:00Z",
+    "acceptedTitles": [
+      "ただのチンポ",
+      "Just a Dick",
+      "Tada no Chinpo"
+    ],
+    "audioClip": "https://audio.sodapines.dev/922144.mp3",
+    "producerNames": [
+      "Nashimoto Ui"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Nashimoto Ui feat. Hatsune Miku",
+    "suggestionArtistString": "Nashimoto Ui feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Nashimoto Ui",
+      "Nashimoto Ui feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-08",
+    "vocadbId": 920060,
+    "title": "MTMTM",
+    "artist": "TAK",
+    "artistString": "TAK feat. Hatsune Miku",
+    "vocadbName": "MTMTM",
+    "vocadbUrl": "https://vocadb.net/S/920060",
+    "coverArt": "https://i.ytimg.com/vi/pIuQ_us5W4Y/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/pIuQ_us5W4Y/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/pIuQ_us5W4Y/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45968883/45968883.3188260",
+      "https://i.ytimg.com/vi/pIuQ_us5W4Y/hqdefault.jpg",
+      "https://i.ytimg.com/vi/pIuQ_us5W4Y/mqdefault.jpg",
+      "https://i.ytimg.com/vi/pIuQ_us5W4Y/default.jpg"
+    ],
+    "publishDate": "2026-02-20T00:00:00Z",
+    "acceptedTitles": [
+      "MTMTM",
+      "Mite Mite Me",
+      "みてみてミー ",
+      "Look at Look at Me"
+    ],
+    "audioClip": "https://audio.sodapines.dev/920060.mp3",
+    "producerNames": [
+      "TAK"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "TAK feat. Hatsune Miku",
+    "suggestionArtistString": "TAK feat. Hatsune Miku",
+    "artistSearchNames": [
+      "TAK",
+      "TAK feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-10-09",
+    "vocadbId": 905041,
+    "title": "Doppelgänger",
+    "artist": "Harumaki Gohan",
+    "artistString": "Harumaki Gohan feat. Hatsune Miku",
+    "vocadbName": "Doppelgänger",
+    "vocadbUrl": "https://vocadb.net/S/905041",
+    "coverArt": "https://i.ytimg.com/vi/RD-g6a56XKU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/RD-g6a56XKU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/B_yD5XFgxyM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/RD-g6a56XKU/sddefault.jpg",
+      "https://i.ytimg.com/vi/B_yD5XFgxyM/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45871877/45871877.369397",
+      "https://i.ytimg.com/vi/RD-g6a56XKU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/B_yD5XFgxyM/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/a05a99e6ade8c95d12399d012b52dfaaafdeaaa6.jpg",
+      "https://i.ytimg.com/vi/RD-g6a56XKU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/B_yD5XFgxyM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/RD-g6a56XKU/default.jpg",
+      "https://i.ytimg.com/vi/B_yD5XFgxyM/default.jpg"
+    ],
+    "publishDate": "2026-01-24T00:00:00Z",
+    "acceptedTitles": [
+      "ドッペルゲンガー",
+      "Doppelgänger",
+      "二重身",
+      "Doppelganger"
+    ],
+    "audioClip": "https://audio.sodapines.dev/905041.mp3",
+    "producerNames": [
+      "Harumaki Gohan"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Harumaki Gohan feat. Hatsune Miku",
+    "suggestionArtistString": "Harumaki Gohan feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Harumaki Gohan",
+      "Harumaki Gohan feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-10",
+    "vocadbId": 898870,
+    "title": "Signaling",
+    "artist": "AnythingBecomeMoe",
+    "artistString": "AnythingBecomeMoe feat. Kasane Teto SV, Hatsune Miku V4X (Unknown)",
+    "vocadbName": "Signaling",
+    "vocadbUrl": "https://vocadb.net/S/898870",
+    "coverArt": "https://i.ytimg.com/vi/PqpCRSOUuIE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/PqpCRSOUuIE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/QpWSNIHw-Us/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/PqpCRSOUuIE/sddefault.jpg",
+      "https://i.ytimg.com/vi/QpWSNIHw-Us/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45830241/45830241.66753255",
+      "https://i.ytimg.com/vi/PqpCRSOUuIE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/QpWSNIHw-Us/hqdefault.jpg",
+      "https://i.ytimg.com/vi/PqpCRSOUuIE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/QpWSNIHw-Us/mqdefault.jpg",
+      "https://i.ytimg.com/vi/PqpCRSOUuIE/default.jpg",
+      "https://i.ytimg.com/vi/QpWSNIHw-Us/default.jpg"
+    ],
+    "publishDate": "2026-01-12T00:00:00Z",
+    "acceptedTitles": [
+      "次元通信",
+      "Signaling",
+      "Jigen Tsuushin",
+      "차원통신"
+    ],
+    "audioClip": "https://audio.sodapines.dev/898870.mp3",
+    "producerNames": [
+      "AnythingBecomeMoe"
+    ],
+    "singerNames": [
+      "Kasane Teto",
+      "Hatsune Miku"
+    ],
+    "displayArtist": "AnythingBecomeMoe feat. Kasane Teto, Hatsune Miku",
+    "suggestionArtistString": "AnythingBecomeMoe feat. Kasane Teto, Hatsune Miku",
+    "artistSearchNames": [
+      "AnythingBecomeMoe",
+      "AnythingBecomeMoe feat. Kasane Teto SV, Hatsune Miku V4X (Unknown)",
+      "Kasane Teto",
+      "Hatsune Miku",
+      "Kasane Teto SV",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2029-10-11",
+    "vocadbId": 897008,
+    "title": "Osiris Dance",
+    "artist": "mitsu",
+    "artistString": "mitsu feat. Hatsune Miku V4X (Original), Kasane Teto SV",
+    "vocadbName": "Osiris Dance",
+    "vocadbUrl": "https://vocadb.net/S/897008",
+    "coverArt": "https://i.ytimg.com/vi/ZVkYW4-o0ao/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ZVkYW4-o0ao/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/S01eyZwSDxk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ZVkYW4-o0ao/sddefault.jpg",
+      "https://i.ytimg.com/vi/S01eyZwSDxk/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45813680/45813680.76373926",
+      "https://i.ytimg.com/vi/ZVkYW4-o0ao/hqdefault.jpg",
+      "https://i.ytimg.com/vi/S01eyZwSDxk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ZVkYW4-o0ao/mqdefault.jpg",
+      "https://i.ytimg.com/vi/S01eyZwSDxk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ZVkYW4-o0ao/default.jpg",
+      "https://i.ytimg.com/vi/S01eyZwSDxk/default.jpg"
+    ],
+    "publishDate": "2026-01-09T00:00:00Z",
+    "acceptedTitles": [
+      "オシリスダンス",
+      "Osiris Dance"
+    ],
+    "audioClip": "https://audio.sodapines.dev/897008.mp3",
+    "producerNames": [
+      "mitsu"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kasane Teto"
+    ],
+    "displayArtist": "mitsu feat. Hatsune Miku, Kasane Teto",
+    "suggestionArtistString": "mitsu feat. Hatsune Miku, Kasane Teto",
+    "artistSearchNames": [
+      "mitsu",
+      "mitsu feat. Hatsune Miku V4X (Original), Kasane Teto SV",
+      "Hatsune Miku",
+      "Kasane Teto",
+      "Hatsune Miku V4X",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-10-12",
+    "vocadbId": 900949,
+    "title": "MikuTeto Dance",
+    "artist": "otone",
+    "artistString": "otone feat. Hatsune Miku, Kasane Teto SV",
+    "vocadbName": "MikuTeto Dance",
+    "vocadbUrl": "https://vocadb.net/S/900949",
+    "coverArt": "https://i.ytimg.com/vi/RKgjFk1hov4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/RKgjFk1hov4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Hjuky7WffZ0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/RKgjFk1hov4/sddefault.jpg",
+      "https://i.ytimg.com/vi/Hjuky7WffZ0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45842991/45842991.81782542",
+      "https://i.ytimg.com/vi/RKgjFk1hov4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Hjuky7WffZ0/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/f63369206f3851e933a0e6db822f4e3b5b3fa4ac.jpg",
+      "https://i.ytimg.com/vi/RKgjFk1hov4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Hjuky7WffZ0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/RKgjFk1hov4/default.jpg",
+      "https://i.ytimg.com/vi/Hjuky7WffZ0/default.jpg"
+    ],
+    "publishDate": "2026-01-16T00:00:00Z",
+    "acceptedTitles": [
+      "ミクテトダンス",
+      "MikuTeto Dance"
+    ],
+    "audioClip": "https://audio.sodapines.dev/900949.mp3",
+    "producerNames": [
+      "otone"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kasane Teto"
+    ],
+    "displayArtist": "otone feat. Hatsune Miku, Kasane Teto",
+    "suggestionArtistString": "otone feat. Hatsune Miku, Kasane Teto",
+    "artistSearchNames": [
+      "otone",
+      "otone feat. Hatsune Miku, Kasane Teto SV",
+      "Hatsune Miku",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-13",
+    "vocadbId": 896963,
+    "title": "REAPER",
+    "artist": "Yomitan Akane",
+    "artistString": "Yomitan Akane feat. Kasane Teto SV",
+    "vocadbName": "REAPER",
+    "vocadbUrl": "https://vocadb.net/S/896963",
+    "coverArt": "https://i.ytimg.com/vi/xpCwtcNNr2o/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/xpCwtcNNr2o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/X3JbfOliOnE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/xpCwtcNNr2o/sddefault.jpg",
+      "https://i.ytimg.com/vi/X3JbfOliOnE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45812534/45812534.60345797",
+      "https://i.ytimg.com/vi/xpCwtcNNr2o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/X3JbfOliOnE/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/0cc550e6306bc4b760b148baf8bc4a22f644902a.jpg",
+      "https://i.ytimg.com/vi/xpCwtcNNr2o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/X3JbfOliOnE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/xpCwtcNNr2o/default.jpg",
+      "https://i.ytimg.com/vi/X3JbfOliOnE/default.jpg"
+    ],
+    "publishDate": "2026-01-09T00:00:00Z",
+    "acceptedTitles": [
+      "リーパー",
+      "REAPER"
+    ],
+    "audioClip": "https://audio.sodapines.dev/896963.mp3",
+    "producerNames": [
+      "Yomitan Akane"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "Yomitan Akane feat. Kasane Teto",
+    "suggestionArtistString": "Yomitan Akane feat. Kasane Teto",
+    "artistSearchNames": [
+      "Yomitan Akane",
+      "Yomitan Akane feat. Kasane Teto SV",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-14",
+    "vocadbId": 906978,
+    "title": "Departure Song",
+    "artist": "Karasuya Sabou",
+    "artistString": "Karasuya Sabou feat. Hatsune Miku",
+    "vocadbName": "Departure Song",
+    "vocadbUrl": "https://vocadb.net/S/906978",
+    "coverArt": "https://i.ytimg.com/vi/iP1EAgXd42s/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/iP1EAgXd42s/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/gWPpoDuT8Oc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/iP1EAgXd42s/sddefault.jpg",
+      "https://i.ytimg.com/vi/gWPpoDuT8Oc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45880142/45880142.24157052",
+      "https://i.ytimg.com/vi/iP1EAgXd42s/hqdefault.jpg",
+      "https://i.ytimg.com/vi/gWPpoDuT8Oc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/iP1EAgXd42s/mqdefault.jpg",
+      "https://i.ytimg.com/vi/gWPpoDuT8Oc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/iP1EAgXd42s/default.jpg",
+      "https://i.ytimg.com/vi/gWPpoDuT8Oc/default.jpg"
+    ],
+    "publishDate": "2026-01-28T00:00:00Z",
+    "acceptedTitles": [
+      "たびだちのうた",
+      "Departure Song",
+      "Tabidachi no Uta"
+    ],
+    "audioClip": "https://audio.sodapines.dev/906978.mp3",
+    "producerNames": [
+      "Karasuya Sabou"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Karasuya Sabou feat. Hatsune Miku",
+    "suggestionArtistString": "Karasuya Sabou feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Karasuya Sabou",
+      "Karasuya Sabou feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-10-15",
+    "vocadbId": 898135,
+    "title": "We are! The Garbage Sorting Squad",
+    "artist": "aterrazawa",
+    "artistString": "aterrazawa feat. various",
+    "vocadbName": "We are! The Garbage Sorting Squad",
+    "vocadbUrl": "https://vocadb.net/S/898135",
+    "coverArt": "https://i.ytimg.com/vi/OreUrf87EUE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/OreUrf87EUE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/4ceIcV5PrTI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/OreUrf87EUE/sddefault.jpg",
+      "https://i.ytimg.com/vi/4ceIcV5PrTI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45820820/45820820.22921471",
+      "https://i.ytimg.com/vi/OreUrf87EUE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/4ceIcV5PrTI/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/58b396cb94f76348739de4494d180aa6753950fc.jpg",
+      "https://i.ytimg.com/vi/OreUrf87EUE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/4ceIcV5PrTI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/OreUrf87EUE/default.jpg",
+      "https://i.ytimg.com/vi/4ceIcV5PrTI/default.jpg"
+    ],
+    "publishDate": "2026-01-11T00:00:00Z",
+    "acceptedTitles": [
+      "我ら!ゴミ分別団",
+      "We are! The Garbage Sorting Squad",
+      "Warera! Gomi Bunbetsu-dan"
+    ],
+    "audioClip": "https://audio.sodapines.dev/898135.mp3",
+    "producerNames": [
+      "aterrazawa"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "aterrazawa feat. various",
+    "suggestionArtistString": "aterrazawa feat. various",
+    "artistSearchNames": [
+      "aterrazawa",
+      "aterrazawa feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-10-16",
+    "vocadbId": 900836,
+    "title": "Phonky Donky Crazy ",
+    "artist": "pepensow",
+    "artistString": "pepensow, Nakazato Ryosuke, Chenomio feat. Kasane Teto SV",
+    "vocadbName": "Phonky Donky Crazy ",
+    "vocadbUrl": "https://vocadb.net/S/900836",
+    "coverArt": "https://i.ytimg.com/vi/nzMKs_Xh1Co/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/nzMKs_Xh1Co/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ziKla6r6hWA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/nzMKs_Xh1Co/sddefault.jpg",
+      "https://i.ytimg.com/vi/ziKla6r6hWA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45836329/45836329.50290865",
+      "https://i.ytimg.com/vi/nzMKs_Xh1Co/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ziKla6r6hWA/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/628e5a8aeca7c08863ebc0c48792784c0c9db2b0.jpg",
+      "https://i.ytimg.com/vi/nzMKs_Xh1Co/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ziKla6r6hWA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/nzMKs_Xh1Co/default.jpg",
+      "https://i.ytimg.com/vi/ziKla6r6hWA/default.jpg"
+    ],
+    "publishDate": "2026-01-16T00:00:00Z",
+    "acceptedTitles": [
+      "Phonky Donky Crazy "
+    ],
+    "audioClip": "https://audio.sodapines.dev/900836.mp3",
+    "producerNames": [
+      "pepensow",
+      "Nakazato Ryosuke",
+      "Chenomio"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "pepensow, Nakazato Ryosuke, Chenomio feat. Kasane Teto",
+    "suggestionArtistString": "pepensow, Nakazato Ryosuke, Chenomio feat. Kasane Teto",
+    "artistSearchNames": [
+      "pepensow",
+      "pepensow, Nakazato Ryosuke, Chenomio feat. Kasane Teto SV",
+      "Nakazato Ryosuke",
+      "Chenomio",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-17",
+    "vocadbId": 907867,
+    "title": "Lucid Dreamscape",
+    "artist": "KAT",
+    "artistString": "KAT, ryutsu feat. Megurine Luka V4X English (Straight)",
+    "vocadbName": "Lucid Dreamscape",
+    "vocadbUrl": "https://vocadb.net/S/907867",
+    "coverArt": "https://i.ytimg.com/vi/zOsVL0oYpQA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/zOsVL0oYpQA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/szy9A4i2FZg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/zOsVL0oYpQA/sddefault.jpg",
+      "https://i.ytimg.com/vi/szy9A4i2FZg/sddefault.jpg",
+      "https://i.ytimg.com/vi/zOsVL0oYpQA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/szy9A4i2FZg/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a2568230881_5.jpg",
+      "https://i.ytimg.com/vi/zOsVL0oYpQA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/szy9A4i2FZg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/zOsVL0oYpQA/default.jpg",
+      "https://i.ytimg.com/vi/szy9A4i2FZg/default.jpg"
+    ],
+    "publishDate": "2026-01-30T00:00:00Z",
+    "acceptedTitles": [
+      "Lucid Dreamscape"
+    ],
+    "audioClip": "https://audio.sodapines.dev/907867.mp3",
+    "producerNames": [
+      "KAT",
+      "ryutsu"
+    ],
+    "singerNames": [
+      "Megurine Luka"
+    ],
+    "displayArtist": "KAT, ryutsu feat. Megurine Luka",
+    "suggestionArtistString": "KAT, ryutsu feat. Megurine Luka",
+    "artistSearchNames": [
+      "KAT",
+      "KAT, ryutsu feat. Megurine Luka V4X English (Straight)",
+      "ryutsu",
+      "Megurine Luka",
+      "Megurine Luka V4X English"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-18",
+    "vocadbId": 893485,
+    "title": "Trick Heart",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. Kasane Teto SV",
+    "vocadbName": "Trick Heart",
+    "vocadbUrl": "https://vocadb.net/S/893485",
+    "coverArt": "https://i.ytimg.com/vi/uoYegcqyfxE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/uoYegcqyfxE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/zuueT6bBrz0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/uoYegcqyfxE/sddefault.jpg",
+      "https://i.ytimg.com/vi/zuueT6bBrz0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45795157/45795157.13282674",
+      "https://i.ytimg.com/vi/uoYegcqyfxE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/zuueT6bBrz0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/uoYegcqyfxE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/zuueT6bBrz0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/uoYegcqyfxE/default.jpg",
+      "https://i.ytimg.com/vi/zuueT6bBrz0/default.jpg"
+    ],
+    "publishDate": "2026-01-02T00:00:00Z",
+    "acceptedTitles": [
+      "トリックハート",
+      "Trick Heart",
+      "트릭 하트"
+    ],
+    "audioClip": "https://audio.sodapines.dev/893485.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "MIMI feat. Kasane Teto",
+    "suggestionArtistString": "MIMI feat. Kasane Teto",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. Kasane Teto SV",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-10-19",
+    "vocadbId": 900099,
+    "title": "Sounds at Work!",
+    "artist": "Shannon",
+    "artistString": "Shannon feat. asa",
+    "vocadbName": "Sounds at Work!",
+    "vocadbUrl": "https://vocadb.net/S/900099",
+    "coverArt": "https://i.ytimg.com/vi/D25vLdhyzp8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/D25vLdhyzp8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/A_Q0cjw0A74/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/D25vLdhyzp8/sddefault.jpg",
+      "https://i.ytimg.com/vi/A_Q0cjw0A74/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45839725/45839725.18493777",
+      "https://i.ytimg.com/vi/D25vLdhyzp8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/A_Q0cjw0A74/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/4f59542e2c2ac343d8c71132fb21704a7de0e26f.jpg",
+      "https://i.ytimg.com/vi/D25vLdhyzp8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/A_Q0cjw0A74/mqdefault.jpg",
+      "https://i.ytimg.com/vi/D25vLdhyzp8/default.jpg",
+      "https://i.ytimg.com/vi/A_Q0cjw0A74/default.jpg"
+    ],
+    "publishDate": "2026-01-15T00:00:00Z",
+    "acceptedTitles": [
+      "はたらく音声",
+      "Sounds at Work!",
+      "Hataraku Onsei"
+    ],
+    "audioClip": "https://audio.sodapines.dev/900099.mp3",
+    "producerNames": [
+      "Shannon"
+    ],
+    "singerNames": [
+      "asa"
+    ],
+    "displayArtist": "Shannon feat. asa",
+    "suggestionArtistString": "Shannon feat. asa",
+    "artistSearchNames": [
+      "Shannon",
+      "Shannon feat. asa",
+      "asa"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-20",
+    "vocadbId": 903547,
+    "title": "Melt (CPK! Remix)",
+    "artist": "ryo",
+    "artistString": "ryo feat. Hatsune Miku",
+    "vocadbName": "Melt (CPK! Remix)",
+    "vocadbUrl": "https://vocadb.net/S/903547",
+    "coverArt": "https://i.ytimg.com/vi/XRymkHlMB-k/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/XRymkHlMB-k/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/pE7k0GoJKHo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/XRymkHlMB-k/sddefault.jpg",
+      "https://i.ytimg.com/vi/pE7k0GoJKHo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45865042/45865042.38214304",
+      "https://i.ytimg.com/vi/XRymkHlMB-k/hqdefault.jpg",
+      "https://i.ytimg.com/vi/pE7k0GoJKHo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/XRymkHlMB-k/mqdefault.jpg",
+      "https://i.ytimg.com/vi/pE7k0GoJKHo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/XRymkHlMB-k/default.jpg",
+      "https://i.ytimg.com/vi/pE7k0GoJKHo/default.jpg"
+    ],
+    "publishDate": "2026-01-22T00:00:00Z",
+    "acceptedTitles": [
+      "メルト (CPK! Remix)",
+      "Melt (CPK! Remix)"
+    ],
+    "audioClip": "https://audio.sodapines.dev/903547.mp3",
+    "producerNames": [
+      "ryo"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "ryo feat. Hatsune Miku",
+    "suggestionArtistString": "ryo feat. Hatsune Miku",
+    "artistSearchNames": [
+      "ryo",
+      "ryo feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2029-10-21",
+    "vocadbId": 900835,
+    "title": "Creature",
+    "artist": "Satsuki",
+    "artistString": "Satsuki, Daibaku Hashin, Yoshida Yasei feat. Hatsune Miku, Kasane Teto SV",
+    "vocadbName": "Creature",
+    "vocadbUrl": "https://vocadb.net/S/900835",
+    "coverArt": "https://i.ytimg.com/vi/dHo5bqtnJEI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/dHo5bqtnJEI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/rCDmt6sVX2s/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/dHo5bqtnJEI/sddefault.jpg",
+      "https://i.ytimg.com/vi/rCDmt6sVX2s/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45819679/45819679.13992179",
+      "https://i.ytimg.com/vi/dHo5bqtnJEI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/rCDmt6sVX2s/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/231cb222cfbb959a05771e4841e98359244a53a1.jpg",
+      "https://i.ytimg.com/vi/dHo5bqtnJEI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/rCDmt6sVX2s/mqdefault.jpg",
+      "https://i.ytimg.com/vi/dHo5bqtnJEI/default.jpg",
+      "https://i.ytimg.com/vi/rCDmt6sVX2s/default.jpg"
+    ],
+    "publishDate": "2026-01-16T00:00:00Z",
+    "acceptedTitles": [
+      "クリーチャー",
+      "Creature",
+      "크리처"
+    ],
+    "audioClip": "https://audio.sodapines.dev/900835.mp3",
+    "producerNames": [
+      "Satsuki",
+      "Daibaku Hashin",
+      "Yoshida Yasei"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kasane Teto"
+    ],
+    "displayArtist": "Satsuki, Daibaku Hashin, Yoshida Yasei feat. Hatsune Miku, Kasane Teto",
+    "suggestionArtistString": "Satsuki, Daibaku Hashin, Yoshida Yasei feat. Hatsune Miku, Kasane Teto",
+    "artistSearchNames": [
+      "Satsuki",
+      "Satsuki, Daibaku Hashin, Yoshida Yasei feat. Hatsune Miku, Kasane Teto SV",
+      "Daibaku Hashin",
+      "Yoshida Yasei",
+      "Hatsune Miku",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-10-22",
+    "vocadbId": 865044,
+    "title": "HAPPINESS FOR YOU!",
+    "artist": "iyowa",
+    "artistString": "iyowa feat. Hatsune Miku",
+    "vocadbName": "HAPPINESS FOR YOU!",
+    "vocadbUrl": "https://vocadb.net/S/865044",
+    "coverArt": "https://i.ytimg.com/vi/D7-lYDOpA50/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/D7-lYDOpA50/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ZuyM6UUvlYg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/D7-lYDOpA50/sddefault.jpg",
+      "https://i.ytimg.com/vi/ZuyM6UUvlYg/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45806322/45806322.43257082",
+      "https://i.ytimg.com/vi/D7-lYDOpA50/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ZuyM6UUvlYg/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/79f47fa962ceb424ef725a9ed2baba6e070a3b0b.jpg",
+      "https://i.ytimg.com/vi/D7-lYDOpA50/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ZuyM6UUvlYg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/D7-lYDOpA50/default.jpg",
+      "https://i.ytimg.com/vi/ZuyM6UUvlYg/default.jpg"
+    ],
+    "publishDate": "2026-01-09T00:00:00Z",
+    "acceptedTitles": [
+      "SHIAWASE FOR YOU!",
+      "HAPPINESS FOR YOU!",
+      "しあわせふぉーゆー！！"
+    ],
+    "audioClip": "https://audio.sodapines.dev/865044.mp3",
+    "producerNames": [
+      "iyowa"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "iyowa feat. Hatsune Miku",
+    "suggestionArtistString": "iyowa feat. Hatsune Miku",
+    "artistSearchNames": [
+      "iyowa",
+      "iyowa feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-10-23",
+    "vocadbId": 725692,
+    "title": "SPEED OF SPICE",
+    "artist": "suzie",
+    "artistString": "suzie feat. Synthesizer V AI Otomachi Una",
+    "vocadbName": "SPEED OF SPICE",
+    "vocadbUrl": "https://vocadb.net/S/725692",
+    "coverArt": "https://i.ytimg.com/vi/Y99am8yGRcw/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Y99am8yGRcw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/2ww20wzrScg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/sTigTvwhbyY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Y99am8yGRcw/sddefault.jpg",
+      "https://i.ytimg.com/vi/2ww20wzrScg/sddefault.jpg",
+      "https://i.ytimg.com/vi/sTigTvwhbyY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44509338/44509338.48361953",
+      "https://i.ytimg.com/vi/Y99am8yGRcw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/2ww20wzrScg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/sTigTvwhbyY/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a1420814276_5.jpg",
+      "https://i.ytimg.com/vi/Y99am8yGRcw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/2ww20wzrScg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/sTigTvwhbyY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Y99am8yGRcw/default.jpg",
+      "https://i.ytimg.com/vi/2ww20wzrScg/default.jpg",
+      "https://i.ytimg.com/vi/sTigTvwhbyY/default.jpg"
+    ],
+    "publishDate": "2025-01-03T00:00:00Z",
+    "acceptedTitles": [
+      "SPEED OF SPICE"
+    ],
+    "audioClip": "https://audio.sodapines.dev/725692.mp3",
+    "producerNames": [
+      "suzie"
+    ],
+    "singerNames": [
+      "Synthesizer V Otomachi Una"
+    ],
+    "displayArtist": "suzie feat. Synthesizer V Otomachi Una",
+    "suggestionArtistString": "suzie feat. Synthesizer V Otomachi Una",
+    "artistSearchNames": [
+      "suzie",
+      "suzie feat. Synthesizer V AI Otomachi Una",
+      "Synthesizer V Otomachi Una",
+      "Synthesizer V AI Otomachi Una"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-24",
+    "vocadbId": 741720,
+    "title": "Since I'm already here",
+    "artist": "Sasuke Haraguchi",
+    "artistString": "Sasuke Haraguchi feat. Kasane Teto, Hatsune Miku",
+    "vocadbName": "Since I'm already here",
+    "vocadbUrl": "https://vocadb.net/S/741720",
+    "coverArt": "https://i.ytimg.com/vi/3d_kACCKFRc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/3d_kACCKFRc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/jwoPdVJ1mHw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/3d_kACCKFRc/sddefault.jpg",
+      "https://i.ytimg.com/vi/jwoPdVJ1mHw/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44672250/44672250.51600170",
+      "https://i.ytimg.com/vi/3d_kACCKFRc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/jwoPdVJ1mHw/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/6ff2abc3fcc88b11ed2eeaf242ee35f344723a9c.jpg",
+      "https://i.ytimg.com/vi/3d_kACCKFRc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/jwoPdVJ1mHw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/3d_kACCKFRc/default.jpg",
+      "https://i.ytimg.com/vi/jwoPdVJ1mHw/default.jpg"
+    ],
+    "publishDate": "2025-01-28T00:00:00Z",
+    "acceptedTitles": [
+      "前ノハナシ",
+      "Since I'm already here",
+      "Mae no Hanashi",
+      "来都来了",
+      "Lái Dōu Lái le",
+      "laidoulaile"
+    ],
+    "audioClip": "https://audio.sodapines.dev/741720.mp3",
+    "producerNames": [
+      "Sasuke Haraguchi"
+    ],
+    "singerNames": [
+      "Kasane Teto",
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Sasuke Haraguchi feat. Kasane Teto, Hatsune Miku",
+    "suggestionArtistString": "Sasuke Haraguchi feat. Kasane Teto, Hatsune Miku",
+    "artistSearchNames": [
+      "Sasuke Haraguchi",
+      "Sasuke Haraguchi feat. Kasane Teto, Hatsune Miku",
+      "Kasane Teto",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-10-25",
+    "vocadbId": 737695,
+    "title": "HAVEN",
+    "artist": "NILFRUITS",
+    "artistString": "NILFRUITS feat. v4 flower",
+    "vocadbName": "HAVEN",
+    "vocadbUrl": "https://vocadb.net/S/737695",
+    "coverArt": "https://i.ytimg.com/vi/MJa46AEGMb4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/MJa46AEGMb4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/UyWTNknsKmY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/yDY8BLfOlC8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/MJa46AEGMb4/sddefault.jpg",
+      "https://i.ytimg.com/vi/UyWTNknsKmY/sddefault.jpg",
+      "https://i.ytimg.com/vi/yDY8BLfOlC8/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44601300/44601300.12961721",
+      "https://i.ytimg.com/vi/MJa46AEGMb4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/UyWTNknsKmY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/yDY8BLfOlC8/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/523e19aea1bc8cdca56da3b2d0b905c1a4831d82.jpg",
+      "https://i.ytimg.com/vi/MJa46AEGMb4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/UyWTNknsKmY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/yDY8BLfOlC8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/MJa46AEGMb4/default.jpg",
+      "https://i.ytimg.com/vi/UyWTNknsKmY/default.jpg",
+      "https://i.ytimg.com/vi/yDY8BLfOlC8/default.jpg"
+    ],
+    "publishDate": "2025-01-19T00:00:00Z",
+    "acceptedTitles": [
+      "ヘイヴン",
+      "HAVEN",
+      "Heaven",
+      "헤이븐"
+    ],
+    "audioClip": "https://audio.sodapines.dev/737695.mp3",
+    "producerNames": [
+      "NILFRUITS"
+    ],
+    "singerNames": [
+      "flower"
+    ],
+    "displayArtist": "NILFRUITS feat. flower",
+    "suggestionArtistString": "NILFRUITS feat. flower",
+    "artistSearchNames": [
+      "NILFRUITS",
+      "NILFRUITS feat. v4 flower",
+      "flower",
+      "v4 flower"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ]
+  },
+  {
+    "date": "2029-10-26",
+    "vocadbId": 729113,
+    "title": "Crime and Punishment (Reloaded)",
+    "artist": "DECO*27",
+    "artistString": "DECO*27, Hayato Yamamoto, OTOIRO feat. Hatsune Miku",
+    "vocadbName": "Crime and Punishment (Reloaded)",
+    "vocadbUrl": "https://vocadb.net/S/729113",
+    "coverArt": "https://i.ytimg.com/vi/iD3oF5HkPms/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/iD3oF5HkPms/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/01eg9BEpUAs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/iD3oF5HkPms/sddefault.jpg",
+      "https://i.ytimg.com/vi/01eg9BEpUAs/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44509911/44509911.92670081",
+      "https://i.ytimg.com/vi/iD3oF5HkPms/hqdefault.jpg",
+      "https://i.ytimg.com/vi/01eg9BEpUAs/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/8ea00e1aee1fc7e6013ca077b01623fdd846bf91.jpg",
+      "https://i.ytimg.com/vi/iD3oF5HkPms/mqdefault.jpg",
+      "https://i.ytimg.com/vi/01eg9BEpUAs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/iD3oF5HkPms/default.jpg",
+      "https://i.ytimg.com/vi/01eg9BEpUAs/default.jpg"
+    ],
+    "publishDate": "2025-01-10T00:00:00Z",
+    "acceptedTitles": [
+      "罪と罰 (Reloaded)",
+      "Crime and Punishment (Reloaded)",
+      "Tsumi to Batsu (Reloaded)",
+      "죄와 벌 (Reloaded)"
+    ],
+    "audioClip": "https://audio.sodapines.dev/729113.mp3",
+    "producerNames": [
+      "DECO*27",
+      "Hayato Yamamoto",
+      "OTOIRO"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "DECO*27, Hayato Yamamoto, OTOIRO feat. Hatsune Miku",
+    "suggestionArtistString": "DECO*27, Hayato Yamamoto, OTOIRO feat. Hatsune Miku",
+    "artistSearchNames": [
+      "DECO*27",
+      "DECO*27, Hayato Yamamoto, OTOIRO feat. Hatsune Miku",
+      "Hayato Yamamoto",
+      "OTOIRO",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-10-27",
+    "vocadbId": 743632,
+    "title": "Gooey Gooey",
+    "artist": "cosMo@BousouP",
+    "artistString": "cosMo@BousouP feat. Hatsune Miku",
+    "vocadbName": "Gooey Gooey",
+    "vocadbUrl": "https://vocadb.net/S/743632",
+    "coverArt": "https://i.ytimg.com/vi/gX_EUiEdur8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/gX_EUiEdur8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/cW2tAhpvHtE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/gX_EUiEdur8/sddefault.jpg",
+      "https://i.ytimg.com/vi/cW2tAhpvHtE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44597642/44597642.72617770",
+      "https://i.ytimg.com/vi/gX_EUiEdur8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/cW2tAhpvHtE/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/7ed9fb39847f52c13900f61c43a4cc689151bf1b.jpg",
+      "https://i.ytimg.com/vi/gX_EUiEdur8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/cW2tAhpvHtE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/gX_EUiEdur8/default.jpg",
+      "https://i.ytimg.com/vi/cW2tAhpvHtE/default.jpg"
+    ],
+    "publishDate": "2025-01-31T00:00:00Z",
+    "acceptedTitles": [
+      "デロデロデロデ",
+      "Gooey Gooey",
+      "DeroDeroDeroDe"
+    ],
+    "audioClip": "https://audio.sodapines.dev/743632.mp3",
+    "producerNames": [
+      "cosMo@BousouP"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "cosMo@BousouP feat. Hatsune Miku",
+    "suggestionArtistString": "cosMo@BousouP feat. Hatsune Miku",
+    "artistSearchNames": [
+      "cosMo@BousouP",
+      "cosMo@BousouP feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-10-28",
+    "vocadbId": 730562,
+    "title": "LATENESS",
+    "artist": "nihosika",
+    "artistString": "nihosika feat. Kasane Teto SV",
+    "vocadbName": "LATENESS",
+    "vocadbUrl": "https://vocadb.net/S/730562",
+    "coverArt": "https://i.ytimg.com/vi/dGJoTxcZFvg/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/dGJoTxcZFvg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/IM_Xa-lIXTU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/dGJoTxcZFvg/sddefault.jpg",
+      "https://i.ytimg.com/vi/IM_Xa-lIXTU/sddefault.jpg",
+      "https://i.ytimg.com/vi/dGJoTxcZFvg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/IM_Xa-lIXTU/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/d2027e9ca854d22f19529aca8270e780da7e7b86.jpg",
+      "https://i.ytimg.com/vi/dGJoTxcZFvg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/IM_Xa-lIXTU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/dGJoTxcZFvg/default.jpg",
+      "https://i.ytimg.com/vi/IM_Xa-lIXTU/default.jpg"
+    ],
+    "publishDate": "2025-01-12T00:00:00Z",
+    "acceptedTitles": [
+      "レイトネス",
+      "LATENESS",
+      "레이트니스"
+    ],
+    "audioClip": "https://audio.sodapines.dev/730562.mp3",
+    "producerNames": [
+      "nihosika"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "nihosika feat. Kasane Teto",
+    "suggestionArtistString": "nihosika feat. Kasane Teto",
+    "artistSearchNames": [
+      "nihosika",
+      "nihosika feat. Kasane Teto SV",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-10-29",
+    "vocadbId": 754730,
+    "title": "RED HAIR",
+    "artist": "SmilyBruh",
+    "artistString": "SmilyBruh feat. Kasane Teto, Hatsune Miku, Boyfriend",
+    "vocadbName": "RED HAIR",
+    "vocadbUrl": "https://vocadb.net/S/754730",
+    "coverArt": "https://i.ytimg.com/vi/D50L4EeBHOs/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/D50L4EeBHOs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/2hmJpKvHGw4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/D50L4EeBHOs/sddefault.jpg",
+      "https://i.ytimg.com/vi/2hmJpKvHGw4/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44696027/44696027.49781245",
+      "https://i.ytimg.com/vi/D50L4EeBHOs/hqdefault.jpg",
+      "https://i.ytimg.com/vi/2hmJpKvHGw4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/D50L4EeBHOs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/2hmJpKvHGw4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/D50L4EeBHOs/default.jpg",
+      "https://i.ytimg.com/vi/2hmJpKvHGw4/default.jpg"
+    ],
+    "publishDate": "2025-01-25T00:00:00Z",
+    "acceptedTitles": [
+      "赤毛",
+      "RED HAIR",
+      "AKAGE"
+    ],
+    "audioClip": "https://audio.sodapines.dev/754730.mp3",
+    "producerNames": [
+      "SmilyBruh"
+    ],
+    "singerNames": [
+      "Kasane Teto",
+      "Hatsune Miku",
+      "Boyfriend"
+    ],
+    "displayArtist": "SmilyBruh feat. Kasane Teto, Hatsune Miku, Boyfriend",
+    "suggestionArtistString": "SmilyBruh feat. Kasane Teto, Hatsune Miku, Boyfriend",
+    "artistSearchNames": [
+      "SmilyBruh",
+      "SmilyBruh feat. Kasane Teto, Hatsune Miku, Boyfriend",
+      "Kasane Teto",
+      "Hatsune Miku",
+      "Boyfriend"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2029-10-30",
+    "vocadbId": 734945,
+    "title": "FOCUS",
+    "artist": "KIRA",
+    "artistString": "KIRA feat. Synthesizer V AI Megpoid",
+    "vocadbName": "FOCUS",
+    "vocadbUrl": "https://vocadb.net/S/734945",
+    "coverArt": "https://i.ytimg.com/vi/aF4N-qSHbT4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/aF4N-qSHbT4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/aF4N-qSHbT4/sddefault.jpg",
+      "https://i.ytimg.com/vi/aF4N-qSHbT4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/aF4N-qSHbT4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/aF4N-qSHbT4/default.jpg"
+    ],
+    "publishDate": "2025-01-17T00:00:00Z",
+    "acceptedTitles": [
+      "FOCUS"
+    ],
+    "audioClip": "https://audio.sodapines.dev/734945.mp3",
+    "producerNames": [
+      "KIRA"
+    ],
+    "singerNames": [
+      "Synthesizer V Megpoid"
+    ],
+    "displayArtist": "KIRA feat. Synthesizer V Megpoid",
+    "suggestionArtistString": "KIRA feat. Synthesizer V Megpoid",
+    "artistSearchNames": [
+      "KIRA",
+      "KIRA feat. Synthesizer V AI Megpoid",
+      "Synthesizer V Megpoid",
+      "Synthesizer V AI Megpoid"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-10-31",
+    "vocadbId": 729257,
+    "title": "All Cancel Baby",
+    "artist": "Sig",
+    "artistString": "Sig feat. various",
+    "vocadbName": "All Cancel Baby",
+    "vocadbUrl": "https://vocadb.net/S/729257",
+    "coverArt": "https://i.ytimg.com/vi/ss31eVUuRRI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ss31eVUuRRI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/fDt78w0P7Og/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ss31eVUuRRI/sddefault.jpg",
+      "https://i.ytimg.com/vi/fDt78w0P7Og/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44523585/44523585.25826917",
+      "https://i.ytimg.com/vi/ss31eVUuRRI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/fDt78w0P7Og/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ss31eVUuRRI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/fDt78w0P7Og/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ss31eVUuRRI/default.jpg",
+      "https://i.ytimg.com/vi/fDt78w0P7Og/default.jpg"
+    ],
+    "publishDate": "2025-01-10T00:00:00Z",
+    "acceptedTitles": [
+      "全キャンBABY",
+      "All Cancel Baby",
+      "Zenkyan BABY"
+    ],
+    "audioClip": "https://audio.sodapines.dev/729257.mp3",
+    "producerNames": [
+      "Sig"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "Sig feat. various",
+    "suggestionArtistString": "Sig feat. various",
+    "artistSearchNames": [
+      "Sig",
+      "Sig feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-01",
+    "vocadbId": 753297,
+    "title": "The sound about petals",
+    "artist": "Avaraya",
+    "artistString": "Avaraya feat. Hatsune Miku",
+    "vocadbName": "The sound about petals",
+    "vocadbUrl": "https://vocadb.net/S/753297",
+    "coverArt": "https://i.ytimg.com/vi/LW1KBCgvEPQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/LW1KBCgvEPQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/J5tp9a-kBYI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/LW1KBCgvEPQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/J5tp9a-kBYI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44681832/44681832.32668326",
+      "https://i.ytimg.com/vi/LW1KBCgvEPQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/J5tp9a-kBYI/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/9f8a46238f09743048d181216898673875f2edab.jpg",
+      "https://i.ytimg.com/vi/LW1KBCgvEPQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/J5tp9a-kBYI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/LW1KBCgvEPQ/default.jpg",
+      "https://i.ytimg.com/vi/J5tp9a-kBYI/default.jpg"
+    ],
+    "publishDate": "2025-02-22T00:00:00Z",
+    "acceptedTitles": [
+      "花弁、それにまつわる音声",
+      "The sound about petals",
+      "Kaben, Sore ni Matsuwaru Onsei",
+      "Petals, and the Voices Which Trail Behind",
+      "꽃잎, 그것에 얽힌 음성"
+    ],
+    "audioClip": "https://audio.sodapines.dev/753297.mp3",
+    "producerNames": [
+      "Avaraya"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Avaraya feat. Hatsune Miku",
+    "suggestionArtistString": "Avaraya feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Avaraya",
+      "Avaraya feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
+    ]
+  },
+  {
+    "date": "2029-11-02",
+    "vocadbId": 753105,
+    "title": "Non-Praying Pilgrimage",
+    "artist": "Satsuki",
+    "artistString": "Satsuki feat. Kasane Teto, Adachi Rei, Utane Uta",
+    "vocadbName": "Non-Praying Pilgrimage",
+    "vocadbUrl": "https://vocadb.net/S/753105",
+    "coverArt": "https://i.ytimg.com/vi/kwOLaJEKVnE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/kwOLaJEKVnE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/YB19DNVm0ZM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/kwOLaJEKVnE/sddefault.jpg",
+      "https://i.ytimg.com/vi/YB19DNVm0ZM/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44664715/44664715.82083893",
+      "https://i.ytimg.com/vi/kwOLaJEKVnE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/YB19DNVm0ZM/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/ef28749d9f56258b98eb66d6ac49abd2e181f0f5.jpg",
+      "https://i.ytimg.com/vi/kwOLaJEKVnE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/YB19DNVm0ZM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/kwOLaJEKVnE/default.jpg",
+      "https://i.ytimg.com/vi/YB19DNVm0ZM/default.jpg"
+    ],
+    "publishDate": "2025-02-22T00:00:00Z",
+    "acceptedTitles": [
+      "祈らず行脚",
+      "Non-Praying Pilgrimage",
+      "Inorazu Angya",
+      "기도없이 행각"
+    ],
+    "audioClip": "https://audio.sodapines.dev/753105.mp3",
+    "producerNames": [
+      "Satsuki"
+    ],
+    "singerNames": [
+      "Kasane Teto",
+      "Adachi Rei",
+      "Utane Uta"
+    ],
+    "displayArtist": "Satsuki feat. Kasane Teto, Adachi Rei, Utane Uta",
+    "suggestionArtistString": "Satsuki feat. Kasane Teto, Adachi Rei, Utane Uta",
+    "artistSearchNames": [
+      "Satsuki",
+      "Satsuki feat. Kasane Teto, Adachi Rei, Utane Uta",
+      "Kasane Teto",
+      "Adachi Rei",
+      "Utane Uta"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-03",
+    "vocadbId": 753796,
+    "title": "After the Darkness",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. Mai",
+    "vocadbName": "After the Darkness",
+    "vocadbUrl": "https://vocadb.net/S/753796",
+    "coverArt": "https://i.ytimg.com/vi/MAeZBkYDivI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/MAeZBkYDivI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/MAeZBkYDivI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44687677/44687677.17171017",
+      "https://i.ytimg.com/vi/MAeZBkYDivI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/MAeZBkYDivI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/MAeZBkYDivI/default.jpg"
+    ],
+    "publishDate": "2025-02-23T00:00:00Z",
+    "acceptedTitles": [
+      "闇あがり",
+      "After the Darkness",
+      "Yamiagari"
+    ],
+    "audioClip": "https://audio.sodapines.dev/753796.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "Mai"
+    ],
+    "displayArtist": "EZFG feat. Mai",
+    "suggestionArtistString": "EZFG feat. Mai",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. Mai",
+      "Mai"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-11-04",
+    "vocadbId": 345453,
+    "title": "Paparazzi Murder Party",
+    "artist": "Vane Lily",
+    "artistString": "Vane Lily, Pumpkin Head feat. V3 GUMI (English)",
+    "vocadbName": "Paparazzi Murder Party",
+    "vocadbUrl": "https://vocadb.net/S/345453",
+    "coverArt": "https://i.ytimg.com/vi/wBCA4n9mExE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/wBCA4n9mExE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/9hhOSZwj5iI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/wBCA4n9mExE/sddefault.jpg",
+      "https://i.ytimg.com/vi/9hhOSZwj5iI/sddefault.jpg",
+      "https://i.ytimg.com/vi/wBCA4n9mExE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/9hhOSZwj5iI/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a3349613382_5.jpg",
+      "https://i.ytimg.com/vi/wBCA4n9mExE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/9hhOSZwj5iI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/wBCA4n9mExE/default.jpg",
+      "https://i.ytimg.com/vi/9hhOSZwj5iI/default.jpg"
+    ],
+    "publishDate": "2021-07-25T00:00:00Z",
+    "acceptedTitles": [
+      "Paparazzi Murder Party"
+    ],
+    "audioClip": "https://audio.sodapines.dev/345453.mp3",
+    "producerNames": [
+      "Vane Lily",
+      "Pumpkin Head"
+    ],
+    "singerNames": [
+      "GUMI"
+    ],
+    "displayArtist": "Vane Lily, Pumpkin Head feat. GUMI",
+    "suggestionArtistString": "Vane Lily, Pumpkin Head feat. GUMI",
+    "artistSearchNames": [
+      "Vane Lily",
+      "Vane Lily, Pumpkin Head feat. V3 GUMI (English)",
+      "Pumpkin Head",
+      "GUMI",
+      "V3 GUMI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-11-05",
+    "vocadbId": 730826,
+    "title": "Hello, SEKAI",
+    "artist": "DECO*27",
+    "artistString": "DECO*27, tepe, OTOIRO feat. Hatsune Miku",
+    "vocadbName": "Hello, SEKAI",
+    "vocadbUrl": "https://vocadb.net/S/730826",
+    "coverArt": "https://i.ytimg.com/vi/t5U0rrj0dio/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/t5U0rrj0dio/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/2V4tpE_FmkU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/t5U0rrj0dio/sddefault.jpg",
+      "https://i.ytimg.com/vi/2V4tpE_FmkU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44594615/44594615.96429044",
+      "https://i.ytimg.com/vi/t5U0rrj0dio/hqdefault.jpg",
+      "https://i.ytimg.com/vi/2V4tpE_FmkU/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/16b18717ec40252af166530c82b1b5784b5ce255.jpg",
+      "https://i.ytimg.com/vi/t5U0rrj0dio/mqdefault.jpg",
+      "https://i.ytimg.com/vi/2V4tpE_FmkU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/t5U0rrj0dio/default.jpg",
+      "https://i.ytimg.com/vi/2V4tpE_FmkU/default.jpg"
+    ],
+    "publishDate": "2025-02-09T00:00:00Z",
+    "acceptedTitles": [
+      "ハローセカイ",
+      "Hello, SEKAI",
+      "헬로 세카이"
+    ],
+    "audioClip": "https://audio.sodapines.dev/730826.mp3",
+    "producerNames": [
+      "DECO*27",
+      "tepe",
+      "OTOIRO"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "DECO*27, tepe, OTOIRO feat. Hatsune Miku",
+    "suggestionArtistString": "DECO*27, tepe, OTOIRO feat. Hatsune Miku",
+    "artistSearchNames": [
+      "DECO*27",
+      "DECO*27, tepe, OTOIRO feat. Hatsune Miku",
+      "tepe",
+      "OTOIRO",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ]
+  },
+  {
+    "date": "2029-11-06",
+    "vocadbId": 752972,
+    "title": "Watch for like 3 Minutes",
+    "artist": "Canned Sugar",
+    "artistString": "Canned Sugar feat. Utane Uta",
+    "vocadbName": "Watch for like 3 Minutes",
+    "vocadbUrl": "https://vocadb.net/S/752972",
+    "coverArt": "https://i.ytimg.com/vi/Cz63zaJ3bOc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Cz63zaJ3bOc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/O9L7ba1j8HU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Cz63zaJ3bOc/sddefault.jpg",
+      "https://i.ytimg.com/vi/O9L7ba1j8HU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44678388/44678388.50194059",
+      "https://i.ytimg.com/vi/Cz63zaJ3bOc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/O9L7ba1j8HU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Cz63zaJ3bOc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/O9L7ba1j8HU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Cz63zaJ3bOc/default.jpg",
+      "https://i.ytimg.com/vi/O9L7ba1j8HU/default.jpg"
+    ],
+    "publishDate": "2025-02-21T00:00:00Z",
+    "acceptedTitles": [
+      "約三分観測",
+      "Watch for like 3 Minutes",
+      "Yaku Sanpun Kansoku"
+    ],
+    "audioClip": "https://audio.sodapines.dev/752972.mp3",
+    "producerNames": [
+      "Canned Sugar"
+    ],
+    "singerNames": [
+      "Utane Uta"
+    ],
+    "displayArtist": "Canned Sugar feat. Utane Uta",
+    "suggestionArtistString": "Canned Sugar feat. Utane Uta",
+    "artistSearchNames": [
+      "Canned Sugar",
+      "Canned Sugar feat. Utane Uta",
+      "Utane Uta"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-11-07",
+    "vocadbId": 733155,
+    "title": "Positive Result",
+    "artist": "0TS",
+    "artistString": "0TS feat. Adachi Rei Arpasing",
+    "vocadbName": "Positive Result",
+    "vocadbUrl": "https://vocadb.net/S/733155",
+    "coverArt": "https://i.ytimg.com/vi/Pz-WfWQhkeU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Pz-WfWQhkeU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Ujx7xER8JKQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/eb83AN2p2aM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/JHotZY5ieOM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Pz-WfWQhkeU/sddefault.jpg",
+      "https://i.ytimg.com/vi/Ujx7xER8JKQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/eb83AN2p2aM/sddefault.jpg",
+      "https://i.ytimg.com/vi/JHotZY5ieOM/sddefault.jpg",
+      "https://i.ytimg.com/vi/Pz-WfWQhkeU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Ujx7xER8JKQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/eb83AN2p2aM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/JHotZY5ieOM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Pz-WfWQhkeU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Ujx7xER8JKQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/eb83AN2p2aM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/JHotZY5ieOM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Pz-WfWQhkeU/default.jpg",
+      "https://i.ytimg.com/vi/Ujx7xER8JKQ/default.jpg",
+      "https://i.ytimg.com/vi/eb83AN2p2aM/default.jpg",
+      "https://i.ytimg.com/vi/JHotZY5ieOM/default.jpg"
+    ],
+    "publishDate": "2025-02-14T00:00:00Z",
+    "acceptedTitles": [
+      "Positive Result"
+    ],
+    "audioClip": "https://audio.sodapines.dev/733155.mp3",
+    "producerNames": [
+      "0TS"
+    ],
+    "singerNames": [
+      "Adachi Rei Arpasing"
+    ],
+    "displayArtist": "0TS feat. Adachi Rei Arpasing",
+    "suggestionArtistString": "0TS feat. Adachi Rei Arpasing",
+    "artistSearchNames": [
+      "0TS",
+      "0TS feat. Adachi Rei Arpasing",
+      "Adachi Rei Arpasing"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-11-08",
+    "vocadbId": 753385,
+    "title": "Acute Love Addiction",
+    "artist": "pinata",
+    "artistString": "pinata feat. Kasane Teto SHOUT",
+    "vocadbName": "Acute Love Addiction",
+    "vocadbUrl": "https://vocadb.net/S/753385",
+    "coverArt": "https://i.ytimg.com/vi/6cDSJs-b_Us/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/6cDSJs-b_Us/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/vUKDTjmP7oo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/6cDSJs-b_Us/sddefault.jpg",
+      "https://i.ytimg.com/vi/vUKDTjmP7oo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44683022/44683022.85397596",
+      "https://i.ytimg.com/vi/6cDSJs-b_Us/hqdefault.jpg",
+      "https://i.ytimg.com/vi/vUKDTjmP7oo/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/9963aa23f4a9cd1230d41f66687003755be87d46.jpg",
+      "https://i.ytimg.com/vi/6cDSJs-b_Us/mqdefault.jpg",
+      "https://i.ytimg.com/vi/vUKDTjmP7oo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/6cDSJs-b_Us/default.jpg",
+      "https://i.ytimg.com/vi/vUKDTjmP7oo/default.jpg"
+    ],
+    "publishDate": "2025-02-22T00:00:00Z",
+    "acceptedTitles": [
+      "急性恋愛中毒",
+      "Acute Love Addiction",
+      "Kyuusei Ren'ai Chuudoku"
+    ],
+    "audioClip": "https://audio.sodapines.dev/753385.mp3",
+    "producerNames": [
+      "pinata"
+    ],
+    "singerNames": [
+      "Kasane Teto SHOUT"
+    ],
+    "displayArtist": "pinata feat. Kasane Teto SHOUT",
+    "suggestionArtistString": "pinata feat. Kasane Teto SHOUT",
+    "artistSearchNames": [
+      "pinata",
+      "pinata feat. Kasane Teto SHOUT",
+      "Kasane Teto SHOUT"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-11-09",
+    "vocadbId": 4321,
+    "title": "ＳＥＴＳＵＮＡ",
+    "artist": "SHIKI",
+    "artistString": "SHIKI, amyu feat. Hatsune Miku",
+    "vocadbName": "ＳＥＴＳＵＮＡ",
+    "vocadbUrl": "https://vocadb.net/S/4321",
+    "coverArt": "https://i.ytimg.com/vi/gEKnmbKgQ4o/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/gEKnmbKgQ4o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/VO04G3pSxyM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/gEKnmbKgQ4o/sddefault.jpg",
+      "https://i.ytimg.com/vi/VO04G3pSxyM/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/4183964/4183964",
+      "https://i.ytimg.com/vi/gEKnmbKgQ4o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/VO04G3pSxyM/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/432c18ac1984a09dc81f62979686abaa9ecf88e0.jpg",
+      "https://res.piapro.jp/r/images/card/250/miku.png?20260120",
+      "https://i.ytimg.com/vi/gEKnmbKgQ4o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/VO04G3pSxyM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/gEKnmbKgQ4o/default.jpg",
+      "https://i.ytimg.com/vi/VO04G3pSxyM/default.jpg"
+    ],
+    "publishDate": "2008-08-04T00:00:00Z",
+    "acceptedTitles": [
+      "ＳＥＴＳＵＮＡ",
+      "SETSUNA"
+    ],
+    "audioClip": "https://audio.sodapines.dev/4321.mp3",
+    "producerNames": [
+      "SHIKI",
+      "amyu"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "SHIKI, amyu feat. Hatsune Miku",
+    "suggestionArtistString": "SHIKI, amyu feat. Hatsune Miku",
+    "artistSearchNames": [
+      "SHIKI",
+      "SHIKI, amyu feat. Hatsune Miku",
+      "amyu",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-10",
+    "vocadbId": 432264,
+    "title": "When Spring Comes",
+    "artist": "Jamie Paige",
+    "artistString": "Jamie Paige feat. ANRI",
+    "vocadbName": "When Spring Comes",
+    "vocadbUrl": "https://vocadb.net/S/432264",
+    "coverArt": "https://i.ytimg.com/vi/aGAfw-WzPf4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/aGAfw-WzPf4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/aGAfw-WzPf4/sddefault.jpg",
+      "https://i.ytimg.com/vi/aGAfw-WzPf4/hqdefault.jpg",
+      "https://i1.sndcdn.com/artworks-028k3ZP2dVW8l5do-C7Z9YA-large.jpg",
+      "https://f4.bcbits.com/img/a0024861174_5.jpg",
+      "https://i.ytimg.com/vi/aGAfw-WzPf4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/aGAfw-WzPf4/default.jpg"
+    ],
+    "publishDate": "2022-04-01T00:00:00Z",
+    "acceptedTitles": [
+      "When Spring Comes"
+    ],
+    "audioClip": "https://audio.sodapines.dev/432264.mp3",
+    "producerNames": [
+      "Jamie Paige"
+    ],
+    "singerNames": [
+      "ANRI"
+    ],
+    "displayArtist": "Jamie Paige feat. ANRI",
+    "suggestionArtistString": "Jamie Paige feat. ANRI",
+    "artistSearchNames": [
+      "Jamie Paige",
+      "Jamie Paige feat. ANRI",
+      "ANRI"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-11-11",
+    "vocadbId": 180092,
+    "title": "Misfortune",
+    "artist": "Takose Akali",
+    "artistString": "Takose Akali feat. Otomachi Una Spicy, GUMI",
+    "vocadbName": "Misfortune",
+    "vocadbUrl": "https://vocadb.net/S/180092",
+    "coverArt": "https://i.ytimg.com/vi/AwhW_5vq5j4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/AwhW_5vq5j4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/hOXDPTbn43M/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Y8k1eiWTmIA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/F5FV8TwdDUM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/VmlTJrmgYYI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/AwhW_5vq5j4/sddefault.jpg",
+      "https://i.ytimg.com/vi/hOXDPTbn43M/sddefault.jpg",
+      "https://i.ytimg.com/vi/Y8k1eiWTmIA/sddefault.jpg",
+      "https://i.ytimg.com/vi/F5FV8TwdDUM/sddefault.jpg",
+      "https://i.ytimg.com/vi/VmlTJrmgYYI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/32525244/32525244",
+      "https://i.ytimg.com/vi/AwhW_5vq5j4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/hOXDPTbn43M/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Y8k1eiWTmIA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/F5FV8TwdDUM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/VmlTJrmgYYI/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/b171efb3045bd1abcd9e80032f66586175d3c6c0.jpg",
+      "https://i.ytimg.com/vi/AwhW_5vq5j4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/hOXDPTbn43M/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Y8k1eiWTmIA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/F5FV8TwdDUM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/VmlTJrmgYYI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/AwhW_5vq5j4/default.jpg",
+      "https://i.ytimg.com/vi/hOXDPTbn43M/default.jpg",
+      "https://i.ytimg.com/vi/Y8k1eiWTmIA/default.jpg",
+      "https://i.ytimg.com/vi/F5FV8TwdDUM/default.jpg",
+      "https://i.ytimg.com/vi/VmlTJrmgYYI/default.jpg"
+    ],
+    "publishDate": "2018-01-03T00:00:00Z",
+    "acceptedTitles": [
+      "禍",
+      "Misfortune",
+      "Wazawai",
+      "凶",
+      "Catastrophe",
+      "KA"
+    ],
+    "audioClip": "https://audio.sodapines.dev/180092.mp3",
+    "producerNames": [
+      "Takose Akali"
+    ],
+    "singerNames": [
+      "Otomachi Una",
+      "GUMI"
+    ],
+    "displayArtist": "Takose Akali feat. Otomachi Una, GUMI",
+    "suggestionArtistString": "Takose Akali feat. Otomachi Una, GUMI",
+    "artistSearchNames": [
+      "Takose Akali",
+      "Takose Akali feat. Otomachi Una Spicy, GUMI",
+      "Otomachi Una",
+      "GUMI",
+      "Otomachi Una Spicy"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-11-12",
+    "vocadbId": 175392,
+    "title": "Decision",
+    "artist": "Takose Akali",
+    "artistString": "Takose Akali feat. Otomachi Una Spicy",
+    "vocadbName": "Decision",
+    "vocadbUrl": "https://vocadb.net/S/175392",
+    "coverArt": "https://i.ytimg.com/vi/Vqxo0NDbQ-c/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Vqxo0NDbQ-c/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ZZa0trKC4co/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/766UmoW0BSA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/A5jbkTNXYrU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/IXCdn3fnnCU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Vqxo0NDbQ-c/sddefault.jpg",
+      "https://i.ytimg.com/vi/ZZa0trKC4co/sddefault.jpg",
+      "https://i.ytimg.com/vi/766UmoW0BSA/sddefault.jpg",
+      "https://i.ytimg.com/vi/A5jbkTNXYrU/sddefault.jpg",
+      "https://i.ytimg.com/vi/IXCdn3fnnCU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/32307462/32307462",
+      "https://i.ytimg.com/vi/Vqxo0NDbQ-c/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ZZa0trKC4co/hqdefault.jpg",
+      "https://i.ytimg.com/vi/766UmoW0BSA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/A5jbkTNXYrU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/IXCdn3fnnCU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Vqxo0NDbQ-c/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ZZa0trKC4co/mqdefault.jpg",
+      "https://i.ytimg.com/vi/766UmoW0BSA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/A5jbkTNXYrU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/IXCdn3fnnCU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Vqxo0NDbQ-c/default.jpg",
+      "https://i.ytimg.com/vi/ZZa0trKC4co/default.jpg",
+      "https://i.ytimg.com/vi/766UmoW0BSA/default.jpg",
+      "https://i.ytimg.com/vi/A5jbkTNXYrU/default.jpg",
+      "https://i.ytimg.com/vi/IXCdn3fnnCU/default.jpg"
+    ],
+    "publishDate": "2017-11-22T00:00:00Z",
+    "acceptedTitles": [
+      "決",
+      "Decision",
+      "Ketsu",
+      "帰"
+    ],
+    "audioClip": "https://audio.sodapines.dev/175392.mp3",
+    "producerNames": [
+      "Takose Akali"
+    ],
+    "singerNames": [
+      "Otomachi Una"
+    ],
+    "displayArtist": "Takose Akali feat. Otomachi Una",
+    "suggestionArtistString": "Takose Akali feat. Otomachi Una",
+    "artistSearchNames": [
+      "Takose Akali",
+      "Takose Akali feat. Otomachi Una Spicy",
+      "Otomachi Una",
+      "Otomachi Una Spicy"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-11-13",
+    "vocadbId": 186999,
+    "title": "Ripe/Bananas",
+    "artist": "Takose Akali",
+    "artistString": "Takose Akali feat. Otomachi Una Spicy",
+    "vocadbName": "Ripe/Bananas",
+    "vocadbUrl": "https://vocadb.net/S/186999",
+    "coverArt": "https://i.ytimg.com/vi/88rlBHXgfeA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/88rlBHXgfeA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/glvy1-vlU5I/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/y2fLRbI4AZs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ZCn0Hv2ITf4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/kw5LUOXQNrw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/88rlBHXgfeA/sddefault.jpg",
+      "https://i.ytimg.com/vi/glvy1-vlU5I/sddefault.jpg",
+      "https://i.ytimg.com/vi/y2fLRbI4AZs/sddefault.jpg",
+      "https://i.ytimg.com/vi/ZCn0Hv2ITf4/sddefault.jpg",
+      "https://i.ytimg.com/vi/kw5LUOXQNrw/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/39386049/39386049.37054071",
+      "https://i.ytimg.com/vi/88rlBHXgfeA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/glvy1-vlU5I/hqdefault.jpg",
+      "https://i.ytimg.com/vi/y2fLRbI4AZs/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ZCn0Hv2ITf4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/kw5LUOXQNrw/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/0dbcb4475838fc0318c303c6e42e43374ebce7bc.jpg",
+      "https://i.ytimg.com/vi/88rlBHXgfeA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/glvy1-vlU5I/mqdefault.jpg",
+      "https://i.ytimg.com/vi/y2fLRbI4AZs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ZCn0Hv2ITf4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/kw5LUOXQNrw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/88rlBHXgfeA/default.jpg",
+      "https://i.ytimg.com/vi/glvy1-vlU5I/default.jpg",
+      "https://i.ytimg.com/vi/y2fLRbI4AZs/default.jpg",
+      "https://i.ytimg.com/vi/ZCn0Hv2ITf4/default.jpg",
+      "https://i.ytimg.com/vi/kw5LUOXQNrw/default.jpg"
+    ],
+    "publishDate": "2018-03-17T00:00:00Z",
+    "acceptedTitles": [
+      "熟／甘蕉",
+      "Ripe/Bananas",
+      "Juku/Kanshou",
+      "Completely/Bananas",
+      "留守番",
+      "Rusuban",
+      "House-Sitting "
+    ],
+    "audioClip": "https://audio.sodapines.dev/186999.mp3",
+    "producerNames": [
+      "Takose Akali"
+    ],
+    "singerNames": [
+      "Otomachi Una"
+    ],
+    "displayArtist": "Takose Akali feat. Otomachi Una",
+    "suggestionArtistString": "Takose Akali feat. Otomachi Una",
+    "artistSearchNames": [
+      "Takose Akali",
+      "Takose Akali feat. Otomachi Una Spicy",
+      "Otomachi Una",
+      "Otomachi Una Spicy"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-11-14",
+    "vocadbId": 173348,
+    "title": "Encore",
+    "artist": "Takose Akali",
+    "artistString": "Takose Akali feat. Otomachi Una Spicy, GUMI",
+    "vocadbName": "Encore",
+    "vocadbUrl": "https://vocadb.net/S/173348",
+    "coverArt": "https://i.ytimg.com/vi/6S-YSbnlqws/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/6S-YSbnlqws/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/fLEGZRMHjVc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/6S-YSbnlqws/sddefault.jpg",
+      "https://i.ytimg.com/vi/fLEGZRMHjVc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/32209048/32209048",
+      "https://i.ytimg.com/vi/6S-YSbnlqws/hqdefault.jpg",
+      "https://i.ytimg.com/vi/fLEGZRMHjVc/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/a1955ec55d449ddea52991273a4f6025e24c5b5d.jpg",
+      "https://i.ytimg.com/vi/6S-YSbnlqws/mqdefault.jpg",
+      "https://i.ytimg.com/vi/fLEGZRMHjVc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/6S-YSbnlqws/default.jpg",
+      "https://i.ytimg.com/vi/fLEGZRMHjVc/default.jpg"
+    ],
+    "publishDate": "2017-11-03T00:00:00Z",
+    "acceptedTitles": [
+      "再演",
+      "Encore",
+      "Saien",
+      "Replay",
+      "재연"
+    ],
+    "audioClip": "https://audio.sodapines.dev/173348.mp3",
+    "producerNames": [
+      "Takose Akali"
+    ],
+    "singerNames": [
+      "Otomachi Una",
+      "GUMI"
+    ],
+    "displayArtist": "Takose Akali feat. Otomachi Una, GUMI",
+    "suggestionArtistString": "Takose Akali feat. Otomachi Una, GUMI",
+    "artistSearchNames": [
+      "Takose Akali",
+      "Takose Akali feat. Otomachi Una Spicy, GUMI",
+      "Otomachi Una",
+      "GUMI",
+      "Otomachi Una Spicy"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-11-15",
+    "vocadbId": 13735,
+    "title": "magician's operation",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. Megurine Luka",
+    "vocadbName": "magician's operation",
+    "vocadbUrl": "https://vocadb.net/S/13735",
+    "coverArt": "https://i.ytimg.com/vi/v_SaZ9nbGnU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/v_SaZ9nbGnU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/t61SszWFcx0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/v_SaZ9nbGnU/sddefault.jpg",
+      "https://i.ytimg.com/vi/t61SszWFcx0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/17849759/17849759",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/17849759/17849759.70602594",
+      "https://i.ytimg.com/vi/v_SaZ9nbGnU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/t61SszWFcx0/hqdefault.jpg",
+      "https://res.piapro.jp/r/images/card/250/luka.png?20260120",
+      "https://i.ytimg.com/vi/v_SaZ9nbGnU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/t61SszWFcx0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/v_SaZ9nbGnU/default.jpg",
+      "https://i.ytimg.com/vi/t61SszWFcx0/default.jpg"
+    ],
+    "publishDate": "2012-05-17T00:00:00Z",
+    "acceptedTitles": [
+      "magician's operation"
+    ],
+    "audioClip": "https://audio.sodapines.dev/13735.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "Megurine Luka"
+    ],
+    "displayArtist": "EZFG feat. Megurine Luka",
+    "suggestionArtistString": "EZFG feat. Megurine Luka",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. Megurine Luka",
+      "Megurine Luka"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-11-16",
+    "vocadbId": 45451,
+    "title": "St-aring Down",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. VY2V3 (Standard)",
+    "vocadbName": "St-aring Down",
+    "vocadbUrl": "https://vocadb.net/S/45451",
+    "coverArt": "https://nicovideo.cdn.nimg.jp/thumbnails/22509836/22509836",
+    "coverArts": [
+      "https://nicovideo.cdn.nimg.jp/thumbnails/22509836/22509836",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/22509836/22509836.34972426"
+    ],
+    "publishDate": "2013-12-23T00:00:00Z",
+    "acceptedTitles": [
+      "じっっと見ている",
+      "St-aring Down",
+      "Jittto Miteiru"
+    ],
+    "audioClip": "https://audio.sodapines.dev/45451.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "VY2V3"
+    ],
+    "displayArtist": "EZFG feat. VY2V3",
+    "suggestionArtistString": "EZFG feat. VY2V3",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. VY2V3 (Standard)",
+      "VY2V3"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-17",
+    "vocadbId": 258717,
+    "title": "Dear Hypnos",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. various",
+    "vocadbName": "Dear Hypnos",
+    "vocadbUrl": "https://vocadb.net/S/258717",
+    "coverArt": "https://i.ytimg.com/vi/RYsbNNRcnqc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/RYsbNNRcnqc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/e8-DXNTFFig/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/RYsbNNRcnqc/sddefault.jpg",
+      "https://i.ytimg.com/vi/e8-DXNTFFig/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/35862963/35862963.46968674",
+      "https://i.ytimg.com/vi/RYsbNNRcnqc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/e8-DXNTFFig/hqdefault.jpg",
+      "https://i.ytimg.com/vi/RYsbNNRcnqc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/e8-DXNTFFig/mqdefault.jpg",
+      "https://i.ytimg.com/vi/RYsbNNRcnqc/default.jpg",
+      "https://i.ytimg.com/vi/e8-DXNTFFig/default.jpg"
+    ],
+    "publishDate": "2019-10-26T00:00:00Z",
+    "acceptedTitles": [
+      "Dear Hypnos"
+    ],
+    "audioClip": "https://audio.sodapines.dev/258717.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "EZFG feat. various",
+    "suggestionArtistString": "EZFG feat. various",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-11-18",
+    "vocadbId": 17523,
+    "title": "Morose Make-Believe",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. Mew",
+    "vocadbName": "Morose Make-Believe",
+    "vocadbUrl": "https://vocadb.net/S/17523",
+    "coverArt": "https://i.ytimg.com/vi/TkAEiQbqgAg/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/TkAEiQbqgAg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/SU0ntb8isyE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/TkAEiQbqgAg/sddefault.jpg",
+      "https://i.ytimg.com/vi/SU0ntb8isyE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/19235848/19235848",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/19235848/19235848.941013",
+      "https://i.ytimg.com/vi/TkAEiQbqgAg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/SU0ntb8isyE/hqdefault.jpg",
+      "https://res.piapro.jp/r/images/card/250/default.png",
+      "https://i.ytimg.com/vi/TkAEiQbqgAg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/SU0ntb8isyE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/TkAEiQbqgAg/default.jpg",
+      "https://i.ytimg.com/vi/SU0ntb8isyE/default.jpg"
+    ],
+    "publishDate": "2012-10-29T00:00:00Z",
+    "acceptedTitles": [
+      "ツンツンごっこ",
+      "Morose Make-Believe",
+      "Tsuntsun Gokko"
+    ],
+    "audioClip": "https://audio.sodapines.dev/17523.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "Mew"
+    ],
+    "displayArtist": "EZFG feat. Mew",
+    "suggestionArtistString": "EZFG feat. Mew",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. Mew",
+      "Mew"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-19",
+    "vocadbId": 152732,
+    "title": "accidentally",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. KAITO V3 (Straight), KAITO V3 (Soft), Megurine Luka V4X (Hard)",
+    "vocadbName": "accidentally",
+    "vocadbUrl": "https://vocadb.net/S/152732",
+    "coverArt": "https://i.ytimg.com/vi/rKtvZi1aDZQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/rKtvZi1aDZQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/g7fbq6pzgZE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/rKtvZi1aDZQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/g7fbq6pzgZE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/30930195/30930195",
+      "https://i.ytimg.com/vi/rKtvZi1aDZQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/g7fbq6pzgZE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/rKtvZi1aDZQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/g7fbq6pzgZE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/rKtvZi1aDZQ/default.jpg",
+      "https://i.ytimg.com/vi/g7fbq6pzgZE/default.jpg"
+    ],
+    "publishDate": "2017-03-30T00:00:00Z",
+    "acceptedTitles": [
+      "accidentally"
+    ],
+    "audioClip": "https://audio.sodapines.dev/152732.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "KAITO",
+      "Megurine Luka"
+    ],
+    "displayArtist": "EZFG feat. KAITO, Megurine Luka",
+    "suggestionArtistString": "EZFG feat. KAITO, Megurine Luka",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. KAITO V3 (Straight), KAITO V3 (Soft), Megurine Luka V4X (Hard)",
+      "KAITO",
+      "Megurine Luka",
+      "KAITO V3",
+      "Megurine Luka V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-20",
+    "vocadbId": 360378,
+    "title": "Pipivovott",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. various",
+    "vocadbName": "Pipivovott",
+    "vocadbUrl": "https://vocadb.net/S/360378",
+    "coverArt": "https://i.ytimg.com/vi/K2OYU5JYREk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/K2OYU5JYREk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/2zd6CH4a2T8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/K2OYU5JYREk/sddefault.jpg",
+      "https://i.ytimg.com/vi/2zd6CH4a2T8/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/39484677/39484677.66155761",
+      "https://i.ytimg.com/vi/K2OYU5JYREk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/2zd6CH4a2T8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/K2OYU5JYREk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/2zd6CH4a2T8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/K2OYU5JYREk/default.jpg",
+      "https://i.ytimg.com/vi/2zd6CH4a2T8/default.jpg"
+    ],
+    "publishDate": "2021-10-15T00:00:00Z",
+    "acceptedTitles": [
+      "ピピボボッット",
+      "Pipivovott",
+      "Pipibobotto",
+      "Pipivovottt"
+    ],
+    "audioClip": "https://audio.sodapines.dev/360378.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "EZFG feat. various",
+    "suggestionArtistString": "EZFG feat. various",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-21",
+    "vocadbId": 180197,
+    "title": "Extinction Aspiration Disguise Species",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. various",
+    "vocadbName": "Extinction Aspiration Disguise Species",
+    "vocadbUrl": "https://vocadb.net/S/180197",
+    "coverArt": "https://i.ytimg.com/vi/h-2ccK437Io/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/h-2ccK437Io/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/h-2ccK437Io/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/32532522/32532522",
+      "https://i.ytimg.com/vi/h-2ccK437Io/hqdefault.jpg",
+      "https://i.ytimg.com/vi/h-2ccK437Io/mqdefault.jpg",
+      "https://i.ytimg.com/vi/h-2ccK437Io/default.jpg"
+    ],
+    "publishDate": "2018-01-04T00:00:00Z",
+    "acceptedTitles": [
+      "絶滅志願偽装種",
+      "Extinction Aspiration Disguise Species",
+      "Zetsumetsu Shigan Gisoushu",
+      "Extinction Species Aspiration"
+    ],
+    "audioClip": "https://audio.sodapines.dev/180197.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "EZFG feat. various",
+    "suggestionArtistString": "EZFG feat. various",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-22",
+    "vocadbId": 26011,
+    "title": "Threadnation",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. KAITO V3 (Straight), KAITO V3 (Whisper)",
+    "vocadbName": "Threadnation",
+    "vocadbUrl": "https://vocadb.net/S/26011",
+    "coverArt": "https://i.ytimg.com/vi/zLL_AeXV72o/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/zLL_AeXV72o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/zLL_AeXV72o/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/20586790/20586790",
+      "https://i.ytimg.com/vi/zLL_AeXV72o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/zLL_AeXV72o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/zLL_AeXV72o/default.jpg"
+    ],
+    "publishDate": "2013-04-12T00:00:00Z",
+    "acceptedTitles": [
+      "スレッドネイション",
+      "Threadnation"
+    ],
+    "audioClip": "https://audio.sodapines.dev/26011.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "KAITO"
+    ],
+    "displayArtist": "EZFG feat. KAITO",
+    "suggestionArtistString": "EZFG feat. KAITO",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. KAITO V3 (Straight), KAITO V3 (Whisper)",
+      "KAITO",
+      "KAITO V3"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-23",
+    "vocadbId": 226313,
+    "title": "Kindler",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. KYO, Megurine Luka V4X (Hard), Megurine Luka V4X (Soft)",
+    "vocadbName": "Kindler",
+    "vocadbUrl": "https://vocadb.net/S/226313",
+    "coverArt": "https://i.ytimg.com/vi/5IiD6Cc-HrQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/5IiD6Cc-HrQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/CBwQ55SZs4o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/5IiD6Cc-HrQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/CBwQ55SZs4o/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/34612337/34612337.35273",
+      "https://i.ytimg.com/vi/5IiD6Cc-HrQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/CBwQ55SZs4o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/5IiD6Cc-HrQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/CBwQ55SZs4o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/5IiD6Cc-HrQ/default.jpg",
+      "https://i.ytimg.com/vi/CBwQ55SZs4o/default.jpg"
+    ],
+    "publishDate": "2019-02-11T00:00:00Z",
+    "acceptedTitles": [
+      "着火er",
+      "Kindler",
+      "Chakka-er",
+      "Igniter"
+    ],
+    "audioClip": "https://audio.sodapines.dev/226313.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "KYO",
+      "Megurine Luka"
+    ],
+    "displayArtist": "EZFG feat. KYO, Megurine Luka",
+    "suggestionArtistString": "EZFG feat. KYO, Megurine Luka",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. KYO, Megurine Luka V4X (Hard), Megurine Luka V4X (Soft)",
+      "KYO",
+      "Megurine Luka",
+      "Megurine Luka V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-24",
+    "vocadbId": 426271,
+    "title": "Shouzon",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. Saki AI",
+    "vocadbName": "Shouzon",
+    "vocadbUrl": "https://vocadb.net/S/426271",
+    "coverArt": "https://i.ytimg.com/vi/JwLZjo6as1I/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/JwLZjo6as1I/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Ysy4bQFY5aw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/JwLZjo6as1I/sddefault.jpg",
+      "https://i.ytimg.com/vi/Ysy4bQFY5aw/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40922275/40922275.21221175",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40819804/40819804.27380482",
+      "https://i.ytimg.com/vi/JwLZjo6as1I/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Ysy4bQFY5aw/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/555730a0aeeba270173f617eb0398ec11577bc0a.jpg",
+      "https://i.ytimg.com/vi/JwLZjo6as1I/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Ysy4bQFY5aw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/JwLZjo6as1I/default.jpg",
+      "https://i.ytimg.com/vi/Ysy4bQFY5aw/default.jpg"
+    ],
+    "publishDate": "2022-07-28T00:00:00Z",
+    "acceptedTitles": [
+      "焦存",
+      "Shouzon",
+      "Shozon"
+    ],
+    "audioClip": "https://audio.sodapines.dev/426271.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "Saki"
+    ],
+    "displayArtist": "EZFG feat. Saki",
+    "suggestionArtistString": "EZFG feat. Saki",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. Saki AI",
+      "Saki",
+      "Saki AI"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-11-25",
+    "vocadbId": 130256,
+    "title": "detour-tour",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. V3 Lily",
+    "vocadbName": "detour-tour",
+    "vocadbUrl": "https://vocadb.net/S/130256",
+    "coverArt": "https://nicovideo.cdn.nimg.jp/thumbnails/29363542/29363542",
+    "coverArts": [
+      "https://nicovideo.cdn.nimg.jp/thumbnails/29363542/29363542",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/29363542/29363542.63889259"
+    ],
+    "publishDate": "2016-08-01T00:00:00Z",
+    "acceptedTitles": [
+      "デツアーツアー",
+      "detour-tour"
+    ],
+    "audioClip": "https://audio.sodapines.dev/130256.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "Lily"
+    ],
+    "displayArtist": "EZFG feat. Lily",
+    "suggestionArtistString": "EZFG feat. Lily",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. V3 Lily",
+      "Lily",
+      "V3 Lily"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-26",
+    "vocadbId": 123764,
+    "title": "Even if You Reject Me, Even if You Reject Me",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. KAITO V3 (Unknown), MEIKO V3 (Unknown)",
+    "vocadbName": "Even if You Reject Me, Even if You Reject Me",
+    "vocadbUrl": "https://vocadb.net/S/123764",
+    "coverArt": "https://nicovideo.cdn.nimg.jp/thumbnails/28682689/28682689",
+    "coverArts": [
+      "https://nicovideo.cdn.nimg.jp/thumbnails/28682689/28682689",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/28682689/28682689.79481200"
+    ],
+    "publishDate": "2016-04-21T00:00:00Z",
+    "acceptedTitles": [
+      "振られても 振られても",
+      "Even if You Reject Me, Even if You Reject Me",
+      "Furarete mo Furarete mo",
+      "Even If I Keep Getting Turned Down",
+      "Even if I Am Rejected"
+    ],
+    "audioClip": "https://audio.sodapines.dev/123764.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "KAITO",
+      "MEIKO"
+    ],
+    "displayArtist": "EZFG feat. KAITO, MEIKO",
+    "suggestionArtistString": "EZFG feat. KAITO, MEIKO",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. KAITO V3 (Unknown), MEIKO V3 (Unknown)",
+      "KAITO",
+      "MEIKO",
+      "KAITO V3",
+      "MEIKO V3"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-27",
+    "vocadbId": 51078,
+    "title": "Bluff Liar",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. VY1V3",
+    "vocadbName": "Bluff Liar",
+    "vocadbUrl": "https://vocadb.net/S/51078",
+    "coverArt": "https://i.ytimg.com/vi/Vu8lnnhRwPI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Vu8lnnhRwPI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/hsOaxHUTFMU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Vu8lnnhRwPI/sddefault.jpg",
+      "https://i.ytimg.com/vi/hsOaxHUTFMU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/23135101/23135101",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/23135101/23135101.54107516",
+      "https://i.ytimg.com/vi/Vu8lnnhRwPI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/hsOaxHUTFMU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Vu8lnnhRwPI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/hsOaxHUTFMU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Vu8lnnhRwPI/default.jpg",
+      "https://i.ytimg.com/vi/hsOaxHUTFMU/default.jpg"
+    ],
+    "publishDate": "2014-03-20T00:00:00Z",
+    "acceptedTitles": [
+      "ブラフライアー",
+      "Bluff Liar"
+    ],
+    "audioClip": "https://audio.sodapines.dev/51078.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "VY1V3"
+    ],
+    "displayArtist": "EZFG feat. VY1V3",
+    "suggestionArtistString": "EZFG feat. VY1V3",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. VY1V3",
+      "VY1V3"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-11-28",
+    "vocadbId": 36118,
+    "title": "Shoveling Down",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. VY1",
+    "vocadbName": "Shoveling Down",
+    "vocadbUrl": "https://vocadb.net/S/36118",
+    "coverArt": "https://i.ytimg.com/vi/khKS8ciws0s/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/khKS8ciws0s/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/khKS8ciws0s/sddefault.jpg",
+      "https://i.ytimg.com/vi/khKS8ciws0s/hqdefault.jpg",
+      "https://i.ytimg.com/vi/khKS8ciws0s/mqdefault.jpg",
+      "https://i.ytimg.com/vi/khKS8ciws0s/default.jpg"
+    ],
+    "publishDate": "2013-08-12T00:00:00Z",
+    "acceptedTitles": [
+      "カックラウ",
+      "Shoveling Down",
+      "Kakkurau"
+    ],
+    "audioClip": "https://audio.sodapines.dev/36118.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "VY1"
+    ],
+    "displayArtist": "EZFG feat. VY1",
+    "suggestionArtistString": "EZFG feat. VY1",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. VY1",
+      "VY1"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-11-29",
+    "vocadbId": 567207,
+    "title": "Self Mind Control",
+    "artist": "EZFG",
+    "artistString": "EZFG feat. AKITO",
+    "vocadbName": "Self Mind Control",
+    "vocadbUrl": "https://vocadb.net/S/567207",
+    "coverArt": "https://i.ytimg.com/vi/RG3JaiIURZc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/RG3JaiIURZc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/RG3JaiIURZc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/43175331/43175331.97720911",
+      "https://i.ytimg.com/vi/RG3JaiIURZc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/RG3JaiIURZc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/RG3JaiIURZc/default.jpg"
+    ],
+    "publishDate": "2023-12-22T00:00:00Z",
+    "acceptedTitles": [
+      "セルフマインドコントゥロール",
+      "Self Mind Control"
+    ],
+    "audioClip": "https://audio.sodapines.dev/567207.mp3",
+    "producerNames": [
+      "EZFG"
+    ],
+    "singerNames": [
+      "AKITO"
+    ],
+    "displayArtist": "EZFG feat. AKITO",
+    "suggestionArtistString": "EZFG feat. AKITO",
+    "artistSearchNames": [
+      "EZFG",
+      "EZFG feat. AKITO",
+      "AKITO"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-11-30",
+    "vocadbId": 183705,
+    "title": "Hide and Seek",
+    "artist": "Kuroki Yousuke",
+    "artistString": "Kuroki Yousuke feat. Hatsune Miku",
+    "vocadbName": "Hide and Seek",
+    "vocadbUrl": "https://vocadb.net/S/183705",
+    "coverArt": "https://i.ytimg.com/vi/02qT9MZux0U/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/02qT9MZux0U/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ubNZxyyvZ-U/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/02qT9MZux0U/sddefault.jpg",
+      "https://i.ytimg.com/vi/ubNZxyyvZ-U/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/983614/983614",
+      "https://i.ytimg.com/vi/02qT9MZux0U/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ubNZxyyvZ-U/hqdefault.jpg",
+      "https://i.ytimg.com/vi/02qT9MZux0U/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ubNZxyyvZ-U/mqdefault.jpg",
+      "https://i.ytimg.com/vi/02qT9MZux0U/default.jpg",
+      "https://i.ytimg.com/vi/ubNZxyyvZ-U/default.jpg"
+    ],
+    "publishDate": "2007-08-24T00:00:00Z",
+    "acceptedTitles": [
+      "かくれんぼ",
+      "Hide and Seek",
+      "Kakurenbo"
+    ],
+    "audioClip": "https://audio.sodapines.dev/183705.mp3",
+    "producerNames": [
+      "Kuroki Yousuke"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Kuroki Yousuke feat. Hatsune Miku",
+    "suggestionArtistString": "Kuroki Yousuke feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Kuroki Yousuke",
+      "Kuroki Yousuke feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-01",
+    "vocadbId": 183706,
+    "title": "pops",
+    "artist": "Eiji Hirasawa",
+    "artistString": "Eiji Hirasawa feat. Hatsune Miku",
+    "vocadbName": "pops",
+    "vocadbUrl": "https://vocadb.net/S/183706",
+    "coverArt": "https://i.ytimg.com/vi/MU0P8bsa9eQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/MU0P8bsa9eQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/XN8hCHijngs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/MU0P8bsa9eQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/XN8hCHijngs/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/984624/984624",
+      "https://i.ytimg.com/vi/MU0P8bsa9eQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/XN8hCHijngs/hqdefault.jpg",
+      "https://i.ytimg.com/vi/MU0P8bsa9eQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/XN8hCHijngs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/MU0P8bsa9eQ/default.jpg",
+      "https://i.ytimg.com/vi/XN8hCHijngs/default.jpg"
+    ],
+    "publishDate": "2007-08-28T00:00:00Z",
+    "acceptedTitles": [
+      "pops",
+      "Pops",
+      "03_pops"
+    ],
+    "audioClip": "https://audio.sodapines.dev/183706.mp3",
+    "producerNames": [
+      "Eiji Hirasawa"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Eiji Hirasawa feat. Hatsune Miku",
+    "suggestionArtistString": "Eiji Hirasawa feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Eiji Hirasawa",
+      "Eiji Hirasawa feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-02",
+    "vocadbId": 526576,
+    "title": "Exclusive Message",
+    "artist": "MOONRIYA",
+    "artistString": "MOONRIYA feat. Hatsune Miku",
+    "vocadbName": "Exclusive Message",
+    "vocadbUrl": "https://vocadb.net/S/526576",
+    "coverArt": "https://i.ytimg.com/vi/dWF96iJEz8E/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/dWF96iJEz8E/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/dWF96iJEz8E/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1435851/1435851",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1371516/1371516",
+      "https://i.ytimg.com/vi/dWF96iJEz8E/hqdefault.jpg",
+      "https://i.ytimg.com/vi/dWF96iJEz8E/mqdefault.jpg",
+      "https://i.ytimg.com/vi/dWF96iJEz8E/default.jpg"
+    ],
+    "publishDate": "2007-09-01T00:00:00Z",
+    "acceptedTitles": [
+      "Exclusive Message"
+    ],
+    "audioClip": "https://audio.sodapines.dev/526576.mp3",
+    "producerNames": [
+      "MOONRIYA"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "MOONRIYA feat. Hatsune Miku",
+    "suggestionArtistString": "MOONRIYA feat. Hatsune Miku",
+    "artistSearchNames": [
+      "MOONRIYA",
+      "MOONRIYA feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-03",
+    "vocadbId": 33407,
+    "title": "MEIKO's counterattack",
+    "artist": "BingoBongoP",
+    "artistString": "BingoBongoP feat. MEIKO",
+    "vocadbName": "MEIKO's counterattack",
+    "vocadbUrl": "https://vocadb.net/S/33407",
+    "coverArt": "https://i.ytimg.com/vi/z5ioz7i6inc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/z5ioz7i6inc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/qfNX_Qdgg00/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Ggs-zD11rbg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/z5ioz7i6inc/sddefault.jpg",
+      "https://i.ytimg.com/vi/qfNX_Qdgg00/sddefault.jpg",
+      "https://i.ytimg.com/vi/Ggs-zD11rbg/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1171660/1171660",
+      "https://i.ytimg.com/vi/z5ioz7i6inc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/qfNX_Qdgg00/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Ggs-zD11rbg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/z5ioz7i6inc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/qfNX_Qdgg00/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Ggs-zD11rbg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/z5ioz7i6inc/default.jpg",
+      "https://i.ytimg.com/vi/qfNX_Qdgg00/default.jpg",
+      "https://i.ytimg.com/vi/Ggs-zD11rbg/default.jpg"
+    ],
+    "publishDate": "2007-09-30T00:00:00Z",
+    "acceptedTitles": [
+      "逆襲のMEIKO",
+      "MEIKO's counterattack",
+      "Burning Like a Volcano～逆襲のMEIKO～",
+      "Gyakushuu no MEIKO ",
+      "Burning Like a Volcano",
+      "Burning Like a Volcano ~Gyakushuuu no MEIKO~",
+      "Burning Like a Volcano ~MEIKO's counterattack~"
+    ],
+    "audioClip": "https://audio.sodapines.dev/33407.mp3",
+    "producerNames": [
+      "BingoBongoP"
+    ],
+    "singerNames": [
+      "MEIKO"
+    ],
+    "displayArtist": "BingoBongoP feat. MEIKO",
+    "suggestionArtistString": "BingoBongoP feat. MEIKO",
+    "artistSearchNames": [
+      "BingoBongoP",
+      "BingoBongoP feat. MEIKO",
+      "MEIKO"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-12-04",
+    "vocadbId": 197018,
+    "title": "Your Diva",
+    "artist": "azuma",
+    "artistString": "azuma feat. Hatsune Miku",
+    "vocadbName": "Your Diva",
+    "vocadbUrl": "https://vocadb.net/S/197018",
+    "coverArt": "https://nicovideo.cdn.nimg.jp/thumbnails/1060187/1060187",
+    "coverArts": [
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1060187/1060187"
+    ],
+    "publishDate": "2007-09-15T00:00:00Z",
+    "acceptedTitles": [
+      "あなたの歌姫",
+      "Your Diva",
+      "Anata no Utahime",
+      "I'm Your Diva"
+    ],
+    "audioClip": "https://audio.sodapines.dev/197018.mp3",
+    "producerNames": [
+      "azuma"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "azuma feat. Hatsune Miku",
+    "suggestionArtistString": "azuma feat. Hatsune Miku",
+    "artistSearchNames": [
+      "azuma",
+      "azuma feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-05",
+    "vocadbId": 2732,
+    "title": "Time Limit",
+    "artist": "North-T",
+    "artistString": "North-T feat. Hatsune Miku",
+    "vocadbName": "Time Limit",
+    "vocadbUrl": "https://vocadb.net/S/2732",
+    "coverArt": "https://i.ytimg.com/vi/v3fpASjfb7E/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/v3fpASjfb7E/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/FwFCUNGbX-s/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/JBdDSHI1cR4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/QQCoQEYWtCU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/v3fpASjfb7E/sddefault.jpg",
+      "https://i.ytimg.com/vi/FwFCUNGbX-s/sddefault.jpg",
+      "https://i.ytimg.com/vi/JBdDSHI1cR4/sddefault.jpg",
+      "https://i.ytimg.com/vi/QQCoQEYWtCU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1241072/1241072",
+      "https://i.ytimg.com/vi/v3fpASjfb7E/hqdefault.jpg",
+      "https://i.ytimg.com/vi/FwFCUNGbX-s/hqdefault.jpg",
+      "https://i.ytimg.com/vi/JBdDSHI1cR4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/QQCoQEYWtCU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/v3fpASjfb7E/mqdefault.jpg",
+      "https://i.ytimg.com/vi/FwFCUNGbX-s/mqdefault.jpg",
+      "https://i.ytimg.com/vi/JBdDSHI1cR4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/QQCoQEYWtCU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/v3fpASjfb7E/default.jpg",
+      "https://i.ytimg.com/vi/FwFCUNGbX-s/default.jpg",
+      "https://i.ytimg.com/vi/JBdDSHI1cR4/default.jpg",
+      "https://i.ytimg.com/vi/QQCoQEYWtCU/default.jpg"
+    ],
+    "publishDate": "2007-10-08T00:00:00Z",
+    "acceptedTitles": [
+      "タイムリミット",
+      "Time Limit"
+    ],
+    "audioClip": "https://audio.sodapines.dev/2732.mp3",
+    "producerNames": [
+      "North-T"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "North-T feat. Hatsune Miku",
+    "suggestionArtistString": "North-T feat. Hatsune Miku",
+    "artistSearchNames": [
+      "North-T",
+      "North-T feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-12-06",
+    "vocadbId": 2735,
+    "title": "saturation",
+    "artist": "amyu",
+    "artistString": "amyu, Harmonia feat. Hatsune Miku",
+    "vocadbName": "saturation",
+    "vocadbUrl": "https://vocadb.net/S/2735",
+    "coverArt": "https://i.ytimg.com/vi/njrizTqrP1c/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/njrizTqrP1c/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/6AF3Yoc7u6c/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/tbOxFdVnJko/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/njrizTqrP1c/sddefault.jpg",
+      "https://i.ytimg.com/vi/6AF3Yoc7u6c/sddefault.jpg",
+      "https://i.ytimg.com/vi/tbOxFdVnJko/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1237688/1237688",
+      "https://i.ytimg.com/vi/njrizTqrP1c/hqdefault.jpg",
+      "https://i.ytimg.com/vi/6AF3Yoc7u6c/hqdefault.jpg",
+      "https://i.ytimg.com/vi/tbOxFdVnJko/hqdefault.jpg",
+      "https://i.ytimg.com/vi/njrizTqrP1c/mqdefault.jpg",
+      "https://i.ytimg.com/vi/6AF3Yoc7u6c/mqdefault.jpg",
+      "https://i.ytimg.com/vi/tbOxFdVnJko/mqdefault.jpg",
+      "https://i.ytimg.com/vi/njrizTqrP1c/default.jpg",
+      "https://i.ytimg.com/vi/6AF3Yoc7u6c/default.jpg",
+      "https://i.ytimg.com/vi/tbOxFdVnJko/default.jpg"
+    ],
+    "publishDate": "2007-10-08T00:00:00Z",
+    "acceptedTitles": [
+      "saturation"
+    ],
+    "audioClip": "https://audio.sodapines.dev/2735.mp3",
+    "producerNames": [
+      "amyu",
+      "Harmonia"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "amyu, Harmonia feat. Hatsune Miku",
+    "suggestionArtistString": "amyu, Harmonia feat. Hatsune Miku",
+    "artistSearchNames": [
+      "amyu",
+      "amyu, Harmonia feat. Hatsune Miku",
+      "Harmonia",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-12-07",
+    "vocadbId": 5635,
+    "title": "Payapaya Kitten",
+    "artist": "OnecupP",
+    "artistString": "OnecupP feat. Hatsune Miku, MEIKO",
+    "vocadbName": "Payapaya Kitten",
+    "vocadbUrl": "https://vocadb.net/S/5635",
+    "coverArt": "https://i.ytimg.com/vi/QInOWiCYW8M/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/QInOWiCYW8M/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/LyIHVekboIE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/QInOWiCYW8M/sddefault.jpg",
+      "https://i.ytimg.com/vi/LyIHVekboIE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1336409/1336409",
+      "https://i.ytimg.com/vi/QInOWiCYW8M/hqdefault.jpg",
+      "https://i.ytimg.com/vi/LyIHVekboIE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/QInOWiCYW8M/mqdefault.jpg",
+      "https://i.ytimg.com/vi/LyIHVekboIE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/QInOWiCYW8M/default.jpg",
+      "https://i.ytimg.com/vi/LyIHVekboIE/default.jpg"
+    ],
+    "publishDate": "2007-10-21T00:00:00Z",
+    "acceptedTitles": [
+      "子猫のパヤパヤ",
+      "Payapaya Kitten",
+      "Koneko no Payapaya",
+      "My Kitten Payapaya"
+    ],
+    "audioClip": "https://audio.sodapines.dev/5635.mp3",
+    "producerNames": [
+      "OnecupP"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "MEIKO"
+    ],
+    "displayArtist": "OnecupP feat. Hatsune Miku, MEIKO",
+    "suggestionArtistString": "OnecupP feat. Hatsune Miku, MEIKO",
+    "artistSearchNames": [
+      "OnecupP",
+      "OnecupP feat. Hatsune Miku, MEIKO",
+      "Hatsune Miku",
+      "MEIKO"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-12-08",
+    "vocadbId": 5547,
+    "title": "Dreaming Leaf -Dreaming Words-",
+    "artist": "OSTER project",
+    "artistString": "OSTER project feat. Hatsune Miku",
+    "vocadbName": "Dreaming Leaf -Dreaming Words-",
+    "vocadbUrl": "https://vocadb.net/S/5547",
+    "coverArt": "https://i.ytimg.com/vi/Idoi6TbICXI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Idoi6TbICXI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Idoi6TbICXI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1235385/1235385",
+      "https://i.ytimg.com/vi/Idoi6TbICXI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Idoi6TbICXI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Idoi6TbICXI/default.jpg"
+    ],
+    "publishDate": "2007-10-08T00:00:00Z",
+    "acceptedTitles": [
+      "Dreaming Leaf ‐ユメミルコトノハ‐",
+      "Dreaming Leaf -Dreaming Words-",
+      "Dreaming Leaf -Yume Miru Kotonoha-"
+    ],
+    "audioClip": "https://audio.sodapines.dev/5547.mp3",
+    "producerNames": [
+      "OSTER project"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "OSTER project feat. Hatsune Miku",
+    "suggestionArtistString": "OSTER project feat. Hatsune Miku",
+    "artistSearchNames": [
+      "OSTER project",
+      "OSTER project feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-12-09",
+    "vocadbId": 1541,
+    "title": "The Rampage of Hatsune Miku",
+    "artist": "cosMo@BousouP",
+    "artistString": "cosMo@BousouP feat. Hatsune Miku",
+    "vocadbName": "The Rampage of Hatsune Miku",
+    "vocadbUrl": "https://vocadb.net/S/1541",
+    "coverArt": "https://i.ytimg.com/vi/pgO68nhQI5w/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/pgO68nhQI5w/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/pgO68nhQI5w/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1342044/1342044",
+      "https://i.ytimg.com/vi/pgO68nhQI5w/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/69e71d0eded7eaa01bb1924aa856559a9999c8c8.jpg",
+      "https://i.ytimg.com/vi/pgO68nhQI5w/mqdefault.jpg",
+      "https://i.ytimg.com/vi/pgO68nhQI5w/default.jpg"
+    ],
+    "publishDate": "2007-10-22T00:00:00Z",
+    "acceptedTitles": [
+      "初音ミクの暴走",
+      "The Rampage of Hatsune Miku",
+      "Hatsune Miku no Bousou"
+    ],
+    "audioClip": "https://audio.sodapines.dev/1541.mp3",
+    "producerNames": [
+      "cosMo@BousouP"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "cosMo@BousouP feat. Hatsune Miku",
+    "suggestionArtistString": "cosMo@BousouP feat. Hatsune Miku",
+    "artistSearchNames": [
+      "cosMo@BousouP",
+      "cosMo@BousouP feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-12-10",
+    "vocadbId": 295872,
+    "title": "The Disappearance of Hatsune Miku",
+    "artist": "cosMo@BousouP",
+    "artistString": "cosMo@BousouP feat. Hatsune Miku",
+    "vocadbName": "The Disappearance of Hatsune Miku",
+    "vocadbUrl": "https://vocadb.net/S/295872",
+    "coverArt": "https://i.ytimg.com/vi/jtk6Y8odvXI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/jtk6Y8odvXI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/jtk6Y8odvXI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1476648/1476648",
+      "https://i.ytimg.com/vi/jtk6Y8odvXI/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/161f9b7a9dfc63b601f6767b966fb152d202de2b.jpg",
+      "https://i.ytimg.com/vi/jtk6Y8odvXI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/jtk6Y8odvXI/default.jpg"
+    ],
+    "publishDate": "2007-11-08T00:00:00Z",
+    "acceptedTitles": [
+      "初音ミクの消失",
+      "The Disappearance of Hatsune Miku",
+      "Hatsune Miku no Shoushitsu",
+      "Hatsune Miku no Syoushitsu",
+      "하츠네 미쿠의 소실"
+    ],
+    "audioClip": "https://audio.sodapines.dev/295872.mp3",
+    "producerNames": [
+      "cosMo@BousouP"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "cosMo@BousouP feat. Hatsune Miku",
+    "suggestionArtistString": "cosMo@BousouP feat. Hatsune Miku",
+    "artistSearchNames": [
+      "cosMo@BousouP",
+      "cosMo@BousouP feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-12-11",
+    "vocadbId": 8237,
+    "title": "Stratosphere",
+    "artist": "UtataP",
+    "artistString": "UtataP feat. Hatsune Miku",
+    "vocadbName": "Stratosphere",
+    "vocadbUrl": "https://vocadb.net/S/8237",
+    "coverArt": "https://i.ytimg.com/vi/RNlVtuXZ4Ew/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/RNlVtuXZ4Ew/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/mzVP9p8_eYI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/RNlVtuXZ4Ew/sddefault.jpg",
+      "https://i.ytimg.com/vi/mzVP9p8_eYI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1613775/1613775",
+      "https://i.ytimg.com/vi/RNlVtuXZ4Ew/hqdefault.jpg",
+      "https://i.ytimg.com/vi/mzVP9p8_eYI/hqdefault.jpg",
+      "https://cdn.piapro.jp/thumb_i/8u/8uh3behi19ywe1zf_20080211014048_0250_0250.jpg",
+      "https://i.ytimg.com/vi/RNlVtuXZ4Ew/mqdefault.jpg",
+      "https://i.ytimg.com/vi/mzVP9p8_eYI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/RNlVtuXZ4Ew/default.jpg",
+      "https://i.ytimg.com/vi/mzVP9p8_eYI/default.jpg"
+    ],
+    "publishDate": "2007-11-25T00:00:00Z",
+    "acceptedTitles": [
+      "ストラトスフィア",
+      "Stratosphere",
+      "ストラトスフィア (Long ver.)",
+      "Stratosphere (Long ver.)"
+    ],
+    "audioClip": "https://audio.sodapines.dev/8237.mp3",
+    "producerNames": [
+      "UtataP"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "UtataP feat. Hatsune Miku",
+    "suggestionArtistString": "UtataP feat. Hatsune Miku",
+    "artistSearchNames": [
+      "UtataP",
+      "UtataP feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-12-12",
+    "vocadbId": 108735,
+    "title": "White Dove",
+    "artist": "Hadano-P",
+    "artistString": "Hadano-P feat. Hatsune Miku",
+    "vocadbName": "White Dove",
+    "vocadbUrl": "https://vocadb.net/S/108735",
+    "coverArt": "https://i.ytimg.com/vi/gEXd4gHb2Y8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/gEXd4gHb2Y8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/l2qkatVwRsk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/fiRzv2x_y-8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/gEXd4gHb2Y8/sddefault.jpg",
+      "https://i.ytimg.com/vi/l2qkatVwRsk/sddefault.jpg",
+      "https://i.ytimg.com/vi/fiRzv2x_y-8/sddefault.jpg",
+      "https://i.ytimg.com/vi/gEXd4gHb2Y8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/l2qkatVwRsk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/fiRzv2x_y-8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/gEXd4gHb2Y8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/l2qkatVwRsk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/fiRzv2x_y-8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/gEXd4gHb2Y8/default.jpg",
+      "https://i.ytimg.com/vi/l2qkatVwRsk/default.jpg",
+      "https://i.ytimg.com/vi/fiRzv2x_y-8/default.jpg"
+    ],
+    "publishDate": "2007-12-20T00:00:00Z",
+    "acceptedTitles": [
+      "ハト",
+      "White Dove",
+      "Hato",
+      "Pigeon"
+    ],
+    "audioClip": "https://audio.sodapines.dev/108735.mp3",
+    "producerNames": [
+      "Hadano-P"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Hadano-P feat. Hatsune Miku",
+    "suggestionArtistString": "Hadano-P feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Hadano-P",
+      "Hadano-P feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-13",
+    "vocadbId": 30163,
+    "title": "Heart-throbbing ☆ Yuri Academy",
+    "artist": "metalheart",
+    "artistString": "metalheart feat. Hatsune Miku, Kagamine Rin",
+    "vocadbName": "Heart-throbbing ☆ Yuri Academy",
+    "vocadbUrl": "https://vocadb.net/S/30163",
+    "coverArt": "https://i.ytimg.com/vi/3HAhrurq-_0/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/3HAhrurq-_0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/BLb4zMLHlXU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/3HAhrurq-_0/sddefault.jpg",
+      "https://i.ytimg.com/vi/BLb4zMLHlXU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1878189/1878189",
+      "https://i.ytimg.com/vi/3HAhrurq-_0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/BLb4zMLHlXU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/3HAhrurq-_0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/BLb4zMLHlXU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/3HAhrurq-_0/default.jpg",
+      "https://i.ytimg.com/vi/BLb4zMLHlXU/default.jpg"
+    ],
+    "publishDate": "2007-12-27T00:00:00Z",
+    "acceptedTitles": [
+      "ドキドキ☆百合学園",
+      "Heart-throbbing ☆ Yuri Academy",
+      "Doki Doki ☆ Yuri Gakuen"
+    ],
+    "audioClip": "https://audio.sodapines.dev/30163.mp3",
+    "producerNames": [
+      "metalheart"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kagamine Rin"
+    ],
+    "displayArtist": "metalheart feat. Hatsune Miku, Kagamine Rin",
+    "suggestionArtistString": "metalheart feat. Hatsune Miku, Kagamine Rin",
+    "artistSearchNames": [
+      "metalheart",
+      "metalheart feat. Hatsune Miku, Kagamine Rin",
+      "Hatsune Miku",
+      "Kagamine Rin"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-14",
+    "vocadbId": 4316,
+    "title": "It's My Road Roller!",
+    "artist": "honorary_chairman",
+    "artistString": "honorary_chairman feat. Kagamine Rin, Kagamine Len",
+    "vocadbName": "It's My Road Roller!",
+    "vocadbUrl": "https://vocadb.net/S/4316",
+    "coverArt": "https://i.ytimg.com/vi/2jMD_CSDjUc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/2jMD_CSDjUc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/uHj1HQU9bgQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/LKDdIxdITqo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/hM1qLKYH3LE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/KI6U-d8-UxU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/2jMD_CSDjUc/sddefault.jpg",
+      "https://i.ytimg.com/vi/uHj1HQU9bgQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/LKDdIxdITqo/sddefault.jpg",
+      "https://i.ytimg.com/vi/hM1qLKYH3LE/sddefault.jpg",
+      "https://i.ytimg.com/vi/KI6U-d8-UxU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1925468/1925468",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1937901/1937901",
+      "https://i.ytimg.com/vi/2jMD_CSDjUc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/uHj1HQU9bgQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/LKDdIxdITqo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/hM1qLKYH3LE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/KI6U-d8-UxU/hqdefault.jpg",
+      "https://res.piapro.jp/r/images/card/250/len.png?20260120",
+      "https://i.ytimg.com/vi/2jMD_CSDjUc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/uHj1HQU9bgQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/LKDdIxdITqo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/hM1qLKYH3LE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/KI6U-d8-UxU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/2jMD_CSDjUc/default.jpg",
+      "https://i.ytimg.com/vi/uHj1HQU9bgQ/default.jpg",
+      "https://i.ytimg.com/vi/LKDdIxdITqo/default.jpg",
+      "https://i.ytimg.com/vi/hM1qLKYH3LE/default.jpg",
+      "https://i.ytimg.com/vi/KI6U-d8-UxU/default.jpg"
+    ],
+    "publishDate": "2007-12-29T00:00:00Z",
+    "acceptedTitles": [
+      "俺のロードローラーだッ！",
+      "It's My Road Roller!",
+      "Ore no Road Roller da!"
+    ],
+    "audioClip": "https://audio.sodapines.dev/4316.mp3",
+    "producerNames": [
+      "honorary_chairman"
+    ],
+    "singerNames": [
+      "Kagamine Rin",
+      "Kagamine Len"
+    ],
+    "displayArtist": "honorary_chairman feat. Kagamine Rin, Kagamine Len",
+    "suggestionArtistString": "honorary_chairman feat. Kagamine Rin, Kagamine Len",
+    "artistSearchNames": [
+      "honorary_chairman",
+      "honorary_chairman feat. Kagamine Rin, Kagamine Len",
+      "Kagamine Rin",
+      "Kagamine Len"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-12-15",
+    "vocadbId": 3027,
+    "title": "Innocence",
+    "artist": "KazuP",
+    "artistString": "KazuP feat. Hatsune Miku",
+    "vocadbName": "Innocence",
+    "vocadbUrl": "https://vocadb.net/S/3027",
+    "coverArt": "https://nicovideo.cdn.nimg.jp/thumbnails/1811770/1811770",
+    "coverArts": [
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1811770/1811770"
+    ],
+    "publishDate": "2007-12-19T00:00:00Z",
+    "acceptedTitles": [
+      "Innocence"
+    ],
+    "audioClip": "https://audio.sodapines.dev/3027.mp3",
+    "producerNames": [
+      "KazuP"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "KazuP feat. Hatsune Miku",
+    "suggestionArtistString": "KazuP feat. Hatsune Miku",
+    "artistSearchNames": [
+      "KazuP",
+      "KazuP feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-16",
+    "vocadbId": 1440,
+    "title": "Daybreak",
+    "artist": "samfree",
+    "artistString": "samfree feat. Hatsune Miku",
+    "vocadbName": "Daybreak",
+    "vocadbUrl": "https://vocadb.net/S/1440",
+    "coverArt": "https://i.ytimg.com/vi/oqaYGIGbR7s/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/oqaYGIGbR7s/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/-xeGHR0bNno/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/oqaYGIGbR7s/sddefault.jpg",
+      "https://i.ytimg.com/vi/-xeGHR0bNno/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1696334/1696334",
+      "https://i.ytimg.com/vi/oqaYGIGbR7s/hqdefault.jpg",
+      "https://i.ytimg.com/vi/-xeGHR0bNno/hqdefault.jpg",
+      "https://i.ytimg.com/vi/oqaYGIGbR7s/mqdefault.jpg",
+      "https://i.ytimg.com/vi/-xeGHR0bNno/mqdefault.jpg",
+      "https://i.ytimg.com/vi/oqaYGIGbR7s/default.jpg",
+      "https://i.ytimg.com/vi/-xeGHR0bNno/default.jpg"
+    ],
+    "publishDate": "2007-12-05T00:00:00Z",
+    "acceptedTitles": [
+      "Daybreak"
+    ],
+    "audioClip": "https://audio.sodapines.dev/1440.mp3",
+    "producerNames": [
+      "samfree"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "samfree feat. Hatsune Miku",
+    "suggestionArtistString": "samfree feat. Hatsune Miku",
+    "artistSearchNames": [
+      "samfree",
+      "samfree feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-12-17",
+    "vocadbId": 160826,
+    "title": "R-Side",
+    "artist": "Unknown producer(s)",
+    "artistString": "Unknown producer(s) feat. Kagamine Rin",
+    "vocadbName": "R-Side",
+    "vocadbUrl": "https://vocadb.net/S/160826",
+    "coverArt": "https://i.ytimg.com/vi/HjSag1mPRVY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/HjSag1mPRVY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/HjSag1mPRVY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1809317/1809317",
+      "https://i.ytimg.com/vi/HjSag1mPRVY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/HjSag1mPRVY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/HjSag1mPRVY/default.jpg"
+    ],
+    "publishDate": "2007-12-18T00:00:00Z",
+    "acceptedTitles": [
+      "R-Side"
+    ],
+    "audioClip": "https://audio.sodapines.dev/160826.mp3",
+    "producerNames": [
+      "Unknown producer(s)"
+    ],
+    "singerNames": [
+      "Kagamine Rin"
+    ],
+    "displayArtist": "Unknown producer(s) feat. Kagamine Rin",
+    "suggestionArtistString": "Unknown producer(s) feat. Kagamine Rin",
+    "artistSearchNames": [
+      "Unknown producer(s)",
+      "Unknown producer(s) feat. Kagamine Rin",
+      "Kagamine Rin"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-18",
+    "vocadbId": 333331,
+    "title": "L-Side",
+    "artist": "Unknown producer(s)",
+    "artistString": "Unknown producer(s) feat. Kagamine Len",
+    "vocadbName": "L-Side",
+    "vocadbUrl": "https://vocadb.net/S/333331",
+    "coverArt": "https://i.ytimg.com/vi/IY_CApzB3tY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/IY_CApzB3tY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/IY_CApzB3tY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/1851651/1851651",
+      "https://i.ytimg.com/vi/IY_CApzB3tY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/IY_CApzB3tY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/IY_CApzB3tY/default.jpg"
+    ],
+    "publishDate": "2007-12-24T00:00:00Z",
+    "acceptedTitles": [
+      "L-Side"
+    ],
+    "audioClip": "https://audio.sodapines.dev/333331.mp3",
+    "producerNames": [
+      "Unknown producer(s)"
+    ],
+    "singerNames": [
+      "Kagamine Len"
+    ],
+    "displayArtist": "Unknown producer(s) feat. Kagamine Len",
+    "suggestionArtistString": "Unknown producer(s) feat. Kagamine Len",
+    "artistSearchNames": [
+      "Unknown producer(s)",
+      "Unknown producer(s) feat. Kagamine Len",
+      "Kagamine Len"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-19",
+    "vocadbId": 520898,
+    "title": "The Mechanical Girl and the 30-Something Office Lady",
+    "artist": "Ro2noki",
+    "artistString": "Ro2noki feat. Adachi Rei, Kasane Teto",
+    "vocadbName": "The Mechanical Girl and the 30-Something Office Lady",
+    "vocadbUrl": "https://vocadb.net/S/520898",
+    "coverArt": "https://i.ytimg.com/vi/O2xEUkxcr2o/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/O2xEUkxcr2o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/g13NVuzKFCk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/O2xEUkxcr2o/sddefault.jpg",
+      "https://i.ytimg.com/vi/g13NVuzKFCk/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/42599946/42599946.52432775",
+      "https://i.ytimg.com/vi/O2xEUkxcr2o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/g13NVuzKFCk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/O2xEUkxcr2o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/g13NVuzKFCk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/O2xEUkxcr2o/default.jpg",
+      "https://i.ytimg.com/vi/g13NVuzKFCk/default.jpg"
+    ],
+    "publishDate": "2023-08-09T00:00:00Z",
+    "acceptedTitles": [
+      "機械少女と三十路OL",
+      "The Mechanical Girl and the 30-Something Office Lady",
+      "Kikai Shoujo to Misoji OL",
+      "기계 소녀와 30대 OL"
+    ],
+    "audioClip": "https://audio.sodapines.dev/520898.mp3",
+    "producerNames": [
+      "Ro2noki"
+    ],
+    "singerNames": [
+      "Adachi Rei",
+      "Kasane Teto"
+    ],
+    "displayArtist": "Ro2noki feat. Adachi Rei, Kasane Teto",
+    "suggestionArtistString": "Ro2noki feat. Adachi Rei, Kasane Teto",
+    "artistSearchNames": [
+      "Ro2noki",
+      "Ro2noki feat. Adachi Rei, Kasane Teto",
+      "Adachi Rei",
+      "Kasane Teto"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-20",
+    "vocadbId": 829710,
+    "title": "Elegy for an Old Friend",
+    "artist": "Ro2noki",
+    "artistString": "Ro2noki feat. Kasane Teto, Yokune Ruko ♀",
+    "vocadbName": "Elegy for an Old Friend",
+    "vocadbUrl": "https://vocadb.net/S/829710",
+    "coverArt": "https://i.ytimg.com/vi/lfs7mBYz9gA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/lfs7mBYz9gA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/lfs7mBYz9gA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45322846/45322846.50765337",
+      "https://i.ytimg.com/vi/lfs7mBYz9gA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/lfs7mBYz9gA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/lfs7mBYz9gA/default.jpg"
+    ],
+    "publishDate": "2025-08-23T00:00:00Z",
+    "acceptedTitles": [
+      "絶対的旧友挽歌",
+      "Elegy for an Old Friend",
+      "Zettaiteki Kuuyuu Banka",
+      "Elegy for a True Ride-or-Die"
+    ],
+    "audioClip": "https://audio.sodapines.dev/829710.mp3",
+    "producerNames": [
+      "Ro2noki"
+    ],
+    "singerNames": [
+      "Kasane Teto",
+      "Yokune Ruko ♀"
+    ],
+    "displayArtist": "Ro2noki feat. Kasane Teto, Yokune Ruko ♀",
+    "suggestionArtistString": "Ro2noki feat. Kasane Teto, Yokune Ruko ♀",
+    "artistSearchNames": [
+      "Ro2noki",
+      "Ro2noki feat. Kasane Teto, Yokune Ruko ♀",
+      "Kasane Teto",
+      "Yokune Ruko ♀"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-21",
+    "vocadbId": 589152,
+    "title": "Be Amateur!",
+    "artist": "Ro2noki",
+    "artistString": "Ro2noki feat. Kasane Teto",
+    "vocadbName": "Be Amateur!",
+    "vocadbUrl": "https://vocadb.net/S/589152",
+    "coverArt": "https://i.ytimg.com/vi/23WTcHp2eRQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/23WTcHp2eRQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Hfq81Di1b64/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/23WTcHp2eRQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/Hfq81Di1b64/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/43427909/43427909.97777266",
+      "https://i.ytimg.com/vi/23WTcHp2eRQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Hfq81Di1b64/hqdefault.jpg",
+      "https://i.ytimg.com/vi/23WTcHp2eRQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Hfq81Di1b64/mqdefault.jpg",
+      "https://i.ytimg.com/vi/23WTcHp2eRQ/default.jpg",
+      "https://i.ytimg.com/vi/Hfq81Di1b64/default.jpg"
+    ],
+    "publishDate": "2024-02-22T00:00:00Z",
+    "acceptedTitles": [
+      "アマチュア音楽やめられねぇんだわ",
+      "Be Amateur!",
+      "I Can't Stop Playing Amateur Music!",
+      "Amateur Ongaku Yamerarenee nda wa",
+      "아마추어 음악 그만두질 못하겠어"
+    ],
+    "audioClip": "https://audio.sodapines.dev/589152.mp3",
+    "producerNames": [
+      "Ro2noki"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "Ro2noki feat. Kasane Teto",
+    "suggestionArtistString": "Ro2noki feat. Kasane Teto",
+    "artistSearchNames": [
+      "Ro2noki",
+      "Ro2noki feat. Kasane Teto",
+      "Kasane Teto"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-22",
+    "vocadbId": 701688,
+    "title": "Mu",
+    "artist": "Daibaku Hashin",
+    "artistString": "Daibaku Hashin, yasai31 feat. Adachi Rei, Kasane Teto",
+    "vocadbName": "Mu",
+    "vocadbUrl": "https://vocadb.net/S/701688",
+    "coverArt": "https://i.ytimg.com/vi/gXNWjnE5gT0/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/gXNWjnE5gT0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/xDMC3It8D88/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/gXNWjnE5gT0/sddefault.jpg",
+      "https://i.ytimg.com/vi/xDMC3It8D88/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44329857/44329857.49107378",
+      "https://i.ytimg.com/vi/gXNWjnE5gT0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/xDMC3It8D88/hqdefault.jpg",
+      "https://i.ytimg.com/vi/gXNWjnE5gT0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/xDMC3It8D88/mqdefault.jpg",
+      "https://i.ytimg.com/vi/gXNWjnE5gT0/default.jpg",
+      "https://i.ytimg.com/vi/xDMC3It8D88/default.jpg"
+    ],
+    "publishDate": "2024-11-18T00:00:00Z",
+    "acceptedTitles": [
+      "む",
+      "Mu",
+      "무"
+    ],
+    "audioClip": "https://audio.sodapines.dev/701688.mp3",
+    "producerNames": [
+      "Daibaku Hashin",
+      "yasai31"
+    ],
+    "singerNames": [
+      "Adachi Rei",
+      "Kasane Teto"
+    ],
+    "displayArtist": "Daibaku Hashin, yasai31 feat. Adachi Rei, Kasane Teto",
+    "suggestionArtistString": "Daibaku Hashin, yasai31 feat. Adachi Rei, Kasane Teto",
+    "artistSearchNames": [
+      "Daibaku Hashin",
+      "Daibaku Hashin, yasai31 feat. Adachi Rei, Kasane Teto",
+      "yasai31",
+      "Adachi Rei",
+      "Kasane Teto"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-12-23",
+    "vocadbId": 519289,
+    "title": "Love Song",
+    "artist": "Daibaku Hashin",
+    "artistString": "Daibaku Hashin feat. Hatsune Miku, Kasane Teto SV",
+    "vocadbName": "Love Song",
+    "vocadbUrl": "https://vocadb.net/S/519289",
+    "coverArt": "https://i.ytimg.com/vi/LyZk53_5GwM/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/LyZk53_5GwM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/KbYO83AzRng/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Mzpa1U8N53o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/6CaqCioS8LY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/LyZk53_5GwM/sddefault.jpg",
+      "https://i.ytimg.com/vi/KbYO83AzRng/sddefault.jpg",
+      "https://i.ytimg.com/vi/Mzpa1U8N53o/sddefault.jpg",
+      "https://i.ytimg.com/vi/6CaqCioS8LY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/42445494/42445494.73665570",
+      "https://i.ytimg.com/vi/LyZk53_5GwM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/KbYO83AzRng/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Mzpa1U8N53o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/6CaqCioS8LY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/LyZk53_5GwM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/KbYO83AzRng/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Mzpa1U8N53o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/6CaqCioS8LY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/LyZk53_5GwM/default.jpg",
+      "https://i.ytimg.com/vi/KbYO83AzRng/default.jpg",
+      "https://i.ytimg.com/vi/Mzpa1U8N53o/default.jpg",
+      "https://i.ytimg.com/vi/6CaqCioS8LY/default.jpg"
+    ],
+    "publishDate": "2023-08-05T00:00:00Z",
+    "acceptedTitles": [
+      "あいのうた",
+      "Love Song",
+      "AI no UTA",
+      "Song of \"AI\"",
+      "아이의 노래"
+    ],
+    "audioClip": "https://audio.sodapines.dev/519289.mp3",
+    "producerNames": [
+      "Daibaku Hashin"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kasane Teto"
+    ],
+    "displayArtist": "Daibaku Hashin feat. Hatsune Miku, Kasane Teto",
+    "suggestionArtistString": "Daibaku Hashin feat. Hatsune Miku, Kasane Teto",
+    "artistSearchNames": [
+      "Daibaku Hashin",
+      "Daibaku Hashin feat. Hatsune Miku, Kasane Teto SV",
+      "Hatsune Miku",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-12-24",
+    "vocadbId": 650038,
+    "title": "Complete",
+    "artist": "Daibaku Hashin",
+    "artistString": "Daibaku Hashin feat. Gekiyaku V, Kazehiki V",
+    "vocadbName": "Complete",
+    "vocadbUrl": "https://vocadb.net/S/650038",
+    "coverArt": "https://i.ytimg.com/vi/nT9oF1uJask/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/nT9oF1uJask/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/D6azZcWsO5o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/nT9oF1uJask/sddefault.jpg",
+      "https://i.ytimg.com/vi/D6azZcWsO5o/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/43889897/43889897.32544202",
+      "https://i.ytimg.com/vi/nT9oF1uJask/hqdefault.jpg",
+      "https://i.ytimg.com/vi/D6azZcWsO5o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/nT9oF1uJask/mqdefault.jpg",
+      "https://i.ytimg.com/vi/D6azZcWsO5o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/nT9oF1uJask/default.jpg",
+      "https://i.ytimg.com/vi/D6azZcWsO5o/default.jpg"
+    ],
+    "publishDate": "2024-07-18T00:00:00Z",
+    "acceptedTitles": [
+      "かんせい",
+      "Complete",
+      "Kansei",
+      "완성"
+    ],
+    "audioClip": "https://audio.sodapines.dev/650038.mp3",
+    "producerNames": [
+      "Daibaku Hashin"
+    ],
+    "singerNames": [
+      "Gekiyaku V",
+      "Kazehiki V"
+    ],
+    "displayArtist": "Daibaku Hashin feat. Gekiyaku V, Kazehiki V",
+    "suggestionArtistString": "Daibaku Hashin feat. Gekiyaku V, Kazehiki V",
+    "artistSearchNames": [
+      "Daibaku Hashin",
+      "Daibaku Hashin feat. Gekiyaku V, Kazehiki V",
+      "Gekiyaku V",
+      "Kazehiki V"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-12-25",
+    "vocadbId": 829643,
+    "title": "Hate in Heaven",
+    "artist": "Satsuki",
+    "artistString": "Satsuki feat. Gekiyaku -Placebo-, Kazehiki -Sleep Medication-, Nurse Robot_Type T",
+    "vocadbName": "Hate in Heaven",
+    "vocadbUrl": "https://vocadb.net/S/829643",
+    "coverArt": "https://i.ytimg.com/vi/bmf8lxU20UY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/bmf8lxU20UY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Wgn7WlumkFY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/bmf8lxU20UY/sddefault.jpg",
+      "https://i.ytimg.com/vi/Wgn7WlumkFY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45317075/45317075.24433482",
+      "https://i.ytimg.com/vi/bmf8lxU20UY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Wgn7WlumkFY/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/b733b2761d753ae4ad30d32f6aeb35add646c97b.jpg",
+      "https://i.ytimg.com/vi/bmf8lxU20UY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Wgn7WlumkFY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/bmf8lxU20UY/default.jpg",
+      "https://i.ytimg.com/vi/Wgn7WlumkFY/default.jpg"
+    ],
+    "publishDate": "2025-08-23T00:00:00Z",
+    "acceptedTitles": [
+      "天国の刑",
+      "Hate in Heaven",
+      "Tengoku no Kei",
+      "Heaven's Punishment"
+    ],
+    "audioClip": "https://audio.sodapines.dev/829643.mp3",
+    "producerNames": [
+      "Satsuki"
+    ],
+    "singerNames": [
+      "Gekiyaku -Placebo-",
+      "Kazehiki -Sleep Medication-",
+      "Nurse Robot_Type T"
+    ],
+    "displayArtist": "Satsuki feat. Gekiyaku -Placebo-, Kazehiki -Sleep Medication-, Nurse Robot_Type T",
+    "suggestionArtistString": "Satsuki feat. Gekiyaku -Placebo-, Kazehiki -Sleep Medication-, Nurse Robot_Type T",
+    "artistSearchNames": [
+      "Satsuki",
+      "Satsuki feat. Gekiyaku -Placebo-, Kazehiki -Sleep Medication-, Nurse Robot_Type T",
+      "Gekiyaku -Placebo-",
+      "Kazehiki -Sleep Medication-",
+      "Nurse Robot_Type T"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2029-12-26",
+    "vocadbId": 588762,
+    "title": "Crossroads",
+    "artist": "Daibaku Hashin",
+    "artistString": "Daibaku Hashin feat. various",
+    "vocadbName": "Crossroads",
+    "vocadbUrl": "https://vocadb.net/S/588762",
+    "coverArt": "https://i.ytimg.com/vi/ak7OILqZPL4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ak7OILqZPL4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/kHRhS7CRvxg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ak7OILqZPL4/sddefault.jpg",
+      "https://i.ytimg.com/vi/kHRhS7CRvxg/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/43425346/43425346.98815408",
+      "https://i.ytimg.com/vi/ak7OILqZPL4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/kHRhS7CRvxg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ak7OILqZPL4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/kHRhS7CRvxg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ak7OILqZPL4/default.jpg",
+      "https://i.ytimg.com/vi/kHRhS7CRvxg/default.jpg"
+    ],
+    "publishDate": "2024-02-23T00:00:00Z",
+    "acceptedTitles": [
+      "わかれみち",
+      "Crossroads",
+      "Wakaremichi",
+      "Forked Road",
+      "갈림길"
+    ],
+    "audioClip": "https://audio.sodapines.dev/588762.mp3",
+    "producerNames": [
+      "Daibaku Hashin"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "Daibaku Hashin feat. various",
+    "suggestionArtistString": "Daibaku Hashin feat. various",
+    "artistSearchNames": [
+      "Daibaku Hashin",
+      "Daibaku Hashin feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-12-27",
+    "vocadbId": 687114,
+    "title": "Origin",
+    "artist": "Daibaku Hashin",
+    "artistString": "Daibaku Hashin feat. MEIKO SP (Original)",
+    "vocadbName": "Origin",
+    "vocadbUrl": "https://vocadb.net/S/687114",
+    "coverArt": "https://i.ytimg.com/vi/xADz415OHB8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/xADz415OHB8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/WihbLsc7FaY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/KE1a-a2tgxU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ea64VqS6sZI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/xADz415OHB8/sddefault.jpg",
+      "https://i.ytimg.com/vi/WihbLsc7FaY/sddefault.jpg",
+      "https://i.ytimg.com/vi/KE1a-a2tgxU/sddefault.jpg",
+      "https://i.ytimg.com/vi/ea64VqS6sZI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44223407/44223407.63820237",
+      "https://i.ytimg.com/vi/xADz415OHB8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/WihbLsc7FaY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/KE1a-a2tgxU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ea64VqS6sZI/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/356833f438d2869f4b653c5881d4af862254ccf6.jpg",
+      "https://i.ytimg.com/vi/xADz415OHB8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/WihbLsc7FaY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/KE1a-a2tgxU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ea64VqS6sZI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/xADz415OHB8/default.jpg",
+      "https://i.ytimg.com/vi/WihbLsc7FaY/default.jpg",
+      "https://i.ytimg.com/vi/KE1a-a2tgxU/default.jpg",
+      "https://i.ytimg.com/vi/ea64VqS6sZI/default.jpg"
+    ],
+    "publishDate": "2024-10-17T00:00:00Z",
+    "acceptedTitles": [
+      "げんてん",
+      "Origin",
+      "Genten",
+      "원점"
+    ],
+    "audioClip": "https://audio.sodapines.dev/687114.mp3",
+    "producerNames": [
+      "Daibaku Hashin"
+    ],
+    "singerNames": [
+      "MEIKO SP"
+    ],
+    "displayArtist": "Daibaku Hashin feat. MEIKO SP",
+    "suggestionArtistString": "Daibaku Hashin feat. MEIKO SP",
+    "artistSearchNames": [
+      "Daibaku Hashin",
+      "Daibaku Hashin feat. MEIKO SP (Original)",
+      "MEIKO SP"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2029-12-28",
+    "vocadbId": 852996,
+    "title": "Star",
+    "artist": "Daibaku Hashin",
+    "artistString": "Daibaku Hashin feat. various",
+    "vocadbName": "Star",
+    "vocadbUrl": "https://vocadb.net/S/852996",
+    "coverArt": "https://i.ytimg.com/vi/6p6QKhvKkVw/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/6p6QKhvKkVw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/sC3-ptTbzDQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/6p6QKhvKkVw/sddefault.jpg",
+      "https://i.ytimg.com/vi/sC3-ptTbzDQ/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45531345/45531345.13853420",
+      "https://i.ytimg.com/vi/6p6QKhvKkVw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/sC3-ptTbzDQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/6p6QKhvKkVw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/sC3-ptTbzDQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/6p6QKhvKkVw/default.jpg",
+      "https://i.ytimg.com/vi/sC3-ptTbzDQ/default.jpg"
+    ],
+    "publishDate": "2025-10-19T00:00:00Z",
+    "acceptedTitles": [
+      "スター",
+      "Star",
+      "스타"
+    ],
+    "audioClip": "https://audio.sodapines.dev/852996.mp3",
+    "producerNames": [
+      "Daibaku Hashin"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "Daibaku Hashin feat. various",
+    "suggestionArtistString": "Daibaku Hashin feat. various",
+    "artistSearchNames": [
+      "Daibaku Hashin",
+      "Daibaku Hashin feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ]
+  },
+  {
+    "date": "2029-12-29",
+    "vocadbId": 920269,
+    "title": "De Los Santos",
+    "artist": "Yamamoto",
+    "artistString": "Yamamoto feat. Kasane Teto SV",
+    "vocadbName": "De Los Santos",
+    "vocadbUrl": "https://vocadb.net/S/920269",
+    "coverArt": "https://i.ytimg.com/vi/U4bJY_uJvAI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/U4bJY_uJvAI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/-FuMvK7oOps/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/LUkMKLobe4A/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/U4bJY_uJvAI/sddefault.jpg",
+      "https://i.ytimg.com/vi/-FuMvK7oOps/sddefault.jpg",
+      "https://i.ytimg.com/vi/LUkMKLobe4A/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45973015/45973015.18370162",
+      "https://i.ytimg.com/vi/U4bJY_uJvAI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/-FuMvK7oOps/hqdefault.jpg",
+      "https://i.ytimg.com/vi/LUkMKLobe4A/hqdefault.jpg",
+      "https://i.ytimg.com/vi/U4bJY_uJvAI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/-FuMvK7oOps/mqdefault.jpg",
+      "https://i.ytimg.com/vi/LUkMKLobe4A/mqdefault.jpg",
+      "https://i.ytimg.com/vi/U4bJY_uJvAI/default.jpg",
+      "https://i.ytimg.com/vi/-FuMvK7oOps/default.jpg",
+      "https://i.ytimg.com/vi/LUkMKLobe4A/default.jpg"
+    ],
+    "publishDate": "2026-02-21T00:00:00Z",
+    "acceptedTitles": [
+      "デロスサントス",
+      "De Los Santos"
+    ],
+    "audioClip": "https://audio.sodapines.dev/920269.mp3",
+    "producerNames": [
+      "Yamamoto"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "Yamamoto feat. Kasane Teto",
+    "suggestionArtistString": "Yamamoto feat. Kasane Teto",
+    "artistSearchNames": [
+      "Yamamoto",
+      "Yamamoto feat. Kasane Teto SV",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
+    ]
+  },
+  {
+    "date": "2029-12-30",
+    "vocadbId": 826007,
+    "title": "Which one?",
+    "artist": "hiroki.",
+    "artistString": "hiroki. feat. Hatsune Miku, Kasane Teto SV",
+    "vocadbName": "Which one?",
+    "vocadbUrl": "https://vocadb.net/S/826007",
+    "coverArt": "https://i.ytimg.com/vi/ksdvNgqOToQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ksdvNgqOToQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Wd0P8NAQ8ug/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ksdvNgqOToQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/Wd0P8NAQ8ug/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45272008/45272008.57909201",
+      "https://i.ytimg.com/vi/ksdvNgqOToQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Wd0P8NAQ8ug/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ksdvNgqOToQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Wd0P8NAQ8ug/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ksdvNgqOToQ/default.jpg",
+      "https://i.ytimg.com/vi/Wd0P8NAQ8ug/default.jpg"
+    ],
+    "publishDate": "2025-08-09T00:00:00Z",
+    "acceptedTitles": [
+      "どっちにするの？",
+      "Which one?",
+      "Docchi ni Suru no?"
+    ],
+    "audioClip": "https://audio.sodapines.dev/826007.mp3",
+    "producerNames": [
+      "hiroki."
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kasane Teto"
+    ],
+    "displayArtist": "hiroki. feat. Hatsune Miku, Kasane Teto",
+    "suggestionArtistString": "hiroki. feat. Hatsune Miku, Kasane Teto",
+    "artistSearchNames": [
+      "hiroki.",
+      "hiroki. feat. Hatsune Miku, Kasane Teto SV",
+      "Hatsune Miku",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2029-12-31",
+    "vocadbId": 788586,
+    "title": "Play",
+    "artist": "Giga",
+    "artistString": "Giga feat. Hatsune Miku V4X (Solid), Hatsune Miku V4X (Dark)",
+    "vocadbName": "Play",
+    "vocadbUrl": "https://vocadb.net/S/788586",
+    "coverArt": "https://i.ytimg.com/vi/6JEdJWwcIyk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/6JEdJWwcIyk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/2XpDyJrQk-4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/6JEdJWwcIyk/sddefault.jpg",
+      "https://i.ytimg.com/vi/2XpDyJrQk-4/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44986252/44986252.63785240",
+      "https://i.ytimg.com/vi/6JEdJWwcIyk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/2XpDyJrQk-4/hqdefault.jpg",
+      "https://i1.sndcdn.com/artworks-4Pxx6Btc8GPt-0-t500x500.jpg",
+      "https://i.ytimg.com/vi/6JEdJWwcIyk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/2XpDyJrQk-4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/6JEdJWwcIyk/default.jpg",
+      "https://i.ytimg.com/vi/2XpDyJrQk-4/default.jpg"
+    ],
+    "publishDate": "2025-05-14T00:00:00Z",
+    "acceptedTitles": [
+      "プレイ",
+      "Play"
+    ],
+    "audioClip": "https://audio.sodapines.dev/788586.mp3",
+    "producerNames": [
+      "Giga"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Giga feat. Hatsune Miku",
+    "suggestionArtistString": "Giga feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Giga",
+      "Giga feat. Hatsune Miku V4X (Solid), Hatsune Miku V4X (Dark)",
+      "Hatsune Miku",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-01",
+    "vocadbId": 845246,
+    "title": "ALL I AM",
+    "artist": "bunnycat",
+    "artistString": "bunnycat feat. Hatsune Miku V4 (English)",
+    "vocadbName": "ALL I AM",
+    "vocadbUrl": "https://vocadb.net/S/845246",
+    "coverArt": "https://i.ytimg.com/vi/gTIDqYZmuz8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/gTIDqYZmuz8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Glx75meTgGs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/gTIDqYZmuz8/sddefault.jpg",
+      "https://i.ytimg.com/vi/Glx75meTgGs/sddefault.jpg",
+      "https://i.ytimg.com/vi/gTIDqYZmuz8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Glx75meTgGs/hqdefault.jpg",
+      "https://i.ytimg.com/vi/gTIDqYZmuz8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Glx75meTgGs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/gTIDqYZmuz8/default.jpg",
+      "https://i.ytimg.com/vi/Glx75meTgGs/default.jpg"
+    ],
+    "publishDate": "2025-09-29T00:00:00Z",
+    "acceptedTitles": [
+      "ALL I AM"
+    ],
+    "audioClip": "https://audio.sodapines.dev/845246.mp3",
+    "producerNames": [
+      "bunnycat"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "bunnycat feat. Hatsune Miku",
+    "suggestionArtistString": "bunnycat feat. Hatsune Miku",
+    "artistSearchNames": [
+      "bunnycat",
+      "bunnycat feat. Hatsune Miku V4 (English)",
+      "Hatsune Miku",
+      "Hatsune Miku V4"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-02",
+    "vocadbId": 762088,
+    "title": "Encore dance",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. Kasane Teto SV",
+    "vocadbName": "Encore dance",
+    "vocadbUrl": "https://vocadb.net/S/762088",
+    "coverArt": "https://i.ytimg.com/vi/5hgSET4bpbk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/5hgSET4bpbk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/lJpg08iifTg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/5hgSET4bpbk/sddefault.jpg",
+      "https://i.ytimg.com/vi/lJpg08iifTg/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44755576/44755576.50354348",
+      "https://i.ytimg.com/vi/5hgSET4bpbk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/lJpg08iifTg/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/e0426008c8c652d23d411907712cf6fada6bad3d.jpg",
+      "https://i.ytimg.com/vi/5hgSET4bpbk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/lJpg08iifTg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/5hgSET4bpbk/default.jpg",
+      "https://i.ytimg.com/vi/lJpg08iifTg/default.jpg"
+    ],
+    "publishDate": "2025-03-13T00:00:00Z",
+    "acceptedTitles": [
+      "アンコールダンス",
+      "Encore dance",
+      "앙코르 댄스",
+      "安可舞"
+    ],
+    "audioClip": "https://audio.sodapines.dev/762088.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "MIMI feat. Kasane Teto",
+    "suggestionArtistString": "MIMI feat. Kasane Teto",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. Kasane Teto SV",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-03",
+    "vocadbId": 840401,
+    "title": "OOPÁRTS",
+    "artist": "NILFRUITS",
+    "artistString": "NILFRUITS feat. Hatsune Miku V4X (Solid)",
+    "vocadbName": "OOPÁRTS",
+    "vocadbUrl": "https://vocadb.net/S/840401",
+    "coverArt": "https://i.ytimg.com/vi/LFZK8GbCmQY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/LFZK8GbCmQY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/57OiJWa-ZaA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/LFZK8GbCmQY/sddefault.jpg",
+      "https://i.ytimg.com/vi/57OiJWa-ZaA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45413965/45413965.76115224",
+      "https://i.ytimg.com/vi/LFZK8GbCmQY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/57OiJWa-ZaA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/LFZK8GbCmQY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/57OiJWa-ZaA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/LFZK8GbCmQY/default.jpg",
+      "https://i.ytimg.com/vi/57OiJWa-ZaA/default.jpg"
+    ],
+    "publishDate": "2025-09-18T00:00:00Z",
+    "acceptedTitles": [
+      "オーパーツ",
+      "OOPÁRTS",
+      "OOPARTS",
+      "Out-of-place artifact",
+      "오파츠"
+    ],
+    "audioClip": "https://audio.sodapines.dev/840401.mp3",
+    "producerNames": [
+      "NILFRUITS"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "NILFRUITS feat. Hatsune Miku",
+    "suggestionArtistString": "NILFRUITS feat. Hatsune Miku",
+    "artistSearchNames": [
+      "NILFRUITS",
+      "NILFRUITS feat. Hatsune Miku V4X (Solid)",
+      "Hatsune Miku",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-04",
+    "vocadbId": 829696,
+    "title": "VOCAEND",
+    "artist": "Nunununununununununununununununu",
+    "artistString": "Nunununununununununununununununu feat. various",
+    "vocadbName": "VOCAEND",
+    "vocadbUrl": "https://vocadb.net/S/829696",
+    "coverArt": "https://i.ytimg.com/vi/0dHiDF_Kl7k/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/0dHiDF_Kl7k/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/oy3GWEr8j7k/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/0dHiDF_Kl7k/sddefault.jpg",
+      "https://i.ytimg.com/vi/oy3GWEr8j7k/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45317637/45317637.76805050",
+      "https://i.ytimg.com/vi/0dHiDF_Kl7k/hqdefault.jpg",
+      "https://i.ytimg.com/vi/oy3GWEr8j7k/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/6482b76dc3301bf77724a70c7e9737ebdb6c8453.jpg",
+      "https://i.ytimg.com/vi/0dHiDF_Kl7k/mqdefault.jpg",
+      "https://i.ytimg.com/vi/oy3GWEr8j7k/mqdefault.jpg",
+      "https://i.ytimg.com/vi/0dHiDF_Kl7k/default.jpg",
+      "https://i.ytimg.com/vi/oy3GWEr8j7k/default.jpg"
+    ],
+    "publishDate": "2025-08-23T00:00:00Z",
+    "acceptedTitles": [
+      "VOCAEND",
+      "𝙑𝙊𝘾𝘼𝙀𝙉𝘿 - 𝙏𝙝𝙚 𝙚𝙣𝙙 𝙤𝙛 𝙑𝙊𝘾𝘼𝙇𝙊𝙄𝘿 -",
+      "VOCAEND - The end of VOCALOID -",
+      "ボーカエンド",
+      "V҈\"o℃AぇA҈ₐｧN⃣　D"
+    ],
+    "audioClip": "https://audio.sodapines.dev/829696.mp3",
+    "producerNames": [
+      "Nunununununununununununununununu"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "Nunununununununununununununununu feat. various",
+    "suggestionArtistString": "Nunununununununununununununununu feat. various",
+    "artistSearchNames": [
+      "Nunununununununununununununununu",
+      "Nunununununununununununununununu feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-01-05",
+    "vocadbId": 802395,
+    "title": "MAD TALE",
+    "artist": "Mimizu",
+    "artistString": "Mimizu feat. Yi Xi",
+    "vocadbName": "MAD TALE",
+    "vocadbUrl": "https://vocadb.net/S/802395",
+    "coverArt": "https://i.ytimg.com/vi/6F2AdDcQ5W8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/6F2AdDcQ5W8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/PchZDjvRkUM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/6F2AdDcQ5W8/sddefault.jpg",
+      "https://i.ytimg.com/vi/PchZDjvRkUM/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45105108/45105108.12889000",
+      "https://i.ytimg.com/vi/6F2AdDcQ5W8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/PchZDjvRkUM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/6F2AdDcQ5W8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/PchZDjvRkUM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/6F2AdDcQ5W8/default.jpg",
+      "https://i.ytimg.com/vi/PchZDjvRkUM/default.jpg"
+    ],
+    "publishDate": "2025-06-20T00:00:00Z",
+    "acceptedTitles": [
+      "マッテイル",
+      "MAD TALE",
+      "Waiting",
+      "매드 테일"
+    ],
+    "audioClip": "https://audio.sodapines.dev/802395.mp3",
+    "producerNames": [
+      "Mimizu"
+    ],
+    "singerNames": [
+      "Yi Xi"
+    ],
+    "displayArtist": "Mimizu feat. Yi Xi",
+    "suggestionArtistString": "Mimizu feat. Yi Xi",
+    "artistSearchNames": [
+      "Mimizu",
+      "Mimizu feat. Yi Xi",
+      "Yi Xi"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-06",
+    "vocadbId": 817198,
+    "title": "Hadal Abyss Zone",
+    "artist": "inabakumori",
+    "artistString": "inabakumori feat. Kaai Yuki",
+    "vocadbName": "Hadal Abyss Zone",
+    "vocadbUrl": "https://vocadb.net/S/817198",
+    "coverArt": "https://i.ytimg.com/vi/IJN0piNZhBE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/IJN0piNZhBE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/bKQAVYiI97g/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/IJN0piNZhBE/sddefault.jpg",
+      "https://i.ytimg.com/vi/bKQAVYiI97g/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45226138/45226138.83384861",
+      "https://i.ytimg.com/vi/IJN0piNZhBE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/bKQAVYiI97g/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/7260b0cfdd7e8a8c35f86b23260597053f0e1a10.jpg",
+      "https://i.ytimg.com/vi/IJN0piNZhBE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/bKQAVYiI97g/mqdefault.jpg",
+      "https://i.ytimg.com/vi/IJN0piNZhBE/default.jpg",
+      "https://i.ytimg.com/vi/bKQAVYiI97g/default.jpg"
+    ],
+    "publishDate": "2025-07-26T00:00:00Z",
+    "acceptedTitles": [
+      "超深淵帯",
+      "Hadal Abyss Zone",
+      "Choushin'entai",
+      "Chou Shin'entai"
+    ],
+    "audioClip": "https://audio.sodapines.dev/817198.mp3",
+    "producerNames": [
+      "inabakumori"
+    ],
+    "singerNames": [
+      "Kaai Yuki"
+    ],
+    "displayArtist": "inabakumori feat. Kaai Yuki",
+    "suggestionArtistString": "inabakumori feat. Kaai Yuki",
+    "artistSearchNames": [
+      "inabakumori",
+      "inabakumori feat. Kaai Yuki",
+      "Kaai Yuki"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-07",
+    "vocadbId": 781035,
+    "title": "LOVELY♥CAVITY",
+    "artist": "SAWTOWNE",
+    "artistString": "SAWTOWNE feat. Hatsune Miku",
+    "vocadbName": "LOVELY♥CAVITY",
+    "vocadbUrl": "https://vocadb.net/S/781035",
+    "coverArt": "https://i.ytimg.com/vi/MLdpBDgB9Tw/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/MLdpBDgB9Tw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/_XedKExTvWQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/MLdpBDgB9Tw/sddefault.jpg",
+      "https://i.ytimg.com/vi/_XedKExTvWQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/MLdpBDgB9Tw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/_XedKExTvWQ/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a3509672725_5.jpg",
+      "https://i.ytimg.com/vi/MLdpBDgB9Tw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/_XedKExTvWQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/MLdpBDgB9Tw/default.jpg",
+      "https://i.ytimg.com/vi/_XedKExTvWQ/default.jpg"
+    ],
+    "publishDate": "2025-04-26T00:00:00Z",
+    "acceptedTitles": [
+      "LOVELY♥CAVITY"
+    ],
+    "audioClip": "https://audio.sodapines.dev/781035.mp3",
+    "producerNames": [
+      "SAWTOWNE"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "SAWTOWNE feat. Hatsune Miku",
+    "suggestionArtistString": "SAWTOWNE feat. Hatsune Miku",
+    "artistSearchNames": [
+      "SAWTOWNE",
+      "SAWTOWNE feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-08",
+    "vocadbId": 845259,
+    "title": "Harlequin Contraption",
+    "artist": "Vane Lily",
+    "artistString": "Vane Lily, YoppyVU feat. Kasane Teto SV",
+    "vocadbName": "Harlequin Contraption",
+    "vocadbUrl": "https://vocadb.net/S/845259",
+    "coverArt": "https://i.ytimg.com/vi/XKqUsbYyLk4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/XKqUsbYyLk4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ggS9rX26xJs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/XKqUsbYyLk4/sddefault.jpg",
+      "https://i.ytimg.com/vi/ggS9rX26xJs/sddefault.jpg",
+      "https://i.ytimg.com/vi/XKqUsbYyLk4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ggS9rX26xJs/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a0070388614_5.jpg",
+      "https://i.ytimg.com/vi/XKqUsbYyLk4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ggS9rX26xJs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/XKqUsbYyLk4/default.jpg",
+      "https://i.ytimg.com/vi/ggS9rX26xJs/default.jpg"
+    ],
+    "publishDate": "2025-09-29T00:00:00Z",
+    "acceptedTitles": [
+      "Harlequin Contraption"
+    ],
+    "audioClip": "https://audio.sodapines.dev/845259.mp3",
+    "producerNames": [
+      "Vane Lily",
+      "YoppyVU"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "Vane Lily, YoppyVU feat. Kasane Teto",
+    "suggestionArtistString": "Vane Lily, YoppyVU feat. Kasane Teto",
+    "artistSearchNames": [
+      "Vane Lily",
+      "Vane Lily, YoppyVU feat. Kasane Teto SV",
+      "YoppyVU",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-09",
+    "vocadbId": 760683,
+    "title": "Idol Warrior",
+    "artist": "Mitchie M",
+    "artistString": "Mitchie M feat. Hatsune Miku",
+    "vocadbName": "Idol Warrior",
+    "vocadbUrl": "https://vocadb.net/S/760683",
+    "coverArt": "https://i.ytimg.com/vi/0EXWmuKg-RI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/0EXWmuKg-RI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/c5V0VYc89SA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/D5hHjcGZPXY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/0EXWmuKg-RI/sddefault.jpg",
+      "https://i.ytimg.com/vi/c5V0VYc89SA/sddefault.jpg",
+      "https://i.ytimg.com/vi/D5hHjcGZPXY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44750083/44750083.44924826",
+      "https://i.ytimg.com/vi/0EXWmuKg-RI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/c5V0VYc89SA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/D5hHjcGZPXY/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/2ec72313d7475d64634fb38ceaf78d6170022463.jpg",
+      "https://i.ytimg.com/vi/0EXWmuKg-RI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/c5V0VYc89SA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/D5hHjcGZPXY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/0EXWmuKg-RI/default.jpg",
+      "https://i.ytimg.com/vi/c5V0VYc89SA/default.jpg",
+      "https://i.ytimg.com/vi/D5hHjcGZPXY/default.jpg"
+    ],
+    "publishDate": "2025-03-08T00:00:00Z",
+    "acceptedTitles": [
+      "アイドル戦士",
+      "Idol Warrior",
+      "Idol Senshi"
+    ],
+    "audioClip": "https://audio.sodapines.dev/760683.mp3",
+    "producerNames": [
+      "Mitchie M"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Mitchie M feat. Hatsune Miku",
+    "suggestionArtistString": "Mitchie M feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Mitchie M",
+      "Mitchie M feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-10",
+    "vocadbId": 825800,
+    "title": "The Last Pharaoh",
+    "artist": "Joruzin",
+    "artistString": "Joruzin feat. Hatsune Miku",
+    "vocadbName": "The Last Pharaoh",
+    "vocadbUrl": "https://vocadb.net/S/825800",
+    "coverArt": "https://i.ytimg.com/vi/vJapRUa4_jE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/vJapRUa4_jE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/wmXSLcVSe0c/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/vJapRUa4_jE/sddefault.jpg",
+      "https://i.ytimg.com/vi/wmXSLcVSe0c/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45281875/45281875.39717798",
+      "https://i.ytimg.com/vi/vJapRUa4_jE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/wmXSLcVSe0c/hqdefault.jpg",
+      "https://i.ytimg.com/vi/vJapRUa4_jE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/wmXSLcVSe0c/mqdefault.jpg",
+      "https://i.ytimg.com/vi/vJapRUa4_jE/default.jpg",
+      "https://i.ytimg.com/vi/wmXSLcVSe0c/default.jpg"
+    ],
+    "publishDate": "2025-08-12T00:00:00Z",
+    "acceptedTitles": [
+      "ラストファラオ",
+      "The Last Pharaoh",
+      "Last Pharaoh",
+      "마지막 파라오"
+    ],
+    "audioClip": "https://audio.sodapines.dev/825800.mp3",
+    "producerNames": [
+      "Joruzin"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Joruzin feat. Hatsune Miku",
+    "suggestionArtistString": "Joruzin feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Joruzin",
+      "Joruzin feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-11",
+    "vocadbId": 869367,
+    "title": "Everything",
+    "artist": "iyowa",
+    "artistString": "iyowa feat. Kasukabe Tsumugi",
+    "vocadbName": "Everything",
+    "vocadbUrl": "https://vocadb.net/S/869367",
+    "coverArt": "https://i.ytimg.com/vi/ctAMLdnQUfI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ctAMLdnQUfI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/W5LokuZxi0k/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ctAMLdnQUfI/sddefault.jpg",
+      "https://i.ytimg.com/vi/W5LokuZxi0k/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45525780/45525780.2650113",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45705344/45705344.251124",
+      "https://i.ytimg.com/vi/ctAMLdnQUfI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/W5LokuZxi0k/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ctAMLdnQUfI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/W5LokuZxi0k/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ctAMLdnQUfI/default.jpg",
+      "https://i.ytimg.com/vi/W5LokuZxi0k/default.jpg"
+    ],
+    "publishDate": "2025-11-21T00:00:00Z",
+    "acceptedTitles": [
+      "散歩の邪魔",
+      "Everything",
+      "Sanpo no Jama",
+      "A Walk, Interrupted"
+    ],
+    "audioClip": "https://audio.sodapines.dev/869367.mp3",
+    "producerNames": [
+      "iyowa"
+    ],
+    "singerNames": [
+      "Kasukabe Tsumugi"
+    ],
+    "displayArtist": "iyowa feat. Kasukabe Tsumugi",
+    "suggestionArtistString": "iyowa feat. Kasukabe Tsumugi",
+    "artistSearchNames": [
+      "iyowa",
+      "iyowa feat. Kasukabe Tsumugi",
+      "Kasukabe Tsumugi"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-12",
+    "vocadbId": 278776,
+    "title": "p.h.",
+    "artist": "SEVENTHLINKS",
+    "artistString": "SEVENTHLINKS, Chissochan feat. v flower",
+    "vocadbName": "p.h.",
+    "vocadbUrl": "https://vocadb.net/S/278776",
+    "coverArt": "https://i.ytimg.com/vi/AKQWRnZ_Fc0/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/AKQWRnZ_Fc0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/5ZssoHwY8cc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/qjgSwdXIaP0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/AKQWRnZ_Fc0/sddefault.jpg",
+      "https://i.ytimg.com/vi/5ZssoHwY8cc/sddefault.jpg",
+      "https://i.ytimg.com/vi/qjgSwdXIaP0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36943926/36943926.74150090",
+      "https://i.ytimg.com/vi/AKQWRnZ_Fc0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/5ZssoHwY8cc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/qjgSwdXIaP0/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/2778221789febf0b6246421e548f298da9360314.jpg",
+      "https://i.ytimg.com/vi/AKQWRnZ_Fc0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/5ZssoHwY8cc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/qjgSwdXIaP0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/AKQWRnZ_Fc0/default.jpg",
+      "https://i.ytimg.com/vi/5ZssoHwY8cc/default.jpg",
+      "https://i.ytimg.com/vi/qjgSwdXIaP0/default.jpg"
+    ],
+    "publishDate": "2020-04-16T00:00:00Z",
+    "acceptedTitles": [
+      "p.h."
+    ],
+    "audioClip": "https://audio.sodapines.dev/278776.mp3",
+    "producerNames": [
+      "SEVENTHLINKS",
+      "Chissochan"
+    ],
+    "singerNames": [
+      "v flower"
+    ],
+    "displayArtist": "SEVENTHLINKS, Chissochan feat. v flower",
+    "suggestionArtistString": "SEVENTHLINKS, Chissochan feat. v flower",
+    "artistSearchNames": [
+      "SEVENTHLINKS",
+      "SEVENTHLINKS, Chissochan feat. v flower",
+      "Chissochan",
+      "v flower"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2030-01-13",
+    "vocadbId": 278642,
+    "title": "Maiden Dissection (TeddyLoid Alllies Remix)",
+    "artist": "TeddyLoid",
+    "artistString": "TeddyLoid, DECO*27, OTOIRO feat. Hatsune Miku",
+    "vocadbName": "Maiden Dissection (TeddyLoid Alllies Remix)",
+    "vocadbUrl": "https://vocadb.net/S/278642",
+    "coverArt": "https://i.ytimg.com/vi/EDjYDfRunUk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/EDjYDfRunUk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/qvL9L-_Z6wA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/RMyaP3xZE_E/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/MILQ7YpuQfc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/EDjYDfRunUk/sddefault.jpg",
+      "https://i.ytimg.com/vi/qvL9L-_Z6wA/sddefault.jpg",
+      "https://i.ytimg.com/vi/RMyaP3xZE_E/sddefault.jpg",
+      "https://i.ytimg.com/vi/MILQ7YpuQfc/sddefault.jpg",
+      "https://i.ytimg.com/vi/EDjYDfRunUk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/qvL9L-_Z6wA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/RMyaP3xZE_E/hqdefault.jpg",
+      "https://i.ytimg.com/vi/MILQ7YpuQfc/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/88af750d5bf2a936e86f29b199caef05dfbf2f9c.jpg",
+      "https://i.ytimg.com/vi/EDjYDfRunUk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/qvL9L-_Z6wA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/RMyaP3xZE_E/mqdefault.jpg",
+      "https://i.ytimg.com/vi/MILQ7YpuQfc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/EDjYDfRunUk/default.jpg",
+      "https://i.ytimg.com/vi/qvL9L-_Z6wA/default.jpg",
+      "https://i.ytimg.com/vi/RMyaP3xZE_E/default.jpg",
+      "https://i.ytimg.com/vi/MILQ7YpuQfc/default.jpg"
+    ],
+    "publishDate": "2020-04-16T00:00:00Z",
+    "acceptedTitles": [
+      "乙女解剖 (TeddyLoid Alllies Remix)",
+      "Maiden Dissection (TeddyLoid Alllies Remix)",
+      "Otome Kaibou (TeddyLoid Alllies Remix)",
+      "Maiden Autopsy (TeddyLoid Alllies Remix)",
+      "Otome Dissection (TeddyLoid Alllies Remix)"
+    ],
+    "audioClip": "https://audio.sodapines.dev/278642.mp3",
+    "producerNames": [
+      "TeddyLoid",
+      "DECO*27",
+      "OTOIRO"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "TeddyLoid, DECO*27, OTOIRO feat. Hatsune Miku",
+    "suggestionArtistString": "TeddyLoid, DECO*27, OTOIRO feat. Hatsune Miku",
+    "artistSearchNames": [
+      "TeddyLoid",
+      "TeddyLoid, DECO*27, OTOIRO feat. Hatsune Miku",
+      "DECO*27",
+      "OTOIRO",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-14",
+    "vocadbId": 282724,
+    "title": "Nirvana",
+    "artist": "john",
+    "artistString": "john feat. Hatsune Miku",
+    "vocadbName": "Nirvana",
+    "vocadbUrl": "https://vocadb.net/S/282724",
+    "coverArt": "https://i.ytimg.com/vi/TIokmMRp8OM/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/TIokmMRp8OM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Rj9e7QS0ckk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/eUlmEClXuGQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/I4xkaFSk32A/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/9oIZmKLKnWQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/TIokmMRp8OM/sddefault.jpg",
+      "https://i.ytimg.com/vi/Rj9e7QS0ckk/sddefault.jpg",
+      "https://i.ytimg.com/vi/eUlmEClXuGQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/I4xkaFSk32A/sddefault.jpg",
+      "https://i.ytimg.com/vi/9oIZmKLKnWQ/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36902997/36902997.91411899",
+      "https://i.ytimg.com/vi/TIokmMRp8OM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Rj9e7QS0ckk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/eUlmEClXuGQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/I4xkaFSk32A/hqdefault.jpg",
+      "https://i.ytimg.com/vi/9oIZmKLKnWQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/TIokmMRp8OM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Rj9e7QS0ckk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/eUlmEClXuGQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/I4xkaFSk32A/mqdefault.jpg",
+      "https://i.ytimg.com/vi/9oIZmKLKnWQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/TIokmMRp8OM/default.jpg",
+      "https://i.ytimg.com/vi/Rj9e7QS0ckk/default.jpg",
+      "https://i.ytimg.com/vi/eUlmEClXuGQ/default.jpg",
+      "https://i.ytimg.com/vi/I4xkaFSk32A/default.jpg",
+      "https://i.ytimg.com/vi/9oIZmKLKnWQ/default.jpg"
+    ],
+    "publishDate": "2020-05-22T00:00:00Z",
+    "acceptedTitles": [
+      "ヒガン",
+      "Nirvana",
+      "Higan"
+    ],
+    "audioClip": "https://audio.sodapines.dev/282724.mp3",
+    "producerNames": [
+      "john"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "john feat. Hatsune Miku",
+    "suggestionArtistString": "john feat. Hatsune Miku",
+    "artistSearchNames": [
+      "john",
+      "john feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-15",
+    "vocadbId": 275995,
+    "title": "Cynical Night Plan",
+    "artist": "Ayase",
+    "artistString": "Ayase feat. Hatsune Miku",
+    "vocadbName": "Cynical Night Plan",
+    "vocadbUrl": "https://vocadb.net/S/275995",
+    "coverArt": "https://i.ytimg.com/vi/zyRt-nBM3dY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/zyRt-nBM3dY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/zyRt-nBM3dY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36563884/36563884.46546349",
+      "https://i.ytimg.com/vi/zyRt-nBM3dY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/zyRt-nBM3dY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/zyRt-nBM3dY/default.jpg"
+    ],
+    "publishDate": "2020-03-24T00:00:00Z",
+    "acceptedTitles": [
+      "シニカルナイトプラン",
+      "Cynical Night Plan"
+    ],
+    "audioClip": "https://audio.sodapines.dev/275995.mp3",
+    "producerNames": [
+      "Ayase"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Ayase feat. Hatsune Miku",
+    "suggestionArtistString": "Ayase feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Ayase",
+      "Ayase feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-16",
+    "vocadbId": 271710,
+    "title": "ChichinPuiPui",
+    "artist": "Mashima Yuro",
+    "artistString": "Mashima Yuro feat. v flower",
+    "vocadbName": "ChichinPuiPui",
+    "vocadbUrl": "https://vocadb.net/S/271710",
+    "coverArt": "https://i.ytimg.com/vi/-75h7CRZYNs/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/-75h7CRZYNs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/6mrZUh2a3LA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/-75h7CRZYNs/sddefault.jpg",
+      "https://i.ytimg.com/vi/6mrZUh2a3LA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36314738/36314738.22765757",
+      "https://i.ytimg.com/vi/-75h7CRZYNs/hqdefault.jpg",
+      "https://i.ytimg.com/vi/6mrZUh2a3LA/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/4916a82d1268c816bc774945e110b63de78c2330.jpg",
+      "https://i.ytimg.com/vi/-75h7CRZYNs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/6mrZUh2a3LA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/-75h7CRZYNs/default.jpg",
+      "https://i.ytimg.com/vi/6mrZUh2a3LA/default.jpg"
+    ],
+    "publishDate": "2020-02-04T00:00:00Z",
+    "acceptedTitles": [
+      "チチンプイプイ",
+      "ChichinPuiPui",
+      "Chinchin-Pui-Pui",
+      "It'll be okay",
+      "Chichin-Pui-Pui"
+    ],
+    "audioClip": "https://audio.sodapines.dev/271710.mp3",
+    "producerNames": [
+      "Mashima Yuro"
+    ],
+    "singerNames": [
+      "v flower"
+    ],
+    "displayArtist": "Mashima Yuro feat. v flower",
+    "suggestionArtistString": "Mashima Yuro feat. v flower",
+    "artistSearchNames": [
+      "Mashima Yuro",
+      "Mashima Yuro feat. v flower",
+      "v flower"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-17",
+    "vocadbId": 268984,
+    "title": "Positive Parade",
+    "artist": "DECO*27",
+    "artistString": "DECO*27, Rockwell feat. Hatsune Miku",
+    "vocadbName": "Positive Parade",
+    "vocadbUrl": "https://vocadb.net/S/268984",
+    "coverArt": "https://i.ytimg.com/vi/zSfMHbogn00/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/zSfMHbogn00/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/io-04Au8JTg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/9mOrOoZlGiE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/VCICcYlJm3g/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/WdLoLimtuwA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/0dU_V9hKCTI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/YkQpDEOyl8A/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/zSfMHbogn00/sddefault.jpg",
+      "https://i.ytimg.com/vi/io-04Au8JTg/sddefault.jpg",
+      "https://i.ytimg.com/vi/9mOrOoZlGiE/sddefault.jpg",
+      "https://i.ytimg.com/vi/VCICcYlJm3g/sddefault.jpg",
+      "https://i.ytimg.com/vi/WdLoLimtuwA/sddefault.jpg",
+      "https://i.ytimg.com/vi/0dU_V9hKCTI/sddefault.jpg",
+      "https://i.ytimg.com/vi/YkQpDEOyl8A/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36235479/36235479.26898253",
+      "https://i.ytimg.com/vi/zSfMHbogn00/hqdefault.jpg",
+      "https://i.ytimg.com/vi/io-04Au8JTg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/9mOrOoZlGiE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/VCICcYlJm3g/hqdefault.jpg",
+      "https://i.ytimg.com/vi/WdLoLimtuwA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/0dU_V9hKCTI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/YkQpDEOyl8A/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/24416484aa13119bc0ecd6a513d7e551b0bb4dc9.jpg",
+      "https://i.ytimg.com/vi/zSfMHbogn00/mqdefault.jpg",
+      "https://i.ytimg.com/vi/io-04Au8JTg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/9mOrOoZlGiE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/VCICcYlJm3g/mqdefault.jpg",
+      "https://i.ytimg.com/vi/WdLoLimtuwA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/0dU_V9hKCTI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/YkQpDEOyl8A/mqdefault.jpg",
+      "https://i.ytimg.com/vi/zSfMHbogn00/default.jpg",
+      "https://i.ytimg.com/vi/io-04Au8JTg/default.jpg",
+      "https://i.ytimg.com/vi/9mOrOoZlGiE/default.jpg",
+      "https://i.ytimg.com/vi/VCICcYlJm3g/default.jpg",
+      "https://i.ytimg.com/vi/WdLoLimtuwA/default.jpg",
+      "https://i.ytimg.com/vi/0dU_V9hKCTI/default.jpg",
+      "https://i.ytimg.com/vi/YkQpDEOyl8A/default.jpg"
+    ],
+    "publishDate": "2020-01-17T00:00:00Z",
+    "acceptedTitles": [
+      "ポジティブ・パレード",
+      "Positive Parade",
+      "포지티브 퍼레이드"
+    ],
+    "audioClip": "https://audio.sodapines.dev/268984.mp3",
+    "producerNames": [
+      "DECO*27",
+      "Rockwell"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "DECO*27, Rockwell feat. Hatsune Miku",
+    "suggestionArtistString": "DECO*27, Rockwell feat. Hatsune Miku",
+    "artistSearchNames": [
+      "DECO*27",
+      "DECO*27, Rockwell feat. Hatsune Miku",
+      "Rockwell",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-18",
+    "vocadbId": 297185,
+    "title": "At God's Mercy 2020ver.",
+    "artist": "rerulili",
+    "artistString": "rerulili, EFFY feat. various",
+    "vocadbName": "At God's Mercy 2020ver.",
+    "vocadbUrl": "https://vocadb.net/S/297185",
+    "coverArt": "https://i.ytimg.com/vi/a-eHtP43yKU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/a-eHtP43yKU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/a-eHtP43yKU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/37625513/37625513.46626426",
+      "https://i.ytimg.com/vi/a-eHtP43yKU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/a-eHtP43yKU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/a-eHtP43yKU/default.jpg"
+    ],
+    "publishDate": "2020-10-05T00:00:00Z",
+    "acceptedTitles": [
+      "神のまにまに 2020ver.",
+      "At God's Mercy 2020ver.",
+      "Kami no Manimani 2020ver."
+    ],
+    "audioClip": "https://audio.sodapines.dev/297185.mp3",
+    "producerNames": [
+      "rerulili",
+      "EFFY"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "rerulili, EFFY feat. various",
+    "suggestionArtistString": "rerulili, EFFY feat. various",
+    "artistSearchNames": [
+      "rerulili",
+      "rerulili, EFFY feat. various",
+      "EFFY",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-19",
+    "vocadbId": 308876,
+    "title": "The Court Jester",
+    "artist": "thquib",
+    "artistString": "thquib feat. Fukase (English)",
+    "vocadbName": "The Court Jester",
+    "vocadbUrl": "https://vocadb.net/S/308876",
+    "coverArt": "https://i.ytimg.com/vi/Esu__LAsA68/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Esu__LAsA68/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/wdwAPupz6EY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Esu__LAsA68/sddefault.jpg",
+      "https://i.ytimg.com/vi/wdwAPupz6EY/sddefault.jpg",
+      "https://i.ytimg.com/vi/Esu__LAsA68/hqdefault.jpg",
+      "https://i.ytimg.com/vi/wdwAPupz6EY/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a0460999036_5.jpg",
+      "https://i2.hdslb.com/bfs/archive/16ea5de8e8d0bdb6342d617069ac557c5cf90ffd.jpg",
+      "https://i.ytimg.com/vi/Esu__LAsA68/mqdefault.jpg",
+      "https://i.ytimg.com/vi/wdwAPupz6EY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Esu__LAsA68/default.jpg",
+      "https://i.ytimg.com/vi/wdwAPupz6EY/default.jpg"
+    ],
+    "publishDate": "2020-12-30T00:00:00Z",
+    "acceptedTitles": [
+      "The Court Jester"
+    ],
+    "audioClip": "https://audio.sodapines.dev/308876.mp3",
+    "producerNames": [
+      "thquib"
+    ],
+    "singerNames": [
+      "Fukase"
+    ],
+    "displayArtist": "thquib feat. Fukase",
+    "suggestionArtistString": "thquib feat. Fukase",
+    "artistSearchNames": [
+      "thquib",
+      "thquib feat. Fukase (English)",
+      "Fukase"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-20",
+    "vocadbId": 290231,
+    "title": "WORLD",
+    "artist": "DECO*27",
+    "artistString": "Various artists",
+    "vocadbName": "WORLD",
+    "vocadbUrl": "https://vocadb.net/S/290231",
+    "coverArt": "https://i.ytimg.com/vi/9vyIPWBeRes/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/9vyIPWBeRes/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/DSvIm-jDQkc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/9vyIPWBeRes/sddefault.jpg",
+      "https://i.ytimg.com/vi/DSvIm-jDQkc/sddefault.jpg",
+      "https://i.ytimg.com/vi/9vyIPWBeRes/hqdefault.jpg",
+      "https://i.ytimg.com/vi/DSvIm-jDQkc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/9vyIPWBeRes/mqdefault.jpg",
+      "https://i.ytimg.com/vi/DSvIm-jDQkc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/9vyIPWBeRes/default.jpg",
+      "https://i.ytimg.com/vi/DSvIm-jDQkc/default.jpg"
+    ],
+    "publishDate": "2020-07-31T00:00:00Z",
+    "acceptedTitles": [
+      "セカイ",
+      "WORLD",
+      "SEKAI"
+    ],
+    "audioClip": "https://audio.sodapines.dev/290231.mp3",
+    "producerNames": [
+      "Various artists"
+    ],
+    "singerNames": [],
+    "displayArtist": "Various artists",
+    "suggestionArtistString": "Various artists",
+    "artistSearchNames": [
+      "DECO*27",
+      "Various artists"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ]
+  },
+  {
+    "date": "2030-01-21",
+    "vocadbId": 285860,
+    "title": "Yesman",
+    "artist": "NILFRUITS",
+    "artistString": "NILFRUITS, Koh Hashikura, Kuriyama Yuri feat. Hatsune Miku, v4 flower",
+    "vocadbName": "Yesman",
+    "vocadbUrl": "https://vocadb.net/S/285860",
+    "coverArt": "https://i.ytimg.com/vi/iZ6lpTC16_Q/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/iZ6lpTC16_Q/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/1kYfH_sbHcc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/iZ6lpTC16_Q/sddefault.jpg",
+      "https://i.ytimg.com/vi/1kYfH_sbHcc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/37083473/37083473.93204340",
+      "https://i.ytimg.com/vi/iZ6lpTC16_Q/hqdefault.jpg",
+      "https://i.ytimg.com/vi/1kYfH_sbHcc/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/a975394cd22a634a1d9bbc5b61809945cf21ebda.jpg",
+      "https://i.ytimg.com/vi/iZ6lpTC16_Q/mqdefault.jpg",
+      "https://i.ytimg.com/vi/1kYfH_sbHcc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/iZ6lpTC16_Q/default.jpg",
+      "https://i.ytimg.com/vi/1kYfH_sbHcc/default.jpg"
+    ],
+    "publishDate": "2020-06-24T00:00:00Z",
+    "acceptedTitles": [
+      "イヱスマン",
+      "Yesman"
+    ],
+    "audioClip": "https://audio.sodapines.dev/285860.mp3",
+    "producerNames": [
+      "NILFRUITS",
+      "Koh Hashikura",
+      "Kuriyama Yuri"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "flower"
+    ],
+    "displayArtist": "NILFRUITS, Koh Hashikura, Kuriyama Yuri feat. Hatsune Miku, flower",
+    "suggestionArtistString": "NILFRUITS, Koh Hashikura, Kuriyama Yuri feat. Hatsune Miku, flower",
+    "artistSearchNames": [
+      "NILFRUITS",
+      "NILFRUITS, Koh Hashikura, Kuriyama Yuri feat. Hatsune Miku, v4 flower",
+      "Koh Hashikura",
+      "Kuriyama Yuri",
+      "Hatsune Miku",
+      "flower",
+      "v4 flower"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-22",
+    "vocadbId": 300416,
+    "title": "Neo-Neon",
+    "artist": "DECO*27",
+    "artistString": "DECO*27, TeddyLoid, OTOIRO feat. Hatsune Miku",
+    "vocadbName": "Neo-Neon",
+    "vocadbUrl": "https://vocadb.net/S/300416",
+    "coverArt": "https://i.ytimg.com/vi/D7HH-3wkCJc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/D7HH-3wkCJc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/94AWkpmADWU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/LOB1C78rpYk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/1S5jDzoxdlM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/pPxIlf1WJUo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/fLzOyG4YGdA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/U1fu4nVwH7E/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/D7HH-3wkCJc/sddefault.jpg",
+      "https://i.ytimg.com/vi/94AWkpmADWU/sddefault.jpg",
+      "https://i.ytimg.com/vi/LOB1C78rpYk/sddefault.jpg",
+      "https://i.ytimg.com/vi/1S5jDzoxdlM/sddefault.jpg",
+      "https://i.ytimg.com/vi/pPxIlf1WJUo/sddefault.jpg",
+      "https://i.ytimg.com/vi/fLzOyG4YGdA/sddefault.jpg",
+      "https://i.ytimg.com/vi/U1fu4nVwH7E/sddefault.jpg",
+      "https://i.ytimg.com/vi/D7HH-3wkCJc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/94AWkpmADWU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/LOB1C78rpYk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/1S5jDzoxdlM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/pPxIlf1WJUo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/fLzOyG4YGdA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/U1fu4nVwH7E/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/f22525f90b2b03cba0cda8d4cc830415f0b75099.jpg",
+      "https://i.ytimg.com/vi/D7HH-3wkCJc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/94AWkpmADWU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/LOB1C78rpYk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/1S5jDzoxdlM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/pPxIlf1WJUo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/fLzOyG4YGdA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/U1fu4nVwH7E/mqdefault.jpg",
+      "https://i.ytimg.com/vi/D7HH-3wkCJc/default.jpg",
+      "https://i.ytimg.com/vi/94AWkpmADWU/default.jpg",
+      "https://i.ytimg.com/vi/LOB1C78rpYk/default.jpg",
+      "https://i.ytimg.com/vi/1S5jDzoxdlM/default.jpg",
+      "https://i.ytimg.com/vi/pPxIlf1WJUo/default.jpg",
+      "https://i.ytimg.com/vi/fLzOyG4YGdA/default.jpg",
+      "https://i.ytimg.com/vi/U1fu4nVwH7E/default.jpg"
+    ],
+    "publishDate": "2020-11-27T00:00:00Z",
+    "acceptedTitles": [
+      "ネオネオン",
+      "Neo-Neon",
+      "네오네온"
+    ],
+    "audioClip": "https://audio.sodapines.dev/300416.mp3",
+    "producerNames": [
+      "DECO*27",
+      "TeddyLoid",
+      "OTOIRO"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "DECO*27, TeddyLoid, OTOIRO feat. Hatsune Miku",
+    "suggestionArtistString": "DECO*27, TeddyLoid, OTOIRO feat. Hatsune Miku",
+    "artistSearchNames": [
+      "DECO*27",
+      "DECO*27, TeddyLoid, OTOIRO feat. Hatsune Miku",
+      "TeddyLoid",
+      "OTOIRO",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-23",
+    "vocadbId": 306267,
+    "title": "Blade",
+    "artist": "Hiiragi Magnetite",
+    "artistString": "Hiiragi Magnetite feat. Hatsune Miku",
+    "vocadbName": "Blade",
+    "vocadbUrl": "https://vocadb.net/S/306267",
+    "coverArt": "https://i.ytimg.com/vi/yVi3mhLr0uU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/yVi3mhLr0uU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Dvo8oZaA4Qo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/yVi3mhLr0uU/sddefault.jpg",
+      "https://i.ytimg.com/vi/Dvo8oZaA4Qo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/37946837/37946837.77006264",
+      "https://i.ytimg.com/vi/yVi3mhLr0uU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Dvo8oZaA4Qo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/yVi3mhLr0uU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Dvo8oZaA4Qo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/yVi3mhLr0uU/default.jpg",
+      "https://i.ytimg.com/vi/Dvo8oZaA4Qo/default.jpg"
+    ],
+    "publishDate": "2020-12-11T00:00:00Z",
+    "acceptedTitles": [
+      "終焉逃避行",
+      "Blade",
+      "Shuuen Touhikou",
+      "Escape to the End",
+      "Flight from Demise",
+      "종언도피행",
+      "Syuuen Tohikou"
+    ],
+    "audioClip": "https://audio.sodapines.dev/306267.mp3",
+    "producerNames": [
+      "Hiiragi Magnetite"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Hiiragi Magnetite feat. Hatsune Miku",
+    "suggestionArtistString": "Hiiragi Magnetite feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Hiiragi Magnetite",
+      "Hiiragi Magnetite feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-24",
+    "vocadbId": 300353,
+    "title": "Undead Alice",
+    "artist": "DECO*27",
+    "artistString": "DECO*27, Rockwell feat. Hatsune Miku",
+    "vocadbName": "Undead Alice",
+    "vocadbUrl": "https://vocadb.net/S/300353",
+    "coverArt": "https://i.ytimg.com/vi/3CsQyaZOHhI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/3CsQyaZOHhI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/aRMNsvyBepw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/MKrOp1cDXoE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/67AykDSlEII/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/LMqVWGybCtk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/e2-Z3ldzLhg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/3CsQyaZOHhI/sddefault.jpg",
+      "https://i.ytimg.com/vi/aRMNsvyBepw/sddefault.jpg",
+      "https://i.ytimg.com/vi/MKrOp1cDXoE/sddefault.jpg",
+      "https://i.ytimg.com/vi/67AykDSlEII/sddefault.jpg",
+      "https://i.ytimg.com/vi/LMqVWGybCtk/sddefault.jpg",
+      "https://i.ytimg.com/vi/e2-Z3ldzLhg/sddefault.jpg",
+      "https://i.ytimg.com/vi/3CsQyaZOHhI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/aRMNsvyBepw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/MKrOp1cDXoE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/67AykDSlEII/hqdefault.jpg",
+      "https://i.ytimg.com/vi/LMqVWGybCtk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/e2-Z3ldzLhg/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/f134a11c662d5eefdf96f9c28eb99e3eb1177d6f.jpg",
+      "https://i.ytimg.com/vi/3CsQyaZOHhI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/aRMNsvyBepw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/MKrOp1cDXoE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/67AykDSlEII/mqdefault.jpg",
+      "https://i.ytimg.com/vi/LMqVWGybCtk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/e2-Z3ldzLhg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/3CsQyaZOHhI/default.jpg",
+      "https://i.ytimg.com/vi/aRMNsvyBepw/default.jpg",
+      "https://i.ytimg.com/vi/MKrOp1cDXoE/default.jpg",
+      "https://i.ytimg.com/vi/67AykDSlEII/default.jpg",
+      "https://i.ytimg.com/vi/LMqVWGybCtk/default.jpg",
+      "https://i.ytimg.com/vi/e2-Z3ldzLhg/default.jpg"
+    ],
+    "publishDate": "2020-10-30T00:00:00Z",
+    "acceptedTitles": [
+      "アンデッドアリス",
+      "Undead Alice",
+      "언데드 앨리스"
+    ],
+    "audioClip": "https://audio.sodapines.dev/300353.mp3",
+    "producerNames": [
+      "DECO*27",
+      "Rockwell"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "DECO*27, Rockwell feat. Hatsune Miku",
+    "suggestionArtistString": "DECO*27, Rockwell feat. Hatsune Miku",
+    "artistSearchNames": [
+      "DECO*27",
+      "DECO*27, Rockwell feat. Hatsune Miku",
+      "Rockwell",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-25",
+    "vocadbId": 270310,
+    "title": "Buy Buy Buy",
+    "artist": "Mitchie M",
+    "artistString": "Mitchie M feat. Hatsune Miku",
+    "vocadbName": "Buy Buy Buy",
+    "vocadbUrl": "https://vocadb.net/S/270310",
+    "coverArt": "https://i.ytimg.com/vi/uaUp71oQO9I/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/uaUp71oQO9I/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/hLwNInNx5cs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/68RwPBBBQDI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/uaUp71oQO9I/sddefault.jpg",
+      "https://i.ytimg.com/vi/hLwNInNx5cs/sddefault.jpg",
+      "https://i.ytimg.com/vi/68RwPBBBQDI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36284596/36284596.5963636",
+      "https://i.ytimg.com/vi/uaUp71oQO9I/hqdefault.jpg",
+      "https://i.ytimg.com/vi/hLwNInNx5cs/hqdefault.jpg",
+      "https://i.ytimg.com/vi/68RwPBBBQDI/hqdefault.jpg",
+      "https://i1.sndcdn.com/artworks-000674403817-rjruql-large.jpg",
+      "https://i1.hdslb.com/bfs/archive/f0403bbd1ff3bad1df79aaa159d9e1cfb52c92de.jpg",
+      "https://i.ytimg.com/vi/uaUp71oQO9I/mqdefault.jpg",
+      "https://i.ytimg.com/vi/hLwNInNx5cs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/68RwPBBBQDI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/uaUp71oQO9I/default.jpg",
+      "https://i.ytimg.com/vi/hLwNInNx5cs/default.jpg",
+      "https://i.ytimg.com/vi/68RwPBBBQDI/default.jpg"
+    ],
+    "publishDate": "2020-01-24T00:00:00Z",
+    "acceptedTitles": [
+      "买买买",
+      "Buy Buy Buy",
+      "Mai Mai Mai",
+      "マイマイマイ"
+    ],
+    "audioClip": "https://audio.sodapines.dev/270310.mp3",
+    "producerNames": [
+      "Mitchie M"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Mitchie M feat. Hatsune Miku",
+    "suggestionArtistString": "Mitchie M feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Mitchie M",
+      "Mitchie M feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-26",
+    "vocadbId": 286244,
+    "title": "There’s No Sunrise or Sunset",
+    "artist": "Atoi",
+    "artistString": "Atoi feat. Utane Uta",
+    "vocadbName": "There’s No Sunrise or Sunset",
+    "vocadbUrl": "https://vocadb.net/S/286244",
+    "coverArt": "https://i.ytimg.com/vi/ezME0Wy0OAE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ezME0Wy0OAE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ezME0Wy0OAE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36758057/36758057.66726695",
+      "https://i.ytimg.com/vi/ezME0Wy0OAE/hqdefault.jpg",
+      "https://i1.sndcdn.com/artworks-s6dBlzlyYmbiAlLt-HjTEUQ-large.jpg",
+      "https://i.ytimg.com/vi/ezME0Wy0OAE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ezME0Wy0OAE/default.jpg"
+    ],
+    "publishDate": "2020-04-28T00:00:00Z",
+    "acceptedTitles": [
+      "あさやけもゆうやけもないんだ",
+      "There’s No Sunrise or Sunset",
+      "Asayake mo Yuuyake mo Nai n da"
+    ],
+    "audioClip": "https://audio.sodapines.dev/286244.mp3",
+    "producerNames": [
+      "Atoi"
+    ],
+    "singerNames": [
+      "Utane Uta"
+    ],
+    "displayArtist": "Atoi feat. Utane Uta",
+    "suggestionArtistString": "Atoi feat. Utane Uta",
+    "artistSearchNames": [
+      "Atoi",
+      "Atoi feat. Utane Uta",
+      "Utane Uta"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-27",
+    "vocadbId": 306058,
+    "title": "TAMAYA",
+    "artist": "Chinozo",
+    "artistString": "Chinozo feat. v flower",
+    "vocadbName": "TAMAYA",
+    "vocadbUrl": "https://vocadb.net/S/306058",
+    "coverArt": "https://i.ytimg.com/vi/H_WXMJ6dUGY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/H_WXMJ6dUGY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/JC2Ck-zf6E4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/H_WXMJ6dUGY/sddefault.jpg",
+      "https://i.ytimg.com/vi/JC2Ck-zf6E4/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/37939658/37939658.61843100",
+      "https://i.ytimg.com/vi/H_WXMJ6dUGY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/JC2Ck-zf6E4/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/3f1d2776ce3085968b5ff9f338607752d3e5f555.jpg",
+      "https://i.ytimg.com/vi/H_WXMJ6dUGY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/JC2Ck-zf6E4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/H_WXMJ6dUGY/default.jpg",
+      "https://i.ytimg.com/vi/JC2Ck-zf6E4/default.jpg"
+    ],
+    "publishDate": "2020-12-11T00:00:00Z",
+    "acceptedTitles": [
+      "TAMAYA",
+      "たまや "
+    ],
+    "audioClip": "https://audio.sodapines.dev/306058.mp3",
+    "producerNames": [
+      "Chinozo"
+    ],
+    "singerNames": [
+      "v flower"
+    ],
+    "displayArtist": "Chinozo feat. v flower",
+    "suggestionArtistString": "Chinozo feat. v flower",
+    "artistSearchNames": [
+      "Chinozo",
+      "Chinozo feat. v flower",
+      "v flower"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-28",
+    "vocadbId": 273392,
+    "title": "hand",
+    "artist": "Avogado 6",
+    "artistString": "Avogado 6 feat. Asane Ema",
+    "vocadbName": "hand",
+    "vocadbUrl": "https://vocadb.net/S/273392",
+    "coverArt": "https://i.ytimg.com/vi/xJ5yYYGGlls/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/xJ5yYYGGlls/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/xJ5yYYGGlls/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36418271/36418271.90222963",
+      "https://i.ytimg.com/vi/xJ5yYYGGlls/hqdefault.jpg",
+      "https://i.ytimg.com/vi/xJ5yYYGGlls/mqdefault.jpg",
+      "https://i.ytimg.com/vi/xJ5yYYGGlls/default.jpg"
+    ],
+    "publishDate": "2020-02-25T00:00:00Z",
+    "acceptedTitles": [
+      "hand"
+    ],
+    "audioClip": "https://audio.sodapines.dev/273392.mp3",
+    "producerNames": [
+      "Avogado 6"
+    ],
+    "singerNames": [
+      "Asane Ema"
+    ],
+    "displayArtist": "Avogado 6 feat. Asane Ema",
+    "suggestionArtistString": "Avogado 6 feat. Asane Ema",
+    "artistSearchNames": [
+      "Avogado 6",
+      "Avogado 6 feat. Asane Ema",
+      "Asane Ema"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-29",
+    "vocadbId": 296388,
+    "title": "Goodbye Jackpot",
+    "artist": "iyowa",
+    "artistString": "iyowa feat. v flower, Hatsune Miku",
+    "vocadbName": "Goodbye Jackpot",
+    "vocadbUrl": "https://vocadb.net/S/296388",
+    "coverArt": "https://i.ytimg.com/vi/xym6yLUncNY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/xym6yLUncNY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/XMCrhSXf8cQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/xym6yLUncNY/sddefault.jpg",
+      "https://i.ytimg.com/vi/XMCrhSXf8cQ/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/37583954/37583954.28215718",
+      "https://i.ytimg.com/vi/xym6yLUncNY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/XMCrhSXf8cQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/xym6yLUncNY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/XMCrhSXf8cQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/xym6yLUncNY/default.jpg",
+      "https://i.ytimg.com/vi/XMCrhSXf8cQ/default.jpg"
+    ],
+    "publishDate": "2020-09-27T00:00:00Z",
+    "acceptedTitles": [
+      "さよならジャックポット",
+      "Goodbye Jackpot",
+      "Sayonara Jackpot",
+      "안녕 잭팟"
+    ],
+    "audioClip": "https://audio.sodapines.dev/296388.mp3",
+    "producerNames": [
+      "iyowa"
+    ],
+    "singerNames": [
+      "v flower",
+      "Hatsune Miku"
+    ],
+    "displayArtist": "iyowa feat. v flower, Hatsune Miku",
+    "suggestionArtistString": "iyowa feat. v flower, Hatsune Miku",
+    "artistSearchNames": [
+      "iyowa",
+      "iyowa feat. v flower, Hatsune Miku",
+      "v flower",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-30",
+    "vocadbId": 279200,
+    "title": "Piercing the Clear Sky",
+    "artist": "Kasamura Tota",
+    "artistString": "Kasamura Tota feat. Mew",
+    "vocadbName": "Piercing the Clear Sky",
+    "vocadbUrl": "https://vocadb.net/S/279200",
+    "coverArt": "https://i.ytimg.com/vi/IkByPGNDLZU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/IkByPGNDLZU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/SZapASS4rSA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/IkByPGNDLZU/sddefault.jpg",
+      "https://i.ytimg.com/vi/SZapASS4rSA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36713449/36713449.42538894",
+      "https://i.ytimg.com/vi/IkByPGNDLZU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/SZapASS4rSA/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/94756fb32979fdf607d2770c5b3e249bde314720.jpg",
+      "https://i.ytimg.com/vi/IkByPGNDLZU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/SZapASS4rSA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/IkByPGNDLZU/default.jpg",
+      "https://i.ytimg.com/vi/SZapASS4rSA/default.jpg"
+    ],
+    "publishDate": "2020-04-20T00:00:00Z",
+    "acceptedTitles": [
+      "晴天を穿つ",
+      "Piercing the Clear Sky",
+      "Seiten o Ugatsu",
+      "Pierce the Clear Blue Sky",
+      "맑은 하늘을 뚫다"
+    ],
+    "audioClip": "https://audio.sodapines.dev/279200.mp3",
+    "producerNames": [
+      "Kasamura Tota"
+    ],
+    "singerNames": [
+      "Mew"
+    ],
+    "displayArtist": "Kasamura Tota feat. Mew",
+    "suggestionArtistString": "Kasamura Tota feat. Mew",
+    "artistSearchNames": [
+      "Kasamura Tota",
+      "Kasamura Tota feat. Mew",
+      "Mew"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-01-31",
+    "vocadbId": 329177,
+    "title": "You Are a Hero",
+    "artist": "citrus",
+    "artistString": "citrus feat. Tsumitsugu Nae",
+    "vocadbName": "You Are a Hero",
+    "vocadbUrl": "https://vocadb.net/S/329177",
+    "coverArt": "https://i.ytimg.com/vi/W9pYRs-6XOE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/W9pYRs-6XOE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/W9pYRs-6XOE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36797977/36797977.81355924",
+      "https://i.ytimg.com/vi/W9pYRs-6XOE/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/40c690457fbb5683ff67ff322b1708a53e7e9e30.jpg",
+      "https://i.ytimg.com/vi/W9pYRs-6XOE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/W9pYRs-6XOE/default.jpg"
+    ],
+    "publishDate": "2020-05-10T00:00:00Z",
+    "acceptedTitles": [
+      "あなたはヒーロー",
+      "You Are a Hero",
+      "Anata wa Hero"
+    ],
+    "audioClip": "https://audio.sodapines.dev/329177.mp3",
+    "producerNames": [
+      "citrus"
+    ],
+    "singerNames": [
+      "Tsumitsugu Nae"
+    ],
+    "displayArtist": "citrus feat. Tsumitsugu Nae",
+    "suggestionArtistString": "citrus feat. Tsumitsugu Nae",
+    "artistSearchNames": [
+      "citrus",
+      "citrus feat. Tsumitsugu Nae",
+      "Tsumitsugu Nae"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-01",
+    "vocadbId": 203365,
+    "title": "Just Kidding",
+    "artist": "citrus",
+    "artistString": "citrus feat. Sekka Yufu",
+    "vocadbName": "Just Kidding",
+    "vocadbUrl": "https://vocadb.net/S/203365",
+    "coverArt": "https://i.ytimg.com/vi/IlWfON5heP4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/IlWfON5heP4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/IlWfON5heP4/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/29614814/29614814",
+      "https://i.ytimg.com/vi/IlWfON5heP4/hqdefault.jpg",
+      "https://res.piapro.jp/r/images/card/250/default.png",
+      "https://i.ytimg.com/vi/IlWfON5heP4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/IlWfON5heP4/default.jpg"
+    ],
+    "publishDate": "2016-09-09T00:00:00Z",
+    "acceptedTitles": [
+      "なんてね",
+      "Just Kidding",
+      "Nante ne"
+    ],
+    "audioClip": "https://audio.sodapines.dev/203365.mp3",
+    "producerNames": [
+      "citrus"
+    ],
+    "singerNames": [
+      "Sekka Yufu"
+    ],
+    "displayArtist": "citrus feat. Sekka Yufu",
+    "suggestionArtistString": "citrus feat. Sekka Yufu",
+    "artistSearchNames": [
+      "citrus",
+      "citrus feat. Sekka Yufu",
+      "Sekka Yufu"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-02",
+    "vocadbId": 115474,
+    "title": "The disassembly and reconstruction of the body, or otherwise regarding the toricity of myth",
+    "artist": "Kitani Tatsuya",
+    "artistString": "Kitani Tatsuya feat. Sekka Yufu",
+    "vocadbName": "The disassembly and reconstruction of the body, or otherwise regarding the toricity of myth",
+    "vocadbUrl": "https://vocadb.net/S/115474",
+    "coverArt": "https://i.ytimg.com/vi/LAfx6iJjAAc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/LAfx6iJjAAc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/LIi7IxYIkmY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/LAfx6iJjAAc/sddefault.jpg",
+      "https://i.ytimg.com/vi/LIi7IxYIkmY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/28265600/28265600",
+      "https://i.ytimg.com/vi/LAfx6iJjAAc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/LIi7IxYIkmY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/LAfx6iJjAAc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/LIi7IxYIkmY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/LAfx6iJjAAc/default.jpg",
+      "https://i.ytimg.com/vi/LIi7IxYIkmY/default.jpg"
+    ],
+    "publishDate": "2016-02-22T00:00:00Z",
+    "acceptedTitles": [
+      "身体の分解と再構築、または神話の円環性について",
+      "The disassembly and reconstruction of the body, or otherwise regarding the toricity of myth",
+      "Karada no Bunkai to Saikouchiku, Mata wa Shinwa no Enkansei ni Tsuite"
+    ],
+    "audioClip": "https://audio.sodapines.dev/115474.mp3",
+    "producerNames": [
+      "Kitani Tatsuya"
+    ],
+    "singerNames": [
+      "Sekka Yufu"
+    ],
+    "displayArtist": "Kitani Tatsuya feat. Sekka Yufu",
+    "suggestionArtistString": "Kitani Tatsuya feat. Sekka Yufu",
+    "artistSearchNames": [
+      "Kitani Tatsuya",
+      "Kitani Tatsuya feat. Sekka Yufu",
+      "Sekka Yufu"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-02-03",
+    "vocadbId": 454951,
+    "title": "Bouquet",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. KAFU",
+    "vocadbName": "Bouquet",
+    "vocadbUrl": "https://vocadb.net/S/454951",
+    "coverArt": "https://i.ytimg.com/vi/7xht3kQO_TM/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/7xht3kQO_TM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/p_Th2L6TxR4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/WXol0pbH4oM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/aN2FAldIJX4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/AyzliKdy8rg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/7xht3kQO_TM/sddefault.jpg",
+      "https://i.ytimg.com/vi/p_Th2L6TxR4/sddefault.jpg",
+      "https://i.ytimg.com/vi/WXol0pbH4oM/sddefault.jpg",
+      "https://i.ytimg.com/vi/aN2FAldIJX4/sddefault.jpg",
+      "https://i.ytimg.com/vi/AyzliKdy8rg/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/41383081/41383081.19577756",
+      "https://i.ytimg.com/vi/7xht3kQO_TM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/p_Th2L6TxR4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/WXol0pbH4oM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/aN2FAldIJX4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/AyzliKdy8rg/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/5c7b522bfd6e11b8bf04f8ba8cd7c48265047f82.jpg",
+      "https://i0.hdslb.com/bfs/archive/25bc7b2bbdfdf89b7d01ccfb7fc065e91223171a.jpg",
+      "https://i.ytimg.com/vi/7xht3kQO_TM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/p_Th2L6TxR4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/WXol0pbH4oM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/aN2FAldIJX4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/AyzliKdy8rg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/7xht3kQO_TM/default.jpg",
+      "https://i.ytimg.com/vi/p_Th2L6TxR4/default.jpg",
+      "https://i.ytimg.com/vi/WXol0pbH4oM/default.jpg",
+      "https://i.ytimg.com/vi/aN2FAldIJX4/default.jpg",
+      "https://i.ytimg.com/vi/AyzliKdy8rg/default.jpg"
+    ],
+    "publishDate": "2022-11-19T00:00:00Z",
+    "acceptedTitles": [
+      "ハナタバ",
+      "Bouquet",
+      "Hanataba",
+      "꽃다발"
+    ],
+    "audioClip": "https://audio.sodapines.dev/454951.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "MIMI feat. KAFU",
+    "suggestionArtistString": "MIMI feat. KAFU",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2030-02-04",
+    "vocadbId": 379067,
+    "title": "Becoming Empty",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. KAFU, Hatsune Miku",
+    "vocadbName": "Becoming Empty",
+    "vocadbUrl": "https://vocadb.net/S/379067",
+    "coverArt": "https://i.ytimg.com/vi/f6TytcA47rI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/f6TytcA47rI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/vw5hLooQzOU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/baLFdrPt0SQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/AJ25ho-HjQ0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/f6TytcA47rI/sddefault.jpg",
+      "https://i.ytimg.com/vi/vw5hLooQzOU/sddefault.jpg",
+      "https://i.ytimg.com/vi/baLFdrPt0SQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/AJ25ho-HjQ0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/39889004/39889004.10137479",
+      "https://i.ytimg.com/vi/f6TytcA47rI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/vw5hLooQzOU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/baLFdrPt0SQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/AJ25ho-HjQ0/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/877cd2a05fb7d96ea10e053b4c4d18a0251ccb28.jpg",
+      "https://i0.hdslb.com/bfs/archive/a588795574d058e917983fb5f879afe190859d4f.jpg",
+      "https://i.ytimg.com/vi/f6TytcA47rI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/vw5hLooQzOU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/baLFdrPt0SQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/AJ25ho-HjQ0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/f6TytcA47rI/default.jpg",
+      "https://i.ytimg.com/vi/vw5hLooQzOU/default.jpg",
+      "https://i.ytimg.com/vi/baLFdrPt0SQ/default.jpg",
+      "https://i.ytimg.com/vi/AJ25ho-HjQ0/default.jpg"
+    ],
+    "publishDate": "2022-01-15T00:00:00Z",
+    "acceptedTitles": [
+      "くうになる",
+      "Becoming Empty",
+      "Kuu ni Naru",
+      "텅 비어가"
+    ],
+    "audioClip": "https://audio.sodapines.dev/379067.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "KAFU",
+      "Hatsune Miku"
+    ],
+    "displayArtist": "MIMI feat. KAFU, Hatsune Miku",
+    "suggestionArtistString": "MIMI feat. KAFU, Hatsune Miku",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. KAFU, Hatsune Miku",
+      "KAFU",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2030-02-05",
+    "vocadbId": 512697,
+    "title": "Propose",
+    "artist": "Naisho no Pierced Earrings",
+    "artistString": "Naisho no Pierced Earrings feat. KAFU",
+    "vocadbName": "Propose",
+    "vocadbUrl": "https://vocadb.net/S/512697",
+    "coverArt": "https://i.ytimg.com/vi/ST_AJmY_Tcc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ST_AJmY_Tcc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/VTWybT2CcnI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/k8OqPjgDMzY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ST_AJmY_Tcc/sddefault.jpg",
+      "https://i.ytimg.com/vi/VTWybT2CcnI/sddefault.jpg",
+      "https://i.ytimg.com/vi/k8OqPjgDMzY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/42461482/42461482.15717210",
+      "https://i.ytimg.com/vi/ST_AJmY_Tcc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/VTWybT2CcnI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/k8OqPjgDMzY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ST_AJmY_Tcc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/VTWybT2CcnI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/k8OqPjgDMzY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ST_AJmY_Tcc/default.jpg",
+      "https://i.ytimg.com/vi/VTWybT2CcnI/default.jpg",
+      "https://i.ytimg.com/vi/k8OqPjgDMzY/default.jpg"
+    ],
+    "publishDate": "2023-07-10T00:00:00Z",
+    "acceptedTitles": [
+      "プロポーズ",
+      "Propose",
+      "프러포즈"
+    ],
+    "audioClip": "https://audio.sodapines.dev/512697.mp3",
+    "producerNames": [
+      "Naisho no Pierced Earrings"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "Naisho no Pierced Earrings feat. KAFU",
+    "suggestionArtistString": "Naisho no Pierced Earrings feat. KAFU",
+    "artistSearchNames": [
+      "Naisho no Pierced Earrings",
+      "Naisho no Pierced Earrings feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2030-02-06",
+    "vocadbId": 425951,
+    "title": "horror terror",
+    "artist": "Meddmia",
+    "artistString": "Meddmia feat. Hatsune Miku V4X (Original), KAFU",
+    "vocadbName": "horror terror",
+    "vocadbUrl": "https://vocadb.net/S/425951",
+    "coverArt": "https://i.ytimg.com/vi/ft97RCDnCaY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ft97RCDnCaY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/llxn2w5P2DM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ft97RCDnCaY/sddefault.jpg",
+      "https://i.ytimg.com/vi/llxn2w5P2DM/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40833850/40833850.81494191",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40804514/40804514.70705362",
+      "https://i.ytimg.com/vi/ft97RCDnCaY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/llxn2w5P2DM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ft97RCDnCaY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/llxn2w5P2DM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ft97RCDnCaY/default.jpg",
+      "https://i.ytimg.com/vi/llxn2w5P2DM/default.jpg"
+    ],
+    "publishDate": "2022-07-28T00:00:00Z",
+    "acceptedTitles": [
+      "キッカイケッタイ",
+      "horror terror",
+      "kikkai kettai",
+      "weird and bizarre",
+      "기괴기묘"
+    ],
+    "audioClip": "https://audio.sodapines.dev/425951.mp3",
+    "producerNames": [
+      "Meddmia"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "KAFU"
+    ],
+    "displayArtist": "Meddmia feat. Hatsune Miku, KAFU",
+    "suggestionArtistString": "Meddmia feat. Hatsune Miku, KAFU",
+    "artistSearchNames": [
+      "Meddmia",
+      "Meddmia feat. Hatsune Miku V4X (Original), KAFU",
+      "Hatsune Miku",
+      "KAFU",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2030-02-07",
+    "vocadbId": 549505,
+    "title": "Hug",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. Hatsune Miku, KAFU",
+    "vocadbName": "Hug",
+    "vocadbUrl": "https://vocadb.net/S/549505",
+    "coverArt": "https://i.ytimg.com/vi/PAwZl3Up-hc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/PAwZl3Up-hc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/UXM04P8Gfm4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/PAwZl3Up-hc/sddefault.jpg",
+      "https://i.ytimg.com/vi/UXM04P8Gfm4/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/42994083/42994083.52234898",
+      "https://i.ytimg.com/vi/PAwZl3Up-hc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/UXM04P8Gfm4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/PAwZl3Up-hc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/UXM04P8Gfm4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/PAwZl3Up-hc/default.jpg",
+      "https://i.ytimg.com/vi/UXM04P8Gfm4/default.jpg"
+    ],
+    "publishDate": "2023-11-07T00:00:00Z",
+    "acceptedTitles": [
+      "はぐ",
+      "Hug",
+      "허그",
+      "拥抱"
+    ],
+    "audioClip": "https://audio.sodapines.dev/549505.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "KAFU"
+    ],
+    "displayArtist": "MIMI feat. Hatsune Miku, KAFU",
+    "suggestionArtistString": "MIMI feat. Hatsune Miku, KAFU",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. Hatsune Miku, KAFU",
+      "Hatsune Miku",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ]
+  },
+  {
+    "date": "2030-02-08",
+    "vocadbId": 460377,
+    "title": "It's Okay Now",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. KAFU",
+    "vocadbName": "It's Okay Now",
+    "vocadbUrl": "https://vocadb.net/S/460377",
+    "coverArt": "https://i.ytimg.com/vi/340OXvocRMM/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/340OXvocRMM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/3IMdJU9C2Oo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/340OXvocRMM/sddefault.jpg",
+      "https://i.ytimg.com/vi/3IMdJU9C2Oo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/41536168/41536168.55730737",
+      "https://i.ytimg.com/vi/340OXvocRMM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/3IMdJU9C2Oo/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/d03b7df4a73ccf5183a0c8f8d335924f6009232a.jpg",
+      "https://i.ytimg.com/vi/340OXvocRMM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/3IMdJU9C2Oo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/340OXvocRMM/default.jpg",
+      "https://i.ytimg.com/vi/3IMdJU9C2Oo/default.jpg"
+    ],
+    "publishDate": "2022-12-21T00:00:00Z",
+    "acceptedTitles": [
+      "今はいいんだよ。",
+      "It's Okay Now",
+      "Ima wa iin da yo."
+    ],
+    "audioClip": "https://audio.sodapines.dev/460377.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "MIMI feat. KAFU",
+    "suggestionArtistString": "MIMI feat. KAFU",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-09",
+    "vocadbId": 383427,
+    "title": "Until you hug yourself.",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. KAFU",
+    "vocadbName": "Until you hug yourself.",
+    "vocadbUrl": "https://vocadb.net/S/383427",
+    "coverArt": "https://i.ytimg.com/vi/yIo2ePCm4bY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/yIo2ePCm4bY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/2FBqS72WkfI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/OYkSSJnoYF8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/yIo2ePCm4bY/sddefault.jpg",
+      "https://i.ytimg.com/vi/2FBqS72WkfI/sddefault.jpg",
+      "https://i.ytimg.com/vi/OYkSSJnoYF8/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/39981945/39981945.70202166",
+      "https://i.ytimg.com/vi/yIo2ePCm4bY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/2FBqS72WkfI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/OYkSSJnoYF8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/yIo2ePCm4bY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/2FBqS72WkfI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/OYkSSJnoYF8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/yIo2ePCm4bY/default.jpg",
+      "https://i.ytimg.com/vi/2FBqS72WkfI/default.jpg",
+      "https://i.ytimg.com/vi/OYkSSJnoYF8/default.jpg"
+    ],
+    "publishDate": "2022-02-05T00:00:00Z",
+    "acceptedTitles": [
+      "だきしめるまで。",
+      "Until you hug yourself.",
+      "Dakishimeru Made.",
+      "Till I Can Hold You Tightly.",
+      "안아줄 때까지."
+    ],
+    "audioClip": "https://audio.sodapines.dev/383427.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "MIMI feat. KAFU",
+    "suggestionArtistString": "MIMI feat. KAFU",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-10",
+    "vocadbId": 505706,
+    "title": "Delusional Elegy",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. Hatsune Miku, KAFU",
+    "vocadbName": "Delusional Elegy",
+    "vocadbUrl": "https://vocadb.net/S/505706",
+    "coverArt": "https://i.ytimg.com/vi/ioW9iGDpQyw/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ioW9iGDpQyw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/pQcnrkXTlbY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/QGeYiN22eH0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ioW9iGDpQyw/sddefault.jpg",
+      "https://i.ytimg.com/vi/pQcnrkXTlbY/sddefault.jpg",
+      "https://i.ytimg.com/vi/QGeYiN22eH0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/42340907/42340907.1018488",
+      "https://i.ytimg.com/vi/ioW9iGDpQyw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/pQcnrkXTlbY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/QGeYiN22eH0/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/211e9f77bd2ff6d07c9fbf44dc68d9db313f4574.jpg",
+      "https://i.ytimg.com/vi/ioW9iGDpQyw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/pQcnrkXTlbY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/QGeYiN22eH0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ioW9iGDpQyw/default.jpg",
+      "https://i.ytimg.com/vi/pQcnrkXTlbY/default.jpg",
+      "https://i.ytimg.com/vi/QGeYiN22eH0/default.jpg"
+    ],
+    "publishDate": "2023-06-11T00:00:00Z",
+    "acceptedTitles": [
+      "妄想哀歌",
+      "Delusional Elegy",
+      "Mousou Aika",
+      "Delusion lament",
+      "망상애가"
+    ],
+    "audioClip": "https://audio.sodapines.dev/505706.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "KAFU"
+    ],
+    "displayArtist": "MIMI feat. Hatsune Miku, KAFU",
+    "suggestionArtistString": "MIMI feat. Hatsune Miku, KAFU",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. Hatsune Miku, KAFU",
+      "Hatsune Miku",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-11",
+    "vocadbId": 476720,
+    "title": "I Am, We Are",
+    "artist": "Guiano",
+    "artistString": "Guiano feat. KAFU",
+    "vocadbName": "I Am, We Are",
+    "vocadbUrl": "https://vocadb.net/S/476720",
+    "coverArt": "https://i.ytimg.com/vi/I9VfWCyCagQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/I9VfWCyCagQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/I9VfWCyCagQ/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/41824903/41824903.77673833",
+      "https://i.ytimg.com/vi/I9VfWCyCagQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/I9VfWCyCagQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/I9VfWCyCagQ/default.jpg"
+    ],
+    "publishDate": "2023-02-20T00:00:00Z",
+    "acceptedTitles": [
+      "私は、私達は",
+      "I Am, We Are",
+      "Watashi wa, Watashitachi wa",
+      "We are",
+      "나는, 우리는"
+    ],
+    "audioClip": "https://audio.sodapines.dev/476720.mp3",
+    "producerNames": [
+      "Guiano"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "Guiano feat. KAFU",
+    "suggestionArtistString": "Guiano feat. KAFU",
+    "artistSearchNames": [
+      "Guiano",
+      "Guiano feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ]
+  },
+  {
+    "date": "2030-02-12",
+    "vocadbId": 386483,
+    "title": "Smile as you want to smile",
+    "artist": "Mizuno Atsu",
+    "artistString": "Mizuno Atsu feat. KAFU",
+    "vocadbName": "Smile as you want to smile",
+    "vocadbUrl": "https://vocadb.net/S/386483",
+    "coverArt": "https://i.ytimg.com/vi/8eHDGWOFgm8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/8eHDGWOFgm8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/reIQYypdrrw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/8eHDGWOFgm8/sddefault.jpg",
+      "https://i.ytimg.com/vi/reIQYypdrrw/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40065071/40065071.20876469",
+      "https://i.ytimg.com/vi/8eHDGWOFgm8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/reIQYypdrrw/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/d4eb546cd9a2d00fbf63736967c6d8812c6b3fe9.jpg",
+      "https://i.ytimg.com/vi/8eHDGWOFgm8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/reIQYypdrrw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/8eHDGWOFgm8/default.jpg",
+      "https://i.ytimg.com/vi/reIQYypdrrw/default.jpg"
+    ],
+    "publishDate": "2022-02-19T00:00:00Z",
+    "acceptedTitles": [
+      "無理に笑わなくて良いよ",
+      "Smile as you want to smile",
+      "Muri ni Warawanakute Yoi yo"
+    ],
+    "audioClip": "https://audio.sodapines.dev/386483.mp3",
+    "producerNames": [
+      "Mizuno Atsu"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "Mizuno Atsu feat. KAFU",
+    "suggestionArtistString": "Mizuno Atsu feat. KAFU",
+    "artistSearchNames": [
+      "Mizuno Atsu",
+      "Mizuno Atsu feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-13",
+    "vocadbId": 373995,
+    "title": "Baba Yaga",
+    "artist": "NILFRUITS",
+    "artistString": "NILFRUITS feat. v4 flower, KAFU",
+    "vocadbName": "Baba Yaga",
+    "vocadbUrl": "https://vocadb.net/S/373995",
+    "coverArt": "https://i.ytimg.com/vi/aOelHbwkRD4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/aOelHbwkRD4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/_yBIvtSTanM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/aOelHbwkRD4/sddefault.jpg",
+      "https://i.ytimg.com/vi/_yBIvtSTanM/sddefault.jpg",
+      "https://i.ytimg.com/vi/aOelHbwkRD4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/_yBIvtSTanM/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/4899675d95a5eb6de769c7ec6369cf7da03db7b4.jpg",
+      "https://i.ytimg.com/vi/aOelHbwkRD4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/_yBIvtSTanM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/aOelHbwkRD4/default.jpg",
+      "https://i.ytimg.com/vi/_yBIvtSTanM/default.jpg"
+    ],
+    "publishDate": "2021-12-26T00:00:00Z",
+    "acceptedTitles": [
+      "バーバヤーガ",
+      "Baba Yaga"
+    ],
+    "audioClip": "https://audio.sodapines.dev/373995.mp3",
+    "producerNames": [
+      "NILFRUITS"
+    ],
+    "singerNames": [
+      "flower",
+      "KAFU"
+    ],
+    "displayArtist": "NILFRUITS feat. flower, KAFU",
+    "suggestionArtistString": "NILFRUITS feat. flower, KAFU",
+    "artistSearchNames": [
+      "NILFRUITS",
+      "NILFRUITS feat. v4 flower, KAFU",
+      "flower",
+      "KAFU",
+      "v4 flower"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-14",
+    "vocadbId": 346638,
+    "title": "On the Count of Three",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. KAFU",
+    "vocadbName": "On the Count of Three",
+    "vocadbUrl": "https://vocadb.net/S/346638",
+    "coverArt": "https://i.ytimg.com/vi/vLigCJOcHOE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/vLigCJOcHOE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/bVQHEMaDRO4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ZfDw1Fylxws/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/0SF9Wg9VIW0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/vLigCJOcHOE/sddefault.jpg",
+      "https://i.ytimg.com/vi/bVQHEMaDRO4/sddefault.jpg",
+      "https://i.ytimg.com/vi/ZfDw1Fylxws/sddefault.jpg",
+      "https://i.ytimg.com/vi/0SF9Wg9VIW0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/39151638/39151638.3567518",
+      "https://i.ytimg.com/vi/vLigCJOcHOE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/bVQHEMaDRO4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ZfDw1Fylxws/hqdefault.jpg",
+      "https://i.ytimg.com/vi/0SF9Wg9VIW0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/vLigCJOcHOE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/bVQHEMaDRO4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ZfDw1Fylxws/mqdefault.jpg",
+      "https://i.ytimg.com/vi/0SF9Wg9VIW0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/vLigCJOcHOE/default.jpg",
+      "https://i.ytimg.com/vi/bVQHEMaDRO4/default.jpg",
+      "https://i.ytimg.com/vi/ZfDw1Fylxws/default.jpg",
+      "https://i.ytimg.com/vi/0SF9Wg9VIW0/default.jpg"
+    ],
+    "publishDate": "2021-08-09T00:00:00Z",
+    "acceptedTitles": [
+      "いっせーのーで",
+      "On the Count of Three",
+      "Isseenoo de",
+      "Isseinode",
+      "하나 둘 셋에"
+    ],
+    "audioClip": "https://audio.sodapines.dev/346638.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "MIMI feat. KAFU",
+    "suggestionArtistString": "MIMI feat. KAFU",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-15",
+    "vocadbId": 665432,
+    "title": "my voic3 is s0 quiet...s0rry",
+    "artist": "cosMo@BousouP",
+    "artistString": "cosMo@BousouP feat. KAFU",
+    "vocadbName": "my voic3 is s0 quiet...s0rry",
+    "vocadbUrl": "https://vocadb.net/S/665432",
+    "coverArt": "https://i.ytimg.com/vi/6wUqdA4SuBk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/6wUqdA4SuBk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/s-KcSB5aRmo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/6wUqdA4SuBk/sddefault.jpg",
+      "https://i.ytimg.com/vi/s-KcSB5aRmo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44014186/44014186.34973990",
+      "https://i.ytimg.com/vi/6wUqdA4SuBk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/s-KcSB5aRmo/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/a4ae77170bf80992a1cf97152dd510145f5fef2d.jpg",
+      "https://i.ytimg.com/vi/6wUqdA4SuBk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/s-KcSB5aRmo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/6wUqdA4SuBk/default.jpg",
+      "https://i.ytimg.com/vi/s-KcSB5aRmo/default.jpg"
+    ],
+    "publishDate": "2024-08-24T00:00:00Z",
+    "acceptedTitles": [
+      "コぇちっちゃ＜てゴ×ンネ",
+      "my voic3 is s0 quiet...s0rry",
+      "Koe Chicchakute Gomen ne",
+      "コえちっちゃくてゴメンネ",
+      "my voice is so quiet...sorry",
+      "목소리가 작아서 미안해"
+    ],
+    "audioClip": "https://audio.sodapines.dev/665432.mp3",
+    "producerNames": [
+      "cosMo@BousouP"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "cosMo@BousouP feat. KAFU",
+    "suggestionArtistString": "cosMo@BousouP feat. KAFU",
+    "artistSearchNames": [
+      "cosMo@BousouP",
+      "cosMo@BousouP feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-16",
+    "vocadbId": 368929,
+    "title": "But You Know",
+    "artist": "Mizuno Atsu",
+    "artistString": "Mizuno Atsu feat. KAFU",
+    "vocadbName": "But You Know",
+    "vocadbUrl": "https://vocadb.net/S/368929",
+    "coverArt": "https://i.ytimg.com/vi/Yd8P4K7pQ6A/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Yd8P4K7pQ6A/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Yd8P4K7pQ6A/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/39705115/39705115.26118971",
+      "https://i.ytimg.com/vi/Yd8P4K7pQ6A/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/30eb251dd24e4fd266639256ad957a18441f20f9.jpg",
+      "https://i.ytimg.com/vi/Yd8P4K7pQ6A/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Yd8P4K7pQ6A/default.jpg"
+    ],
+    "publishDate": "2021-12-03T00:00:00Z",
+    "acceptedTitles": [
+      "でもね",
+      "But You Know",
+      "Demo ne"
+    ],
+    "audioClip": "https://audio.sodapines.dev/368929.mp3",
+    "producerNames": [
+      "Mizuno Atsu"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "Mizuno Atsu feat. KAFU",
+    "suggestionArtistString": "Mizuno Atsu feat. KAFU",
+    "artistSearchNames": [
+      "Mizuno Atsu",
+      "Mizuno Atsu feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-17",
+    "vocadbId": 347443,
+    "title": "I'm Scared to Believe",
+    "artist": "Mizuno Atsu",
+    "artistString": "Mizuno Atsu feat. KAFU",
+    "vocadbName": "I'm Scared to Believe",
+    "vocadbUrl": "https://vocadb.net/S/347443",
+    "coverArt": "https://i.ytimg.com/vi/_h4Rv2pthT8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/_h4Rv2pthT8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Jt1hkQvr0wk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/_h4Rv2pthT8/sddefault.jpg",
+      "https://i.ytimg.com/vi/Jt1hkQvr0wk/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/39186799/39186799.12663625",
+      "https://i.ytimg.com/vi/_h4Rv2pthT8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Jt1hkQvr0wk/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/e3293b1c488425b7d46d01cb8474de3fc0997dcf.jpg",
+      "https://i.ytimg.com/vi/_h4Rv2pthT8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Jt1hkQvr0wk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/_h4Rv2pthT8/default.jpg",
+      "https://i.ytimg.com/vi/Jt1hkQvr0wk/default.jpg"
+    ],
+    "publishDate": "2021-08-14T00:00:00Z",
+    "acceptedTitles": [
+      "信じることが怖い",
+      "I'm Scared to Believe",
+      "Shinjiru Koto ga Kowai",
+      "unbelieve",
+      "害怕相信"
+    ],
+    "audioClip": "https://audio.sodapines.dev/347443.mp3",
+    "producerNames": [
+      "Mizuno Atsu"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "Mizuno Atsu feat. KAFU",
+    "suggestionArtistString": "Mizuno Atsu feat. KAFU",
+    "artistSearchNames": [
+      "Mizuno Atsu",
+      "Mizuno Atsu feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-18",
+    "vocadbId": 467925,
+    "title": "Mother Days",
+    "artist": "Chinozo",
+    "artistString": "Chinozo feat. KAFU",
+    "vocadbName": "Mother Days",
+    "vocadbUrl": "https://vocadb.net/S/467925",
+    "coverArt": "https://i.ytimg.com/vi/kFcha2y7utY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/kFcha2y7utY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/7sZ_WQ4c8_M/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/kFcha2y7utY/sddefault.jpg",
+      "https://i.ytimg.com/vi/7sZ_WQ4c8_M/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/41640765/41640765.62043704",
+      "https://i.ytimg.com/vi/kFcha2y7utY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/7sZ_WQ4c8_M/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/89e2eb5bb872356fb235515b3c2c3389b834482f.jpg",
+      "https://i.ytimg.com/vi/kFcha2y7utY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/7sZ_WQ4c8_M/mqdefault.jpg",
+      "https://i.ytimg.com/vi/kFcha2y7utY/default.jpg",
+      "https://i.ytimg.com/vi/7sZ_WQ4c8_M/default.jpg"
+    ],
+    "publishDate": "2023-01-14T00:00:00Z",
+    "acceptedTitles": [
+      "マザーデイズ",
+      "Mother Days",
+      "母亲节"
+    ],
+    "audioClip": "https://audio.sodapines.dev/467925.mp3",
+    "producerNames": [
+      "Chinozo"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "Chinozo feat. KAFU",
+    "suggestionArtistString": "Chinozo feat. KAFU",
+    "artistSearchNames": [
+      "Chinozo",
+      "Chinozo feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-19",
+    "vocadbId": 444206,
+    "title": "To love",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. KAFU",
+    "vocadbName": "To love",
+    "vocadbUrl": "https://vocadb.net/S/444206",
+    "coverArt": "https://i.ytimg.com/vi/HyQK7IssB9M/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/HyQK7IssB9M/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/iCu8a10tVsA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/HyQK7IssB9M/sddefault.jpg",
+      "https://i.ytimg.com/vi/iCu8a10tVsA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/41182971/41182971.38456651",
+      "https://i.ytimg.com/vi/HyQK7IssB9M/hqdefault.jpg",
+      "https://i.ytimg.com/vi/iCu8a10tVsA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/HyQK7IssB9M/mqdefault.jpg",
+      "https://i.ytimg.com/vi/iCu8a10tVsA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/HyQK7IssB9M/default.jpg",
+      "https://i.ytimg.com/vi/iCu8a10tVsA/default.jpg"
+    ],
+    "publishDate": "2022-10-08T00:00:00Z",
+    "acceptedTitles": [
+      "愛するように",
+      "To love",
+      "Aisuru you ni"
+    ],
+    "audioClip": "https://audio.sodapines.dev/444206.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "MIMI feat. KAFU",
+    "suggestionArtistString": "MIMI feat. KAFU",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-20",
+    "vocadbId": 443396,
+    "title": "Angel Wings。",
+    "artist": "Runoa",
+    "artistString": "A4。 feat. KAFU, Gekiyaku",
+    "vocadbName": "Angel Wings。",
+    "vocadbUrl": "https://vocadb.net/S/443396",
+    "coverArt": "https://i.ytimg.com/vi/Td210slURro/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Td210slURro/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/1HBZRfa2K3Y/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/bnK6GeJ1YIg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/7PLMm4C9fPA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Td210slURro/sddefault.jpg",
+      "https://i.ytimg.com/vi/1HBZRfa2K3Y/sddefault.jpg",
+      "https://i.ytimg.com/vi/bnK6GeJ1YIg/sddefault.jpg",
+      "https://i.ytimg.com/vi/7PLMm4C9fPA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/41175261/41175261.74275408",
+      "https://i.ytimg.com/vi/Td210slURro/hqdefault.jpg",
+      "https://i.ytimg.com/vi/1HBZRfa2K3Y/hqdefault.jpg",
+      "https://i.ytimg.com/vi/bnK6GeJ1YIg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/7PLMm4C9fPA/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/4c784ebed7c53b86fb2358922990fa992fe943de.jpg",
+      "https://i.ytimg.com/vi/Td210slURro/mqdefault.jpg",
+      "https://i.ytimg.com/vi/1HBZRfa2K3Y/mqdefault.jpg",
+      "https://i.ytimg.com/vi/bnK6GeJ1YIg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/7PLMm4C9fPA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Td210slURro/default.jpg",
+      "https://i.ytimg.com/vi/1HBZRfa2K3Y/default.jpg",
+      "https://i.ytimg.com/vi/bnK6GeJ1YIg/default.jpg",
+      "https://i.ytimg.com/vi/7PLMm4C9fPA/default.jpg"
+    ],
+    "publishDate": "2022-10-07T00:00:00Z",
+    "acceptedTitles": [
+      "天使の翼。",
+      "Angel Wings。",
+      "Tenshi no Tsubasa。",
+      "天使之翼。",
+      "천사의 날개.",
+      "Angel Wings."
+    ],
+    "audioClip": "https://audio.sodapines.dev/443396.mp3",
+    "producerNames": [
+      "A4。"
+    ],
+    "singerNames": [
+      "KAFU",
+      "Gekiyaku"
+    ],
+    "displayArtist": "A4。 feat. KAFU, Gekiyaku",
+    "suggestionArtistString": "A4。 feat. KAFU, Gekiyaku",
+    "artistSearchNames": [
+      "Runoa",
+      "A4。 feat. KAFU, Gekiyaku",
+      "A4。",
+      "KAFU",
+      "Gekiyaku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views",
+      "Contest: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Song Contest Winners)"
+    ]
+  },
+  {
+    "date": "2030-02-21",
+    "vocadbId": 370313,
+    "title": "GURU",
+    "artist": "JIN",
+    "artistString": "JIN, Chinozo feat. KAFU",
+    "vocadbName": "GURU",
+    "vocadbUrl": "https://vocadb.net/S/370313",
+    "coverArt": "https://i.ytimg.com/vi/smYLMgfCD5o/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/smYLMgfCD5o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/2pXJ1_ilHoU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/smYLMgfCD5o/sddefault.jpg",
+      "https://i.ytimg.com/vi/2pXJ1_ilHoU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/39735145/39735145.91180379",
+      "https://i.ytimg.com/vi/smYLMgfCD5o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/2pXJ1_ilHoU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/smYLMgfCD5o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/2pXJ1_ilHoU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/smYLMgfCD5o/default.jpg",
+      "https://i.ytimg.com/vi/2pXJ1_ilHoU/default.jpg"
+    ],
+    "publishDate": "2021-12-10T00:00:00Z",
+    "acceptedTitles": [
+      "GURU"
+    ],
+    "audioClip": "https://audio.sodapines.dev/370313.mp3",
+    "producerNames": [
+      "JIN",
+      "Chinozo"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "JIN, Chinozo feat. KAFU",
+    "suggestionArtistString": "JIN, Chinozo feat. KAFU",
+    "artistSearchNames": [
+      "JIN",
+      "JIN, Chinozo feat. KAFU",
+      "Chinozo",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-22",
+    "vocadbId": 356305,
+    "title": "fragrant olive",
+    "artist": "Mizuno Atsu",
+    "artistString": "Mizuno Atsu feat. KAFU",
+    "vocadbName": "fragrant olive",
+    "vocadbUrl": "https://vocadb.net/S/356305",
+    "coverArt": "https://i.ytimg.com/vi/Apm3o6w81eY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Apm3o6w81eY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/PTG_HjNF7NY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Apm3o6w81eY/sddefault.jpg",
+      "https://i.ytimg.com/vi/PTG_HjNF7NY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/39387196/39387196.88317041",
+      "https://i.ytimg.com/vi/Apm3o6w81eY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/PTG_HjNF7NY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Apm3o6w81eY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/PTG_HjNF7NY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Apm3o6w81eY/default.jpg",
+      "https://i.ytimg.com/vi/PTG_HjNF7NY/default.jpg"
+    ],
+    "publishDate": "2021-09-25T00:00:00Z",
+    "acceptedTitles": [
+      "金木犀",
+      "fragrant olive",
+      "Kinmokusei"
+    ],
+    "audioClip": "https://audio.sodapines.dev/356305.mp3",
+    "producerNames": [
+      "Mizuno Atsu"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "Mizuno Atsu feat. KAFU",
+    "suggestionArtistString": "Mizuno Atsu feat. KAFU",
+    "artistSearchNames": [
+      "Mizuno Atsu",
+      "Mizuno Atsu feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-23",
+    "vocadbId": 529377,
+    "title": "I just wanted a name for the disease ",
+    "artist": "kyiku",
+    "artistString": "kyiku feat. KAFU, SEKAI, Kazehiki",
+    "vocadbName": "I just wanted a name for the disease ",
+    "vocadbUrl": "https://vocadb.net/S/529377",
+    "coverArt": "https://i.ytimg.com/vi/FSLxRRQdNs4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/FSLxRRQdNs4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/FSLxRRQdNs4/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/42761937/42761937.1981789",
+      "https://i.ytimg.com/vi/FSLxRRQdNs4/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/2d62f12c1f4af98961df42fee17070b708e204c1.jpg",
+      "https://i.ytimg.com/vi/FSLxRRQdNs4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/FSLxRRQdNs4/default.jpg"
+    ],
+    "publishDate": "2023-09-16T00:00:00Z",
+    "acceptedTitles": [
+      "ただ病名が欲しかった",
+      "I just wanted a name for the disease ",
+      "Tada Byoumei ga Hoshikatta"
+    ],
+    "audioClip": "https://audio.sodapines.dev/529377.mp3",
+    "producerNames": [
+      "kyiku"
+    ],
+    "singerNames": [
+      "KAFU",
+      "SEKAI",
+      "Kazehiki"
+    ],
+    "displayArtist": "kyiku feat. KAFU, SEKAI, Kazehiki",
+    "suggestionArtistString": "kyiku feat. KAFU, SEKAI, Kazehiki",
+    "artistSearchNames": [
+      "kyiku",
+      "kyiku feat. KAFU, SEKAI, Kazehiki",
+      "KAFU",
+      "SEKAI",
+      "Kazehiki"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-24",
+    "vocadbId": 335995,
+    "title": "KAFUKA",
+    "artist": "sasakure.UK",
+    "artistString": "sasakure.UK feat. KAFU",
+    "vocadbName": "KAFUKA",
+    "vocadbUrl": "https://vocadb.net/S/335995",
+    "coverArt": "https://i.ytimg.com/vi/fOKe8zhTBDM/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/fOKe8zhTBDM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/-bcavE41KK0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/O6SURjvFmzY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/fOKe8zhTBDM/sddefault.jpg",
+      "https://i.ytimg.com/vi/-bcavE41KK0/sddefault.jpg",
+      "https://i.ytimg.com/vi/O6SURjvFmzY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/38793955/38793955.48812137",
+      "https://i.ytimg.com/vi/fOKe8zhTBDM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/-bcavE41KK0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/O6SURjvFmzY/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/2bc8aaf66728b6fd90f5fde4dcb4d3ce0559e265.jpg",
+      "https://i.ytimg.com/vi/fOKe8zhTBDM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/-bcavE41KK0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/O6SURjvFmzY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/fOKe8zhTBDM/default.jpg",
+      "https://i.ytimg.com/vi/-bcavE41KK0/default.jpg",
+      "https://i.ytimg.com/vi/O6SURjvFmzY/default.jpg"
+    ],
+    "publishDate": "2021-05-26T00:00:00Z",
+    "acceptedTitles": [
+      "化孵化",
+      "KAFUKA"
+    ],
+    "audioClip": "https://audio.sodapines.dev/335995.mp3",
+    "producerNames": [
+      "sasakure.UK"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "sasakure.UK feat. KAFU",
+    "suggestionArtistString": "sasakure.UK feat. KAFU",
+    "artistSearchNames": [
+      "sasakure.UK",
+      "sasakure.UK feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-25",
+    "vocadbId": 419160,
+    "title": "Secret",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. KAFU",
+    "vocadbName": "Secret",
+    "vocadbUrl": "https://vocadb.net/S/419160",
+    "coverArt": "https://i.ytimg.com/vi/1gSMjPLRJik/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/1gSMjPLRJik/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/RA5MxkRUpWw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/-s9IW61rXZE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/1gSMjPLRJik/sddefault.jpg",
+      "https://i.ytimg.com/vi/RA5MxkRUpWw/sddefault.jpg",
+      "https://i.ytimg.com/vi/-s9IW61rXZE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40727304/40727304.8306063",
+      "https://i.ytimg.com/vi/1gSMjPLRJik/hqdefault.jpg",
+      "https://i.ytimg.com/vi/RA5MxkRUpWw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/-s9IW61rXZE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/1gSMjPLRJik/mqdefault.jpg",
+      "https://i.ytimg.com/vi/RA5MxkRUpWw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/-s9IW61rXZE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/1gSMjPLRJik/default.jpg",
+      "https://i.ytimg.com/vi/RA5MxkRUpWw/default.jpg",
+      "https://i.ytimg.com/vi/-s9IW61rXZE/default.jpg"
+    ],
+    "publishDate": "2022-07-06T00:00:00Z",
+    "acceptedTitles": [
+      "ヒミツ",
+      "Secret",
+      "Himitsu"
+    ],
+    "audioClip": "https://audio.sodapines.dev/419160.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "KAFU"
+    ],
+    "displayArtist": "MIMI feat. KAFU",
+    "suggestionArtistString": "MIMI feat. KAFU",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. KAFU",
+      "KAFU"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-26",
+    "vocadbId": 193942,
+    "title": "Sorrow’s Gap",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. Hatsune Miku",
+    "vocadbName": "Sorrow’s Gap",
+    "vocadbUrl": "https://vocadb.net/S/193942",
+    "coverArt": "https://i.ytimg.com/vi/fztKqreP1pk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/fztKqreP1pk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/9MyvRE3eMHQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/G_z2vgiu5b8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/fztKqreP1pk/sddefault.jpg",
+      "https://i.ytimg.com/vi/9MyvRE3eMHQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/G_z2vgiu5b8/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/33182440/33182440",
+      "https://i.ytimg.com/vi/fztKqreP1pk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/9MyvRE3eMHQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/G_z2vgiu5b8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/fztKqreP1pk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/9MyvRE3eMHQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/G_z2vgiu5b8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/fztKqreP1pk/default.jpg",
+      "https://i.ytimg.com/vi/9MyvRE3eMHQ/default.jpg",
+      "https://i.ytimg.com/vi/G_z2vgiu5b8/default.jpg"
+    ],
+    "publishDate": "2018-05-10T00:00:00Z",
+    "acceptedTitles": [
+      "哀の隙間",
+      "Sorrow’s Gap",
+      "Ai no Sukima"
+    ],
+    "audioClip": "https://audio.sodapines.dev/193942.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "MIMI feat. Hatsune Miku",
+    "suggestionArtistString": "MIMI feat. Hatsune Miku",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-27",
+    "vocadbId": 829678,
+    "title": "Magic Maid",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. Kasane Teto SV",
+    "vocadbName": "Magic Maid",
+    "vocadbUrl": "https://vocadb.net/S/829678",
+    "coverArt": "https://i.ytimg.com/vi/TC80uw4HgCw/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/TC80uw4HgCw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/qfwAaXD1Ml4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/xEEm069jVyc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/TC80uw4HgCw/sddefault.jpg",
+      "https://i.ytimg.com/vi/qfwAaXD1Ml4/sddefault.jpg",
+      "https://i.ytimg.com/vi/xEEm069jVyc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45316610/45316610.49946557",
+      "https://i.ytimg.com/vi/TC80uw4HgCw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/qfwAaXD1Ml4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/xEEm069jVyc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/TC80uw4HgCw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/qfwAaXD1Ml4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/xEEm069jVyc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/TC80uw4HgCw/default.jpg",
+      "https://i.ytimg.com/vi/qfwAaXD1Ml4/default.jpg",
+      "https://i.ytimg.com/vi/xEEm069jVyc/default.jpg"
+    ],
+    "publishDate": "2025-08-23T00:00:00Z",
+    "acceptedTitles": [
+      "マジック・メイド",
+      "Magic Maid",
+      "매직 메이드",
+      "魔法女仆"
+    ],
+    "audioClip": "https://audio.sodapines.dev/829678.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "MIMI feat. Kasane Teto",
+    "suggestionArtistString": "MIMI feat. Kasane Teto",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. Kasane Teto SV",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-02-28",
+    "vocadbId": 306258,
+    "title": "Pale",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. Hatsune Miku",
+    "vocadbName": "Pale",
+    "vocadbUrl": "https://vocadb.net/S/306258",
+    "coverArt": "https://i.ytimg.com/vi/06YWg6Y1kxo/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/06YWg6Y1kxo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/COrDR716Go8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Dyig7OYWn1g/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/06YWg6Y1kxo/sddefault.jpg",
+      "https://i.ytimg.com/vi/COrDR716Go8/sddefault.jpg",
+      "https://i.ytimg.com/vi/Dyig7OYWn1g/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/37944826/37944826.28203363",
+      "https://i.ytimg.com/vi/06YWg6Y1kxo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/COrDR716Go8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Dyig7OYWn1g/hqdefault.jpg",
+      "https://i.ytimg.com/vi/06YWg6Y1kxo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/COrDR716Go8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Dyig7OYWn1g/mqdefault.jpg",
+      "https://i.ytimg.com/vi/06YWg6Y1kxo/default.jpg",
+      "https://i.ytimg.com/vi/COrDR716Go8/default.jpg",
+      "https://i.ytimg.com/vi/Dyig7OYWn1g/default.jpg"
+    ],
+    "publishDate": "2020-12-11T00:00:00Z",
+    "acceptedTitles": [
+      "Pale"
+    ],
+    "audioClip": "https://audio.sodapines.dev/306258.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "MIMI feat. Hatsune Miku",
+    "suggestionArtistString": "MIMI feat. Hatsune Miku",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-01",
+    "vocadbId": 696183,
+    "title": "Lament of Inferiority",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. Kasane Teto SV, Hatsune Miku",
+    "vocadbName": "Lament of Inferiority",
+    "vocadbUrl": "https://vocadb.net/S/696183",
+    "coverArt": "https://i.ytimg.com/vi/HkTihNKCWFA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/HkTihNKCWFA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/uFafYAk29Is/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/HkTihNKCWFA/sddefault.jpg",
+      "https://i.ytimg.com/vi/uFafYAk29Is/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44299597/44299597.69153158",
+      "https://i.ytimg.com/vi/HkTihNKCWFA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/uFafYAk29Is/hqdefault.jpg",
+      "https://i.ytimg.com/vi/HkTihNKCWFA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/uFafYAk29Is/mqdefault.jpg",
+      "https://i.ytimg.com/vi/HkTihNKCWFA/default.jpg",
+      "https://i.ytimg.com/vi/uFafYAk29Is/default.jpg"
+    ],
+    "publishDate": "2024-11-08T00:00:00Z",
+    "acceptedTitles": [
+      "劣等哀歌",
+      "Lament of Inferiority",
+      "Rettou Aika",
+      "열등애가"
+    ],
+    "audioClip": "https://audio.sodapines.dev/696183.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "Kasane Teto",
+      "Hatsune Miku"
+    ],
+    "displayArtist": "MIMI feat. Kasane Teto, Hatsune Miku",
+    "suggestionArtistString": "MIMI feat. Kasane Teto, Hatsune Miku",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. Kasane Teto SV, Hatsune Miku",
+      "Kasane Teto",
+      "Hatsune Miku",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-02",
+    "vocadbId": 484077,
+    "title": "Be, be, be, be!",
+    "artist": "Frog96",
+    "artistString": "Frog96 feat. SEKAI",
+    "vocadbName": "Be, be, be, be!",
+    "vocadbUrl": "https://vocadb.net/S/484077",
+    "coverArt": "https://i.ytimg.com/vi/sWOvhZBS9IA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/sWOvhZBS9IA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/VWacsD8ItB0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/sWOvhZBS9IA/sddefault.jpg",
+      "https://i.ytimg.com/vi/VWacsD8ItB0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/41958959/41958959.13878667",
+      "https://i.ytimg.com/vi/sWOvhZBS9IA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/VWacsD8ItB0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/sWOvhZBS9IA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/VWacsD8ItB0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/sWOvhZBS9IA/default.jpg",
+      "https://i.ytimg.com/vi/VWacsD8ItB0/default.jpg"
+    ],
+    "publishDate": "2023-03-19T00:00:00Z",
+    "acceptedTitles": [
+      "ビビビビ",
+      "Be, be, be, be!",
+      "비비비비"
+    ],
+    "audioClip": "https://audio.sodapines.dev/484077.mp3",
+    "producerNames": [
+      "Frog96"
+    ],
+    "singerNames": [
+      "SEKAI"
+    ],
+    "displayArtist": "Frog96 feat. SEKAI",
+    "suggestionArtistString": "Frog96 feat. SEKAI",
+    "artistSearchNames": [
+      "Frog96",
+      "Frog96 feat. SEKAI",
+      "SEKAI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-03",
+    "vocadbId": 411314,
+    "title": "Groundbreaking",
+    "artist": "inabakumori",
+    "artistString": "inabakumori feat. SEKAI",
+    "vocadbName": "Groundbreaking",
+    "vocadbUrl": "https://vocadb.net/S/411314",
+    "coverArt": "https://i.ytimg.com/vi/8Rq6dVpEUS4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/8Rq6dVpEUS4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ahsDOgOP6VA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/8Rq6dVpEUS4/sddefault.jpg",
+      "https://i.ytimg.com/vi/ahsDOgOP6VA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40564386/40564386.22796004",
+      "https://i.ytimg.com/vi/8Rq6dVpEUS4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ahsDOgOP6VA/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/dc1410eabeef01684eaa59a94660d41b80746ee8.jpg",
+      "https://i.ytimg.com/vi/8Rq6dVpEUS4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ahsDOgOP6VA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/8Rq6dVpEUS4/default.jpg",
+      "https://i.ytimg.com/vi/ahsDOgOP6VA/default.jpg"
+    ],
+    "publishDate": "2022-06-03T00:00:00Z",
+    "acceptedTitles": [
+      "とこしずめ",
+      "Groundbreaking",
+      "Tokoshizume"
+    ],
+    "audioClip": "https://audio.sodapines.dev/411314.mp3",
+    "producerNames": [
+      "inabakumori"
+    ],
+    "singerNames": [
+      "SEKAI"
+    ],
+    "displayArtist": "inabakumori feat. SEKAI",
+    "suggestionArtistString": "inabakumori feat. SEKAI",
+    "artistSearchNames": [
+      "inabakumori",
+      "inabakumori feat. SEKAI",
+      "SEKAI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-04",
+    "vocadbId": 406064,
+    "title": "Marionette Demigod",
+    "artist": "Hiiragi Magnetite",
+    "artistString": "Hiiragi Magnetite, C'Na feat. SEKAI",
+    "vocadbName": "Marionette Demigod",
+    "vocadbUrl": "https://vocadb.net/S/406064",
+    "coverArt": "https://i.ytimg.com/vi/MenDsq-BK4Y/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/MenDsq-BK4Y/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/MenDsq-BK4Y/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40452673/40452673.30702104",
+      "https://i.ytimg.com/vi/MenDsq-BK4Y/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/11ed4f412196c7fcd7ebc2a6f7b7fc2b86a3bb66.jpg",
+      "https://i.ytimg.com/vi/MenDsq-BK4Y/mqdefault.jpg",
+      "https://i.ytimg.com/vi/MenDsq-BK4Y/default.jpg"
+    ],
+    "publishDate": "2022-05-11T00:00:00Z",
+    "acceptedTitles": [
+      "傀儡阿修羅",
+      "Marionette Demigod",
+      "Kugutsu Ashura",
+      "Ashura",
+      "Puppet Ashura",
+      "Puppet Asura",
+      "괴뢰아수라"
+    ],
+    "audioClip": "https://audio.sodapines.dev/406064.mp3",
+    "producerNames": [
+      "Hiiragi Magnetite",
+      "C'Na"
+    ],
+    "singerNames": [
+      "SEKAI"
+    ],
+    "displayArtist": "Hiiragi Magnetite, C'Na feat. SEKAI",
+    "suggestionArtistString": "Hiiragi Magnetite, C'Na feat. SEKAI",
+    "artistSearchNames": [
+      "Hiiragi Magnetite",
+      "Hiiragi Magnetite, C'Na feat. SEKAI",
+      "C'Na",
+      "SEKAI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-05",
+    "vocadbId": 425084,
+    "title": "Happiness",
+    "artist": "john",
+    "artistString": "john feat. SEKAI",
+    "vocadbName": "Happiness",
+    "vocadbUrl": "https://vocadb.net/S/425084",
+    "coverArt": "https://i.ytimg.com/vi/aRHXdHseEzI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/aRHXdHseEzI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/aRHXdHseEzI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40830733/40830733.73365981",
+      "https://i.ytimg.com/vi/aRHXdHseEzI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/aRHXdHseEzI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/aRHXdHseEzI/default.jpg"
+    ],
+    "publishDate": "2022-07-27T00:00:00Z",
+    "acceptedTitles": [
+      "しあわせ",
+      "Happiness",
+      "Shiawase",
+      "Happy"
+    ],
+    "audioClip": "https://audio.sodapines.dev/425084.mp3",
+    "producerNames": [
+      "john"
+    ],
+    "singerNames": [
+      "SEKAI"
+    ],
+    "displayArtist": "john feat. SEKAI",
+    "suggestionArtistString": "john feat. SEKAI",
+    "artistSearchNames": [
+      "john",
+      "john feat. SEKAI",
+      "SEKAI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-06",
+    "vocadbId": 495816,
+    "title": "Penumbra",
+    "artist": "Dopam!ne",
+    "artistString": "Dopam!ne feat. various",
+    "vocadbName": "Penumbra",
+    "vocadbUrl": "https://vocadb.net/S/495816",
+    "coverArt": "https://i.ytimg.com/vi/43mi3I8vD8g/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/43mi3I8vD8g/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/7uqxy17GMOY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/43mi3I8vD8g/sddefault.jpg",
+      "https://i.ytimg.com/vi/7uqxy17GMOY/sddefault.jpg",
+      "https://i.ytimg.com/vi/43mi3I8vD8g/hqdefault.jpg",
+      "https://i.ytimg.com/vi/7uqxy17GMOY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/43mi3I8vD8g/mqdefault.jpg",
+      "https://i.ytimg.com/vi/7uqxy17GMOY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/43mi3I8vD8g/default.jpg",
+      "https://i.ytimg.com/vi/7uqxy17GMOY/default.jpg"
+    ],
+    "publishDate": "2023-04-29T00:00:00Z",
+    "acceptedTitles": [
+      "Penumbra"
+    ],
+    "audioClip": "https://audio.sodapines.dev/495816.mp3",
+    "producerNames": [
+      "Dopam!ne"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "Dopam!ne feat. various",
+    "suggestionArtistString": "Dopam!ne feat. various",
+    "artistSearchNames": [
+      "Dopam!ne",
+      "Dopam!ne feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2030-03-07",
+    "vocadbId": 505146,
+    "title": "Karen's Cleanup",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. SEKAI",
+    "vocadbName": "Karen's Cleanup",
+    "vocadbUrl": "https://vocadb.net/S/505146",
+    "coverArt": "https://i.ytimg.com/vi/N_xJUP8o8Nw/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/N_xJUP8o8Nw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ylxqleSLGkc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/N_xJUP8o8Nw/sddefault.jpg",
+      "https://i.ytimg.com/vi/ylxqleSLGkc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/42330092/42330092.56989041",
+      "https://i.ytimg.com/vi/N_xJUP8o8Nw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ylxqleSLGkc/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/fa620d0bfa4d9346bd5ee430532489ecca727108.jpg",
+      "https://i.ytimg.com/vi/N_xJUP8o8Nw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ylxqleSLGkc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/N_xJUP8o8Nw/default.jpg",
+      "https://i.ytimg.com/vi/ylxqleSLGkc/default.jpg"
+    ],
+    "publishDate": "2023-06-09T00:00:00Z",
+    "acceptedTitles": [
+      "カレンの清掃",
+      "Karen's Cleanup",
+      "Karen no Seisou"
+    ],
+    "audioClip": "https://audio.sodapines.dev/505146.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "SEKAI"
+    ],
+    "displayArtist": "Kashii Moimi feat. SEKAI",
+    "suggestionArtistString": "Kashii Moimi feat. SEKAI",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. SEKAI",
+      "SEKAI"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2030-03-08",
+    "vocadbId": 799176,
+    "title": "The Voice of AI",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi, V.W.P feat. various",
+    "vocadbName": "The Voice of AI",
+    "vocadbUrl": "https://vocadb.net/S/799176",
+    "coverArt": "https://i.ytimg.com/vi/cbOUUU2vEPE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/cbOUUU2vEPE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/9V8-nIFnlrQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/cbOUUU2vEPE/sddefault.jpg",
+      "https://i.ytimg.com/vi/9V8-nIFnlrQ/sddefault.jpg",
+      "https://i.ytimg.com/vi/cbOUUU2vEPE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/9V8-nIFnlrQ/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/7f136809b5a9113ec3659938ae1e4d5c8eb7ea88.jpg",
+      "https://i.ytimg.com/vi/cbOUUU2vEPE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/9V8-nIFnlrQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/cbOUUU2vEPE/default.jpg",
+      "https://i.ytimg.com/vi/9V8-nIFnlrQ/default.jpg"
+    ],
+    "publishDate": "2025-06-11T00:00:00Z",
+    "acceptedTitles": [
+      "機械の声",
+      "The Voice of AI",
+      "Kikai no Koe",
+      "Mechanical Voice",
+      "机械之声"
+    ],
+    "audioClip": "https://audio.sodapines.dev/799176.mp3",
+    "producerNames": [
+      "Kashii Moimi",
+      "V.W.P"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "Kashii Moimi, V.W.P feat. various",
+    "suggestionArtistString": "Kashii Moimi, V.W.P feat. various",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi, V.W.P feat. various",
+      "V.W.P",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2030-03-09",
+    "vocadbId": 565710,
+    "title": "Shake ",
+    "artist": "Naisho no Pierced Earrings",
+    "artistString": "Naisho no Pierced Earrings feat. SEKAI",
+    "vocadbName": "Shake ",
+    "vocadbUrl": "https://vocadb.net/S/565710",
+    "coverArt": "https://i.ytimg.com/vi/28arHariBew/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/28arHariBew/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/nP-jBGzBXoY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/28arHariBew/sddefault.jpg",
+      "https://i.ytimg.com/vi/nP-jBGzBXoY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/43167161/43167161.56499950",
+      "https://i.ytimg.com/vi/28arHariBew/hqdefault.jpg",
+      "https://i.ytimg.com/vi/nP-jBGzBXoY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/28arHariBew/mqdefault.jpg",
+      "https://i.ytimg.com/vi/nP-jBGzBXoY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/28arHariBew/default.jpg",
+      "https://i.ytimg.com/vi/nP-jBGzBXoY/default.jpg"
+    ],
+    "publishDate": "2023-12-20T00:00:00Z",
+    "acceptedTitles": [
+      "シェイク",
+      "Shake "
+    ],
+    "audioClip": "https://audio.sodapines.dev/565710.mp3",
+    "producerNames": [
+      "Naisho no Pierced Earrings"
+    ],
+    "singerNames": [
+      "SEKAI"
+    ],
+    "displayArtist": "Naisho no Pierced Earrings feat. SEKAI",
+    "suggestionArtistString": "Naisho no Pierced Earrings feat. SEKAI",
+    "artistSearchNames": [
+      "Naisho no Pierced Earrings",
+      "Naisho no Pierced Earrings feat. SEKAI",
+      "SEKAI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-03-10",
+    "vocadbId": 409003,
+    "title": "Escape",
+    "artist": "MIMI",
+    "artistString": "MIMI feat. SEKAI",
+    "vocadbName": "Escape",
+    "vocadbUrl": "https://vocadb.net/S/409003",
+    "coverArt": "https://i.ytimg.com/vi/XiKZE967BD4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/XiKZE967BD4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/cdyoP1KIgtQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/XiKZE967BD4/sddefault.jpg",
+      "https://i.ytimg.com/vi/cdyoP1KIgtQ/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40510896/40510896.54620095",
+      "https://i.ytimg.com/vi/XiKZE967BD4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/cdyoP1KIgtQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/XiKZE967BD4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/cdyoP1KIgtQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/XiKZE967BD4/default.jpg",
+      "https://i.ytimg.com/vi/cdyoP1KIgtQ/default.jpg"
+    ],
+    "publishDate": "2022-05-25T00:00:00Z",
+    "acceptedTitles": [
+      "えすけーぷ",
+      "Escape"
+    ],
+    "audioClip": "https://audio.sodapines.dev/409003.mp3",
+    "producerNames": [
+      "MIMI"
+    ],
+    "singerNames": [
+      "SEKAI"
+    ],
+    "displayArtist": "MIMI feat. SEKAI",
+    "suggestionArtistString": "MIMI feat. SEKAI",
+    "artistSearchNames": [
+      "MIMI",
+      "MIMI feat. SEKAI",
+      "SEKAI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-03-11",
+    "vocadbId": 257185,
+    "title": "Unbalanced Diet",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. Hatsune Miku V4X (Dark)",
+    "vocadbName": "Unbalanced Diet",
+    "vocadbUrl": "https://vocadb.net/S/257185",
+    "coverArt": "https://i.ytimg.com/vi/1PVzKoQI3TU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/1PVzKoQI3TU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/zSnz87MaZfA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/1PVzKoQI3TU/sddefault.jpg",
+      "https://i.ytimg.com/vi/zSnz87MaZfA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/35811410/35811410.89891729",
+      "https://i.ytimg.com/vi/1PVzKoQI3TU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/zSnz87MaZfA/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/b41ab1a26a1362a7c334da1d7a0900a9d0edd4a4.jpg",
+      "https://i.ytimg.com/vi/1PVzKoQI3TU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/zSnz87MaZfA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/1PVzKoQI3TU/default.jpg",
+      "https://i.ytimg.com/vi/zSnz87MaZfA/default.jpg"
+    ],
+    "publishDate": "2019-10-15T00:00:00Z",
+    "acceptedTitles": [
+      "偏食",
+      "Unbalanced Diet",
+      "Henshoku",
+      "Hensyoku"
+    ],
+    "audioClip": "https://audio.sodapines.dev/257185.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Kashii Moimi feat. Hatsune Miku",
+    "suggestionArtistString": "Kashii Moimi feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. Hatsune Miku V4X (Dark)",
+      "Hatsune Miku",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-12",
+    "vocadbId": 385866,
+    "title": "Tears of Garnet",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. KAITO V3 (Straight)",
+    "vocadbName": "Tears of Garnet",
+    "vocadbUrl": "https://vocadb.net/S/385866",
+    "coverArt": "https://i.ytimg.com/vi/q9q-3jJgKpU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/q9q-3jJgKpU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/izJxJ9krVdM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/q9q-3jJgKpU/sddefault.jpg",
+      "https://i.ytimg.com/vi/izJxJ9krVdM/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40051075/40051075.63477162",
+      "https://i.ytimg.com/vi/q9q-3jJgKpU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/izJxJ9krVdM/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/c2572b71a6be8eeb1d051a964b4b3ea7008a6123.jpg",
+      "https://i.ytimg.com/vi/q9q-3jJgKpU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/izJxJ9krVdM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/q9q-3jJgKpU/default.jpg",
+      "https://i.ytimg.com/vi/izJxJ9krVdM/default.jpg"
+    ],
+    "publishDate": "2022-02-17T00:00:00Z",
+    "acceptedTitles": [
+      "ガーネットの涙",
+      "Tears of Garnet",
+      "Garnet no Namida",
+      "Garnet tears",
+      "가넷의 눈물",
+      "石榴石之泪"
+    ],
+    "audioClip": "https://audio.sodapines.dev/385866.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "KAITO"
+    ],
+    "displayArtist": "Kashii Moimi feat. KAITO",
+    "suggestionArtistString": "Kashii Moimi feat. KAITO",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. KAITO V3 (Straight)",
+      "KAITO",
+      "KAITO V3"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-13",
+    "vocadbId": 290619,
+    "title": "Insanity Blue",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. v4 flower",
+    "vocadbName": "Insanity Blue",
+    "vocadbUrl": "https://vocadb.net/S/290619",
+    "coverArt": "https://i.ytimg.com/vi/SMrYUa7c3oo/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/SMrYUa7c3oo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/FMjAU_Q7BlY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/SMrYUa7c3oo/sddefault.jpg",
+      "https://i.ytimg.com/vi/FMjAU_Q7BlY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/37316669/37316669.73609332",
+      "https://i.ytimg.com/vi/SMrYUa7c3oo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/FMjAU_Q7BlY/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/605d5e3bb6145d7940f8f8066c5628bd72126ebd.jpg",
+      "https://i.ytimg.com/vi/SMrYUa7c3oo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/FMjAU_Q7BlY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/SMrYUa7c3oo/default.jpg",
+      "https://i.ytimg.com/vi/FMjAU_Q7BlY/default.jpg"
+    ],
+    "publishDate": "2020-08-03T00:00:00Z",
+    "acceptedTitles": [
+      "インサニティブルー",
+      "Insanity Blue"
+    ],
+    "audioClip": "https://audio.sodapines.dev/290619.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "flower"
+    ],
+    "displayArtist": "Kashii Moimi feat. flower",
+    "suggestionArtistString": "Kashii Moimi feat. flower",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. v4 flower",
+      "flower",
+      "v4 flower"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-14",
+    "vocadbId": 328677,
+    "title": "Welcome",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. Kagamine Len V4X (Power)",
+    "vocadbName": "Welcome",
+    "vocadbUrl": "https://vocadb.net/S/328677",
+    "coverArt": "https://i.ytimg.com/vi/KfpVCrMgbwA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/KfpVCrMgbwA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Xery18eZV5o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/KfpVCrMgbwA/sddefault.jpg",
+      "https://i.ytimg.com/vi/Xery18eZV5o/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/38618022/38618022.91679801",
+      "https://i.ytimg.com/vi/KfpVCrMgbwA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Xery18eZV5o/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/88e23d3b3fb57658a6a1d39be773cc640fb7f72b.jpg",
+      "https://i.ytimg.com/vi/KfpVCrMgbwA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Xery18eZV5o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/KfpVCrMgbwA/default.jpg",
+      "https://i.ytimg.com/vi/Xery18eZV5o/default.jpg"
+    ],
+    "publishDate": "2021-04-23T00:00:00Z",
+    "acceptedTitles": [
+      "ベルコメン",
+      "Welcome",
+      "Välkommen",
+      "欢迎光临",
+      "Berukomen"
+    ],
+    "audioClip": "https://audio.sodapines.dev/328677.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "Kagamine Len"
+    ],
+    "displayArtist": "Kashii Moimi feat. Kagamine Len",
+    "suggestionArtistString": "Kashii Moimi feat. Kagamine Len",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. Kagamine Len V4X (Power)",
+      "Kagamine Len",
+      "Kagamine Len V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-15",
+    "vocadbId": 439030,
+    "title": "First Love Diary",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. Otomachi Una Sugar",
+    "vocadbName": "First Love Diary",
+    "vocadbUrl": "https://vocadb.net/S/439030",
+    "coverArt": "https://i.ytimg.com/vi/ZhjfsY49JhY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ZhjfsY49JhY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/GSViT-PGJ9g/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ZhjfsY49JhY/sddefault.jpg",
+      "https://i.ytimg.com/vi/GSViT-PGJ9g/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/41086933/41086933.72462230",
+      "https://i.ytimg.com/vi/ZhjfsY49JhY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/GSViT-PGJ9g/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/8aad90507513075350db3d84ff9bc33750b8e069.jpg",
+      "https://i.ytimg.com/vi/ZhjfsY49JhY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/GSViT-PGJ9g/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ZhjfsY49JhY/default.jpg",
+      "https://i.ytimg.com/vi/GSViT-PGJ9g/default.jpg"
+    ],
+    "publishDate": "2022-09-17T00:00:00Z",
+    "acceptedTitles": [
+      "初恋日記",
+      "First Love Diary",
+      "Hatsukoi Nikki"
+    ],
+    "audioClip": "https://audio.sodapines.dev/439030.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "Otomachi Una"
+    ],
+    "displayArtist": "Kashii Moimi feat. Otomachi Una",
+    "suggestionArtistString": "Kashii Moimi feat. Otomachi Una",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. Otomachi Una Sugar",
+      "Otomachi Una",
+      "Otomachi Una Sugar"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-16",
+    "vocadbId": 782675,
+    "title": "All-Save Challenge",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. Hatsune Miku V4X (Dark)",
+    "vocadbName": "All-Save Challenge",
+    "vocadbUrl": "https://vocadb.net/S/782675",
+    "coverArt": "https://i.ytimg.com/vi/ejG2_B95DzY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/ejG2_B95DzY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/7tXDP9J9IPE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ejG2_B95DzY/sddefault.jpg",
+      "https://i.ytimg.com/vi/7tXDP9J9IPE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44929087/44929087.49270079",
+      "https://i.ytimg.com/vi/ejG2_B95DzY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/7tXDP9J9IPE/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/de387fe995fa854f0547412f7f3e2e62ad283e33.jpg",
+      "https://i.ytimg.com/vi/ejG2_B95DzY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/7tXDP9J9IPE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ejG2_B95DzY/default.jpg",
+      "https://i.ytimg.com/vi/7tXDP9J9IPE/default.jpg"
+    ],
+    "publishDate": "2025-04-28T00:00:00Z",
+    "acceptedTitles": [
+      "オールセーブチャレンジ",
+      "All-Save Challenge",
+      "올 세이브 챌린지"
+    ],
+    "audioClip": "https://audio.sodapines.dev/782675.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Kashii Moimi feat. Hatsune Miku",
+    "suggestionArtistString": "Kashii Moimi feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. Hatsune Miku V4X (Dark)",
+      "Hatsune Miku",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ]
+  },
+  {
+    "date": "2030-03-17",
+    "vocadbId": 413061,
+    "title": "Erica's sorrow",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. SEKAI",
+    "vocadbName": "Erica's sorrow",
+    "vocadbUrl": "https://vocadb.net/S/413061",
+    "coverArt": "https://i.ytimg.com/vi/fweAU03-7b0/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/fweAU03-7b0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/fweAU03-7b0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40599538/40599538.74981986",
+      "https://i.ytimg.com/vi/fweAU03-7b0/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/955173e9d854cc2c023a89a27af956196b3635fe.jpg",
+      "https://i.ytimg.com/vi/fweAU03-7b0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/fweAU03-7b0/default.jpg"
+    ],
+    "publishDate": "2022-06-10T00:00:00Z",
+    "acceptedTitles": [
+      "エリカの憂い",
+      "Erica's sorrow",
+      "Erika no Urei",
+      "埃里卡的哀愁"
+    ],
+    "audioClip": "https://audio.sodapines.dev/413061.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "SEKAI"
+    ],
+    "displayArtist": "Kashii Moimi feat. SEKAI",
+    "suggestionArtistString": "Kashii Moimi feat. SEKAI",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. SEKAI",
+      "SEKAI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-18",
+    "vocadbId": 302304,
+    "title": "Bougainvillea",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. Hatsune Miku V4X (Dark)",
+    "vocadbName": "Bougainvillea",
+    "vocadbUrl": "https://vocadb.net/S/302304",
+    "coverArt": "https://i.ytimg.com/vi/TPz0lLqKk8o/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/TPz0lLqKk8o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/FKxtb9Qa7W0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/TPz0lLqKk8o/sddefault.jpg",
+      "https://i.ytimg.com/vi/FKxtb9Qa7W0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/37809668/37809668.87171539",
+      "https://i.ytimg.com/vi/TPz0lLqKk8o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/FKxtb9Qa7W0/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/da421e35ee180a37030a7fdb1287981e9654934e.jpg",
+      "https://i.ytimg.com/vi/TPz0lLqKk8o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/FKxtb9Qa7W0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/TPz0lLqKk8o/default.jpg",
+      "https://i.ytimg.com/vi/FKxtb9Qa7W0/default.jpg"
+    ],
+    "publishDate": "2020-11-13T00:00:00Z",
+    "acceptedTitles": [
+      "ブーゲンビリア",
+      "Bougainvillea",
+      "九重葛"
+    ],
+    "audioClip": "https://audio.sodapines.dev/302304.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Kashii Moimi feat. Hatsune Miku",
+    "suggestionArtistString": "Kashii Moimi feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. Hatsune Miku V4X (Dark)",
+      "Hatsune Miku",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-03-19",
+    "vocadbId": 515522,
+    "title": "Purple Sunflowers",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. HARU",
+    "vocadbName": "Purple Sunflowers",
+    "vocadbUrl": "https://vocadb.net/S/515522",
+    "coverArt": "https://i.ytimg.com/vi/lp-dv1Tb1KI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/lp-dv1Tb1KI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Uh_2wJm7Gdk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/lp-dv1Tb1KI/sddefault.jpg",
+      "https://i.ytimg.com/vi/Uh_2wJm7Gdk/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/42515726/42515726.56349288",
+      "https://i.ytimg.com/vi/lp-dv1Tb1KI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Uh_2wJm7Gdk/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/56605715b1f86f8b922c0aa2d914c3d523ca5dcf.jpg",
+      "https://i.ytimg.com/vi/lp-dv1Tb1KI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Uh_2wJm7Gdk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/lp-dv1Tb1KI/default.jpg",
+      "https://i.ytimg.com/vi/Uh_2wJm7Gdk/default.jpg"
+    ],
+    "publishDate": "2023-07-23T00:00:00Z",
+    "acceptedTitles": [
+      "紫色の向日葵",
+      "Purple Sunflowers",
+      "Murasakiiro no Himawari",
+      "Purple Sunflower"
+    ],
+    "audioClip": "https://audio.sodapines.dev/515522.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "HARU"
+    ],
+    "displayArtist": "Kashii Moimi feat. HARU",
+    "suggestionArtistString": "Kashii Moimi feat. HARU",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. HARU",
+      "HARU"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2030-03-20",
+    "vocadbId": 483628,
+    "title": "Makeup",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. Megurine Luka V4X (Soft), Hatsune Miku V4X (Dark)",
+    "vocadbName": "Makeup",
+    "vocadbUrl": "https://vocadb.net/S/483628",
+    "coverArt": "https://i.ytimg.com/vi/lBs5_3DoOkY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/lBs5_3DoOkY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/aaNgPeRVnRw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/lBs5_3DoOkY/sddefault.jpg",
+      "https://i.ytimg.com/vi/aaNgPeRVnRw/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/41942699/41942699.71724157",
+      "https://i.ytimg.com/vi/lBs5_3DoOkY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/aaNgPeRVnRw/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/a63f6ca65efa25c7e6a01d544f8cf8d0111b0391.jpg",
+      "https://i.ytimg.com/vi/lBs5_3DoOkY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/aaNgPeRVnRw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/lBs5_3DoOkY/default.jpg",
+      "https://i.ytimg.com/vi/aaNgPeRVnRw/default.jpg"
+    ],
+    "publishDate": "2023-03-19T00:00:00Z",
+    "acceptedTitles": [
+      "Makeup"
+    ],
+    "audioClip": "https://audio.sodapines.dev/483628.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "Megurine Luka",
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Kashii Moimi feat. Megurine Luka, Hatsune Miku",
+    "suggestionArtistString": "Kashii Moimi feat. Megurine Luka, Hatsune Miku",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. Megurine Luka V4X (Soft), Hatsune Miku V4X (Dark)",
+      "Megurine Luka",
+      "Hatsune Miku",
+      "Megurine Luka V4X",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-03-21",
+    "vocadbId": 359903,
+    "title": "The Decisive Hour",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. Kaai Yuki V4",
+    "vocadbName": "The Decisive Hour",
+    "vocadbUrl": "https://vocadb.net/S/359903",
+    "coverArt": "https://i.ytimg.com/vi/CM3Op5bRC4s/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/CM3Op5bRC4s/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/_ereoCwt1zo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/CM3Op5bRC4s/sddefault.jpg",
+      "https://i.ytimg.com/vi/_ereoCwt1zo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/39476302/39476302.68358331",
+      "https://i.ytimg.com/vi/CM3Op5bRC4s/hqdefault.jpg",
+      "https://i.ytimg.com/vi/_ereoCwt1zo/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/4f4c449e7adfc6adfe3e831bc4ebc07b9789c1be.jpg",
+      "https://i.ytimg.com/vi/CM3Op5bRC4s/mqdefault.jpg",
+      "https://i.ytimg.com/vi/_ereoCwt1zo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/CM3Op5bRC4s/default.jpg",
+      "https://i.ytimg.com/vi/_ereoCwt1zo/default.jpg"
+    ],
+    "publishDate": "2021-10-14T00:00:00Z",
+    "acceptedTitles": [
+      "The Decisive Hour"
+    ],
+    "audioClip": "https://audio.sodapines.dev/359903.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "Kaai Yuki"
+    ],
+    "displayArtist": "Kashii Moimi feat. Kaai Yuki",
+    "suggestionArtistString": "Kashii Moimi feat. Kaai Yuki",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. Kaai Yuki V4",
+      "Kaai Yuki",
+      "Kaai Yuki V4"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2030-03-22",
+    "vocadbId": 294661,
+    "title": "Strawberry",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. Hatsune Miku V4X (Dark)",
+    "vocadbName": "Strawberry",
+    "vocadbUrl": "https://vocadb.net/S/294661",
+    "coverArt": "https://i.ytimg.com/vi/orMYMSrID54/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/orMYMSrID54/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/eI2XmOuoFvQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/orMYMSrID54/sddefault.jpg",
+      "https://i.ytimg.com/vi/eI2XmOuoFvQ/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/37486337/37486337.83902074",
+      "https://i.ytimg.com/vi/orMYMSrID54/hqdefault.jpg",
+      "https://i.ytimg.com/vi/eI2XmOuoFvQ/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/4bd23ec54ce51caac23a6f58474c0ccee88e1798.jpg",
+      "https://i.ytimg.com/vi/orMYMSrID54/mqdefault.jpg",
+      "https://i.ytimg.com/vi/eI2XmOuoFvQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/orMYMSrID54/default.jpg",
+      "https://i.ytimg.com/vi/eI2XmOuoFvQ/default.jpg"
+    ],
+    "publishDate": "2020-09-09T00:00:00Z",
+    "acceptedTitles": [
+      "Strawberry"
+    ],
+    "audioClip": "https://audio.sodapines.dev/294661.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Kashii Moimi feat. Hatsune Miku",
+    "suggestionArtistString": "Kashii Moimi feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. Hatsune Miku V4X (Dark)",
+      "Hatsune Miku",
+      "Hatsune Miku V4X"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-03-23",
+    "vocadbId": 620818,
+    "title": "Honey Diary",
+    "artist": "Kashii Moimi",
+    "artistString": "Kashii Moimi feat. Otomachi Una Sugar",
+    "vocadbName": "Honey Diary",
+    "vocadbUrl": "https://vocadb.net/S/620818",
+    "coverArt": "https://i.ytimg.com/vi/Det-1bRucFg/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Det-1bRucFg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/O5Fb9BMr2so/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Tw03fh4WcmU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/sUYCYCxhAVk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Det-1bRucFg/sddefault.jpg",
+      "https://i.ytimg.com/vi/O5Fb9BMr2so/sddefault.jpg",
+      "https://i.ytimg.com/vi/Tw03fh4WcmU/sddefault.jpg",
+      "https://i.ytimg.com/vi/sUYCYCxhAVk/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/43740325/43740325.27846168",
+      "https://i.ytimg.com/vi/Det-1bRucFg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/O5Fb9BMr2so/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Tw03fh4WcmU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/sUYCYCxhAVk/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/c5e71501251d338f5bdc5ece1b35c6636424d791.jpg",
+      "https://i.ytimg.com/vi/Det-1bRucFg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/O5Fb9BMr2so/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Tw03fh4WcmU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/sUYCYCxhAVk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Det-1bRucFg/default.jpg",
+      "https://i.ytimg.com/vi/O5Fb9BMr2so/default.jpg",
+      "https://i.ytimg.com/vi/Tw03fh4WcmU/default.jpg",
+      "https://i.ytimg.com/vi/sUYCYCxhAVk/default.jpg"
+    ],
+    "publishDate": "2024-05-04T00:00:00Z",
+    "acceptedTitles": [
+      "蜂蜜日記",
+      "Honey Diary",
+      "Hachimitsu Nikki"
+    ],
+    "audioClip": "https://audio.sodapines.dev/620818.mp3",
+    "producerNames": [
+      "Kashii Moimi"
+    ],
+    "singerNames": [
+      "Otomachi Una"
+    ],
+    "displayArtist": "Kashii Moimi feat. Otomachi Una",
+    "suggestionArtistString": "Kashii Moimi feat. Otomachi Una",
+    "artistSearchNames": [
+      "Kashii Moimi",
+      "Kashii Moimi feat. Otomachi Una Sugar",
+      "Otomachi Una",
+      "Otomachi Una Sugar"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2030-03-24",
+    "vocadbId": 464179,
+    "title": "Bad Girl A",
+    "artist": "Mitchie M",
+    "artistString": "Mitchie M feat. Hatsune Miku NT (Original+)",
+    "vocadbName": "Bad Girl A",
+    "vocadbUrl": "https://vocadb.net/S/464179",
+    "coverArt": "https://i.ytimg.com/vi/JQoeuGNJfAg/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/JQoeuGNJfAg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/RAkJHJD11PY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/hUWSXENM0bg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/JQoeuGNJfAg/sddefault.jpg",
+      "https://i.ytimg.com/vi/RAkJHJD11PY/sddefault.jpg",
+      "https://i.ytimg.com/vi/hUWSXENM0bg/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/41607088/41607088.48067566",
+      "https://i.ytimg.com/vi/JQoeuGNJfAg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/RAkJHJD11PY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/hUWSXENM0bg/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/9773b3c23431ed46506ff0189d5df66a34585a09.jpg",
+      "https://i.ytimg.com/vi/JQoeuGNJfAg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/RAkJHJD11PY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/hUWSXENM0bg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/JQoeuGNJfAg/default.jpg",
+      "https://i.ytimg.com/vi/RAkJHJD11PY/default.jpg",
+      "https://i.ytimg.com/vi/hUWSXENM0bg/default.jpg"
+    ],
+    "publishDate": "2023-01-07T00:00:00Z",
+    "acceptedTitles": [
+      "少女Aに夜露死苦",
+      "Bad Girl A",
+      "Shoujo A ni Yoroshiku",
+      "坏女孩A"
+    ],
+    "audioClip": "https://audio.sodapines.dev/464179.mp3",
+    "producerNames": [
+      "Mitchie M"
+    ],
+    "singerNames": [
+      "Hatsune Miku NT"
+    ],
+    "displayArtist": "Mitchie M feat. Hatsune Miku NT",
+    "suggestionArtistString": "Mitchie M feat. Hatsune Miku NT",
+    "artistSearchNames": [
+      "Mitchie M",
+      "Mitchie M feat. Hatsune Miku NT (Original+)",
+      "Hatsune Miku NT"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2030-03-25",
+    "vocadbId": 509415,
+    "title": "Teammate",
+    "artist": "HoneyWorks",
+    "artistString": "HoneyWorks feat. Hatsune Miku NT (Original+)",
+    "vocadbName": "Teammate",
+    "vocadbUrl": "https://vocadb.net/S/509415",
+    "coverArt": "https://i.ytimg.com/vi/QAbwPeAYf_o/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/QAbwPeAYf_o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/QAbwPeAYf_o/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/42412043/42412043.80057429",
+      "https://i.ytimg.com/vi/QAbwPeAYf_o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/QAbwPeAYf_o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/QAbwPeAYf_o/default.jpg"
+    ],
+    "publishDate": "2023-06-28T00:00:00Z",
+    "acceptedTitles": [
+      "チームメイト",
+      "Teammate",
+      "팀메이트",
+      "Teammates"
+    ],
+    "audioClip": "https://audio.sodapines.dev/509415.mp3",
+    "producerNames": [
+      "HoneyWorks"
+    ],
+    "singerNames": [
+      "Hatsune Miku NT"
+    ],
+    "displayArtist": "HoneyWorks feat. Hatsune Miku NT",
+    "suggestionArtistString": "HoneyWorks feat. Hatsune Miku NT",
+    "artistSearchNames": [
+      "HoneyWorks",
+      "HoneyWorks feat. Hatsune Miku NT (Original+)",
+      "Hatsune Miku NT"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ]
+  },
+  {
+    "date": "2030-03-26",
+    "vocadbId": 350546,
+    "title": "magic number",
+    "artist": "21stCenturyP",
+    "artistString": "21stCenturyP, OSTER project feat. Hatsune Miku NT (Original+)",
+    "vocadbName": "magic number",
+    "vocadbUrl": "https://vocadb.net/S/350546",
+    "coverArt": "https://i.ytimg.com/vi/fzRWpcvPJYo/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/fzRWpcvPJYo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/fzRWpcvPJYo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40968838/40968838.77334402",
+      "https://i.ytimg.com/vi/fzRWpcvPJYo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/fzRWpcvPJYo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/fzRWpcvPJYo/default.jpg"
+    ],
+    "publishDate": "2021-09-01T00:00:00Z",
+    "acceptedTitles": [
+      "magic number"
+    ],
+    "audioClip": "https://audio.sodapines.dev/350546.mp3",
+    "producerNames": [
+      "21stCenturyP",
+      "OSTER project"
+    ],
+    "singerNames": [
+      "Hatsune Miku NT"
+    ],
+    "displayArtist": "21stCenturyP, OSTER project feat. Hatsune Miku NT",
+    "suggestionArtistString": "21stCenturyP, OSTER project feat. Hatsune Miku NT",
+    "artistSearchNames": [
+      "21stCenturyP",
+      "21stCenturyP, OSTER project feat. Hatsune Miku NT (Original+)",
+      "OSTER project",
+      "Hatsune Miku NT"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m",
+      "project-sekai"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views",
+      "Game: Project SEKAI COLORFUL STAGE! feat. Hatsune Miku (Original Songs)"
+    ]
+  },
+  {
+    "date": "2030-03-27",
+    "vocadbId": 831610,
+    "title": "Play On",
+    "artist": "Mitchie M",
+    "artistString": "Mitchie M feat. various",
+    "vocadbName": "Play On",
+    "vocadbUrl": "https://vocadb.net/S/831610",
+    "coverArt": "https://i.ytimg.com/vi/CXkY-vWeuRI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/CXkY-vWeuRI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/SFZ2-4M9DEk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/CXkY-vWeuRI/sddefault.jpg",
+      "https://i.ytimg.com/vi/SFZ2-4M9DEk/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45337376/45337376.73904186",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45906712/45906712.8377857",
+      "https://i.ytimg.com/vi/CXkY-vWeuRI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/SFZ2-4M9DEk/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/3a24496eb762e233ba7eb3376c72a00d46f6f28e.jpg",
+      "https://i.ytimg.com/vi/CXkY-vWeuRI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/SFZ2-4M9DEk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/CXkY-vWeuRI/default.jpg",
+      "https://i.ytimg.com/vi/SFZ2-4M9DEk/default.jpg"
+    ],
+    "publishDate": "2025-08-26T00:00:00Z",
+    "acceptedTitles": [
+      "プレイオン",
+      "Play On",
+      "演奏"
+    ],
+    "audioClip": "https://audio.sodapines.dev/831610.mp3",
+    "producerNames": [
+      "Mitchie M"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "Mitchie M feat. various",
+    "suggestionArtistString": "Mitchie M feat. various",
+    "artistSearchNames": [
+      "Mitchie M",
+      "Mitchie M feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2030-03-28",
+    "vocadbId": 943328,
+    "title": "Discotic Night",
+    "artist": "NEKOZUME",
+    "artistString": "NEKOZUME feat. Ui, Kasane Teto SV",
+    "vocadbName": "Discotic Night",
+    "vocadbUrl": "https://vocadb.net/S/943328",
+    "coverArt": "https://i.ytimg.com/vi/CrfRliqxuYc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/CrfRliqxuYc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/CrfRliqxuYc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46121739/46121739.22547443",
+      "https://i.ytimg.com/vi/CrfRliqxuYc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/CrfRliqxuYc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/CrfRliqxuYc/default.jpg"
+    ],
+    "publishDate": "2026-04-02T00:00:00Z",
+    "acceptedTitles": [
+      "ディスコティックナイト",
+      "Discotic Night",
+      "Disco Theque Night",
+      "Discothéque Night"
+    ],
+    "audioClip": "https://audio.sodapines.dev/943328.mp3",
+    "producerNames": [
+      "NEKOZUME"
+    ],
+    "singerNames": [
+      "Ui",
+      "Kasane Teto"
+    ],
+    "displayArtist": "NEKOZUME feat. Ui, Kasane Teto",
+    "suggestionArtistString": "NEKOZUME feat. Ui, Kasane Teto",
+    "artistSearchNames": [
+      "NEKOZUME",
+      "NEKOZUME feat. Ui, Kasane Teto SV",
+      "Ui",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2030-03-29",
+    "vocadbId": 918516,
+    "title": "Mis-Take RPG",
+    "artist": "AnythingBecomeMoe",
+    "artistString": "AnythingBecomeMoe feat. Hatsune Miku, Kasane Teto SV",
+    "vocadbName": "Mis-Take RPG",
+    "vocadbUrl": "https://vocadb.net/S/918516",
+    "coverArt": "https://i.ytimg.com/vi/rqG7tQeW06o/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/rqG7tQeW06o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/rqG7tQeW06o/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45966144/45966144.28660838",
+      "https://i.ytimg.com/vi/rqG7tQeW06o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/rqG7tQeW06o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/rqG7tQeW06o/default.jpg"
+    ],
+    "publishDate": "2026-02-19T00:00:00Z",
+    "acceptedTitles": [
+      "Mis-Take RPG",
+      "Mistake RPG"
+    ],
+    "audioClip": "https://audio.sodapines.dev/918516.mp3",
+    "producerNames": [
+      "AnythingBecomeMoe"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kasane Teto"
+    ],
+    "displayArtist": "AnythingBecomeMoe feat. Hatsune Miku, Kasane Teto",
+    "suggestionArtistString": "AnythingBecomeMoe feat. Hatsune Miku, Kasane Teto",
+    "artistSearchNames": [
+      "AnythingBecomeMoe",
+      "AnythingBecomeMoe feat. Hatsune Miku, Kasane Teto SV",
+      "Hatsune Miku",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-03-30",
+    "vocadbId": 829512,
+    "title": "Doomer",
+    "artist": "Tokyo Late Night Pop",
+    "artistString": "Tokyo Late Night Pop feat. Kasane Teto SV",
+    "vocadbName": "Doomer",
+    "vocadbUrl": "https://vocadb.net/S/829512",
+    "coverArt": "https://i.ytimg.com/vi/YcO-MxPf_Vg/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/YcO-MxPf_Vg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/WIFEi2OhLjM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/YcO-MxPf_Vg/sddefault.jpg",
+      "https://i.ytimg.com/vi/WIFEi2OhLjM/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45305971/45305971.19653875",
+      "https://i.ytimg.com/vi/YcO-MxPf_Vg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/WIFEi2OhLjM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/YcO-MxPf_Vg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/WIFEi2OhLjM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/YcO-MxPf_Vg/default.jpg",
+      "https://i.ytimg.com/vi/WIFEi2OhLjM/default.jpg"
+    ],
+    "publishDate": "2025-08-22T00:00:00Z",
+    "acceptedTitles": [
+      "ドゥーマー",
+      "Doomer",
+      "두머"
+    ],
+    "audioClip": "https://audio.sodapines.dev/829512.mp3",
+    "producerNames": [
+      "Tokyo Late Night Pop"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "Tokyo Late Night Pop feat. Kasane Teto",
+    "suggestionArtistString": "Tokyo Late Night Pop feat. Kasane Teto",
+    "artistSearchNames": [
+      "Tokyo Late Night Pop",
+      "Tokyo Late Night Pop feat. Kasane Teto SV",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2030-03-31",
+    "vocadbId": 879964,
+    "title": "Q and A",
+    "artist": "pinata",
+    "artistString": "pinata feat. Kasane Teto",
+    "vocadbName": "Q and A",
+    "vocadbUrl": "https://vocadb.net/S/879964",
+    "coverArt": "https://i.ytimg.com/vi/M40MIxGK3is/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/M40MIxGK3is/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/leuxPGeXpho/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/M40MIxGK3is/sddefault.jpg",
+      "https://i.ytimg.com/vi/leuxPGeXpho/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45697215/45697215.66371927",
+      "https://i.ytimg.com/vi/M40MIxGK3is/hqdefault.jpg",
+      "https://i.ytimg.com/vi/leuxPGeXpho/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/12b27a3a05793e9daf386b7ed0a03ade45d87a75.jpg",
+      "https://i.ytimg.com/vi/M40MIxGK3is/mqdefault.jpg",
+      "https://i.ytimg.com/vi/leuxPGeXpho/mqdefault.jpg",
+      "https://i.ytimg.com/vi/M40MIxGK3is/default.jpg",
+      "https://i.ytimg.com/vi/leuxPGeXpho/default.jpg"
+    ],
+    "publishDate": "2025-12-05T00:00:00Z",
+    "acceptedTitles": [
+      "求＆影",
+      "Q and A",
+      "Q&A",
+      "Kyuu & Ei",
+      "구&영"
+    ],
+    "audioClip": "https://audio.sodapines.dev/879964.mp3",
+    "producerNames": [
+      "pinata"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "pinata feat. Kasane Teto",
+    "suggestionArtistString": "pinata feat. Kasane Teto",
+    "artistSearchNames": [
+      "pinata",
+      "pinata feat. Kasane Teto",
+      "Kasane Teto"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-01",
+    "vocadbId": 962149,
+    "title": "Do-Shichi-Go-Samba",
+    "artist": "namigroove",
+    "artistString": "namigroove feat. Kasane Teto SV",
+    "vocadbName": "Do-Shichi-Go-Samba",
+    "vocadbUrl": "https://vocadb.net/S/962149",
+    "coverArt": "https://i.ytimg.com/vi/-6WgX8_iyR0/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/-6WgX8_iyR0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/-6WgX8_iyR0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/46247896/46247896.5743670",
+      "https://i.ytimg.com/vi/-6WgX8_iyR0/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/604c593336ea2779ec1ad0863886c39805084fe7.jpg",
+      "https://i.ytimg.com/vi/-6WgX8_iyR0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/-6WgX8_iyR0/default.jpg"
+    ],
+    "publishDate": "2026-05-03T00:00:00Z",
+    "acceptedTitles": [
+      "ド七五サンバ",
+      "Do-Shichi-Go-Samba",
+      "Do 7-5 Samba",
+      "Do七五森巴"
+    ],
+    "audioClip": "https://audio.sodapines.dev/962149.mp3",
+    "producerNames": [
+      "namigroove"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "namigroove feat. Kasane Teto",
+    "suggestionArtistString": "namigroove feat. Kasane Teto",
+    "artistSearchNames": [
+      "namigroove",
+      "namigroove feat. Kasane Teto SV",
+      "Kasane Teto",
+      "Kasane Teto SV"
+    ],
+    "sourceTags": [
+      "community",
+      "new"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": []
+  },
+  {
+    "date": "2030-04-02",
+    "vocadbId": 835499,
+    "title": "DREAMMODE",
+    "artist": "Atena",
+    "artistString": "Atena feat. Otomachi Una Spicy, Kaai Yuki V4",
+    "vocadbName": "DREAMMODE",
+    "vocadbUrl": "https://vocadb.net/S/835499",
+    "coverArt": "https://i.ytimg.com/vi/7Ucwpeg9iXM/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/7Ucwpeg9iXM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ilHMpupWRBk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/XjVDmU0gGSY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/7Ucwpeg9iXM/sddefault.jpg",
+      "https://i.ytimg.com/vi/ilHMpupWRBk/sddefault.jpg",
+      "https://i.ytimg.com/vi/XjVDmU0gGSY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/45578964/45578964.45444145",
+      "https://i.ytimg.com/vi/7Ucwpeg9iXM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ilHMpupWRBk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/XjVDmU0gGSY/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/18e20f809318dfcd0901f29dedc606ee51b2f7ee.jpg",
+      "https://i.ytimg.com/vi/7Ucwpeg9iXM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ilHMpupWRBk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/XjVDmU0gGSY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/7Ucwpeg9iXM/default.jpg",
+      "https://i.ytimg.com/vi/ilHMpupWRBk/default.jpg",
+      "https://i.ytimg.com/vi/XjVDmU0gGSY/default.jpg"
+    ],
+    "publishDate": "2025-10-20T00:00:00Z",
+    "acceptedTitles": [
+      "どりーむもーど",
+      "DREAMMODE",
+      "Dream Mode",
+      "梦之模式",
+      "드림 모드"
+    ],
+    "audioClip": "https://audio.sodapines.dev/835499.mp3",
+    "producerNames": [
+      "Atena"
+    ],
+    "singerNames": [
+      "Otomachi Una",
+      "Kaai Yuki"
+    ],
+    "displayArtist": "Atena feat. Otomachi Una, Kaai Yuki",
+    "suggestionArtistString": "Atena feat. Otomachi Una, Kaai Yuki",
+    "artistSearchNames": [
+      "Atena",
+      "Atena feat. Otomachi Una Spicy, Kaai Yuki V4",
+      "Otomachi Una",
+      "Kaai Yuki",
+      "Otomachi Una Spicy",
+      "Kaai Yuki V4"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-03",
+    "vocadbId": 850,
+    "title": "Cool Love Song",
+    "artist": "LeleleP",
+    "artistString": "LeleleP feat. Kagamine Len",
+    "vocadbName": "Cool Love Song",
+    "vocadbUrl": "https://vocadb.net/S/850",
+    "coverArt": "https://i.ytimg.com/vi/rYGq1fcWZw8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/rYGq1fcWZw8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/HsP5ypHqO0Q/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/rYGq1fcWZw8/sddefault.jpg",
+      "https://i.ytimg.com/vi/HsP5ypHqO0Q/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/2849292/2849292",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/2849292/2849292.47778356",
+      "https://i.ytimg.com/vi/rYGq1fcWZw8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/HsP5ypHqO0Q/hqdefault.jpg",
+      "https://cdn.piapro.jp/thumb_i/3a/3azk90o4o0kxtlmc_20080330190454_0250_0250.jpg",
+      "https://i.ytimg.com/vi/rYGq1fcWZw8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/HsP5ypHqO0Q/mqdefault.jpg",
+      "https://i.ytimg.com/vi/rYGq1fcWZw8/default.jpg",
+      "https://i.ytimg.com/vi/HsP5ypHqO0Q/default.jpg"
+    ],
+    "publishDate": "2008-03-31T00:00:00Z",
+    "acceptedTitles": [
+      "イケ恋歌",
+      "Cool Love Song",
+      "Ikerenka",
+      "Cool (Len) Love Song",
+      "Ikelenka"
+    ],
+    "audioClip": "https://audio.sodapines.dev/850.mp3",
+    "producerNames": [
+      "LeleleP"
+    ],
+    "singerNames": [
+      "Kagamine Len"
+    ],
+    "displayArtist": "LeleleP feat. Kagamine Len",
+    "suggestionArtistString": "LeleleP feat. Kagamine Len",
+    "artistSearchNames": [
+      "LeleleP",
+      "LeleleP feat. Kagamine Len",
+      "Kagamine Len"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-04",
+    "vocadbId": 5179,
+    "title": "Soar",
+    "artist": "Minato Takahiro",
+    "artistString": "Minato Takahiro feat. Hatsune Miku",
+    "vocadbName": "Soar",
+    "vocadbUrl": "https://vocadb.net/S/5179",
+    "coverArt": "https://i.ytimg.com/vi/bJoweu0e63M/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/bJoweu0e63M/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/bJoweu0e63M/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/2700265/2700265",
+      "https://i.ytimg.com/vi/bJoweu0e63M/hqdefault.jpg",
+      "https://res.piapro.jp/r/images/card/250/miku.png?20260120",
+      "https://i.ytimg.com/vi/bJoweu0e63M/mqdefault.jpg",
+      "https://i.ytimg.com/vi/bJoweu0e63M/default.jpg"
+    ],
+    "publishDate": "2008-03-19T00:00:00Z",
+    "acceptedTitles": [
+      "Soar"
+    ],
+    "audioClip": "https://audio.sodapines.dev/5179.mp3",
+    "producerNames": [
+      "Minato Takahiro"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Minato Takahiro feat. Hatsune Miku",
+    "suggestionArtistString": "Minato Takahiro feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Minato Takahiro",
+      "Minato Takahiro feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-05",
+    "vocadbId": 31040,
+    "title": "Prisoner",
+    "artist": "PrisonerP",
+    "artistString": "PrisonerP feat. Kagamine Len",
+    "vocadbName": "Prisoner",
+    "vocadbUrl": "https://vocadb.net/S/31040",
+    "coverArt": "https://i.ytimg.com/vi/MBLQDklXWIA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/MBLQDklXWIA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/VoK5d58G20c/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/JxTTOaszH6c/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/qVi_vfCDRJg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/JCkByKskziw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Zgoy3Ajjvs8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/bAb6Fz53zSA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/-OKOab6l-kg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/HW1WnB1WmUA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/IBQq6-Pr_UA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/uwJ2QN8pGh8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/jN1gqPOaGeM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/7IrdhVSL--U/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ZlQvvDuB3Qw/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/mLKjxz8zJlE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/TYVWuTXrSdU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/MBLQDklXWIA/sddefault.jpg",
+      "https://i.ytimg.com/vi/VoK5d58G20c/sddefault.jpg",
+      "https://i.ytimg.com/vi/JxTTOaszH6c/sddefault.jpg",
+      "https://i.ytimg.com/vi/qVi_vfCDRJg/sddefault.jpg",
+      "https://i.ytimg.com/vi/JCkByKskziw/sddefault.jpg",
+      "https://i.ytimg.com/vi/Zgoy3Ajjvs8/sddefault.jpg",
+      "https://i.ytimg.com/vi/bAb6Fz53zSA/sddefault.jpg",
+      "https://i.ytimg.com/vi/-OKOab6l-kg/sddefault.jpg",
+      "https://i.ytimg.com/vi/HW1WnB1WmUA/sddefault.jpg",
+      "https://i.ytimg.com/vi/IBQq6-Pr_UA/sddefault.jpg",
+      "https://i.ytimg.com/vi/uwJ2QN8pGh8/sddefault.jpg",
+      "https://i.ytimg.com/vi/jN1gqPOaGeM/sddefault.jpg",
+      "https://i.ytimg.com/vi/7IrdhVSL--U/sddefault.jpg",
+      "https://i.ytimg.com/vi/ZlQvvDuB3Qw/sddefault.jpg",
+      "https://i.ytimg.com/vi/mLKjxz8zJlE/sddefault.jpg",
+      "https://i.ytimg.com/vi/TYVWuTXrSdU/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/5117285/5117285",
+      "https://i.ytimg.com/vi/MBLQDklXWIA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/VoK5d58G20c/hqdefault.jpg",
+      "https://i.ytimg.com/vi/JxTTOaszH6c/hqdefault.jpg",
+      "https://i.ytimg.com/vi/qVi_vfCDRJg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/JCkByKskziw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Zgoy3Ajjvs8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/bAb6Fz53zSA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/-OKOab6l-kg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/HW1WnB1WmUA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/IBQq6-Pr_UA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/uwJ2QN8pGh8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/jN1gqPOaGeM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/7IrdhVSL--U/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ZlQvvDuB3Qw/hqdefault.jpg",
+      "https://i.ytimg.com/vi/mLKjxz8zJlE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/TYVWuTXrSdU/hqdefault.jpg",
+      "https://cdn.piapro.jp/thumb_i/w2/w2uvcsqmzuehf6xj_20100114215222_0250_0250.jpg",
+      "https://i0.hdslb.com/bfs/archive/4f0bb33b5914424089671591024f32d54b9bceb4.jpg",
+      "https://i2.hdslb.com/bfs/archive/35d63b6004ea86e0907d96bf9069542a12354209.jpg",
+      "https://i2.hdslb.com/bfs/archive/cad9ee660cbd9d648d9936ea65cbe1ba19694e62.jpg",
+      "https://i.ytimg.com/vi/MBLQDklXWIA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/VoK5d58G20c/mqdefault.jpg",
+      "https://i.ytimg.com/vi/JxTTOaszH6c/mqdefault.jpg",
+      "https://i.ytimg.com/vi/qVi_vfCDRJg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/JCkByKskziw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Zgoy3Ajjvs8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/bAb6Fz53zSA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/-OKOab6l-kg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/HW1WnB1WmUA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/IBQq6-Pr_UA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/uwJ2QN8pGh8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/jN1gqPOaGeM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/7IrdhVSL--U/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ZlQvvDuB3Qw/mqdefault.jpg",
+      "https://i.ytimg.com/vi/mLKjxz8zJlE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/TYVWuTXrSdU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/MBLQDklXWIA/default.jpg",
+      "https://i.ytimg.com/vi/VoK5d58G20c/default.jpg",
+      "https://i.ytimg.com/vi/JxTTOaszH6c/default.jpg",
+      "https://i.ytimg.com/vi/qVi_vfCDRJg/default.jpg",
+      "https://i.ytimg.com/vi/JCkByKskziw/default.jpg",
+      "https://i.ytimg.com/vi/Zgoy3Ajjvs8/default.jpg",
+      "https://i.ytimg.com/vi/bAb6Fz53zSA/default.jpg",
+      "https://i.ytimg.com/vi/-OKOab6l-kg/default.jpg",
+      "https://i.ytimg.com/vi/HW1WnB1WmUA/default.jpg",
+      "https://i.ytimg.com/vi/IBQq6-Pr_UA/default.jpg",
+      "https://i.ytimg.com/vi/uwJ2QN8pGh8/default.jpg",
+      "https://i.ytimg.com/vi/jN1gqPOaGeM/default.jpg",
+      "https://i.ytimg.com/vi/7IrdhVSL--U/default.jpg",
+      "https://i.ytimg.com/vi/ZlQvvDuB3Qw/default.jpg",
+      "https://i.ytimg.com/vi/mLKjxz8zJlE/default.jpg",
+      "https://i.ytimg.com/vi/TYVWuTXrSdU/default.jpg"
+    ],
+    "publishDate": "2008-11-01T00:00:00Z",
+    "acceptedTitles": [
+      "囚人",
+      "Prisoner",
+      "Shuujin",
+      "수인"
+    ],
+    "audioClip": "https://audio.sodapines.dev/31040.mp3",
+    "producerNames": [
+      "PrisonerP"
+    ],
+    "singerNames": [
+      "Kagamine Len"
+    ],
+    "displayArtist": "PrisonerP feat. Kagamine Len",
+    "suggestionArtistString": "PrisonerP feat. Kagamine Len",
+    "artistSearchNames": [
+      "PrisonerP",
+      "PrisonerP feat. Kagamine Len",
+      "Kagamine Len"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-06",
+    "vocadbId": 1132,
+    "title": "Your Flower With My Song",
+    "artist": "Re:nG",
+    "artistString": "Re:nG feat. Hatsune Miku",
+    "vocadbName": "Your Flower With My Song",
+    "vocadbUrl": "https://vocadb.net/S/1132",
+    "coverArt": "https://i.ytimg.com/vi/7It8SL10Cc8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/7It8SL10Cc8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/C8dS_Q6BOfQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/7It8SL10Cc8/sddefault.jpg",
+      "https://i.ytimg.com/vi/C8dS_Q6BOfQ/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/3212446/3212446",
+      "https://i.ytimg.com/vi/7It8SL10Cc8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/C8dS_Q6BOfQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/7It8SL10Cc8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/C8dS_Q6BOfQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/7It8SL10Cc8/default.jpg",
+      "https://i.ytimg.com/vi/C8dS_Q6BOfQ/default.jpg"
+    ],
+    "publishDate": "2008-05-06T00:00:00Z",
+    "acceptedTitles": [
+      "貴方に花を 私に唄を",
+      "Your Flower With My Song",
+      "Anata ni Hana o Watashi ni Uta o",
+      "Flowers For You, Songs For Me",
+      "A Flower is for You, Give a Song to Me"
+    ],
+    "audioClip": "https://audio.sodapines.dev/1132.mp3",
+    "producerNames": [
+      "Re:nG"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Re:nG feat. Hatsune Miku",
+    "suggestionArtistString": "Re:nG feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Re:nG",
+      "Re:nG feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-04-07",
+    "vocadbId": 1077,
+    "title": "letter song",
+    "artist": "doriko",
+    "artistString": "doriko feat. Hatsune Miku",
+    "vocadbName": "letter song",
+    "vocadbUrl": "https://vocadb.net/S/1077",
+    "coverArt": "https://i.ytimg.com/vi/4BirRkbmcfo/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/4BirRkbmcfo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/4BirRkbmcfo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/3771514/3771514",
+      "https://i.ytimg.com/vi/4BirRkbmcfo/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/4006aaf8d06493c1a257eb4a62cd7925fae1ea20.jpg",
+      "https://i.ytimg.com/vi/4BirRkbmcfo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/4BirRkbmcfo/default.jpg"
+    ],
+    "publishDate": "2008-06-25T00:00:00Z",
+    "acceptedTitles": [
+      "letter song"
+    ],
+    "audioClip": "https://audio.sodapines.dev/1077.mp3",
+    "producerNames": [
+      "doriko"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "doriko feat. Hatsune Miku",
+    "suggestionArtistString": "doriko feat. Hatsune Miku",
+    "artistSearchNames": [
+      "doriko",
+      "doriko feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-04-08",
+    "vocadbId": 7020,
+    "title": "proof of life",
+    "artist": "HitoshizukuP",
+    "artistString": "HitoshizukuP feat. Kagamine Rin",
+    "vocadbName": "proof of life",
+    "vocadbUrl": "https://vocadb.net/S/7020",
+    "coverArt": "https://i.ytimg.com/vi/d-TJBdRV76I/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/d-TJBdRV76I/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/bzLSSY-sJxM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/6AXCnCyRJr4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/d-TJBdRV76I/sddefault.jpg",
+      "https://i.ytimg.com/vi/bzLSSY-sJxM/sddefault.jpg",
+      "https://i.ytimg.com/vi/6AXCnCyRJr4/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/5387156/5387156",
+      "https://i.ytimg.com/vi/d-TJBdRV76I/hqdefault.jpg",
+      "https://i.ytimg.com/vi/bzLSSY-sJxM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/6AXCnCyRJr4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/d-TJBdRV76I/mqdefault.jpg",
+      "https://i.ytimg.com/vi/bzLSSY-sJxM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/6AXCnCyRJr4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/d-TJBdRV76I/default.jpg",
+      "https://i.ytimg.com/vi/bzLSSY-sJxM/default.jpg",
+      "https://i.ytimg.com/vi/6AXCnCyRJr4/default.jpg"
+    ],
+    "publishDate": "2008-11-28T00:00:00Z",
+    "acceptedTitles": [
+      "proof of life"
+    ],
+    "audioClip": "https://audio.sodapines.dev/7020.mp3",
+    "producerNames": [
+      "HitoshizukuP"
+    ],
+    "singerNames": [
+      "Kagamine Rin"
+    ],
+    "displayArtist": "HitoshizukuP feat. Kagamine Rin",
+    "suggestionArtistString": "HitoshizukuP feat. Kagamine Rin",
+    "artistSearchNames": [
+      "HitoshizukuP",
+      "HitoshizukuP feat. Kagamine Rin",
+      "Kagamine Rin"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-04-09",
+    "vocadbId": 1246,
+    "title": "shiningray",
+    "artist": "164",
+    "artistString": "164 feat. Hatsune Miku",
+    "vocadbName": "shiningray",
+    "vocadbUrl": "https://vocadb.net/S/1246",
+    "coverArt": "https://i.ytimg.com/vi/uqqWLTFSIbk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/uqqWLTFSIbk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/SJlQ7iJjV_8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ITFLjtiBs6k/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/uqqWLTFSIbk/sddefault.jpg",
+      "https://i.ytimg.com/vi/SJlQ7iJjV_8/sddefault.jpg",
+      "https://i.ytimg.com/vi/ITFLjtiBs6k/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/4762603/4762603",
+      "https://i.ytimg.com/vi/uqqWLTFSIbk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/SJlQ7iJjV_8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ITFLjtiBs6k/hqdefault.jpg",
+      "https://i.ytimg.com/vi/uqqWLTFSIbk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/SJlQ7iJjV_8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ITFLjtiBs6k/mqdefault.jpg",
+      "https://i.ytimg.com/vi/uqqWLTFSIbk/default.jpg",
+      "https://i.ytimg.com/vi/SJlQ7iJjV_8/default.jpg",
+      "https://i.ytimg.com/vi/ITFLjtiBs6k/default.jpg"
+    ],
+    "publishDate": "2008-09-28T00:00:00Z",
+    "acceptedTitles": [
+      "shiningray"
+    ],
+    "audioClip": "https://audio.sodapines.dev/1246.mp3",
+    "producerNames": [
+      "164"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "164 feat. Hatsune Miku",
+    "suggestionArtistString": "164 feat. Hatsune Miku",
+    "artistSearchNames": [
+      "164",
+      "164 feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-04-10",
+    "vocadbId": 7442,
+    "title": "Benzene",
+    "artist": "OwataP",
+    "artistString": "OwataP feat. Kagamine Len",
+    "vocadbName": "Benzene",
+    "vocadbUrl": "https://vocadb.net/S/7442",
+    "coverArt": "https://i.ytimg.com/vi/jlLdTtp0Tak/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/jlLdTtp0Tak/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/h5mGbmOunBc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/bifDiitKUxs/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/jlLdTtp0Tak/sddefault.jpg",
+      "https://i.ytimg.com/vi/h5mGbmOunBc/sddefault.jpg",
+      "https://i.ytimg.com/vi/bifDiitKUxs/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/5187481/5187481",
+      "https://i.ytimg.com/vi/jlLdTtp0Tak/hqdefault.jpg",
+      "https://i.ytimg.com/vi/h5mGbmOunBc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/bifDiitKUxs/hqdefault.jpg",
+      "https://i.ytimg.com/vi/jlLdTtp0Tak/mqdefault.jpg",
+      "https://i.ytimg.com/vi/h5mGbmOunBc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/bifDiitKUxs/mqdefault.jpg",
+      "https://i.ytimg.com/vi/jlLdTtp0Tak/default.jpg",
+      "https://i.ytimg.com/vi/h5mGbmOunBc/default.jpg",
+      "https://i.ytimg.com/vi/bifDiitKUxs/default.jpg"
+    ],
+    "publishDate": "2008-11-08T00:00:00Z",
+    "acceptedTitles": [
+      "ベンゼン",
+      "Benzene",
+      "癒し系洗脳ソング",
+      "Iyashi-kei Sennou Song",
+      "Therapeutic-type Brainwashing Song"
+    ],
+    "audioClip": "https://audio.sodapines.dev/7442.mp3",
+    "producerNames": [
+      "OwataP"
+    ],
+    "singerNames": [
+      "Kagamine Len"
+    ],
+    "displayArtist": "OwataP feat. Kagamine Len",
+    "suggestionArtistString": "OwataP feat. Kagamine Len",
+    "artistSearchNames": [
+      "OwataP",
+      "OwataP feat. Kagamine Len",
+      "Kagamine Len"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-04-11",
+    "vocadbId": 7446,
+    "title": "Ultra Tsumanne",
+    "artist": "OwataP",
+    "artistString": "OwataP feat. Kagamine Rin, Hatsune Miku",
+    "vocadbName": "Ultra Tsumanne",
+    "vocadbUrl": "https://vocadb.net/S/7446",
+    "coverArt": "https://i.ytimg.com/vi/D5wrwQ5ySAY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/D5wrwQ5ySAY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/5lyYQM9q5Lk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/79dGL4qg2Yg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/D5wrwQ5ySAY/sddefault.jpg",
+      "https://i.ytimg.com/vi/5lyYQM9q5Lk/sddefault.jpg",
+      "https://i.ytimg.com/vi/79dGL4qg2Yg/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/3577849/3577849",
+      "https://i.ytimg.com/vi/D5wrwQ5ySAY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/5lyYQM9q5Lk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/79dGL4qg2Yg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/D5wrwQ5ySAY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/5lyYQM9q5Lk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/79dGL4qg2Yg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/D5wrwQ5ySAY/default.jpg",
+      "https://i.ytimg.com/vi/5lyYQM9q5Lk/default.jpg",
+      "https://i.ytimg.com/vi/79dGL4qg2Yg/default.jpg"
+    ],
+    "publishDate": "2008-06-06T00:00:00Z",
+    "acceptedTitles": [
+      "超ツマンネ",
+      "Ultra Tsumanne",
+      "Chou Tsumanne",
+      "Super Tsumanne"
+    ],
+    "audioClip": "https://audio.sodapines.dev/7446.mp3",
+    "producerNames": [
+      "OwataP"
+    ],
+    "singerNames": [
+      "Kagamine Rin",
+      "Hatsune Miku"
+    ],
+    "displayArtist": "OwataP feat. Kagamine Rin, Hatsune Miku",
+    "suggestionArtistString": "OwataP feat. Kagamine Rin, Hatsune Miku",
+    "artistSearchNames": [
+      "OwataP",
+      "OwataP feat. Kagamine Rin, Hatsune Miku",
+      "Kagamine Rin",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ]
+  },
+  {
+    "date": "2030-04-12",
+    "vocadbId": 140137,
+    "title": "We Are Different !!! (or Same)",
+    "artist": "Carlos Hakamada",
+    "artistString": "Carlos Hakamada feat. Hatsune Miku, Otomachi Una Spicy",
+    "vocadbName": "We Are Different !!! (or Same)",
+    "vocadbUrl": "https://vocadb.net/S/140137",
+    "coverArt": "https://i.ytimg.com/vi/AOvvHI1_5mI/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/AOvvHI1_5mI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/OHtC8jjAVuc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/AOvvHI1_5mI/sddefault.jpg",
+      "https://i.ytimg.com/vi/OHtC8jjAVuc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/30057669/30057669",
+      "https://i.ytimg.com/vi/AOvvHI1_5mI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/OHtC8jjAVuc/hqdefault.jpg",
+      "https://cdn.piapro.jp/thumb_i/be/bektm415fuassdme_20161119111413_0250_0250.jpg",
+      "https://i.ytimg.com/vi/AOvvHI1_5mI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/OHtC8jjAVuc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/AOvvHI1_5mI/default.jpg",
+      "https://i.ytimg.com/vi/OHtC8jjAVuc/default.jpg"
+    ],
+    "publishDate": "2016-11-17T00:00:00Z",
+    "acceptedTitles": [
+      "ちがう!!!",
+      "We Are Different !!! (or Same)",
+      "Wrong!!!",
+      "Chigau!!!",
+      "달라!!!"
+    ],
+    "audioClip": "https://audio.sodapines.dev/140137.mp3",
+    "producerNames": [
+      "Carlos Hakamada"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Otomachi Una"
+    ],
+    "displayArtist": "Carlos Hakamada feat. Hatsune Miku, Otomachi Una",
+    "suggestionArtistString": "Carlos Hakamada feat. Hatsune Miku, Otomachi Una",
+    "artistSearchNames": [
+      "Carlos Hakamada",
+      "Carlos Hakamada feat. Hatsune Miku, Otomachi Una Spicy",
+      "Hatsune Miku",
+      "Otomachi Una",
+      "Otomachi Una Spicy"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2030-04-13",
+    "vocadbId": 123914,
+    "title": "Dance orchestra",
+    "artist": "YASUHIRO",
+    "artistString": "YASUHIRO feat. IA",
+    "vocadbName": "Dance orchestra",
+    "vocadbUrl": "https://vocadb.net/S/123914",
+    "coverArt": "https://i.ytimg.com/vi/5XcRbKUKSdY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/5XcRbKUKSdY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/5iImln9Ma7M/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/UitETDcm5M4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/5XcRbKUKSdY/sddefault.jpg",
+      "https://i.ytimg.com/vi/5iImln9Ma7M/sddefault.jpg",
+      "https://i.ytimg.com/vi/UitETDcm5M4/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/28694937/28694937",
+      "https://i.ytimg.com/vi/5XcRbKUKSdY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/5iImln9Ma7M/hqdefault.jpg",
+      "https://i.ytimg.com/vi/UitETDcm5M4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/5XcRbKUKSdY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/5iImln9Ma7M/mqdefault.jpg",
+      "https://i.ytimg.com/vi/UitETDcm5M4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/5XcRbKUKSdY/default.jpg",
+      "https://i.ytimg.com/vi/5iImln9Ma7M/default.jpg",
+      "https://i.ytimg.com/vi/UitETDcm5M4/default.jpg"
+    ],
+    "publishDate": "2016-04-23T00:00:00Z",
+    "acceptedTitles": [
+      "踊れオーケストラ",
+      "Dance orchestra",
+      "Odore Orchestra",
+      "Dance Orchestra",
+      "춤춰라 오케스트라"
+    ],
+    "audioClip": "https://audio.sodapines.dev/123914.mp3",
+    "producerNames": [
+      "YASUHIRO"
+    ],
+    "singerNames": [
+      "IA"
+    ],
+    "displayArtist": "YASUHIRO feat. IA",
+    "suggestionArtistString": "YASUHIRO feat. IA",
+    "artistSearchNames": [
+      "YASUHIRO",
+      "YASUHIRO feat. IA",
+      "IA"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2030-04-14",
+    "vocadbId": 115539,
+    "title": "I touched a vase",
+    "artist": "balloon",
+    "artistString": "balloon feat. v flower",
+    "vocadbName": "I touched a vase",
+    "vocadbUrl": "https://vocadb.net/S/115539",
+    "coverArt": "https://i.ytimg.com/vi/1U7KFKO5GPo/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/1U7KFKO5GPo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Ja3wCX4d8XU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/5YmNSWwuohE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/1U7KFKO5GPo/sddefault.jpg",
+      "https://i.ytimg.com/vi/Ja3wCX4d8XU/sddefault.jpg",
+      "https://i.ytimg.com/vi/5YmNSWwuohE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/28255984/28255984",
+      "https://i.ytimg.com/vi/1U7KFKO5GPo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Ja3wCX4d8XU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/5YmNSWwuohE/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a4202786164_5.jpg",
+      "https://i.ytimg.com/vi/1U7KFKO5GPo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Ja3wCX4d8XU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/5YmNSWwuohE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/1U7KFKO5GPo/default.jpg",
+      "https://i.ytimg.com/vi/Ja3wCX4d8XU/default.jpg",
+      "https://i.ytimg.com/vi/5YmNSWwuohE/default.jpg"
+    ],
+    "publishDate": "2016-02-23T00:00:00Z",
+    "acceptedTitles": [
+      "花瓶に触れた",
+      "I touched a vase",
+      "Kabin ni Fureta",
+      "Touched on the Vase"
+    ],
+    "audioClip": "https://audio.sodapines.dev/115539.mp3",
+    "producerNames": [
+      "balloon"
+    ],
+    "singerNames": [
+      "v flower"
+    ],
+    "displayArtist": "balloon feat. v flower",
+    "suggestionArtistString": "balloon feat. v flower",
+    "artistSearchNames": [
+      "balloon",
+      "balloon feat. v flower",
+      "v flower"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-15",
+    "vocadbId": 143222,
+    "title": "Mabel",
+    "artist": "balloon",
+    "artistString": "balloon feat. v flower",
+    "vocadbName": "Mabel",
+    "vocadbUrl": "https://vocadb.net/S/143222",
+    "coverArt": "https://i.ytimg.com/vi/PfCcIsDmlfA/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/PfCcIsDmlfA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/uzNBZMCwxbI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/PfCcIsDmlfA/sddefault.jpg",
+      "https://i.ytimg.com/vi/uzNBZMCwxbI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/30225611/30225611",
+      "https://i.ytimg.com/vi/PfCcIsDmlfA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/uzNBZMCwxbI/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a1591667219_5.jpg",
+      "https://i.ytimg.com/vi/PfCcIsDmlfA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/uzNBZMCwxbI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/PfCcIsDmlfA/default.jpg",
+      "https://i.ytimg.com/vi/uzNBZMCwxbI/default.jpg"
+    ],
+    "publishDate": "2016-12-14T00:00:00Z",
+    "acceptedTitles": [
+      "メーベル",
+      "Mabel",
+      "메이블"
+    ],
+    "audioClip": "https://audio.sodapines.dev/143222.mp3",
+    "producerNames": [
+      "balloon"
+    ],
+    "singerNames": [
+      "v flower"
+    ],
+    "displayArtist": "balloon feat. v flower",
+    "suggestionArtistString": "balloon feat. v flower",
+    "artistSearchNames": [
+      "balloon",
+      "balloon feat. v flower",
+      "v flower"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-16",
+    "vocadbId": 127704,
+    "title": "Secret Garden",
+    "artist": "EmpathP",
+    "artistString": "EmpathP feat. DEX, DAINA, CYBER DIVA",
+    "vocadbName": "Secret Garden",
+    "vocadbUrl": "https://vocadb.net/S/127704",
+    "coverArt": "https://i.ytimg.com/vi/wH3bMZXA4W8/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/wH3bMZXA4W8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/wH3bMZXA4W8/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/28894916/28894916",
+      "https://i.ytimg.com/vi/wH3bMZXA4W8/hqdefault.jpg",
+      "https://i1.sndcdn.com/artworks-000163799411-2ha2dz-large.jpg",
+      "https://f4.bcbits.com/img/a1379089312_5.jpg",
+      "https://i.ytimg.com/vi/wH3bMZXA4W8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/wH3bMZXA4W8/default.jpg"
+    ],
+    "publishDate": "2016-05-21T00:00:00Z",
+    "acceptedTitles": [
+      "Secret Garden"
+    ],
+    "audioClip": "https://audio.sodapines.dev/127704.mp3",
+    "producerNames": [
+      "EmpathP"
+    ],
+    "singerNames": [
+      "DEX",
+      "DAINA",
+      "CYBER DIVA"
+    ],
+    "displayArtist": "EmpathP feat. DEX, DAINA, CYBER DIVA",
+    "suggestionArtistString": "EmpathP feat. DEX, DAINA, CYBER DIVA",
+    "artistSearchNames": [
+      "EmpathP",
+      "EmpathP feat. DEX, DAINA, CYBER DIVA",
+      "DEX",
+      "DAINA",
+      "CYBER DIVA"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-17",
+    "vocadbId": 114063,
+    "title": "Hot Pursuit! The Real Story of The Runaway Girl!",
+    "artist": "SLAVE.V-V-R",
+    "artistString": "SLAVE.V-V-R feat. Nekomura Iroha V4 (Natural)",
+    "vocadbName": "Hot Pursuit! The Real Story of The Runaway Girl!",
+    "vocadbUrl": "https://vocadb.net/S/114063",
+    "coverArt": "https://i.ytimg.com/vi/wF9D8NIUSM4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/wF9D8NIUSM4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/GSgbaQCDEX8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/zA05Mghrj6Q/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/wF9D8NIUSM4/sddefault.jpg",
+      "https://i.ytimg.com/vi/GSgbaQCDEX8/sddefault.jpg",
+      "https://i.ytimg.com/vi/zA05Mghrj6Q/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/28158448/28158448",
+      "https://i.ytimg.com/vi/wF9D8NIUSM4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/GSgbaQCDEX8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/zA05Mghrj6Q/hqdefault.jpg",
+      "https://i.ytimg.com/vi/wF9D8NIUSM4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/GSgbaQCDEX8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/zA05Mghrj6Q/mqdefault.jpg",
+      "https://i.ytimg.com/vi/wF9D8NIUSM4/default.jpg",
+      "https://i.ytimg.com/vi/GSgbaQCDEX8/default.jpg",
+      "https://i.ytimg.com/vi/zA05Mghrj6Q/default.jpg"
+    ],
+    "publishDate": "2016-02-06T00:00:00Z",
+    "acceptedTitles": [
+      "追跡！家出少女の実態！",
+      "Hot Pursuit! The Real Story of The Runaway Girl!",
+      "Tsuiseki! Iede Shoujo no Jittai!",
+      "Tracking! The reality of runaway girls!"
+    ],
+    "audioClip": "https://audio.sodapines.dev/114063.mp3",
+    "producerNames": [
+      "SLAVE.V-V-R"
+    ],
+    "singerNames": [
+      "Nekomura Iroha"
+    ],
+    "displayArtist": "SLAVE.V-V-R feat. Nekomura Iroha",
+    "suggestionArtistString": "SLAVE.V-V-R feat. Nekomura Iroha",
+    "artistSearchNames": [
+      "SLAVE.V-V-R",
+      "SLAVE.V-V-R feat. Nekomura Iroha V4 (Natural)",
+      "Nekomura Iroha",
+      "Nekomura Iroha V4"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-18",
+    "vocadbId": 127708,
+    "title": "The Experiment",
+    "artist": "Steampianist",
+    "artistString": "Steampianist feat. V3 GUMI (English)",
+    "vocadbName": "The Experiment",
+    "vocadbUrl": "https://vocadb.net/S/127708",
+    "coverArt": "https://i.ytimg.com/vi/kTAu4vphxVE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/kTAu4vphxVE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ruEKBVgukcU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/kTAu4vphxVE/sddefault.jpg",
+      "https://i.ytimg.com/vi/ruEKBVgukcU/sddefault.jpg",
+      "https://i.ytimg.com/vi/kTAu4vphxVE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ruEKBVgukcU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/kTAu4vphxVE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ruEKBVgukcU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/kTAu4vphxVE/default.jpg",
+      "https://i.ytimg.com/vi/ruEKBVgukcU/default.jpg"
+    ],
+    "publishDate": "2016-06-21T00:00:00Z",
+    "acceptedTitles": [
+      "The Experiment"
+    ],
+    "audioClip": "https://audio.sodapines.dev/127708.mp3",
+    "producerNames": [
+      "Steampianist"
+    ],
+    "singerNames": [
+      "GUMI"
+    ],
+    "displayArtist": "Steampianist feat. GUMI",
+    "suggestionArtistString": "Steampianist feat. GUMI",
+    "artistSearchNames": [
+      "Steampianist",
+      "Steampianist feat. V3 GUMI (English)",
+      "GUMI",
+      "V3 GUMI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-19",
+    "vocadbId": 115473,
+    "title": "Happy Heroine Sniper",
+    "artist": "Joruzin",
+    "artistString": "Joruzin feat. GUMI, Hatsune Miku",
+    "vocadbName": "Happy Heroine Sniper",
+    "vocadbUrl": "https://vocadb.net/S/115473",
+    "coverArt": "https://i.ytimg.com/vi/EIoz00WCZzE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/EIoz00WCZzE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/2rczvW2kAT4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/TNRjG-qOAwg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/EIoz00WCZzE/sddefault.jpg",
+      "https://i.ytimg.com/vi/2rczvW2kAT4/sddefault.jpg",
+      "https://i.ytimg.com/vi/TNRjG-qOAwg/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/28276046/28276046",
+      "https://i.ytimg.com/vi/EIoz00WCZzE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/2rczvW2kAT4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/TNRjG-qOAwg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/EIoz00WCZzE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/2rczvW2kAT4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/TNRjG-qOAwg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/EIoz00WCZzE/default.jpg",
+      "https://i.ytimg.com/vi/2rczvW2kAT4/default.jpg",
+      "https://i.ytimg.com/vi/TNRjG-qOAwg/default.jpg"
+    ],
+    "publishDate": "2016-02-22T00:00:00Z",
+    "acceptedTitles": [
+      "ハッピーヒロインスナイパー",
+      "Happy Heroine Sniper"
+    ],
+    "audioClip": "https://audio.sodapines.dev/115473.mp3",
+    "producerNames": [
+      "Joruzin"
+    ],
+    "singerNames": [
+      "GUMI",
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Joruzin feat. GUMI, Hatsune Miku",
+    "suggestionArtistString": "Joruzin feat. GUMI, Hatsune Miku",
+    "artistSearchNames": [
+      "Joruzin",
+      "Joruzin feat. GUMI, Hatsune Miku",
+      "GUMI",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-20",
+    "vocadbId": 119843,
+    "title": "Snow White",
+    "artist": "n-buna",
+    "artistString": "n-buna feat. Hatsune Miku V3 (Dark)",
+    "vocadbName": "Snow White",
+    "vocadbUrl": "https://vocadb.net/S/119843",
+    "coverArt": "https://i.ytimg.com/vi/oAVDdEfiy4o/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/oAVDdEfiy4o/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/_jXWvmkyWkc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/hZPWlHYTUs8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/oAVDdEfiy4o/sddefault.jpg",
+      "https://i.ytimg.com/vi/_jXWvmkyWkc/sddefault.jpg",
+      "https://i.ytimg.com/vi/hZPWlHYTUs8/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/28406516/28406516",
+      "https://i.ytimg.com/vi/oAVDdEfiy4o/hqdefault.jpg",
+      "https://i.ytimg.com/vi/_jXWvmkyWkc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/hZPWlHYTUs8/hqdefault.jpg",
+      "https://res.piapro.jp/r/images/card/250/miku.png?20260120",
+      "https://i.ytimg.com/vi/oAVDdEfiy4o/mqdefault.jpg",
+      "https://i.ytimg.com/vi/_jXWvmkyWkc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/hZPWlHYTUs8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/oAVDdEfiy4o/default.jpg",
+      "https://i.ytimg.com/vi/_jXWvmkyWkc/default.jpg",
+      "https://i.ytimg.com/vi/hZPWlHYTUs8/default.jpg"
+    ],
+    "publishDate": "2016-03-12T00:00:00Z",
+    "acceptedTitles": [
+      "白ゆき",
+      "Snow White",
+      "Shirayuki",
+      "백설"
+    ],
+    "audioClip": "https://audio.sodapines.dev/119843.mp3",
+    "producerNames": [
+      "n-buna"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "n-buna feat. Hatsune Miku",
+    "suggestionArtistString": "n-buna feat. Hatsune Miku",
+    "artistSearchNames": [
+      "n-buna",
+      "n-buna feat. Hatsune Miku V3 (Dark)",
+      "Hatsune Miku",
+      "Hatsune Miku V3"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-21",
+    "vocadbId": 132922,
+    "title": "Heart Nonsense",
+    "artist": "Kairiki bear",
+    "artistString": "Kairiki bear feat. Hatsune Miku V3 (Soft)",
+    "vocadbName": "Heart Nonsense",
+    "vocadbUrl": "https://vocadb.net/S/132922",
+    "coverArt": "https://i.ytimg.com/vi/3HA9QiksWIc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/3HA9QiksWIc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/3HA9QiksWIc/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/29525305/29525305",
+      "https://i.ytimg.com/vi/3HA9QiksWIc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/3HA9QiksWIc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/3HA9QiksWIc/default.jpg"
+    ],
+    "publishDate": "2016-08-26T00:00:00Z",
+    "acceptedTitles": [
+      "ココロナンセンス",
+      "Heart Nonsense",
+      "Kokoro Nonsense",
+      "HEART NONSENSE",
+      "마음 넌센스"
+    ],
+    "audioClip": "https://audio.sodapines.dev/132922.mp3",
+    "producerNames": [
+      "Kairiki bear"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Kairiki bear feat. Hatsune Miku",
+    "suggestionArtistString": "Kairiki bear feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Kairiki bear",
+      "Kairiki bear feat. Hatsune Miku V3 (Soft)",
+      "Hatsune Miku",
+      "Hatsune Miku V3"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-22",
+    "vocadbId": 137206,
+    "title": "lili.",
+    "artist": "Yuukisan",
+    "artistString": "Yuukisan feat. v flower",
+    "vocadbName": "lili.",
+    "vocadbUrl": "https://vocadb.net/S/137206",
+    "coverArt": "https://i.ytimg.com/vi/Un4JS7f6KLQ/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/Un4JS7f6KLQ/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Un4JS7f6KLQ/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/29871999/29871999",
+      "https://i.ytimg.com/vi/Un4JS7f6KLQ/hqdefault.jpg",
+      "https://i1.sndcdn.com/artworks-000272945714-wyn8pu-large.jpg",
+      "https://i2.hdslb.com/bfs/archive/226516d6ba04076c18367dfdcc88f5eb725b74e3.jpg",
+      "https://f4.bcbits.com/img/a2112540813_5.jpg",
+      "https://i.ytimg.com/vi/Un4JS7f6KLQ/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Un4JS7f6KLQ/default.jpg"
+    ],
+    "publishDate": "2016-10-20T00:00:00Z",
+    "acceptedTitles": [
+      "lili."
+    ],
+    "audioClip": "https://audio.sodapines.dev/137206.mp3",
+    "producerNames": [
+      "Yuukisan"
+    ],
+    "singerNames": [
+      "v flower"
+    ],
+    "displayArtist": "Yuukisan feat. v flower",
+    "suggestionArtistString": "Yuukisan feat. v flower",
+    "artistSearchNames": [
+      "Yuukisan",
+      "Yuukisan feat. v flower",
+      "v flower"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-23",
+    "vocadbId": 124188,
+    "title": "Hit You 8759632145 Times With This Piano",
+    "artist": "SLAVE.V-V-R",
+    "artistString": "SLAVE.V-V-R feat. Nekomura Iroha V4 (Soft)",
+    "vocadbName": "Hit You 8759632145 Times With This Piano",
+    "vocadbUrl": "https://vocadb.net/S/124188",
+    "coverArt": "https://i.ytimg.com/vi/EDfIgucXQyg/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/EDfIgucXQyg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/jA6-yutdAT8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/EDfIgucXQyg/sddefault.jpg",
+      "https://i.ytimg.com/vi/jA6-yutdAT8/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/28714955/28714955",
+      "https://i.ytimg.com/vi/EDfIgucXQyg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/jA6-yutdAT8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/EDfIgucXQyg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/jA6-yutdAT8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/EDfIgucXQyg/default.jpg",
+      "https://i.ytimg.com/vi/jA6-yutdAT8/default.jpg"
+    ],
+    "publishDate": "2016-04-26T00:00:00Z",
+    "acceptedTitles": [
+      "このピアノでお前を8759632145回ぶん殴る",
+      "Hit You 8759632145 Times With This Piano",
+      "Kono Piano de Omae o 8759632145kai Bunnaguru"
+    ],
+    "audioClip": "https://audio.sodapines.dev/124188.mp3",
+    "producerNames": [
+      "SLAVE.V-V-R"
+    ],
+    "singerNames": [
+      "Nekomura Iroha"
+    ],
+    "displayArtist": "SLAVE.V-V-R feat. Nekomura Iroha",
+    "suggestionArtistString": "SLAVE.V-V-R feat. Nekomura Iroha",
+    "artistSearchNames": [
+      "SLAVE.V-V-R",
+      "SLAVE.V-V-R feat. Nekomura Iroha V4 (Soft)",
+      "Nekomura Iroha",
+      "Nekomura Iroha V4"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-24",
+    "vocadbId": 120162,
+    "title": "Psyche Luger",
+    "artist": "harufuri",
+    "artistString": "harufuri feat. Kasane Teto",
+    "vocadbName": "Psyche Luger",
+    "vocadbUrl": "https://vocadb.net/S/120162",
+    "coverArt": "https://i.ytimg.com/vi/UG-x3k-jgj4/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/UG-x3k-jgj4/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/5DwR3cu96o0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/UG-x3k-jgj4/sddefault.jpg",
+      "https://i.ytimg.com/vi/5DwR3cu96o0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/28413235/28413235",
+      "https://i.ytimg.com/vi/UG-x3k-jgj4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/5DwR3cu96o0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/UG-x3k-jgj4/mqdefault.jpg",
+      "https://i.ytimg.com/vi/5DwR3cu96o0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/UG-x3k-jgj4/default.jpg",
+      "https://i.ytimg.com/vi/5DwR3cu96o0/default.jpg"
+    ],
+    "publishDate": "2016-03-13T00:00:00Z",
+    "acceptedTitles": [
+      "プシケルガー",
+      "Psyche Luger",
+      "프시케 루거"
+    ],
+    "audioClip": "https://audio.sodapines.dev/120162.mp3",
+    "producerNames": [
+      "harufuri"
+    ],
+    "singerNames": [
+      "Kasane Teto"
+    ],
+    "displayArtist": "harufuri feat. Kasane Teto",
+    "suggestionArtistString": "harufuri feat. Kasane Teto",
+    "artistSearchNames": [
+      "harufuri",
+      "harufuri feat. Kasane Teto",
+      "Kasane Teto"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-25",
+    "vocadbId": 145093,
+    "title": "Burn Me Down",
+    "artist": "KIRA",
+    "artistString": "KIRA feat. V3 GUMI (English)",
+    "vocadbName": "Burn Me Down",
+    "vocadbUrl": "https://vocadb.net/S/145093",
+    "coverArt": "https://i.ytimg.com/vi/oTGJOVzMHPo/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/oTGJOVzMHPo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/ao-3pPrigiA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/8Jock9fUdqo/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/oTGJOVzMHPo/sddefault.jpg",
+      "https://i.ytimg.com/vi/ao-3pPrigiA/sddefault.jpg",
+      "https://i.ytimg.com/vi/8Jock9fUdqo/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/30295169/30295169",
+      "https://i.ytimg.com/vi/oTGJOVzMHPo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ao-3pPrigiA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/8Jock9fUdqo/hqdefault.jpg",
+      "https://i1.sndcdn.com/artworks-000199988772-zr4bms-large.jpg",
+      "https://f4.bcbits.com/img/a1189723639_5.jpg",
+      "https://i.ytimg.com/vi/oTGJOVzMHPo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/ao-3pPrigiA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/8Jock9fUdqo/mqdefault.jpg",
+      "https://i.ytimg.com/vi/oTGJOVzMHPo/default.jpg",
+      "https://i.ytimg.com/vi/ao-3pPrigiA/default.jpg",
+      "https://i.ytimg.com/vi/8Jock9fUdqo/default.jpg"
+    ],
+    "publishDate": "2016-12-24T00:00:00Z",
+    "acceptedTitles": [
+      "Burn Me Down"
+    ],
+    "audioClip": "https://audio.sodapines.dev/145093.mp3",
+    "producerNames": [
+      "KIRA"
+    ],
+    "singerNames": [
+      "GUMI"
+    ],
+    "displayArtist": "KIRA feat. GUMI",
+    "suggestionArtistString": "KIRA feat. GUMI",
+    "artistSearchNames": [
+      "KIRA",
+      "KIRA feat. V3 GUMI (English)",
+      "GUMI",
+      "V3 GUMI"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-26",
+    "vocadbId": 137455,
+    "title": "FADE",
+    "artist": "CircusP",
+    "artistString": "CircusP feat. DEX, DAINA",
+    "vocadbName": "FADE",
+    "vocadbUrl": "https://vocadb.net/S/137455",
+    "coverArt": "https://i.ytimg.com/vi/5u1CVs31OYM/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/5u1CVs31OYM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/MT2B4ro5hIg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/5u1CVs31OYM/sddefault.jpg",
+      "https://i.ytimg.com/vi/MT2B4ro5hIg/sddefault.jpg",
+      "https://i.ytimg.com/vi/5u1CVs31OYM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/MT2B4ro5hIg/hqdefault.jpg",
+      "https://f4.bcbits.com/img/a2449819918_5.jpg",
+      "https://i.ytimg.com/vi/5u1CVs31OYM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/MT2B4ro5hIg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/5u1CVs31OYM/default.jpg",
+      "https://i.ytimg.com/vi/MT2B4ro5hIg/default.jpg"
+    ],
+    "publishDate": "2016-10-23T00:00:00Z",
+    "acceptedTitles": [
+      "FADE"
+    ],
+    "audioClip": "https://audio.sodapines.dev/137455.mp3",
+    "producerNames": [
+      "CircusP"
+    ],
+    "singerNames": [
+      "DEX",
+      "DAINA"
+    ],
+    "displayArtist": "CircusP feat. DEX, DAINA",
+    "suggestionArtistString": "CircusP feat. DEX, DAINA",
+    "artistSearchNames": [
+      "CircusP",
+      "CircusP feat. DEX, DAINA",
+      "DEX",
+      "DAINA"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-27",
+    "vocadbId": 629069,
+    "title": "Nann Plz",
+    "artist": "Yukopi",
+    "artistString": "Yukopi feat. Kaai Yuki",
+    "vocadbName": "Nann Plz",
+    "vocadbUrl": "https://vocadb.net/S/629069",
+    "coverArt": "https://i.ytimg.com/vi/lZzVzYWPOKk/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/lZzVzYWPOKk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/OGLHavL5pF8/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/lZzVzYWPOKk/sddefault.jpg",
+      "https://i.ytimg.com/vi/OGLHavL5pF8/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/43793031/43793031.56692987",
+      "https://i.ytimg.com/vi/lZzVzYWPOKk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/OGLHavL5pF8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/lZzVzYWPOKk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/OGLHavL5pF8/mqdefault.jpg",
+      "https://i.ytimg.com/vi/lZzVzYWPOKk/default.jpg",
+      "https://i.ytimg.com/vi/OGLHavL5pF8/default.jpg"
+    ],
+    "publishDate": "2024-05-17T00:00:00Z",
+    "acceptedTitles": [
+      "ナン食べたい",
+      "Nann Plz",
+      "Nan Tabetai",
+      "난 먹고 싶다"
+    ],
+    "audioClip": "https://audio.sodapines.dev/629069.mp3",
+    "producerNames": [
+      "Yukopi"
+    ],
+    "singerNames": [
+      "Kaai Yuki"
+    ],
+    "displayArtist": "Yukopi feat. Kaai Yuki",
+    "suggestionArtistString": "Yukopi feat. Kaai Yuki",
+    "artistSearchNames": [
+      "Yukopi",
+      "Yukopi feat. Kaai Yuki",
+      "Kaai Yuki"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-28",
+    "vocadbId": 668950,
+    "title": "The Big Operation: Stay Awake",
+    "artist": "Yukopi",
+    "artistString": "Yukopi feat. Kaai Yuki",
+    "vocadbName": "The Big Operation: Stay Awake",
+    "vocadbUrl": "https://vocadb.net/S/668950",
+    "coverArt": "https://i.ytimg.com/vi/57KLwpKdUrE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/57KLwpKdUrE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/6T3sDNqwX0A/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/mb9_KwzQW-Y/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/57KLwpKdUrE/sddefault.jpg",
+      "https://i.ytimg.com/vi/6T3sDNqwX0A/sddefault.jpg",
+      "https://i.ytimg.com/vi/mb9_KwzQW-Y/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/44052848/44052848.65044047",
+      "https://i.ytimg.com/vi/57KLwpKdUrE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/6T3sDNqwX0A/hqdefault.jpg",
+      "https://i.ytimg.com/vi/mb9_KwzQW-Y/hqdefault.jpg",
+      "https://i.ytimg.com/vi/57KLwpKdUrE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/6T3sDNqwX0A/mqdefault.jpg",
+      "https://i.ytimg.com/vi/mb9_KwzQW-Y/mqdefault.jpg",
+      "https://i.ytimg.com/vi/57KLwpKdUrE/default.jpg",
+      "https://i.ytimg.com/vi/6T3sDNqwX0A/default.jpg",
+      "https://i.ytimg.com/vi/mb9_KwzQW-Y/default.jpg"
+    ],
+    "publishDate": "2024-09-01T00:00:00Z",
+    "acceptedTitles": [
+      "おきてる大作戦",
+      "The Big Operation: Stay Awake",
+      "Okiteru Daisakusen"
+    ],
+    "audioClip": "https://audio.sodapines.dev/668950.mp3",
+    "producerNames": [
+      "Yukopi"
+    ],
+    "singerNames": [
+      "Kaai Yuki"
+    ],
+    "displayArtist": "Yukopi feat. Kaai Yuki",
+    "suggestionArtistString": "Yukopi feat. Kaai Yuki",
+    "artistSearchNames": [
+      "Yukopi",
+      "Yukopi feat. Kaai Yuki",
+      "Kaai Yuki"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-29",
+    "vocadbId": 423773,
+    "title": "Natsu ni Saku",
+    "artist": "Yukopi",
+    "artistString": "Yukopi feat. Hatsune Miku",
+    "vocadbName": "Natsu ni Saku",
+    "vocadbUrl": "https://vocadb.net/S/423773",
+    "coverArt": "https://i.ytimg.com/vi/vHulxaCO1sM/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/vHulxaCO1sM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/vHulxaCO1sM/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40806968/40806968.59823323",
+      "https://i.ytimg.com/vi/vHulxaCO1sM/hqdefault.jpg",
+      "https://i.ytimg.com/vi/vHulxaCO1sM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/vHulxaCO1sM/default.jpg"
+    ],
+    "publishDate": "2019-11-14T00:00:00Z",
+    "acceptedTitles": [
+      "夏に咲く",
+      "Natsu ni Saku"
+    ],
+    "audioClip": "https://audio.sodapines.dev/423773.mp3",
+    "producerNames": [
+      "Yukopi"
+    ],
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "displayArtist": "Yukopi feat. Hatsune Miku",
+    "suggestionArtistString": "Yukopi feat. Hatsune Miku",
+    "artistSearchNames": [
+      "Yukopi",
+      "Yukopi feat. Hatsune Miku",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-04-30",
+    "vocadbId": 516728,
+    "title": "Waking Up, a Palm Tree",
+    "artist": "Yukopi",
+    "artistString": "Yukopi feat. Kaai Yuki",
+    "vocadbName": "Waking Up, a Palm Tree",
+    "vocadbUrl": "https://vocadb.net/S/516728",
+    "coverArt": "https://i.ytimg.com/vi/FSXsAt7z_RU/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/FSXsAt7z_RU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/-EXAMk8ZNig/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/14FX-pEDczI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/FSXsAt7z_RU/sddefault.jpg",
+      "https://i.ytimg.com/vi/-EXAMk8ZNig/sddefault.jpg",
+      "https://i.ytimg.com/vi/14FX-pEDczI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/42536675/42536675.99229206",
+      "https://i.ytimg.com/vi/FSXsAt7z_RU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/-EXAMk8ZNig/hqdefault.jpg",
+      "https://i.ytimg.com/vi/14FX-pEDczI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/FSXsAt7z_RU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/-EXAMk8ZNig/mqdefault.jpg",
+      "https://i.ytimg.com/vi/14FX-pEDczI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/FSXsAt7z_RU/default.jpg",
+      "https://i.ytimg.com/vi/-EXAMk8ZNig/default.jpg",
+      "https://i.ytimg.com/vi/14FX-pEDczI/default.jpg"
+    ],
+    "publishDate": "2023-07-28T00:00:00Z",
+    "acceptedTitles": [
+      "寝起きヤシの木",
+      "Waking Up, a Palm Tree",
+      "Neoki Yashi no Ki",
+      "Up From Sleep, I'm a Palm Tree",
+      "Waking Yashinoki",
+      "I Woke Up With A Palm Tree"
+    ],
+    "audioClip": "https://audio.sodapines.dev/516728.mp3",
+    "producerNames": [
+      "Yukopi"
+    ],
+    "singerNames": [
+      "Kaai Yuki"
+    ],
+    "displayArtist": "Yukopi feat. Kaai Yuki",
+    "suggestionArtistString": "Yukopi feat. Kaai Yuki",
+    "artistSearchNames": [
+      "Yukopi",
+      "Yukopi feat. Kaai Yuki",
+      "Kaai Yuki"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2030-05-01",
+    "vocadbId": 552488,
+    "title": "Pig Thunder",
+    "artist": "Yukopi",
+    "artistString": "Yukopi feat. Kaai Yuki",
+    "vocadbName": "Pig Thunder",
+    "vocadbUrl": "https://vocadb.net/S/552488",
+    "coverArt": "https://i.ytimg.com/vi/j8zb5q2UkxE/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/j8zb5q2UkxE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/OYA_ZHvRP9g/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/j8zb5q2UkxE/sddefault.jpg",
+      "https://i.ytimg.com/vi/OYA_ZHvRP9g/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/43032471/43032471.4967543",
+      "https://i.ytimg.com/vi/j8zb5q2UkxE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/OYA_ZHvRP9g/hqdefault.jpg",
+      "https://i.ytimg.com/vi/j8zb5q2UkxE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/OYA_ZHvRP9g/mqdefault.jpg",
+      "https://i.ytimg.com/vi/j8zb5q2UkxE/default.jpg",
+      "https://i.ytimg.com/vi/OYA_ZHvRP9g/default.jpg"
+    ],
+    "publishDate": "2023-11-17T00:00:00Z",
+    "acceptedTitles": [
+      "ブタサンダー  ",
+      "Pig Thunder",
+      "Buta Thunder",
+      "BUTASANDER",
+      "돼지 썬더"
+    ],
+    "audioClip": "https://audio.sodapines.dev/552488.mp3",
+    "producerNames": [
+      "Yukopi"
+    ],
+    "singerNames": [
+      "Kaai Yuki"
+    ],
+    "displayArtist": "Yukopi feat. Kaai Yuki",
+    "suggestionArtistString": "Yukopi feat. Kaai Yuki",
+    "artistSearchNames": [
+      "Yukopi",
+      "Yukopi feat. Kaai Yuki",
+      "Kaai Yuki"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-10m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ]
+  },
+  {
+    "date": "2030-05-02",
+    "vocadbId": 401005,
+    "title": "Miseen",
+    "artist": "nulut",
+    "artistString": "nulut, balloon feat. Kaai Yuki, v flower",
+    "vocadbName": "Miseen",
+    "vocadbUrl": "https://vocadb.net/S/401005",
+    "coverArt": "https://i.ytimg.com/vi/dA3LyKztYI0/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/dA3LyKztYI0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/lTWSuUyizuE/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/dA3LyKztYI0/sddefault.jpg",
+      "https://i.ytimg.com/vi/lTWSuUyizuE/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40346131/40346131.8519144",
+      "https://i.ytimg.com/vi/dA3LyKztYI0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/lTWSuUyizuE/hqdefault.jpg",
+      "https://i1.sndcdn.com/artworks-gMrQOKuRGBnD-0-original.jpg",
+      "https://i.ytimg.com/vi/dA3LyKztYI0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/lTWSuUyizuE/mqdefault.jpg",
+      "https://i.ytimg.com/vi/dA3LyKztYI0/default.jpg",
+      "https://i.ytimg.com/vi/lTWSuUyizuE/default.jpg"
+    ],
+    "publishDate": "2022-04-22T00:00:00Z",
+    "acceptedTitles": [
+      "ミザン",
+      "Miseen",
+      "Mizan",
+      "미장"
+    ],
+    "audioClip": "https://audio.sodapines.dev/401005.mp3",
+    "producerNames": [
+      "nulut",
+      "balloon"
+    ],
+    "singerNames": [
+      "Kaai Yuki",
+      "v flower"
+    ],
+    "displayArtist": "nulut, balloon feat. Kaai Yuki, v flower",
+    "suggestionArtistString": "nulut, balloon feat. Kaai Yuki, v flower",
+    "artistSearchNames": [
+      "nulut",
+      "nulut, balloon feat. Kaai Yuki, v flower",
+      "balloon",
+      "Kaai Yuki",
+      "v flower"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-1m",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-05-03",
+    "vocadbId": 611933,
+    "title": "4nim0sity|99.999999999%|",
+    "artist": "Ichi",
+    "artistString": "Ichi feat. Kaai Yuki",
+    "vocadbName": "4nim0sity|99.999999999%|",
+    "vocadbUrl": "https://vocadb.net/S/611933",
+    "coverArt": "https://i.ytimg.com/vi/sIyYgcWnG94/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/sIyYgcWnG94/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/7S2HVHDM-EA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/sIyYgcWnG94/sddefault.jpg",
+      "https://i.ytimg.com/vi/7S2HVHDM-EA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/43647945/43647945.33740602",
+      "https://i.ytimg.com/vi/sIyYgcWnG94/hqdefault.jpg",
+      "https://i.ytimg.com/vi/7S2HVHDM-EA/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/5604cac552af55253974a7a26142edb2baba0d40.jpg",
+      "https://i.ytimg.com/vi/sIyYgcWnG94/mqdefault.jpg",
+      "https://i.ytimg.com/vi/7S2HVHDM-EA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/sIyYgcWnG94/default.jpg",
+      "https://i.ytimg.com/vi/7S2HVHDM-EA/default.jpg"
+    ],
+    "publishDate": "2024-04-12T00:00:00Z",
+    "acceptedTitles": [
+      "4nim0sity|99.999999999%|",
+      "4nim0sity [99.999999999%]",
+      "无尽敌意"
+    ],
+    "audioClip": "https://audio.sodapines.dev/611933.mp3",
+    "producerNames": [
+      "Ichi"
+    ],
+    "singerNames": [
+      "Kaai Yuki"
+    ],
+    "displayArtist": "Ichi feat. Kaai Yuki",
+    "suggestionArtistString": "Ichi feat. Kaai Yuki",
+    "artistSearchNames": [
+      "Ichi",
+      "Ichi feat. Kaai Yuki",
+      "Kaai Yuki"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-05-04",
+    "vocadbId": 263129,
+    "title": "Secret Elementary School Student",
+    "artist": "inabakumori",
+    "artistString": "inabakumori feat. Kaai Yuki",
+    "vocadbName": "Secret Elementary School Student",
+    "vocadbUrl": "https://vocadb.net/S/263129",
+    "coverArt": "https://i.ytimg.com/vi/wdUCRDvFv3Q/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/wdUCRDvFv3Q/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/k7iljWaK_ZA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/KNZbaP3bhk0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/Eekc-0ECw5I/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/wdUCRDvFv3Q/sddefault.jpg",
+      "https://i.ytimg.com/vi/k7iljWaK_ZA/sddefault.jpg",
+      "https://i.ytimg.com/vi/KNZbaP3bhk0/sddefault.jpg",
+      "https://i.ytimg.com/vi/Eekc-0ECw5I/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36042320/36042320.8555033",
+      "https://i.ytimg.com/vi/wdUCRDvFv3Q/hqdefault.jpg",
+      "https://i.ytimg.com/vi/k7iljWaK_ZA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/KNZbaP3bhk0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/Eekc-0ECw5I/hqdefault.jpg",
+      "https://i0.hdslb.com/bfs/archive/38c59a0e8ad6b817420783e57677f52ad6fa3d72.jpg",
+      "https://i.ytimg.com/vi/wdUCRDvFv3Q/mqdefault.jpg",
+      "https://i.ytimg.com/vi/k7iljWaK_ZA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/KNZbaP3bhk0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/Eekc-0ECw5I/mqdefault.jpg",
+      "https://i.ytimg.com/vi/wdUCRDvFv3Q/default.jpg",
+      "https://i.ytimg.com/vi/k7iljWaK_ZA/default.jpg",
+      "https://i.ytimg.com/vi/KNZbaP3bhk0/default.jpg",
+      "https://i.ytimg.com/vi/Eekc-0ECw5I/default.jpg"
+    ],
+    "publishDate": "2019-12-04T00:00:00Z",
+    "acceptedTitles": [
+      "ひみつの小学生",
+      "Secret Elementary School Student",
+      "Himitsu no Shougakusei",
+      "秘密的小学生"
+    ],
+    "audioClip": "https://audio.sodapines.dev/263129.mp3",
+    "producerNames": [
+      "inabakumori"
+    ],
+    "singerNames": [
+      "Kaai Yuki"
+    ],
+    "displayArtist": "inabakumori feat. Kaai Yuki",
+    "suggestionArtistString": "inabakumori feat. Kaai Yuki",
+    "artistSearchNames": [
+      "inabakumori",
+      "inabakumori feat. Kaai Yuki",
+      "Kaai Yuki"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-05-05",
+    "vocadbId": 402604,
+    "title": "just saying, the body is honest.",
+    "artist": "shikiura sougo",
+    "artistString": "shikiura sougo feat. Kaai Yuki",
+    "vocadbName": "just saying, the body is honest.",
+    "vocadbUrl": "https://vocadb.net/S/402604",
+    "coverArt": "https://i.ytimg.com/vi/zIghUDfX2RY/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/zIghUDfX2RY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/3o_DlflvEIU/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/_dqFqT0g7JA/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/zIghUDfX2RY/sddefault.jpg",
+      "https://i.ytimg.com/vi/3o_DlflvEIU/sddefault.jpg",
+      "https://i.ytimg.com/vi/_dqFqT0g7JA/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/40350984/40350984.52549466",
+      "https://i.ytimg.com/vi/zIghUDfX2RY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/3o_DlflvEIU/hqdefault.jpg",
+      "https://i.ytimg.com/vi/_dqFqT0g7JA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/zIghUDfX2RY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/3o_DlflvEIU/mqdefault.jpg",
+      "https://i.ytimg.com/vi/_dqFqT0g7JA/mqdefault.jpg",
+      "https://i.ytimg.com/vi/zIghUDfX2RY/default.jpg",
+      "https://i.ytimg.com/vi/3o_DlflvEIU/default.jpg",
+      "https://i.ytimg.com/vi/_dqFqT0g7JA/default.jpg"
+    ],
+    "publishDate": "2022-04-24T00:00:00Z",
+    "acceptedTitles": [
+      "身体は正直だって言ってんの",
+      "just saying, the body is honest.",
+      "Karada wa Shoujiki Datte Itten no"
+    ],
+    "audioClip": "https://audio.sodapines.dev/402604.mp3",
+    "producerNames": [
+      "shikiura sougo"
+    ],
+    "singerNames": [
+      "Kaai Yuki"
+    ],
+    "displayArtist": "shikiura sougo feat. Kaai Yuki",
+    "suggestionArtistString": "shikiura sougo feat. Kaai Yuki",
+    "artistSearchNames": [
+      "shikiura sougo",
+      "shikiura sougo feat. Kaai Yuki",
+      "Kaai Yuki"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-05-06",
+    "vocadbId": 362088,
+    "title": "If You Touch It, It's Over",
+    "artist": "NAKISO",
+    "artistString": "NAKISO feat. Kaai Yuki V4",
+    "vocadbName": "If You Touch It, It's Over",
+    "vocadbUrl": "https://vocadb.net/S/362088",
+    "coverArt": "https://i.ytimg.com/vi/mZcvvII3SZc/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/mZcvvII3SZc/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/uejjuN_inZ0/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/mZcvvII3SZc/sddefault.jpg",
+      "https://i.ytimg.com/vi/uejjuN_inZ0/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/39521195/39521195.43714431",
+      "https://i.ytimg.com/vi/mZcvvII3SZc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/uejjuN_inZ0/hqdefault.jpg",
+      "https://i.ytimg.com/vi/mZcvvII3SZc/mqdefault.jpg",
+      "https://i.ytimg.com/vi/uejjuN_inZ0/mqdefault.jpg",
+      "https://i.ytimg.com/vi/mZcvvII3SZc/default.jpg",
+      "https://i.ytimg.com/vi/uejjuN_inZ0/default.jpg"
+    ],
+    "publishDate": "2021-10-25T00:00:00Z",
+    "acceptedTitles": [
+      "触れたら最後",
+      "If You Touch It, It's Over",
+      "Furetara Saigo"
+    ],
+    "audioClip": "https://audio.sodapines.dev/362088.mp3",
+    "producerNames": [
+      "NAKISO"
+    ],
+    "singerNames": [
+      "Kaai Yuki"
+    ],
+    "displayArtist": "NAKISO feat. Kaai Yuki",
+    "suggestionArtistString": "NAKISO feat. Kaai Yuki",
+    "artistSearchNames": [
+      "NAKISO",
+      "NAKISO feat. Kaai Yuki V4",
+      "Kaai Yuki",
+      "Kaai Yuki V4"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-05-07",
+    "vocadbId": 237393,
+    "title": "NON-USE",
+    "artist": "inabakumori",
+    "artistString": "inabakumori feat. Kaai Yuki, Hatsune Miku",
+    "vocadbName": "NON-USE",
+    "vocadbUrl": "https://vocadb.net/S/237393",
+    "coverArt": "https://i.ytimg.com/vi/-5T-L0b43no/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/-5T-L0b43no/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/BdIr12OkWVY/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/-5T-L0b43no/sddefault.jpg",
+      "https://i.ytimg.com/vi/BdIr12OkWVY/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/35109167/35109167.77297676",
+      "https://i.ytimg.com/vi/-5T-L0b43no/hqdefault.jpg",
+      "https://i.ytimg.com/vi/BdIr12OkWVY/hqdefault.jpg",
+      "https://i1.hdslb.com/bfs/archive/66cee70e15f9f1d27bbd9a4ae5197dc722d21f2a.jpg",
+      "https://i.ytimg.com/vi/-5T-L0b43no/mqdefault.jpg",
+      "https://i.ytimg.com/vi/BdIr12OkWVY/mqdefault.jpg",
+      "https://i.ytimg.com/vi/-5T-L0b43no/default.jpg",
+      "https://i.ytimg.com/vi/BdIr12OkWVY/default.jpg"
+    ],
+    "publishDate": "2019-05-11T00:00:00Z",
+    "acceptedTitles": [
+      "ノンユース",
+      "NON-USE"
+    ],
+    "audioClip": "https://audio.sodapines.dev/237393.mp3",
+    "producerNames": [
+      "inabakumori"
+    ],
+    "singerNames": [
+      "Kaai Yuki",
+      "Hatsune Miku"
+    ],
+    "displayArtist": "inabakumori feat. Kaai Yuki, Hatsune Miku",
+    "suggestionArtistString": "inabakumori feat. Kaai Yuki, Hatsune Miku",
+    "artistSearchNames": [
+      "inabakumori",
+      "inabakumori feat. Kaai Yuki, Hatsune Miku",
+      "Kaai Yuki",
+      "Hatsune Miku"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-05-08",
+    "vocadbId": 267225,
+    "title": "Clover Knight",
+    "artist": "iyowa",
+    "artistString": "iyowa feat. various",
+    "vocadbName": "Clover Knight",
+    "vocadbUrl": "https://vocadb.net/S/267225",
+    "coverArt": "https://i.ytimg.com/vi/iFo-ie2lJvg/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/iFo-ie2lJvg/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/sa8Shf7vrfM/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/iFo-ie2lJvg/sddefault.jpg",
+      "https://i.ytimg.com/vi/sa8Shf7vrfM/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/36179658/36179658.16659305",
+      "https://i.ytimg.com/vi/iFo-ie2lJvg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/sa8Shf7vrfM/hqdefault.jpg",
+      "https://i2.hdslb.com/bfs/archive/eac174cf8b18fb8e37c321d61fd53a70c8751367.jpg",
+      "https://i.ytimg.com/vi/iFo-ie2lJvg/mqdefault.jpg",
+      "https://i.ytimg.com/vi/sa8Shf7vrfM/mqdefault.jpg",
+      "https://i.ytimg.com/vi/iFo-ie2lJvg/default.jpg",
+      "https://i.ytimg.com/vi/sa8Shf7vrfM/default.jpg"
+    ],
+    "publishDate": "2020-01-04T00:00:00Z",
+    "acceptedTitles": [
+      "くろうばあないと",
+      "Clover Knight",
+      "클로버 나이트"
+    ],
+    "audioClip": "https://audio.sodapines.dev/267225.mp3",
+    "producerNames": [
+      "iyowa"
+    ],
+    "singerNames": [
+      "various"
+    ],
+    "displayArtist": "iyowa feat. various",
+    "suggestionArtistString": "iyowa feat. various",
+    "artistSearchNames": [
+      "iyowa",
+      "iyowa feat. various",
+      "various"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ]
+  },
+  {
+    "date": "2030-05-09",
+    "vocadbId": 315318,
+    "title": "OVER!",
+    "artist": "iyowa",
+    "artistString": "iyowa feat. Hatsune Miku, Kaai Yuki",
+    "vocadbName": "OVER!",
+    "vocadbUrl": "https://vocadb.net/S/315318",
+    "coverArt": "https://i.ytimg.com/vi/_ZKSftirY3A/maxresdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/_ZKSftirY3A/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/R0GdA68rXMk/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/3XdKWSPjynI/maxresdefault.jpg",
+      "https://i.ytimg.com/vi/_ZKSftirY3A/sddefault.jpg",
+      "https://i.ytimg.com/vi/R0GdA68rXMk/sddefault.jpg",
+      "https://i.ytimg.com/vi/3XdKWSPjynI/sddefault.jpg",
+      "https://nicovideo.cdn.nimg.jp/thumbnails/38271953/38271953.6331807",
+      "https://i.ytimg.com/vi/_ZKSftirY3A/hqdefault.jpg",
+      "https://i.ytimg.com/vi/R0GdA68rXMk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/3XdKWSPjynI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/_ZKSftirY3A/mqdefault.jpg",
+      "https://i.ytimg.com/vi/R0GdA68rXMk/mqdefault.jpg",
+      "https://i.ytimg.com/vi/3XdKWSPjynI/mqdefault.jpg",
+      "https://i.ytimg.com/vi/_ZKSftirY3A/default.jpg",
+      "https://i.ytimg.com/vi/R0GdA68rXMk/default.jpg",
+      "https://i.ytimg.com/vi/3XdKWSPjynI/default.jpg"
+    ],
+    "publishDate": "2021-02-14T00:00:00Z",
+    "acceptedTitles": [
+      "オーバー！",
+      "OVER!",
+      "오버!"
+    ],
+    "audioClip": "https://audio.sodapines.dev/315318.mp3",
+    "producerNames": [
+      "iyowa"
+    ],
+    "singerNames": [
+      "Hatsune Miku",
+      "Kaai Yuki"
+    ],
+    "displayArtist": "iyowa feat. Hatsune Miku, Kaai Yuki",
+    "suggestionArtistString": "iyowa feat. Hatsune Miku, Kaai Yuki",
+    "artistSearchNames": [
+      "iyowa",
+      "iyowa feat. Hatsune Miku, Kaai Yuki",
+      "Hatsune Miku",
+      "Kaai Yuki"
+    ],
+    "sourceTags": [
+      "community",
+      "new",
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "addedBatch": "batch-2026-06-09",
+    "addedAt": "2026-06-09",
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
     ]
   }
-]
-;
+];

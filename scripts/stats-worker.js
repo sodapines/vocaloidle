@@ -6,9 +6,10 @@ const CORS_HEADERS = {
 
 const LEADERBOARD_TTL_SECONDS = 300;
 const LEADERBOARD_KEY = "agg:leaderboard";
-const DIFFICULTY_MIN_PLAYS = 100;
-const DIFFICULTY_POOLS_KEY = "agg:difficulty-pools:v2";
+const DIFFICULTY_MIN_PLAYS = 10;
+const DIFFICULTY_POOLS_KEY = "agg:difficulty-pools:v3";
 const HTTP_CACHE_SECONDS = 60;
+const VISITOR_TOTAL_KEY = "site:visitors:total";
 
 function json(data, status = 200, extraHeaders = {}) {
   return new Response(JSON.stringify(data), {
@@ -115,6 +116,18 @@ async function getDifficultyPools(env) {
   return payload;
 }
 
+async function getVisitorTotal(env) {
+  const raw = await env.STATS.get(VISITOR_TOTAL_KEY);
+  const count = Number.parseInt(raw || "0", 10);
+  return Number.isFinite(count) ? count : 0;
+}
+
+async function incrementVisitorTotal(env) {
+  const next = (await getVisitorTotal(env)) + 1;
+  await env.STATS.put(VISITOR_TOTAL_KEY, String(next));
+  return next;
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -161,6 +174,23 @@ export default {
 
       if (request.method === "GET" && url.pathname === "/difficulty-pools") {
         return json(await getDifficultyPools(env), 200, {
+          "Cache-Control": `public, max-age=${HTTP_CACHE_SECONDS}`,
+        });
+      }
+
+      if (request.method === "POST" && url.pathname === "/visit") {
+        return json({
+          ok: true,
+          total: await incrementVisitorTotal(env),
+          since: "June 2026",
+        });
+      }
+
+      if (request.method === "GET" && url.pathname === "/visitors") {
+        return json({
+          total: await getVisitorTotal(env),
+          since: "June 2026",
+        }, 200, {
           "Cache-Control": `public, max-age=${HTTP_CACHE_SECONDS}`,
         });
       }

@@ -14,7 +14,7 @@
     <meta name="twitter:image" content="https://vocaloidle.sodapines.dev/favicon.jpg">
     <link rel="icon" type="image/jpeg" href="favicon.jpg">
     <link rel="apple-touch-icon" href="favicon.jpg">
-    <link rel="stylesheet" href="styles.css?v=1.4.1">
+    <link rel="stylesheet" href="styles.css?v=1.5.3">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
   </head>
   <body>
@@ -25,7 +25,7 @@
       <span>DAILY / UNLIMITED / ARCHIVE</span>
     </div>
 
-    <div class="nnd-topbar">
+    <div class="nnd-topbar" id="top">
       <div class="nnd-topbar-left">
         <span class="nnd-breadcrumb">Games &rsaquo; Music &rsaquo; VOCALOID &rsaquo; Heardle</span>
       </div>
@@ -40,27 +40,27 @@
       </a>
       <div class="nnd-lang-switch">
         <button class="lang-btn is-active" data-lang="en" type="button" title="English"><span class="fi fi-us"></span></button>
-        <button class="lang-btn" data-lang="es" type="button" title="Español"><span class="fi fi-es"></span></button>
+        <button class="lang-btn" data-lang="es" type="button" title="Espa&ntilde;ol"><span class="fi fi-es"></span></button>
         <button class="lang-btn" data-lang="jp" type="button" title="日本語"><span class="fi fi-jp"></span></button>
         <button class="lang-btn" data-lang="ko" type="button" title="한국어"><span class="fi fi-kr"></span></button>
       </div>
       <div class="nnd-header-links">
         <a href="#" data-modal-target="about">About</a>
         <span class="nnd-divider">|</span>
-        <a href="#" data-modal-target="achievements">Achievements</a>
+        <a href="#" data-modal-target="achievements">&#9733; Achievements</a>
         <span class="nnd-divider">|</span>
-        <a href="#" data-modal-target="bookmarks">Bookmarks</a>
+        <a href="#" data-modal-target="bookmarks">&#9734; Bookmarks</a>
         <span class="nnd-divider">|</span>
         <a href="#" data-modal-target="release-notes">Updates</a>
         <span class="nnd-divider">|</span>
-        <a href="#" data-modal-target="settings">Settings</a>
+        <a href="#" data-modal-target="settings">&#9881; Settings</a>
         <span class="nnd-divider">|</span>
         <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
       </div>
       <div class="nnd-mobile-settings">
         <a href="#" data-modal-target="about">About</a>
-        <a href="#" data-modal-target="achievements">Achievements</a>
-        <a href="#" data-modal-target="bookmarks">Bookmarks</a>
+        <a href="#" data-modal-target="achievements">&#9733; Achievements</a>
+        <a href="#" data-modal-target="bookmarks">&#9734; Bookmarks</a>
         <a href="#" data-modal-target="release-notes">Updates</a>
         <a href="#" data-modal-target="settings">&#9881; Settings</a>
         <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Ko-fi</a>
@@ -86,9 +86,77 @@
       <a href="#" class="nnd-tag">Daily Puzzle</a>
       <a href="#" class="nnd-tag">Vocal Synth</a>
       <a href="#" class="nnd-tag">Fan-made</a>
+      <span class="filter-tag-list" id="filter-tag-list" hidden></span>
     </div>
 
     <div class="nnd-body">
+
+      <aside class="nnd-sidebar nnd-sidebar-left">
+        <div class="nnd-sidebar-box">
+          <div class="nnd-sidebar-header sb-news-header"><span class="sb-hbracket">[</span>News<span class="sb-hbracket">]</span></div>
+          <div class="nnd-sidebar-body nnd-sidebar-news">
+            <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.5</span><span class="news-text news-v15">Unlimited song filters &amp; pool milestones</span></a>
+            <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.4</span><span class="news-text news-v14">Practice modes &amp; pool checker</span></a>
+            <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.3</span><span class="news-text news-v13">Bookmarks &amp; partial credit</span></a>
+            <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.2</span><span class="news-text news-v12">Artist match feedback</span></a>
+            <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.1</span><span class="news-text news-v11">Achievements &amp; global rankings</span></a>
+          </div>
+        </div>
+
+        <div class="nnd-sidebar-box sb-mini-box">
+          <div class="nnd-sidebar-header sb-difficulty-header"><span class="sb-hbracket">[</span>Difficulty<span class="sb-hbracket">]</span></div>
+          <div class="nnd-sidebar-body">
+            <div class="sidebar-stat-row"><span class="sb-diff-free-label">Free</span><strong id="sb-diff-free">&mdash;</strong></div>
+            <div class="sidebar-stat-row"><span class="sb-diff-easy-label">Easy</span><strong id="sb-diff-easy">&mdash;</strong></div>
+            <div class="sidebar-stat-row"><span class="sb-diff-medium-label">Medium</span><strong id="sb-diff-medium">&mdash;</strong></div>
+            <div class="sidebar-stat-row"><span class="sb-diff-hard-label">Hard</span><strong id="sb-diff-hard">&mdash;</strong></div>
+            <div class="sidebar-stat-row"><span>???</span><strong id="sb-diff-unknown">&mdash;</strong></div>
+          </div>
+        </div>
+
+        <div class="nnd-sidebar-box sb-mini-box">
+          <div class="nnd-sidebar-header sb-archive-header"><span class="sb-hbracket">[</span>Archive<span class="sb-hbracket">]</span></div>
+          <div class="nnd-sidebar-body nnd-sidebar-stats">
+            <div class="sidebar-stat-row"><span class="sb-archive-solved-label">Solved</span><strong id="sb-archive-solved">&mdash;</strong></div>
+            <div class="sidebar-stat-row"><span class="sb-archive-total-label">Total</span><strong id="sb-archive-total">&mdash;</strong></div>
+            <div class="sidebar-stat-row has-bar">
+              <div class="stat-row-top"><span class="sb-archive-progress-label">Progress</span><strong id="sb-archive-pct">&mdash;</strong></div>
+              <div class="sb-winrate-track"><div class="sb-winrate-fill" id="sb-archive-bar" style="width:0%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nnd-sidebar-box sb-mini-box">
+          <div class="nnd-sidebar-header sb-milestones-header"><span class="sb-hbracket">[</span>Milestones<span class="sb-hbracket">]</span></div>
+          <div class="nnd-sidebar-body nnd-sidebar-milestones">
+            <div class="sidebar-stat-row milestone-row"><span class="ms-name"><span class="ms-stars">&#9733;</span><span class="ms-label ms-fame-label">Hall of Fame</span></span><strong class="ms-threshold">100K</strong></div>
+            <div class="sidebar-stat-row milestone-row"><span class="ms-name"><span class="ms-stars">&#9733;&#9733;</span><span class="ms-label ms-legends-label">Hall of Legends</span></span><strong class="ms-threshold">1M</strong></div>
+            <div class="sidebar-stat-row milestone-row"><span class="ms-name"><span class="ms-stars">&#9733;&#9733;&#9733;</span><span class="ms-label ms-myths-label">Hall of Myths</span></span><strong class="ms-threshold">10M</strong></div>
+            <div class="sidebar-milestones-footer">NicoNico view tiers</div>
+          </div>
+        </div>
+
+        <div class="nnd-sidebar-box sb-mini-box">
+          <div class="nnd-sidebar-header sb-links-header"><span class="sb-hbracket">[</span>Links<span class="sb-hbracket">]</span></div>
+          <div class="nnd-sidebar-body nnd-sidebar-links">
+            <a href="https://vocadb.net" target="_blank" class="sidebar-link">VocaDB &#8599;</a>
+            <a href="https://nicovideo.jp" target="_blank" class="sidebar-link">NicoNico &#8599;</a>
+            <div class="sidebar-links-divider"></div>
+            <a href="#" data-modal-target="suggest-song" class="sidebar-link">Suggest a Song</a>
+            <a href="#" data-modal-target="report-issue" class="sidebar-link">Report an Issue</a>
+            <a href="#" data-modal-target="support" class="sidebar-link">Contact / Support</a>
+          </div>
+        </div>
+
+        <div class="nnd-sidebar-box sb-mini-box">
+          <div class="nnd-sidebar-header sb-visitors-header"><span class="sb-hbracket">[</span>Visitors<span class="sb-hbracket">]</span></div>
+          <div class="nnd-sidebar-body nnd-sidebar-visitors">
+            <div class="visitor-counter-display" id="visitor-total">------</div>
+            <div class="sidebar-stat-row"><span class="visitor-total-label">Total visitors</span><strong id="visitor-total-text">--</strong></div>
+            <div class="sidebar-stat-row"><span class="visitor-since-label">Since</span><strong>June 2026</strong></div>
+          </div>
+        </div>
+      </aside>
 
       <main class="nnd-main">
 
@@ -97,7 +165,7 @@
           <span class="intro-copy">Guess the VOCALOID song from the opening clip.</span>
           <div class="mode-switch">
             <button class="mode-button is-active" id="daily-mode-button" type="button">Daily <span class="new-badge" id="new-badge" hidden>NEW</span></button>
-            <button class="mode-button" id="unlimited-mode-button" type="button">Unlimited</button>
+            <button class="mode-button" id="unlimited-mode-button" type="button">&#9654; Unlimited</button>
             <button class="mode-button" id="archive-mode-button" type="button" data-modal-target="archive">Archive</button>
           </div>
         </div>
@@ -111,6 +179,7 @@
             <button class="difficulty-mode-button" data-unlimited-difficulty="hard" type="button">Hard <span class="difficulty-count" data-difficulty-count="hard"></span></button>
             <button class="difficulty-mode-button" data-unlimited-difficulty="unknown" type="button">??? <span class="difficulty-count" data-difficulty-count="unknown"></span></button>
           </div>
+          <button class="unlimited-filter-button" id="unlimited-filter-button" type="button" data-modal-target="unlimited-filters">&#9776; Filters</button>
           <p class="difficulty-practice-note" id="difficulty-practice-note" hidden>Unlimited mode · counted in global rankings</p>
         </div>
 
@@ -135,15 +204,15 @@
           </div>
 
           <div class="nnd-meta-row">
-            <span class="nnd-meta-item"><span class="nnd-meta-label">▶ Views:</span> —</span>
+            <span class="nnd-meta-item"><span class="nnd-meta-label">▶ Views:</span> &mdash;</span>
             <span class="nnd-meta-item"><span class="nnd-meta-label">Category:</span> VOCALOID</span>
             <span class="nnd-meta-item"><span class="nnd-mylist-heart">♥</span> <span id="nnd-mylist-count">0</span></span>
             <span class="nnd-meta-item"><span class="nnd-meta-label">Source:</span> <a id="source-link" href="https://vocadb.net" target="_blank" rel="noreferrer">VocaDB</a></span>
             <span class="nnd-meta-item next-daily-countdown" id="next-daily-countdown" hidden></span>
           </div>
+          <p class="source-tags" id="source-tags" hidden></p>
           </div>
 
-          <p class="source-tags" id="source-tags" hidden></p>
           <p class="caption" id="cover-caption">cover art appears after the answer</p>
           <p class="global-stats" id="global-stats" hidden></p>
 
@@ -168,6 +237,12 @@
             </div>
             <span class="clip-length" id="clip-length">1s</span>
           </div>
+          <div class="old-player-bar">
+            <span class="opb-item opb-vol">&#9654; VOL</span>
+            <span class="opb-item opb-buffer" id="opb-buffer">&#9632;&#9632;&#9632;&#9632;&#9632;&#9633;&#9633;&#9633;</span>
+            <span class="opb-spacer"></span>
+            <span class="opb-item opb-comment-toggle" id="opb-comment-toggle" title="Toggle danmaku">Comment: ON</span>
+          </div>
           <p class="clip-note">Some songs may not begin playing within the first second.</p>
 
           <form class="guess-form" id="guess-form">
@@ -191,20 +266,21 @@
           </form>
           <button class="give-up-button secondary-button" id="give-up-button" type="button" hidden>Give Up</button>
 
-          <div class="result-action-row">
-            <button class="next-button" id="next-button" type="button" hidden>Next Song</button>
-            <button class="bookmark-button" id="bookmark-button" type="button" hidden title="Bookmark" aria-label="Bookmark">☆</button>
+          <div class="result-panel" id="result-panel">
+            <div class="result-panel-main">
+              <button class="next-button" id="next-button" type="button" hidden>Next Song</button>
+              <button class="bookmark-button" id="bookmark-button" type="button" hidden title="Bookmark" aria-label="Bookmark">&#9734;</button>
+            </div>
+            <div class="result-panel-footer">
+              <span class="result-panel-summary" id="result-panel-summary" hidden></span>
+              <button class="copy-result-button" id="copy-result-button" type="button" hidden><span id="copy-result-button-text">Copy Result</span></button>
+            </div>
           </div>
-          <button class="copy-result-button secondary-button" id="copy-result-button" type="button" hidden><span id="copy-result-button-text">Copy Result</span></button>
           <textarea class="copy-result-output" id="copy-result-output" readonly hidden></textarea>
-
-          <p class="kofi-nudge" id="kofi-nudge" hidden>
-            <span class="kofi-nudge-text">Enjoying the project? Tips help keep it running.</span>
-            <a class="kofi-nudge-link" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi →</a>
-          </p>
+          <span id="kofi-nudge" hidden></span>
 
           <div class="guess-history" aria-live="polite">
-            <h3>Past Guesses</h3>
+            <h3>[LOG] Past Guesses</h3>
             <ol id="guess-list">
               <li class="empty-guess">No guesses yet</li>
             </ol>
@@ -216,49 +292,31 @@
       </main>
 
       <aside class="nnd-sidebar">
-
         <div class="nnd-sidebar-box">
-          <div class="nnd-sidebar-header" id="sb-mode-label">Daily Stats</div>
-          <div class="nnd-sidebar-body">
-            <div class="sidebar-stat-row"><span class="sb-played-label">Played</span><strong id="sb-played">0</strong></div>
-            <div class="sidebar-stat-row"><span class="sb-won-label">Won</span><strong id="sb-won">0</strong></div>
-            <div class="sidebar-stat-row has-bar">
-              <div class="stat-row-top"><span class="sb-winrate-label">Win Rate</span><strong id="sb-rate">0%</strong></div>
-              <div class="sb-winrate-track"><div class="sb-winrate-fill" id="sb-winrate-bar"></div></div>
-            </div>
-            <div class="sidebar-stat-row" id="streak-row"><span class="sb-streak-label">Streak</span><strong id="sb-streak">0</strong></div>
-            <div class="sidebar-stat-row"><span class="sb-best-label">Best Streak</span><strong id="sb-best">0</strong></div>
-            <div class="sidebar-stat-row"><span class="sb-avg-label">Avg Attempts</span><strong id="sb-avg">—</strong></div>
-            <div class="sb-attempt-dots" id="sb-attempt-dots"></div>
-            <a href="#" data-modal-target="stats" class="sidebar-link full-stats">View full stats →</a>
-          </div>
-        </div>
-
-        <div class="nnd-sidebar-box">
-          <div class="nnd-sidebar-header sb-howtoplay-header">How to Play</div>
+          <div class="nnd-sidebar-header sb-howtoplay-header"><span class="sb-hbracket">[</span>How to Play<span class="sb-hbracket">]</span></div>
           <div class="nnd-sidebar-body nnd-sidebar-howto">
-            <p><span class="how-num">1.</span> Press ▶ to hear the opening clip</p>
-            <p><span class="how-num">2.</span> Type the song title and submit</p>
-            <p><span class="how-num">3.</span> Wrong or skipped? More clip unlocks</p>
-            <p><span class="how-num">4.</span> Guess correctly in 6 tries to win</p>
-            <p><span class="how-num">5.</span> Share your score when done!</p>
+            <p><span class="how-num">1</span><span class="how-text">Press &#9654; to hear the opening clip</span></p>
+            <p><span class="how-num">2</span><span class="how-text">Type the song title and submit</span></p>
+            <p><span class="how-num">3</span><span class="how-text">Wrong or skipped? More clip unlocks</span></p>
+            <p><span class="how-num">4</span><span class="how-text">Guess correctly in 6 tries to win</span></p>
+            <p><span class="how-num">5</span><span class="how-text">Share your score when done!</span></p>
           </div>
         </div>
 
         <div class="nnd-sidebar-box">
-          <div class="nnd-sidebar-header sb-hallofmyths-header">Hall of Myths</div>
-          <div class="nnd-sidebar-body">
+          <div class="nnd-sidebar-header sb-hallofmyths-header"><span class="sb-hbracket">[</span>Hall of Myths<span class="sb-hbracket">]</span></div>
+          <div class="nnd-sidebar-body nnd-sidebar-hof">
             <div class="sidebar-hof-item"><span class="hof-rank">1st</span><span class="hof-song" title="Senbonzakura">Senbonzakura</span><span class="hof-artist" title="Kurousa">Kurousa</span></div>
             <div class="sidebar-hof-item"><span class="hof-rank">2nd</span><span class="hof-song" title="I'll Make You Do the Miku Miku">I'll Make You Do the Miku Miku</span><span class="hof-artist" title="ika">ika</span></div>
             <div class="sidebar-hof-item"><span class="hof-rank">3rd</span><span class="hof-song" title="Melt">Melt</span><span class="hof-artist" title="ryo">ryo</span></div>
             <div class="sidebar-hof-item"><span class="hof-rank">4th</span><span class="hof-song" title="World's End Dancehall">World's End Dancehall</span><span class="hof-artist" title="wowaka">wowaka</span></div>
             <div class="sidebar-hof-item"><span class="hof-rank">5th</span><span class="hof-song" title="Matryoshka">Matryoshka</span><span class="hof-artist" title="hachi">hachi</span></div>
-            <p class="sidebar-hof-note">Most viewed VOCALOID songs on NicoNico</p>
+            <div class="sidebar-hof-footer">Most viewed VOCALOID songs on NicoNico</div>
           </div>
         </div>
 
         <div class="nnd-sidebar-box">
-          <div class="nnd-sidebar-header sb-rankings-header">Global Rankings</div>
+          <div class="nnd-sidebar-header sb-rankings-header"><span class="sb-hbracket">[</span>Global Rankings<span class="sb-hbracket">]</span></div>
           <div class="nnd-sidebar-body" id="sb-rankings-body">
             <div class="sb-rankings-tabs">
               <button class="sb-rankings-tab is-active" data-rankings-tab="plays">Popular</button>
@@ -268,18 +326,24 @@
             <div class="sb-rankings-list" id="sb-rankings-list">
               <div class="sb-rankings-loading">Loading...</div>
             </div>
-            <a href="#" data-modal-target="rankings" class="sidebar-link" id="sb-rankings-see-all">See all →</a>
+            <a href="#" data-modal-target="rankings" class="sidebar-link sb-see-all" id="sb-rankings-see-all">&#9654; See all</a>
           </div>
         </div>
 
         <div class="nnd-sidebar-box">
-          <div class="nnd-sidebar-header sb-links-header">Links</div>
-          <div class="nnd-sidebar-body">
-            <a href="https://vocadb.net" target="_blank" class="sidebar-link">VocaDB ↗</a>
-            <a href="https://nicovideo.jp" target="_blank" class="sidebar-link">NicoNico ↗</a>
-            <hr style="border:none;border-top:1px solid var(--line);margin:4px 0;">
-            <a href="#" data-modal-target="suggest-song" class="sidebar-link">Suggest a Song</a>
-            <a href="#" data-modal-target="support" class="sidebar-link">Contact / Support</a>
+          <div class="nnd-sidebar-header" id="sb-mode-label"><span class="sb-hbracket">[</span>&#9733; Daily Stats<span class="sb-hbracket">]</span></div>
+          <div class="nnd-sidebar-body nnd-sidebar-stats">
+            <div class="sidebar-stat-row"><span class="sb-played-label">Played</span><strong id="sb-played">0</strong></div>
+            <div class="sidebar-stat-row"><span class="sb-won-label">Won</span><strong id="sb-won">0</strong></div>
+            <div class="sidebar-stat-row has-bar">
+              <div class="stat-row-top"><span class="sb-winrate-label">Win Rate</span><strong id="sb-rate">0%</strong></div>
+              <div class="sb-winrate-track"><div class="sb-winrate-fill" id="sb-winrate-bar"></div></div>
+            </div>
+            <div class="sidebar-stat-row" id="streak-row"><span class="sb-streak-label">Streak</span><strong id="sb-streak">0</strong></div>
+            <div class="sidebar-stat-row"><span class="sb-best-label">Best Streak</span><strong id="sb-best">0</strong></div>
+            <div class="sidebar-stat-row"><span class="sb-avg-label">Avg Attempts</span><strong id="sb-avg">&mdash;</strong></div>
+            <div class="sb-attempt-dots" id="sb-attempt-dots"></div>
+            <a href="#" data-modal-target="stats" class="sidebar-link full-stats">&#9654; View full stats</a>
           </div>
         </div>
 
@@ -287,7 +351,9 @@
     </div>
 
     <footer class="site-footer">
-      <p>VOCALOID Heardle: fan-made daily guessing game &copy; 2026 &nbsp;|&nbsp; Not affiliated with Crypton Future Media, NicoNico, or VocaDB &nbsp;|&nbsp; Song data from <a href="https://vocadb.net" target="_blank">VocaDB</a> &nbsp;|&nbsp; <a href="#" data-modal-target="song-pool">Song Pool</a> &nbsp;|&nbsp; <a href="#" data-modal-target="release-notes">Release v1.4</a></p>
+      <p class="footer-copy"><span class="footer-copy-text">VOCALOID Heardle: fan-made daily guessing game &copy; 2026 &middot; Not affiliated with Crypton Future Media, NicoNico, or VocaDB &middot; Song data from</span> <a href="https://vocadb.net" target="_blank">VocaDB</a></p>
+      <a class="footer-pagetop" href="#top">&#9650; Page Top</a>
+      <p class="site-footer-meta" hidden></p>
     </footer>
 
     <div class="modal-backdrop" id="modal-backdrop" hidden></div>
@@ -322,20 +388,21 @@
       <button class="modal-close" type="button" aria-label="Close dialog">x</button>
       <h2 id="release-notes-title">Release Notes</h2>
       <div class="release-tabs" aria-label="Release versions">
-        <button class="release-tab is-active" data-release-version="v1.4" type="button">v1.4</button>
+        <button class="release-tab is-active" data-release-version="v1.5" type="button">v1.5</button>
+        <button class="release-tab" data-release-version="v1.4" type="button">v1.4</button>
         <button class="release-tab" data-release-version="v1.3" type="button">v1.3</button>
         <button class="release-tab" data-release-version="v1.2" type="button">v1.2</button>
         <button class="release-tab" data-release-version="v1.1" type="button">v1.1</button>
         <button class="release-tab" data-release-version="v1.0" type="button">v1.0</button>
       </div>
-      <p class="release-version" id="release-version">Release v1.4</p>
+      <p class="release-version" id="release-version">Release v1.5</p>
       <p id="release-intro">This release collects the major updates being prepared for the public site.</p>
       <ul class="release-list">
-        <li>Added Unlimited practice filters for free, easy, medium, hard, and ??? songs.</li>
-        <li>Practice modes are local-only and do not affect global rankings.</li>
-        <li>The free practice tier now starts at 85% global solve rate.</li>
-        <li>Practice mode tabs and notes were cleaned up for a less cramped layout.</li>
-        <li>Added new practice achievements, including a hidden ??? first-try streak challenge.</li>
+        <li>Added Unlimited song filters for producer, voicebank, program, publish year, and community-suggested songs.</li>
+        <li>Filtered Unlimited now has separate local stats, so filtered streaks no longer mix with normal Unlimited stats.</li>
+        <li>Active filters appear as removable tags in the top tag row.</li>
+        <li>Filters can be inclusive, letting players build broader pools from multiple criteria.</li>
+        <li>Changing filters during an unfinished Unlimited round counts that round as a loss.</li>
       </ul>
     </section>
 
@@ -396,12 +463,91 @@
       </form>
     </section>
 
+    <section class="modal" id="unlimited-filters" role="dialog" aria-modal="true" aria-labelledby="unlimited-filters-title" hidden>
+      <button class="modal-close" type="button" aria-label="Close dialog">x</button>
+      <h2 id="unlimited-filters-title">Unlimited Filters</h2>
+      <p class="modal-note" id="unlimited-filters-note">Limit the next Unlimited song pool using local VocaDB metadata.</p>
+      <div class="filter-warning" id="unlimited-filter-warning"><strong>[!]</strong><span>Changing filters during an unfinished Unlimited round will count that round as a loss. Completed rounds are safe.</span></div>
+
+      <div class="filter-section">
+        <div class="filter-section-header"><span class="filter-section-bracket">[</span><span id="filter-producer-label">Producer / artist</span><span class="filter-section-bracket">]</span></div>
+        <div class="filter-section-body">
+          <div class="filter-selected-list" id="filter-producer-selected" hidden></div>
+          <input id="filter-producer-input" type="search" autocomplete="off" placeholder="type a producer...">
+          <ul class="filter-suggestions" id="filter-producer-suggestions" hidden></ul>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-section-header"><span class="filter-section-bracket">[</span><span id="filter-voicebank-label">Voicebank / vocal synth</span><span class="filter-section-bracket">]</span></div>
+        <div class="filter-section-body">
+          <div class="filter-selected-list" id="filter-voicebank-selected" hidden></div>
+          <input id="filter-voicebank-input" type="search" autocomplete="off" placeholder="type a voicebank...">
+          <ul class="filter-suggestions" id="filter-voicebank-suggestions" hidden></ul>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-section-header"><span class="filter-section-bracket">[</span><span id="filter-program-label">Program used</span><span class="filter-section-bracket">]</span></div>
+        <div class="filter-section-body filter-section-body-flush">
+          <div class="filter-button-row" id="filter-program-list">
+            <button type="button" data-filter-program="VOCALOID">VOCALOID</button>
+            <button type="button" data-filter-program="SynthV">SynthV</button>
+            <button type="button" data-filter-program="UTAU">UTAU</button>
+            <button type="button" data-filter-program="CeVIO">CeVIO</button>
+            <button type="button" data-filter-program="Piapro">Piapro</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-section-header">
+          <span class="filter-section-bracket">[</span><span id="filter-year-label">Publish year</span><span class="filter-section-bracket">]</span>
+          <span class="filter-year-shortcut-row">
+            <button type="button" class="filter-shortcut-btn" data-filter-year-range="2007-2009">2007-2009</button>
+            <button type="button" class="filter-shortcut-btn" data-filter-year-range="2010-2019">2010s</button>
+            <button type="button" class="filter-shortcut-btn" data-filter-year-range="2020-2026">2020s</button>
+          </span>
+        </div>
+        <div class="filter-section-body filter-section-body-flush">
+          <div class="filter-year-strip" id="filter-year-list"></div>
+          <div class="filter-year-status-row">
+            <span class="filter-year-status-label" id="filter-year-status-label">Selected</span>
+            <p class="filter-summary" id="filter-year-summary">No years selected</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-section filter-section-options">
+        <div class="filter-section-header"><span class="filter-section-bracket">[</span><span id="filter-options-label">Options</span><span class="filter-section-bracket">]</span></div>
+        <div class="filter-section-body filter-section-body-flush">
+          <div class="filter-options-row">
+            <label class="filter-option-label"><input id="filter-community" type="checkbox"> <span id="filter-community-label">Community suggested</span></label>
+            <label class="filter-option-label"><input id="filter-new-songs" type="checkbox"> <span id="filter-new-songs-label">New songs</span></label>
+            <label class="filter-option-label"><input id="filter-inclusive" type="checkbox"> <span id="filter-inclusive-label">Inclusive</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-modal-footer">
+        <div class="filter-match-display">
+          <span class="filter-match-label" id="filter-match-label">Songs</span>
+          <span id="filter-match-count">1,184 songs match</span>
+        </div>
+        <div class="filter-modal-actions">
+          <button class="secondary-button" id="filter-clear-button" type="button">Clear</button>
+          <button class="form-submit" id="filter-apply-button" type="button">Apply</button>
+        </div>
+      </div>
+    </section>
+
     <section class="modal" id="stats" role="dialog" aria-modal="true" aria-labelledby="stats-title" hidden>
       <button class="modal-close" type="button" aria-label="Close dialog">x</button>
       <h2 id="stats-title">Stats</h2>
       <div class="stats-mode-switch">
         <button class="stats-mode-button is-active" id="stats-daily-button" type="button">Daily</button>
         <button class="stats-mode-button" id="stats-unlimited-button" type="button">Unlimited</button>
+        <button class="stats-mode-button" id="stats-filtered-button" type="button">Filtered</button>
       </div>
       <div class="stats-difficulty-switch" id="stats-difficulty-switch" hidden>
         <button class="stats-difficulty-button is-active" data-stats-difficulty="all" type="button">All</button>
@@ -411,24 +557,39 @@
         <button class="stats-difficulty-button" data-stats-difficulty="hard" type="button">Hard</button>
         <button class="stats-difficulty-button" data-stats-difficulty="unknown" type="button">???</button>
       </div>
-      <div class="guess-scale">
-        <div><span>1</span><i class="guess-bar"></i><strong data-distribution="1">0</strong></div>
-        <div><span>2</span><i class="guess-bar"></i><strong data-distribution="2">0</strong></div>
-        <div><span>3</span><i class="guess-bar"></i><strong data-distribution="3">0</strong></div>
-        <div><span>4</span><i class="guess-bar"></i><strong data-distribution="4">0</strong></div>
-        <div><span>5</span><i class="guess-bar"></i><strong data-distribution="5">0</strong></div>
-        <div><span>6</span><i class="guess-bar"></i><strong data-distribution="6">0</strong></div>
-        <div><span>x</span><i class="guess-bar"></i><strong data-distribution="fail">0</strong></div>
+
+      <div class="stats-section">
+        <div class="stats-section-header"><span class="stats-sbracket">[</span><span id="stats-section-distribution">Guess Distribution</span><span class="stats-sbracket">]</span></div>
+        <div class="stats-section-body">
+          <div class="guess-scale">
+            <div><span>1</span><i class="guess-bar"></i><strong data-distribution="1">0</strong></div>
+            <div><span>2</span><i class="guess-bar"></i><strong data-distribution="2">0</strong></div>
+            <div><span>3</span><i class="guess-bar"></i><strong data-distribution="3">0</strong></div>
+            <div><span>4</span><i class="guess-bar"></i><strong data-distribution="4">0</strong></div>
+            <div><span>5</span><i class="guess-bar"></i><strong data-distribution="5">0</strong></div>
+            <div><span>6</span><i class="guess-bar"></i><strong data-distribution="6">0</strong></div>
+            <div><span>x</span><i class="guess-bar"></i><strong data-distribution="fail">0</strong></div>
+          </div>
+        </div>
       </div>
-      <div class="stats-grid">
-        <div><strong id="stat-played">0</strong><span>Played</span></div>
-        <div><strong id="stat-won">0</strong><span>Won</span></div>
-        <div><strong id="stat-win-rate">0%</strong><span>Win rate</span></div>
-        <div><strong id="stat-current-streak">0</strong><span>Current streak</span></div>
-        <div><strong id="stat-max-streak">0</strong><span>Max streak</span></div>
-        <div><strong id="stat-avg-attempts">—</strong><span>Avg attempts</span></div>
+
+      <div class="stats-section">
+        <div class="stats-section-header"><span class="stats-sbracket">[</span><span id="stats-section-overview">Overview</span><span class="stats-sbracket">]</span></div>
+        <div class="stats-grid">
+          <div><strong id="stat-played">0</strong><span>Played</span></div>
+          <div><strong id="stat-won">0</strong><span>Won</span></div>
+          <div><strong id="stat-win-rate">0%</strong><span>Win rate</span></div>
+          <div><strong id="stat-current-streak">0</strong><span>Current streak</span></div>
+          <div><strong id="stat-max-streak">0</strong><span>Max streak</span></div>
+          <div><strong id="stat-avg-attempts">&mdash;</strong><span>Avg attempts</span></div>
+        </div>
       </div>
-      <div class="stats-detail-list" id="stats-detail-list" aria-live="polite"></div>
+
+      <div class="stats-section stats-section-detail">
+        <div class="stats-section-header"><span class="stats-sbracket">[</span><span id="stats-section-detail">Detail</span><span class="stats-sbracket">]</span></div>
+        <div class="stats-detail-list" id="stats-detail-list" aria-live="polite"></div>
+      </div>
+
       <a href="#" class="sidebar-link stats-history-link" id="unlimited-history-link" data-modal-target="unlimited-history" hidden>Recent History →</a>
       <div class="stats-copy-profile-wrap">
         <button class="stats-copy-profile" id="stats-copy-profile" type="button">Copy Profile</button>
@@ -465,7 +626,7 @@
 
     <section class="modal" id="bookmarks" role="dialog" aria-modal="true" aria-labelledby="bookmarks-title" hidden>
       <button class="modal-close" type="button" aria-label="Close dialog">x</button>
-      <h2 id="bookmarks-title">Bookmarks</h2>
+      <h2 id="bookmarks-title">[MYLIST] Bookmarks</h2>
       <p class="modal-note" id="bookmarks-intro">Saved songs stay on this device. Audio previews use the hosted puzzle clips.</p>
       <input class="bookmarks-search" id="bookmarks-search-input" type="search" autocomplete="off" placeholder="Search bookmarks...">
       <div class="bookmarks-list" id="bookmarks-list" aria-live="polite"></div>
@@ -482,6 +643,14 @@
             <span class="settings-desc">Switch between light and dark theme</span>
           </div>
           <button class="settings-toggle" id="setting-darkmode" type="button" role="switch" aria-checked="false">OFF</button>
+        </div>
+
+        <div class="settings-row">
+          <div class="settings-info">
+            <span class="settings-label">Beige Background</span>
+            <span class="settings-desc">Use a warmer beige page background</span>
+          </div>
+          <button class="settings-toggle" id="setting-beigebg" type="button" role="switch" aria-checked="false">OFF</button>
         </div>
 
         <div class="settings-row">
@@ -531,11 +700,19 @@
 
           <div class="settings-row settings-row-child">
             <div class="settings-info">
-              <span class="settings-label">Autocomplete</span>
-              <span class="settings-desc">Show song suggestions while typing</span>
+              <span class="settings-label">Tags</span>
+              <span class="settings-desc">Category and active filter tags</span>
             </div>
-            <button class="settings-toggle" id="setting-autocomplete" type="button" role="switch" aria-checked="true">ON</button>
+            <button class="settings-toggle" id="setting-tags" type="button" role="switch" aria-checked="true">ON</button>
           </div>
+        </div>
+
+        <div class="settings-row">
+          <div class="settings-info">
+            <span class="settings-label">Autocomplete</span>
+            <span class="settings-desc">Show song suggestions while typing</span>
+          </div>
+          <button class="settings-toggle" id="setting-autocomplete" type="button" role="switch" aria-checked="true">ON</button>
         </div>
 
         <div class="settings-row">
@@ -568,7 +745,6 @@
           </div>
           <div class="settings-multi">
             <button class="settings-choice is-active" data-title-mode="en" type="button">EN</button>
-            <button class="settings-choice" data-title-mode="romaji" type="button">Romaji</button>
             <button class="settings-choice" data-title-mode="jp" type="button">JP</button>
             <button class="settings-choice" data-title-mode="kr" type="button">KR</button>
           </div>
@@ -621,7 +797,6 @@
     <section class="modal" id="rankings" role="dialog" aria-modal="true" aria-labelledby="rankings-title" hidden>
       <button class="modal-close" type="button" aria-label="Close dialog">x</button>
       <h2 id="rankings-title">Global Rankings</h2>
-      <p class="rankings-note">Based on unlimited mode plays only. Songs with fewer than 5 plays are excluded.</p>
       <div class="rankings-tabs">
         <div class="rankings-tab-row">
           <button class="rankings-tab is-active" data-tab="plays">Popular</button>
@@ -633,9 +808,17 @@
           <button class="rankings-tab" data-tab="avg-high">Highest Avg</button>
         </div>
       </div>
+      <div class="rankings-table-header">
+        <span class="rth-rank">#</span>
+        <span class="rth-song" id="rankings-header-song">Song / Artist</span>
+        <span class="rth-plays" id="rankings-header-plays">Plays</span>
+        <span class="rth-rate" id="rankings-header-win">Win%</span>
+        <span class="rth-avg" id="rankings-header-avg">Avg</span>
+      </div>
       <div class="rankings-content" id="rankings-content">
         <div class="rankings-loading">Loading...</div>
       </div>
+      <p class="rankings-note">Unlimited mode only &middot; Min. 5 plays</p>
     </section>
 
     <section class="modal" id="archive" role="dialog" aria-modal="true" aria-labelledby="archive-title" hidden>
@@ -646,24 +829,32 @@
       <div class="archive-insights" id="archive-insights" aria-live="polite"></div>
       <button class="archive-random" id="archive-random-button" type="button">Random Archive Puzzle</button>
       <div class="archive-toolbar">
-        <button class="archive-nav" id="archive-prev-month" type="button" aria-label="Previous month">‹</button>
+        <button class="archive-nav" id="archive-prev-month" type="button" aria-label="Previous month">&#9664;</button>
         <strong id="archive-month-label">Month</strong>
-        <button class="archive-nav" id="archive-next-month" type="button" aria-label="Next month">›</button>
+        <button class="archive-nav" id="archive-next-month" type="button" aria-label="Next month">&#9654;</button>
       </div>
       <div class="archive-weekdays" aria-hidden="true">
         <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
       </div>
       <div class="archive-grid" id="archive-grid"></div>
+      <div class="archive-legend" aria-hidden="true">
+        <span class="legend-item"><i class="legend-chip legend-solved"></i>Solved</span>
+        <span class="legend-item"><i class="legend-chip legend-failed"></i>Failed</span>
+        <span class="legend-item"><i class="legend-chip legend-open"></i>Open</span>
+        <span class="legend-item"><i class="legend-chip legend-none"></i>No puzzle</span>
+      </div>
     </section>
 
     <script src="data/songs.js?v=1.4.1"></script>
-    <script src="app.js?v=1.4.1"></script>
+    <script src="app.js?v=1.5.4"></script>
     <script>
       const d = new Date();
       const lang = localStorage.getItem('vh-lang') || 'en';
       const locale = lang === 'jp' ? 'ja-JP' : lang === 'ko' ? 'ko-KR' : lang === 'es' ? 'es-ES' : 'en-US';
       document.getElementById('nnd-date').textContent = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long', day: 'numeric' }).format(d);
+      const fd = document.getElementById('footer-date');
+      if (fd) fd.textContent = d.toISOString().slice(0,10).replace(/-/g,'/') + ' ' + String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
     </script>
-    <script src="settings.js?v=1.4.1"></script>
+    <script src="settings.js?v=1.5.1"></script>
   </body>
 </html>
