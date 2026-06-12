@@ -54,7 +54,6 @@
         <a href="#" data-modal-target="release-notes">Updates</a>
         <span class="nnd-divider">|</span>
         <a href="#" data-modal-target="settings">&#9881; Settings</a>
-        <span class="nnd-divider">|</span>
         <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
       </div>
       <div class="nnd-mobile-settings">
@@ -92,7 +91,7 @@
     <div class="nnd-body">
 
       <aside class="nnd-sidebar nnd-sidebar-left">
-        <div class="nnd-sidebar-box">
+        <div class="nnd-sidebar-box sb-extra-news">
           <div class="nnd-sidebar-header sb-news-header"><span class="sb-hbracket">[</span>News<span class="sb-hbracket">]</span></div>
           <div class="nnd-sidebar-body nnd-sidebar-news">
             <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.5</span><span class="news-text news-v15">Unlimited song filters &amp; pool milestones</span></a>
@@ -126,7 +125,7 @@
           </div>
         </div>
 
-        <div class="nnd-sidebar-box sb-mini-box">
+        <div class="nnd-sidebar-box sb-mini-box sb-extra-milestones">
           <div class="nnd-sidebar-header sb-milestones-header"><span class="sb-hbracket">[</span>Milestones<span class="sb-hbracket">]</span></div>
           <div class="nnd-sidebar-body nnd-sidebar-milestones">
             <div class="sidebar-stat-row milestone-row"><span class="ms-name"><span class="ms-stars">&#9733;</span><span class="ms-label ms-fame-label">Hall of Fame</span></span><strong class="ms-threshold">100K</strong></div>
@@ -136,7 +135,7 @@
           </div>
         </div>
 
-        <div class="nnd-sidebar-box sb-mini-box">
+        <div class="nnd-sidebar-box sb-mini-box sb-extra-visitors">
           <div class="nnd-sidebar-header sb-links-header"><span class="sb-hbracket">[</span>Links<span class="sb-hbracket">]</span></div>
           <div class="nnd-sidebar-body nnd-sidebar-links">
             <a href="https://vocadb.net" target="_blank" class="sidebar-link">VocaDB &#8599;</a>
@@ -303,7 +302,7 @@
           </div>
         </div>
 
-        <div class="nnd-sidebar-box">
+        <div class="nnd-sidebar-box sb-extra-hall">
           <div class="nnd-sidebar-header sb-hallofmyths-header"><span class="sb-hbracket">[</span>Hall of Myths<span class="sb-hbracket">]</span></div>
           <div class="nnd-sidebar-body nnd-sidebar-hof">
             <div class="sidebar-hof-item"><span class="hof-rank">1st</span><span class="hof-song" title="Senbonzakura">Senbonzakura</span><span class="hof-artist" title="Kurousa">Kurousa</span></div>
@@ -315,7 +314,7 @@
           </div>
         </div>
 
-        <div class="nnd-sidebar-box">
+        <div class="nnd-sidebar-box sb-extra-rankings">
           <div class="nnd-sidebar-header sb-rankings-header"><span class="sb-hbracket">[</span>Global Rankings<span class="sb-hbracket">]</span></div>
           <div class="nnd-sidebar-body" id="sb-rankings-body">
             <div class="sb-rankings-tabs">
@@ -700,6 +699,14 @@
 
           <div class="settings-row settings-row-child">
             <div class="settings-info">
+              <span class="settings-label">Sidebar Extras</span>
+              <span class="settings-desc">News, rankings, visitors, and decorative panels</span>
+            </div>
+            <button class="settings-toggle" id="setting-sidebarextras" type="button" role="switch" aria-checked="true">ON</button>
+          </div>
+
+          <div class="settings-row settings-row-child">
+            <div class="settings-info">
               <span class="settings-label">Tags</span>
               <span class="settings-desc">Category and active filter tags</span>
             </div>
@@ -846,7 +853,7 @@
     </section>
 
     <script src="data/songs.js?v=1.4.1"></script>
-    <script src="app.js?v=1.5.4"></script>
+    <script src="app.js?v=1.5.5"></script>
     <script>
       const d = new Date();
       const lang = localStorage.getItem('vh-lang') || 'en';
@@ -855,6 +862,6 @@
       const fd = document.getElementById('footer-date');
       if (fd) fd.textContent = d.toISOString().slice(0,10).replace(/-/g,'/') + ' ' + String(d.getHours()).padStart(2,'0') + ':' + String(d.getMinutes()).padStart(2,'0');
     </script>
-    <script src="settings.js?v=1.5.1"></script>
+    <script src="settings.js?v=1.5.2"></script>
   </body>
 </html>

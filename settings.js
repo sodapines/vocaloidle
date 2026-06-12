@@ -7,6 +7,7 @@ const SETTINGS = {
   danmaku:      { key: 'vh-danmaku',      bodyClass: 'no-danmaku',      default: true  },
   marquee:      { key: 'vh-marquee',      bodyClass: 'no-marquee',      default: true  },
   sidebar:      { key: 'vh-sidebar',      bodyClass: 'no-sidebar',      default: true  },
+  sidebarextras:{ key: 'vh-sidebarextras', bodyClass: 'no-sidebar-extras', default: true  },
   tags:         { key: 'vh-tags',         bodyClass: 'no-tags',         default: true  },
   autocomplete: { key: 'vh-autocomplete', bodyClass: 'no-autocomplete', default: true  },
   compact:      { key: 'vh-compact',      bodyClass: 'compact-mode',    default: false },
@@ -45,6 +46,10 @@ function applySetting(id, value) {
   btn.textContent = value ? 'ON' : 'OFF';
   btn.classList.toggle('is-on', value);
   btn.setAttribute('aria-checked', value);
+
+  if (id === 'sidebarextras') {
+    window.dispatchEvent(new CustomEvent('sidebar-extras-change', { detail: { enabled: value } }));
+  }
 }
 
 function applyDanmakuSpeed(value) {
@@ -70,7 +75,7 @@ function applyAllSettings() {
 applyAllSettings();
 
 // Wire up toggle buttons
-['darkmode', 'beigebg', 'danmaku', 'marquee', 'sidebar', 'tags', 'autocomplete', 'compact', 'clearwrong'].forEach(id => {
+['darkmode', 'beigebg', 'danmaku', 'marquee', 'sidebar', 'sidebarextras', 'tags', 'autocomplete', 'compact', 'clearwrong'].forEach(id => {
   const btn = document.getElementById('setting-' + id);
   if (!btn) return;
   btn.addEventListener('click', () => {

@@ -22,10 +22,9 @@ html, body {
   color: var(--text);
   background-color: var(--bg);
   background-image:
-    linear-gradient(rgba(255,255,240,0.30) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,240,0.24) 1px, transparent 1px),
-    repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(0,0,0,0.012) 3px, rgba(0,0,0,0.012) 4px);
-  background-size: 18px 18px, 18px 18px, 100% 4px;
+    linear-gradient(rgba(255,255,240,0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.18) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
   line-height: 1.4;
 }
 
@@ -91,10 +90,9 @@ html.dark-mode {
 html.dark-mode body {
   background-color: #0b0b0b;
   background-image:
-    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px),
-    repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(255,255,255,0.012) 3px, rgba(255,255,255,0.012) 4px);
-  background-size: 18px 18px, 18px 18px, 100% 4px;
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.014) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
 }
 
 html.beige-bg:not(.dark-mode),
@@ -104,9 +102,9 @@ html.beige-bg:not(.dark-mode) body {
 
 html.beige-bg:not(.dark-mode) body {
   background-image:
-    linear-gradient(rgba(255,255,240,0.24) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,240,0.20) 1px, transparent 1px),
-    repeating-linear-gradient(0deg, transparent 0, transparent 3px, rgba(110,88,52,0.018) 3px, rgba(110,88,52,0.018) 4px);
+    linear-gradient(rgba(255,255,240,0.20) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.16) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
 }
 
 [hidden] { display: none !important; }
@@ -244,7 +242,7 @@ body.dark-mode .page-rail::before { background: rgba(255,255,255,0.08); }
 .nnd-marquee-inner {
   white-space: nowrap;
   color: #555500;
-  animation: marquee-scroll 28s linear infinite;
+  animation: marquee-scroll 45s linear infinite;
   padding-left: 100%;
 }
 @keyframes marquee-scroll {
@@ -750,6 +748,10 @@ body.dark-mode .filter-suggestions mark {
   font-weight: 700;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   animation: danmaku-scroll linear infinite;
+}
+body.no-danmaku .danmaku-comment {
+  display: none !important;
+  animation: none !important;
 }
 @keyframes danmaku-scroll {
   0%   { right: -200px; }
@@ -3122,6 +3124,15 @@ body.no-sidebar .nnd-sidebar { display: none; }
 body.no-sidebar .nnd-main { padding-right: 0; }
 body.no-sidebar .page-rail-left { right: calc(50% + 500px); }
 body.no-sidebar .page-rail-right { left: calc(50% + 500px); }
+
+/* hide optional sidebar extras while keeping gameplay stats/info */
+body.no-sidebar-extras .sb-extra-news,
+body.no-sidebar-extras .sb-extra-milestones,
+body.no-sidebar-extras .sb-extra-visitors,
+body.no-sidebar-extras .sb-extra-hall,
+body.no-sidebar-extras .sb-extra-rankings {
+  display: none !important;
+}
 
 /* hide marquee when disabled */
 body.no-marquee .nnd-marquee-bar { display: none; }
@@ -7633,4 +7644,60 @@ body.dark-mode .visitor-counter-display {
   border-color: #333333;
   background: #050505;
   color: #cccccc;
+}
+
+/* Emergency performance pass: keep the retro read, remove costly full-page effects. */
+html,
+body {
+  background-image:
+    linear-gradient(rgba(255,255,240,0.24) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.20) 1px, transparent 1px) !important;
+  background-size: 28px 28px, 28px 28px !important;
+  background-attachment: scroll !important;
+}
+
+html.dark-mode,
+html.dark-mode body,
+body.dark-mode {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.014) 1px, transparent 1px) !important;
+  background-size: 28px 28px, 28px 28px !important;
+}
+
+html.beige-bg:not(.dark-mode),
+html.beige-bg:not(.dark-mode) body {
+  background-image:
+    linear-gradient(rgba(255,255,240,0.20) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.16) 1px, transparent 1px) !important;
+  background-size: 28px 28px, 28px 28px !important;
+}
+
+body.no-danmaku .nnd-danmaku,
+body.no-danmaku .danmaku-comment {
+  display: none !important;
+  animation: none !important;
+}
+
+.progress-fill {
+  animation: none !important;
+}
+
+body.no-marquee .nnd-marquee-inner {
+  animation: none !important;
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+
+  .nnd-marquee-inner,
+  .danmaku-comment,
+  .progress-fill {
+    animation: none !important;
+  }
 }

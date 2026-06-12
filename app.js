@@ -372,6 +372,8 @@ const STRINGS = {
     settingMarqueeBarDesc: "Scrolling announcement at the top",
     settingSidebar: "Sidebar",
     settingSidebarDesc: "Stats and info panel on the right",
+    settingSidebarExtras: "Sidebar Extras",
+    settingSidebarExtrasDesc: "News, rankings, visitors, and decorative panels",
     settingTags: "Tags",
     settingTagsDesc: "Category and active filter tags",
     settingAutocomplete: "Autocomplete",
@@ -1690,6 +1692,21 @@ Object.assign(STRINGS.ko, SYSTEM_LABEL_STRINGS, {
   rankingsHeaderWin: "\uc2b9\ub960",
   rankingsHeaderAvg: "\ud3c9\uade0",
   rankingsNote: "\ubb34\uc81c\ud55c \ubaa8\ub4dc\ub9cc \u00b7 \ucd5c\uc18c 5\ud50c\ub808\uc774",
+});
+
+Object.assign(STRINGS.jp, {
+  settingSidebarExtras: "\u30b5\u30a4\u30c9\u30d0\u30fc\u8ffd\u52a0\u9805\u76ee",
+  settingSidebarExtrasDesc: "\u30cb\u30e5\u30fc\u30b9\u3001\u30e9\u30f3\u30ad\u30f3\u30b0\u3001\u8a2a\u554f\u8005\u3001\u88c5\u98fe\u30d1\u30cd\u30eb",
+});
+
+Object.assign(STRINGS.es, {
+  settingSidebarExtras: "Extras de barra lateral",
+  settingSidebarExtrasDesc: "Noticias, rankings, visitantes y paneles decorativos",
+});
+
+Object.assign(STRINGS.ko, {
+  settingSidebarExtras: "\uc0ac\uc774\ub4dc\ubc14 \ucd94\uac00 \ud328\ub110",
+  settingSidebarExtrasDesc: "\ub274\uc2a4, \ub7ad\ud0b9, \ubc29\ubb38\uc790, \uc7a5\uc2dd \ud328\ub110",
 });
 
 const RELEASE_NOTES = {
@@ -3234,6 +3251,7 @@ function applyLanguage() {
     ["[id='setting-compact']", "settingCompactMode", "settingCompactModeDesc"],
     ["[id='setting-marquee']", "settingMarqueeBar", "settingMarqueeBarDesc"],
     ["[id='setting-sidebar']", "settingSidebar", "settingSidebarDesc"],
+    ["[id='setting-sidebarextras']", "settingSidebarExtras", "settingSidebarExtrasDesc"],
     ["[id='setting-tags']", "settingTags", "settingTagsDesc"],
     ["[id='setting-autocomplete']", "settingAutocomplete", "settingAutocompleteDesc"],
     ["[id='setting-clearwrong']", "settingClearInput", "settingClearInputDesc"],
@@ -6583,9 +6601,14 @@ function initDanmaku() {
   const overlay = document.getElementById("danmaku-overlay");
   if (!overlay) return;
   overlay.innerHTML = "";
+  if (document.body.classList.contains("no-danmaku")) return;
   const isSenbon = isSenbonzakura();
   const pool = isSenbon ? SENBONZAKURA_COMMENTS : DANMAKU_POOL;
-  const count = 12;
+  const count = document.body.classList.contains("danmaku-few")
+    ? 3
+    : document.body.classList.contains("danmaku-many")
+      ? 12
+      : 7;
   const topSlots = [6, 14, 22, 30, 38, 46, 54, 62, 70, 78, 86, 92];
   const shuffled = [...pool].sort(() => Math.random() - 0.5);
   for (let i = 0; i < count; i++) {
@@ -6619,6 +6642,7 @@ function checkSenbonzakura() {
 function triggerSenbonzakuraFlood() {
   const overlay = document.getElementById("danmaku-overlay");
   if (!overlay) return;
+  if (document.body.classList.contains("no-danmaku")) return;
   let spawned = 0;
   const maxExtra = 30;
   const interval = setInterval(() => {
@@ -7745,6 +7769,7 @@ function formatAvgAttempts(value) {
 async function loadSidebarRankings(sort) {
   const list = document.querySelector("#sb-rankings-list");
   if (!list) return;
+  if (localStorage.getItem("vh-sidebarextras") === "false") return;
   list.innerHTML = `<div class="sb-rankings-loading">${t("rankingsLoading")}</div>`;
   const data = await fetchRankings(sort);
   if (!data || data.length === 0) {
@@ -7827,6 +7852,10 @@ document.querySelectorAll("[data-modal-target='rankings']").forEach(el => {
 });
 
 loadSidebarRankings(currentSbTab);
+
+window.addEventListener("sidebar-extras-change", (event) => {
+  if (event.detail?.enabled) loadSidebarRankings(currentSbTab);
+});
 
 function showToast(message) {
   const existing = document.querySelector("#nnd-toast");

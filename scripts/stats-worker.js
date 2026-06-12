@@ -4,11 +4,14 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
-const LEADERBOARD_TTL_SECONDS = 300;
+// Aggregates are intentionally allowed to be a little stale so normal play
+// does not force a full KV scan after every submitted result.
+const AGGREGATE_TTL_SECONDS = 1800;
 const LEADERBOARD_KEY = "agg:leaderboard";
 const DIFFICULTY_MIN_PLAYS = 10;
 const DIFFICULTY_POOLS_KEY = "agg:difficulty-pools:v3";
-const HTTP_CACHE_SECONDS = 60;
+const HTTP_CACHE_SECONDS = 300;
+const STATS_HTTP_CACHE_SECONDS = 120;
 const VISITOR_TOTAL_KEY = "site:visitors:total";
 
 function json(data, status = 200, extraHeaders = {}) {
@@ -63,10 +66,10 @@ async function rebuildAggregates(env) {
   const filtered = rows.filter((row) => row.plays >= 5);
   const payload = { builtAt: Date.now(), rows: filtered };
   await env.STATS.put(LEADERBOARD_KEY, JSON.stringify(payload), {
-    expirationTtl: LEADERBOARD_TTL_SECONDS,
+    expirationTtl: AGGREGATE_TTL_SECONDS,
   });
   await env.STATS.put(DIFFICULTY_POOLS_KEY, JSON.stringify(buildDifficultyPools(filtered)), {
-    expirationTtl: LEADERBOARD_TTL_SECONDS,
+    expirationTtl: AGGREGATE_TTL_SECONDS,
   });
   return payload;
 }
@@ -111,7 +114,7 @@ async function getDifficultyPools(env) {
   const { rows } = await getLeaderboard(env);
   const payload = buildDifficultyPools(rows);
   await env.STATS.put(DIFFICULTY_POOLS_KEY, JSON.stringify(payload), {
-    expirationTtl: LEADERBOARD_TTL_SECONDS,
+    expirationTtl: AGGREGATE_TTL_SECONDS,
   });
   return payload;
 }
@@ -160,8 +163,6 @@ export default {
         }
 
         await env.STATS.put(key, JSON.stringify(existing));
-        await env.STATS.delete(LEADERBOARD_KEY);
-        await env.STATS.delete(DIFFICULTY_POOLS_KEY);
         return json({ ok: true });
       }
 
@@ -169,7 +170,9 @@ export default {
         const songId = url.searchParams.get("songId");
         if (!songId) return json({ error: "missing songId" }, 400);
         const data = await env.STATS.get(`song:${songId}`);
-        return json(data ? JSON.parse(data) : {});
+        return json(data ? JSON.parse(data) : {}, 200, {
+          "Cache-Control": `public, max-age=${STATS_HTTP_CACHE_SECONDS}`,
+        });
       }
 
       if (request.method === "GET" && url.pathname === "/difficulty-pools") {
