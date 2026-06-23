@@ -7216,6 +7216,11 @@ coverImage.addEventListener("error", () => {
 });
 
 function completeRound(won) {
+  const solvedDailyWithoutPreview = Boolean(
+    won &&
+    state.mode === "daily" &&
+    state.hasPlayedPreview === false
+  );
   state.isComplete = true;
   stopClip();
   state.lastResult = recordResult(won) || {
@@ -7223,6 +7228,9 @@ function completeRound(won) {
     attempts: won ? state.attempt : null,
     title: state.puzzle.title,
   };
+  if (solvedDailyWithoutPreview) {
+    unlockAchievement("secret_daily_no_preview");
+  }
   revealAnswer({ showComparisonToast: true });
   playButton.disabled = false;
   playButton.setAttribute("aria-label", "Play full clip");

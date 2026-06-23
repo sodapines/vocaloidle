@@ -1,0 +1,3312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOCALOID Higher or Lower</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
+<style>
+:root {
+  --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
+  --text: #111; --muted: #555; --faint: #999;
+  --line: #c8c4bc; --ls: #b8b4ac;
+  --red: #cc0000; --red-dark: #990000; --link: #0066cc;
+}
+html.dark-mode {
+  --bg: #101010; --surface: #191919; --sf: #202020;
+  --text: #e1e1e1; --muted: #aaaaaa; --faint: #777777;
+  --line: #3b3b3b; --ls: #505050;
+  --red: #dd0000; --red-dark: #8f0000; --link: #78a9ee;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  min-height: 100%;
+  font-family: "MS PGothic","Hiragino Kaku Gothic Pro","Meiryo",Arial,sans-serif;
+  font-size: 12px; color: var(--text); background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,240,0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.18) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
+  line-height: 1.4;
+}
+body { min-height: 100vh; display: flex; flex-direction: column; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--red); }
+button { font: inherit; cursor: pointer; }
+
+/* ── HEADER ── */
+.nnd-topbar {
+  width: 100%; background: #111; border-bottom: 1px solid #000;
+  height: 24px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 10px;
+  font-size: 11px; color: #777;
+}
+.nnd-mainbar {
+  width: 100%; background: #fff; border-bottom: 2px solid var(--red);
+  padding: 6px 10px; display: flex; align-items: center; gap: 16px;
+}
+.nnd-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text); }
+.nnd-logo:hover { text-decoration: none; }
+.nnd-logo-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; background: var(--red); color: #fff;
+  font-size: 12px; font-weight: 900; border: 1px solid var(--red-dark); flex-shrink: 0; letter-spacing: -1px;
+}
+.nnd-logo-text { font-size: 15px; font-weight: 900; color: #111; letter-spacing: -0.02em; line-height: 1; }
+.nnd-logo-sub  { display: block; font-size: 10px; font-weight: 400; color: var(--muted); }
+.language-switcher { display: flex; align-items: center; gap: 3px; }
+.language-button {
+  width: 24px; height: 16px; min-height: unset; padding: 0;
+  border: 1px solid var(--ls);
+  border-radius: 2px;
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.2);
+  opacity: 0.55;
+  overflow: hidden;
+  position: relative;
+}
+.language-button:hover {
+  opacity: 0.85;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 3px rgba(0,0,0,0.3);
+}
+.language-button.is-active {
+  opacity: 1;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 0 0 1px var(--red);
+}
+.language-button .fi {
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  border-radius: 1px;
+}
+.language-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.05) 100%);
+  pointer-events: none;
+  border-radius: 1px;
+}
+.nnd-header-links { display: flex; align-items: center; gap: 6px; font-size: 12px; margin-left: auto; }
+.nnd-header-links a:not(.nnd-kofi) {
+  color: var(--link); display: inline-block;
+  padding: 2px 6px; border: 1px solid transparent;
+}
+.nnd-header-links a:not(.nnd-kofi):hover {
+  text-decoration: none; color: var(--red);
+  background: #f6f4ee;
+  border-color: #ffffff #9a968e #9a968e #ffffff;
+}
+.nnd-header-links a:not(.nnd-kofi):active {
+  background: #ece9e2;
+  border-color: #9a968e #ffffff #ffffff #9a968e;
+}
+.nnd-divider { color: var(--line); }
+.nnd-kofi {
+  background: var(--red); color: #fff !important;
+  padding: 3px 9px; border: 1px solid var(--red-dark);
+  font-weight: 700; text-decoration: none;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
+}
+.nnd-kofi:hover { background: #b30000; color: #fff !important; text-decoration: none; }
+
+/* ── SIDE RAILS (decorative watermark) ── */
+.page-rail {
+  position: absolute; top: 150px; height: 400px; z-index: 0; width: 22px;
+  pointer-events: none; color: rgba(90,90,90,0.30);
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1;
+}
+.page-rail::before { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(0,0,0,0.10); }
+.page-rail span { position: absolute; top: 34px; white-space: nowrap; }
+.page-rail-left { right: calc(50% + 590px); }
+.page-rail-left::before { right: 0; }
+.page-rail-left span { right: 8px; transform: rotate(-90deg); transform-origin: right top; }
+.page-rail-right { left: calc(50% + 590px); }
+.page-rail-right::before { left: 0; }
+.page-rail-right span { left: 8px; transform: rotate(90deg); transform-origin: left top; }
+@media (max-width: 1260px) { .page-rail { display: none; } }
+
+/* ── BODY ── */
+.nnd-body { flex: 1 0 auto; width: 100%; max-width: 1160px; margin: 0 auto; padding: 8px 10px; }
+.nnd-main { display: flex; flex-direction: column; gap: 5px; }
+
+/* ── LAYOUT ── */
+.game-layout { display: flex; gap: 6px; align-items: flex-start; }
+.game-main   { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.game-sidebar { width: 176px; flex-shrink: 0; display: flex; flex-direction: column; gap: 4px; }
+
+/* ── STREAK BAR (player HUD) ── */
+.streak-bar {
+  display: flex; align-items: stretch;
+  background: linear-gradient(to bottom, #ffffff, #e9e7e1);
+  border: 1px solid #b0aca4;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.08);
+}
+.streak-scores { display: flex; align-items: stretch; flex-shrink: 0; }
+.streak-block {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-width: 60px; padding: 3px 15px 4px; text-align: center; flex-shrink: 0;
+  border-right: 1px solid #d8d4cc;
+}
+.streak-block.is-streak {
+  min-width: 78px;
+  background: linear-gradient(to bottom, #fff6f6, #f4e8e8);
+  border-right-color: #d0bcbc;
+}
+.streak-val   { font-size: 25px; font-weight: 900; color: var(--red); display: block; line-height: 1; }
+.streak-val.hi { color: var(--red); }
+.streak-num   { font-size: 17px; font-weight: 900; color: var(--text); display: block; line-height: 1; }
+.streak-label { font-size: 8px; color: #9a958c; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 3px; }
+.is-streak .streak-label { color: #b08a8a; }
+.streak-mid {
+  flex: 1; display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 0 10px;
+  border-left: 1px solid #d8d4cc;
+  background: repeating-linear-gradient(0deg, rgba(0,0,0,0.022) 0, rgba(0,0,0,0.022) 1px, transparent 1px, transparent 3px), #efede7;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
+}
+.streak-result {
+  min-width: 0; flex: 1; margin-right: auto;
+  padding: 4px 8px; font-size: 11px; font-weight: 700;
+  border: 1px solid; border-left-width: 3px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.streak-result.correct { background: #e8f5e9; border-color: #81c784; border-left-color: #1a7a1a; color: #1a5a1a; }
+.streak-result.wrong   { background: #fff5f5; border-color: #ffaaaa; border-left-color: var(--red); color: var(--red-dark); }
+.lives-row { display: flex; gap: 3px; align-items: center; }
+.lives-label { font-size: 9px; color: #888888; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 4px; }
+.life {
+  display: inline-block; width: 12px; height: 12px;
+  background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #cc0000 100%);
+  border: 1px solid var(--red-dark);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+}
+.life.spent {
+  background: linear-gradient(to bottom, #d8d8d8, #b8b8b8);
+  border-color: #999999; box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+/* ── GAME AREA ── */
+.game-area {
+  display: grid; grid-template-columns: minmax(0,1fr) 96px minmax(0,1fr);
+  gap: 8px; align-items: stretch;
+  padding: 8px;
+  background: linear-gradient(to bottom, #fffdf5, #f6f1e6);
+  border: 1px solid var(--line);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.75);
+  overflow: visible;
+}
+.vs-col {
+  display: flex; flex-direction: column; align-items: stretch; justify-content: center;
+  gap: 5px; min-width: 0; padding: 7px 6px;
+  background: #f7f2e6; border: 1px solid #b9b3a6;
+  box-shadow: inset 0 0 0 1px #ffffff;
+}
+.vs-pipe { display: none; }
+.vs-text {
+  display: flex; align-items: center; justify-content: center;
+  height: 20px; margin: 0;
+  background: #fffdf4;
+  border: 1px solid #b9b3a6;
+  color: #777064; font-size: 10px; font-weight: 900;
+  letter-spacing: 0.08em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+  transform: none;
+}
+.vs-round-num { font-size: 17px; font-weight: 900; color: var(--text); line-height: 1; text-align: center; }
+.vs-round-label { font-size: 8px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 6px; text-align: center; }
+
+/* ── SONG COLUMN (classic NND player chrome) ── */
+.song-col {
+  display: flex; flex-direction: column; min-width: 0;
+  background: #e6e6e6; border: 1px solid #777777;
+  box-shadow: inset 0 0 0 1px #ffffff, 0 1px 0 rgba(255,255,255,0.8);
+}
+.song-col-header {
+  min-height: 21px; flex-shrink: 0;
+  display: flex; align-items: center; gap: 6px;
+  padding: 2px 7px; margin: 1px 1px 0;
+  background: linear-gradient(to bottom, #f7f7f7, #dedede);
+  border-bottom: 1px solid #999999;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85);
+}
+.col-header-label  { font-size: 10px; font-weight: 700; color: #444444; letter-spacing: 0.04em; flex-shrink: 0; }
+.col-header-title  { font-size: 11px; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 auto; min-width: 0; }
+.col-header-status { font-size: 9px; color: #999999; white-space: nowrap; flex-shrink: 0; }
+#col-a .song-col-header,
+.song-col.is-a .song-col-header {
+  background: linear-gradient(to bottom, #e03030 0%, #c40000 48%, #9a0000 52%, #bb0000 100%);
+  border-bottom-color: #7e0000;
+}
+#col-b .song-col-header,
+.song-col.is-b .song-col-header {
+  background: linear-gradient(to bottom, #3769c9 0%, #194da6 48%, #103477 52%, #174690 100%);
+  border-bottom-color: #0d2858;
+}
+#col-a .song-col-header .col-header-label,
+#col-a .song-col-header .col-header-title,
+#col-a .song-col-header .col-header-status,
+#col-b .song-col-header .col-header-label,
+#col-b .song-col-header .col-header-title,
+#col-b .song-col-header .col-header-status,
+.song-col.is-a .song-col-header .col-header-label,
+.song-col.is-a .song-col-header .col-header-title,
+.song-col.is-a .song-col-header .col-header-status,
+.song-col.is-b .song-col-header .col-header-label,
+.song-col.is-b .song-col-header .col-header-title,
+.song-col.is-b .song-col-header .col-header-status {
+  color: #fff; text-shadow: 0 1px 0 rgba(0,0,0,0.45);
+}
+
+/* ── SONG THUMB (black video well) ── */
+.song-thumb {
+  position: relative; aspect-ratio: 16/9;
+  overflow: hidden; background: #000; flex-shrink: 0;
+  margin: 0 1px;
+  box-shadow: inset 0 0 0 1px #777777;
+  container-type: inline-size;
+}
+.song-thumb img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
+}
+/* ── DANMAKU (scrolling NicoNico comments) ── */
+.danmaku-layer { position: absolute; inset: 0; z-index: 1; overflow: hidden; pointer-events: none; }
+.danmaku {
+  position: absolute; left: 100%; white-space: nowrap;
+  font-size: 13px; font-weight: 700; color: #ffffff;
+  text-shadow: 0 0 3px rgba(0,0,0,0.95), 0 1px 2px rgba(0,0,0,0.9), 1px 1px 0 rgba(0,0,0,0.5), -1px -1px 0 rgba(0,0,0,0.5);
+  animation-name: danmaku-scroll; animation-timing-function: linear; animation-iteration-count: infinite;
+  will-change: transform;
+}
+@keyframes danmaku-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(calc(-100cqw - 100%)); }
+}
+@media (prefers-reduced-motion: reduce) { .danmaku { display: none; } }
+.thumb-scanlines {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: repeating-linear-gradient(to bottom,
+    transparent 0px, transparent 2px,
+    rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 3px);
+}
+.mystery-overlay {
+  position: absolute; inset: 0; z-index: 3;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(10,10,10,0.58);
+  transition: opacity 0.45s ease;
+}
+.mystery-overlay.revealed { opacity: 0; pointer-events: none; }
+.mystery-mark {
+  font-size: 40px; font-weight: 900; color: rgba(255,255,255,0.22);
+  line-height: 1; letter-spacing: -2px; user-select: none;
+}
+.tier-badge {
+  position: absolute; bottom: 3px; right: 3px; z-index: 4;
+  padding: 0 4px; background: var(--red); color: #fff;
+  font-size: 9px; font-weight: 700; line-height: 15px;
+}
+.tier-badge.mystery-badge { opacity: 0; transition: opacity 0.45s ease 0.2s; }
+.tier-badge.mystery-badge.revealed { opacity: 1; }
+
+/* ── SONG META BAR (NND metadata row) ── */
+.song-meta-bar {
+  background: #f7f7f7; border-top: 1px solid #999999;
+  padding: 4px 7px 5px; margin: 0 1px;
+  display: flex; gap: 0; align-items: flex-start;
+  flex: 0 0 auto;
+}
+.meta-field {
+  display: flex; flex-direction: column; flex-shrink: 0;
+  padding-right: 10px; margin-right: 9px; border-right: 1px solid #dddddd;
+}
+.meta-field:last-child { border-right: none; padding-right: 0; margin-right: 0; flex: 1; min-width: 0; }
+.meta-key { font-size: 9px; color: #444444; font-weight: 700; letter-spacing: 0.02em; line-height: 1.2; margin-bottom: 1px; }
+.meta-val { font-size: 15px; font-weight: 900; color: var(--text); line-height: 1.1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.meta-val.meta-sm { font-size: 11px; font-weight: 700; color: var(--muted); }
+.meta-val.meta-artist {
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  white-space: normal; line-height: 1.3;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+}
+.meta-val.mystery { color: #bbbbbb; letter-spacing: 4px; }
+.meta-val.correct-reveal { color: #1a7a1a; }
+.meta-val.wrong-reveal   { color: var(--red); }
+.meta-sub { font-size: 8px; color: var(--faint); margin-top: 2px; line-height: 1; }
+.vtag { display: inline-block; padding: 0 4px; font-size: 9px; line-height: 13px; border: 1px solid; font-weight: 700; }
+.vtag-miku   { background: #e0f4f8; border-color: #39c5bb; color: #007a73; }
+.vtag-rin    { background: #fff4d0; border-color: #f5a623; color: #915800; }
+.vtag-len    { background: #fffacc; border-color: #d4b800; color: #7a6500; }
+.vtag-luka   { background: #fce4ec; border-color: #e91e8c; color: #9c0060; }
+.vtag-gumi   { background: #e8f5e9; border-color: #43a047; color: #1b5e20; }
+.vtag-ia     { background: #f3e5f5; border-color: #9c27b0; color: #6a1b9a; }
+.vtag-kaito  { background: #e8eaf6; border-color: #3949ab; color: #1a237e; }
+.vtag-meiko  { background: #fce8e6; border-color: #e53935; color: #b71c1c; }
+.vtag-teto   { background: #fde8ec; border-color: #d44466; color: #8c1030; }
+.vtag-flower { background: #f0e4f8; border-color: #9040a0; color: #581070; }
+.vtag-kafu   { background: #d8f0f8; border-color: #2096b8; color: #005878; }
+.vtag-una    { background: #fdf0d0; border-color: #e08000; color: #7a4000; }
+.vtag-yuki   { background: #fff8d0; border-color: #b09000; color: #5a4800; }
+.vtag-rei    { background: #fce0f0; border-color: #cc3080; color: #880050; }
+.vtag-defoko { background: #e0e8f0; border-color: #6080a0; color: #304060; }
+.vtag-meika-mikoto { background: #fde3e3; border-color: #d23b3b; color: #9a1414; }
+.vtag-meika-hime   { background: #e3eefc; border-color: #3a7bd5; color: #1a3f8f; }
+.vtag-other  { background: var(--sf); border-color: var(--ls); color: var(--muted); }
+.thumb-vtags {
+  position: absolute; top: 4px; left: 4px; z-index: 5;
+  display: flex; flex-wrap: wrap; gap: 3px; max-width: 70%;
+}
+.thumb-vtags .vtag { box-shadow: 0 1px 2px rgba(0,0,0,0.55); }
+
+/* ── REVEAL FLASH ── */
+.song-col.reveal-correct { animation: flash-correct 1.1s ease-out forwards; }
+.song-col.reveal-wrong   { animation: flash-wrong 1.1s ease-out forwards; }
+@keyframes flash-correct {
+  0%   { outline: 3px solid rgba(76,175,80,0.95); outline-offset: -2px; }
+  100% { outline: 3px solid rgba(76,175,80,0); outline-offset: -2px; }
+}
+@keyframes flash-wrong {
+  0%   { outline: 3px solid rgba(221,34,34,0.95); outline-offset: -2px; }
+  100% { outline: 3px solid rgba(221,34,34,0); outline-offset: -2px; }
+}
+
+/* ── GUESS BUTTONS ── */
+.guess-btns { display: flex; flex-direction: column; gap: 7px; width: 100%; }
+.guess-btn {
+  width: 100%; height: 48px; font-size: 14px; font-weight: 900;
+  border: 1px solid; cursor: pointer; font-family: inherit;
+  display: flex; align-items: center; justify-content: center; gap: 5px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+}
+.guess-btn:disabled { cursor: default; filter: saturate(0.3) brightness(1.1); }
+.guess-higher {
+  background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #cc0000 100%);
+  color: #fff; border-color: var(--red-dark);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 1px 2px rgba(0,0,0,0.25);
+}
+.guess-higher:not(:disabled):hover { background: linear-gradient(to bottom, #ff6666 0%, #ee3333 48%, #cc1111 52%, #dd1111 100%); }
+.guess-lower {
+  background: linear-gradient(to bottom, #4e78ca 0%, #2d58ad 48%, #173b82 52%, #244b98 100%);
+  color: #fff; border-color: #102c61;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 1px 2px rgba(0,0,0,0.25);
+}
+.guess-lower:not(:disabled):hover { background: linear-gradient(to bottom, #5f8ae0 0%, #3b68bf 48%, #224b99 52%, #2c5cad 100%); }
+.guess-arrow { font-size: 15px; line-height: 1; }
+.guess-placeholder { display: none; }
+.song-links {
+  display: flex; height: 32px; margin: 5px 6px 6px; gap: 4px;
+}
+.song-link {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border: 1px solid #999999;
+  font-size: 10px; font-weight: 700; color: var(--muted); text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.song-link:hover { color: var(--red); background: linear-gradient(to bottom, #ffffff, #efefef); text-decoration: none; }
+.song-links.is-locked { opacity: 0.68; }
+.song-links.is-locked .song-link {
+  cursor: default; color: #777777; background: linear-gradient(to bottom, #f4f4f4, #dfdfdf);
+}
+.song-links.is-locked .song-link:hover { color: #777777; background: linear-gradient(to bottom, #f4f4f4, #dfdfdf); }
+
+/* ── RECENT BATTLES ── */
+.recent-battles {
+  margin-top: 5px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+}
+.recent-header {
+  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  border-bottom: 1px solid var(--line);
+  padding: 3px 8px; font-size: 11px; font-weight: 700;
+}
+.recent-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.recent-table th,
+.recent-table td {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 3px 5px;
+  font-size: 10px; line-height: 1.25;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.recent-table th {
+  background: #f4f1e8; color: var(--muted); font-weight: 700;
+}
+.recent-table th:last-child,
+.recent-table td:last-child { border-right: none; }
+.recent-table tr:last-child td { border-bottom: none; }
+.recent-num { width: 28px; text-align: center; color: var(--faint); }
+.recent-result { width: 48px; text-align: center; font-weight: 900; }
+.recent-result.is-win { color: #1a7a1a; }
+.recent-result.is-lose { color: var(--red); }
+.recent-count { width: 82px; text-align: right; font-family: Consolas, "MS PGothic", monospace; }
+.recent-guess { width: 66px; text-align: center; font-weight: 900; }
+.recent-guess.higher { color: var(--red); }
+.recent-guess.lower { color: #194da6; }
+/* ── SIDEBAR PANELS ── */
+.sidebar-panel {
+  background: var(--surface); border: 1px solid var(--line);
+  border-top: 3px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.sidebar-header {
+  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  border-bottom: 1px solid var(--line);
+  padding: 3px 8px; font-size: 11px; font-weight: 700; color: var(--text);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.sidebar-body { padding: 6px 8px; }
+
+.htp-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.htp-list li {
+  font-size: 10px; color: var(--muted); line-height: 1.5;
+  padding-left: 17px; position: relative;
+}
+.htp-list li::before {
+  position: absolute; left: 0; top: 1px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 12px; height: 12px; color: #fff;
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+  font-size: 8px; font-weight: 900; content: attr(data-n);
+}
+.htp-list li strong { color: var(--text); }
+
+.sidebar-body.stats-body { padding: 0; }
+.stats-table { width: 100%; border-collapse: collapse; }
+.stats-table tr { border-bottom: 1px solid var(--line); }
+.stats-table tr:nth-child(even) { background: #f6f5f0; }
+.stats-table tr:hover { background: #fff0f0; }
+.stats-table td { padding: 2px 7px; font-size: 10px; height: 20px; }
+.stats-table td:first-child { color: var(--muted); }
+.stats-table td:last-child { font-weight: 900; text-align: right; color: var(--red); font-size: 11px; white-space: nowrap; }
+.winrate-row { padding: 3px 7px 5px; border-bottom: 1px solid var(--line); }
+.winrate-row:hover { background: #fff0f0; }
+.winrate-top { display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: var(--muted); margin-bottom: 3px; }
+.winrate-top strong { font-weight: 900; color: var(--red); font-size: 11px; }
+.winrate-track { width: 100%; height: 5px; background: #e0e0e0; border: 1px solid #ccc; overflow: hidden; }
+.winrate-fill { height: 100%; background: var(--red); transition: width 0.3s ease; }
+.pool-info { font-size: 9px; color: var(--faint); padding: 4px 7px 5px; }
+
+/* ── STAT RECORDS / MILESTONE ── */
+.milestone-row { padding: 4px 7px 6px; }
+.milestone-top { display: flex; justify-content: space-between; align-items: baseline; font-size: 10px; color: var(--muted); margin-bottom: 3px; }
+.milestone-top strong { font-weight: 900; color: var(--red); font-size: 11px; }
+.milestone-track { width: 100%; height: 5px; background: #e0e0e0; border: 1px solid #ccc; overflow: hidden; }
+.milestone-fill { height: 100%; background: linear-gradient(to right, #aa0000, #dd2222); transition: width 0.3s ease; }
+.milestone-fill.maxed { background: linear-gradient(to right, #b8860b, #e0b020); }
+
+.milestone-desc { padding: 4px 7px 0; font-size: 9px; color: var(--faint); line-height: 1.4; }
+
+/* ── SUPPORT MODAL ── */
+.support-body p { font-size: 12px; color: var(--text); line-height: 1.5; margin-bottom: 10px; }
+.support-body .support-kofi-line { color: var(--muted); padding-top: 10px; border-top: 1px solid var(--line); }
+.support-kofi-btn { display: table; margin: 2px auto 2px; padding: 5px 13px; font-size: 13px; }
+
+/* ── VIEW TIER LEGEND ── */
+.tier-legend { display: flex; flex-direction: column; }
+.tier-legend-row {
+  display: flex; align-items: center; gap: 7px;
+  padding: 3px 8px; font-size: 10px; border-bottom: 1px solid var(--line);
+}
+.tier-legend-row:last-child { border-bottom: none; }
+.tier-legend-row .tl-badge {
+  flex-shrink: 0; min-width: 38px; text-align: center;
+  padding: 1px 3px; font-size: 9px; font-weight: 900; color: #fff;
+  border: 1px solid var(--red-dark);
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+}
+.tier-legend-row .tl-name { color: var(--muted); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tier-note { font-size: 9px; color: var(--faint); padding: 5px 8px; border-top: 1px solid var(--line); }
+
+/* ── NEWS / LINKS PANELS ── */
+.news-list { list-style: none; padding: 0; margin: 0; }
+.news-list li { display: flex; gap: 6px; padding: 4px 8px; border-bottom: 1px solid var(--line); font-size: 10px; }
+.news-list li:last-child { border-bottom: none; }
+.news-ver {
+  flex-shrink: 0; align-self: flex-start; padding: 0 4px; font-size: 9px; font-weight: 900;
+  color: #fff; background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+}
+.news-text { color: var(--muted); line-height: 1.4; }
+.news-more, .links-list a {
+  display: block; padding: 4px 8px; font-size: 10px; color: var(--link);
+}
+.news-more { border-top: 1px solid var(--line); }
+.links-list { display: flex; flex-direction: column; }
+.links-list a { border-bottom: 1px solid var(--line); }
+.links-list a:last-child { border-bottom: none; }
+.links-list a:hover, .news-more:hover { color: var(--red); background: #fff0f0; text-decoration: none; }
+.links-list a::before { content: "\25B8"; color: var(--red); margin-right: 5px; }
+
+/* ── RECENT GUESSES EMPTY STATE ── */
+.recent-empty { padding: 9px 8px; color: var(--faint); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1px; }
+.recent-empty .re-mark { font-size: 14px; font-weight: 900; color: var(--line); letter-spacing: 3px; line-height: 1.2; }
+.recent-empty .re-text { font-size: 11px; font-style: italic; }
+.recent-empty .re-hint { font-size: 9px; color: var(--faint); opacity: 0.8; }
+
+/* ── RECENT GUESSES MOBILE CARDS (hidden on desktop) ── */
+.recent-cards { display: none; list-style: none; margin: 0; padding: 0; }
+.rc-item {
+  padding: 6px 8px 7px; border-bottom: 1px solid var(--line);
+  border-left: 3px solid var(--line);
+}
+.rc-item:last-child { border-bottom: none; }
+.rc-item.is-win  { border-left-color: #1a7a1a; }
+.rc-item.is-lose { border-left-color: var(--red); }
+.rc-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
+.rc-num { font-size: 10px; color: var(--faint); font-weight: 700; }
+.rc-result { font-size: 12px; font-weight: 900; }
+.is-win .rc-result  { color: #1a7a1a; }
+.is-lose .rc-result { color: var(--red); }
+.rc-stk { margin-left: auto; font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.04em; }
+.rc-row { display: flex; align-items: baseline; gap: 8px; font-size: 11px; }
+.rc-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text); }
+.rc-views { flex-shrink: 0; font-family: Consolas, "MS PGothic", monospace; font-weight: 700; color: var(--muted); }
+.rc-guess { font-size: 10px; font-weight: 900; margin: 2px 0; padding-left: 2px; }
+.rc-guess.higher { color: var(--red); }
+.rc-guess.lower  { color: #194da6; }
+
+/* ── GAME OVER ── */
+.gameover-panel {
+  background: var(--surface); border: 1px solid var(--line);
+  border-top: 4px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+  padding: 0 14px 14px; text-align: center; display: flex; flex-direction: column; align-items: stretch; gap: 10px;
+}
+.gameover-title {
+  margin: 0 -14px 2px; padding: 8px 10px 7px;
+  background: linear-gradient(to bottom, #d81111, #990000);
+  color: #fff; font-size: 17px; font-weight: 900; letter-spacing: 0.12em;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.45);
+}
+/* retro NND results plate */
+.gameover-stats {
+  display: flex; gap: 0; align-self: center; padding: 2px;
+  background: linear-gradient(to bottom, #e6e3db, #d2cec4);
+  border: 1px solid #8c887f;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7), 0 1px 2px rgba(0,0,0,0.12);
+}
+.go-stat {
+  display: flex; flex-direction: column-reverse; align-items: center;
+  padding: 5px 18px 6px; text-align: center;
+  background: linear-gradient(to bottom, #fcfcfa, #eeebe4);
+  border-right: 1px solid #b7b3aa;
+  box-shadow: inset 1px 0 0 rgba(255,255,255,0.7), inset -1px 0 0 rgba(0,0,0,0.04);
+}
+.go-stat:first-child { box-shadow: inset -1px 0 0 rgba(0,0,0,0.04); }
+.go-stat:last-child { border-right: none; box-shadow: inset 1px 0 0 rgba(255,255,255,0.7); }
+.go-stat.is-headline { background: linear-gradient(to bottom, #fff4f4, #f3e4e4); }
+.go-key {
+  font-size: 9px; color: #6a665e; font-weight: 700; letter-spacing: 0.02em;
+  margin-top: 3px; text-transform: lowercase; white-space: nowrap;
+}
+.go-key::before { content: "[ "; }
+.go-key::after  { content: " ]"; }
+.go-val {
+  font-size: 26px; font-weight: 900; display: block; line-height: 1; color: var(--text);
+  font-family: Consolas, "MS PGothic", monospace; text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+}
+.go-val.is-best { color: #1a7a1a; }
+.go-stat.is-headline .go-val { color: var(--red); }
+.go-stat.is-headline .go-key { color: #a06868; }
+
+/* retro NND result notice */
+.gameover-message {
+  text-align: center;
+  border: 1px solid #b8b08c;
+  background: repeating-linear-gradient(0deg, rgba(204,153,0,0.05) 0, rgba(204,153,0,0.05) 1px, transparent 1px, transparent 4px), #fffdf0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+  padding: 8px 12px; font-size: 12px; font-weight: 700; line-height: 1.4;
+}
+.gameover-message strong { color: var(--red); }
+.play-again-btn {
+  height: 30px; padding: 0 22px; align-self: center;
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  color: #fff; border: 1px solid var(--red-dark); font-size: 12px; font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); cursor: pointer; font-family: inherit;
+}
+.play-again-btn:hover { background: linear-gradient(to bottom,#dd1111,#aa0000); }
+.gameover-actions {
+  display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;
+}
+.share-result-btn {
+  height: 30px; padding: 0 18px; align-self: center;
+  background: linear-gradient(to bottom, #ffffff, #e2e2e2);
+  color: var(--text); border: 1px solid var(--ls); font-size: 12px; font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85); cursor: pointer; font-family: inherit;
+}
+.share-result-btn:hover {
+  color: var(--red);
+  background: linear-gradient(to bottom, #fff5f5, #ffd0d0);
+}
+
+/* ── STATE MESSAGES ── */
+.state-panel {
+  background: var(--surface); border: 1px solid var(--line);
+  border-top: 3px solid var(--line); padding: 28px;
+  text-align: center; color: var(--faint); font-size: 12px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+}
+.state-panel strong { display: block; margin-bottom: 4px; color: var(--muted); font-size: 13px; }
+
+/* ── FOOTER ── */
+.site-footer {
+  flex-shrink: 0; width: 100%; position: relative;
+  background: linear-gradient(to bottom, #ececea, #dcdad4);
+  border-top: 2px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 7px 10px 8px;
+  text-align: center;
+}
+.footer-copy { margin: 0; color: var(--faint); font-size: 10px; }
+.footer-pagetop { position: absolute; top: 8px; right: 10px; font-size: 10px; color: var(--link); white-space: nowrap; }
+.footer-pagetop:hover { text-decoration: underline; color: var(--red); }
+
+/* ── SETTINGS MODAL ── */
+.modal-backdrop {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100;
+}
+.settings-modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 101; background: var(--surface); border: 1px solid var(--ls);
+  width: min(100vw - 32px, 360px); max-height: 86vh; overflow: auto;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.modal-title {
+  margin: 0 0 12px; padding: 0 0 8px 8px;
+  font-size: 13px; font-weight: 700; color: var(--text);
+  border-left: 3px solid var(--red); border-bottom: 1px solid var(--line);
+}
+.modal-close-btn {
+  position: absolute; top: 8px; right: 8px;
+  width: 20px; height: 20px; padding: 0;
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
+  border: 1px solid var(--ls); color: var(--muted);
+  font-size: 11px; font-weight: 700; font-family: inherit; cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.modal-close-btn:hover { background: linear-gradient(to bottom, #fff5f5, #ffcccc); color: var(--red); }
+.settings-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 8px 0; border-bottom: 1px dotted var(--line);
+}
+.settings-row:hover { background: #fcf9f4; }
+.settings-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.settings-label { font-size: 12px; font-weight: 700; color: var(--text); }
+.settings-desc { font-size: 11px; color: var(--faint); }
+.settings-multi { display: flex; border: 1px solid var(--ls); flex-shrink: 0; }
+.settings-choice {
+  min-width: 44px; height: 24px; padding: 0 8px;
+  font-size: 11px; color: var(--muted); font-family: inherit; cursor: pointer;
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  border: none; border-right: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.settings-choice:last-child { border-right: none; }
+.settings-choice:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); }
+.settings-choice.is-active {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+.settings-toggle {
+  flex-shrink: 0; height: 24px; min-width: 44px; padding: 0 10px;
+  font-size: 11px; font-weight: 700; color: var(--faint); font-family: inherit; cursor: pointer;
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.settings-toggle.is-on {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; border-color: var(--red-dark);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+.settings-footer-row { display: flex; align-items: center; gap: 8px; padding-top: 10px; }
+.settings-note { font-size: 9px; color: var(--faint); flex: 1; line-height: 1.4; }
+.settings-apply-btn {
+  height: 26px; padding: 0 12px; flex-shrink: 0;
+  background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #cc0000 100%);
+  color: #fff; border: 1px solid var(--red-dark); font-size: 11px; font-weight: 700;
+  cursor: pointer; font-family: inherit;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+.settings-apply-btn:hover { background: linear-gradient(to bottom, #ff6666 0%, #ee3333 48%, #cc1111 52%, #dd1111 100%); }
+
+/* ── RELEASE NOTES MODAL ── */
+.notes-modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 101; background: var(--surface); border: 1px solid var(--ls);
+  width: min(100vw - 32px, 380px); max-height: min(86vh, 480px); overflow: auto;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.achievements-modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 101; background: var(--surface); border: 1px solid var(--ls);
+  width: min(100vw - 32px, 460px); max-height: min(86vh, 560px); overflow: auto;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.release-tabs { display: flex; width: fit-content; margin: 0 0 8px; border: 1px solid var(--ls); }
+.release-tab {
+  min-width: 52px; height: 24px; padding: 0 10px;
+  color: var(--muted); cursor: pointer; font-family: inherit;
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  border: none; border-right: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  font-size: 11px; font-weight: 700;
+}
+.release-tab:last-child { border-right: none; }
+.release-tab:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); }
+.release-tab.is-active {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+.release-version {
+  margin: 0 0 8px; padding: 3px 7px;
+  border: 1px solid var(--line); border-left: 3px solid var(--red);
+  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  font-size: 11px; font-weight: 700; color: var(--text);
+}
+.release-list { margin: 0; list-style: none; padding: 0; }
+.release-list li {
+  padding: 4px 2px 5px 14px; position: relative;
+  border-bottom: 1px dotted var(--line);
+  font-size: 11px; color: var(--text); line-height: 1.45;
+}
+.release-list li:last-child { border-bottom: 0; }
+.release-list li::before { content: "\25AA"; position: absolute; left: 2px; color: var(--red); }
+
+/* ---- ACHIEVEMENTS ---- */
+.achievement-summary {
+  display: grid; grid-template-columns: auto 1fr auto; gap: 8px; align-items: center;
+  margin-bottom: 10px; padding: 5px 7px;
+  border: 1px solid var(--line); background: linear-gradient(to bottom,#f7f7f7,#e8e8e8);
+}
+.achievement-summary strong { color: var(--red); }
+.achievement-meter {
+  height: 8px; border: 1px solid var(--ls); background: #eeeeee;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.08);
+}
+.achievement-meter-fill {
+  height: 100%; width: 0;
+  background: repeating-linear-gradient(135deg, var(--red) 0, var(--red) 6px, #e24a4a 6px, #e24a4a 10px);
+}
+.achievement-list {
+  border: 1px solid var(--line); border-bottom: none;
+}
+.achievement-row {
+  display: grid; grid-template-columns: 34px minmax(0,1fr) auto; gap: 8px; align-items: center;
+  min-height: 42px; padding: 6px 8px;
+  border-bottom: 1px solid var(--line);
+  background: #f8f8f5;
+}
+.achievement-row:nth-child(even) { background: #f1f0eb; }
+.achievement-row.is-locked { color: var(--faint); background: #eeeeea; }
+.achievement-row.is-locked .achievement-desc { color: #aaa; }
+.achievement-icon {
+  width: 26px; height: 26px; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--ls); background: #e5e5e0; color: var(--faint);
+  font-size: 11px; font-weight: 900;
+}
+.achievement-row.is-unlocked .achievement-icon {
+  background: var(--red); border-color: var(--red-dark); color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.achievement-title { font-weight: 700; color: var(--text); line-height: 1.25; }
+.achievement-desc { color: var(--muted); font-size: 11px; line-height: 1.35; }
+.achievement-date { font-size: 10px; color: var(--faint); white-space: nowrap; }
+.achievement-row.is-locked .achievement-date { color: #b8b8b8; }
+.achievement-mini-body { display: flex; flex-direction: column; gap: 5px; }
+.achievement-mini-row { display: flex; justify-content: space-between; gap: 8px; }
+.achievement-mini-row strong { color: var(--red); }
+.achievement-mini-bar {
+  height: 8px; border: 1px solid var(--ls); background: #eeeeee;
+}
+.achievement-mini-fill {
+  height: 100%; width: 0; background: var(--red);
+}
+.achievement-toast {
+  position: fixed; right: 12px; bottom: 12px; z-index: 120;
+  display: flex; align-items: stretch; min-width: 270px; max-width: min(420px, calc(100vw - 24px));
+  border: 1px solid #d0b65c; background: #fffde8;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.22);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.achievement-toast.is-hiding { opacity: 0; transform: translateY(8px); }
+.achievement-toast-badge {
+  display: flex; align-items: center; justify-content: center;
+  width: 56px; background: var(--red); color: #fff; font-weight: 900;
+  border-right: 1px solid var(--red-dark);
+}
+.achievement-toast-body { padding: 7px 9px; flex: 1; min-width: 0; }
+.achievement-toast-kicker { color: var(--red); font-size: 10px; font-weight: 700; letter-spacing: 0.06em; }
+.achievement-toast-title { font-size: 13px; font-weight: 700; color: var(--text); }
+.achievement-toast-desc { font-size: 11px; color: var(--muted); }
+
+/* ── MARQUEE BAR ── */
+.nnd-marquee-bar {
+  width: 100%;
+  background: repeating-linear-gradient(0deg,rgba(204,153,0,0.08) 0,rgba(204,153,0,0.08) 1px,transparent 1px,transparent 4px), #fffde8;
+  border-bottom: 1px solid #d0c878; border-top: 1px solid #d0c878;
+  height: 20px; display: flex; align-items: center; overflow: hidden; font-size: 11px;
+}
+.nnd-marquee-label {
+  flex-shrink: 0; padding: 0 7px; background: #cc9900; color: #fff;
+  font-weight: 700; font-size: 10px; height: 100%;
+  display: flex; align-items: center; border-right: 1px solid #aa7700;
+}
+.nnd-marquee-wrap { flex: 1; overflow: hidden; height: 100%; display: flex; align-items: center; }
+.nnd-marquee-inner {
+  white-space: nowrap; color: #555500;
+  animation: marquee-scroll 50s linear infinite; padding-left: 100%;
+}
+@keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+
+/* ── TAG ROW ── */
+.nnd-tag-row {
+  width: 100%; background: var(--sf); border-bottom: 1px solid var(--line);
+  padding: 2px 8px; display: flex; align-items: center; gap: 2px; flex-wrap: wrap; font-size: 11px;
+}
+.nnd-tag-label { color: var(--faint); font-size: 11px; flex-shrink: 0; }
+.nnd-tag {
+  display: inline-block; padding: 0 6px;
+  background: #f2f0ff; border: 1px solid #aeb5df; color: #3f268e;
+  font-size: 10px; line-height: 15px; text-decoration: none;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+}
+.nnd-tag:hover { background: #e3e0ff; text-decoration: none; color: var(--red); }
+
+/* ── MOBILE HEADER ── */
+.nnd-mobile-nav {
+  display: none; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: 4px 10px; background: var(--sf); border-bottom: 1px solid var(--line);
+  font-size: 11px;
+}
+.nnd-mobile-nav a { color: var(--link); }
+.nnd-mobile-nav a:hover { color: var(--red); text-decoration: underline; }
+.nnd-mobile-nav .nnd-divider { color: var(--line); }
+
+@media (max-width: 640px) {
+  .nnd-body { padding: 6px 0; }
+  /* stacked HUD: scores grid on top, result + lives row below */
+  .streak-bar { flex-direction: column; }
+  .streak-scores { display: grid; grid-template-columns: repeat(5, 1fr); width: 100%; }
+  .streak-block { min-width: 0; padding: 4px 2px 5px; }
+  .streak-block.is-streak { min-width: 0; }
+  .streak-block:last-child { border-right: none; }
+  .streak-val { font-size: 21px; }
+  .streak-num { font-size: 15px; }
+  .streak-label { font-size: 7px; letter-spacing: 0.02em; }
+  .streak-mid {
+    flex: none; width: 100%; border-left: none; border-top: 1px solid #d8d4cc;
+    padding: 5px 8px; min-height: 30px; justify-content: flex-end;
+  }
+  .streak-result { font-size: 10px; padding: 3px 7px; }
+  .lives-row { flex-shrink: 0; }
+
+  .game-layout { flex-direction: column; align-items: stretch; }
+  .game-main { width: 100%; order: 1; }
+  .game-sidebar { width: 100%; flex-direction: row; flex-wrap: wrap; }
+  .game-sidebar-right { order: 2; }
+  .game-sidebar-left { order: 3; }
+  .sidebar-panel { flex: 1; min-width: 0; }
+  .game-area { grid-template-columns: 1fr; gap: 6px; padding: 6px; }
+  .vs-col { flex-direction: row; align-items: stretch; padding: 4px 10px; min-width: 0; background: #f7f2e6; border: 1px solid var(--line); }
+  .vs-pipe { display: none; }
+  .vs-round-label, .vs-round-num { display: none; }
+  .vs-text { flex: 0 0 54px; height: auto; align-self: stretch; font-size: 13px; }
+  .guess-btns { flex-direction: row; }
+  .guess-btn { height: 44px; font-size: 14px; }
+  .song-links { display: none; }
+  .recent-table { display: none; }
+  .recent-cards { display: block; }
+  .nnd-header-links { display: none; }
+  .nnd-mobile-nav { display: flex; }
+  .nnd-mobile-nav .nnd-kofi { display: none; }
+  .language-switcher { margin-left: auto; }
+  .view-box-mystery-hint { flex-wrap: wrap; }
+  .footer-pagetop { position: static; display: inline-block; margin-top: 4px; }
+}
+
+html.dark-mode,
+html.dark-mode body {
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+}
+html.dark-mode .nnd-mainbar,
+html.dark-mode .song-meta-bar,
+html.dark-mode .sidebar-panel,
+html.dark-mode .recent-battles,
+html.dark-mode .settings-modal,
+html.dark-mode .notes-modal,
+html.dark-mode .achievements-modal,
+html.dark-mode .gameover-panel,
+html.dark-mode .state-panel {
+  background: var(--surface);
+}
+html.dark-mode .nnd-logo-text,
+html.dark-mode .settings-label,
+html.dark-mode .achievement-title,
+html.dark-mode .htp-list li strong {
+  color: var(--text);
+}
+html.dark-mode .streak-val {
+  text-shadow: 0 1px 0 rgba(70, 0, 0, 0.9);
+}
+html.dark-mode .streak-val.hi {
+  text-shadow: 0 1px 0 rgba(70, 0, 0, 0.9);
+}
+html.dark-mode .streak-bar,
+html.dark-mode .streak-block,
+html.dark-mode .streak-block.is-streak,
+html.dark-mode .streak-mid {
+  border-color: #383838;
+}
+html.dark-mode .streak-block.is-streak {
+  background: #2a2020;
+}
+html.dark-mode .streak-label { color: #888; }
+html.dark-mode .is-streak .streak-label { color: #b08a8a; }
+html.dark-mode .streak-bar,
+html.dark-mode .streak-mid,
+html.dark-mode .streak-block,
+html.dark-mode .song-col,
+html.dark-mode .song-col-header,
+html.dark-mode .sidebar-header,
+html.dark-mode .recent-header,
+html.dark-mode .release-version,
+html.dark-mode .achievement-summary {
+  background: #222;
+  box-shadow: none;
+}
+html.dark-mode .game-area,
+html.dark-mode .vs-col,
+html.dark-mode .vs-text,
+html.dark-mode .gameover-message {
+  background: #151515;
+}
+html.dark-mode .game-area {
+  border-color: #383838;
+  box-shadow: inset 0 0 0 1px #242424;
+}
+html.dark-mode .vs-col,
+html.dark-mode .vs-text {
+  border-color: #383838;
+  box-shadow: none;
+}
+html.dark-mode .go-stat {
+  background: #202020;
+  border-color: #383838;
+  box-shadow: none;
+}
+html.dark-mode .go-stat.is-headline { background: #2a2020; }
+html.dark-mode .go-key { color: #9a958c; }
+html.dark-mode .go-stat.is-headline .go-key { color: #b08a8a; }
+html.dark-mode .go-val { text-shadow: none; }
+html.dark-mode .gameover-stats {
+  background: #1a1a1a;
+  border-color: #383838;
+  box-shadow: none;
+}
+html.dark-mode .gameover-message { border-color: #383838; }
+html.dark-mode .share-result-btn {
+  color: var(--muted);
+  background: linear-gradient(to bottom, #2b2b2b, #202020);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+}
+html.dark-mode .share-result-btn:hover {
+  color: var(--red);
+  background: linear-gradient(to bottom, #3a2525, #2a1c1c);
+}
+html.dark-mode .song-meta-bar,
+html.dark-mode .stats-table tr:nth-child(even),
+html.dark-mode .recent-table th,
+html.dark-mode .achievement-row,
+html.dark-mode .achievement-row:nth-child(even) {
+  background: #1d1d1d;
+}
+html.dark-mode .settings-row:hover,
+html.dark-mode .stats-table tr:hover,
+html.dark-mode .winrate-row:hover,
+html.dark-mode .links-list a:hover,
+html.dark-mode .news-more:hover {
+  background: #262020;
+}
+html.dark-mode .milestone-track {
+  background: #111;
+  border-color: #444;
+}
+html.dark-mode .page-rail { color: rgba(150,150,150,0.22); }
+html.dark-mode .page-rail::before { background: rgba(255,255,255,0.05); }
+html.dark-mode .settings-choice,
+html.dark-mode .settings-toggle,
+html.dark-mode .song-link,
+html.dark-mode .release-tab,
+html.dark-mode .modal-close-btn {
+  color: var(--muted);
+  background: linear-gradient(to bottom, #2b2b2b, #202020);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07);
+}
+html.dark-mode .site-footer {
+  background: #181818;
+}
+html.dark-mode .nnd-marquee-bar {
+  color: #b9ad55;
+  background:
+    repeating-linear-gradient(0deg, rgba(195,164,0,0.07) 0, rgba(195,164,0,0.07) 1px, transparent 1px, transparent 4px),
+    #171704;
+  border-color: #554d00;
+}
+html.dark-mode .nnd-marquee-label {
+  color: #f0e7a0;
+  background: #6e5900;
+  border-color: #403400;
+}
+html.dark-mode .nnd-marquee-inner { color: #b9ad55; }
+html.dark-mode .nnd-tag-row {
+  background: #151515;
+  border-color: #333;
+}
+html.dark-mode .nnd-tag {
+  color: #aaa0e8;
+  background: #1d192c;
+  border-color: #49406c;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04);
+}
+html.dark-mode .nnd-tag:hover {
+  color: #d1c8ff;
+  background: #28213d;
+}
+html.dark-mode .language-button {
+  border-color: #444;
+  background: linear-gradient(to bottom, #303030, #1d1d1d);
+}
+html.dark-mode .song-meta-bar,
+html.dark-mode .recent-table td,
+html.dark-mode .stats-table td,
+html.dark-mode .pool-info,
+html.dark-mode .release-list li {
+  border-color: #383838;
+}
+html.dark-mode .meta-key { color: #aaa; }
+html.dark-mode .song-links.is-locked .song-link,
+html.dark-mode .song-links.is-locked .song-link:hover {
+  color: #777;
+  background: linear-gradient(to bottom, #252525, #1c1c1c);
+}
+html.dark-mode .achievement-row.is-locked {
+  color: #777;
+  background: #171717;
+}
+html.dark-mode .achievement-row.is-locked .achievement-desc { color: #686868; }
+html.dark-mode .achievement-icon,
+html.dark-mode .achievement-mini-bar,
+html.dark-mode .achievement-meter,
+html.dark-mode .winrate-track {
+  background: #111;
+  border-color: #444;
+}
+html.dark-mode .nnd-mobile-nav {
+  background: #171717;
+  border-color: #333;
+}
+</style>
+</head>
+<body>
+
+<div class="page-rail page-rail-left" aria-hidden="true">
+  <span>VOCALOID HIGHER OR LOWER</span>
+</div>
+<div class="page-rail page-rail-right" aria-hidden="true">
+  <span>STREAK / LIVES / VIEWS</span>
+</div>
+
+<div class="nnd-topbar">
+  <span>Games &gt; Music &gt; VOCALOID &gt; Higher or Lower</span>
+  <span style="color:#666;font-size:11px">NicoNico Views</span>
+</div>
+
+<div class="nnd-mainbar">
+  <a class="nnd-logo" href="../" title="Vocaloidle home">
+    <span class="nnd-logo-mark">↑↓</span>
+    <span class="nnd-logo-text">VOCALOID<span class="nnd-logo-sub">Higher or Lower</span></span>
+  </a>
+  <div class="language-switcher" aria-label="Language">
+    <button class="language-button" type="button" data-lang="en" title="English"><span class="fi fi-us"></span></button>
+    <button class="language-button" type="button" data-lang="es" title="Espa&ntilde;ol"><span class="fi fi-es"></span></button>
+    <button class="language-button" type="button" data-lang="ja" title="日本語"><span class="fi fi-jp"></span></button>
+    <button class="language-button" type="button" data-lang="ko" title="한국어"><span class="fi fi-kr"></span></button>
+  </div>
+  <nav class="nnd-header-links">
+    <a href="#" id="notes-open-btn">Updates</a>
+    <span class="nnd-divider">|</span>
+    <a href="#" id="achievements-open-btn">Achievements</a>
+    <span class="nnd-divider">|</span>
+    <a href="#" id="settings-open-btn">Settings</a>
+    <a class="nnd-kofi" id="kofi-btn" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
+  </nav>
+</div>
+<div class="nnd-mobile-nav">
+  <a href="#" id="notes-open-btn-mobile">Updates</a>
+  <span class="nnd-divider">|</span>
+  <a href="#" id="achievements-open-btn-mobile">Achievements</a>
+  <span class="nnd-divider">|</span>
+  <a href="#" id="settings-open-btn-mobile">Settings</a>
+  <a class="nnd-kofi" id="kofi-btn-mobile" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
+</div>
+
+<div class="nnd-marquee-bar">
+  <span class="nnd-marquee-label">[INFO]</span>
+  <div class="nnd-marquee-wrap">
+    <div class="nnd-marquee-inner">
+      &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Guess which VOCALOID song has more NicoNico views &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Press ↑ Higher or ↓ Lower to make your guess &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Correct answers extend your streak &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; You have 3 lives per game — wrong answers cost one life but the game continues &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; View counts sourced from NicoNico via VocaDB &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Use Settings to change lives or filter by view tier &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp;
+    </div>
+  </div>
+</div>
+
+<div class="nnd-tag-row">
+  <span class="nnd-tag-label">Tags:</span>
+  <a class="nnd-tag">VOCALOID</a>
+  <a class="nnd-tag">音楽ゲーム</a>
+  <a class="nnd-tag">初音ミク</a>
+  <a class="nnd-tag">殿堂入り</a>
+  <a class="nnd-tag">Legendary</a>
+  <a class="nnd-tag">Higher or Lower</a>
+  <a class="nnd-tag">再生数</a>
+  <a class="nnd-tag">Fan-made</a>
+</div>
+
+<div class="nnd-body">
+  <main class="nnd-main" id="main"></main>
+</div>
+
+<footer class="site-footer">
+  <p class="footer-copy">VOCALOID Higher or Lower: fan-made guessing game (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a></p>
+</footer>
+
+<div class="modal-backdrop" id="modal-backdrop" hidden></div>
+<div class="notes-modal" id="notes-modal" hidden>
+  <button class="modal-close-btn" id="notes-close">x</button>
+  <h2 class="modal-title">Release Notes</h2>
+  <div class="notes-body">
+    <div class="release-tabs" id="release-tabs"></div>
+    <p class="release-version" id="release-version"></p>
+    <ul class="release-list" id="release-list"></ul>
+  </div>
+</div>
+<div class="settings-modal support-modal" id="support-modal" hidden>
+  <button class="modal-close-btn" id="support-close">x</button>
+  <h2 class="modal-title">Contact / Support</h2>
+  <div class="support-body">
+    <p class="support-intro"></p>
+    <p class="support-email"></p>
+    <p class="support-kofi-line"></p>
+    <a class="nnd-kofi support-kofi-btn" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
+  </div>
+</div>
+<div class="achievements-modal" id="achievements-modal" hidden>
+  <button class="modal-close-btn" id="achievements-close">x</button>
+  <h2 class="modal-title">Achievements</h2>
+  <div class="achievement-summary">
+    <span>Unlocked</span>
+    <div class="achievement-meter"><div class="achievement-meter-fill" id="achievement-meter-fill"></div></div>
+    <strong id="achievement-summary-count">0 / 0</strong>
+  </div>
+  <div class="achievement-list" id="achievement-list"></div>
+</div>
+<div class="settings-modal" id="settings-modal" hidden>
+  <button class="modal-close-btn" id="settings-close">x</button>
+  <h2 class="modal-title">Settings</h2>
+  <div class="settings-row">
+    <div class="settings-info">
+      <span class="settings-label">Dark Mode</span>
+      <span class="settings-desc">Use dark page and panel colors</span>
+    </div>
+    <button class="settings-toggle" id="opt-darkmode" role="switch">OFF</button>
+  </div>
+  <div class="settings-row">
+    <div class="settings-info">
+      <span class="settings-label">Song Pool</span>
+      <span class="settings-desc">Minimum view tier for matchups</span>
+    </div>
+    <div class="settings-multi" id="opt-pool">
+      <button class="settings-choice" data-val="all">All (10K+)</button>
+      <button class="settings-choice" data-val="100k">100K+</button>
+      <button class="settings-choice" data-val="1m">1M+</button>
+    </div>
+  </div>
+  <div class="settings-row">
+    <div class="settings-info">
+      <span class="settings-label">Lives per Game</span>
+      <span class="settings-desc">Wrong guesses before game over</span>
+    </div>
+    <div class="settings-multi" id="opt-lives">
+      <button class="settings-choice" data-val="1">1</button>
+      <button class="settings-choice" data-val="3">3</button>
+      <button class="settings-choice" data-val="5">5</button>
+    </div>
+  </div>
+  <div class="settings-row">
+    <div class="settings-info">
+      <span class="settings-label">Romaji Titles</span>
+      <span class="settings-desc">Show romanized titles when available</span>
+    </div>
+    <button class="settings-toggle" id="opt-romaji" role="switch">OFF</button>
+  </div>
+  <div class="settings-footer-row">
+    <span class="settings-note">Pool and lives take effect on the next game start.</span>
+    <button class="settings-apply-btn" id="settings-apply">Apply &amp; Restart</button>
+  </div>
+</div>
+
+<script>
+/* ── Constants ── */
+const BEST_KEY     = 'soda_hol_best';
+const SETTINGS_KEY = 'soda_hol_settings';
+const ACHIEVEMENTS_KEY = 'soda_hol_achievements';
+const TOTAL_CORRECT_KEY = 'soda_hol_total_correct';
+const GAMES_PLAYED_KEY = 'soda_hol_games_played';
+const LANGUAGE_KEY = 'soda_hol_language';
+const REVEAL_DELAY = 1800;
+const DEFAULTS     = { pool: 'all', lives: 3, romaji: false, darkMode: false };
+
+const I18N = {
+  en: {
+    pageTitle: 'VOCALOID Higher or Lower',
+    breadcrumb: 'Games > Music > VOCALOID > Higher or Lower',
+    topLabel: 'NicoNico Views',
+    logoSub: 'Higher or Lower',
+    updates: 'Updates',
+    achievements: 'Achievements',
+    settings: 'Settings',
+    darkMode: 'Dark Mode',
+    darkModeDesc: 'Use dark page and panel colors',
+    marquee: '★ Guess which VOCALOID song has more NicoNico views ★ Press ↑ Higher or ↓ Lower to make your guess ★ Correct answers extend your streak ★ You have 3 lives per game — wrong answers cost one life but the game continues ★ View counts sourced from NicoNico via VocaDB ★ Use Settings to change lives or filter by view tier ★',
+    tags: ['VOCALOID', '音楽ゲーム', '初音ミク', '殿堂入り', 'Legendary', 'Higher or Lower', '再生数', 'Fan-made'],
+    tagsLabel: 'Tags:',
+    footer: 'VOCALOID Higher or Lower: fan-made guessing game (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from',
+    releaseNotes: 'Release Notes',
+    unlocked: 'Unlocked',
+    locked: 'Locked',
+    songPool: 'Song Pool',
+    songPoolDesc: 'Minimum view tier for matchups',
+    livesPerGame: 'Lives per Game',
+    livesDesc: 'Wrong guesses before game over',
+    romajiTitles: 'Romaji Titles',
+    romajiDesc: 'Show romanized titles when available',
+    settingsNote: 'Pool and lives take effect on the next game start.',
+    applyRestart: 'Apply & Restart',
+    streak: 'Streak',
+    best: 'Best',
+    round: 'Round',
+    correct: 'Correct',
+    winPct: 'Accuracy',
+    lives: 'Lives',
+    howToPlay: '[ How to Play ]',
+    htp1: '<strong>Song A</strong> shows its NicoNico view count.',
+    htp2: 'Does <strong>Song B</strong> have more or fewer views? Press <strong>↑ Higher</strong> or <strong>↓ Lower</strong>.',
+    htp3: 'Correct: streak +1, Song B becomes the new Song A.',
+    htp4: ({ lives }) => `Wrong: lose a life, streak resets. <strong>${lives} lives</strong> per game.`,
+    sessionStats: '[ Session Stats ]',
+    roundsPlayed: 'Rounds played',
+    bestStreak: 'Best streak',
+    winRate: 'Accuracy',
+    poolInfo: ({ count, note }) => `Pool: ${count} songs · ${note}`,
+    updated: ({ date }) => `Updated ${date}`,
+    viewsEstimate: 'View counts: tier estimates',
+    viewAchievements: 'View achievements →',
+    recentGuesses: '[ Recent Guesses ]',
+    noGuesses: 'No guesses yet',
+    result: 'Result',
+    songA: 'Song A',
+    songB: 'Song B',
+    aViews: 'A Views',
+    bViews: 'B Views',
+    guess: 'Guess',
+    stk: 'Stk',
+    viewOnNico: 'View on NicoNico',
+    viewOnVocadb: 'View on VocaDB',
+    yourCall: 'your call',
+    higher: 'Higher',
+    lower: 'Lower',
+    gameOver: 'GAME OVER',
+    streakEnded: 'streak ended',
+    finalStreak: 'Final Streak',
+    rounds: 'Rounds',
+    gameOverFallback: 'The run is over. Try again and build a new streak.',
+    gameOverMessage: ({ direction, songB, countB, songA, countA }) => `You guessed <strong>${direction}</strong>, but ${songB} had <strong>${countB}</strong> views against ${songA}'s <strong>${countA}</strong>.`,
+    playAgain: 'Play Again',
+    shareResult: 'Share Result',
+    shareCopied: 'Copied result.',
+    shareFailed: 'Could not copy result.',
+    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower\nStreak: ${streak}\nCorrect: ${correct}/${rounds}\nAccuracy: ${winPct}%`,
+    resultCorrect: ({ songB, displayB, relation, songA, displayA }) => `Correct! ${songB} has ${displayB} views — ${relation} than ${songA}'s ${displayA}.`,
+    resultWrong: ({ songB, displayB, relation, songA, displayA }) => `Wrong. ${songB} has ${displayB} views — ${relation} than ${songA}'s ${displayA}.`,
+    relHigher: 'higher',
+    relLower: 'lower',
+    asOf: ({ date }) => `as of ${date || '—'}`,
+    tierEstimate: 'tier estimate',
+    noSongs: 'No songs available',
+    noSongData: 'Could not load song data.',
+    loading: 'Loading…',
+    fetching: 'Fetching song data',
+    couldNotLoad: 'Could not load songs',
+    releaseTitle: ({ version }) => `Release ${version}`,
+    supportKofi: 'Support on Ko-fi',
+    viewTiers: '[ Milestones ]',
+    tier_3: 'Hall of Fame',
+    tier_4: 'Hall of Legends',
+    tier_5: 'Hall of Myths',
+    tierNote: 'NicoNico community view milestones.',
+    news: '[ News ]',
+    newsMore: 'Full updates →',
+    links: '[ Links ]',
+    records: 'Records',
+    viewRecords: 'View records',
+    contactSupport: 'Contact / Support',
+    supportIntro: 'VOCALOID Higher or Lower is maintained by sodapines as a small fan-made VOCALOID project.',
+    supportEmail: 'For bugs, song corrections, or suggestions, email',
+    supportKofiLine: "Hosting and the song data cost a bit each month to keep running. If you've enjoyed the game and want to chip in, even a one-time tip helps cover those costs.",
+    gamesPlayed: 'Games played',
+    lifetimeCorrect: 'Lifetime correct',
+    nextMilestone: 'Best streak goal',
+    milestoneMaxed: 'Maxed!',
+    milestoneDesc: 'How close your all-time best streak is to the next goal (5, 10, 25, 50, 100, 250, 500, 1000).',
+    noGuessesHint: 'Your matchups will appear here as you play.',
+    achievementUnlocked: 'Achievement unlocked!'
+  },
+  ja: {
+    pageTitle: 'VOCALOID Higher or Lower',
+    breadcrumb: 'ゲーム > 音楽 > VOCALOID > Higher or Lower',
+    topLabel: 'ニコニコ再生数',
+    logoSub: 'Higher or Lower',
+    updates: '更新情報',
+    achievements: '実績',
+    settings: '設定',
+    darkMode: 'ダークモード',
+    darkModeDesc: 'ページとパネルを暗い配色にします',
+    marquee: '★ ニコニコ再生数が多いVOCALOID曲を当てよう ★ ↑ Higher / ↓ Lower で回答 ★ 正解すると連勝が伸びます ★ ライフは3つ、ミスすると1つ減ります ★ 再生数はVocaDB経由のニコニコ情報を使用 ★ 設定でライフ数やプールを変更できます ★',
+    tags: ['VOCALOID', 'ニコニコ', '初音ミク', '殿堂入り', '伝説入り', 'Higher or Lower', '再生数', 'ファンメイド'],
+    tagsLabel: 'タグ:',
+    footer: 'VOCALOID Higher or Lower：ファンメイドのクイズゲーム (c) 2026 | クリプトン・フューチャー・メディア及びニコニコと無関係 | 楽曲データ：',
+    releaseNotes: '更新情報',
+    unlocked: '解除済み',
+    locked: '未解除',
+    songPool: '曲プール',
+    songPoolDesc: '出題する最低再生数ランク',
+    livesPerGame: 'ライフ数',
+    livesDesc: 'ゲームオーバーまでのミス回数',
+    romajiTitles: 'ローマ字表記',
+    romajiDesc: '利用できる場合はローマ字タイトルを表示',
+    settingsNote: '曲プールとライフ数は次のゲーム開始時に反映されます。',
+    applyRestart: '適用して再開',
+    streak: '連勝',
+    best: '最高',
+    round: '問目',
+    correct: '正解',
+    winPct: '正解率',
+    lives: 'ライフ',
+    howToPlay: '[ 遊び方 ]',
+    htp1: '<strong>Song A</strong> のニコニコ再生数が表示されます。',
+    htp2: '<strong>Song B</strong> の再生数が多いか少ないかを選びます。<strong>↑ Higher</strong> / <strong>↓ Lower</strong>',
+    htp3: '正解すると連勝+1、Song Bが次のSong Aになります。',
+    htp4: ({ lives }) => `不正解でライフを失い、連勝はリセット。1ゲーム<strong>${lives}ライフ</strong>です。`,
+    sessionStats: '[ セッション統計 ]',
+    roundsPlayed: 'プレイ数',
+    bestStreak: '最高連勝',
+    winRate: '正解率',
+    poolInfo: ({ count, note }) => `プール: ${count}曲 · ${note}`,
+    updated: ({ date }) => `更新 ${date}`,
+    viewsEstimate: '再生数: ランク推定',
+    viewAchievements: '実績を見る →',
+    recentGuesses: '[ 最近の回答 ]',
+    noGuesses: 'まだ回答はありません',
+    result: '結果',
+    songA: 'Song A',
+    songB: 'Song B',
+    aViews: 'A 再生',
+    bViews: 'B 再生',
+    guess: '回答',
+    stk: '連勝',
+    viewOnNico: 'NicoNicoで見る',
+    viewOnVocadb: 'VocaDBで見る',
+    yourCall: 'あなたの選択',
+    higher: 'Higher',
+    lower: 'Lower',
+    gameOver: 'GAME OVER',
+    streakEnded: '連勝終了',
+    finalStreak: '最終連勝',
+    rounds: '問数',
+    gameOverFallback: 'ゲーム終了。もう一度挑戦して連勝を伸ばしましょう。',
+    gameOverMessage: ({ direction, songB, countB, songA, countA }) => `<strong>${direction}</strong>を選びましたが、${songB}は<strong>${countB}</strong>再生、${songA}は<strong>${countA}</strong>再生でした。`,
+    playAgain: 'もう一度',
+    shareResult: '結果をコピー',
+    shareCopied: '結果をコピーしました。',
+    shareFailed: 'コピーできませんでした。',
+    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower\n連勝: ${streak}\n正解: ${correct}/${rounds}\n勝率: ${winPct}%`,
+    resultCorrect: ({ songB, displayB, relation, songA, displayA }) => `正解! ${songB}は${displayB}再生で、${songA}の${displayA}より${relation}です。`,
+    resultWrong: ({ songB, displayB, relation, songA, displayA }) => `不正解。${songB}は${displayB}再生で、${songA}の${displayA}より${relation}です。`,
+    relHigher: '多い',
+    relLower: '少ない',
+    asOf: ({ date }) => `${date || '—'}時点`,
+    tierEstimate: 'ランク推定',
+    noSongs: '利用できる曲がありません',
+    noSongData: '曲データを読み込めませんでした。',
+    loading: '読み込み中…',
+    fetching: '曲データを取得中',
+    couldNotLoad: '曲を読み込めませんでした',
+    releaseTitle: ({ version }) => `${version} リリース`,
+    supportKofi: 'Ko-fiで支援',
+    viewTiers: '[ マイルストーン ]',
+    tier_3: '殿堂入り',
+    tier_4: '伝説入り',
+    tier_5: '神話入り',
+    tierNote: 'ニコニコ動画の再生数マイルストーンです。',
+    news: '[ お知らせ ]',
+    newsMore: '更新履歴をすべて見る →',
+    links: '[ リンク ]',
+    records: '通算記録',
+    viewRecords: '記録を見る',
+    contactSupport: 'お問い合わせ',
+    supportIntro: 'VOCALOID Higher or Lower は sodapines が運営する小規模なファンメイドのVOCALOIDプロジェクトです。',
+    supportEmail: 'バグ、楽曲の訂正、ご提案はこちらまで：',
+    supportKofiLine: 'サーバーや楽曲データの維持には毎月少し費用がかかります。気に入っていただけたら、一度きりの支援でも運営の助けになります。',
+    gamesPlayed: 'プレイ回数',
+    lifetimeCorrect: '通算正解',
+    nextMilestone: '自己最高連勝の目標',
+    milestoneMaxed: '達成！',
+    milestoneDesc: '自己最高連勝が次の目標（5・10・25・50・100・250・500・1000）にどれだけ近いかを表します。',
+    noGuessesHint: '回答するとここに対戦履歴が表示されます。',
+    achievementUnlocked: '実績解除!'
+  },
+  es: {
+    pageTitle: 'VOCALOID Higher or Lower',
+    breadcrumb: 'Juegos > Música > VOCALOID > Higher or Lower',
+    topLabel: 'Vistas de NicoNico',
+    logoSub: 'Higher or Lower',
+    updates: 'Novedades',
+    achievements: 'Logros',
+    settings: 'Ajustes',
+    darkMode: 'Modo oscuro',
+    darkModeDesc: 'Usa colores oscuros para la página y los paneles',
+    marquee: '★ Adivina qué canción VOCALOID tiene más vistas en NicoNico ★ Pulsa ↑ Higher o ↓ Lower para responder ★ Las respuestas correctas aumentan tu racha ★ Tienes 3 vidas por partida ★ Vistas obtenidas de NicoNico vía VocaDB ★ Cambia vidas o pool desde Ajustes ★',
+    tags: ['VOCALOID', '音楽ゲーム', '初音ミク', '殿堂入り', 'Legendary', 'Higher or Lower', '再生数', 'Fan-made'],
+    tagsLabel: 'Etiquetas:',
+    footer: 'VOCALOID Higher or Lower: juego fan-made de adivinar canciones (c) 2026 | No afiliado con Crypton Future Media ni NicoNico | Datos de canciones de',
+    releaseNotes: 'Notas de Versión',
+    unlocked: 'Desbloqueados',
+    locked: 'Bloqueado',
+    songPool: 'Pool de canciones',
+    songPoolDesc: 'Nivel mínimo de vistas para los duelos',
+    livesPerGame: 'Vidas por partida',
+    livesDesc: 'Errores antes del fin de la partida',
+    romajiTitles: 'Títulos en romaji',
+    romajiDesc: 'Muestra títulos romanizados cuando existan',
+    settingsNote: 'El pool y las vidas se aplican al iniciar la siguiente partida.',
+    applyRestart: 'Aplicar y reiniciar',
+    streak: 'Racha',
+    best: 'Mejor',
+    round: 'Ronda',
+    correct: 'Aciertos',
+    winPct: 'Precisión',
+    lives: 'Vidas',
+    howToPlay: '[ Cómo jugar ]',
+    htp1: '<strong>Song A</strong> muestra sus vistas de NicoNico.',
+    htp2: '¿<strong>Song B</strong> tiene más o menos vistas? Pulsa <strong>↑ Higher</strong> o <strong>↓ Lower</strong>.',
+    htp3: 'Correcto: racha +1 y Song B pasa a ser Song A.',
+    htp4: ({ lives }) => `Incorrecto: pierdes una vida y la racha se reinicia. <strong>${lives} vidas</strong> por partida.`,
+    sessionStats: '[ Estadísticas ]',
+    roundsPlayed: 'Rondas jugadas',
+    bestStreak: 'Mejor racha',
+    winRate: 'Precisión',
+    poolInfo: ({ count, note }) => `Pool: ${count} canciones · ${note}`,
+    updated: ({ date }) => `Actualizado ${date}`,
+    viewsEstimate: 'Vistas: estimaciones por nivel',
+    viewAchievements: 'Ver logros →',
+    recentGuesses: '[ Intentos recientes ]',
+    noGuesses: 'Sin intentos todavía',
+    result: 'Resultado',
+    songA: 'Song A',
+    songB: 'Song B',
+    aViews: 'Vistas A',
+    bViews: 'Vistas B',
+    guess: 'Respuesta',
+    stk: 'Rch',
+    viewOnNico: 'Ver en NicoNico',
+    viewOnVocadb: 'Ver en VocaDB',
+    yourCall: 'tu elección',
+    higher: 'Higher',
+    lower: 'Lower',
+    gameOver: 'GAME OVER',
+    streakEnded: 'racha terminada',
+    finalStreak: 'Racha final',
+    rounds: 'Rondas',
+    gameOverFallback: 'La partida terminó. Intenta crear una nueva racha.',
+    gameOverMessage: ({ direction, songB, countB, songA, countA }) => `Elegiste <strong>${direction}</strong>, pero ${songB} tenía <strong>${countB}</strong> vistas contra <strong>${countA}</strong> de ${songA}.`,
+    playAgain: 'Jugar otra vez',
+    shareResult: 'Copiar resultado',
+    shareCopied: 'Resultado copiado.',
+    shareFailed: 'No se pudo copiar.',
+    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower\nRacha: ${streak}\nAciertos: ${correct}/${rounds}\nVictoria: ${winPct}%`,
+    resultCorrect: ({ songB, displayB, relation, songA, displayA }) => `¡Correcto! ${songB} tiene ${displayB} vistas, ${relation} que las ${displayA} de ${songA}.`,
+    resultWrong: ({ songB, displayB, relation, songA, displayA }) => `Incorrecto. ${songB} tiene ${displayB} vistas, ${relation} que las ${displayA} de ${songA}.`,
+    relHigher: 'más',
+    relLower: 'menos',
+    asOf: ({ date }) => `desde ${date || '—'}`,
+    tierEstimate: 'estimación de nivel',
+    noSongs: 'No hay canciones disponibles',
+    noSongData: 'No se pudieron cargar los datos.',
+    loading: 'Cargando…',
+    fetching: 'Cargando datos de canciones',
+    couldNotLoad: 'No se pudieron cargar canciones',
+    releaseTitle: ({ version }) => `Versión ${version}`,
+    supportKofi: 'Apóyanos en Ko-fi',
+    viewTiers: '[ Hitos ]',
+    tier_3: 'Salón de la Fama',
+    tier_4: 'Salón de Leyendas',
+    tier_5: 'Salón de Mitos',
+    tierNote: 'Hitos de vistas de la comunidad de NicoNico.',
+    news: '[ Novedades ]',
+    newsMore: 'Ver todas las novedades →',
+    links: '[ Enlaces ]',
+    records: 'Récords',
+    viewRecords: 'Ver récords',
+    contactSupport: 'Contacto / Soporte',
+    supportIntro: 'VOCALOID Higher or Lower es mantenido por sodapines como un pequeño proyecto VOCALOID fan-made.',
+    supportEmail: 'Para errores, correcciones de canciones o sugerencias, escribe a',
+    supportKofiLine: 'El hosting y los datos de canciones cuestan un poco cada mes. Si disfrutas el juego y quieres aportar, incluso una propina única ayuda a cubrir esos costos.',
+    gamesPlayed: 'Partidas jugadas',
+    lifetimeCorrect: 'Aciertos totales',
+    nextMilestone: 'Meta de mejor racha',
+    milestoneMaxed: '¡Máximo!',
+    milestoneDesc: 'Qué tan cerca está tu mejor racha histórica de la próxima meta (5, 10, 25, 50, 100, 250, 500, 1000).',
+    noGuessesHint: 'Tus duelos aparecerán aquí mientras juegas.',
+    achievementUnlocked: '¡Logro desbloqueado!'
+  },
+  ko: {
+    pageTitle: 'VOCALOID Higher or Lower',
+    breadcrumb: '게임 > 음악 > VOCALOID > Higher or Lower',
+    topLabel: '니코니코 조회수',
+    logoSub: 'Higher or Lower',
+    updates: '업데이트',
+    achievements: '업적',
+    settings: '설정',
+    darkMode: '다크 모드',
+    darkModeDesc: '페이지와 패널을 어두운 색으로 표시합니다',
+    marquee: '★ 니코니코 조회수가 더 많은 VOCALOID 곡을 맞혀 보세요 ★ ↑ Higher / ↓ Lower 로 선택 ★ 정답이면 연승이 올라갑니다 ★ 게임마다 라이프 3개, 오답은 라이프 1개 차감 ★ 조회수는 VocaDB를 통한 NicoNico 데이터 사용 ★ 설정에서 라이프와 풀을 바꿀 수 있습니다 ★',
+    tags: ['VOCALOID', '音楽ゲーム', '初音ミク', '殿堂入り', 'Legendary', 'Higher or Lower', '再生数', 'Fan-made'],
+    tagsLabel: '태그:',
+    footer: 'VOCALOID Higher or Lower: 팬메이드 추측 게임 (c) 2026 | Crypton Future Media 또는 NicoNico와 관련이 없습니다 | 곡 데이터:',
+    releaseNotes: '업데이트 내역',
+    unlocked: '해금',
+    locked: '잠김',
+    songPool: '곡 풀',
+    songPoolDesc: '매치업의 최소 조회수 티어',
+    livesPerGame: '게임당 라이프',
+    livesDesc: '게임 오버 전 오답 수',
+    romajiTitles: '로마자 제목',
+    romajiDesc: '가능한 경우 로마자 제목 표시',
+    settingsNote: '곡 풀과 라이프는 다음 게임 시작 시 적용됩니다.',
+    applyRestart: '적용 후 재시작',
+    streak: '연승',
+    best: '최고',
+    round: '라운드',
+    correct: '정답',
+    winPct: '정확도',
+    lives: '라이프',
+    howToPlay: '[ 플레이 방법 ]',
+    htp1: '<strong>Song A</strong>는 니코니코 조회수를 보여줍니다.',
+    htp2: '<strong>Song B</strong>의 조회수가 더 많은지 적은지 고르세요. <strong>↑ Higher</strong> / <strong>↓ Lower</strong>',
+    htp3: '정답: 연승 +1, Song B가 다음 Song A가 됩니다.',
+    htp4: ({ lives }) => `오답: 라이프를 잃고 연승이 초기화됩니다. 게임당 <strong>${lives} 라이프</strong>.`,
+    sessionStats: '[ 세션 통계 ]',
+    roundsPlayed: '플레이 라운드',
+    bestStreak: '최고 연승',
+    winRate: '정확도',
+    poolInfo: ({ count, note }) => `풀: ${count}곡 · ${note}`,
+    updated: ({ date }) => `${date} 업데이트`,
+    viewsEstimate: '조회수: 티어 추정',
+    viewAchievements: '업적 보기 →',
+    recentGuesses: '[ 최근 선택 ]',
+    noGuesses: '아직 선택 없음',
+    result: '결과',
+    songA: 'Song A',
+    songB: 'Song B',
+    aViews: 'A 조회수',
+    bViews: 'B 조회수',
+    guess: '선택',
+    stk: '연승',
+    viewOnNico: 'NicoNico에서 보기',
+    viewOnVocadb: 'VocaDB에서 보기',
+    yourCall: '선택',
+    higher: 'Higher',
+    lower: 'Lower',
+    gameOver: 'GAME OVER',
+    streakEnded: '연승 종료',
+    finalStreak: '최종 연승',
+    rounds: '라운드',
+    gameOverFallback: '게임이 끝났습니다. 다시 도전해 보세요.',
+    gameOverMessage: ({ direction, songB, countB, songA, countA }) => `<strong>${direction}</strong>를 골랐지만 ${songB}는 <strong>${countB}</strong>회, ${songA}는 <strong>${countA}</strong>회였습니다.`,
+    playAgain: '다시 하기',
+    shareResult: '결과 복사',
+    shareCopied: '결과를 복사했습니다.',
+    shareFailed: '복사할 수 없습니다.',
+    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower\n연승: ${streak}\n정답: ${correct}/${rounds}\n승률: ${winPct}%`,
+    resultCorrect: ({ songB, displayB, relation, songA, displayA }) => `정답! ${songB}는 ${displayB}회로 ${songA}의 ${displayA}보다 ${relation}.`,
+    resultWrong: ({ songB, displayB, relation, songA, displayA }) => `오답. ${songB}는 ${displayB}회로 ${songA}의 ${displayA}보다 ${relation}.`,
+    relHigher: '많습니다',
+    relLower: '적습니다',
+    asOf: ({ date }) => `${date || '—'} 기준`,
+    tierEstimate: '티어 추정',
+    noSongs: '사용 가능한 곡이 없습니다',
+    noSongData: '곡 데이터를 불러올 수 없습니다.',
+    loading: '로딩 중…',
+    fetching: '곡 데이터 불러오는 중',
+    couldNotLoad: '곡을 불러올 수 없습니다',
+    releaseTitle: ({ version }) => `${version} 릴리스`,
+    supportKofi: 'Ko-fi로 후원',
+    viewTiers: '[ 마일스톤 ]',
+    tier_3: '명예의 전당',
+    tier_4: '전설의 전당',
+    tier_5: '신화의 전당',
+    tierNote: 'NicoNico 커뮤니티 조회수 마일스톤입니다.',
+    news: '[ 소식 ]',
+    newsMore: '전체 업데이트 보기 →',
+    links: '[ 링크 ]',
+    records: '통산 기록',
+    viewRecords: '기록 보기',
+    contactSupport: '문의 / 지원',
+    supportIntro: 'VOCALOID Higher or Lower는 sodapines가 운영하는 작은 팬메이드 VOCALOID 프로젝트입니다.',
+    supportEmail: '버그, 곡 수정, 제안은 다음으로 보내주세요:',
+    supportKofiLine: '호스팅과 곡 데이터 유지에는 매달 약간의 비용이 듭니다. 게임이 마음에 드셨다면 일회성 후원도 운영에 큰 도움이 됩니다.',
+    gamesPlayed: '플레이 횟수',
+    lifetimeCorrect: '통산 정답',
+    nextMilestone: '최고 연승 목표',
+    milestoneMaxed: '달성!',
+    milestoneDesc: '역대 최고 연승이 다음 목표(5, 10, 25, 50, 100, 250, 500, 1000)에 얼마나 가까운지 보여줍니다.',
+    noGuessesHint: '플레이하면 여기에 대결 기록이 표시됩니다.',
+    achievementUnlocked: '업적 해금!'
+  }
+};
+
+function getLanguage() {
+  const lang = localStorage.getItem(LANGUAGE_KEY) || 'en';
+  return I18N[lang] ? lang : 'en';
+}
+
+function t(key, params = {}) {
+  const lang = getLanguage();
+  const value = I18N[lang]?.[key] ?? I18N.en[key] ?? key;
+  return typeof value === 'function' ? value(params) : value;
+}
+
+function compactRoundResult(correct, songATitle, aIsHigher, displayA, displayB) {
+  const messages = {
+    en: {
+      correct: 'Correct!',
+      wrong: 'Incorrect.',
+      higher: title => `${title} has more views`,
+      lower: title => `${title} has fewer views`
+    },
+    ja: {
+      correct: '正解！',
+      wrong: '不正解。',
+      higher: title => `${title}の方が再生数が多い`,
+      lower: title => `${title}の方が再生数が少ない`
+    },
+    es: {
+      correct: '¡Correcto!',
+      wrong: 'Incorrecto.',
+      higher: title => `${title} tiene más vistas`,
+      lower: title => `${title} tiene menos vistas`
+    },
+    ko: {
+      correct: '정답!',
+      wrong: '오답.',
+      higher: title => `${title}의 조회수가 더 많습니다`,
+      lower: title => `${title}의 조회수가 더 적습니다`
+    }
+  };
+  const copy = messages[getLanguage()] || messages.en;
+  const status = correct ? copy.correct : copy.wrong;
+  const relation = (aIsHigher ? copy.higher : copy.lower)(songATitle);
+  return `${status} ${relation} (${displayA} vs ${displayB}).`;
+}
+
+function applyStaticTranslations() {
+  const lang = getLanguage();
+  document.documentElement.lang = lang;
+  document.title = t('pageTitle');
+
+  const topbar = document.querySelectorAll('.nnd-topbar span');
+  if (topbar[0]) topbar[0].textContent = t('breadcrumb');
+  if (topbar[1]) topbar[1].textContent = t('topLabel');
+  document.querySelector('.nnd-logo-sub').textContent = t('logoSub');
+
+  [
+    ['notes-open-btn', 'updates'],
+    ['notes-open-btn-mobile', 'updates'],
+    ['achievements-open-btn', 'achievements'],
+    ['achievements-open-btn-mobile', 'achievements'],
+    ['settings-open-btn', 'settings'],
+    ['settings-open-btn-mobile', 'settings'],
+    ['kofi-btn', 'supportKofi'],
+    ['kofi-btn-mobile', 'supportKofi'],
+  ].forEach(([id, key]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = t(key);
+  });
+
+  document.querySelector('.nnd-marquee-inner').textContent = `   ${t('marquee')}   `;
+  const tags = I18N[lang]?.tags || I18N.en.tags;
+  document.querySelector('.nnd-tag-row').innerHTML =
+    `<span class="nnd-tag-label">${escHtml(t('tagsLabel'))}</span>` +
+    tags.map(tag => `<a class="nnd-tag">${escHtml(tag)}</a>`).join('');
+  document.querySelector('.footer-copy').innerHTML =
+    `${escHtml(t('footer'))} <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>`;
+
+  document.querySelector('#notes-modal .modal-title').textContent = t('releaseNotes');
+  document.querySelector('#achievements-modal .modal-title').textContent = t('achievements');
+  document.querySelector('#settings-modal .modal-title').textContent = t('settings');
+  document.querySelector('#support-modal .modal-title').textContent = t('contactSupport');
+  document.querySelector('.support-intro').textContent = t('supportIntro');
+  document.querySelector('.support-email').innerHTML = `${escHtml(t('supportEmail'))} <a href="mailto:kzen@sodapines.dev">kzen@sodapines.dev</a>`;
+  document.querySelector('.support-kofi-line').textContent = t('supportKofiLine');
+  document.querySelector('.support-kofi-btn').textContent = t('supportKofi');
+  document.querySelector('.achievement-summary span').textContent = t('unlocked');
+
+  const settingsRows = document.querySelectorAll('#settings-modal .settings-row');
+  const settingText = [
+    ['darkMode', 'darkModeDesc'],
+    ['songPool', 'songPoolDesc'],
+    ['livesPerGame', 'livesDesc'],
+    ['romajiTitles', 'romajiDesc'],
+  ];
+  settingsRows.forEach((row, i) => {
+    const keys = settingText[i];
+    if (!keys) return;
+    row.querySelector('.settings-label').textContent = t(keys[0]);
+    row.querySelector('.settings-desc').textContent = t(keys[1]);
+  });
+  document.querySelector('.settings-note').textContent = t('settingsNote');
+  document.getElementById('settings-apply').textContent = t('applyRestart');
+
+  document.querySelectorAll('.language-button').forEach(btn =>
+    btn.classList.toggle('is-active', btn.dataset.lang === lang));
+}
+
+function rerenderForLanguage() {
+  applyStaticTranslations();
+  renderAchievementsIfOpen();
+  if (!document.getElementById('notes-modal').hidden) {
+    const active = document.querySelector('#release-tabs .is-active')?.dataset.version || RELEASES[0].version;
+    renderRelease(active);
+  }
+  if (state.phase === 'playing' || state.phase === 'revealing') {
+    renderGame();
+  } else if (state.phase === 'gameover') {
+    document.getElementById('main').innerHTML = renderGameOver();
+    document.getElementById('play-again-btn')?.addEventListener('click', startGame);
+    document.getElementById('share-result-btn')?.addEventListener('click', copyShareResult);
+    bindAchievementLinks();
+  }
+}
+
+function getSettings() {
+  try { return { ...DEFAULTS, ...JSON.parse(localStorage.getItem(SETTINGS_KEY)) }; }
+  catch { return { ...DEFAULTS }; }
+}
+function saveSettings(s) { localStorage.setItem(SETTINGS_KEY, JSON.stringify(s)); }
+function applyDarkMode(enabled = getSettings().darkMode) {
+  document.documentElement.classList.toggle('dark-mode', Boolean(enabled));
+}
+
+applyDarkMode();
+
+const ACHIEVEMENTS = [
+  {
+    id: 'first_correct',
+    title: 'First Step',
+    desc: 'Get your first correct Higher or Lower guess.',
+    icon: '1'
+  },
+  {
+    id: 'underdog_call',
+    title: 'Underdog Call',
+    desc: 'Correctly choose Lower.',
+    icon: 'L'
+  },
+  {
+    id: 'streak_5',
+    title: 'On a Roll',
+    desc: 'Reach a streak of 5.',
+    icon: '5'
+  },
+  {
+    id: 'streak_10',
+    title: 'Chart Reader',
+    desc: 'Reach a streak of 10.',
+    icon: '10'
+  },
+  {
+    id: 'streak_25',
+    title: 'Chart Regular',
+    desc: 'Reach a streak of 25.',
+    icon: '25'
+  },
+  {
+    id: 'perfect_25',
+    title: 'Clean Chart Run',
+    desc: 'Get 25 correct guesses in one game without losing a life.',
+    icon: 'P25'
+  },
+  {
+    id: 'streak_50',
+    title: 'Ranking Addict',
+    desc: 'Reach a streak of 50.',
+    icon: '50'
+  },
+  {
+    id: 'streak_100',
+    title: 'Hundred Hit Combo',
+    desc: 'Reach a streak of 100.',
+    icon: '100'
+  },
+  {
+    id: 'total_correct_1000',
+    title: 'The Most Impressive VOCALOID Fan',
+    desc: 'Get 1,000 correct guesses across all Higher or Lower games.',
+    icon: '1K'
+  },
+  {
+    id: 'streak_1000',
+    title: 'NicoNico Oracle',
+    desc: 'Reach a streak of 1,000.',
+    icon: '???'
+  },
+  {
+    id: 'perfect_10',
+    title: 'Perfect Ten',
+    desc: 'Get 10 correct guesses in one game without losing a life.',
+    icon: 'P'
+  },
+  {
+    id: 'one_life_stand',
+    title: 'One Life Stand',
+    desc: 'With 1 life selected, reach a streak of 5.',
+    icon: '1L'
+  },
+  {
+    id: 'one_life_legend',
+    title: 'One Life Legend',
+    desc: 'With 1 life selected, reach a streak of 25.',
+    icon: '1L+'
+  },
+  {
+    id: 'comeback_call',
+    title: 'Second Wind',
+    desc: 'Get a correct guess after losing at least one life in the same game.',
+    icon: '+'
+  },
+  {
+    id: 'hundred_k_club',
+    title: 'Hall of Fame Route',
+    desc: 'In the 100K+ pool, reach a streak of 10.',
+    icon: '100K'
+  },
+  {
+    id: 'million_club',
+    title: 'Million Club',
+    desc: 'In the 1M+ pool, reach a streak of 5.',
+    icon: '1M'
+  },
+  {
+    id: 'fame_matcher',
+    title: 'Legend Matcher',
+    desc: 'Correctly compare two 1M+ songs.',
+    icon: 'F'
+  },
+  {
+    id: 'myth_matcher',
+    title: 'Myth Matcher',
+    desc: 'Correctly compare two Hall of Myths songs.',
+    icon: 'M'
+  },
+  {
+    id: 'photo_finish',
+    title: 'Photo Finish',
+    desc: 'Correctly compare two songs whose view counts are within 10%.',
+    icon: '%'
+  },
+  {
+    id: 'blowout_call',
+    title: 'Not Even Close',
+    desc: 'Correctly call a matchup where one song has at least 10 times the views.',
+    icon: '10x'
+  },
+  {
+    id: 'try_again',
+    title: 'Try Again',
+    desc: 'Lose all lives once.',
+    icon: 'X'
+  },
+];
+
+const ACHIEVEMENT_TEXT = {
+  ja: {
+    first_correct: ['はじめの一歩', 'Higher or Lowerで初めて正解する。'],
+    underdog_call: ['下げ読み', 'Lowerを正しく選ぶ。'],
+    streak_5: ['連続正解', '5連勝する。'],
+    streak_10: ['チャート読み', '10連勝する。'],
+    streak_25: ['ランキング常連', '25連勝する。'],
+    perfect_25: ['完全チャート走破', 'ライフを失わず25問正解する。'],
+    streak_50: ['ランキング中毒', '50連勝する。'],
+    streak_100: ['100コンボ', '100連勝する。'],
+    total_correct_1000: ['最強のVOCALOIDファン', 'Higher or Lowerで合計1,000問正解する。'],
+    streak_1000: ['ニコニコの予言者', '1,000連勝する。'],
+    perfect_10: ['完璧な10問', 'ライフを失わず10問正解する。'],
+    one_life_stand: ['ワンライフ勝負', 'ライフ1で5連勝する。'],
+    one_life_legend: ['ワンライフ伝説', 'ライフ1で25連勝する。'],
+    comeback_call: ['立て直し', '同じゲームでライフを失った後に正解する。'],
+    hundred_k_club: ['殿堂ルート', '100K+プールで10連勝する。'],
+    million_club: ['ミリオンクラブ', '1M+プールで5連勝する。'],
+    fame_matcher: ['伝説マッチャー', '1M+曲同士を正しく比較する。'],
+    myth_matcher: ['神話マッチャー', 'Hall of Myths曲同士を正しく比較する。'],
+    photo_finish: ['写真判定', '再生数差10%以内の曲同士を正しく比較する。'],
+    blowout_call: ['圧勝判定', '10倍以上差のある曲同士を正しく選ぶ。'],
+    try_again: ['再挑戦', 'ライフをすべて失う。']
+  },
+  es: {
+    first_correct: ['Primer paso', 'Consigue tu primer acierto en Higher or Lower.'],
+    underdog_call: ['Apuesta baja', 'Elige Lower correctamente.'],
+    streak_5: ['En racha', 'Alcanza una racha de 5.'],
+    streak_10: ['Lector de charts', 'Alcanza una racha de 10.'],
+    streak_25: ['Habitual del ranking', 'Alcanza una racha de 25.'],
+    perfect_25: ['Racha limpia', 'Acierta 25 veces sin perder una vida.'],
+    streak_50: ['Adicto al ranking', 'Alcanza una racha de 50.'],
+    streak_100: ['Combo de cien', 'Alcanza una racha de 100.'],
+    total_correct_1000: ['El fan VOCALOID más impresionante', 'Consigue 1,000 aciertos en total.'],
+    streak_1000: ['Oráculo de NicoNico', 'Alcanza una racha de 1,000.'],
+    perfect_10: ['Diez perfectos', 'Acierta 10 veces sin perder una vida.'],
+    one_life_stand: ['Una sola vida', 'Con 1 vida, alcanza una racha de 5.'],
+    one_life_legend: ['Leyenda de una vida', 'Con 1 vida, alcanza una racha de 25.'],
+    comeback_call: ['Segundo aire', 'Acierta después de perder una vida en la misma partida.'],
+    hundred_k_club: ['Ruta Hall of Fame', 'En el pool 100K+, alcanza una racha de 10.'],
+    million_club: ['Club del millón', 'En el pool 1M+, alcanza una racha de 5.'],
+    fame_matcher: ['Comparador de leyendas', 'Compara correctamente dos canciones de 1M+.'],
+    myth_matcher: ['Comparador mítico', 'Compara correctamente dos canciones Hall of Myths.'],
+    photo_finish: ['Final ajustado', 'Compara canciones con vistas separadas por 10% o menos.'],
+    blowout_call: ['Ni estuvo cerca', 'Acierta cuando una canción tiene al menos 10 veces más vistas.'],
+    try_again: ['Inténtalo otra vez', 'Pierde todas las vidas una vez.']
+  },
+  ko: {
+    first_correct: ['첫걸음', 'Higher or Lower에서 첫 정답을 맞히세요.'],
+    underdog_call: ['낮게 보기', 'Lower를 정확히 선택하세요.'],
+    streak_5: ['연승 시작', '5연승을 달성하세요.'],
+    streak_10: ['차트 리더', '10연승을 달성하세요.'],
+    streak_25: ['랭킹 단골', '25연승을 달성하세요.'],
+    perfect_25: ['클린 차트 런', '라이프를 잃지 않고 25문제를 맞히세요.'],
+    streak_50: ['랭킹 중독', '50연승을 달성하세요.'],
+    streak_100: ['백 히트 콤보', '100연승을 달성하세요.'],
+    total_correct_1000: ['가장 대단한 VOCALOID 팬', '총 1,000문제를 맞히세요.'],
+    streak_1000: ['니코니코 오라클', '1,000연승을 달성하세요.'],
+    perfect_10: ['완벽한 열 문제', '라이프를 잃지 않고 10문제를 맞히세요.'],
+    one_life_stand: ['원 라이프 도전', '라이프 1개로 5연승하세요.'],
+    one_life_legend: ['원 라이프 전설', '라이프 1개로 25연승하세요.'],
+    comeback_call: ['세컨드 윈드', '같은 게임에서 라이프를 잃은 뒤 정답을 맞히세요.'],
+    hundred_k_club: ['Hall of Fame 루트', '100K+ 풀에서 10연승하세요.'],
+    million_club: ['밀리언 클럽', '1M+ 풀에서 5연승하세요.'],
+    fame_matcher: ['레전드 매처', '1M+ 곡 두 개를 정확히 비교하세요.'],
+    myth_matcher: ['미스 매처', 'Hall of Myths 곡 두 개를 정확히 비교하세요.'],
+    photo_finish: ['포토 피니시', '조회수 차이가 10% 이내인 곡을 정확히 비교하세요.'],
+    blowout_call: ['상대가 안 됨', '10배 이상 차이나는 매치업을 정확히 맞히세요.'],
+    try_again: ['다시 도전', '라이프를 모두 잃으세요.']
+  }
+};
+
+function achievementText(item) {
+  const translated = ACHIEVEMENT_TEXT[getLanguage()]?.[item.id];
+  return translated ? { title: translated[0], desc: translated[1] } : { title: item.title, desc: item.desc };
+}
+
+function getAchievementStore() {
+  try {
+    const data = JSON.parse(localStorage.getItem(ACHIEVEMENTS_KEY) || '{}');
+    return data && typeof data === 'object' ? data : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveAchievementStore(store) {
+  localStorage.setItem(ACHIEVEMENTS_KEY, JSON.stringify(store));
+}
+
+function getTotalCorrect() {
+  const total = parseInt(localStorage.getItem(TOTAL_CORRECT_KEY) || '0', 10);
+  return Number.isFinite(total) ? total : 0;
+}
+
+function incrementTotalCorrect() {
+  const total = getTotalCorrect() + 1;
+  localStorage.setItem(TOTAL_CORRECT_KEY, String(total));
+  return total;
+}
+
+function getGamesPlayed() {
+  const n = parseInt(localStorage.getItem(GAMES_PLAYED_KEY) || '0', 10);
+  return Number.isFinite(n) ? n : 0;
+}
+
+function incrementGamesPlayed() {
+  const n = getGamesPlayed() + 1;
+  localStorage.setItem(GAMES_PLAYED_KEY, String(n));
+  return n;
+}
+
+const STREAK_MILESTONES = [5, 10, 25, 50, 100, 250, 500, 1000];
+function nextMilestone(best) {
+  return STREAK_MILESTONES.find(m => m > best) || null;
+}
+
+function achievementStats() {
+  const store = getAchievementStore();
+  const unlocked = ACHIEVEMENTS.filter(a => store[a.id]).length;
+  return { store, unlocked, total: ACHIEVEMENTS.length, pct: Math.round(unlocked / ACHIEVEMENTS.length * 100) };
+}
+
+function unlockAchievement(id) {
+  const item = ACHIEVEMENTS.find(a => a.id === id);
+  if (!item) return;
+  const store = getAchievementStore();
+  if (store[id]) return;
+  store[id] = new Date().toISOString();
+  saveAchievementStore(store);
+  showAchievementToast(item);
+  renderAchievementsIfOpen();
+}
+
+function showAchievementToast(item) {
+  document.querySelectorAll('.achievement-toast').forEach(el => el.remove());
+  const text = achievementText(item);
+  const toast = document.createElement('div');
+  toast.className = 'achievement-toast';
+  toast.innerHTML = `
+    <div class="achievement-toast-badge">★</div>
+    <div class="achievement-toast-body">
+      <div class="achievement-toast-kicker">${escHtml(t('achievementUnlocked'))}</div>
+      <div class="achievement-toast-title">${escHtml(text.title)}</div>
+      <div class="achievement-toast-desc">${escHtml(text.desc)}</div>
+    </div>`;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.classList.add('is-hiding'), 4200);
+  setTimeout(() => toast.remove(), 4550);
+}
+
+const TIERS = [
+  { tag:'nnd-100m', label:'100M+', score:6, min:100_000_000 },
+  { tag:'nnd-10m',  label:'10M+',  score:5, min:10_000_000  },
+  { tag:'nnd-1m',   label:'1M+',   score:4, min:1_000_000   },
+  { tag:'nnd-100k', label:'100K+', score:3, min:100_000     },
+  { tag:'nnd-10k',  label:'10K+',  score:2, min:10_000      },
+];
+
+const VOCALIST_MAP = [
+  { key:'miku',   label:'Miku',   match:/hatsune miku/i,       cls:'vtag-miku'   },
+  { key:'rin',    label:'Rin',    match:/kagamine rin/i,        cls:'vtag-rin'    },
+  { key:'len',    label:'Len',    match:/kagamine len/i,        cls:'vtag-len'    },
+  { key:'luka',   label:'Luka',   match:/megurine luka/i,       cls:'vtag-luka'   },
+  { key:'gumi',   label:'GUMI',   match:/\bgumi\b|megpoid/i,    cls:'vtag-gumi'   },
+  { key:'ia',     label:'IA',     match:/^ia$|^ia :/i,          cls:'vtag-ia'     },
+  { key:'kaito',  label:'KAITO',  match:/\bkaito\b/i,           cls:'vtag-kaito'  },
+  { key:'meiko',  label:'MEIKO',  match:/\bmeiko\b/i,           cls:'vtag-meiko'  },
+  { key:'meika-mikoto', label:'Mikoto', match:/meika mikoto/i,  cls:'vtag-meika-mikoto' },
+  { key:'meika-hime',   label:'Hime',   match:/meika hime/i,    cls:'vtag-meika-hime'   },
+  { key:'teto',   label:'Teto',   match:/kasane teto/i,         cls:'vtag-teto'   },
+  { key:'flower', label:'flower', match:/\bflower\b|v flower/i, cls:'vtag-flower' },
+  { key:'kafu',   label:'KAFU',   match:/\bkafu\b/i,            cls:'vtag-kafu'   },
+  { key:'una',    label:'Una',    match:/otomachi una/i,         cls:'vtag-una'    },
+  { key:'yuki',   label:'Yuki',   match:/kaai yuki/i,           cls:'vtag-yuki'   },
+  { key:'rei',    label:'Rei',    match:/adachi rei/i,           cls:'vtag-rei'    },
+  { key:'defoko', label:'Defoko', match:/utane uta|defoko/i,     cls:'vtag-defoko' },
+];
+
+/* ── Helpers ── */
+function escHtml(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function getRomajiTitle(song) {
+  // acceptedTitles is ordered [Japanese, English, Romaji, ...]; pick the
+  // first Latin-script variant that differs from the default title.
+  for (const t of (song.acceptedTitles || [])) {
+    if (t === song.title) continue;
+    const latin = (t.match(/[A-Za-z]/g) || []).length;
+    if (latin >= t.replace(/\s/g, '').length * 0.5) return t;
+  }
+  return song.title;
+}
+
+function getLocalizedSongTitle(song, language) {
+  const titles = [song.title, ...(song.acceptedTitles || [])]
+    .filter((title, index, all) => title && all.indexOf(title) === index);
+
+  if (language === 'ko') {
+    return titles.find(title => /[\uac00-\ud7af]/.test(title)) || song.title;
+  }
+
+  if (language === 'ja') {
+    const kanaTitle = titles.find(title => /[\u3040-\u30ff]/.test(title));
+    if (kanaTitle) return kanaTitle;
+
+    const cjkTitle = titles.find(title =>
+      /[\u3400-\u9fff]/.test(title) &&
+      !/[\uac00-\ud7af]/.test(title)
+    );
+    return cjkTitle || song.title;
+  }
+
+  return song.title;
+}
+
+function displayTitle(song) {
+  const language = getLanguage();
+  if (language === 'ja' || language === 'ko') {
+    return getLocalizedSongTitle(song, language);
+  }
+  return getSettings().romaji ? getRomajiTitle(song) : song.title;
+}
+
+function getSongYear(song) {
+  if (!song.publishDate) return null;
+  const y = new Date(song.publishDate).getFullYear();
+  return (!isNaN(y) && y > 1990) ? y : null;
+}
+
+function getSongSource(song) {
+  const tags = song.sourceTags || [];
+  if (tags.some(t => t.startsWith('nnd'))) return 'NicoNico';
+  if (tags.some(t => t.startsWith('yt')))  return 'YouTube';
+  return 'NicoNico';
+}
+
+function getSongTier(song) {
+  for (const t of TIERS)
+    if ((song.sourceTags||[]).includes(t.tag)) return t;
+  return null;
+}
+
+function formatViews(n) {
+  return n.toLocaleString();
+}
+
+function formatMin(tier) {
+  return tier.min.toLocaleString() + '+';
+}
+
+function getNndUrl(song) {
+  const urls = [song.coverArt, ...(song.coverArts||[])].filter(Boolean);
+  for (const url of urls) {
+    const m = url.match(/nicovideo\.cdn\.nimg\.jp\/thumbnails\/(\d+)\//);
+    if (m) return `https://www.nicovideo.jp/watch/sm${m[1]}`;
+  }
+  return null;
+}
+
+function getCoverArt(song) {
+  const all = [
+    song.coverArt,
+    ...(song.coverArts||[]),
+    song.thumbnailUrl,
+    song.thumbUrl,
+    song.pictureUrl,
+    song.imageUrl,
+    song.mainPicture?.urlOriginal,
+    song.mainPicture?.urlThumb,
+    song.mainPicture?.urlSmallThumb,
+    song.picture?.urlOriginal,
+    song.picture?.urlThumb,
+  ].filter(Boolean);
+  const p = u => u.includes('ytimg.com')&&u.includes('hqdefault')?0
+    :u.includes('ytimg.com')&&u.includes('mqdefault')?1
+    :u.includes('ytimg.com')?2:u.includes('nimg.jp')?3:u.includes('sndcdn.com')?4:5;
+  return [...new Set(all)].sort((a,b)=>p(a)-p(b));
+}
+
+function cleanVoicebankName(name) {
+  return String(name || '')
+    .replace(/\b(Hatsune Miku|Kagamine Rin|Kagamine Len|Megurine Luka|Kasane Teto|Otomachi Una|Kaai Yuki|Nekomura Iroha|Adachi Rei)(?:\s+(?:Append|NT|V[2345]X?|English|Solid|Soft|Power|Sweet|Dark|Light|Whisper|Straight|Original|Native|Adult|Young|Cold|Warm|Vivid|Serious|Talk|AI|SV|SV2))+(?:\s*\([^)]*\))*/gi, '$1')
+    .replace(/\b(GUMI|Megpoid|flower|v flower|KAITO|MEIKO|IA|KAFU)(?:\s+(?:Append|NT|V[2345]X?|English|Solid|Soft|Power|Sweet|Dark|Light|Whisper|Straight|Original|Native|Adult|Young|Cold|Warm|Vivid|Serious|Talk|AI|SV|SV2))+(?:\s*\([^)]*\))*/gi, '$1')
+    .replace(/\s+\((?:Append|NT|V[2345]X?|English|Solid|Soft|Power|Sweet|Dark|Light|Whisper|Straight|Original|Native|Adult|Young|Cold|Warm|Vivid|Serious|Talk|AI|SV|SV2)\)/gi, '')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+function cleanArtistDisplay(value) {
+  return String(value || '')
+    .split(/\s*,\s*/)
+    .map(part => cleanVoicebankName(part))
+    .join(', ');
+}
+
+function getVocalists(song) {
+  const found=[]; const seen=new Set();
+  (song.singerNames||[]).forEach(name=>{
+    if(!name||/various/i.test(name)) return;
+    const v=VOCALIST_MAP.find(v=>v.match.test(name));
+    const key=v?v.key:name;
+    if(!seen.has(key)){seen.add(key);found.push(v||{key,label:name.split(' ')[0],cls:'vtag-other'});}
+  });
+  return found.slice(0,3);
+}
+
+function shuffle(arr) {
+  for(let i=arr.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[arr[i],arr[j]]=[arr[j],arr[i]];}
+  return arr;
+}
+
+/* ── Views cache ── */
+let viewsCache = {};
+let viewsUpdated = null;
+
+function getViewCount(song) {
+  const v = viewsCache[String(song.vocadbId)];
+  return (typeof v === 'number') ? v : null;
+}
+
+/* ── Song pool ── */
+let allSongsCache = [];
+
+function buildPool() {
+  const cfg = getSettings();
+  const minScore = cfg.pool === '1m' ? 4 : cfg.pool === '100k' ? 3 : 2;
+  return allSongsCache.filter(s => {
+    const t = getSongTier(s);
+    return t && t.score >= minScore && getViewCount(s) !== null;
+  });
+}
+
+function poolLabel() {
+  const cfg = getSettings();
+  return cfg.pool === '1m' ? '1M+ tier' : cfg.pool === '100k' ? '100K+ tier' : '10K+ tier';
+}
+
+/* ── Game state ── */
+const state = {
+  allSongs: [],
+  usedIds: new Set(),
+  recentBattles: [],
+  songA: null,
+  songB: null,
+  streak: 0,
+  lives: DEFAULTS.lives,
+  totalLives: DEFAULTS.lives,
+  best: parseInt(localStorage.getItem(BEST_KEY)||'0'),
+  round: 1,
+  correctCount: 0,
+  finalStreak: 0,
+  phase: 'loading',
+};
+
+/* ── Song selection ── */
+function availableSongs() {
+  return state.allSongs.filter(s => !state.usedIds.has(s.vocadbId));
+}
+
+function isValidPair(a, b) {
+  if (b.vocadbId === a.vocadbId) return false;
+  const countA = getViewCount(a);
+  const countB = getViewCount(b);
+  if (countA !== null && countB !== null) return countA !== countB;
+  // No real counts — require different tiers to avoid a tie
+  const tA = getSongTier(a);
+  const tB = getSongTier(b);
+  return tA && tB && tA.score !== tB.score;
+}
+
+function pickPair(fixedA = null) {
+  const avail = availableSongs();
+  if (fixedA) {
+    const candidates = avail.filter(s => isValidPair(fixedA, s));
+    if (!candidates.length) return null;
+    return { a: fixedA, b: candidates[Math.floor(Math.random()*candidates.length)] };
+  }
+  if (avail.length < 2) return null;
+  shuffle(avail);
+  const a = avail[0];
+  const candidates = avail.slice(1).filter(s => isValidPair(a, s));
+  if (!candidates.length) return null;
+  return { a, b: candidates[Math.floor(Math.random()*candidates.length)] };
+}
+
+/* ── Rendering ── */
+const DANMAKU_POOL = [
+  'www', '88888888', '神曲', '殿堂入り', 'ボカロ最高', 'うぽつ', 'すき', '名曲',
+  'これ好き', '泣いた', '中毒性高すぎ', 'リピート不可避', 'GOAT song fr', 'banger', '草',
+  'てぇてぇ', 'ここすき', '優勝', '天才現る', 'えぐい', 'kakkoii', '神',
+  '懐かしすぎ', '余裕でしょ', 'わかる', 'わかった！', 'あーこれか', 'I know this one!!',
+  '知ってた', '好きすぎる', 'イントロドン', '初見です', '何度も聴いてる', 'これは伸びる',
+  'サビすき', '勝ち確', 'ナイス選曲', '語彙力消失'
+];
+
+function danmakuHtml() {
+  const picks = shuffle([...DANMAKU_POOL]).slice(0, 4);
+  return `<div class="danmaku-layer" aria-hidden="true">` + picks.map(c => {
+    const top   = 6 + Math.floor(Math.random() * 74);
+    const dur   = (7 + Math.random() * 6).toFixed(1);
+    const delay = (-Math.random() * 9).toFixed(1);
+    return `<span class="danmaku" style="top:${top}%;animation-duration:${dur}s;animation-delay:${delay}s">${escHtml(c)}</span>`;
+  }).join('') + `</div>`;
+}
+
+function vocalistChipsHtml(song) {
+  const vocs = getVocalists(song);
+  if (!vocs.length) return '';
+  return `<div class="thumb-vtags">` +
+    vocs.map(v => `<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join('') +
+    `</div>`;
+}
+
+function animateCount(el, target, duration = 1000) {
+  if (!el || !Number.isFinite(target)) return;
+  const start = performance.now();
+  function tick(now) {
+    const p = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(target * eased).toLocaleString();
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = target.toLocaleString();
+  }
+  requestAnimationFrame(tick);
+}
+
+function thumbHtml(song, mystery) {
+  const chain = getCoverArt(song);
+  const imgHtml = chain.length
+    ? `<img src="${escHtml(chain[0])}" alt="" loading="lazy"
+         data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}"
+         onerror="nextThumb(this)">`
+    : '';
+  const tier = getSongTier(song);
+  const badgeCls = mystery ? 'tier-badge mystery-badge' : 'tier-badge';
+  const badgeId  = mystery ? 'id="tier-badge-b"' : '';
+  return `
+    <div class="song-thumb">
+      ${imgHtml}
+      ${mystery ? '' : danmakuHtml()}
+      <div class="thumb-scanlines"></div>
+      ${mystery ? `<div class="mystery-overlay" id="mystery-overlay"><span class="mystery-mark">???</span></div>` : ''}
+      ${vocalistChipsHtml(song)}
+      ${tier ? `<span class="${badgeCls}" ${badgeId}>${tier.label}</span>` : ''}
+    </div>`;
+}
+
+function metaBarHtml(song, mystery) {
+  const tier  = getSongTier(song);
+  const count = getViewCount(song);
+  const year  = getSongYear(song);
+  const yearField = year ? `
+        <div class="meta-field">
+          <span class="meta-key">[year]</span>
+          <span class="meta-val">${year}</span>
+          <span class="meta-sub">upload</span>
+        </div>` : '';
+  const artist = cleanArtistDisplay(song.artistString || song.artist || '');
+  const srcField = `
+        <div class="meta-field">
+          <span class="meta-key">[artist]</span>
+          <span class="meta-val meta-artist">${artist ? escHtml(artist) : '&mdash;'}</span>
+        </div>`;
+  if (mystery) return `
+    <div class="song-meta-bar">
+      <div class="meta-field">
+        <span class="meta-key">[views]</span>
+        <span class="meta-val mystery" id="meta-views-b">? ? ?</span>
+        <span class="meta-sub" id="meta-views-sub-b">${escHtml(t('asOf', { date: viewsUpdated || '—' }))}</span>
+      </div>
+      ${yearField}${srcField}
+    </div>`;
+  const displayNum = count !== null ? formatViews(count) : (tier ? formatMin(tier) : '—');
+  const subText    = count !== null ? t('asOf', { date: viewsUpdated || '—' }) : t('tierEstimate');
+  return `
+    <div class="song-meta-bar">
+      <div class="meta-field">
+        <span class="meta-key">[views]</span>
+        <span class="meta-val">${escHtml(displayNum)}</span>
+        <span class="meta-sub">${subText}</span>
+      </div>
+      ${yearField}${srcField}
+    </div>`;
+}
+
+function renderStreakBar() {
+  const livesHtml = Array.from({length:state.totalLives},(_,i)=>
+    `<span class="life${i>=state.lives?' spent':''}"></span>`).join('');
+  const acc = state.round > 1 ? Math.round(state.correctCount/(state.round-1)*100)+'%' : '&mdash;';
+  return `
+    <div class="streak-bar">
+      <div class="streak-scores">
+        <div class="streak-block is-streak">
+          <span class="streak-val${state.streak>0?' hi':''}">${state.streak}</span>
+          <span class="streak-label">${escHtml(t('streak'))}</span>
+        </div>
+        <div class="streak-block">
+          <span class="streak-num">${state.best}</span>
+          <span class="streak-label">${escHtml(t('best'))}</span>
+        </div>
+        <div class="streak-block">
+          <span class="streak-num">${state.round}</span>
+          <span class="streak-label">${escHtml(t('round'))}</span>
+        </div>
+        <div class="streak-block">
+          <span class="streak-num">${state.correctCount}</span>
+          <span class="streak-label">${escHtml(t('correct'))}</span>
+        </div>
+        <div class="streak-block">
+          <span class="streak-num">${acc}</span>
+          <span class="streak-label">${escHtml(t('winPct'))}</span>
+        </div>
+      </div>
+      <div class="streak-mid">
+        <div class="streak-result" id="streak-result" hidden></div>
+        <div class="lives-row">
+          <span class="lives-label">${escHtml(t('lives'))}</span>${livesHtml}
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderSidebarLegacyUnused() {
+  const played = state.round - 1;
+  const winPct = played > 0 ? Math.round(state.correctCount / played * 100) : null;
+  const viewsNote = viewsUpdated ? `Updated ${escHtml(viewsUpdated)}` : 'View counts: tier estimates';
+  const ach = achievementStats();
+  return `
+    <div class="game-sidebar">
+      <div class="sidebar-panel">
+        <div class="sidebar-header">[ How to Play ]</div>
+        <div class="sidebar-body">
+          <ol class="htp-list">
+            <li data-n="1"><strong>Song A</strong> shows its NicoNico view count.</li>
+            <li data-n="2">Does <strong>Song B</strong> have more or fewer views? Press <strong>↑ Higher</strong> or <strong>↓ Lower</strong>.</li>
+            <li data-n="3">Correct: streak +1, Song B becomes the new Song A.</li>
+            <li data-n="4">Wrong: lose a life, streak resets. <strong>${state.totalLives} lives</strong> per game.</li>
+          </ol>
+        </div>
+      </div>
+      <div class="sidebar-panel">
+        <div class="sidebar-header">[ Session Stats ]</div>
+        <div class="sidebar-body stats-body">
+          <table class="stats-table">
+            <tr><td>Rounds played</td><td>${played}</td></tr>
+            <tr><td>Correct</td><td>${state.correctCount}</td></tr>
+            <tr><td>Best streak</td><td>${state.best}</td></tr>
+          </table>
+          <div class="winrate-row">
+            <div class="winrate-top"><span>Win rate</span><strong>${winPct !== null ? winPct + '%' : '&mdash;'}</strong></div>
+            <div class="winrate-track"><div class="winrate-fill" style="width:${winPct || 0}%"></div></div>
+          </div>
+          <div class="pool-info">Pool: ${state.allSongs.length.toLocaleString()} songs &middot; ${viewsNote}</div>
+        </div>
+      </div>
+      <div class="sidebar-panel">
+        <div class="sidebar-header">[ Achievements ]</div>
+        <div class="sidebar-body achievement-mini-body">
+          <div class="achievement-mini-row"><span>Unlocked</span><strong>${ach.unlocked} / ${ach.total}</strong></div>
+          <div class="achievement-mini-bar"><div class="achievement-mini-fill" style="width:${ach.pct}%"></div></div>
+          <a href="#" data-open-achievements>View achievements &rarr;</a>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderRecentBattlesLegacyUnused() {
+  if (!state.recentBattles.length) {
+    return `
+      <div class="recent-battles">
+        <div class="recent-header">[ Recent Guesses ]</div>
+        <div class="recent-empty">No guesses yet</div>
+      </div>`;
+  }
+  const rows = state.recentBattles.map((battle, index) => `
+    <tr>
+      <td class="recent-num">${battle.round || state.recentBattles.length - index}</td>
+      <td class="recent-result ${battle.correct ? 'is-win' : 'is-lose'}">${battle.correct ? 'O' : 'X'}</td>
+      <td title="${escHtml(battle.songA)}">${escHtml(battle.songA)}</td>
+      <td class="recent-count">${escHtml(battle.countA)}</td>
+      <td class="recent-guess ${battle.direction}">${escHtml(battle.direction === 'higher' ? t('higher') : t('lower'))}</td>
+      <td title="${escHtml(battle.songB)}">${escHtml(battle.songB)}</td>
+      <td class="recent-count">${escHtml(battle.countB)}</td>
+      <td class="recent-num">${battle.streak}</td>
+    </tr>`).join('');
+  return `
+    <div class="recent-battles">
+      <div class="recent-header">[ Recent Guesses ]</div>
+      <table class="recent-table">
+        <thead>
+          <tr>
+            <th class="recent-num">#</th>
+            <th class="recent-result">Result</th>
+            <th>Song A</th>
+            <th class="recent-count">A Views</th>
+            <th class="recent-guess">Guess</th>
+            <th>Song B</th>
+            <th class="recent-count">B Views</th>
+            <th class="recent-num">Stk</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+function renderLeftSidebar() {
+  const milestoneTiers = TIERS
+    .filter(tier => tier.score >= 3 && tier.score <= 5)
+    .sort((a, b) => a.score - b.score);
+  const tierRows = milestoneTiers.map(tier => `
+    <div class="tier-legend-row">
+      <span class="tl-badge">${escHtml(tier.label)}</span>
+      <span class="tl-name">${escHtml(t('tier_' + tier.score))}</span>
+    </div>`).join('');
+
+  const latest = RELEASES[0];
+  const latestNotes = (latest.notesByLang[getLanguage()] || latest.notesByLang.en).slice(0, 3);
+  const newsRows = latestNotes.map(note => `
+    <li><span class="news-ver">${escHtml(latest.version)}</span><span class="news-text">${escHtml(note)}</span></li>`).join('');
+
+  return `
+    <div class="game-sidebar game-sidebar-left">
+      <div class="sidebar-panel">
+        <div class="sidebar-header">${escHtml(t('viewTiers'))}</div>
+        <div class="sidebar-body" style="padding:0">
+          <div class="tier-legend">${tierRows}</div>
+          <div class="tier-note">${escHtml(t('tierNote'))}</div>
+        </div>
+      </div>
+      <div class="sidebar-panel">
+        <div class="sidebar-header">${escHtml(t('news'))}</div>
+        <div class="sidebar-body" style="padding:0">
+          <ul class="news-list">${newsRows}</ul>
+          <a href="#" class="news-more" data-open-updates>${escHtml(t('newsMore'))}</a>
+        </div>
+      </div>
+      <div class="sidebar-panel">
+        <div class="sidebar-header">${escHtml(t('links'))}</div>
+        <div class="sidebar-body" style="padding:0">
+          <div class="links-list">
+            <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB ↗</a>
+            <a href="https://nicovideo.jp" target="_blank" rel="noopener">NicoNico ↗</a>
+            <a href="#" data-open-support>${escHtml(t('contactSupport'))}</a>
+          </div>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderSidebar() {
+  const ach = achievementStats();
+  const games = getGamesPlayed();
+  const lifeCorrect = getTotalCorrect();
+  const viewsNote = viewsUpdated ? t('updated', { date: escHtml(viewsUpdated) }) : t('viewsEstimate');
+  const next = nextMilestone(state.best);
+  const mPct = next ? Math.min(100, Math.round(state.best / next * 100)) : 100;
+  const milestoneVal = next ? `${state.best} / ${next}` : escHtml(t('milestoneMaxed'));
+  return `
+    <div class="game-sidebar game-sidebar-right">
+      <div class="sidebar-panel">
+        <div class="sidebar-header">${escHtml(t('howToPlay'))}</div>
+        <div class="sidebar-body">
+          <ol class="htp-list">
+            <li data-n="1">${t('htp1')}</li>
+            <li data-n="2">${t('htp2')}</li>
+            <li data-n="3">${t('htp3')}</li>
+            <li data-n="4">${t('htp4', { lives: state.totalLives })}</li>
+          </ol>
+        </div>
+      </div>
+      <div class="sidebar-panel">
+        <div class="sidebar-header">[ ${escHtml(t('records'))} ]</div>
+        <div class="sidebar-body stats-body">
+          <table class="stats-table">
+            <tr><td>${escHtml(t('gamesPlayed'))}</td><td>${games.toLocaleString()}</td></tr>
+            <tr><td>${escHtml(t('lifetimeCorrect'))}</td><td>${lifeCorrect.toLocaleString()}</td></tr>
+            <tr><td>${escHtml(t('bestStreak'))}</td><td>${state.best.toLocaleString()}</td></tr>
+          </table>
+          <div class="milestone-row">
+            <div class="milestone-top"><span>${escHtml(t('nextMilestone'))}</span><strong>${milestoneVal}</strong></div>
+            <div class="milestone-track"><div class="milestone-fill${next ? '' : ' maxed'}" style="width:${mPct}%"></div></div>
+            <div class="milestone-desc">${escHtml(t('milestoneDesc'))}</div>
+          </div>
+          <div class="pool-info">${escHtml(t('poolInfo', { count: state.allSongs.length.toLocaleString(), note: viewsNote }))}</div>
+        </div>
+      </div>
+      <div class="sidebar-panel">
+        <div class="sidebar-header">[ ${escHtml(t('achievements'))} ]</div>
+        <div class="sidebar-body achievement-mini-body">
+          <div class="achievement-mini-row"><span>${escHtml(t('unlocked'))}</span><strong>${ach.unlocked} / ${ach.total}</strong></div>
+          <div class="achievement-mini-bar"><div class="achievement-mini-fill" style="width:${ach.pct}%"></div></div>
+          <a href="#" data-open-achievements>${escHtml(t('viewAchievements'))}</a>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderRecentBattles() {
+  if (!state.recentBattles.length) {
+    return `
+      <div class="recent-battles">
+        <div class="recent-header">${escHtml(t('recentGuesses'))}</div>
+        <div class="recent-empty">
+          <div class="re-mark">↑ ? ↓</div>
+          <div class="re-text">${escHtml(t('noGuesses'))}</div>
+          <div class="re-hint">${escHtml(t('noGuessesHint'))}</div>
+        </div>
+      </div>`;
+  }
+  const rows = state.recentBattles.map((battle, index) => `
+    <tr>
+      <td class="recent-num">${battle.round || state.recentBattles.length - index}</td>
+      <td class="recent-result ${battle.correct ? 'is-win' : 'is-lose'}">${battle.correct ? 'O' : 'X'}</td>
+      <td title="${escHtml(battle.songA)}">${escHtml(battle.songA)}</td>
+      <td class="recent-count">${escHtml(battle.countA)}</td>
+      <td class="recent-guess ${battle.direction}">${escHtml(battle.direction === 'higher' ? t('higher') : t('lower'))}</td>
+      <td title="${escHtml(battle.songB)}">${escHtml(battle.songB)}</td>
+      <td class="recent-count">${escHtml(battle.countB)}</td>
+      <td class="recent-num">${battle.streak}</td>
+    </tr>`).join('');
+  const cards = state.recentBattles.map((battle, index) => {
+    const arrow = battle.direction === 'higher' ? '↑' : '↓';
+    return `
+    <li class="rc-item ${battle.correct ? 'is-win' : 'is-lose'}">
+      <div class="rc-top">
+        <span class="rc-num">#${battle.round || state.recentBattles.length - index}</span>
+        <span class="rc-result">${battle.correct ? 'O' : 'X'}</span>
+        <span class="rc-stk">${escHtml(t('stk'))} ${battle.streak}</span>
+      </div>
+      <div class="rc-row"><span class="rc-name" title="${escHtml(battle.songA)}">${escHtml(battle.songA)}</span><span class="rc-views">${escHtml(battle.countA)}</span></div>
+      <div class="rc-guess ${battle.direction}">${arrow} ${escHtml(battle.direction === 'higher' ? t('higher') : t('lower'))}</div>
+      <div class="rc-row"><span class="rc-name" title="${escHtml(battle.songB)}">${escHtml(battle.songB)}</span><span class="rc-views">${escHtml(battle.countB)}</span></div>
+    </li>`;
+  }).join('');
+  return `
+    <div class="recent-battles">
+      <div class="recent-header">${escHtml(t('recentGuesses'))}</div>
+      <table class="recent-table">
+        <thead>
+          <tr>
+            <th class="recent-num">#</th>
+            <th class="recent-result">${escHtml(t('result'))}</th>
+            <th>${escHtml(t('songA'))}</th>
+            <th class="recent-count">${escHtml(t('aViews'))}</th>
+            <th class="recent-guess">${escHtml(t('guess'))}</th>
+            <th>${escHtml(t('songB'))}</th>
+            <th class="recent-count">${escHtml(t('bViews'))}</th>
+            <th class="recent-num">${escHtml(t('stk'))}</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+      <ul class="recent-cards">${cards}</ul>
+    </div>`;
+}
+
+function bindAchievementLinks() {
+  document.querySelectorAll('[data-open-achievements]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      openAchievements();
+    });
+  });
+  document.querySelectorAll('[data-open-updates]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      openNotes();
+    });
+  });
+  document.querySelectorAll('[data-open-support]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      openSupport();
+    });
+  });
+}
+
+function renderGame() {
+  const nndUrlA   = getNndUrl(state.songA);
+  const vocadbUrlA = escHtml(state.songA.vocadbUrl || `https://vocadb.net/S/${state.songA.vocadbId}`);
+  document.getElementById('main').innerHTML = `
+    ${renderStreakBar()}
+    <div class="game-layout">
+      ${renderLeftSidebar()}
+      <div class="game-main">
+        <div class="game-area">
+          <div class="song-col is-a" id="col-a">
+            <div class="song-col-header">
+              <span class="col-header-title">${escHtml(displayTitle(state.songA))}</span>
+            </div>
+            ${thumbHtml(state.songA, false)}
+            ${metaBarHtml(state.songA, false)}
+            <div class="song-links">
+              ${nndUrlA ? `<a class="song-link" href="${escHtml(nndUrlA)}" target="_blank" rel="noopener">${escHtml(t('viewOnNico'))}</a>` : ''}
+              <a class="song-link" href="${vocadbUrlA}" target="_blank" rel="noopener">${escHtml(t('viewOnVocadb'))}</a>
+            </div>
+          </div>
+          <div class="vs-col">
+            <div class="vs-round-label">${escHtml(t('round'))}</div>
+            <div class="vs-round-num">${state.round}</div>
+            <div class="vs-text">[VS]</div>
+            <div class="guess-btns">
+              <button class="guess-btn guess-higher" id="btn-higher">
+                <span class="guess-arrow">↑</span> Higher
+              </button>
+              <button class="guess-btn guess-lower" id="btn-lower">
+                <span class="guess-arrow">↓</span> Lower
+              </button>
+            </div>
+          </div>
+          <div class="song-col is-b" id="col-b">
+            <div class="song-col-header">
+              <span class="col-header-title">${escHtml(displayTitle(state.songB))}</span>
+            </div>
+            ${thumbHtml(state.songB, true)}
+            ${metaBarHtml(state.songB, true)}
+            <div class="song-links is-locked" aria-hidden="true">
+              <span class="song-link">NicoNico</span>
+              <span class="song-link">VocaDB</span>
+            </div>
+          </div>
+        </div>
+        ${renderRecentBattles()}
+      </div>
+      ${renderSidebar()}
+    </div>`;
+
+  document.getElementById('btn-higher').innerHTML = `<span class="guess-arrow">↑</span> ${escHtml(t('higher'))}`;
+  document.getElementById('btn-lower').innerHTML = `<span class="guess-arrow">↓</span> ${escHtml(t('lower'))}`;
+  document.getElementById('btn-higher').addEventListener('click', () => guess('higher'));
+  document.getElementById('btn-lower').addEventListener('click',  () => guess('lower'));
+  bindAchievementLinks();
+}
+
+function renderGameOver() {
+  const runStreak = Number.isFinite(state.finalStreak) ? state.finalStreak : state.streak;
+  const finalBest = runStreak > state.best ? runStreak : state.best;
+  const last = state.recentBattles[0];
+  const finalMessage = last
+    ? t('gameOverMessage', {
+        direction: last.direction === 'higher' ? t('higher') : t('lower'),
+        songB: escHtml(last.songB),
+        countB: escHtml(last.countB),
+        songA: escHtml(last.songA),
+        countA: escHtml(last.countA)
+      })
+    : escHtml(t('gameOverFallback'));
+  return `
+    ${renderStreakBar()}
+    <div class="game-layout">
+      ${renderLeftSidebar()}
+      <div class="game-main">
+        <div class="gameover-panel">
+          <div class="gameover-title">${escHtml(t('gameOver'))}</div>
+          <div class="gameover-stats">
+            <div class="go-stat is-headline">
+              <span class="go-key">${escHtml(t('finalStreak'))}</span>
+              <span class="go-val">${runStreak}</span>
+            </div>
+            <div class="go-stat">
+              <span class="go-key">${escHtml(t('best'))}</span>
+              <span class="go-val${finalBest===state.best&&runStreak===state.best&&state.best>0?' is-best':''}">${finalBest}</span>
+            </div>
+            <div class="go-stat">
+              <span class="go-key">${escHtml(t('rounds'))}</span>
+              <span class="go-val">${state.round - 1}</span>
+            </div>
+            <div class="go-stat">
+              <span class="go-key">${escHtml(t('winRate'))}</span>
+              <span class="go-val">${state.round > 1 ? Math.round(state.correctCount/(state.round-1)*100) : 0}%</span>
+            </div>
+          </div>
+          <div class="gameover-message">${finalMessage}</div>
+          <div class="gameover-actions">
+            <button class="play-again-btn" id="play-again-btn">${escHtml(t('playAgain'))}</button>
+            <button class="share-result-btn" id="share-result-btn">${escHtml(t('shareResult'))}</button>
+          </div>
+        </div>
+        ${renderRecentBattles()}
+      </div>
+      ${renderSidebar()}
+    </div>`;
+}
+
+/* ── Guess logic ── */
+function guess(direction) {
+  if (state.phase !== 'playing') return;
+  state.phase = 'revealing';
+
+  document.getElementById('btn-higher').disabled = true;
+  document.getElementById('btn-lower').disabled  = true;
+
+  const tierA   = getSongTier(state.songA);
+  const tierB   = getSongTier(state.songB);
+  const countA  = getViewCount(state.songA);
+  const countB  = getViewCount(state.songB);
+
+  const bIsHigher = (countA !== null && countB !== null)
+    ? countB > countA
+    : tierB.score > tierA.score;
+  const correct = (direction === 'higher') === bIsHigher;
+
+  const overlay = document.getElementById('mystery-overlay');
+  if (overlay) overlay.classList.add('revealed');
+  const mysteryBadge = document.getElementById('tier-badge-b');
+  if (mysteryBadge) mysteryBadge.classList.add('revealed');
+  const colB = document.getElementById('col-b');
+  if (colB) colB.classList.add(correct ? 'reveal-correct' : 'reveal-wrong');
+
+  const numEl = document.getElementById('meta-views-b');
+  const subEl = document.getElementById('meta-views-sub-b');
+  if (numEl) {
+    numEl.className = `meta-val ${correct ? 'correct-reveal' : 'wrong-reveal'}`;
+    if (countB !== null) animateCount(numEl, countB);
+    else numEl.textContent = formatMin(tierB);
+  }
+  if (subEl) {
+    subEl.textContent = countB !== null
+      ? t('asOf', { date: viewsUpdated || '—' })
+      : t('tierEstimate');
+  }
+
+  const displayA = countA !== null ? formatViews(countA) : formatMin(tierA);
+  const displayB = countB !== null ? formatViews(countB) : formatMin(tierB);
+  const resultBar = document.getElementById('streak-result');
+  if (resultBar) {
+    resultBar.hidden = false;
+    resultBar.className = `streak-result ${correct ? 'correct' : 'wrong'}`;
+    resultBar.textContent = compactRoundResult(
+      correct,
+      displayTitle(state.songA),
+      !bIsHigher,
+      displayA,
+      displayB
+    );
+  }
+
+  state.recentBattles.unshift({
+    round: state.round,
+    songA: displayTitle(state.songA),
+    songB: displayTitle(state.songB),
+    countA: displayA,
+    countB: displayB,
+    direction,
+    correct,
+    streak: correct ? state.streak + 1 : 0,
+  });
+  state.recentBattles = state.recentBattles.slice(0, 5);
+
+  const roundMeta = { direction, countA, countB, tierA, tierB };
+  setTimeout(() => advance(correct, roundMeta), REVEAL_DELAY);
+}
+
+function checkCorrectAchievements(roundMeta) {
+  const cfg = getSettings();
+  unlockAchievement('first_correct');
+  if (roundMeta.direction === 'lower') unlockAchievement('underdog_call');
+  if (state.streak >= 5) unlockAchievement('streak_5');
+  if (state.streak >= 10) unlockAchievement('streak_10');
+  if (state.streak >= 25) unlockAchievement('streak_25');
+  if (state.streak >= 50) unlockAchievement('streak_50');
+  if (state.streak >= 100) unlockAchievement('streak_100');
+  if (state.streak >= 1000) unlockAchievement('streak_1000');
+  if (state.streak >= 10 && state.lives === state.totalLives) unlockAchievement('perfect_10');
+  if (state.streak >= 25 && state.lives === state.totalLives) unlockAchievement('perfect_25');
+  if (state.totalLives === 1 && state.streak >= 5) unlockAchievement('one_life_stand');
+  if (state.totalLives === 1 && state.streak >= 25) unlockAchievement('one_life_legend');
+  if (state.lives < state.totalLives) unlockAchievement('comeback_call');
+  if (cfg.pool === '100k' && state.streak >= 10) unlockAchievement('hundred_k_club');
+  if (cfg.pool === '1m' && state.streak >= 5) unlockAchievement('million_club');
+  if ((roundMeta.tierA?.score || 0) >= 4 && (roundMeta.tierB?.score || 0) >= 4) {
+    unlockAchievement('fame_matcher');
+  }
+  if ((roundMeta.tierA?.score || 0) >= 5 && (roundMeta.tierB?.score || 0) >= 5) {
+    unlockAchievement('myth_matcher');
+  }
+  if (typeof roundMeta.countA === 'number' && typeof roundMeta.countB === 'number') {
+    const high = Math.max(roundMeta.countA, roundMeta.countB);
+    const low = Math.min(roundMeta.countA, roundMeta.countB);
+    if (low > 0 && high / low <= 1.1) unlockAchievement('photo_finish');
+    if (low > 0 && high / low >= 10) unlockAchievement('blowout_call');
+  }
+}
+
+function advance(correct, roundMeta = {}) {
+  if (correct) {
+    state.correctCount++;
+    state.streak++;
+    if (incrementTotalCorrect() >= 1000) unlockAchievement('total_correct_1000');
+    if (state.streak > state.best) {
+      state.best = state.streak;
+      localStorage.setItem(BEST_KEY, state.best);
+    }
+    checkCorrectAchievements(roundMeta);
+    state.usedIds.add(state.songA.vocadbId);
+    const newA = state.songB;
+    const pair = pickPair(newA);
+    if (!pair) { endGame(); return; }
+    state.songA = pair.a;
+    state.songB = pair.b;
+    state.round++;
+    state.phase = 'playing';
+    renderGame();
+  } else {
+    state.lives--;
+    state.usedIds.add(state.songA.vocadbId);
+    state.finalStreak = state.streak;
+    state.streak = 0;
+    if (state.lives <= 0) {
+      state.usedIds.add(state.songB.vocadbId);
+      unlockAchievement('try_again');
+      endGame();
+    } else {
+      const newA = state.songB;
+      const pair = pickPair(newA);
+      if (!pair) { endGame(); return; }
+      state.songA = pair.a;
+      state.songB = pair.b;
+      state.round++;
+      state.phase = 'playing';
+      renderGame();
+    }
+  }
+}
+
+function buildShareText() {
+  const rounds = Math.max(0, state.round - 1);
+  const winPct = rounds > 0 ? Math.round(state.correctCount / rounds * 100) : 0;
+  const runStreak = Number.isFinite(state.finalStreak) ? state.finalStreak : state.streak;
+  return t('shareText', { streak: runStreak, correct: state.correctCount, rounds, winPct });
+}
+
+function showTinyNotice(message) {
+  const resultBar = document.getElementById('streak-result');
+  if (!resultBar) return;
+  resultBar.hidden = false;
+  resultBar.className = 'streak-result correct';
+  resultBar.textContent = message;
+}
+
+function copyShareResult() {
+  const text = buildShareText();
+  if (navigator.clipboard?.writeText) {
+    navigator.clipboard.writeText(text)
+      .then(() => showTinyNotice(t('shareCopied')))
+      .catch(() => showTinyNotice(t('shareFailed')));
+  } else {
+    showTinyNotice(t('shareFailed'));
+  }
+}
+
+function endGame() {
+  state.phase = 'gameover';
+  state.finalStreak = Math.max(Number.isFinite(state.finalStreak) ? state.finalStreak : 0, state.streak);
+  incrementGamesPlayed();
+  document.getElementById('main').innerHTML = renderGameOver();
+  document.getElementById('play-again-btn').addEventListener('click', startGame);
+  document.getElementById('share-result-btn')?.addEventListener('click', copyShareResult);
+  bindAchievementLinks();
+}
+
+function nextThumb(img) {
+  const rest = JSON.parse(img.dataset.srcs||'[]');
+  if (rest.length) { img.src=rest[0]; img.dataset.srcs=JSON.stringify(rest.slice(1)); }
+  else img.style.display='none';
+}
+
+/* ── Bootstrap ── */
+function startGame() {
+  const cfg = getSettings();
+  state.allSongs    = buildPool();
+  state.usedIds     = new Set();
+  state.recentBattles = [];
+  state.streak      = 0;
+  state.lives       = cfg.lives;
+  state.totalLives  = cfg.lives;
+  state.round       = 1;
+  state.correctCount = 0;
+  state.finalStreak = 0;
+  state.phase       = 'playing';
+  const pair = pickPair();
+  if (!pair) {
+    document.getElementById('main').innerHTML =
+      `<div class="state-panel"><strong>${escHtml(t('noSongs'))}</strong>${escHtml(t('noSongData'))}</div>`;
+    return;
+  }
+  state.songA = pair.a;
+  state.songB = pair.b;
+  renderGame();
+}
+
+applyStaticTranslations();
+document.getElementById('main').innerHTML =
+  `<div class="state-panel"><strong>${escHtml(t('loading'))}</strong>${escHtml(t('fetching'))}</div>`;
+
+const SONGS_CACHE_KEY = '39c_songs_v1';
+const VIEWS_CACHE_KEY = '39c_views_v1';
+
+function loadSongs() {
+  try { const c=sessionStorage.getItem(SONGS_CACHE_KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e){}
+  return fetch('../data/songs.json')
+    .then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+    .then(data=>{ try{sessionStorage.setItem(SONGS_CACHE_KEY,JSON.stringify(data));}catch(e){} return data; });
+}
+
+function loadViews() {
+  try { const c=sessionStorage.getItem(VIEWS_CACHE_KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e){}
+  return fetch('../data/views.json')
+    .then(r => r.ok ? r.json() : null)
+    .then(data => { if(data) try{sessionStorage.setItem(VIEWS_CACHE_KEY,JSON.stringify(data));}catch(e){} return data; })
+    .catch(() => null);
+}
+
+Promise.all([loadSongs(), loadViews()])
+  .then(([songs, views]) => {
+    allSongsCache = songs.filter(s => getSongTier(s) !== null);
+    if (allSongsCache.length < 2) throw new Error('Not enough songs with NND tags.');
+    if (views && views.views) {
+      viewsCache   = views.views;
+      viewsUpdated = views.updated || null;
+    }
+    startGame();
+  })
+  .catch(err => {
+    document.getElementById('main').innerHTML =
+      `<div class="state-panel"><strong>${escHtml(t('couldNotLoad'))}</strong>${escHtml(err.message)}</div>`;
+  });
+
+/* ── Settings modal ── */
+function openSettings() {
+  const cfg = getSettings();
+  const darkModeBtn = document.getElementById('opt-darkmode');
+  darkModeBtn.classList.toggle('is-on', cfg.darkMode);
+  darkModeBtn.textContent = cfg.darkMode ? 'ON' : 'OFF';
+  darkModeBtn.setAttribute('aria-checked', String(Boolean(cfg.darkMode)));
+  document.querySelectorAll('#opt-pool .settings-choice').forEach(b =>
+    b.classList.toggle('is-active', b.dataset.val === cfg.pool));
+  document.querySelectorAll('#opt-lives .settings-choice').forEach(b =>
+    b.classList.toggle('is-active', b.dataset.val === String(cfg.lives)));
+  const romajiBtn = document.getElementById('opt-romaji');
+  romajiBtn.classList.toggle('is-on', cfg.romaji);
+  romajiBtn.textContent = cfg.romaji ? 'ON' : 'OFF';
+  document.getElementById('settings-modal').hidden = false;
+  document.getElementById('modal-backdrop').hidden = false;
+  return false;
+}
+
+function closeSettings() {
+  document.getElementById('settings-modal').hidden = true;
+  hideBackdropIfNoModals();
+}
+
+document.getElementById('settings-open-btn').addEventListener('click', e => { e.preventDefault(); openSettings(); });
+document.getElementById('settings-open-btn-mobile').addEventListener('click', e => { e.preventDefault(); openSettings(); });
+document.getElementById('settings-close').addEventListener('click', closeSettings);
+document.getElementById('modal-backdrop').addEventListener('click', () => { closeSettings(); closeNotes(); closeAchievements(); closeSupport(); });
+
+function hideBackdropIfNoModals() {
+  const anyOpen = ['settings-modal','notes-modal','achievements-modal','support-modal']
+    .some(id => !document.getElementById(id).hidden);
+  if (!anyOpen) document.getElementById('modal-backdrop').hidden = true;
+}
+
+function renderAchievementsIfOpen() {
+  if (!document.getElementById('achievements-modal').hidden) renderAchievementsModal();
+}
+
+function renderAchievementsModal() {
+  const { store, unlocked, total, pct } = achievementStats();
+  document.getElementById('achievement-summary-count').textContent = `${unlocked} / ${total}`;
+  document.getElementById('achievement-meter-fill').style.width = `${pct}%`;
+  document.getElementById('achievement-list').innerHTML = ACHIEVEMENTS.map(item => {
+    const unlockedAt = store[item.id];
+    const text = achievementText(item);
+    const date = unlockedAt ? new Date(unlockedAt).toLocaleDateString() : t('locked');
+    return `
+      <div class="achievement-row ${unlockedAt ? 'is-unlocked' : 'is-locked'}">
+        <span class="achievement-icon">${escHtml(item.icon)}</span>
+        <div>
+          <div class="achievement-title">${escHtml(text.title)}</div>
+          <div class="achievement-desc">${escHtml(text.desc)}</div>
+        </div>
+        <span class="achievement-date">${escHtml(date)}</span>
+      </div>`;
+  }).join('');
+}
+
+function openAchievements() {
+  renderAchievementsModal();
+  document.getElementById('achievements-modal').hidden = false;
+  document.getElementById('modal-backdrop').hidden = false;
+}
+
+function closeAchievements() {
+  document.getElementById('achievements-modal').hidden = true;
+  hideBackdropIfNoModals();
+}
+
+document.getElementById('achievements-open-btn').addEventListener('click', e => { e.preventDefault(); openAchievements(); });
+document.getElementById('achievements-open-btn-mobile').addEventListener('click', e => { e.preventDefault(); openAchievements(); });
+document.getElementById('achievements-close').addEventListener('click', closeAchievements);
+
+/* ── Release notes modal ── */
+const RELEASES = [
+  {
+    version: 'v1.0',
+    notesByLang: {
+      en: [
+        'Initial release: guess which VOCALOID song has more NicoNico views.',
+        'Real NicoNico view counts, cached locally and refreshed from the song data file.',
+        'Streak system with configurable lives, session stats, and recent guesses.',
+        'Local achievements for streaks, perfect runs, comeback calls, close matchups, 1,000-correct lifetime progress, and high-tier matchups.',
+        'Share result button for copying your run after game over.',
+        'Song cards styled as classic NicoNico video player modules, with links to NicoNico and VocaDB.',
+        'Settings: song pool tier, lives per game, and romaji title display.',
+        'English, Japanese, Spanish, and Korean interface options.',
+      ],
+      ja: [
+        '初回リリース: ニコニコ再生数が多いVOCALOID曲を当てるゲームです。',
+        '実際のニコニコ再生数を曲データから読み込み、ローカルにキャッシュします。',
+        'ライフ数を変更できる連勝システム、セッション統計、最近の回答履歴を追加しました。',
+        '連勝、パーフェクト、復活、接戦、累計1000正解、高ティア対決などのローカル実績を追加しました。',
+        'ゲームオーバー後に結果をコピーできる共有ボタンを追加しました。',
+        'NicoNico風の動画カード表示と、NicoNico / VocaDBリンクを追加しました。',
+        '設定から曲プール、ライフ数、ローマ字タイトル表示を変更できます。',
+        '英語、日本語、スペイン語、韓国語の表示に対応しました。',
+      ],
+      es: [
+        'Lanzamiento inicial: adivina qué canción VOCALOID tiene más vistas en NicoNico.',
+        'Usa conteos reales de NicoNico desde el archivo de datos y los guarda en caché local.',
+        'Sistema de racha con vidas configurables, estadísticas de sesión e historial reciente.',
+        'Logros locales para rachas, partidas perfectas, remontadas, duelos ajustados, 1,000 aciertos totales y duelos de alto nivel.',
+        'Botón para copiar el resultado al terminar la partida.',
+        'Tarjetas de canciones con estilo de reproductor clásico de NicoNico y enlaces a NicoNico y VocaDB.',
+        'Ajustes para pool de canciones, vidas por partida y títulos en romaji.',
+        'Interfaz disponible en inglés, japonés, español y coreano.',
+      ],
+      ko: [
+        '첫 릴리스: 어느 VOCALOID 곡의 NicoNico 조회수가 더 많은지 맞히는 게임입니다.',
+        '곡 데이터 파일의 실제 NicoNico 조회수를 사용하고 로컬에 캐시합니다.',
+        '설정 가능한 라이프, 세션 통계, 최근 선택 기록이 있는 연승 시스템을 추가했습니다.',
+        '연승, 퍼펙트 런, 재도전, 접전, 누적 1,000정답, 고티어 매치업 로컬 업적을 추가했습니다.',
+        '게임 오버 후 결과를 복사하는 공유 버튼을 추가했습니다.',
+        'NicoNico 클래식 플레이어 느낌의 곡 카드와 NicoNico / VocaDB 링크를 추가했습니다.',
+        '곡 풀, 게임당 라이프, 로마자 제목 표시를 설정할 수 있습니다.',
+        '영어, 일본어, 스페인어, 한국어 인터페이스를 지원합니다.',
+      ],
+    },
+  },
+];
+
+function renderRelease(version) {
+  const rel = RELEASES.find(r => r.version === version) || RELEASES[0];
+  document.querySelectorAll('#release-tabs .release-tab').forEach(b =>
+    b.classList.toggle('is-active', b.dataset.version === rel.version));
+  document.getElementById('release-version').textContent = t('releaseTitle', { version: rel.version });
+  const notes = rel.notesByLang?.[getLanguage()] || rel.notesByLang?.en || rel.notes || [];
+  document.getElementById('release-list').innerHTML =
+    notes.map(n => `<li>${escHtml(n)}</li>`).join('');
+}
+
+document.getElementById('release-tabs').innerHTML = RELEASES.map(r =>
+  `<button class="release-tab" data-version="${r.version}">${r.version}</button>`).join('');
+document.getElementById('release-tabs').addEventListener('click', e => {
+  const btn = e.target.closest('.release-tab');
+  if (btn) renderRelease(btn.dataset.version);
+});
+
+function openNotes() {
+  renderRelease(RELEASES[0].version);
+  document.getElementById('notes-modal').hidden = false;
+  document.getElementById('modal-backdrop').hidden = false;
+}
+function closeNotes() {
+  document.getElementById('notes-modal').hidden = true;
+  hideBackdropIfNoModals();
+}
+document.getElementById('notes-open-btn').addEventListener('click', e => { e.preventDefault(); openNotes(); });
+document.getElementById('notes-open-btn-mobile').addEventListener('click', e => { e.preventDefault(); openNotes(); });
+document.getElementById('notes-close').addEventListener('click', closeNotes);
+
+/* ── Support modal ── */
+function openSupport() {
+  document.getElementById('support-modal').hidden = false;
+  document.getElementById('modal-backdrop').hidden = false;
+}
+function closeSupport() {
+  document.getElementById('support-modal').hidden = true;
+  hideBackdropIfNoModals();
+}
+document.getElementById('support-close').addEventListener('click', closeSupport);
+
+document.querySelectorAll('.language-button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    localStorage.setItem(LANGUAGE_KEY, btn.dataset.lang);
+    rerenderForLanguage();
+  });
+});
+
+document.getElementById('opt-darkmode').addEventListener('click', () => {
+  const cfg = getSettings();
+  cfg.darkMode = !cfg.darkMode;
+  saveSettings(cfg);
+  applyDarkMode(cfg.darkMode);
+  const btn = document.getElementById('opt-darkmode');
+  btn.classList.toggle('is-on', cfg.darkMode);
+  btn.textContent = cfg.darkMode ? 'ON' : 'OFF';
+  btn.setAttribute('aria-checked', String(cfg.darkMode));
+});
+
+['opt-pool','opt-lives'].forEach(groupId => {
+  document.getElementById(groupId).addEventListener('click', e => {
+    const btn = e.target.closest('.settings-choice');
+    if (!btn) return;
+    btn.closest('.settings-multi').querySelectorAll('.settings-choice')
+      .forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+  });
+});
+
+document.getElementById('opt-romaji').addEventListener('click', () => {
+  const cfg = getSettings();
+  cfg.romaji = !cfg.romaji;
+  saveSettings(cfg);
+  const btn = document.getElementById('opt-romaji');
+  btn.classList.toggle('is-on', cfg.romaji);
+  btn.textContent = cfg.romaji ? 'ON' : 'OFF';
+  if (state.phase === 'playing') renderGame();
+});
+
+document.getElementById('settings-apply').addEventListener('click', () => {
+  const pool  = document.querySelector('#opt-pool .is-active')?.dataset.val  || DEFAULTS.pool;
+  const lives = parseInt(document.querySelector('#opt-lives .is-active')?.dataset.val || DEFAULTS.lives);
+  saveSettings({ ...getSettings(), pool, lives });
+  closeSettings();
+  startGame();
+});
+</script>
+</body>
+</html>

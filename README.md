@@ -1,6 +1,6 @@
-# VOCALOID Heardle
+# Vocaloidle
 
-A fan-made VOCALOID Heardle-style guessing game.
+Fan-made VOCALOID music games, including VOCALOID Heardle and VOCALOID Higher or Lower.
 
 ## Disclaimer
 
@@ -12,10 +12,14 @@ Contact: kzen@sodapines.dev
 
 ## Project structure
 
-- `index.html` - page markup
-- `styles.css` - visual design
-- `app.js` - game logic
+- `index.html` - Vocaloidle home and game selector
+- `heardle/index.html` - VOCALOID Heardle page markup
+- `heardle/app.js` - Heardle game logic
+- `heardle/settings.js` - Heardle settings logic
+- `higher-or-lower/index.html` - Higher or Lower page, styles, and game logic
+- `styles.css` - shared Heardle visual design
 - `data/songs.js` - generated song metadata used by the browser
+- `data/views.json` - cached NicoNico view counts used by Higher or Lower
 - `data/song-ids.txt` - VocaDB song IDs used for regeneration
 - `scripts/generate-songs.js` - refreshes metadata from VocaDB
 

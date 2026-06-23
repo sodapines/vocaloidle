@@ -7701,3 +7701,53 @@ body.no-marquee .nnd-marquee-inner {
     animation: none !important;
   }
 }
+
+/* Match Higher / Lower's dedicated compact utility strip on phones. */
+@media (max-width: 680px) {
+  .nnd-mainbar {
+    padding: 6px 10px;
+    gap: 8px;
+    border-bottom: 2px solid var(--red);
+  }
+
+  .nnd-header-links {
+    display: none !important;
+  }
+
+  .nnd-mobile-settings {
+    display: flex !important;
+    width: 100%;
+    margin: 0;
+    padding: 3px 10px;
+    gap: 7px;
+    align-items: center;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    background: var(--sf);
+    border-bottom: 1px solid var(--line);
+    scrollbar-width: thin;
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  .nnd-mobile-settings .nnd-divider {
+    display: inline;
+    flex: 0 0 auto;
+    color: var(--line);
+  }
+
+  .nnd-mobile-settings a {
+    flex: 0 0 auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    font-weight: 400;
+    white-space: nowrap;
+  }
+
+  body.dark-mode .nnd-mobile-settings {
+    background: #171717;
+    border-color: var(--ls);
+  }
+}
