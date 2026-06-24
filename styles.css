@@ -347,45 +347,67 @@ body.dark-mode .page-rail::before { background: rgba(255,255,255,0.08); }
 /* ── INTRO PANEL ── */
 .nnd-intro-panel {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   gap: 8px;
-  padding: 5px 8px;
-  background: var(--surface);
-  border: 1px solid var(--line);
+  padding: 3px 5px 0;
+  border: 2px solid var(--ls);
+  border-top: 3px solid var(--red);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #fbfaf6, #e6e3dc);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.85), inset -1px -1px 0 rgba(0,0,0,0.10);
+  font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
   flex-wrap: nowrap;
-  overflow: hidden;
 }
 .eyebrow {
-  display: inline-block;
-  padding: 1px 7px;
-  background: var(--red);
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px;
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
   color: #ffffff;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  border: 1px solid var(--red-dark);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.intro-copy { align-self: center; color: var(--muted); font-size: 11px; flex-shrink: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mode-switch { display: flex; align-items: flex-end; gap: 3px; margin-left: auto; border: none; flex-shrink: 0; }
+.mode-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-height: 0;
+  height: auto;
+  padding: 5px 14px 6px;
+  color: var(--muted);
+  background: linear-gradient(to bottom, #f3f1ea, #dcd8cf);
+  border: 2px solid;
+  border-bottom: 0;
+  border-color: #ffffff var(--ls) var(--ls) #ffffff;
+  margin-bottom: -2px;
+  font-family: inherit;
   font-size: 11px;
   font-weight: 700;
-  flex-shrink: 0;
-}
-.intro-copy { color: var(--muted); font-size: 12px; flex-shrink: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.mode-switch { display: flex; margin-left: auto; border: 1px solid var(--ls); flex-shrink: 0; }
-.mode-button {
-  min-height: 24px;
-  height: 24px;
-  padding: 0 12px;
-  color: var(--muted);
-  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
-  border: none;
-  border-right: 1px solid var(--ls);
-  font-size: 12px;
-  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  white-space: nowrap;
   transition: none;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -1px 0 rgba(0,0,0,0.08);
+  box-shadow: none;
 }
-.mode-button:last-child { border-right: none; }
-.mode-button:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); }
+.mode-button:last-child { border-right: 2px solid var(--ls); }
+.mode-button:hover { background: linear-gradient(to bottom, #fff6f6, #f1dcdc); color: var(--red); }
 .mode-button.is-active {
-  background: var(--red);
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
   color: #ffffff;
-  font-weight: 700;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+  padding-bottom: 8px;
+  z-index: 2;
+  border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
 }
 .difficulty-mode-panel {
   display: flex;
@@ -2611,8 +2633,12 @@ body.dark-mode .achievement-card.is-mikumiku small {
   .cover-placeholder { aspect-ratio: 4 / 3; max-height: 240px; }
 
   /* Let the intro line wrap instead of getting ellipsis'd. */
-  .nnd-intro-panel { flex-wrap: wrap; }
+  .nnd-intro-panel { flex-wrap: wrap; padding-bottom: 0; }
   .intro-copy { white-space: normal; overflow: visible; text-overflow: clip; flex-basis: 100%; }
+  .mode-switch { width: 100%; gap: 0; margin-top: 3px; }
+  .mode-button { flex: 1; justify-content: center; margin-bottom: 0; border: 1px solid var(--ls); border-right: 0; }
+  .mode-button:last-child { border-right: 1px solid var(--ls); }
+  .mode-button.is-active { padding-bottom: 6px; border-color: var(--red-dark); }
   .difficulty-mode-panel {
     flex-wrap: wrap;
     gap: 3px 0;
@@ -2804,9 +2830,10 @@ body.dark-mode button { background: linear-gradient(to bottom, #dd1111, #aa0000)
 body.dark-mode button:hover { background: linear-gradient(to bottom, #ee2222, #bb1111); }
 body.dark-mode .secondary-button { background: linear-gradient(to bottom, #282828, #1a1a1a); border-color: #333333; color: #cccccc; }
 body.dark-mode .secondary-button:hover { background: linear-gradient(to bottom, #303030, #222222); color: #ffffff; }
-body.dark-mode .mode-button { background: linear-gradient(to bottom, #282828, #1a1a1a); color: #888888; border-color: #333333; }
+body.dark-mode .mode-button { background: linear-gradient(to bottom, #2a2a2a, #1d1d1d); color: #888888; border-color: #4a4a4a #111 #111 #4a4a4a; }
 body.dark-mode .mode-button:hover { background: linear-gradient(to bottom, #331111, #220a0a); color: #cc4444; }
-body.dark-mode .mode-button.is-active { background: var(--red); color: #ffffff; box-shadow: none; }
+body.dark-mode .mode-button:last-child { border-right-color: #111; }
+body.dark-mode .mode-button.is-active { background: linear-gradient(to bottom, var(--red), var(--red-dark)); color: #ffffff; border-color: var(--red) var(--red-dark) var(--red-dark) var(--red); box-shadow: inset 1px 1px 0 rgba(255,255,255,0.2); }
 body.dark-mode .difficulty-mode-switch { border-color: #333333; background: #161616; }
 body.dark-mode .difficulty-mode-button { background: linear-gradient(to bottom, #282828, #1a1a1a); color: #888888; border-color: #333333; box-shadow: none; }
 body.dark-mode .difficulty-mode-button:hover:not(:disabled) { background: linear-gradient(to bottom, #331111, #220a0a); color: #cc4444; }
@@ -2835,7 +2862,12 @@ body.dark-mode .filter-year-strip button.is-active { background: var(--red); col
 body.dark-mode .filter-year-strip { border-color: #333333; }
 body.dark-mode .filter-warning { background: #221e0a; border-color: #5d4d00; color: #d0c060; }
 body.dark-mode .difficulty-practice-note { color: #777777; }
-body.dark-mode .nnd-intro-panel { background: #111111; border-color: #2a2a2a; }
+body.dark-mode .nnd-intro-panel {
+  background: linear-gradient(to bottom, #232323, #181818);
+  border-color: #3b3b3b;
+  border-top-color: var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05), inset -1px -1px 0 rgba(0,0,0,0.4);
+}
 body.dark-mode .game-panel {
   background: #161616;
   border-color: #2a2a2a;
@@ -6502,11 +6534,7 @@ body.dark-mode .clip-note {
   font-size: 10px !important;
 }
 
-/* ── Intro panel: eyebrow sits 1px off-center, intro copy color slightly different ── */
-.eyebrow {
-  margin-top: 1px;
-  letter-spacing: 0.02em;
-}
+/* ── Intro panel: intro copy color slightly different ── */
 .intro-copy {
   font-size: 11px !important;
   color: #666 !important;
@@ -6592,9 +6620,10 @@ body.dark-mode .clip-note {
   padding-bottom: 1px !important;
 }
 
-/* ── Mode switch: buttons slightly unequal — "Daily" wider due to active state ── */
+/* ── Mode switch: active tab slightly wider ── */
 .mode-button.is-active {
-  padding: 0 14px !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
 }
 
 /* ── Dark mode ── */

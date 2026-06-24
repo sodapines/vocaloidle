@@ -324,6 +324,9 @@ async function main() {
   for (const [index, audioFile] of audioFiles.entries()) {
     const song = await fetchSong(audioFile.id);
     const coverArts = getCoverArtCandidates(song);
+    const nndOriginalPv = (song.pvs || []).find(
+      (pv) => pv.service === "NicoNicoDouga" && pv.pvType === "Original",
+    );
     const generatedSong = {
       date: getDateForSong(existingById, audioFile.id, index),
       vocadbId: audioFile.id,
@@ -337,6 +340,10 @@ async function main() {
       publishDate: song.publishDate || "",
       acceptedTitles: getAcceptedTitles(song),
       audioClip: getAudioClip(audioFile.fileName),
+      // Only songs with an ORIGINAL NicoNico upload belong in the view-count games.
+      // Reprints / other-media NND uploads can be deleted or differ in views.
+      nndOriginal: Boolean(nndOriginalPv),
+      nndOriginalId: nndOriginalPv?.pvId || "",
     };
 
     generatedSongs.push({

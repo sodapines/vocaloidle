@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>39charts — Producers</title>
+<style>
+:root {
+  --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
+  --text: #111; --muted: #555; --faint: #999;
+  --line: #c8c4bc; --ls: #b8b4ac;
+  --red: #cc0000; --red-dark: #990000; --link: #0066cc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  min-height: 100%;
+  font-family: "MS PGothic","Hiragino Kaku Gothic Pro","Meiryo",Arial,sans-serif;
+  font-size: 12px; color: var(--text); background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,240,0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.18) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
+  line-height: 1.4;
+}
+body { min-height: 100vh; display: flex; flex-direction: column; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--red); }
+button, input { font: inherit; cursor: pointer; }
+
+/* ── TOP BAR ── */
+.nnd-topbar {
+  width: 100%; background: #111; border-bottom: 1px solid #000;
+  height: 24px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 10px;
+  font-size: 11px; color: #777;
+}
+
+/* ── MAIN HEADER ── */
+.nnd-mainbar {
+  width: 100%; background: #fff; border-bottom: 2px solid var(--red);
+  padding: 6px 10px; display: flex; align-items: center; gap: 16px;
+}
+.nnd-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text); }
+.nnd-logo:hover { text-decoration: none; }
+.nnd-logo-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; background: var(--red); color: #fff;
+  font-size: 13px; font-weight: 900; border: 1px solid var(--red-dark); flex-shrink: 0;
+}
+.nnd-logo-text { font-size: 15px; font-weight: 900; color: #111; letter-spacing: -0.02em; line-height: 1; }
+.nnd-logo-sub  { display: block; font-size: 10px; font-weight: 400; color: var(--muted); }
+.nnd-header-links { display: flex; align-items: center; gap: 6px; font-size: 12px; margin-left: auto; }
+.nnd-header-links a {
+  color: var(--link); display: inline-block;
+  padding: 2px 8px; border: 1px solid transparent;
+}
+.nnd-header-links a:hover {
+  text-decoration: none; color: var(--red);
+  background: #f6f4ee; border-color: #fff #9a968e #9a968e #fff;
+}
+.nnd-header-links a:active { background: #ece9e2; border-color: #9a968e #fff #fff #9a968e; }
+.nnd-divider { color: var(--line); }
+
+/* ── BODY ── */
+.nnd-body { flex: 1 0 auto; width: 100%; max-width: 1060px; margin: 0 auto; padding: 8px; }
+.nnd-main { display: flex; flex-direction: column; gap: 6px; }
+
+/* ── INTRO PANEL ── */
+.nnd-intro-panel {
+  display: flex; align-items: center; gap: 8px; padding: 5px 8px;
+  background: var(--surface); border: 1px solid var(--line); flex-wrap: wrap;
+}
+.eyebrow {
+  display: inline-block; padding: 1px 7px;
+  background: var(--red); color: #fff; font-size: 11px; font-weight: 700; flex-shrink: 0;
+}
+.intro-copy { color: var(--muted); font-size: 12px; }
+
+/* ── CONTROLS ── */
+.controls-bar {
+  display: flex; align-items: center; gap: 5px; padding: 4px 6px;
+  background: var(--sf); border: 1px solid var(--line);
+}
+.controls-bar input[type="text"] {
+  flex: 1; height: 24px; padding: 0 7px; font-size: 11px;
+  background: #fff; border: 1px solid var(--ls); border-radius: 0;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
+}
+.controls-bar input:focus { outline: none; border-color: var(--link); box-shadow: inset 0 1px 2px rgba(0,0,0,0.08), 0 0 0 2px rgba(0,102,204,0.18); }
+.sort-switch { display: flex; border: 1px solid var(--ls); }
+.sort-btn {
+  min-height: 22px; height: 22px; padding: 0 9px;
+  color: var(--muted); background: linear-gradient(to bottom,#fff,#e8e8e8);
+  border: none; border-right: 1px solid var(--ls); font-size: 10px; font-weight: 400;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.sort-btn:last-child { border-right: none; }
+.sort-btn:hover { background: linear-gradient(to bottom,#fff5f5,#ffd0d0); color: var(--red); }
+.sort-btn.is-active { background: var(--red); color: #fff; font-weight: 700; }
+.result-count { color: var(--faint); font-size: 10px; white-space: nowrap; }
+
+/* ── PRODUCER GRID ── */
+.producer-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+}
+
+/* ── PRODUCER CARD ── */
+.producer-card {
+  background: var(--surface); border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.08);
+  display: flex; flex-direction: column; overflow: hidden;
+}
+.producer-card:hover { border-color: var(--ls); box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 5px rgba(0,0,0,0.13); }
+
+.producer-thumb {
+  position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden;
+  background: #2a2a2a; flex-shrink: 0;
+}
+.producer-thumb-placeholder {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.producer-cover-img {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+  z-index: 1; filter: brightness(0.7);
+}
+.producer-thumb-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%);
+  padding: 22px 8px 6px;
+}
+.producer-name-over {
+  font-size: 13px; font-weight: 900; color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.producer-stats-over {
+  font-size: 10px; color: rgba(255,255,255,0.75);
+  margin-top: 1px;
+}
+.producer-tier-badge {
+  position: absolute; bottom: 5px; right: 5px; z-index: 4;
+  padding: 1px 5px; background: var(--red); color: #fff;
+  font-size: 9px; font-weight: 700; line-height: 14px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.45);
+}
+.producer-scanlines {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background: repeating-linear-gradient(to bottom,
+    transparent 0px, transparent 2px,
+    rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 3px);
+}
+
+.producer-foot {
+  padding: 5px 7px; display: flex; align-items: center;
+  justify-content: space-between; gap: 4px;
+  border-top: 1px solid var(--line); background: var(--sf);
+  flex-shrink: 0;
+}
+.producer-tags { display: flex; gap: 2px; flex-wrap: wrap; flex: 1; }
+.vtag {
+  display: inline-block; padding: 0 4px;
+  font-size: 9px; line-height: 14px; border: 1px solid; font-weight: 700;
+}
+.vtag-miku   { background: #e0f4f8; border-color: #39c5bb; color: #007a73; }
+.vtag-rin    { background: #fff4d0; border-color: #f5a623; color: #915800; }
+.vtag-len    { background: #fffacc; border-color: #d4b800; color: #7a6500; }
+.vtag-luka   { background: #fce4ec; border-color: #e91e8c; color: #9c0060; }
+.vtag-gumi   { background: #e8f5e9; border-color: #43a047; color: #1b5e20; }
+.vtag-ia     { background: #f3e5f5; border-color: #9c27b0; color: #6a1b9a; }
+.vtag-kaito  { background: #e8eaf6; border-color: #3949ab; color: #1a237e; }
+.vtag-meiko  { background: #fce8e6; border-color: #e53935; color: #b71c1c; }
+.vtag-teto   { background: #fde8ec; border-color: #d44466; color: #8c1030; }
+.vtag-flower { background: #f0e4f8; border-color: #9040a0; color: #581070; }
+.vtag-kafu   { background: #d8f0f8; border-color: #2096b8; color: #005878; }
+.vtag-una    { background: #fdf0d0; border-color: #e08000; color: #7a4000; }
+.vtag-yuki   { background: #fff8d0; border-color: #b09000; color: #5a4800; }
+.vtag-rei    { background: #fce0f0; border-color: #cc3080; color: #880050; }
+.vtag-defoko { background: #e0e8f0; border-color: #6080a0; color: #304060; }
+.vtag-other  { background: var(--sf); border-color: var(--ls); color: var(--muted); }
+
+.view-songs-btn {
+  display: inline-flex; align-items: center; white-space: nowrap;
+  height: 20px; padding: 0 7px;
+  background: linear-gradient(to bottom,#fff,#e8e8e8);
+  border: 1px solid var(--ls); color: var(--link);
+  font-size: 10px; font-weight: 700; flex-shrink: 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+.view-songs-btn:hover { background: linear-gradient(to bottom,#fff5f5,#ffd0d0); color: var(--red); border-color: var(--red); text-decoration: none; }
+
+/* ── LOADING ── */
+.state-message {
+  grid-column: 1 / -1; padding: 32px; text-align: center;
+  color: var(--faint); font-size: 12px;
+  background: var(--surface); border: 1px solid var(--line);
+}
+.state-message strong { display: block; margin-bottom: 4px; color: var(--muted); font-size: 13px; }
+
+/* ── FOOTER ── */
+.site-footer {
+  flex-shrink: 0; width: 100%; background: #e0e0e0;
+  border-top: 1px solid var(--ls); padding: 5px 10px;
+  font-size: 11px; color: var(--faint); text-align: center;
+}
+.site-footer a { color: var(--link); font-size: 11px; }
+.site-footer a:hover { text-decoration: underline; }
+
+@media (max-width: 1000px) { .producer-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 700px)  { .producer-grid { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 460px)  { .producer-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ════════ VISUAL POLISH PASS ════════ */
+.producer-card { transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease; }
+.producer-card:hover { transform: translateY(-2px); border-color: var(--red); box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 4px 11px rgba(0,0,0,0.20); }
+.producer-cover-img { transition: transform .28s ease; }
+.producer-card:hover .producer-cover-img { transform: scale(1.05); }
+.producer-cover-img.is-artist { object-position: top center; filter: brightness(0.78); }
+.sort-btn.is-active { background: linear-gradient(to bottom, var(--red), var(--red-dark)); box-shadow: inset 0 1px 0 rgba(255,255,255,0.28); }
+.eyebrow { background: linear-gradient(to bottom, var(--red), var(--red-dark)); border: 1px solid var(--red-dark); box-shadow: inset 0 1px 0 rgba(255,255,255,0.3); }
+</style>
+</head>
+<body>
+
+<div class="nnd-topbar">
+  <span>39charts &rsaquo; Producers</span>
+  <span style="color:#666;font-size:11px">Producer Index</span>
+</div>
+
+<div class="nnd-mainbar">
+  <a class="nnd-logo" href="index.html">
+    <span class="nnd-logo-mark">39</span>
+    <span class="nnd-logo-text">39charts<span class="nnd-logo-sub">Vocaloid Song Rankings</span></span>
+  </a>
+  <nav class="nnd-header-links">
+    <a href="index.html">Rankings</a>
+    <span class="nnd-divider">|</span>
+    <a href="producers.html">Producers</a>
+    <span class="nnd-divider">|</span>
+    <a href="about.html">About</a>
+    <span class="nnd-divider">|</span>
+    <a href="add.html">+ Add Song</a>
+  </nav>
+</div>
+
+<div class="nnd-body">
+  <main class="nnd-main">
+
+    <div class="nnd-intro-panel">
+      <span class="eyebrow">PRODUCERS</span>
+      <span class="intro-copy" id="intro-copy">Loading producer index…</span>
+    </div>
+
+    <div class="controls-bar">
+      <input type="text" id="search-input" placeholder="Search producers…" autocomplete="off">
+      <div class="sort-switch">
+        <button class="sort-btn is-active" data-sort="views">Views</button>
+        <button class="sort-btn" data-sort="songs">Songs</button>
+        <button class="sort-btn" data-sort="tier">Top Tier</button>
+        <button class="sort-btn" data-sort="name">Name</button>
+      </div>
+      <span class="result-count" id="result-count">Loading…</span>
+    </div>
+
+    <div class="producer-grid" id="producer-grid">
+      <div class="state-message"><strong>Loading…</strong>Fetching producer data</div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
+    <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
+    &nbsp;·&nbsp;
+    <a href="../">Vocaloid Heardle</a>
+  </p>
+</footer>
+
+<script>
+const VOCALIST_MAP = [
+  { key:"miku",   label:"Miku",   match:/hatsune miku/i,       cls:"vtag-miku"   },
+  { key:"rin",    label:"Rin",    match:/kagamine rin/i,        cls:"vtag-rin"    },
+  { key:"len",    label:"Len",    match:/kagamine len/i,        cls:"vtag-len"    },
+  { key:"luka",   label:"Luka",   match:/megurine luka/i,       cls:"vtag-luka"   },
+  { key:"gumi",   label:"GUMI",   match:/\bgumi\b|megpoid/i,    cls:"vtag-gumi"   },
+  { key:"ia",     label:"IA",     match:/^ia$|^ia :/i,          cls:"vtag-ia"     },
+  { key:"kaito",  label:"KAITO",  match:/\bkaito\b/i,           cls:"vtag-kaito"  },
+  { key:"meiko",  label:"MEIKO",  match:/\bmeiko\b/i,           cls:"vtag-meiko"  },
+  { key:"teto",   label:"Teto",   match:/kasane teto/i,         cls:"vtag-teto"   },
+  { key:"flower", label:"flower", match:/\bflower\b|v flower/i, cls:"vtag-flower" },
+  { key:"kafu",   label:"KAFU",   match:/\bkafu\b/i,            cls:"vtag-kafu"   },
+  { key:"una",    label:"Una",    match:/otomachi una/i,         cls:"vtag-una"    },
+  { key:"yuki",   label:"Yuki",   match:/kaai yuki/i,           cls:"vtag-yuki"   },
+  { key:"rei",    label:"Rei",    match:/adachi rei/i,           cls:"vtag-rei"    },
+  { key:"defoko", label:"Defoko", match:/utane uta|defoko/i,    cls:"vtag-defoko" },
+];
+
+const VIEW_TIERS = [
+  {tag:"100m",label:"100M+",score:6},{tag:"10m",label:"10M+",score:5},
+  {tag:"1m",  label:"1M+",  score:4},{tag:"100k",label:"100K+",score:3},
+  {tag:"10k", label:"10K+", score:2},
+];
+
+function tierScore(song) {
+  const tags = song.sourceTags||[];
+  for (const t of VIEW_TIERS)
+    if (tags.some(tag=>tag.endsWith("-"+t.tag)||tag===t.tag)) return t;
+  return {label:null,score:0};
+}
+
+/* ── Real NicoNico view counts ── */
+let VIEWS = {};
+let YT_STATS = {};
+function nndViews(song){ const v=VIEWS[String(song.vocadbId)]; return typeof v==="number"?v:null; }
+function ytViews(song){ const s=YT_STATS[String(song.vocadbId)]; return s&&typeof s.views==="number"?s.views:null; }
+function getViewCount(song){ const n=nndViews(song),y=ytViews(song); return (n==null&&y==null)?null:(n||0)+(y||0); }
+function formatViews(n){ if(n>=1e9)return (n/1e9).toFixed(n>=1e10?1:2).replace(/\.?0+$/,"")+"B"; if(n>=1e6)return (n/1e6).toFixed(n>=1e7?1:2).replace(/\.?0+$/,"")+"M"; if(n>=1e3)return Math.round(n/1e3)+"K"; return String(n); }
+function loadViews(){
+  const KEY="39c_views_v2";
+  try{ const c=sessionStorage.getItem(KEY); if(c) return Promise.resolve(JSON.parse(c)); }catch(e){}
+  return fetch("../data/views.json").then(r=>r.ok?r.json():null)
+    .then(d=>{ if(d){ try{sessionStorage.setItem(KEY,JSON.stringify(d));}catch(e){} } return d; })
+    .catch(()=>null);
+}
+function loadYtViews(){
+  const KEY="39c_ytviews_v2";
+  try{ const c=sessionStorage.getItem(KEY); if(c) return Promise.resolve(JSON.parse(c)); }catch(e){}
+  return fetch("../data/ytviews.json").then(r=>r.ok?r.json():null)
+    .then(d=>{ if(d){ try{sessionStorage.setItem(KEY,JSON.stringify(d));}catch(e){} } return d; })
+    .catch(()=>null);
+}
+let ARTISTS = {};
+function artistImg(name){ const u=ARTISTS[name]; return (typeof u==="string"&&u)?u:null; }
+function loadArtists(){
+  const KEY="39c_artists_v2";
+  try{ const c=sessionStorage.getItem(KEY); if(c) return Promise.resolve(JSON.parse(c)); }catch(e){}
+  return fetch("../data/artists.json").then(r=>r.ok?r.json():null)
+    .then(d=>{ if(d){ try{sessionStorage.setItem(KEY,JSON.stringify(d));}catch(e){} } return d; })
+    .catch(()=>null);
+}
+
+function coverArtChain(song) {
+  const all = [...(song.coverArts||[])];
+  if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
+  const ytHq = song.ytOriginalId ? `https://i.ytimg.com/vi/${song.ytOriginalId}/hqdefault.jpg` : null;
+  if (ytHq) { all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`); }
+  const nndNum = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/)?.[1] : null;
+  if (nndNum) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${nndNum}/${nndNum}`);
+  const p = u => (ytHq&&u===ytHq)?-1:u.includes("ytimg.com")&&u.includes("hqdefault")?0:u.includes("ytimg.com")&&u.includes("mqdefault")?1:u.includes("ytimg.com")?2:u.includes("sndcdn.com")?3:4;
+  return [...new Set(all)].sort((a,b)=>p(a)-p(b));
+}
+
+function advanceThumb(img, skipYt) {
+  let rest = JSON.parse(img.dataset.srcs||"[]");
+  if (skipYt) rest = rest.filter(u=>!u.includes("ytimg.com"));
+  if (rest.length) { img.src=rest[0]; img.dataset.srcs=JSON.stringify(rest.slice(1)); }
+  else img.remove();
+}
+function tryNextSrc(img) { advanceThumb(img, false); }
+function thumbOnload(img) {
+  if (img.naturalWidth && img.naturalWidth<=120 && img.naturalHeight<=90 && /ytimg\.com/.test(img.currentSrc||img.src)) advanceThumb(img, true);
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function topVocalists(songs) {
+  const counts = {};
+  songs.forEach(s => {
+    (s.singerNames||[]).forEach(name => {
+      if (!name || /various/i.test(name)) return;
+      const v = VOCALIST_MAP.find(v => v.match.test(name));
+      const key = v ? v.key : name;
+      counts[key] = (counts[key]||0) + 1;
+    });
+  });
+  return Object.entries(counts)
+    .sort((a,b)=>b[1]-a[1])
+    .slice(0, 3)
+    .map(([key]) => VOCALIST_MAP.find(v=>v.key===key) || {key,label:key.length>12?key.split(" ")[0]:key,cls:"vtag-other"});
+}
+
+/* ── State ── */
+let ALL_PRODUCERS = [];
+let activeSort   = "views";
+let searchQuery  = "";
+
+function getProducers() {
+  let list = [...ALL_PRODUCERS];
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    list = list.filter(p => p.name.toLowerCase().includes(q));
+  }
+  if (activeSort === "name") {
+    list.sort((a,b) => a.name.localeCompare(b.name));
+  } else if (activeSort === "tier") {
+    list.sort((a,b) => b.topScore - a.topScore || b.count - a.count);
+  } else if (activeSort === "songs") {
+    list.sort((a,b) => b.count - a.count || a.name.localeCompare(b.name));
+  } else {
+    list.sort((a,b) => b.views - a.views || b.count - a.count);
+  }
+  return list;
+}
+
+function render() {
+  const list = getProducers();
+  const grid = document.getElementById("producer-grid");
+  document.getElementById("result-count").textContent =
+    `${list.length} producer${list.length !== 1 ? "s" : ""}`;
+
+  if (list.length === 0) {
+    grid.innerHTML = `<div class="state-message">No producers match your search.</div>`;
+    return;
+  }
+
+  grid.innerHTML = list.map(p => {
+    const name    = escHtml(p.name);
+    const link    = `producer.html?name=${encodeURIComponent(p.name)}`;
+    const chain   = p.topSong ? coverArtChain(p.topSong) : [];
+    const pic     = artistImg(p.name);
+    const first   = pic || chain[0];
+    const srcs    = pic ? chain : chain.slice(1); // artist image first, song covers as fallback
+    const coverHtml = first
+      ? `<img class="producer-cover-img${pic ? " is-artist" : ""}" src="${escHtml(first)}" alt="" loading="lazy" data-srcs="${escHtml(JSON.stringify(srcs))}" onload="thumbOnload(this)" onerror="tryNextSrc(this)">`
+      : "";
+    const tierBadge = p.topTier
+      ? `<span class="producer-tier-badge">${p.topTier}</span>` : "";
+    const vocalists = topVocalists(p.songs);
+    const tagHtml = vocalists.map(v=>`<span class="vtag ${v.cls}">${v.label}</span>`).join("");
+    const colors = {bg:"#2a2a2a",fg:"#888"};
+
+    return `
+      <div class="producer-card">
+        <a href="${link}" style="display:block;flex-shrink:0">
+          <div class="producer-thumb">
+            <div class="producer-thumb-placeholder" style="background:${colors.bg};color:${colors.fg};">
+              <span style="font-size:28px;opacity:0.3">♪</span>
+            </div>
+            ${coverHtml}
+            <div class="producer-thumb-overlay">
+              <div class="producer-name-over">${name}</div>
+              <div class="producer-stats-over">${p.count} song${p.count!==1?"s":""}${p.views?` &middot; ${formatViews(p.views)} views`:""}</div>
+            </div>
+            ${tierBadge}
+            <div class="producer-scanlines"></div>
+          </div>
+        </a>
+        <div class="producer-foot">
+          <div class="producer-tags">${tagHtml||`<span style="color:var(--faint);font-size:9px">—</span>`}</div>
+        </div>
+      </div>`;
+  }).join("");
+}
+
+/* ── Cache ── */
+function loadSongs() {
+  const KEY = "39c_songs_v2";
+  try { const c = sessionStorage.getItem(KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e) {}
+  return fetch("../data/songs.json")
+    .then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+    .then(data=>{ try { sessionStorage.setItem(KEY,JSON.stringify(data)); } catch(e) {} return data; });
+}
+
+/* ── Build producer index from song data ── */
+Promise.all([loadSongs(), loadViews(), loadYtViews(), loadArtists()])
+  .then(([data, views, ytviews, artists]) => {
+    if (views && views.views) VIEWS = views.views;
+    if (ytviews && ytviews.stats) YT_STATS = ytviews.stats;
+    if (artists && artists.images) ARTISTS = artists.images;
+    const map = {};
+    data.forEach(s => {
+      const a = s.artist || "";
+      if (!a || /^various/i.test(a)) return;
+      if (!map[a]) map[a] = { name:a, songs:[], topScore:0, topTier:null, topSong:null, views:0 };
+      map[a].songs.push(s);
+      map[a].views += getViewCount(s) || 0;
+      const t = tierScore(s);
+      if (t.score > map[a].topScore) {
+        map[a].topScore = t.score;
+        map[a].topTier  = t.label;
+        map[a].topSong  = s;
+      }
+    });
+    ALL_PRODUCERS = Object.values(map).map(p => ({ ...p, count: p.songs.length }));
+    document.getElementById("intro-copy").textContent =
+      `${ALL_PRODUCERS.length} producers across ${data.length.toLocaleString()} songs`;
+    render();
+  })
+  .catch(err => {
+    document.getElementById("producer-grid").innerHTML =
+      `<div class="state-message"><strong>Could not load songs.json</strong>${escHtml(err.message)}</div>`;
+    document.getElementById("result-count").textContent = "error";
+  });
+
+/* ── Event listeners ── */
+document.querySelectorAll(".sort-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".sort-btn").forEach(b => b.classList.remove("is-active"));
+    btn.classList.add("is-active");
+    activeSort = btn.dataset.sort;
+    render();
+  });
+});
+
+document.getElementById("search-input").addEventListener("input", e => {
+  searchQuery = e.target.value.trim();
+  render();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>39charts — Add Song</title>
+<style>
+:root {
+  --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
+  --text: #111; --muted: #555; --faint: #999;
+  --line: #c8c4bc; --ls: #b8b4ac;
+  --red: #cc0000; --red-dark: #990000; --link: #0066cc;
+  --green: #1a7a1a; --green-bg: #e8f5e9; --green-line: #81c784;
+  --amber: #7a5500; --amber-bg: #fffbe6; --amber-line: #e8c840;
+  --blue: #003d8a; --blue-bg: #e8f0fb; --blue-line: #5588cc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  min-height: 100%;
+  font-family: "MS PGothic","Hiragino Kaku Gothic Pro","Meiryo",Arial,sans-serif;
+  font-size: 12px; color: var(--text); background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,240,0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.18) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
+  line-height: 1.4;
+}
+body { min-height: 100vh; display: flex; flex-direction: column; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--red); }
+button, input, select, textarea { font: inherit; cursor: pointer; }
+
+/* ── TOP BAR ── */
+.nnd-topbar {
+  width: 100%; background: #111; border-bottom: 1px solid #000;
+  height: 24px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 10px;
+  font-size: 11px; color: #777;
+}
+/* ── MAIN HEADER ── */
+.nnd-mainbar {
+  width: 100%; background: #fff; border-bottom: 2px solid var(--red);
+  padding: 6px 10px; display: flex; align-items: center; gap: 16px;
+}
+.nnd-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text); }
+.nnd-logo:hover { text-decoration: none; }
+.nnd-logo-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; background: var(--red); color: #fff;
+  font-size: 13px; font-weight: 900; border: 1px solid var(--red-dark); flex-shrink: 0;
+}
+.nnd-logo-text { font-size: 15px; font-weight: 900; color: #111; letter-spacing: -0.02em; line-height: 1; }
+.nnd-logo-sub  { display: block; font-size: 10px; font-weight: 400; color: var(--muted); }
+.nnd-header-links { display: flex; align-items: center; gap: 6px; font-size: 12px; margin-left: auto; }
+.nnd-header-links a {
+  color: var(--link); display: inline-block;
+  padding: 2px 8px; border: 1px solid transparent;
+}
+.nnd-header-links a:hover {
+  text-decoration: none; color: var(--red);
+  background: #f6f4ee; border-color: #fff #9a968e #9a968e #fff;
+}
+.nnd-header-links a:active { background: #ece9e2; border-color: #9a968e #fff #fff #9a968e; }
+.nnd-divider { color: var(--line); }
+
+/* ── BODY ── */
+.nnd-body { flex: 1 0 auto; width: 100%; max-width: 760px; margin: 0 auto; padding: 8px; }
+.nnd-main { display: flex; flex-direction: column; gap: 6px; }
+
+/* ── PANELS ── */
+.panel {
+  background: var(--surface); border: 1px solid var(--line);
+  border-top: 3px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+}
+.panel-header {
+  background: linear-gradient(to bottom,#f0f0f0,#e0e0e0);
+  border-bottom: 1px solid var(--line);
+  padding: 4px 10px; font-size: 12px; font-weight: 700; color: var(--text);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  display: flex; align-items: center; gap: 6px;
+}
+.panel-body { padding: 12px 14px; }
+
+/* ── FETCH ROW ── */
+.fetch-row { display: flex; gap: 5px; }
+.fetch-input {
+  flex: 1; height: 28px; padding: 0 8px; font-size: 12px;
+  background: #fff; border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
+}
+.fetch-input:focus { outline: none; border-color: var(--link); box-shadow: inset 0 1px 2px rgba(0,0,0,0.08), 0 0 0 2px rgba(0,102,204,0.18); }
+.fetch-btn {
+  height: 28px; padding: 0 14px;
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  color: #fff; border: 1px solid var(--red-dark); font-size: 12px; font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.fetch-btn:hover { background: linear-gradient(to bottom,#dd1111,#aa0000); }
+.fetch-btn:disabled { opacity: 0.5; cursor: default; }
+.fetch-hint { font-size: 10px; color: var(--faint); margin-top: 5px; }
+
+/* ── VOCALIST TAGS ── */
+.vtag {
+  display: inline-block; padding: 0 4px;
+  font-size: 9px; line-height: 14px; border: 1px solid; font-weight: 700;
+}
+.vtag-miku   { background: #e0f4f8; border-color: #39c5bb; color: #007a73; }
+.vtag-rin    { background: #fff4d0; border-color: #f5a623; color: #915800; }
+.vtag-len    { background: #fffacc; border-color: #d4b800; color: #7a6500; }
+.vtag-luka   { background: #fce4ec; border-color: #e91e8c; color: #9c0060; }
+.vtag-gumi   { background: #e8f5e9; border-color: #43a047; color: #1b5e20; }
+.vtag-ia     { background: #f3e5f5; border-color: #9c27b0; color: #6a1b9a; }
+.vtag-kaito  { background: #e8eaf6; border-color: #3949ab; color: #1a237e; }
+.vtag-meiko  { background: #fce8e6; border-color: #e53935; color: #b71c1c; }
+.vtag-teto   { background: #fde8ec; border-color: #d44466; color: #8c1030; }
+.vtag-flower { background: #f0e4f8; border-color: #9040a0; color: #581070; }
+.vtag-kafu   { background: #d8f0f8; border-color: #2096b8; color: #005878; }
+.vtag-una    { background: #fdf0d0; border-color: #e08000; color: #7a4000; }
+.vtag-yuki   { background: #fff8d0; border-color: #b09000; color: #5a4800; }
+.vtag-rei    { background: #fce0f0; border-color: #cc3080; color: #880050; }
+.vtag-defoko { background: #e0e8f0; border-color: #6080a0; color: #304060; }
+.vtag-other  { background: var(--sf); border-color: var(--ls); color: var(--muted); }
+
+/* ── PREVIEW ── */
+.preview-wrap {
+  background: var(--surface); border: 1px solid var(--green-line);
+  border-top: 3px solid var(--green);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+}
+.preview-wrap.is-dupe { border-color: var(--amber-line); border-top-color: var(--amber); }
+.preview-head {
+  background: var(--green-bg); border-bottom: 1px solid var(--green-line);
+  padding: 4px 10px; font-size: 11px; font-weight: 700; color: var(--green);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.preview-head.is-dupe { background: var(--amber-bg); border-bottom-color: var(--amber-line); color: var(--amber); }
+.preview-body { padding: 10px 12px; display: flex; gap: 10px; }
+.preview-thumb {
+  flex-shrink: 0; width: 120px; height: 68px;
+  background: #1a1a1a; overflow: hidden; position: relative;
+}
+.preview-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.preview-meta { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.preview-title  { font-size: 14px; font-weight: 900; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.preview-artist { font-size: 11px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.preview-row { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.preview-label { font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.04em; flex-shrink: 0; }
+.preview-foot {
+  display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+  background: var(--sf); border-top: 1px solid var(--line); flex-wrap: wrap;
+}
+.tier-select {
+  height: 24px; padding: 0 6px; font-size: 11px;
+  background: #fff; border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
+}
+.note-input {
+  flex: 1; height: 24px; padding: 0 7px; font-size: 11px;
+  background: #fff; border: 1px solid var(--ls); min-width: 120px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
+}
+.note-input:focus, .tier-select:focus { outline: none; border-color: var(--link); }
+.platform-checks { display: flex; gap: 8px; }
+.platform-checks label { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 3px; cursor: pointer; }
+.submit-btn {
+  margin-left: auto; height: 24px; padding: 0 14px;
+  background: linear-gradient(to bottom, #2a8a2a, #1a6a1a);
+  color: #fff; border: 1px solid #145014; font-size: 11px; font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.submit-btn:hover { background: linear-gradient(to bottom,#339933,#207020); }
+.submit-btn:disabled { opacity: 0.5; cursor: default; }
+
+/* ── STATUS MESSAGES ── */
+.msg {
+  padding: 10px 12px; font-size: 11px; border: 1px solid;
+  border-top-width: 3px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
+}
+.msg-ok    { background: var(--green-bg); border-color: var(--green-line); border-top-color: var(--green); color: var(--green); }
+.msg-err   { background: #fff5f5; border-color: #ffaaaa; border-top-color: var(--red); color: var(--red-dark); }
+.msg strong { display: block; margin-bottom: 2px; }
+
+/* ── NOTE BOX ── */
+.note-box {
+  background: var(--amber-bg); border: 1px solid var(--amber-line);
+  padding: 8px 12px; font-size: 11px; color: var(--amber);
+  display: flex; gap: 6px; align-items: flex-start;
+}
+
+/* ── ADMIN PANEL ── */
+.admin-panel {
+  background: var(--surface); border: 1px solid var(--blue-line);
+  border-top: 3px solid var(--blue);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+}
+.admin-header {
+  background: linear-gradient(to bottom,#dde8f8,#c8d8f0);
+  border-bottom: 1px solid var(--blue-line);
+  padding: 4px 10px; font-size: 12px; font-weight: 700; color: var(--blue);
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.admin-token-row { display: flex; gap: 5px; align-items: center; }
+.admin-token-input {
+  height: 22px; padding: 0 7px; font-size: 11px; width: 220px;
+  background: #fff; border: 1px solid var(--blue-line);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
+}
+.admin-token-input:focus { outline: none; border-color: var(--blue); }
+.admin-load-btn {
+  height: 22px; padding: 0 10px;
+  background: linear-gradient(to bottom,#4477cc,var(--blue));
+  color: #fff; border: 1px solid var(--blue); font-size: 10px; font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.admin-load-btn:hover { background: linear-gradient(to bottom,#5588dd,#004499); }
+.admin-load-btn:disabled { opacity: 0.5; cursor: default; }
+.admin-export-btn {
+  height: 22px; padding: 0 10px;
+  background: linear-gradient(to bottom,#fff,#e8e8e8);
+  color: var(--blue); border: 1px solid var(--blue-line); font-size: 10px; font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.admin-export-btn:hover { background: linear-gradient(to bottom,var(--blue-bg),#c8d8f0); }
+.admin-export-btn:disabled { opacity: 0.4; cursor: default; }
+.admin-body { padding: 0; }
+.sub-empty { padding: 20px; text-align: center; color: var(--faint); font-size: 11px; }
+.sub-list { list-style: none; }
+.sub-item {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 10px; border-bottom: 1px solid var(--line);
+}
+.sub-item:last-child { border-bottom: none; }
+.sub-thumb {
+  flex-shrink: 0; width: 64px; height: 36px;
+  background: #1a1a1a; overflow: hidden; position: relative;
+}
+.sub-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.sub-info { flex: 1; min-width: 0; }
+.sub-title { font-size: 11px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sub-meta  { font-size: 10px; color: var(--muted); }
+.sub-note  { font-size: 10px; color: var(--faint); font-style: italic; }
+.sub-tier  {
+  display: inline-block; padding: 0 4px;
+  background: var(--red); color: #fff;
+  font-size: 9px; font-weight: 700; line-height: 14px; flex-shrink: 0;
+}
+.sub-actions { display: flex; gap: 4px; flex-shrink: 0; }
+.approve-btn {
+  height: 22px; padding: 0 9px;
+  background: linear-gradient(to bottom,#2a9a2a,#1a7a1a);
+  color: #fff; border: 1px solid #145014; font-size: 10px; font-weight: 700;
+}
+.approve-btn:hover { background: linear-gradient(to bottom,#33aa33,#208a20); }
+.reject-btn {
+  height: 22px; padding: 0 9px;
+  background: linear-gradient(to bottom,#fff,#e8e8e8);
+  color: var(--muted); border: 1px solid var(--ls); font-size: 10px;
+}
+.reject-btn:hover { background: linear-gradient(to bottom,#fff5f5,#ffd0d0); color: var(--red); border-color: var(--red); }
+.sub-date  { font-size: 9px; color: var(--faint); flex-shrink: 0; white-space: nowrap; }
+
+/* ── FOOTER ── */
+.site-footer {
+  flex-shrink: 0; width: 100%; background: #e0e0e0;
+  border-top: 1px solid var(--ls); padding: 5px 10px;
+  font-size: 11px; color: var(--faint); text-align: center;
+}
+.site-footer a { color: var(--link); font-size: 11px; }
+.site-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="nnd-topbar">
+  <span>39charts &rsaquo; Add Song</span>
+  <span style="color:#666;font-size:11px">Song Submission</span>
+</div>
+
+<div class="nnd-mainbar">
+  <a class="nnd-logo" href="index.html">
+    <span class="nnd-logo-mark">39</span>
+    <span class="nnd-logo-text">39charts<span class="nnd-logo-sub">Vocaloid Song Rankings</span></span>
+  </a>
+  <nav class="nnd-header-links">
+    <a href="index.html">Rankings</a>
+    <span class="nnd-divider">|</span>
+    <a href="producers.html">Producers</a>
+    <span class="nnd-divider">|</span>
+    <a href="about.html">About</a>
+    <span class="nnd-divider">|</span>
+    <a href="add.html">+ Add Song</a>
+  </nav>
+</div>
+
+<div class="nnd-body">
+  <main class="nnd-main">
+
+    <div class="panel">
+      <div class="panel-header">▸ Suggest a Song</div>
+      <div class="panel-body">
+        <div class="fetch-row">
+          <input type="text" class="fetch-input" id="url-input"
+            placeholder="https://vocadb.net/S/12345  or just  12345"
+            autocomplete="off" spellcheck="false">
+          <button class="fetch-btn" id="fetch-btn">Fetch</button>
+        </div>
+        <div class="fetch-hint">Paste a VocaDB song URL or ID. Song info is fetched automatically.</div>
+      </div>
+    </div>
+
+    <div id="status-area"></div>
+
+    <div class="note-box">
+      <span>▸</span>
+      <span>Suggestions go into a review queue. The site maintainer approves songs before they appear in the rankings.</span>
+    </div>
+
+    <!-- Admin panel -->
+    <div class="admin-panel">
+      <div class="admin-header">
+        <span>Admin — Review Queue</span>
+        <div class="admin-token-row">
+          <input type="password" class="admin-token-input" id="admin-token" placeholder="Admin token…">
+          <button class="admin-load-btn" id="admin-load-btn">Load Queue</button>
+          <button class="admin-export-btn" id="admin-export-btn" disabled>Export Approved</button>
+        </div>
+      </div>
+      <div class="admin-body" id="admin-body">
+        <div class="sub-empty">Enter admin token to view the review queue.</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
+    <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
+    &nbsp;·&nbsp; <a href="../">Vocaloid Heardle</a>
+  </p>
+</footer>
+
+<script>
+const API = "https://39charts-api.sodapines.workers.dev";
+
+const VOCALIST_MAP = [
+  { key:"miku",   label:"Miku",   match:/hatsune miku/i,       cls:"vtag-miku"   },
+  { key:"rin",    label:"Rin",    match:/kagamine rin/i,        cls:"vtag-rin"    },
+  { key:"len",    label:"Len",    match:/kagamine len/i,        cls:"vtag-len"    },
+  { key:"luka",   label:"Luka",   match:/megurine luka/i,       cls:"vtag-luka"   },
+  { key:"gumi",   label:"GUMI",   match:/\bgumi\b|megpoid/i,    cls:"vtag-gumi"   },
+  { key:"ia",     label:"IA",     match:/^ia$|^ia :/i,          cls:"vtag-ia"     },
+  { key:"kaito",  label:"KAITO",  match:/\bkaito\b/i,           cls:"vtag-kaito"  },
+  { key:"meiko",  label:"MEIKO",  match:/\bmeiko\b/i,           cls:"vtag-meiko"  },
+  { key:"teto",   label:"Teto",   match:/kasane teto/i,         cls:"vtag-teto"   },
+  { key:"flower", label:"flower", match:/\bflower\b|v flower/i, cls:"vtag-flower" },
+  { key:"kafu",   label:"KAFU",   match:/\bkafu\b/i,            cls:"vtag-kafu"   },
+  { key:"una",    label:"Una",    match:/otomachi una/i,         cls:"vtag-una"    },
+  { key:"yuki",   label:"Yuki",   match:/kaai yuki/i,           cls:"vtag-yuki"   },
+  { key:"rei",    label:"Rei",    match:/adachi rei/i,           cls:"vtag-rei"    },
+  { key:"defoko", label:"Defoko", match:/utane uta|defoko/i,    cls:"vtag-defoko" },
+];
+
+const TIER_TAG_MAP = [
+  { pattern:/nico\s*100[,.]?000[,.]?000/i, tag:"nnd-100m" },
+  { pattern:/nico\s*10[,.]?000[,.]?000/i,  tag:"nnd-10m"  },
+  { pattern:/nico\s*1[,.]?000[,.]?000/i,   tag:"nnd-1m"   },
+  { pattern:/nico\s*100[,.]?000/i,          tag:"nnd-100k" },
+  { pattern:/nico\s*10[,.]?000/i,           tag:"nnd-10k"  },
+  { pattern:/youtube\s*100[,.]?000[,.]?000/i, tag:"yt-100m" },
+  { pattern:/youtube\s*10[,.]?000[,.]?000/i,  tag:"yt-10m"  },
+  { pattern:/youtube\s*1[,.]?000[,.]?000/i,   tag:"yt-1m"   },
+  { pattern:/youtube\s*100[,.]?000/i,          tag:"yt-100k" },
+  { pattern:/youtube\s*10[,.]?000/i,           tag:"yt-10k"  },
+];
+
+function escHtml(s) {
+  return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function parseId(raw) {
+  const m = raw.trim().match(/\/S\/(\d+)|\/Song\/Details\/(\d+)|^(\d+)$/);
+  return m ? parseInt(m[1]||m[2]||m[3]) : null;
+}
+
+function ytThumb(pvId) { return `https://i.ytimg.com/vi/${pvId}/hqdefault.jpg`; }
+
+function buildCoverArts(pvs) {
+  const arts = [];
+  pvs.forEach(pv => {
+    if (pv.service==="Youtube"&&pv.pvId) arts.push(ytThumb(pv.pvId));
+    else if (pv.service==="NicoNicoDouga"&&pv.pvId) arts.push(`https://nicovideo.jp/watch/${pv.pvId}`);
+    else if (pv.url) arts.push(pv.url);
+  });
+  return [...new Set(arts)];
+}
+
+function mapSourceTags(tags) {
+  const result = [];
+  tags.forEach(t => {
+    const name = t.tag?.name || "";
+    TIER_TAG_MAP.forEach(m => { if (m.pattern.test(name) && !result.includes(m.tag)) result.push(m.tag); });
+  });
+  return result;
+}
+
+function normalizeVocalists(names) {
+  const found = []; const seen = new Set();
+  (names||[]).forEach(name => {
+    const v = VOCALIST_MAP.find(v=>v.match.test(name));
+    const key = v ? v.key : name;
+    if (!seen.has(key)) { seen.add(key); found.push(v || {key,label:name.split(" ")[0],cls:"vtag-other"}); }
+  });
+  return found;
+}
+
+function buildSongEntry(data, tierOverride, platYt) {
+  const artists = data.artists||[];
+  const producers = artists.filter(a=>/producer/i.test(a.categories||"")&&a.artist);
+  const vocalists = artists.filter(a=>/vocalist/i.test(a.categories||"")&&a.artist);
+  const pvs = (data.pvs||[]).filter(p=>p.pvType==="Original"||p.pvType==="Reprint");
+  const coverArts = buildCoverArts(pvs);
+  let sourceTags = mapSourceTags(data.tags||[]);
+  if (tierOverride && tierOverride!=="none") {
+    const nndTag = `nnd-${tierOverride}`;
+    if (!sourceTags.includes(nndTag)) sourceTags = [nndTag, ...sourceTags.filter(t=>!t.startsWith("nnd-"))];
+    if (platYt) { const ytTag=`yt-${tierOverride}`; if(!sourceTags.includes(ytTag)) sourceTags.push(ytTag); }
+  }
+  return {
+    vocadbId:      data.id,
+    title:         data.defaultName||data.name||"",
+    artist:        producers[0]?.artist?.name || data.artistString||"",
+    artistString:  data.artistString||"",
+    coverArt:      coverArts[0]||"",
+    coverArts,
+    publishDate:   data.publishDate ? data.publishDate.slice(0,10) : "",
+    singerNames:   vocalists.map(a=>a.artist.name),
+    producerNames: producers.map(a=>a.artist.name),
+    acceptedTitles:(data.names||[]).map(n=>n.value).filter(Boolean),
+    vocadbPools:   [],
+    sourceTags,
+    audioClip:     "",
+  };
+}
+
+/* ── Fetch & preview ── */
+let pendingData = null;
+
+/* Songs already published on the site (data/songs.json), loaded once. */
+let EXISTING_IDS = null;
+async function existingIds() {
+  if (EXISTING_IDS) return EXISTING_IDS;
+  try {
+    const r = await fetch("../data/songs.json");
+    const songs = r.ok ? await r.json() : [];
+    EXISTING_IDS = new Set(songs.map(s => String(s.vocadbId)));
+  } catch { EXISTING_IDS = new Set(); }
+  return EXISTING_IDS;
+}
+
+async function doFetch() {
+  const raw = document.getElementById("url-input").value;
+  const id = parseId(raw);
+  const statusArea = document.getElementById("status-area");
+  if (!id) {
+    statusArea.innerHTML = `<div class="msg msg-err"><strong>Invalid input</strong>Enter a VocaDB URL or numeric ID.</div>`;
+    return;
+  }
+  const btn = document.getElementById("fetch-btn");
+  btn.disabled = true; btn.textContent = "Fetching…";
+  statusArea.innerHTML = ""; pendingData = null;
+
+  try {
+    const res = await fetch(`${API}/vocadb/${id}`);
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+
+    pendingData = data;
+    const artists = data.artists||[];
+    const singerNames = artists.filter(a=>/vocalist/i.test(a.categories||"")&&a.artist).map(a=>a.artist.name);
+    const vocals = normalizeVocalists(singerNames);
+    const pvs = (data.pvs||[]).filter(p=>p.pvType==="Original"||p.pvType==="Reprint");
+    const coverArts = buildCoverArts(pvs);
+    const autoTags = mapSourceTags(data.tags||[]);
+    const guessedTier = ["100m","10m","1m","100k","10k"].find(t=>autoTags.some(tag=>tag.includes(t))) || "none";
+    const inDb = (await existingIds()).has(String(data.id));
+
+    statusArea.innerHTML = `
+      <div class="preview-wrap${inDb ? " is-dupe" : ""}">
+        <div class="preview-head${inDb ? " is-dupe" : ""}">${inDb
+          ? "&#9888; Already in the database — no need to submit"
+          : "★ Song found — confirm details and submit"}</div>
+        <div class="preview-body">
+          <div class="preview-thumb">
+            ${coverArts[0]
+              ? `<img src="${escHtml(coverArts[0])}" alt="" onerror="this.style.display='none'">`
+              : `<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#555;font-size:22px;opacity:0.3">♪</div>`}
+          </div>
+          <div class="preview-meta">
+            <div class="preview-title">${escHtml(data.defaultName||"")}</div>
+            <div class="preview-artist">${escHtml(data.artistString||"")}</div>
+            <div class="preview-row">
+              <span class="preview-label">Vocalists</span>
+              ${vocals.length
+                ? vocals.map(v=>`<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join("")
+                : `<span style="color:var(--faint);font-size:10px">—</span>`}
+            </div>
+            <div class="preview-row">
+              <span class="preview-label">PVs</span>
+              <span style="font-size:10px;color:var(--muted)">${pvs.length} found &nbsp;·&nbsp; ID ${data.id}</span>
+            </div>
+            ${autoTags.length ? `<div class="preview-row">
+              <span class="preview-label">Auto tier</span>
+              <span style="font-size:10px;color:var(--muted)">${autoTags.map(escHtml).join(", ")}</span>
+            </div>` : ""}
+          </div>
+        </div>
+        ${inDb ? `
+        <div class="preview-foot">
+          <span style="font-size:11px;color:var(--muted)">This song is already on 39charts.</span>
+          <a class="submit-btn" style="text-decoration:none;display:inline-flex;align-items:center" href="song.html?id=${encodeURIComponent(data.id)}">View song page ▶</a>
+        </div>` : `
+        <div class="preview-foot">
+          <span style="font-size:10px;color:var(--muted);font-weight:700">Tier</span>
+          <select class="tier-select" id="tier-select">
+            <option value="none">— unknown</option>
+            <option value="100m">100M+</option>
+            <option value="10m">10M+</option>
+            <option value="1m">1M+</option>
+            <option value="100k">100K+</option>
+            <option value="10k">10K+</option>
+          </select>
+          <div class="platform-checks">
+            <label><input type="checkbox" id="plat-nnd" checked> NND</label>
+            <label><input type="checkbox" id="plat-yt"> YouTube</label>
+          </div>
+          <input type="text" class="note-input" id="note-input" placeholder="Optional note…" maxlength="300">
+          <button class="submit-btn" id="submit-btn">Submit for Review</button>
+        </div>`}
+      </div>`;
+
+    if (!inDb) {
+      document.getElementById("tier-select").value = guessedTier;
+      document.getElementById("submit-btn").addEventListener("click", doSubmit);
+    }
+
+  } catch(e) {
+    statusArea.innerHTML = `<div class="msg msg-err"><strong>Fetch failed</strong>${escHtml(e.message)}</div>`;
+  } finally {
+    btn.disabled = false; btn.textContent = "Fetch";
+  }
+}
+
+async function doSubmit() {
+  if (!pendingData) return;
+  if ((await existingIds()).has(String(pendingData.id))) {
+    document.getElementById("status-area").innerHTML =
+      `<div class="msg msg-err"><strong>Already in the database</strong>"${escHtml(pendingData.defaultName||"")}" is already on 39charts.</div>`;
+    return;
+  }
+  const btn = document.getElementById("submit-btn");
+  btn.disabled = true; btn.textContent = "Submitting…";
+
+  const tier  = document.getElementById("tier-select").value;
+  const platYt = document.getElementById("plat-yt").checked;
+  const note  = document.getElementById("note-input").value.trim();
+  const song  = buildSongEntry(pendingData, tier, platYt);
+
+  try {
+    const res = await fetch(`${API}/submissions`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ song, note }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+
+    document.getElementById("status-area").innerHTML =
+      `<div class="msg msg-ok"><strong>Submitted!</strong>"${escHtml(song.title)}" is now in the review queue. Thank you!</div>`;
+    document.getElementById("url-input").value = "";
+    pendingData = null;
+  } catch(e) {
+    btn.disabled = false; btn.textContent = "Submit for Review";
+    const area = document.getElementById("status-area");
+    area.insertAdjacentHTML("beforeend",
+      `<div class="msg msg-err" style="margin-top:4px"><strong>Submit failed</strong>${escHtml(e.message)}</div>`);
+  }
+}
+
+/* ── Admin queue ── */
+function adminToken() {
+  return document.getElementById("admin-token").value.trim();
+}
+
+async function loadQueue() {
+  const token = adminToken();
+  if (!token) return;
+  const btn = document.getElementById("admin-load-btn");
+  btn.disabled = true; btn.textContent = "Loading…";
+
+  try {
+    const res = await fetch(`${API}/submissions?status=pending`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+    renderQueue(data, token);
+    document.getElementById("admin-export-btn").disabled = false;
+  } catch(e) {
+    document.getElementById("admin-body").innerHTML =
+      `<div class="sub-empty" style="color:var(--red)">${escHtml(e.message)}</div>`;
+  } finally {
+    btn.disabled = false; btn.textContent = "Load Queue";
+  }
+}
+
+function renderQueue(items, token) {
+  const body = document.getElementById("admin-body");
+  if (!items.length) {
+    body.innerHTML = `<div class="sub-empty">Queue is empty — no pending submissions.</div>`;
+    return;
+  }
+  body.innerHTML = `<ul class="sub-list">${items.map(item => {
+    const s = item.song;
+    const tier = s.sourceTags?.[0] || "";
+    const date = item.submittedAt ? item.submittedAt.slice(0,10) : "";
+    return `
+      <li class="sub-item" data-id="${escHtml(item.id)}">
+        <div class="sub-thumb">
+          ${s.coverArt ? `<img src="${escHtml(s.coverArt)}" alt="" onerror="this.style.display='none'">` : ""}
+        </div>
+        <div class="sub-info">
+          <div class="sub-title">${escHtml(s.title)}</div>
+          <div class="sub-meta">${escHtml(s.artist)} &nbsp;·&nbsp; ID ${s.vocadbId}</div>
+          ${item.note ? `<div class="sub-note">"${escHtml(item.note)}"</div>` : ""}
+        </div>
+        ${tier ? `<span class="sub-tier">${escHtml(tier)}</span>` : ""}
+        <span class="sub-date">${escHtml(date)}</span>
+        <div class="sub-actions">
+          <button class="approve-btn" data-id="${escHtml(item.id)}">Approve</button>
+          <button class="reject-btn"  data-id="${escHtml(item.id)}">Reject</button>
+        </div>
+      </li>`;
+  }).join("")}</ul>`;
+
+  body.querySelectorAll(".approve-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      btn.disabled = true; btn.textContent = "…";
+      try {
+        const res = await fetch(`${API}/submissions/${btn.dataset.id}/approve`, {
+          method: "POST", headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!res.ok) { const d=await res.json(); throw new Error(d.error); }
+        btn.closest("li").style.opacity = "0.35";
+        btn.textContent = "✓";
+      } catch(e) { btn.disabled=false; btn.textContent="Approve"; alert(e.message); }
+    });
+  });
+
+  body.querySelectorAll(".reject-btn").forEach(btn => {
+    btn.addEventListener("click", async () => {
+      if (!confirm("Reject this submission?")) return;
+      btn.disabled = true; btn.textContent = "…";
+      try {
+        const res = await fetch(`${API}/submissions/${btn.dataset.id}`, {
+          method: "DELETE", headers: { Authorization: `Bearer ${token}` },
+        });
+        if (!res.ok) { const d=await res.json(); throw new Error(d.error); }
+        btn.closest("li").remove();
+        if (!document.getElementById("admin-body").querySelector("li"))
+          document.getElementById("admin-body").innerHTML = `<div class="sub-empty">Queue is empty.</div>`;
+      } catch(e) { btn.disabled=false; btn.textContent="Reject"; alert(e.message); }
+    });
+  });
+}
+
+document.getElementById("admin-export-btn").addEventListener("click", () => {
+  const token = adminToken();
+  if (!token) return;
+  const a = document.createElement("a");
+  a.href = `${API}/submissions/export`;
+  // Can't set auth header on a link, so open in new tab — user will get JSON
+  // For a real download, use fetch + blob
+  fetch(`${API}/submissions/export`, { headers: { Authorization: `Bearer ${token}` } })
+    .then(r => r.blob())
+    .then(blob => {
+      a.href = URL.createObjectURL(blob);
+      a.download = "approved_songs.json";
+      a.click();
+      URL.revokeObjectURL(a.href);
+    });
+});
+
+document.getElementById("admin-load-btn").addEventListener("click", loadQueue);
+document.getElementById("admin-token").addEventListener("keydown", e => { if(e.key==="Enter") loadQueue(); });
+document.getElementById("url-input").addEventListener("keydown", e => { if(e.key==="Enter") doFetch(); });
+document.getElementById("fetch-btn").addEventListener("click", doFetch);
+</script>
+</body>
+</html>

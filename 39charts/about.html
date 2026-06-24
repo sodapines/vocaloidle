@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>39charts — About</title>
+<style>
+:root {
+  --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
+  --text: #111; --muted: #555; --faint: #999;
+  --line: #c8c4bc; --ls: #b8b4ac;
+  --red: #cc0000; --red-dark: #990000; --link: #0066cc;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  min-height: 100%;
+  font-family: "MS PGothic","Hiragino Kaku Gothic Pro","Meiryo",Arial,sans-serif;
+  font-size: 12px; color: var(--text); background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,240,0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.18) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
+  line-height: 1.6;
+}
+body { min-height: 100vh; display: flex; flex-direction: column; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--red); }
+
+/* ── TOP BAR ── */
+.nnd-topbar {
+  width: 100%; background: #111; border-bottom: 1px solid #000;
+  height: 24px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 10px;
+  font-size: 11px; color: #777;
+}
+
+/* ── MAIN HEADER ── */
+.nnd-mainbar {
+  width: 100%; background: #fff; border-bottom: 2px solid var(--red);
+  padding: 6px 10px; display: flex; align-items: center; gap: 16px;
+}
+.nnd-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text); }
+.nnd-logo:hover { text-decoration: none; }
+.nnd-logo-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; background: var(--red); color: #fff;
+  font-size: 13px; font-weight: 900; border: 1px solid var(--red-dark); flex-shrink: 0;
+}
+.nnd-logo-text { font-size: 15px; font-weight: 900; color: #111; letter-spacing: -0.02em; line-height: 1; }
+.nnd-logo-sub  { display: block; font-size: 10px; font-weight: 400; color: var(--muted); }
+.nnd-header-links { display: flex; align-items: center; gap: 6px; font-size: 12px; margin-left: auto; }
+.nnd-header-links a {
+  color: var(--link); display: inline-block;
+  padding: 2px 8px; border: 1px solid transparent;
+}
+.nnd-header-links a:hover {
+  text-decoration: none; color: var(--red);
+  background: #f6f4ee; border-color: #fff #9a968e #9a968e #fff;
+}
+.nnd-header-links a:active { background: #ece9e2; border-color: #9a968e #fff #fff #9a968e; }
+.nnd-divider { color: var(--line); }
+
+/* ── BODY ── */
+.nnd-body { flex: 1 0 auto; width: 100%; max-width: 760px; margin: 0 auto; padding: 8px; }
+.nnd-main { display: flex; flex-direction: column; gap: 6px; }
+
+/* ── INFO PANELS ── */
+.info-panel {
+  background: var(--surface); border: 1px solid var(--line);
+  border-top: 3px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+.info-panel-header {
+  background: linear-gradient(to bottom,#f0f0f0,#e0e0e0);
+  border-bottom: 1px solid var(--line);
+  padding: 4px 10px; font-size: 12px; font-weight: 700; color: var(--text);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  display: flex; align-items: center; gap: 6px;
+}
+.panel-icon { font-size: 14px; }
+.info-panel-body { padding: 12px 14px; font-size: 12px; line-height: 1.7; color: var(--text); }
+.info-panel-body p + p { margin-top: 8px; }
+.info-panel-body strong { color: var(--text); }
+.info-panel-body a { color: var(--link); }
+
+/* ── TIER TABLE ── */
+.tier-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+.tier-table th, .tier-table td {
+  padding: 4px 10px; border: 1px solid var(--line);
+  font-size: 11px; text-align: left;
+}
+.tier-table th {
+  background: var(--sf); font-weight: 700; color: var(--muted);
+}
+.tier-table tr:nth-child(even) td { background: var(--sf); }
+.tier-badge {
+  display: inline-block; padding: 0 5px;
+  background: var(--red); color: #fff;
+  font-size: 10px; font-weight: 700; line-height: 16px;
+}
+
+/* ── ROADMAP LIST ── */
+.roadmap-list { list-style: none; padding: 0; margin-top: 6px; }
+.roadmap-list li {
+  padding: 4px 0 4px 18px; position: relative;
+  border-bottom: 1px dotted var(--line); font-size: 11px; color: var(--muted);
+}
+.roadmap-list li:last-child { border-bottom: none; }
+.roadmap-list li::before {
+  content: "▷"; position: absolute; left: 0;
+  color: var(--faint); font-size: 9px; top: 6px;
+}
+.roadmap-list li strong { color: var(--text); }
+
+/* ── FOOTER ── */
+.site-footer {
+  flex-shrink: 0; width: 100%; background: #e0e0e0;
+  border-top: 1px solid var(--ls); padding: 5px 10px;
+  font-size: 11px; color: var(--faint); text-align: center;
+}
+.site-footer a { color: var(--link); font-size: 11px; }
+.site-footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="nnd-topbar">
+  <span>39charts &rsaquo; About</span>
+  <span style="color:#666;font-size:11px">About this site</span>
+</div>
+
+<div class="nnd-mainbar">
+  <a class="nnd-logo" href="index.html">
+    <span class="nnd-logo-mark">39</span>
+    <span class="nnd-logo-text">39charts<span class="nnd-logo-sub">Vocaloid Song Rankings</span></span>
+  </a>
+  <nav class="nnd-header-links">
+    <a href="index.html">Rankings</a>
+    <span class="nnd-divider">|</span>
+    <a href="producers.html">Producers</a>
+    <span class="nnd-divider">|</span>
+    <a href="about.html">About</a>
+    <span class="nnd-divider">|</span>
+    <a href="add.html">+ Add Song</a>
+  </nav>
+</div>
+
+<div class="nnd-body">
+  <main class="nnd-main">
+
+    <div class="info-panel">
+      <div class="info-panel-header"><span class="panel-icon">★</span> What is 39charts?</div>
+      <div class="info-panel-body">
+        <p>
+          <strong>39charts</strong> is a fan-made Vocaloid song rankings site inspired by the classic
+          <a href="https://niconico.jp" target="_blank" rel="noopener">NicoNicodouga</a> ranking pages.
+          It catalogs and ranks Vocaloid, SynthV, and UTAU songs that have reached significant
+          view milestones on NicoNicodouga and YouTube.
+        </p>
+        <p>
+          The name "39" comes from the Japanese wordplay <em>三九 (san-kyu)</em> — "thank you" —
+          a long-standing tradition in the Vocaloid community as a way of expressing gratitude to
+          Hatsune Miku and the creators who built this world.
+        </p>
+        <p>
+          This site is a companion to <a href="../">Vocaloid Heardle</a>, a daily Vocaloid song
+          guessing game. Both projects are fan-made and not affiliated with Crypton Future Media,
+          Dwango / NicoNico, or any other rights holders.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-panel">
+      <div class="info-panel-header"><span class="panel-icon">▸</span> How are songs ranked?</div>
+      <div class="info-panel-body">
+        <p>
+          Songs are ranked by their <strong>real view counts</strong>. Use the
+          <strong>NND / YT / Both</strong> toggle on the rankings to rank by NicoNicodouga views,
+          YouTube views, or the two combined (the default). Songs without a live count fall back to
+          their view tier, newest first within a tier.
+        </p>
+        <p>
+          Each song page shows the full per-platform breakdown — NicoNico <strong>views, comments,
+          and mylists</strong> and YouTube <strong>views, likes, and comments</strong> — plus a
+          combined total and an embedded player where the video allows it.
+        </p>
+        <p>
+          Songs also carry a <strong>"Hall" tier</strong> based on NicoNico views — Hall of Fame
+          (100K+), Hall of Legends (1M+), Hall of Myths (10M+), Hall of Gods (100M+) — shown
+          alongside the classic milestone badge below.
+        </p>
+        <table class="tier-table">
+          <thead>
+            <tr><th>Badge</th><th>Milestone</th><th>Description</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tier-badge">100M+</span></td>
+              <td>100 million views</td>
+              <td>All-time legendary status</td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge">10M+</span></td>
+              <td>10 million views</td>
+              <td>Major viral hit</td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge">1M+</span></td>
+              <td>1 million views</td>
+              <td>Widely popular</td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge">100K+</span></td>
+              <td>100,000 views</td>
+              <td>Notable community song</td>
+            </tr>
+            <tr>
+              <td><span class="tier-badge">10K+</span></td>
+              <td>10,000 views</td>
+              <td>Emerging song</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="margin-top:8px;color:var(--muted)">
+          Live <strong>NicoNicodouga and YouTube</strong> counts are integrated. Bilibili is a
+          possible future addition.
+        </p>
+      </div>
+    </div>
+
+    <div class="info-panel">
+      <div class="info-panel-header"><span class="panel-icon">▸</span> Data source</div>
+      <div class="info-panel-body">
+        <p>
+          Song metadata — titles, producers, vocalists, cover art, view tags, and accepted title
+          variants — comes from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>,
+          a community-maintained database of Vocaloid music.
+          VocaDB data is used under its
+          <a href="https://vocadb.net/terms" target="_blank" rel="noopener">terms of use</a>.
+        </p>
+        <p>
+          Cover art is sourced from YouTube and NicoNicodouga via the URLs stored in VocaDB, and
+          vocalist / producer avatars come from VocaDB artist pictures. All rights to artwork belong
+          to their respective creators.
+        </p>
+        <p id="data-stats" style="color:var(--muted)">Loading stats…</p>
+      </div>
+    </div>
+
+    <div class="info-panel">
+      <div class="info-panel-header"><span class="panel-icon">▸</span> What's coming</div>
+      <div class="info-panel-body">
+        <ul class="roadmap-list">
+          <li><strong>Bilibili view counts</strong> — a third platform alongside the live NicoNico + YouTube counts</li>
+          <li><strong>Weekly / monthly charts</strong> — time-based ranking slices once view history is collected over time</li>
+          <li><strong>View history graphs</strong> — daily view tracking on each song page</li>
+          <li><strong>Producer view-over-time</strong> — real history on producer pages (currently a placeholder)</li>
+          <li><strong>Dark mode</strong> — consistent with Heardle's dark mode</li>
+        </ul>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
+    <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
+    &nbsp;·&nbsp;
+    <a href="../">Vocaloid Heardle</a>
+  </p>
+</footer>
+
+<script>
+function loadSongs() {
+  const KEY = "39c_songs_v2";
+  try { const c = sessionStorage.getItem(KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e) {}
+  return fetch("../data/songs.json")
+    .then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+    .then(data=>{ try { sessionStorage.setItem(KEY,JSON.stringify(data)); } catch(e) {} return data; });
+}
+
+loadSongs()
+  .then(data => {
+    const producers = new Set(data.map(s=>s.artist).filter(a=>a&&!/^various/i.test(a)));
+    const el = document.getElementById("data-stats");
+    el.textContent = `Current dataset: ${data.length.toLocaleString()} songs from ${producers.size} producers.`;
+  })
+  .catch(() => {
+    document.getElementById("data-stats").textContent = "";
+  });
+</script>
+</body>
+</html>

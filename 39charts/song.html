@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>39charts — Song</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg: #dedad2;
+  --surface: #fafaf7;
+  --sf: #f2f0eb;
+  --text: #111111;
+  --muted: #555555;
+  --faint: #999999;
+  --line: #c8c4bc;
+  --ls: #b8b4ac;
+  --red: #cc0000;
+  --red-dark: #990000;
+  --link: #0066cc;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  min-height: 100%;
+  font-family: "MS PGothic", "Hiragino Kaku Gothic Pro", "Meiryo", Arial, sans-serif;
+  font-size: 12px;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,240,0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.18) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
+  line-height: 1.4;
+}
+body { min-height: 100vh; display: flex; flex-direction: column; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--red); }
+button { font: inherit; cursor: pointer; }
+
+/* ── TOP BLACK BAR ── */
+.nnd-topbar {
+  width: 100%; background: #111; border-bottom: 1px solid #000;
+  height: 24px; display: flex; align-items: center;
+  justify-content: space-between; padding: 0 10px;
+  font-size: 11px; color: #777;
+}
+
+/* ── MAIN HEADER ── */
+.nnd-mainbar {
+  width: 100%; background: #fff; border-bottom: 2px solid var(--red);
+  padding: 6px 10px; display: flex; align-items: center; gap: 16px;
+}
+.nnd-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text); }
+.nnd-logo:hover { text-decoration: none; }
+.nnd-logo-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; background: var(--red); color: #fff;
+  font-size: 13px; font-weight: 900; border: 1px solid var(--red-dark);
+}
+.nnd-logo-text { font-size: 15px; font-weight: 900; color: #111; letter-spacing: -0.02em; line-height: 1; }
+.nnd-logo-sub  { display: block; font-size: 10px; font-weight: 400; color: var(--muted); }
+.nnd-header-links { display: flex; align-items: center; gap: 6px; font-size: 12px; margin-left: auto; }
+.nnd-header-links a {
+  color: var(--link); display: inline-block;
+  padding: 2px 8px; border: 1px solid transparent;
+}
+.nnd-header-links a:hover {
+  text-decoration: none; color: var(--red);
+  background: #f6f4ee; border-color: #fff #9a968e #9a968e #fff;
+}
+.nnd-header-links a:active {
+  background: #ece9e2; border-color: #9a968e #fff #fff #9a968e;
+}
+.nnd-divider { color: var(--line); }
+
+/* ── BODY ── */
+.nnd-body {
+  flex: 1 0 auto; width: 100%; max-width: 860px;
+  margin: 0 auto; padding: 8px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+
+/* ── SONG HEADER PANEL ── */
+.song-panel {
+  background: var(--surface); border: 1px solid var(--line);
+  border-top: 3px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  overflow: hidden;
+}
+
+/* ── COVER ART ── */
+.song-cover-wrap {
+  width: 240px; flex-shrink: 0;
+  border-right: 1px solid var(--line);
+  display: flex; flex-direction: column;
+}
+.song-cover-thumb {
+  position: relative; width: 100%;
+  aspect-ratio: 4 / 3; overflow: hidden; flex-shrink: 0;
+}
+.cover-placeholder {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 6px;
+}
+.cover-pattern {
+  position: absolute; inset: 0; opacity: 0.15;
+  background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.5) 0, rgba(255,255,255,0.5) 1px, transparent 0, transparent 50%);
+  background-size: 8px 8px;
+}
+.cover-note { font-size: 40px; opacity: 0.45; position: relative; z-index: 1; }
+.cover-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 1;
+}
+.cover-rank {
+  position: absolute; top: 0; left: 0;
+  background: rgba(0,0,0,0.72); color: var(--red);
+  font-size: 18px; font-weight: 900; line-height: 1;
+  padding: 4px 8px; z-index: 2;
+  border-right: 2px solid var(--red);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.cover-rank.rank-gold   { color: #ffcc44; border-right-color: #cc8800; }
+.cover-rank.rank-silver { color: #cccccc; border-right-color: #888; }
+.cover-rank.rank-bronze { color: #d4885a; border-right-color: #a05020; }
+.cover-tier {
+  position: absolute; bottom: 0; right: 0; z-index: 2;
+  background: rgba(0,0,0,0.65); color: #fff;
+  font-size: 10px; font-weight: 700; padding: 2px 5px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  border-left: 1px solid rgba(255,255,255,0.1);
+}
+.song-pools {
+  padding: 6px 7px; flex: 1;
+  display: flex; flex-direction: column; gap: 2px;
+  border-top: 1px solid var(--line);
+  background: var(--sf);
+}
+.pool-tag {
+  display: inline-block; padding: 0 5px;
+  background: #fff7df; border: 1px solid #e39b23;
+  color: #a04b00; font-size: 9px; line-height: 15px; font-weight: 700;
+}
+
+/* ── SONG DETAILS ── */
+.song-details { padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
+.song-title-block { border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+.song-title-main { font-size: 18px; font-weight: 900; color: var(--text); line-height: 1.25; margin-bottom: 2px; }
+.song-artist-string { font-size: 12px; color: var(--muted); }
+
+.detail-table { display: grid; gap: 0; border: 1px solid var(--line); }
+.detail-row {
+  display: grid; grid-template-columns: 90px 1fr;
+  border-bottom: 1px dotted var(--line); min-height: 22px;
+}
+.detail-row:last-child { border-bottom: none; }
+.detail-label {
+  padding: 3px 7px; background: var(--sf);
+  font-size: 11px; font-weight: 700; color: var(--muted);
+  border-right: 1px solid var(--line);
+  display: flex; align-items: center;
+}
+.detail-value {
+  padding: 3px 7px; font-size: 11px; color: var(--text);
+  display: flex; align-items: center; flex-wrap: wrap; gap: 2px;
+}
+
+.vtag {
+  display: inline-block; padding: 0 4px;
+  font-size: 9px; line-height: 14px; border: 1px solid; font-weight: 700;
+}
+.vtag-miku   { background: #e0f4f8; border-color: #39c5bb; color: #007a73; }
+.vtag-rin    { background: #fff4d0; border-color: #f5a623; color: #915800; }
+.vtag-len    { background: #fffacc; border-color: #d4b800; color: #7a6500; }
+.vtag-luka   { background: #fce4ec; border-color: #e91e8c; color: #9c0060; }
+.vtag-gumi   { background: #e8f5e9; border-color: #43a047; color: #1b5e20; }
+.vtag-ia     { background: #f3e5f5; border-color: #9c27b0; color: #6a1b9a; }
+.vtag-kaito  { background: #e8eaf6; border-color: #3949ab; color: #1a237e; }
+.vtag-meiko  { background: #fce8e6; border-color: #e53935; color: #b71c1c; }
+.vtag-teto   { background: #fde8ec; border-color: #d44466; color: #8c1030; }
+.vtag-flower { background: #f0e4f8; border-color: #9040a0; color: #581070; }
+.vtag-kafu   { background: #d8f0f8; border-color: #2096b8; color: #005878; }
+.vtag-una    { background: #fdf0d0; border-color: #e08000; color: #7a4000; }
+.vtag-yuki   { background: #fff8d0; border-color: #b09000; color: #5a4800; }
+.vtag-rei    { background: #fce0f0; border-color: #cc3080; color: #880050; }
+.vtag-defoko { background: #e0e8f0; border-color: #6080a0; color: #304060; }
+.vtag-other  { background: var(--sf); border-color: var(--ls); color: var(--muted); }
+
+.song-links { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
+.song-link-btn {
+  display: inline-flex; align-items: center;
+  min-height: 24px; padding: 0 10px;
+  border: 1px solid var(--ls);
+  background: linear-gradient(to bottom, #fff, #e8e8e8);
+  color: var(--text); font-size: 11px; font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+.song-link-btn:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); border-color: var(--red); text-decoration: none; }
+.btn-vocadb { border-color: #2457c5; color: #2457c5; }
+.btn-vocadb:hover { background: linear-gradient(to bottom, #f0f4ff, #d0dcff); color: #1a3aaa; }
+.btn-youtube { border-color: #c00; color: #c00; }
+.btn-youtube:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: #900; }
+.btn-nnd { border-color: #444; color: #333; }
+.btn-nnd:hover { background: linear-gradient(to bottom, #f2f2f2, #dcdcdc); color: #000; }
+
+/* ── SECTION PANELS ── */
+.section-panel {
+  background: var(--surface); border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+}
+.section-header {
+  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  border-bottom: 1px solid var(--line);
+  padding: 4px 8px;
+  font-size: 11px; font-weight: 700; color: var(--text);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.section-note { font-size: 10px; font-weight: 400; color: var(--faint); font-style: italic; }
+
+/* ── CHART ── */
+.chart-body { position: relative; padding: 12px; height: 220px; }
+.chart-coming-soon {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 6px;
+  background: rgba(250,250,247,0.88); pointer-events: none;
+}
+.chart-coming-soon strong { font-size: 13px; color: var(--muted); }
+.chart-coming-soon span { font-size: 11px; color: var(--faint); text-align: center; max-width: 340px; line-height: 1.5; }
+
+/* ── ACCEPTED TITLES ── */
+.titles-body { padding: 8px 10px; display: flex; flex-wrap: wrap; gap: 4px; }
+.title-chip {
+  display: inline-block; padding: 1px 7px;
+  background: #f2f0ff; border: 1px solid #aeb5df;
+  color: #3f268e; font-size: 11px; line-height: 18px;
+}
+
+/* ── LOADING ── */
+.loading-state {
+  padding: 40px; text-align: center;
+  color: var(--faint); font-size: 12px; font-style: italic;
+  background: var(--surface); border: 1px solid var(--line);
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  flex-shrink: 0; width: 100%;
+  background: #e0e0e0; border-top: 1px solid var(--ls);
+  padding: 5px 10px; font-size: 11px; color: var(--faint); text-align: center;
+}
+.site-footer a { color: var(--link); font-size: 11px; }
+.site-footer a:hover { text-decoration: underline; }
+
+/* ── SCANLINES ── */
+.cover-scanlines {
+  position: absolute; inset: 0; z-index: 4; pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px, transparent 2px,
+    rgba(0,0,0,0.055) 2px, rgba(0,0,0,0.055) 3px
+  );
+}
+
+/* ── STATS BAR ── */
+.stats-bar {
+  background: linear-gradient(to bottom, #f7f5f0, #ebe8e0);
+  border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 1px 2px rgba(0,0,0,0.07);
+  display: flex; height: 54px; overflow: hidden;
+}
+.stat-block {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 4px 8px; gap: 2px;
+  border-right: 1px solid var(--line);
+  position: relative;
+}
+.stat-block::before {
+  content: ""; position: absolute; left: 0; top: 8px; bottom: 8px;
+  width: 1px; background: rgba(255,255,255,0.7);
+}
+.stat-block:last-child { border-right: none; }
+.stat-label {
+  font-size: 9px; color: var(--faint); font-weight: 700;
+  letter-spacing: 0.03em; white-space: nowrap; text-align: center;
+}
+.stat-value {
+  font-size: 15px; font-weight: 900; color: var(--text);
+  line-height: 1; text-align: center; white-space: nowrap;
+}
+.stat-value.sv-views { color: var(--red); font-size: 18px; }
+.stat-value.sv-muted { color: var(--faint); font-size: 12px; font-weight: 400; }
+.stat-value.sv-date  { font-size: 11px; font-weight: 700; color: var(--muted); }
+
+/* ── TAG ROW ── */
+.tag-row-panel {
+  background: #fff; border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.06);
+  display: flex; align-items: flex-start;
+  padding: 5px 8px; gap: 0;
+}
+.tag-row-head {
+  font-size: 10px; font-weight: 900; color: var(--muted);
+  white-space: nowrap; padding: 3px 8px 3px 2px;
+  border-right: 2px solid var(--line); margin-right: 7px;
+  align-self: center; line-height: 1;
+}
+.tag-row-list { display: flex; flex-wrap: wrap; gap: 3px; flex: 1; }
+.tag-pill {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 0 6px; height: 18px;
+  background: #f2f0eb; border: 1px solid #c0bcb4;
+  color: #333; font-size: 10px; line-height: 1;
+  cursor: default; user-select: none;
+}
+.tag-pill:hover { background: #dde8ff; border-color: #6080cc; color: #2040a0; }
+.tag-pill.tp-vocalist {
+  background: #eef3fb; border-color: #96b4d8; color: #1a3a6a;
+}
+.tag-pill.tp-producer {
+  background: #edfaed; border-color: #80b870; color: #1a4010;
+}
+.tag-pill.tp-source {
+  background: #fff6e0; border-color: #c89840; color: #5a3800;
+}
+.tag-pill.tp-other {
+  background: #f5f0fa; border-color: #b0a0cc; color: #3a2060;
+}
+.tag-lock { font-size: 7px; opacity: 0.4; }
+
+@media (max-width: 600px) {
+  .song-panel { grid-template-columns: 1fr; }
+  .song-cover-wrap { width: 100%; border-right: none; border-bottom: 1px solid var(--line); }
+  .song-cover-thumb { aspect-ratio: 16 / 9; }
+  .chart-body { height: 180px; }
+  .stats-bar { height: auto; flex-wrap: wrap; }
+  .stat-block { flex: 0 0 50%; border-bottom: 1px solid var(--line); height: 50px; }
+}
+
+/* ════════ VISUAL POLISH PASS ════════ */
+/* Modular, auto-fitting stat grid — drop in another statCard() to add a platform */
+.stat-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 0;
+  border: 1px solid var(--line);
+  background: linear-gradient(to bottom, #f7f5f0, #ebe8e0);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 1px 2px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.stat-card {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; padding: 9px 6px; min-width: 0; position: relative;
+  border-right: 1px solid var(--line); border-top: 1px solid transparent;
+}
+.stat-card::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: rgba(255,255,255,0.7); }
+.stat-card.sc-primary { background: linear-gradient(to bottom, #fff5f5, #ffecec); }
+.sc-label { font-size: 9px; font-weight: 700; color: var(--faint); letter-spacing: 0.02em; white-space: nowrap; text-align: center; }
+.sc-value {
+  font-family: Consolas, "MS Gothic", monospace; font-size: 16px; font-weight: 900;
+  color: var(--text); line-height: 1; white-space: nowrap; text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+}
+.stat-card.sc-primary .sc-value { color: var(--red); }
+.stat-card.sc-empty .sc-value { color: var(--faint); font-weight: 400; }
+.sc-sub { font-size: 8px; color: var(--faint); white-space: nowrap; }
+/* Hero cover: gentle zoom on hover, like the rankings cards */
+.cover-img { transition: transform .3s ease; }
+.song-cover-thumb:hover .cover-img { transform: scale(1.04); }
+/* Link buttons: beveled retro press */
+.song-link-btn {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+  transition: transform .08s ease;
+}
+.song-link-btn:active { transform: translateY(1px); }
+
+/* Click-to-play YouTube on the cover */
+.cover-play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  z-index: 3; width: 46px; height: 32px; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: #fff; cursor: pointer;
+  background: rgba(204,0,0,0.88); border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+.cover-play:hover { background: #cc0000; transform: translate(-50%,-50%) scale(1.08); }
+.cover-embed { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 5; background:#000; }
+
+/* Views breakdown bar (NicoNico vs YouTube share) */
+.vb-panel {
+  background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08); overflow: hidden;
+}
+.vb-head {
+  background: linear-gradient(to bottom, #f5f3ee, #ece9e2); border-bottom: 1px solid var(--line);
+  padding: 4px 10px; font-size: 12px; font-weight: 900; color: var(--text);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.vb-sub { font-size: 9px; font-weight: 400; color: var(--faint); margin-left: 6px; }
+.vb-body { padding: 10px 12px; }
+.vb-bar {
+  display: flex; height: 18px; border: 1px solid var(--ls); overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.12);
+}
+.vb-seg { height: 100%; }
+.vb-seg.vb-nnd { background: linear-gradient(to bottom, #e25555, var(--red-dark)); }
+.vb-seg.vb-yt  { background: linear-gradient(to bottom, #888, #555); }
+.vb-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 7px; font-size: 10px; color: var(--muted); }
+.vb-leg { display: inline-flex; align-items: center; gap: 5px; }
+.vb-dot { width: 10px; height: 10px; display: inline-block; border: 1px solid rgba(0,0,0,0.2); }
+.vb-dot.vb-nnd { background: var(--red); }
+.vb-dot.vb-yt  { background: #666; }
+
+/* ════════ HERO (Human-inspired, retro-skinned) ════════ */
+.hero {
+  position: relative; overflow: hidden;
+  background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+  display: grid; grid-template-columns: minmax(0, 460px) 1fr;
+}
+.hero-media {
+  position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #1a1a1a;
+  border-right: 1px solid var(--line);
+}
+.hero-media:hover .cover-img { transform: scale(1.04); }
+.hero-info { position: relative; z-index: 1; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.hero-title { font-size: 26px; font-weight: 900; line-height: 1.1; color: var(--text); word-break: break-word; }
+.hero-artist { font-size: 13px; color: var(--muted); margin-top: 3px; }
+.hero-views { display: flex; align-items: baseline; gap: 6px; }
+.hv-num { font-family: Consolas, "MS Gothic", monospace; font-size: 30px; font-weight: 900; color: var(--red); line-height: 1; text-shadow: 0 1px 0 rgba(255,255,255,0.8); }
+.hv-label { font-size: 11px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.06em; }
+.hv-bar { display: flex; height: 8px; max-width: 420px; border: 1px solid var(--ls); overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,0.15); }
+.hv-seg { height: 100%; }
+.hv-yt  { background: linear-gradient(to bottom, #e25555, var(--red-dark)); }
+.hv-nnd { background: linear-gradient(to bottom, #9a968e, #6a665e); }
+.hv-legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 10px; color: var(--muted); margin-top: -4px; }
+.hv-dot { width: 9px; height: 9px; display: inline-block; margin-right: 4px; border: 1px solid rgba(0,0,0,0.2); vertical-align: middle; }
+.hv-dot.hv-yt { background: var(--red); }
+.hv-dot.hv-nnd { background: #7a766e; }
+.hero-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.rank-chip {
+  display: inline-flex; align-items: baseline; gap: 4px; padding: 3px 9px;
+  font-size: 11px; color: var(--muted);
+  background: linear-gradient(to bottom, #f6f4ee, #e6e3dc);
+  border: 1px solid var(--ls); box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.rank-chip strong { color: var(--text); font-size: 13px; font-family: Consolas, "MS Gothic", monospace; }
+.rank-chip-tier { background: linear-gradient(to bottom, #fff2f2, #ffe0e0); border-color: #e0a0a0; }
+.rank-chip-tier strong { color: var(--red); }
+.hero-links { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
+.hero-watermark {
+  position: absolute; right: -4px; bottom: -24px; z-index: 0;
+  font-size: 104px; font-weight: 900; line-height: 0.8; white-space: nowrap;
+  color: transparent; -webkit-text-stroke: 1px rgba(0,0,0,0.06);
+  pointer-events: none; max-width: 58%; overflow: hidden;
+}
+
+/* ── PERSON CARDS (vocalists / producers) ── */
+.person-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 6px; padding: 10px; }
+.person-card {
+  display: flex; align-items: center; gap: 8px; padding: 6px 8px;
+  background: var(--sf); border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.person-av {
+  width: 34px; height: 34px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 900; border: 1px solid rgba(0,0,0,0.2);
+}
+.person-av { position: relative; overflow: hidden; }
+.person-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.person-meta { min-width: 0; }
+.person-name { font-size: 12px; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.person-role { font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.04em; }
+
+/* ── PLATFORM STAT PANELS (NicoNico / YouTube grouped separately) ── */
+.platform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+.platform-panel {
+  border: 1px solid var(--line); background: var(--surface); overflow: hidden;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+}
+.pp-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 4px 10px; font-size: 12px; font-weight: 900; color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.platform-panel.pp-nnd { border-top: 3px solid #252525; }
+.platform-panel.pp-nnd .pp-head { background: linear-gradient(to bottom, #3a3a3a, #1f1f1f); }
+.platform-panel.pp-yt  { border-top: 3px solid var(--red-dark); }
+.platform-panel.pp-yt .pp-head { background: linear-gradient(to bottom, var(--red), var(--red-dark)); }
+.pp-asof { font-size: 9px; font-weight: 400; opacity: 0.85; }
+.pp-cells { display: grid; grid-template-columns: repeat(3, 1fr); }
+.pp-cell {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; padding: 9px 4px; border-right: 1px solid var(--line); min-width: 0;
+}
+.pp-cell:last-child { border-right: 0; }
+.pp-clabel { font-size: 9px; color: var(--faint); white-space: nowrap; text-align: center; }
+.pp-cval {
+  font-family: Consolas, "MS Gothic", monospace; font-size: 15px; font-weight: 900;
+  color: var(--red); line-height: 1; white-space: nowrap; text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+}
+.pp-cval.is-empty { color: var(--faint); font-weight: 400; }
+@media (max-width: 640px) { .platform-row { grid-template-columns: 1fr; } }
+
+@media (max-width: 640px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-media { border-right: 0; border-bottom: 1px solid var(--line); }
+  .hero-title { font-size: 20px; }
+  .hv-num { font-size: 24px; }
+  .hero-watermark { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="nnd-topbar">
+  <span id="topbar-breadcrumb">39charts &rsaquo; Rankings &rsaquo; …</span>
+  <span style="color:#666;font-size:11px">Song Detail</span>
+</div>
+
+<div class="nnd-mainbar">
+  <a class="nnd-logo" href="index.html">
+    <span class="nnd-logo-mark">39</span>
+    <span class="nnd-logo-text">39charts<span class="nnd-logo-sub">Vocaloid Song Rankings</span></span>
+  </a>
+  <nav class="nnd-header-links">
+    <a href="index.html">&#9664; Rankings</a>
+    <span class="nnd-divider">|</span>
+    <a href="producers.html">Producers</a>
+    <span class="nnd-divider">|</span>
+    <a href="about.html">About</a>
+  </nav>
+</div>
+
+<div class="nnd-body" id="page-body">
+  <div class="loading-state">Loading song data…</div>
+</div>
+
+<footer class="site-footer">
+  <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
+    <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
+    &nbsp;·&nbsp;
+    <a href="../">Vocaloid Heardle</a>
+  </p>
+</footer>
+
+<script>
+const VOCALIST_MAP = [
+  { key:"miku",   label:"Miku",   match:/hatsune miku/i,        cls:"vtag-miku"   },
+  { key:"rin",    label:"Rin",    match:/kagamine rin/i,         cls:"vtag-rin"    },
+  { key:"len",    label:"Len",    match:/kagamine len/i,         cls:"vtag-len"    },
+  { key:"luka",   label:"Luka",   match:/megurine luka/i,        cls:"vtag-luka"   },
+  { key:"gumi",   label:"GUMI",   match:/\bgumi\b|megpoid/i,     cls:"vtag-gumi"   },
+  { key:"ia",     label:"IA",     match:/^ia$|^ia :/i,           cls:"vtag-ia"     },
+  { key:"kaito",  label:"KAITO",  match:/\bkaito\b/i,            cls:"vtag-kaito"  },
+  { key:"meiko",  label:"MEIKO",  match:/\bmeiko\b/i,            cls:"vtag-meiko"  },
+  { key:"teto",   label:"Teto",   match:/kasane teto/i,          cls:"vtag-teto"   },
+  { key:"flower", label:"flower", match:/\bflower\b|v flower/i,  cls:"vtag-flower" },
+  { key:"kafu",   label:"KAFU",   match:/\bkafu\b/i,             cls:"vtag-kafu"   },
+  { key:"una",    label:"Una",    match:/otomachi una/i,          cls:"vtag-una"    },
+  { key:"yuki",   label:"Yuki",   match:/kaai yuki/i,            cls:"vtag-yuki"   },
+  { key:"rei",    label:"Rei",    match:/adachi rei/i,            cls:"vtag-rei"    },
+  { key:"defoko", label:"Defoko", match:/utane uta|defoko/i,     cls:"vtag-defoko" },
+];
+
+const THUMB_COLORS = {
+  miku:{bg:"#1a6b68",fg:"#39c5bb"}, rin:{bg:"#7a4800",fg:"#f5a623"},
+  len:{bg:"#6a5500",fg:"#e8d000"},  luka:{bg:"#7a005a",fg:"#e91e8c"},
+  gumi:{bg:"#1b5e20",fg:"#66bb6a"}, ia:{bg:"#4a0e6a",fg:"#ce93d8"},
+  kaito:{bg:"#0d1b6e",fg:"#5c6bc0"},meiko:{bg:"#7a0a0a",fg:"#ef5350"},
+  teto:{bg:"#5a0820",fg:"#e3587a"}, flower:{bg:"#2e0840",fg:"#c060d0"},
+  kafu:{bg:"#083848",fg:"#40b8d8"}, una:{bg:"#4a2800",fg:"#f09000"},
+  yuki:{bg:"#3a3000",fg:"#d4b000"}, rei:{bg:"#400830",fg:"#cc3080"},
+};
+const DEFAULT_COLORS = {bg:"#2a2a2a",fg:"#888888"};
+
+const VIEW_TIERS = [
+  {tag:"100m",label:"100M+",score:6},{tag:"10m",label:"10M+",score:5},
+  {tag:"1m",  label:"1M+",  score:4},{tag:"100k",label:"100K+",score:3},
+  {tag:"10k", label:"10K+", score:2},
+];
+
+function normalizeVocalists(singerNames=[], artistString="") {
+  const seen=new Set(), result=[];
+  for (const name of singerNames) {
+    if (!name || name.toLowerCase()==="various") continue;
+    let matched=false;
+    for (const v of VOCALIST_MAP) {
+      if (!seen.has(v.key) && v.match.test(name)) {
+        seen.add(v.key); result.push(v); matched=true; break;
+      }
+    }
+    if (!matched && !seen.has(name)) {
+      seen.add(name);
+      result.push({ key:name, label:name.length>12?name.split(" ")[0]:name, cls:"vtag-other" });
+    }
+  }
+  if (result.length===0 && /various/i.test(artistString))
+    result.push({ key:"various", label:"Various", cls:"vtag-other" });
+  return result;
+}
+
+function viewTier(song) {
+  const tags=song.sourceTags||[];
+  for (const t of VIEW_TIERS)
+    if (tags.some(tag=>tag.endsWith("-"+t.tag)||tag===t.tag)) return t;
+  return {label:null,score:0};
+}
+
+/* ── Real view counts (NicoNico: data/views.json, YouTube: data/ytviews.json) ── */
+let VIEWS = {};
+let VIEWS_UPDATED = null;
+let NND_STATS = {};       // { id: { views, comments, mylist } }
+let YT_STATS = {};        // { id: { views, likes, comments } }
+let YT_UPDATED = null;
+let ARTISTS = {};         // { artistName: imageUrl }
+function getViewCount(song) {
+  const v = VIEWS[String(song.vocadbId)];
+  return typeof v === "number" ? v : null;
+}
+function nndStat(song, key) {
+  const s = NND_STATS[String(song.vocadbId)];
+  if (s && typeof s[key] === "number") return s[key];
+  return key === "views" ? getViewCount(song) : null; // views falls back to views.json
+}
+function ytStat(song, key) {
+  const s = YT_STATS[String(song.vocadbId)];
+  return s && typeof s[key] === "number" ? s[key] : null;
+}
+function getYtCount(song)    { return ytStat(song, "views"); }
+function getYtLikes(song)    { return ytStat(song, "likes"); }
+function getYtComments(song) { return ytStat(song, "comments"); }
+function ytEmbeddable(song)  { const s = YT_STATS[String(song.vocadbId)]; return !(s && s.embeddable === false); }
+function artistImg(name)     { const u = ARTISTS[name]; return (typeof u === "string" && u) ? u : null; }
+// Combined NicoNico + YouTube — used for the all-time / yearly rank so it matches
+// the total-views headline and the rankings page's "Both" mode.
+function combinedViews(song) {
+  const n = getViewCount(song), y = getYtCount(song);
+  return (n == null && y == null) ? null : (n || 0) + (y || 0);
+}
+function formatViews(n) {
+  if (n >= 1e9) return (n / 1e9).toFixed(n >= 1e10 ? 1 : 2).replace(/\.?0+$/, "") + "B";
+  if (n >= 1e6) return (n / 1e6).toFixed(n >= 1e7 ? 1 : 2).replace(/\.?0+$/, "") + "M";
+  if (n >= 1e3) return Math.round(n / 1e3) + "K";
+  return String(n);
+}
+
+function rankBadgeClass(i) {
+  return i===0?"rank-gold":i===1?"rank-silver":i===2?"rank-bronze":"";
+}
+
+function getYouTubeId(coverArts=[]) {
+  for (const url of coverArts) {
+    const m=url.match(/ytimg\.com\/vi\/([^/]+)\//);
+    if (m) return m[1];
+  }
+  return null;
+}
+
+function coverArtChain(song) {
+  const all=[...(song.coverArts||[])];
+  if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
+  const ytHq = song.ytOriginalId ? `https://i.ytimg.com/vi/${song.ytOriginalId}/hqdefault.jpg` : null;
+  if (ytHq) { all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`); }
+  const nndNum = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/)?.[1] : null;
+  if (nndNum) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${nndNum}/${nndNum}`);
+  const p=u=>(ytHq&&u===ytHq)?-1:u.includes("ytimg.com")&&u.includes("hqdefault")?0:u.includes("ytimg.com")&&u.includes("mqdefault")?1:u.includes("ytimg.com")?2:u.includes("sndcdn.com")?3:4;
+  return [...new Set(all)].sort((a,b)=>p(a)-p(b));
+}
+
+function advanceThumb(img, skipYt) {
+  let rest = JSON.parse(img.dataset.srcs||"[]");
+  if (skipYt) rest = rest.filter(u=>!u.includes("ytimg.com"));
+  if (rest.length){img.src=rest[0];img.dataset.srcs=JSON.stringify(rest.slice(1));}
+  else img.remove();
+}
+function tryNextSrc(img) { advanceThumb(img, false); }
+function thumbOnload(img) {
+  if (img.naturalWidth && img.naturalWidth<=120 && img.naturalHeight<=90 && /ytimg\.com/.test(img.currentSrc||img.src)) advanceThumb(img, true);
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+function formatDate(iso) {
+  if (!iso) return "—";
+  return new Date(iso).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});
+}
+
+function getProducerDisplay(song) {
+  const real = (song.producerNames||[]).filter(p => !/^various/i.test(p));
+  if (real.length) return real.join(", ");
+  return song.artist || "—";
+}
+
+function getArtistDisplay(song) {
+  if (/^various/i.test(song.artistString||"")) return song.artist || song.artistString || "—";
+  return song.artistString || song.artist || "—";
+}
+
+const SOURCE_TAG_LABELS = {
+  "nnd-100m":"NND 100M+","nnd-10m":"NND 10M+","nnd-1m":"NND 1M+",
+  "nnd-100k":"NND 100K+","nnd-10k":"NND 10K+",
+  "yt-100m":"YT 100M+","yt-10m":"YT 10M+","yt-1m":"YT 1M+",
+  "yt-100k":"YT 100K+","yt-10k":"YT 10K+",
+  "sc-1m":"SoundCloud 1M+","sc-100k":"SoundCloud 100K+",
+  "project-sekai":"Project SEKAI","niconico-douga":"NicoNicodouga",
+};
+
+function buildTagList(song) {
+  const tags = [];
+  const vocalists = normalizeVocalists(song.singerNames, song.artistString);
+  for (const v of vocalists)
+    tags.push({ text:v.label, cls:"tp-vocalist", locked:true });
+  for (const p of (song.producerNames||[]))
+    tags.push({ text:p, cls:"tp-producer", locked:true });
+  for (const t of (song.sourceTags||[])) {
+    const label = SOURCE_TAG_LABELS[t] ||
+      t.replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase());
+    tags.push({ text:label, cls:"tp-source", locked:false });
+  }
+  return tags;
+}
+
+// Reusable stat cell — add a platform later by adding one statCard() call.
+function statCard(label, value, opts = {}) {
+  const has = value != null;
+  const cls = has ? (opts.primary ? "sc-primary" : "sc-muted") : "sc-empty";
+  const sub = has && opts.sub ? `<span class="sc-sub">${escHtml(opts.sub)}</span>` : "";
+  return `<div class="stat-card ${cls}">
+    <span class="sc-label">${escHtml(label)}</span>
+    <span class="sc-value"${has ? ` title="${value.toLocaleString()}"` : ""}>${has ? value.toLocaleString() : "—"}</span>
+    ${sub}
+  </div>`;
+}
+
+// Vocalist / producer card (Human-style people row). Uses a real VocaDB picture
+// when available, falling back to a colored letter avatar.
+function personCard(name, role, key, imgUrl) {
+  const c = (key && THUMB_COLORS[key]) ? THUMB_COLORS[key] : DEFAULT_COLORS;
+  const initial = escHtml((String(name||"?").trim().charAt(0) || "?").toUpperCase());
+  const img = imgUrl ? `<img class="person-img" src="${escHtml(imgUrl)}" alt="" loading="lazy" onerror="this.remove()">` : "";
+  return `<div class="person-card">
+    <div class="person-av" style="background:${c.bg};color:${c.fg}">${initial}${img}</div>
+    <div class="person-meta"><div class="person-name">${escHtml(name)}</div><div class="person-role">${escHtml(role)}</div></div>
+  </div>`;
+}
+
+// One platform's stats as a branded panel (NicoNico / YouTube / …). Scalable:
+// add a platform by calling platformPanel() again.
+function platformPanel(title, cls, asOf, cells) {
+  const body = cells.map(c =>
+    `<div class="pp-cell"><span class="pp-clabel">${escHtml(c.label)}</span>` +
+    `<span class="pp-cval${c.value == null ? " is-empty" : ""}"${c.value != null ? ` title="${c.value.toLocaleString()}"` : ""}>${c.value != null ? c.value.toLocaleString() : "—"}</span></div>`
+  ).join("");
+  return `<div class="platform-panel ${cls}">
+    <div class="pp-head"><span class="pp-title">${escHtml(title)}</span>${asOf ? `<span class="pp-asof">as of ${escHtml(asOf)}</span>` : ""}</div>
+    <div class="pp-cells">${body}</div>
+  </div>`;
+}
+
+// Custom "Hall of …" tier from real NicoNico views (falls back to the source-tag tier).
+const HALL_TIERS = [
+  { min: 1e8, name: "Hall of Gods",    ms: "100M+" },
+  { min: 1e7, name: "Hall of Myths",   ms: "10M+"  },
+  { min: 1e6, name: "Hall of Legends", ms: "1M+"   },
+  { min: 1e5, name: "Hall of Fame",    ms: "100K+" },
+  { min: 1e4, name: "Rising Star",     ms: "10K+"  },
+];
+function hallTier(song) {
+  const v = nndStat(song, "views");
+  if (v != null) return HALL_TIERS.find(h => v >= h.min) || { name: "Newcomer", ms: "<10K" };
+  const t = viewTier(song);
+  if (!t.label) return null;
+  const map = { "100M+": "Hall of Gods", "10M+": "Hall of Myths", "1M+": "Hall of Legends", "100K+": "Hall of Fame", "10K+": "Rising Star" };
+  return { name: map[t.label] || t.label, ms: t.label };
+}
+
+function buildPage(song, rank, yearRank) {
+  const vocalists = normalizeVocalists(song.singerNames, song.artistString);
+  const year      = song.publishDate ? new Date(song.publishDate).getFullYear() : null;
+  const primary   = vocalists[0];
+  const colors    = primary?(THUMB_COLORS[primary.key]||DEFAULT_COLORS):DEFAULT_COLORS;
+  const tier      = viewTier(song);
+  const count     = getViewCount(song);
+  const ytCount   = getYtCount(song);
+  const ytLikes   = getYtLikes(song);
+  const ytComments = getYtComments(song);
+  const totalViews = (count || 0) + (ytCount || 0);
+  const hasAnyViews = count != null || ytCount != null;
+  const chain     = coverArtChain(song);
+  const ytId      = song.ytOriginalId || getYouTubeId(song.coverArts||[]);
+
+  document.title = `39charts — ${song.title}`;
+  document.getElementById("topbar-breadcrumb").textContent =
+    `39charts › Rankings › ${song.title}`;
+
+  const vocalistTagsHtml = vocalists.length
+    ? vocalists.map(v=>`<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join(" ")
+    : `<span style="color:var(--faint)">—</span>`;
+
+  const tagPillsHtml = buildTagList(song).map(t =>
+    `<span class="tag-pill ${t.cls}">${escHtml(t.text)}${t.locked?` <span class="tag-lock">[L]</span>`:""}</span>`
+  ).join("");
+
+  const poolsHtml = (song.vocadbPools||[]).length
+    ? song.vocadbPools.map(p=>`<span class="pool-tag">${escHtml(p)}</span>`).join("")
+    : `<span style="color:var(--faint);font-size:10px;padding:4px 7px;display:block">No pool data</span>`;
+
+  const coverImgHtml = chain.length
+    ? `<img class="cover-img" src="${escHtml(chain[0])}" alt=""
+           data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}"
+           loading="eager" onload="thumbOnload(this)" onerror="tryNextSrc(this)">`
+    : "";
+
+  const rankHtml = rank!=null
+    ? `<div class="cover-rank ${rankBadgeClass(rank)}">#${rank+1}</div>` : "";
+
+  const tierHtml = tier.label
+    ? `<div class="cover-tier">${tier.label}</div>` : "";
+
+  const vocadbLinkHtml = song.vocadbUrl
+    ? `<a class="song-link-btn btn-vocadb" href="${escHtml(song.vocadbUrl)}" target="_blank" rel="noopener">VocaDB ↗</a>` : "";
+
+  const ytLinkHtml = ytId
+    ? `<a class="song-link-btn btn-youtube" href="https://www.youtube.com/watch?v=${escHtml(ytId)}" target="_blank" rel="noopener">YouTube ↗</a>` : "";
+
+  const nndLinkHtml = song.nndOriginalId
+    ? `<a class="song-link-btn btn-nnd" href="https://www.nicovideo.jp/watch/${escHtml(song.nndOriginalId)}" target="_blank" rel="noopener">NicoNico ↗</a>` : "";
+
+  const ht = hallTier(song);
+
+  const titlesHtml = (song.acceptedTitles||[])
+    .map(t=>`<span class="title-chip">${escHtml(t)}</span>`).join("");
+
+  const vocalCards = (song.singerNames || []).filter(n => n && !/various/i.test(n)).map(n => {
+    const v = VOCALIST_MAP.find(v => v.match.test(n));
+    return personCard(n, "Vocalist", v ? v.key : null, artistImg(n));
+  }).join("");
+  const producerCards = (song.producerNames || []).map(p => personCard(p, "Producer", null, artistImg(p))).join("");
+  const nndV = nndStat(song, "views"), nndC = nndStat(song, "comments"), nndM = nndStat(song, "mylist");
+  const ytPct = (count != null && ytCount != null && totalViews > 0) ? Math.round(ytCount / totalViews * 100) : null;
+  const nndPct = ytPct != null ? 100 - ytPct : null;
+
+  document.getElementById("page-body").innerHTML = `
+    <div class="hero">
+      <div class="hero-media" id="hero-media">
+        <div class="cover-placeholder" style="background:${colors.bg};color:${colors.fg};">
+          <div class="cover-pattern"></div><span class="cover-note">♪</span>
+        </div>
+        ${coverImgHtml}
+        ${rankHtml}
+        ${tierHtml}
+        <div class="cover-scanlines"></div>
+        ${(ytId && ytCount != null && ytEmbeddable(song)) ? `<button class="cover-play" id="cover-play" data-yt="${escHtml(ytId)}" aria-label="Play on YouTube">&#9654;</button>` : ""}
+      </div>
+      <div class="hero-info">
+        <div>
+          <h1 class="hero-title">${escHtml(song.title)}</h1>
+          <div class="hero-artist">${escHtml(getArtistDisplay(song))}</div>
+        </div>
+        <div class="hero-views">
+          <span class="hv-num">${hasAnyViews ? totalViews.toLocaleString() : "—"}</span>
+          <span class="hv-label">total views</span>
+        </div>
+        ${ytPct != null ? `
+          <div class="hv-bar" title="YouTube ${ytCount.toLocaleString()} · NicoNico ${count.toLocaleString()}">
+            <div class="hv-seg hv-yt" style="width:${(ytCount / totalViews * 100).toFixed(2)}%"></div>
+            <div class="hv-seg hv-nnd" style="width:${(count / totalViews * 100).toFixed(2)}%"></div>
+          </div>
+          <div class="hv-legend">
+            <span><i class="hv-dot hv-yt"></i>YouTube · ${ytCount.toLocaleString()} (${ytPct}%)</span>
+            <span><i class="hv-dot hv-nnd"></i>NicoNico · ${count.toLocaleString()} (${nndPct}%)</span>
+          </div>` : ""}
+        <div class="hero-chips">
+          ${rank != null ? `<span class="rank-chip"><strong>#${(rank + 1).toLocaleString()}</strong> all-time</span>` : ""}
+          ${(yearRank != null && year) ? `<span class="rank-chip"><strong>#${yearRank}</strong> in ${year}</span>` : ""}
+          ${ht ? `<span class="rank-chip rank-chip-tier"><strong>${escHtml(ht.name)}</strong></span>` : ""}
+        </div>
+        <div class="hero-links">
+          ${ytLinkHtml}${nndLinkHtml}${vocadbLinkHtml}
+        </div>
+      </div>
+    </div>
+
+    <div class="platform-row">
+      ${platformPanel("NicoNico", "pp-nnd", VIEWS_UPDATED, [
+        { label: "再生数 Views", value: nndV },
+        { label: "コメント Comments", value: nndC },
+        { label: "マイリスト Mylists", value: nndM },
+      ])}
+      ${platformPanel("YouTube", "pp-yt", YT_UPDATED, [
+        { label: "Views", value: ytCount },
+        { label: "Likes", value: ytLikes },
+        { label: "Comments", value: ytComments },
+      ])}
+    </div>
+
+    ${vocalCards ? `<div class="section-panel"><div class="section-header">Vocalists</div><div class="person-grid">${vocalCards}</div></div>` : ""}
+    ${producerCards ? `<div class="section-panel"><div class="section-header">Producers</div><div class="person-grid">${producerCards}</div></div>` : ""}
+
+    <div class="section-panel">
+      <div class="section-header">Details</div>
+      <div class="detail-table">
+        <div class="detail-row"><span class="detail-label">Released</span><span class="detail-value">${formatDate(song.publishDate)}</span></div>
+        <div class="detail-row"><span class="detail-label">Tier</span><span class="detail-value">${ht ? `<span class="tier-badge">${escHtml(ht.name)}</span>&ensp;<span style="color:var(--faint);font-size:10px">${escHtml(ht.ms)} NicoNico views</span>` : `<span style="color:var(--faint)">—</span>`}</span></div>
+        <div class="detail-row"><span class="detail-label">VocaDB ID</span><span class="detail-value" style="color:var(--faint)">${song.vocadbId || "—"}</span></div>
+        <div class="detail-row"><span class="detail-label">Pools</span><span class="detail-value">${poolsHtml}</span></div>
+      </div>
+    </div>
+
+    <div class="tag-row-panel">
+      <div class="tag-row-head">タグ</div>
+      <div class="tag-row-list">${tagPillsHtml||`<span style="color:var(--faint);font-size:10px">No tags</span>`}</div>
+    </div>
+
+    <div class="section-panel">
+      <div class="section-header">View History <span class="section-note">view history over time — coming soon</span></div>
+      <div class="chart-body">
+        <canvas id="viewChart" style="width:100%;height:100%"></canvas>
+        <div class="chart-coming-soon">
+          <strong>No data yet</strong>
+          <span>Daily view history will appear here once it's collected over time.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-panel">
+      <div class="section-header">Accepted Titles</div>
+      <div class="titles-body">
+        ${titlesHtml||`<span style="color:var(--faint);font-style:italic">None listed</span>`}
+      </div>
+    </div>
+  `;
+
+  /* Click-to-play: swap the cover for an embedded YouTube player */
+  const playBtn = document.getElementById("cover-play");
+  if (playBtn) playBtn.addEventListener("click", () => {
+    const id = playBtn.dataset.yt;
+    const media = document.getElementById("hero-media");
+    if (media) media.innerHTML =
+      `<iframe class="cover-embed" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0" title="${escHtml(song.title)}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+  });
+
+  /* render empty chart so axes are visible */
+  new Chart(document.getElementById("viewChart").getContext("2d"), {
+    type: "line",
+    data: {
+      labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+      datasets: [{ label:"Views", data:[], borderColor:"#cc0000", backgroundColor:"rgba(204,0,0,0.06)", tension:0.3, fill:true }]
+    },
+    options: {
+      responsive:true, maintainAspectRatio:false, animation:false,
+      plugins:{ legend:{display:false}, tooltip:{enabled:false} },
+      scales:{
+        x:{ grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:{family:'"MS PGothic",Arial,sans-serif',size:10},color:"#aaa"} },
+        y:{ beginAtZero:true, grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:{family:'"MS PGothic",Arial,sans-serif',size:10},color:"#aaa"} }
+      }
+    }
+  });
+}
+
+/* ── Cache ── */
+function loadSongs() {
+  const KEY = "39c_songs_v2";
+  try { const c = sessionStorage.getItem(KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e) {}
+  return fetch("../data/songs.json")
+    .then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+    .then(data=>{ try { sessionStorage.setItem(KEY,JSON.stringify(data)); } catch(e) {} return data; });
+}
+
+function loadViews() {
+  const KEY = "39c_views_v2";
+  try { const c = sessionStorage.getItem(KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e) {}
+  return fetch("../data/views.json")
+    .then(r=>r.ok?r.json():null)
+    .then(data=>{ if(data){ try { sessionStorage.setItem(KEY,JSON.stringify(data)); } catch(e) {} } return data; })
+    .catch(()=>null);
+}
+
+function loadYtViews() {
+  const KEY = "39c_ytviews_v2";
+  try { const c = sessionStorage.getItem(KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e) {}
+  return fetch("../data/ytviews.json")
+    .then(r=>r.ok?r.json():null)
+    .then(data=>{ if(data){ try { sessionStorage.setItem(KEY,JSON.stringify(data)); } catch(e) {} } return data; })
+    .catch(()=>null);
+}
+
+function loadJsonCached(file, key) {
+  try { const c = sessionStorage.getItem(key); if(c) return Promise.resolve(JSON.parse(c)); } catch(e) {}
+  return fetch(file)
+    .then(r=>r.ok?r.json():null)
+    .then(data=>{ if(data){ try { sessionStorage.setItem(key,JSON.stringify(data)); } catch(e) {} } return data; })
+    .catch(()=>null);
+}
+
+/* ── Bootstrap ── */
+const params = new URLSearchParams(window.location.search);
+const songId = params.get("id");
+
+if (!songId) {
+  document.getElementById("page-body").innerHTML =
+    `<div class="loading-state">No song ID specified. <a href="index.html">&#9664; Back to rankings</a></div>`;
+} else {
+  Promise.all([
+    loadSongs(), loadViews(), loadYtViews(),
+    loadJsonCached("../data/nndstats.json", "39c_nndstats_v2"),
+    loadJsonCached("../data/artists.json", "39c_artists_v2"),
+  ])
+    .then(([data, views, ytviews, nndstats, artists])=>{
+      if (views && views.views) { VIEWS = views.views; VIEWS_UPDATED = views.updated || null; }
+      if (ytviews && ytviews.stats) { YT_STATS = ytviews.stats; YT_UPDATED = ytviews.updated || null; }
+      if (nndstats && nndstats.stats) { NND_STATS = nndstats.stats; }
+      if (artists && artists.images) { ARTISTS = artists.images; }
+      const tierScore = s=>{
+        const tags=s.sourceTags||[];
+        for (const t of VIEW_TIERS)
+          if(tags.some(tag=>tag.endsWith("-"+t.tag)||tag===t.tag)) return t.score;
+        return 0;
+      };
+      // Rank by combined NicoNico + YouTube views (matches the total-views headline
+      // and the rankings page's "Both" mode); tier + date break ties / order the rest.
+      const sorted = [...data].sort((a,b)=>{
+        const av=combinedViews(a), bv=combinedViews(b);
+        if (av!=null || bv!=null) {
+          if (av==null) return 1;
+          if (bv==null) return -1;
+          if (bv!==av) return bv-av;
+        }
+        const d=tierScore(b)-tierScore(a);
+        return d!==0?d:new Date(b.publishDate||0)-new Date(a.publishDate||0);
+      });
+      const rank = sorted.findIndex(s=>String(s.vocadbId)===String(songId));
+      const song = rank>=0?sorted[rank]:data.find(s=>String(s.vocadbId)===String(songId));
+      if (!song) {
+        document.getElementById("page-body").innerHTML =
+          `<div class="loading-state">Song #${escHtml(songId)} not found. <a href="index.html">&#9664; Back to rankings</a></div>`;
+        return;
+      }
+      // Rank within the song's release year (combined views), matching the all-time order.
+      let yearRank = null;
+      const yr = song.publishDate ? new Date(song.publishDate).getFullYear() : null;
+      if (yr) {
+        const sameYear = sorted.filter(s => s.publishDate && new Date(s.publishDate).getFullYear() === yr && combinedViews(s) != null);
+        const idx = sameYear.findIndex(s => String(s.vocadbId) === String(songId));
+        if (idx >= 0) yearRank = idx + 1;
+      }
+      buildPage(song, rank>=0?rank:null, yearRank);
+    })
+    .catch(err=>{
+      document.getElementById("page-body").innerHTML =
+        `<div class="loading-state">Could not load songs.json — ${escHtml(err.message)}</div>`;
+    });
+}
+</script>
+</body>
+</html>

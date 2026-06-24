@@ -131,6 +131,44 @@ button { font: inherit; cursor: pointer; }
 .nnd-body { flex: 1 0 auto; width: 100%; max-width: 1160px; margin: 0 auto; padding: 8px 10px; }
 .nnd-main { display: flex; flex-direction: column; gap: 5px; }
 
+.game-mode-bar {
+  display: flex; align-items: stretch; gap: 4px;
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #fbfaf6, #e6e3dc);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.85), inset -1px -1px 0 rgba(0,0,0,0.10);
+  padding: 3px 5px 0;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+}
+.game-mode-tabs { display: flex; align-items: flex-end; gap: 3px; }
+.game-mode-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px 6px; border: 2px solid; border-bottom: 0;
+  border-color: #ffffff var(--ls) var(--ls) #ffffff; margin-bottom: -2px;
+  background: linear-gradient(to bottom, #f3f1ea, #dcd8cf); color: var(--muted);
+  font-family: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  cursor: pointer; position: relative; white-space: nowrap;
+}
+.game-mode-btn .gm-ico { width: 12px; height: 12px; opacity: 0.7; flex-shrink: 0; }
+.game-mode-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff6f6, #f1dcdc); }
+.game-mode-btn:hover .gm-ico { opacity: 1; }
+.game-mode-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  color: #fff; padding-bottom: 8px; z-index: 2;
+  border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
+}
+.game-mode-btn.is-active .gm-ico { opacity: 1; }
+.game-mode-hint {
+  margin-left: auto; align-self: center; display: flex; align-items: center; gap: 6px;
+  padding: 4px 10px; color: var(--muted); font-family: inherit;
+  font-size: 10px; letter-spacing: 0.04em;
+}
+.game-mode-hint::before { content: "\25B6"; color: var(--red); font-size: 8px; }
+.game-mode-hint .gm-ico { width: 12px; height: 12px; opacity: 0.65; flex-shrink: 0; }
+
 /* ── LAYOUT ── */
 .game-layout { display: flex; gap: 6px; align-items: flex-start; }
 .game-main   { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
@@ -613,6 +651,15 @@ button { font: inherit; cursor: pointer; }
 .go-val.is-best { color: #1a7a1a; }
 .go-stat.is-headline .go-val { color: var(--red); }
 .go-stat.is-headline .go-key { color: #a06868; }
+.go-newbest-row { text-align: center; margin: -2px 0 2px; }
+.go-newbest {
+  display: inline-block;
+  padding: 3px 10px; font-size: 10px; font-weight: 700; font-family: "MS Gothic", monospace;
+  letter-spacing: 0.08em; text-transform: uppercase; color: #fff;
+  background: linear-gradient(to bottom, #2faf2f, #1a7a1a); border: 1px solid #146014;
+  text-shadow: 0 1px 0 rgba(0,40,0,0.4); box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.go-replay-hint { font-size: 10px; font-weight: 400; font-style: italic; color: var(--muted); }
 
 /* retro NND result notice */
 .gameover-message {
@@ -643,6 +690,18 @@ button { font: inherit; cursor: pointer; }
   color: var(--red);
   background: linear-gradient(to bottom, #fff5f5, #ffd0d0);
 }
+.daily-result-grid {
+  display: grid; grid-template-columns: repeat(10, minmax(22px, 1fr));
+  border: 1px solid var(--line); background: #f5f3ed;
+}
+.daily-result-cell {
+  min-height: 28px; display: grid; place-items: center; border-right: 1px solid var(--line);
+  font-weight: 900; font-size: 12px;
+}
+.daily-result-cell:last-child { border-right: 0; }
+.daily-result-cell.is-correct { color: #167516; background: #e4f3e4; }
+.daily-result-cell.is-wrong { color: var(--red); background: #f8e2e2; }
+.daily-result-cell.is-empty { color: #aaa; }
 
 /* ── STATE MESSAGES ── */
 .state-panel {
@@ -755,6 +814,122 @@ button { font: inherit; cursor: pointer; }
   padding: 16px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
+/* ── ARCHIVE MODAL ── */
+.archive-modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 101; background: var(--surface); border: 1px solid var(--ls);
+  width: min(100vw - 32px, 400px); max-height: min(88vh, 600px); overflow: auto;
+  padding: 16px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.archive-note { font-size: 11px; color: var(--muted); margin: -4px 0 10px; line-height: 1.45; font-style: italic; }
+
+/* Summary: collapsed-border header-band table */
+.archive-summary {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0;
+  margin-bottom: 12px; border: 1px solid var(--ls); background: var(--surface);
+}
+.archive-summary-item {
+  display: flex; flex-direction: column-reverse; min-width: 0; text-align: center;
+  border-right: 1px solid var(--line);
+}
+.archive-summary-item:last-child { border-right: 0; }
+.archive-summary-item span {
+  padding: 2px; background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+  border-bottom: 1px solid var(--line); box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  color: var(--muted); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
+}
+.archive-summary-item strong { padding: 6px 2px 5px; font-size: 15px; color: var(--red); line-height: 1; }
+
+.archive-random {
+  display: block; width: 100%; margin-bottom: 12px; padding: 7px;
+  font-family: "MS Gothic","Courier New",monospace; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.06em; text-transform: uppercase; color: #fff;
+  background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #cc0000 100%);
+  border: 1px solid var(--red-dark); cursor: pointer;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+.archive-random::before { content: "\25B6\00a0"; }
+.archive-random:hover { background: linear-gradient(to bottom, #ff6666 0%, #ee3333 48%, #cc1111 52%, #dd1111 100%); }
+.archive-random:disabled { background: #c8c4bc; border-color: var(--ls); color: var(--faint); text-shadow: none; cursor: default; box-shadow: none; }
+
+/* Toolbar: gradient header band with bevel pager buttons */
+.archive-toolbar {
+  display: grid; grid-template-columns: 28px 1fr 28px; align-items: center; gap: 6px;
+  padding: 5px 6px; margin-bottom: 0;
+  border: 1px solid var(--ls); border-bottom: 0;
+  background: linear-gradient(to bottom, #f0f0f0, #dedede);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+#archive-month-label {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  line-height: 1.2; font-size: 13px; color: var(--text);
+}
+#archive-month-label .am-sub { font-size: 9px; font-weight: 700; color: var(--red); letter-spacing: 0.02em; }
+.archive-nav {
+  height: 20px; padding: 0; font-size: 9px; color: var(--muted);
+  background: linear-gradient(to bottom, #ffffff, #e4e4e4); border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9); cursor: pointer;
+}
+.archive-nav:hover:not(:disabled) { color: var(--red); background: linear-gradient(to bottom, #fff5f5, #ffd8d8); }
+.archive-nav:disabled { opacity: 0.35; cursor: default; }
+
+/* Weekday header band */
+.archive-weekdays, .archive-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 0; }
+.archive-weekdays {
+  margin-bottom: 0; border: 1px solid var(--ls); border-bottom: 0;
+  background: linear-gradient(to bottom, #fafafa, #e8e8e8);
+}
+.archive-weekdays span {
+  text-align: center; padding: 3px 0; border-right: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em;
+}
+.archive-weekdays span:last-child { border-right: 0; }
+.archive-weekdays span.wd-sun { color: #cc2222; }
+.archive-weekdays span.wd-sat { color: #2255cc; }
+
+/* Grid: collapsed-border calendar table */
+.archive-grid { border: 1px solid var(--ls); }
+.archive-day {
+  min-height: 50px; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start;
+  padding: 3px 5px; gap: 1px;
+  border: 0; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  background: var(--surface); font-size: 11px; color: var(--text); position: relative; overflow: hidden;
+}
+.archive-day:nth-child(7n) { border-right: 0; }
+.archive-day .ad-day { font-size: 12px; font-weight: 700; line-height: 1; }
+.archive-day.is-sun .ad-day { color: #cc2222; }
+.archive-day.is-sat .ad-day { color: #2255cc; }
+.archive-day.is-blank {
+  background: repeating-linear-gradient(45deg, transparent 0 3px, rgba(0,0,0,0.05) 3px 4px) #f4f3ef;
+}
+.archive-day.is-blank:nth-child(7n) { border-right: 0; }
+.archive-day.is-locked { background: #fcfcfa; }
+.archive-day.is-locked .ad-day { color: var(--faint); font-weight: 400; }
+.archive-day.is-locked .ad-note { margin-top: auto; font-size: 8px; color: var(--faint); font-style: italic; opacity: 0.8; }
+.archive-day.is-available { cursor: pointer; }
+.archive-day.is-available:hover { background: #fff0f0; }
+.archive-day.is-available .ad-play { margin-top: auto; font-size: 9px; color: var(--faint); font-style: italic; }
+.archive-day.is-available:hover .ad-play { color: var(--red); }
+.archive-day.is-solved { cursor: pointer; }
+.archive-day.is-solved:hover { box-shadow: inset 0 0 0 2px var(--red); }
+.archive-day .ad-score { margin-top: auto; font-size: 13px; font-weight: 900; line-height: 1; }
+.archive-day .ad-perfect { position: absolute; top: 2px; right: 3px; font-size: 9px; color: #d4a017; }
+
+/* Legend: centered, dotted top rule */
+.archive-legend {
+  display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+  margin-top: 8px; padding: 5px 0 0; border-top: 1px dotted var(--line);
+  font-size: 9px; color: var(--faint);
+}
+.archive-legend span { display: inline-flex; align-items: center; gap: 4px; }
+.archive-legend i { width: 11px; height: 11px; border: 1px solid var(--ls); display: inline-block; }
+.archive-legend i.lg-available { background: var(--surface); }
+.archive-legend i.lg-solved { background: #d8f2d8; border-color: #9ccf9c; }
+.archive-legend i.lg-locked { background: #fcfcfa; }
+
 .release-tabs { display: flex; width: fit-content; margin: 0 0 8px; border: 1px solid var(--ls); }
 .release-tab {
   min-width: 52px; height: 24px; padding: 0 10px;
@@ -900,6 +1075,12 @@ button { font: inherit; cursor: pointer; }
 
 @media (max-width: 640px) {
   .nnd-body { padding: 6px 0; }
+  .game-mode-bar { flex-direction: column; gap: 0; padding: 0; }
+  .game-mode-tabs { width: 100%; gap: 0; }
+  .game-mode-btn { flex: 1; min-width: 0; justify-content: center; margin-bottom: 0; border: 1px solid var(--ls); border-right: 0; }
+  .game-mode-btn:last-child { border-right: 1px solid var(--ls); }
+  .game-mode-btn.is-active { padding-bottom: 6px; border-color: var(--red-dark); }
+  .game-mode-hint { margin-left: 0; justify-content: center; width: 100%; border-top: 1px solid var(--ls); }
   /* stacked HUD: scores grid on top, result + lives row below */
   .streak-bar { flex-direction: column; }
   .streak-scores { display: grid; grid-template-columns: repeat(5, 1fr); width: 100%; }
@@ -955,10 +1136,30 @@ html.dark-mode .recent-battles,
 html.dark-mode .settings-modal,
 html.dark-mode .notes-modal,
 html.dark-mode .achievements-modal,
+html.dark-mode .archive-modal,
 html.dark-mode .gameover-panel,
 html.dark-mode .state-panel {
   background: var(--surface);
 }
+html.dark-mode .archive-summary { background: var(--surface); border-color: #3b3b3b; }
+html.dark-mode .archive-summary-item { border-color: #2a2a2a; }
+html.dark-mode .archive-summary-item span { background: linear-gradient(to bottom, #262626, #1d1d1d); border-color: #2a2a2a; color: var(--muted); box-shadow: none; }
+html.dark-mode .archive-toolbar { background: linear-gradient(to bottom, #242424, #191919); border-color: #3b3b3b; }
+html.dark-mode .archive-nav { background: linear-gradient(to bottom, #2a2a2a, #1d1d1d); border-color: #3b3b3b; }
+html.dark-mode .archive-weekdays { background: linear-gradient(to bottom, #242424, #191919); border-color: #3b3b3b; }
+html.dark-mode .archive-weekdays span { border-color: #2a2a2a; box-shadow: none; color: #888; }
+html.dark-mode .archive-weekdays span.wd-sun { color: #cc5555; }
+html.dark-mode .archive-weekdays span.wd-sat { color: #6688dd; }
+html.dark-mode .archive-grid { border-color: #3b3b3b; }
+html.dark-mode .archive-day { background: var(--surface); border-color: #2a2a2a; }
+html.dark-mode .archive-day.is-sun .ad-day { color: #cc5555; }
+html.dark-mode .archive-day.is-sat .ad-day { color: #6688dd; }
+html.dark-mode .archive-day.is-blank { background: repeating-linear-gradient(45deg, transparent 0 3px, rgba(255,255,255,0.04) 3px 4px) #1a1a1a; }
+html.dark-mode .archive-day.is-locked { background: #202020; }
+html.dark-mode .archive-day.is-available:hover { background: #2a1414; }
+html.dark-mode .archive-legend { border-color: #2a2a2a; }
+html.dark-mode .archive-legend i.lg-solved { background: #182818; border-color: #2a4a2a; }
+html.dark-mode .archive-legend i.lg-locked { background: #202020; }
 html.dark-mode .nnd-logo-text,
 html.dark-mode .settings-label,
 html.dark-mode .achievement-title,
@@ -1000,6 +1201,29 @@ html.dark-mode .vs-text,
 html.dark-mode .gameover-message {
   background: #151515;
 }
+html.dark-mode .daily-result-grid,
+html.dark-mode .daily-result-cell {
+  background: #202020;
+  border-color: #444;
+}
+html.dark-mode .game-mode-bar {
+  background: linear-gradient(to bottom, #232323, #181818);
+  border-color: #3b3b3b;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05), inset -1px -1px 0 rgba(0,0,0,0.4);
+}
+html.dark-mode .game-mode-btn {
+  color: var(--muted);
+  background: linear-gradient(to bottom, #2a2a2a, #1d1d1d);
+  border-color: #4a4a4a #111 #111 #4a4a4a;
+}
+html.dark-mode .game-mode-btn:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .game-mode-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
+  color: #fff;
+}
+html.dark-mode .daily-result-cell.is-correct { background: #173117; color: #79d479; }
+html.dark-mode .daily-result-cell.is-wrong { background: #351b1b; color: #ff6f6f; }
 html.dark-mode .game-area {
   border-color: #383838;
   box-shadow: inset 0 0 0 1px #242424;
@@ -1229,6 +1453,21 @@ html.dark-mode .nnd-mobile-nav {
   </div>
   <div class="achievement-list" id="achievement-list"></div>
 </div>
+<div class="archive-modal" id="archive-modal" hidden>
+  <button class="modal-close-btn" id="archive-close">x</button>
+  <h2 class="modal-title" id="archive-title">Daily Archive</h2>
+  <p class="archive-note" id="archive-note">Play any previous daily set.</p>
+  <div class="archive-summary" id="archive-summary"></div>
+  <button class="archive-random" id="archive-random" type="button">Random Puzzle</button>
+  <div class="archive-toolbar">
+    <button class="archive-nav" id="archive-prev" type="button" aria-label="Previous month">&#9664;</button>
+    <strong id="archive-month-label">Month</strong>
+    <button class="archive-nav" id="archive-next" type="button" aria-label="Next month">&#9654;</button>
+  </div>
+  <div class="archive-weekdays" id="archive-weekdays" aria-hidden="true"></div>
+  <div class="archive-grid" id="archive-grid"></div>
+  <div class="archive-legend" id="archive-legend" aria-hidden="true"></div>
+</div>
 <div class="settings-modal" id="settings-modal" hidden>
   <button class="modal-close-btn" id="settings-close">x</button>
   <h2 class="modal-title">Settings</h2>
@@ -1282,6 +1521,12 @@ const ACHIEVEMENTS_KEY = 'soda_hol_achievements';
 const TOTAL_CORRECT_KEY = 'soda_hol_total_correct';
 const GAMES_PLAYED_KEY = 'soda_hol_games_played';
 const LANGUAGE_KEY = 'soda_hol_language';
+const MODE_KEY = 'soda_hol_mode';
+const DAILY_STATE_KEY = 'soda_hol_daily_state';
+const DAILY_STATS_KEY = 'soda_hol_daily_stats';
+const ARCHIVE_KEY = 'soda_hol_archive_results';
+const DAILY_EPOCH = '2026-06-12';
+const DAILY_GUESS_COUNT = 10;
 const REVEAL_DELAY = 1800;
 const DEFAULTS     = { pool: 'all', lives: 3, romaji: false, darkMode: false };
 
@@ -1388,7 +1633,57 @@ const I18N = {
     milestoneMaxed: 'Maxed!',
     milestoneDesc: 'How close your all-time best streak is to the next goal (5, 10, 25, 50, 100, 250, 500, 1000).',
     noGuessesHint: 'Your matchups will appear here as you play.',
-    achievementUnlocked: 'Achievement unlocked!'
+    achievementUnlocked: 'Achievement unlocked!',
+    dailyGuesses: 'Daily Guesses',
+    unlimitedMode: 'Unlimited',
+    dailyModeNote: '10 a day · same set for everyone',
+    unlimitedModeNote: 'Endless · lives & streaks',
+    dailyCorrect: 'Daily correct',
+    dailyBest: 'Best daily',
+    guessNumber: 'Guess',
+    dailyStats: '[ Daily Stats ]',
+    daysPlayed: 'Days played',
+    perfectDays: 'Perfect days',
+    averageScore: 'Average score',
+    todaysScore: "Today's score",
+    dailyComplete: 'DAILY GUESSES COMPLETE',
+    dailyCompleteMessage: ({ correct }) => `You got ${correct} out of ${DAILY_GUESS_COUNT} correct today.`,
+    comeBackTomorrow: 'A new set will be available tomorrow.',
+    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower Daily Guesses\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    dailyHtp3: 'Answer all 10 comparisons to finish today\'s set.',
+    dailyHtp4: 'Your answers are saved, so refreshing cannot reroll the set.',
+    archiveMode: 'Archive',
+    archiveModeNote: 'Replay any past daily',
+    archiveModeNotePlaying: ({ date }) => `Playing daily · ${date}`,
+    archiveTitle: 'Daily Archive',
+    archiveNote: "Replay any previous daily set. Today's puzzle lives in Daily Guesses.",
+    archiveRandom: 'Random Puzzle',
+    archiveEmpty: 'No archive puzzles yet — check back tomorrow.',
+    archiveSummarySolved: 'Solved',
+    archiveSummaryTotal: 'Total',
+    archiveSummaryPerfect: 'Perfect',
+    archiveSummaryDone: 'Done',
+    archiveLegendAvailable: 'Available',
+    archiveLegendSolved: 'Solved (score)',
+    archiveLegendLocked: 'Not yet',
+    archiveComplete: 'ARCHIVE PUZZLE COMPLETE',
+    archiveScoreLabel: 'Your score',
+    archiveBestLabel: 'Best for this day',
+    archiveCompleteMessage: ({ correct, date }) => `You got ${correct} of ${DAILY_GUESS_COUNT} on the ${date} set.`,
+    archiveBack: 'Back to Archive',
+    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower Archive\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    archiveHtp4: 'Scores are saved per day; your best run is kept.',
+    archiveStats: '[ Archive Stats ]',
+    archiveDateLabel: 'Playing',
+    archiveDayBest: 'Day best',
+    archiveSolvedWord: 'solved',
+    archivePlay: 'play',
+    archiveNoPuzzle: 'no puzzle',
+    archiveNewBest: 'New best!',
+    archiveReplayHint: 'Replay this day anytime to beat your best score.',
+    archiveReplayHintPerfect: 'Perfect run! Try another day from the Archive.',
+    againstAllLogic: 'Against All Logic',
+    againstAllLogicDesc: 'Choose Higher when Song A is Senbonzakura.'
   },
   ja: {
     pageTitle: 'VOCALOID Higher or Lower',
@@ -1492,7 +1787,57 @@ const I18N = {
     milestoneMaxed: '達成！',
     milestoneDesc: '自己最高連勝が次の目標（5・10・25・50・100・250・500・1000）にどれだけ近いかを表します。',
     noGuessesHint: '回答するとここに対戦履歴が表示されます。',
-    achievementUnlocked: '実績解除!'
+    achievementUnlocked: '実績解除!',
+    dailyGuesses: 'デイリー予想',
+    unlimitedMode: '無制限',
+    dailyModeNote: '1日10問・全員同じ出題',
+    unlimitedModeNote: '無制限・ライフと連勝',
+    dailyCorrect: '本日の正解',
+    dailyBest: '最高デイリー',
+    guessNumber: '問目',
+    dailyStats: '[ デイリー統計 ]',
+    daysPlayed: 'プレイ日数',
+    perfectDays: '全問正解',
+    averageScore: '平均スコア',
+    todaysScore: '今日のスコア',
+    dailyComplete: 'デイリー予想 完了',
+    dailyCompleteMessage: ({ correct }) => `今日は${DAILY_GUESS_COUNT}問中${correct}問正解でした。`,
+    comeBackTomorrow: '新しい出題は明日追加されます。',
+    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower デイリー予想\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    dailyHtp3: '10問すべてに回答すると今日のセットが完了します。',
+    dailyHtp4: '回答は保存されるため、リロードしても出題は変わりません。',
+    archiveMode: 'アーカイブ',
+    archiveModeNote: '過去のデイリーを再挑戦',
+    archiveModeNotePlaying: ({ date }) => `デイリー挑戦中 · ${date}`,
+    archiveTitle: 'デイリーアーカイブ',
+    archiveNote: '過去のデイリーをいつでも再挑戦できます。今日の問題はデイリー予想にあります。',
+    archiveRandom: 'ランダム出題',
+    archiveEmpty: 'アーカイブはまだありません。明日また確認してください。',
+    archiveSummarySolved: 'クリア',
+    archiveSummaryTotal: '合計',
+    archiveSummaryPerfect: 'パーフェクト',
+    archiveSummaryDone: '達成率',
+    archiveLegendAvailable: 'プレイ可能',
+    archiveLegendSolved: 'クリア（スコア）',
+    archiveLegendLocked: '未開放',
+    archiveComplete: 'アーカイブ問題クリア',
+    archiveScoreLabel: 'スコア',
+    archiveBestLabel: 'この日の最高',
+    archiveCompleteMessage: ({ correct, date }) => `${date}のセットで${DAILY_GUESS_COUNT}問中${correct}問正解でした。`,
+    archiveBack: 'アーカイブに戻る',
+    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower アーカイブ\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    archiveHtp4: 'スコアは日付ごとに保存され、最高記録が残ります。',
+    archiveStats: '[ アーカイブ統計 ]',
+    archiveDateLabel: '挑戦中',
+    archiveDayBest: 'この日の最高',
+    archiveSolvedWord: '正解',
+    archivePlay: 'プレイ',
+    archiveNoPuzzle: '出題なし',
+    archiveNewBest: '自己最高！',
+    archiveReplayHint: 'この日はいつでも再挑戦して自己最高を更新できます。',
+    archiveReplayHintPerfect: 'パーフェクト！アーカイブの別の日にも挑戦しよう。',
+    againstAllLogic: '理屈に逆らう',
+    againstAllLogicDesc: 'Song Aが「千本桜」のときにHigherを選ぶ。'
   },
   es: {
     pageTitle: 'VOCALOID Higher or Lower',
@@ -1596,7 +1941,57 @@ const I18N = {
     milestoneMaxed: '¡Máximo!',
     milestoneDesc: 'Qué tan cerca está tu mejor racha histórica de la próxima meta (5, 10, 25, 50, 100, 250, 500, 1000).',
     noGuessesHint: 'Tus duelos aparecerán aquí mientras juegas.',
-    achievementUnlocked: '¡Logro desbloqueado!'
+    achievementUnlocked: '¡Logro desbloqueado!',
+    dailyGuesses: 'Intentos diarios',
+    unlimitedMode: 'Ilimitado',
+    dailyModeNote: '10 al día · misma serie para todos',
+    unlimitedModeNote: 'Infinito · vidas y rachas',
+    dailyCorrect: 'Aciertos de hoy',
+    dailyBest: 'Mejor diario',
+    guessNumber: 'Intento',
+    dailyStats: '[ Estadísticas diarias ]',
+    daysPlayed: 'Días jugados',
+    perfectDays: 'Días perfectos',
+    averageScore: 'Promedio',
+    todaysScore: 'Resultado de hoy',
+    dailyComplete: 'INTENTOS DIARIOS COMPLETADOS',
+    dailyCompleteMessage: ({ correct }) => `Hoy acertaste ${correct} de ${DAILY_GUESS_COUNT}.`,
+    comeBackTomorrow: 'Habrá una nueva serie mañana.',
+    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower - Intentos diarios\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    dailyHtp3: 'Responde las 10 comparaciones para terminar la serie de hoy.',
+    dailyHtp4: 'Tus respuestas se guardan; recargar no cambia la serie.',
+    archiveMode: 'Archivo',
+    archiveModeNote: 'Repite cualquier diario pasado',
+    archiveModeNotePlaying: ({ date }) => `Jugando diario · ${date}`,
+    archiveTitle: 'Archivo diario',
+    archiveNote: 'Repite cualquier serie diaria anterior. El reto de hoy está en Intentos diarios.',
+    archiveRandom: 'Puzle aleatorio',
+    archiveEmpty: 'Aún no hay puzles de archivo; vuelve mañana.',
+    archiveSummarySolved: 'Resueltos',
+    archiveSummaryTotal: 'Total',
+    archiveSummaryPerfect: 'Perfectos',
+    archiveSummaryDone: 'Hecho',
+    archiveLegendAvailable: 'Disponible',
+    archiveLegendSolved: 'Resuelto (puntos)',
+    archiveLegendLocked: 'Aún no',
+    archiveComplete: 'PUZLE DE ARCHIVO COMPLETO',
+    archiveScoreLabel: 'Tu puntuación',
+    archiveBestLabel: 'Mejor de ese día',
+    archiveCompleteMessage: ({ correct, date }) => `Acertaste ${correct} de ${DAILY_GUESS_COUNT} en la serie del ${date}.`,
+    archiveBack: 'Volver al archivo',
+    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower - Archivo\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    archiveHtp4: 'Las puntuaciones se guardan por día; se conserva tu mejor intento.',
+    archiveStats: '[ Estadísticas de archivo ]',
+    archiveDateLabel: 'Jugando',
+    archiveDayBest: 'Mejor del día',
+    archiveSolvedWord: 'resueltos',
+    archivePlay: 'jugar',
+    archiveNoPuzzle: 'sin puzle',
+    archiveNewBest: '¡Nuevo récord!',
+    archiveReplayHint: 'Repite este día cuando quieras para superar tu mejor puntuación.',
+    archiveReplayHintPerfect: '¡Partida perfecta! Prueba otro día del Archivo.',
+    againstAllLogic: 'Contra toda lógica',
+    againstAllLogicDesc: 'Elige Higher cuando la canción A sea Senbonzakura.'
   },
   ko: {
     pageTitle: 'VOCALOID Higher or Lower',
@@ -1700,7 +2095,57 @@ const I18N = {
     milestoneMaxed: '달성!',
     milestoneDesc: '역대 최고 연승이 다음 목표(5, 10, 25, 50, 100, 250, 500, 1000)에 얼마나 가까운지 보여줍니다.',
     noGuessesHint: '플레이하면 여기에 대결 기록이 표시됩니다.',
-    achievementUnlocked: '업적 해금!'
+    achievementUnlocked: '업적 해금!',
+    dailyGuesses: '일일 추측',
+    unlimitedMode: '무제한',
+    dailyModeNote: '하루 10문제 · 모두 같은 문제',
+    unlimitedModeNote: '무제한 · 라이프와 연승',
+    dailyCorrect: '오늘의 정답',
+    dailyBest: '일일 최고',
+    guessNumber: '문제',
+    dailyStats: '[ 일일 통계 ]',
+    daysPlayed: '플레이 일수',
+    perfectDays: '퍼펙트 데이',
+    averageScore: '평균 점수',
+    todaysScore: '오늘의 점수',
+    dailyComplete: '일일 추측 완료',
+    dailyCompleteMessage: ({ correct }) => `오늘 ${DAILY_GUESS_COUNT}문제 중 ${correct}문제를 맞혔습니다.`,
+    comeBackTomorrow: '내일 새로운 문제가 열립니다.',
+    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower 일일 추측\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    dailyHtp3: '10개의 비교를 모두 답하면 오늘의 세트가 완료됩니다.',
+    dailyHtp4: '답변이 저장되므로 새로고침해도 문제가 바뀌지 않습니다.',
+    archiveMode: '아카이브',
+    archiveModeNote: '지난 일일 문제 다시 플레이',
+    archiveModeNotePlaying: ({ date }) => `일일 플레이 중 · ${date}`,
+    archiveTitle: '데일리 아카이브',
+    archiveNote: '지난 일일 세트를 언제든 다시 플레이하세요. 오늘 문제는 일일 추측에 있습니다.',
+    archiveRandom: '랜덤 문제',
+    archiveEmpty: '아직 아카이브 문제가 없습니다. 내일 다시 확인하세요.',
+    archiveSummarySolved: '해결',
+    archiveSummaryTotal: '전체',
+    archiveSummaryPerfect: '퍼펙트',
+    archiveSummaryDone: '완료',
+    archiveLegendAvailable: '가능',
+    archiveLegendSolved: '해결(점수)',
+    archiveLegendLocked: '아직',
+    archiveComplete: '아카이브 문제 완료',
+    archiveScoreLabel: '점수',
+    archiveBestLabel: '이 날 최고',
+    archiveCompleteMessage: ({ correct, date }) => `${date} 세트에서 ${DAILY_GUESS_COUNT}문제 중 ${correct}문제를 맞혔습니다.`,
+    archiveBack: '아카이브로 돌아가기',
+    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower 아카이브\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    archiveHtp4: '점수는 날짜별로 저장되며 최고 기록이 유지됩니다.',
+    archiveStats: '[ 아카이브 통계 ]',
+    archiveDateLabel: '플레이 중',
+    archiveDayBest: '이 날 최고',
+    archiveSolvedWord: '해결',
+    archivePlay: '플레이',
+    archiveNoPuzzle: '문제 없음',
+    archiveNewBest: '최고 기록!',
+    archiveReplayHint: '이 날은 언제든 다시 플레이해 최고 점수를 경신할 수 있습니다.',
+    archiveReplayHintPerfect: '퍼펙트! 아카이브의 다른 날에도 도전해 보세요.',
+    againstAllLogic: '논리를 거스르다',
+    againstAllLogicDesc: 'Song A가 Senbonzakura일 때 Higher를 선택하세요.'
   }
 };
 
@@ -1813,6 +2258,7 @@ function applyStaticTranslations() {
 function rerenderForLanguage() {
   applyStaticTranslations();
   renderAchievementsIfOpen();
+  if (!document.getElementById('archive-modal').hidden) renderArchiveModal();
   if (!document.getElementById('notes-modal').hidden) {
     const active = document.querySelector('#release-tabs .is-active')?.dataset.version || RELEASES[0].version;
     renderRelease(active);
@@ -1823,6 +2269,18 @@ function rerenderForLanguage() {
     document.getElementById('main').innerHTML = renderGameOver();
     document.getElementById('play-again-btn')?.addEventListener('click', startGame);
     document.getElementById('share-result-btn')?.addEventListener('click', copyShareResult);
+    bindModeButtons();
+    bindAchievementLinks();
+  } else if (state.phase === 'daily-complete') {
+    document.getElementById('main').innerHTML = renderDailyComplete();
+    document.getElementById('share-result-btn')?.addEventListener('click', copyShareResult);
+    bindModeButtons();
+    bindAchievementLinks();
+  } else if (state.phase === 'archive-complete') {
+    document.getElementById('main').innerHTML = renderArchiveComplete();
+    document.getElementById('share-result-btn')?.addEventListener('click', copyShareResult);
+    document.getElementById('archive-back-btn')?.addEventListener('click', openArchive);
+    bindModeButtons();
     bindAchievementLinks();
   }
 }
@@ -1965,6 +2423,62 @@ const ACHIEVEMENTS = [
     desc: 'Lose all lives once.',
     icon: 'X'
   },
+  {
+    id: 'archive_first',
+    title: 'Time Traveler',
+    desc: 'Play your first Archive puzzle.',
+    icon: 'A'
+  },
+  {
+    id: 'archive_random',
+    title: 'Lucky Dip',
+    desc: 'Start a puzzle with the Random Puzzle button.',
+    icon: 'R?'
+  },
+  {
+    id: 'archive_perfect',
+    title: 'Total Recall',
+    desc: 'Score a perfect 10/10 on an Archive puzzle.',
+    icon: 'A+'
+  },
+  {
+    id: 'archive_improve',
+    title: 'Second Listen',
+    desc: 'Replay an Archive day and beat your previous best.',
+    icon: '↻'
+  },
+  {
+    id: 'archive_throwback',
+    title: 'Day One',
+    desc: 'Solve the very first daily in the Archive.',
+    icon: 'D1'
+  },
+  {
+    id: 'archive_5',
+    title: 'Archivist',
+    desc: 'Solve 5 different Archive days.',
+    icon: 'A5'
+  },
+  {
+    id: 'archive_complete_all',
+    title: 'Vault Cleared',
+    desc: 'Solve every available Archive day.',
+    icon: 'A★'
+  },
+  {
+    id: 'against_all_logic',
+    title: 'Against All Logic',
+    desc: 'Choose Higher when Song A is Senbonzakura.',
+    icon: '?',
+    secret: true
+  },
+  {
+    id: 'flawless_failure',
+    title: 'Flawless Failure',
+    desc: 'Get all 10 wrong in a Daily or Archive set — you have to know the answers to miss every one.',
+    icon: '0',
+    secret: true
+  },
 ];
 
 const ACHIEVEMENT_TEXT = {
@@ -1989,7 +2503,16 @@ const ACHIEVEMENT_TEXT = {
     myth_matcher: ['神話マッチャー', 'Hall of Myths曲同士を正しく比較する。'],
     photo_finish: ['写真判定', '再生数差10%以内の曲同士を正しく比較する。'],
     blowout_call: ['圧勝判定', '10倍以上差のある曲同士を正しく選ぶ。'],
-    try_again: ['再挑戦', 'ライフをすべて失う。']
+    try_again: ['再挑戦', 'ライフをすべて失う。'],
+    archive_first: ['タイムトラベラー', '初めてアーカイブ問題をプレイする。'],
+    archive_random: ['運だめし', 'ランダム出題ボタンで問題を始める。'],
+    archive_perfect: ['完全記憶', 'アーカイブ問題で10/10のパーフェクトを取る。'],
+    archive_improve: ['二度目の挑戦', 'アーカイブの日を再挑戦して自己最高を更新する。'],
+    archive_throwback: ['初日', 'アーカイブ最古のデイリーをクリアする。'],
+    archive_5: ['アーキビスト', '5日分のアーカイブをクリアする。'],
+    archive_complete_all: ['書庫制覇', 'すべてのアーカイブをクリアする。'],
+    against_all_logic: ['理屈に逆らう', 'Song Aが「千本桜」のときにHigherを選ぶ。'],
+    flawless_failure: ['完璧な失敗', 'デイリーまたはアーカイブで10問すべて不正解にする。全問外すには答えを知っている必要がある。']
   },
   es: {
     first_correct: ['Primer paso', 'Consigue tu primer acierto en Higher or Lower.'],
@@ -2012,7 +2535,16 @@ const ACHIEVEMENT_TEXT = {
     myth_matcher: ['Comparador mítico', 'Compara correctamente dos canciones Hall of Myths.'],
     photo_finish: ['Final ajustado', 'Compara canciones con vistas separadas por 10% o menos.'],
     blowout_call: ['Ni estuvo cerca', 'Acierta cuando una canción tiene al menos 10 veces más vistas.'],
-    try_again: ['Inténtalo otra vez', 'Pierde todas las vidas una vez.']
+    try_again: ['Inténtalo otra vez', 'Pierde todas las vidas una vez.'],
+    archive_first: ['Viajero del tiempo', 'Juega tu primer puzle de Archivo.'],
+    archive_random: ['Al azar', 'Empieza un puzle con el botón de Puzle aleatorio.'],
+    archive_perfect: ['Memoria total', 'Consigue un 10/10 perfecto en un puzle de Archivo.'],
+    archive_improve: ['Segunda escucha', 'Repite un día del Archivo y supera tu mejor marca.'],
+    archive_throwback: ['Día uno', 'Resuelve el primer diario del Archivo.'],
+    archive_5: ['Archivista', 'Resuelve 5 días distintos del Archivo.'],
+    archive_complete_all: ['Bóveda despejada', 'Resuelve todos los días disponibles del Archivo.'],
+    against_all_logic: ['Contra toda lógica', 'Elige Higher cuando la canción A sea Senbonzakura.'],
+    flawless_failure: ['Fracaso impecable', 'Falla las 10 en una serie Diaria o de Archivo: hay que saber las respuestas para fallarlas todas.']
   },
   ko: {
     first_correct: ['첫걸음', 'Higher or Lower에서 첫 정답을 맞히세요.'],
@@ -2035,7 +2567,16 @@ const ACHIEVEMENT_TEXT = {
     myth_matcher: ['미스 매처', 'Hall of Myths 곡 두 개를 정확히 비교하세요.'],
     photo_finish: ['포토 피니시', '조회수 차이가 10% 이내인 곡을 정확히 비교하세요.'],
     blowout_call: ['상대가 안 됨', '10배 이상 차이나는 매치업을 정확히 맞히세요.'],
-    try_again: ['다시 도전', '라이프를 모두 잃으세요.']
+    try_again: ['다시 도전', '라이프를 모두 잃으세요.'],
+    archive_first: ['시간 여행자', '첫 아카이브 퍼즐을 플레이하세요.'],
+    archive_random: ['운에 맡기기', '랜덤 문제 버튼으로 퍼즐을 시작하세요.'],
+    archive_perfect: ['완전 기억', '아카이브 퍼즐에서 10/10 퍼펙트를 달성하세요.'],
+    archive_improve: ['다시 듣기', '아카이브 날짜를 다시 플레이해 최고 기록을 경신하세요.'],
+    archive_throwback: ['첫날', '아카이브의 가장 오래된 데일리를 해결하세요.'],
+    archive_5: ['아키비스트', '서로 다른 아카이브 5일을 해결하세요.'],
+    archive_complete_all: ['보관소 정복', '이용 가능한 모든 아카이브를 해결하세요.'],
+    against_all_logic: ['논리를 거스르다', 'Song A가 Senbonzakura일 때 Higher를 선택하세요.'],
+    flawless_failure: ['완벽한 실패', '데일리나 아카이브에서 10문제를 모두 틀리세요. 전부 틀리려면 답을 알아야 합니다.']
   }
 };
 
@@ -2280,6 +2821,159 @@ function shuffle(arr) {
   return arr;
 }
 
+function localDateKey(date = new Date()) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, '0');
+  const d = String(date.getDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
+function seededNumber(seedText) {
+  let h = 2166136261;
+  for (let i = 0; i < seedText.length; i++) {
+    h ^= seedText.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return h >>> 0;
+}
+
+function seededRandom(seed) {
+  let value = seed >>> 0;
+  return () => {
+    value += 0x6D2B79F5;
+    let t = value;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function buildDailyPairs(pool, dateKey) {
+  const random = seededRandom(seededNumber(`vocaloid-hol-daily:${dateKey}`));
+  const songs = [...pool].sort((a, b) => Number(a.vocadbId) - Number(b.vocadbId));
+  for (let i = songs.length - 1; i > 0; i--) {
+    const j = Math.floor(random() * (i + 1));
+    [songs[i], songs[j]] = [songs[j], songs[i]];
+  }
+
+  const pairs = [];
+  const used = new Set();
+  for (let i = 0; i < songs.length && pairs.length < DAILY_GUESS_COUNT; i++) {
+    const a = songs[i];
+    if (used.has(a.vocadbId)) continue;
+    const b = songs.find((candidate, index) =>
+      index > i &&
+      !used.has(candidate.vocadbId) &&
+      isValidPair(a, candidate)
+    );
+    if (!b) continue;
+    used.add(a.vocadbId);
+    used.add(b.vocadbId);
+    pairs.push({ a, b });
+  }
+  return pairs;
+}
+
+function getDailyProgress() {
+  const today = localDateKey();
+  try {
+    const saved = JSON.parse(localStorage.getItem(DAILY_STATE_KEY) || '{}');
+    if (saved.date === today && Array.isArray(saved.results)) return saved;
+  } catch {}
+  return { date: today, index: 0, results: [], pairIds: [], completed: false, statsRecorded: false };
+}
+
+function saveDailyProgress(progress) {
+  localStorage.setItem(DAILY_STATE_KEY, JSON.stringify(progress));
+}
+
+function getDailyStats() {
+  try {
+    return {
+      played: 0,
+      totalCorrect: 0,
+      perfect: 0,
+      best: 0,
+      totalScore: 0,
+      ...JSON.parse(localStorage.getItem(DAILY_STATS_KEY) || '{}')
+    };
+  } catch {
+    return { played: 0, totalCorrect: 0, perfect: 0, best: 0, totalScore: 0 };
+  }
+}
+
+function saveDailyStats(stats) {
+  localStorage.setItem(DAILY_STATS_KEY, JSON.stringify(stats));
+}
+
+/* ── Archive ── */
+function dateFromKey(key) {
+  const [y, m, d] = String(key).split('-').map(Number);
+  return new Date(y, (m || 1) - 1, d || 1);
+}
+
+function shiftDate(date, days) {
+  const next = new Date(date);
+  next.setDate(next.getDate() + days);
+  return next;
+}
+
+// Every past daily date from the launch epoch up to (but not including) today.
+function archiveDateKeys() {
+  const keys = [];
+  const today = dateFromKey(localDateKey());
+  let cur = dateFromKey(DAILY_EPOCH);
+  while (cur < today) {
+    keys.push(localDateKey(cur));
+    cur = shiftDate(cur, 1);
+  }
+  return keys;
+}
+
+function isArchiveDate(key) {
+  return key >= DAILY_EPOCH && key < localDateKey();
+}
+
+function loadArchiveResults() {
+  try { return JSON.parse(localStorage.getItem(ARCHIVE_KEY)) || {}; }
+  catch { return {}; }
+}
+
+function saveArchiveResults(results) {
+  localStorage.setItem(ARCHIVE_KEY, JSON.stringify(results));
+}
+
+function saveArchiveResult(dateKey, result) {
+  const results = loadArchiveResults();
+  const prev = results[dateKey];
+  // Keep the player's best score for a given day.
+  if (!prev || result.correct >= prev.correct) results[dateKey] = result;
+  saveArchiveResults(results);
+}
+
+function getArchiveSummary() {
+  const keys = archiveDateKeys();
+  const results = loadArchiveResults();
+  const solved = keys.filter(key => results[key]).length;
+  const perfect = keys.filter(key => results[key]?.correct === DAILY_GUESS_COUNT).length;
+  return {
+    total: keys.length,
+    solved,
+    perfect,
+    pct: keys.length ? Math.round(solved / keys.length * 100) : 0
+  };
+}
+
+function archiveMonthStats(year, month) {
+  const results = loadArchiveResults();
+  const keys = archiveDateKeys().filter(key => {
+    const d = dateFromKey(key);
+    return d.getFullYear() === year && d.getMonth() === month;
+  });
+  const solved = keys.filter(key => results[key]).length;
+  return { total: keys.length, solved, pct: keys.length ? Math.round(solved / keys.length * 100) : 0 };
+}
+
 /* ── Views cache ── */
 let viewsCache = {};
 let viewsUpdated = null;
@@ -2308,9 +3002,15 @@ function poolLabel() {
 
 /* ── Game state ── */
 const state = {
+  mode: localStorage.getItem(MODE_KEY) === 'unlimited' ? 'unlimited' : 'daily',
   allSongs: [],
   usedIds: new Set(),
   recentBattles: [],
+  dailyPairs: [],
+  dailyProgress: null,
+  archiveDate: null,
+  archivePairs: [],
+  archiveResults: [],
   songA: null,
   songB: null,
   streak: 0,
@@ -2454,24 +3154,87 @@ function metaBarHtml(song, mystery) {
     </div>`;
 }
 
+const MODE_ICONS = {
+  daily: '<svg class="gm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/></svg>',
+  unlimited: '<svg class="gm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9a3 3 0 100 6c2.2 0 3-3 5-3s2.8 3 5 3a3 3 0 100-6c-2.2 0-3 3-5 3s-2.8-3-5-3z"/></svg>',
+  archive: '<svg class="gm-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6.5h18v3H3zM4.5 9.5h15v11h-15zM9.5 13h5"/></svg>'
+};
+
+function modeHintText() {
+  if (state.mode === 'archive') {
+    return state.archiveDate
+      ? t('archiveModeNotePlaying', { date: state.archiveDate })
+      : t('archiveModeNote');
+  }
+  return state.mode === 'daily' ? t('dailyModeNote') : t('unlimitedModeNote');
+}
+
+function renderModeBar() {
+  const mode = state.mode;
+  const tab = (id, labelKey) => `
+        <button class="game-mode-btn${mode === id ? ' is-active' : ''}" data-game-mode="${id}">${MODE_ICONS[id]}<span>${escHtml(t(labelKey))}</span></button>`;
+  return `
+    <div class="game-mode-bar">
+      <div class="game-mode-tabs" role="tablist">
+        ${tab('daily', 'dailyGuesses')}${tab('unlimited', 'unlimitedMode')}${tab('archive', 'archiveMode')}
+      </div>
+      <div class="game-mode-hint"><span>${escHtml(modeHintText())}</span></div>
+    </div>`;
+}
+
+function bindModeButtons() {
+  document.querySelectorAll('[data-game-mode]').forEach(button => {
+    button.addEventListener('click', () => {
+      const nextMode = button.dataset.gameMode;
+      if (nextMode === 'archive') { openArchive(); return; }
+      if (nextMode === state.mode) return;
+      state.mode = nextMode;
+      state.archiveDate = null;
+      localStorage.setItem(MODE_KEY, nextMode);
+      startGame();
+    });
+  });
+}
+
 function renderStreakBar() {
-  const livesHtml = Array.from({length:state.totalLives},(_,i)=>
+  const daily = state.mode === 'daily';
+  const archive = state.mode === 'archive';
+  const noLives = daily || archive;
+  const dailyStats = daily ? getDailyStats() : null;
+  const archiveDayBest = archive ? (loadArchiveResults()[state.archiveDate]?.correct ?? 0) : 0;
+  const livesHtml = noLives ? '' : Array.from({length:state.totalLives},(_,i)=>
     `<span class="life${i>=state.lives?' spent':''}"></span>`).join('');
-  const acc = state.round > 1 ? Math.round(state.correctCount/(state.round-1)*100)+'%' : '&mdash;';
+  const attempts = archive
+    ? (state.archiveResults?.length || 0)
+    : daily
+      ? Math.min(state.dailyProgress?.results?.length || 0, DAILY_GUESS_COUNT)
+      : Math.max(0, state.round - 1);
+  const acc = attempts > 0 ? Math.round(state.correctCount / attempts * 100) + '%' : '&mdash;';
+  const firstValue = noLives ? state.correctCount : state.streak;
+  const firstLabel = noLives ? t('dailyCorrect') : t('streak');
+  const secondValue = archive ? `${archiveDayBest}/${DAILY_GUESS_COUNT}` : daily ? (dailyStats?.best || 0) : state.best;
+  const secondLabel = archive ? t('archiveDayBest') : daily ? t('dailyBest') : t('best');
+  const roundValue = archive
+    ? Math.min((state.archiveResults?.length || 0) + 1, DAILY_GUESS_COUNT)
+    : daily ? Math.min((state.dailyProgress?.index || 0) + 1, DAILY_GUESS_COUNT) : state.round;
+  const roundLabel = noLives ? t('guessNumber') : t('round');
+  const midLabel = archive
+    ? (state.archiveDate || t('archiveMode'))
+    : daily ? t('dailyGuesses') : t('lives');
   return `
     <div class="streak-bar">
       <div class="streak-scores">
         <div class="streak-block is-streak">
-          <span class="streak-val${state.streak>0?' hi':''}">${state.streak}</span>
-          <span class="streak-label">${escHtml(t('streak'))}</span>
+          <span class="streak-val${firstValue>0?' hi':''}">${firstValue}</span>
+          <span class="streak-label">${escHtml(firstLabel)}</span>
         </div>
         <div class="streak-block">
-          <span class="streak-num">${state.best}</span>
-          <span class="streak-label">${escHtml(t('best'))}</span>
+          <span class="streak-num">${secondValue}</span>
+          <span class="streak-label">${escHtml(secondLabel)}</span>
         </div>
         <div class="streak-block">
-          <span class="streak-num">${state.round}</span>
-          <span class="streak-label">${escHtml(t('round'))}</span>
+          <span class="streak-num">${roundValue}</span>
+          <span class="streak-label">${escHtml(roundLabel)}</span>
         </div>
         <div class="streak-block">
           <span class="streak-num">${state.correctCount}</span>
@@ -2484,9 +3247,9 @@ function renderStreakBar() {
       </div>
       <div class="streak-mid">
         <div class="streak-result" id="streak-result" hidden></div>
-        <div class="lives-row">
-          <span class="lives-label">${escHtml(t('lives'))}</span>${livesHtml}
-        </div>
+        ${noLives
+          ? `<div class="lives-row"><span class="lives-label">${escHtml(midLabel)}</span></div>`
+          : `<div class="lives-row"><span class="lives-label">${escHtml(midLabel)}</span>${livesHtml}</div>`}
       </div>
     </div>`;
 }
@@ -2586,7 +3349,8 @@ function renderLeftSidebar() {
     </div>`).join('');
 
   const latest = RELEASES[0];
-  const latestNotes = (latest.notesByLang[getLanguage()] || latest.notesByLang.en).slice(0, 3);
+  const newsSource = latest.newsByLang || latest.notesByLang;
+  const latestNotes = (newsSource[getLanguage()] || newsSource.en).slice(0, 3);
   const newsRows = latestNotes.map(note => `
     <li><span class="news-ver">${escHtml(latest.version)}</span><span class="news-text">${escHtml(note)}</span></li>`).join('');
 
@@ -2623,10 +3387,17 @@ function renderSidebar() {
   const ach = achievementStats();
   const games = getGamesPlayed();
   const lifeCorrect = getTotalCorrect();
+  const dailyStats = getDailyStats();
+  const dailyAverage = dailyStats.played
+    ? (dailyStats.totalScore / dailyStats.played).toFixed(1)
+    : '&mdash;';
   const viewsNote = viewsUpdated ? t('updated', { date: escHtml(viewsUpdated) }) : t('viewsEstimate');
   const next = nextMilestone(state.best);
   const mPct = next ? Math.min(100, Math.round(state.best / next * 100)) : 100;
   const milestoneVal = next ? `${state.best} / ${next}` : escHtml(t('milestoneMaxed'));
+  const archive = state.mode === 'archive';
+  const dailyLike = state.mode === 'daily' || archive;
+  const archiveSummary = archive ? getArchiveSummary() : null;
   return `
     <div class="game-sidebar game-sidebar-right">
       <div class="sidebar-panel">
@@ -2635,26 +3406,50 @@ function renderSidebar() {
           <ol class="htp-list">
             <li data-n="1">${t('htp1')}</li>
             <li data-n="2">${t('htp2')}</li>
-            <li data-n="3">${t('htp3')}</li>
-            <li data-n="4">${t('htp4', { lives: state.totalLives })}</li>
+            <li data-n="3">${dailyLike ? t('dailyHtp3') : t('htp3')}</li>
+            <li data-n="4">${archive ? t('archiveHtp4') : state.mode === 'daily' ? t('dailyHtp4') : t('htp4', { lives: state.totalLives })}</li>
           </ol>
         </div>
       </div>
       <div class="sidebar-panel">
-        <div class="sidebar-header">[ ${escHtml(t('records'))} ]</div>
-        <div class="sidebar-body stats-body">
-          <table class="stats-table">
-            <tr><td>${escHtml(t('gamesPlayed'))}</td><td>${games.toLocaleString()}</td></tr>
-            <tr><td>${escHtml(t('lifetimeCorrect'))}</td><td>${lifeCorrect.toLocaleString()}</td></tr>
-            <tr><td>${escHtml(t('bestStreak'))}</td><td>${state.best.toLocaleString()}</td></tr>
-          </table>
-          <div class="milestone-row">
-            <div class="milestone-top"><span>${escHtml(t('nextMilestone'))}</span><strong>${milestoneVal}</strong></div>
-            <div class="milestone-track"><div class="milestone-fill${next ? '' : ' maxed'}" style="width:${mPct}%"></div></div>
-            <div class="milestone-desc">${escHtml(t('milestoneDesc'))}</div>
-          </div>
-          <div class="pool-info">${escHtml(t('poolInfo', { count: state.allSongs.length.toLocaleString(), note: viewsNote }))}</div>
-        </div>
+        ${archive ? `
+          <div class="sidebar-header">${escHtml(t('archiveStats'))}</div>
+          <div class="sidebar-body stats-body">
+            <table class="stats-table">
+              <tr><td>${escHtml(t('archiveSummarySolved'))}</td><td>${archiveSummary.solved} / ${archiveSummary.total}</td></tr>
+              <tr><td>${escHtml(t('archiveSummaryPerfect'))}</td><td>${archiveSummary.perfect.toLocaleString()}</td></tr>
+              <tr><td>${escHtml(t('archiveDateLabel'))}</td><td>${state.archiveDate ? escHtml(state.archiveDate) : '&mdash;'}</td></tr>
+            </table>
+            <div class="winrate-row">
+              <div class="winrate-top"><span>${escHtml(t('archiveSummaryDone'))}</span><strong>${archiveSummary.pct}%</strong></div>
+              <div class="winrate-track"><div class="winrate-fill" style="width:${archiveSummary.pct}%"></div></div>
+            </div>
+            <div class="pool-info">${escHtml(t('poolInfo', { count: state.allSongs.length.toLocaleString(), note: viewsNote }))}</div>
+          </div>` : state.mode === 'daily' ? `
+          <div class="sidebar-header">${escHtml(t('dailyStats'))}</div>
+          <div class="sidebar-body stats-body">
+            <table class="stats-table">
+              <tr><td>${escHtml(t('daysPlayed'))}</td><td>${dailyStats.played.toLocaleString()}</td></tr>
+              <tr><td>${escHtml(t('dailyBest'))}</td><td>${dailyStats.best} / ${DAILY_GUESS_COUNT}</td></tr>
+              <tr><td>${escHtml(t('perfectDays'))}</td><td>${dailyStats.perfect.toLocaleString()}</td></tr>
+              <tr><td>${escHtml(t('averageScore'))}</td><td>${dailyAverage}</td></tr>
+            </table>
+            <div class="pool-info">${escHtml(t('poolInfo', { count: state.allSongs.length.toLocaleString(), note: viewsNote }))}</div>
+          </div>` : `
+          <div class="sidebar-header">[ ${escHtml(t('records'))} ]</div>
+          <div class="sidebar-body stats-body">
+            <table class="stats-table">
+              <tr><td>${escHtml(t('gamesPlayed'))}</td><td>${games.toLocaleString()}</td></tr>
+              <tr><td>${escHtml(t('lifetimeCorrect'))}</td><td>${lifeCorrect.toLocaleString()}</td></tr>
+              <tr><td>${escHtml(t('bestStreak'))}</td><td>${state.best.toLocaleString()}</td></tr>
+            </table>
+            <div class="milestone-row">
+              <div class="milestone-top"><span>${escHtml(t('nextMilestone'))}</span><strong>${milestoneVal}</strong></div>
+              <div class="milestone-track"><div class="milestone-fill${next ? '' : ' maxed'}" style="width:${mPct}%"></div></div>
+              <div class="milestone-desc">${escHtml(t('milestoneDesc'))}</div>
+            </div>
+            <div class="pool-info">${escHtml(t('poolInfo', { count: state.allSongs.length.toLocaleString(), note: viewsNote }))}</div>
+          </div>`}
       </div>
       <div class="sidebar-panel">
         <div class="sidebar-header">[ ${escHtml(t('achievements'))} ]</div>
@@ -2751,6 +3546,7 @@ function renderGame() {
   const nndUrlA   = getNndUrl(state.songA);
   const vocadbUrlA = escHtml(state.songA.vocadbUrl || `https://vocadb.net/S/${state.songA.vocadbId}`);
   document.getElementById('main').innerHTML = `
+    ${renderModeBar()}
     ${renderStreakBar()}
     <div class="game-layout">
       ${renderLeftSidebar()}
@@ -2801,6 +3597,7 @@ function renderGame() {
   document.getElementById('btn-lower').innerHTML = `<span class="guess-arrow">↓</span> ${escHtml(t('lower'))}`;
   document.getElementById('btn-higher').addEventListener('click', () => guess('higher'));
   document.getElementById('btn-lower').addEventListener('click',  () => guess('lower'));
+  bindModeButtons();
   bindAchievementLinks();
 }
 
@@ -2818,6 +3615,7 @@ function renderGameOver() {
       })
     : escHtml(t('gameOverFallback'));
   return `
+    ${renderModeBar()}
     ${renderStreakBar()}
     <div class="game-layout">
       ${renderLeftSidebar()}
@@ -2854,10 +3652,138 @@ function renderGameOver() {
     </div>`;
 }
 
+function dailyResultGridHtml() {
+  const results = state.dailyProgress?.results || [];
+  return `<div class="daily-result-grid">` +
+    Array.from({ length: DAILY_GUESS_COUNT }, (_, index) => {
+      const result = results[index];
+      const cls = result ? (result.correct ? 'is-correct' : 'is-wrong') : 'is-empty';
+      return `<span class="daily-result-cell ${cls}">${result ? (result.correct ? 'O' : 'X') : '·'}</span>`;
+    }).join('') +
+    `</div>`;
+}
+
+function archiveResultGridHtml() {
+  const results = state.archiveResults || [];
+  return `<div class="daily-result-grid">` +
+    Array.from({ length: DAILY_GUESS_COUNT }, (_, index) => {
+      const result = results[index];
+      const cls = result ? (result.correct ? 'is-correct' : 'is-wrong') : 'is-empty';
+      return `<span class="daily-result-cell ${cls}">${result ? (result.correct ? 'O' : 'X') : '·'}</span>`;
+    }).join('') +
+    `</div>`;
+}
+
+function renderArchiveComplete() {
+  const correct = state.archiveResults.filter(result => result.correct).length;
+  const best = loadArchiveResults()[state.archiveDate]?.correct ?? correct;
+  const isNewBest = state.archiveIsNewBest && correct > 0;
+  const perfect = correct === DAILY_GUESS_COUNT;
+  const newBestRow = isNewBest ? `<div class="go-newbest-row"><span class="go-newbest">${escHtml(t('archiveNewBest'))}</span></div>` : '';
+  const replayHint = perfect ? t('archiveReplayHintPerfect') : t('archiveReplayHint');
+  return `
+    ${renderModeBar()}
+    ${renderStreakBar()}
+    <div class="game-layout">
+      ${renderLeftSidebar()}
+      <div class="game-main">
+        <div class="gameover-panel">
+          <div class="gameover-title">${escHtml(t('archiveComplete'))}</div>
+          <div class="gameover-stats">
+            <div class="go-stat is-headline">
+              <span class="go-key">${escHtml(t('archiveScoreLabel'))}</span>
+              <span class="go-val">${correct}/${DAILY_GUESS_COUNT}</span>
+            </div>
+            <div class="go-stat">
+              <span class="go-key">${escHtml(t('archiveBestLabel'))}</span>
+              <span class="go-val">${best}/${DAILY_GUESS_COUNT}</span>
+            </div>
+          </div>
+          ${newBestRow}
+          ${archiveResultGridHtml()}
+          <div class="gameover-message">
+            ${escHtml(t('archiveCompleteMessage', { correct, date: state.archiveDate }))}
+            <br><span class="go-replay-hint">${escHtml(replayHint)}</span>
+          </div>
+          <div class="gameover-actions">
+            <button class="play-again-btn" id="archive-back-btn">${escHtml(t('archiveBack'))}</button>
+            <button class="share-result-btn" id="share-result-btn">${escHtml(t('shareResult'))}</button>
+          </div>
+        </div>
+        ${renderRecentBattles()}
+      </div>
+      ${renderSidebar()}
+    </div>`;
+}
+
+function renderDailyComplete() {
+  const correct = state.dailyProgress?.results?.filter(result => result.correct).length || 0;
+  return `
+    ${renderModeBar()}
+    ${renderStreakBar()}
+    <div class="game-layout">
+      ${renderLeftSidebar()}
+      <div class="game-main">
+        <div class="gameover-panel">
+          <div class="gameover-title">${escHtml(t('dailyComplete'))}</div>
+          <div class="gameover-stats">
+            <div class="go-stat is-headline">
+              <span class="go-key">${escHtml(t('todaysScore'))}</span>
+              <span class="go-val">${correct}/${DAILY_GUESS_COUNT}</span>
+            </div>
+            <div class="go-stat">
+              <span class="go-key">${escHtml(t('dailyBest'))}</span>
+              <span class="go-val">${getDailyStats().best}/${DAILY_GUESS_COUNT}</span>
+            </div>
+          </div>
+          ${dailyResultGridHtml()}
+          <div class="gameover-message">
+            ${escHtml(t('dailyCompleteMessage', { correct }))}
+            <br>${escHtml(t('comeBackTomorrow'))}
+          </div>
+          <div class="gameover-actions">
+            <button class="share-result-btn" id="share-result-btn">${escHtml(t('shareResult'))}</button>
+          </div>
+        </div>
+        ${renderRecentBattles()}
+      </div>
+      ${renderSidebar()}
+    </div>`;
+}
+
 /* ── Guess logic ── */
+function isSenbonzakuraSong(song) {
+  if (!song) return false;
+  if (Number(song.vocadbId) === 8394) return true;
+  return [song.title, ...(song.acceptedTitles || [])]
+    .some(title => /senbonzakura|thousand cherry|千本桜/i.test(String(title || '')));
+}
+
+function saveDailyGuess(correct, direction, displayA, displayB) {
+  const progress = state.dailyProgress;
+  if (!progress) return;
+  progress.results.push({
+    correct,
+    direction,
+    songAId: state.songA.vocadbId,
+    songBId: state.songB.vocadbId,
+    songA: displayTitle(state.songA),
+    songB: displayTitle(state.songB),
+    countA: displayA,
+    countB: displayB
+  });
+  progress.index = progress.results.length;
+  progress.completed = progress.index >= DAILY_GUESS_COUNT;
+  saveDailyProgress(progress);
+}
+
 function guess(direction) {
   if (state.phase !== 'playing') return;
   state.phase = 'revealing';
+
+  if (direction === 'higher' && isSenbonzakuraSong(state.songA)) {
+    unlockAchievement('against_all_logic');
+  }
 
   document.getElementById('btn-higher').disabled = true;
   document.getElementById('btn-lower').disabled  = true;
@@ -2919,6 +3845,12 @@ function guess(direction) {
   });
   state.recentBattles = state.recentBattles.slice(0, 5);
 
+  if (state.mode === 'daily') {
+    saveDailyGuess(correct, direction, displayA, displayB);
+  } else if (state.mode === 'archive') {
+    state.archiveResults.push({ correct, direction, countA: displayA, countB: displayB });
+  }
+
   const roundMeta = { direction, countA, countB, tierA, tierB };
   setTimeout(() => advance(correct, roundMeta), REVEAL_DELAY);
 }
@@ -2954,7 +3886,77 @@ function checkCorrectAchievements(roundMeta) {
   }
 }
 
+function finishDailyGuesses() {
+  const progress = state.dailyProgress;
+  if (!progress) return;
+  const correct = progress.results.filter(result => result.correct).length;
+  if (!progress.statsRecorded) {
+    const stats = getDailyStats();
+    stats.played += 1;
+    stats.totalCorrect += correct;
+    stats.totalScore += correct;
+    stats.best = Math.max(stats.best, correct);
+    if (correct === DAILY_GUESS_COUNT) stats.perfect += 1;
+    saveDailyStats(stats);
+    progress.statsRecorded = true;
+    saveDailyProgress(progress);
+  }
+  state.correctCount = correct;
+  if (correct === 0 && progress.results.length === DAILY_GUESS_COUNT) {
+    unlockAchievement('flawless_failure');
+  }
+  state.phase = 'daily-complete';
+  document.getElementById('main').innerHTML = renderDailyComplete();
+  document.getElementById('share-result-btn')?.addEventListener('click', copyShareResult);
+  bindModeButtons();
+  bindAchievementLinks();
+}
+
 function advance(correct, roundMeta = {}) {
+  if (state.mode === 'archive') {
+    if (correct) {
+      state.correctCount++;
+      state.streak++;
+    } else {
+      state.streak = 0;
+    }
+    const nextIndex = state.archiveResults.length;
+    if (nextIndex >= DAILY_GUESS_COUNT || nextIndex >= state.archivePairs.length) {
+      finishArchive();
+      return;
+    }
+    const pair = state.archivePairs[nextIndex];
+    state.songA = pair.a;
+    state.songB = pair.b;
+    state.round = nextIndex + 1;
+    state.phase = 'playing';
+    renderGame();
+    return;
+  }
+  if (state.mode === 'daily') {
+    if (correct) {
+      state.correctCount++;
+      state.streak++;
+    } else {
+      state.streak = 0;
+    }
+    if (state.dailyProgress?.completed) {
+      finishDailyGuesses();
+      return;
+    }
+    const pair = state.dailyPairs[state.dailyProgress.index];
+    if (!pair) {
+      finishDailyGuesses();
+      return;
+    }
+    state.songA = pair.a;
+    state.songB = pair.b;
+    state.round = state.dailyProgress.index + 1;
+    state.phase = 'playing';
+    renderGame();
+    return;
+  }
+
   if (correct) {
     state.correctCount++;
     state.streak++;
@@ -2996,6 +3998,22 @@ function advance(correct, roundMeta = {}) {
 }
 
 function buildShareText() {
+  if (state.mode === 'daily') {
+    const results = state.dailyProgress?.results || [];
+    const correct = results.filter(result => result.correct).length;
+    const marks = results.map(result => result.correct ? '🟩' : '🟥').join('');
+    return t('dailyShareText', {
+      date: state.dailyProgress?.date || localDateKey(),
+      correct,
+      marks
+    });
+  }
+  if (state.mode === 'archive') {
+    const results = state.archiveResults || [];
+    const correct = results.filter(result => result.correct).length;
+    const marks = results.map(result => result.correct ? '🟩' : '🟥').join('');
+    return t('archiveShareText', { date: state.archiveDate, correct, marks });
+  }
   const rounds = Math.max(0, state.round - 1);
   const winPct = rounds > 0 ? Math.round(state.correctCount / rounds * 100) : 0;
   const runStreak = Number.isFinite(state.finalStreak) ? state.finalStreak : state.streak;
@@ -3028,6 +4046,7 @@ function endGame() {
   document.getElementById('main').innerHTML = renderGameOver();
   document.getElementById('play-again-btn').addEventListener('click', startGame);
   document.getElementById('share-result-btn')?.addEventListener('click', copyShareResult);
+  bindModeButtons();
   bindAchievementLinks();
 }
 
@@ -3038,7 +4057,141 @@ function nextThumb(img) {
 }
 
 /* ── Bootstrap ── */
+function startDailyGuesses() {
+  const dailyPool = allSongsCache.filter(song =>
+    getSongTier(song) !== null && getViewCount(song) !== null
+  );
+  state.allSongs = dailyPool;
+  state.dailyProgress = getDailyProgress();
+  const byId = new Map(dailyPool.map(song => [String(song.vocadbId), song]));
+  const savedPairs = Array.isArray(state.dailyProgress.pairIds)
+    ? state.dailyProgress.pairIds.map(ids => ({
+        a: byId.get(String(ids?.[0])),
+        b: byId.get(String(ids?.[1]))
+      })).filter(pair => pair.a && pair.b)
+    : [];
+  state.dailyPairs = savedPairs.length === DAILY_GUESS_COUNT
+    ? savedPairs
+    : buildDailyPairs(dailyPool, localDateKey());
+  if (savedPairs.length !== DAILY_GUESS_COUNT) {
+    state.dailyProgress.pairIds = state.dailyPairs.map(pair => [pair.a.vocadbId, pair.b.vocadbId]);
+    saveDailyProgress(state.dailyProgress);
+  }
+  state.recentBattles = [...state.dailyProgress.results].reverse().slice(0, 5).map((result, index) => ({
+    round: state.dailyProgress.results.length - index,
+    songA: result.songA,
+    songB: result.songB,
+    countA: result.countA,
+    countB: result.countB,
+    direction: result.direction,
+    correct: result.correct,
+    streak: 0
+  }));
+  state.correctCount = state.dailyProgress.results.filter(result => result.correct).length;
+  state.streak = 0;
+  state.round = Math.min(state.dailyProgress.index + 1, DAILY_GUESS_COUNT);
+  state.lives = 0;
+  state.totalLives = 0;
+  state.finalStreak = 0;
+
+  if (state.dailyPairs.length < DAILY_GUESS_COUNT) {
+    document.getElementById('main').innerHTML =
+      `<div class="state-panel"><strong>${escHtml(t('noSongs'))}</strong>${escHtml(t('noSongData'))}</div>`;
+    return;
+  }
+  if (state.dailyProgress.completed) {
+    finishDailyGuesses();
+    return;
+  }
+  const pair = state.dailyPairs[state.dailyProgress.index];
+  state.songA = pair.a;
+  state.songB = pair.b;
+  state.phase = 'playing';
+  renderGame();
+}
+
+function startArchive(dateKey) {
+  if (!isArchiveDate(dateKey)) return;
+  closeArchive();
+  const pool = allSongsCache.filter(song =>
+    getSongTier(song) !== null && getViewCount(song) !== null
+  );
+  state.mode = 'archive';
+  state.archiveDate = dateKey;
+  state.allSongs = pool;
+  state.archivePairs = buildDailyPairs(pool, dateKey);
+  state.archiveResults = [];
+  state.recentBattles = [];
+  state.correctCount = 0;
+  state.streak = 0;
+  state.round = 1;
+  state.lives = 0;
+  state.totalLives = 0;
+  state.finalStreak = 0;
+
+  if (state.archivePairs.length < DAILY_GUESS_COUNT) {
+    document.getElementById('main').innerHTML =
+      `<div class="state-panel"><strong>${escHtml(t('noSongs'))}</strong>${escHtml(t('noSongData'))}</div>`;
+    return;
+  }
+  const pair = state.archivePairs[0];
+  state.songA = pair.a;
+  state.songB = pair.b;
+  state.phase = 'playing';
+  unlockAchievement('archive_first');
+  renderGame();
+}
+
+function finishArchive() {
+  const correct = state.archiveResults.filter(result => result.correct).length;
+  const prevBest = loadArchiveResults()[state.archiveDate]?.correct;
+  state.archivePrevBest = (typeof prevBest === 'number') ? prevBest : null;
+  state.archiveIsNewBest = state.archivePrevBest === null || correct > state.archivePrevBest;
+  saveArchiveResult(state.archiveDate, {
+    correct,
+    total: DAILY_GUESS_COUNT,
+    marks: state.archiveResults.map(result => Boolean(result.correct)),
+    completed: true
+  });
+  state.correctCount = correct;
+  checkArchiveAchievements(correct);
+  state.phase = 'archive-complete';
+  document.getElementById('main').innerHTML = renderArchiveComplete();
+  document.getElementById('share-result-btn')?.addEventListener('click', copyShareResult);
+  document.getElementById('archive-back-btn')?.addEventListener('click', openArchive);
+  bindModeButtons();
+  bindAchievementLinks();
+}
+
+function checkArchiveAchievements(correct) {
+  if (correct === DAILY_GUESS_COUNT) unlockAchievement('archive_perfect');
+  if (correct === 0) unlockAchievement('flawless_failure');
+  if (state.archivePrevBest !== null && correct > state.archivePrevBest) {
+    unlockAchievement('archive_improve');
+  }
+  const summary = getArchiveSummary();
+  if (summary.solved >= 5) unlockAchievement('archive_5');
+  if (summary.total > 0 && summary.solved >= summary.total) unlockAchievement('archive_complete_all');
+  // The oldest available daily — a deep dig into the vault.
+  const keys = archiveDateKeys();
+  if (keys.length && state.archiveDate === keys[0] && loadArchiveResults()[keys[0]]) {
+    unlockAchievement('archive_throwback');
+  }
+}
+
 function startGame() {
+  if (state.mode === 'daily') {
+    startDailyGuesses();
+    return;
+  }
+  if (state.mode === 'archive') {
+    // Archive sessions are not persisted across reloads; fall back to daily.
+    state.mode = 'daily';
+    state.archiveDate = null;
+    localStorage.setItem(MODE_KEY, 'daily');
+    startDailyGuesses();
+    return;
+  }
   const cfg = getSettings();
   state.allSongs    = buildPool();
   state.usedIds     = new Set();
@@ -3065,8 +4218,8 @@ applyStaticTranslations();
 document.getElementById('main').innerHTML =
   `<div class="state-panel"><strong>${escHtml(t('loading'))}</strong>${escHtml(t('fetching'))}</div>`;
 
-const SONGS_CACHE_KEY = '39c_songs_v1';
-const VIEWS_CACHE_KEY = '39c_views_v1';
+const SONGS_CACHE_KEY = '39c_songs_v2';
+const VIEWS_CACHE_KEY = '39c_views_v2';
 
 function loadSongs() {
   try { const c=sessionStorage.getItem(SONGS_CACHE_KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e){}
@@ -3085,6 +4238,10 @@ function loadViews() {
 
 Promise.all([loadSongs(), loadViews()])
   .then(([songs, views]) => {
+    // A song is playable only if views.json has a count for it (checked in the
+    // pool builders below). The view-fetch pipeline only records a count when a
+    // song has a usable, live NicoNico upload — a live original, or a 1M+ live
+    // re-upload — so reprints/deleted videos are excluded at the data layer.
     allSongsCache = songs.filter(s => getSongTier(s) !== null);
     if (allSongsCache.length < 2) throw new Error('Not enough songs with NND tags.');
     if (views && views.views) {
@@ -3125,10 +4282,10 @@ function closeSettings() {
 document.getElementById('settings-open-btn').addEventListener('click', e => { e.preventDefault(); openSettings(); });
 document.getElementById('settings-open-btn-mobile').addEventListener('click', e => { e.preventDefault(); openSettings(); });
 document.getElementById('settings-close').addEventListener('click', closeSettings);
-document.getElementById('modal-backdrop').addEventListener('click', () => { closeSettings(); closeNotes(); closeAchievements(); closeSupport(); });
+document.getElementById('modal-backdrop').addEventListener('click', () => { closeSettings(); closeNotes(); closeAchievements(); closeSupport(); closeArchive(); });
 
 function hideBackdropIfNoModals() {
-  const anyOpen = ['settings-modal','notes-modal','achievements-modal','support-modal']
+  const anyOpen = ['settings-modal','notes-modal','achievements-modal','support-modal','archive-modal']
     .some(id => !document.getElementById(id).hidden);
   if (!anyOpen) document.getElementById('modal-backdrop').hidden = true;
 }
@@ -3143,7 +4300,9 @@ function renderAchievementsModal() {
   document.getElementById('achievement-meter-fill').style.width = `${pct}%`;
   document.getElementById('achievement-list').innerHTML = ACHIEVEMENTS.map(item => {
     const unlockedAt = store[item.id];
-    const text = achievementText(item);
+    const text = item.secret && !unlockedAt
+      ? { title: '???', desc: '???' }
+      : achievementText(item);
     const date = unlockedAt ? new Date(unlockedAt).toLocaleDateString() : t('locked');
     return `
       <div class="achievement-row ${unlockedAt ? 'is-unlocked' : 'is-locked'}">
@@ -3172,8 +4331,217 @@ document.getElementById('achievements-open-btn').addEventListener('click', e => 
 document.getElementById('achievements-open-btn-mobile').addEventListener('click', e => { e.preventDefault(); openAchievements(); });
 document.getElementById('achievements-close').addEventListener('click', closeAchievements);
 
+/* ── Archive modal ── */
+const LOCALE_MAP = { en: 'en-US', ja: 'ja-JP', es: 'es-ES', ko: 'ko-KR' };
+let archiveViewMonth = null; // Date set to the first of the viewed month
+
+function archiveLocale() {
+  return LOCALE_MAP[getLanguage()] || 'en-US';
+}
+
+function archiveMonthBounds() {
+  const keys = archiveDateKeys();
+  if (!keys.length) return null;
+  const first = dateFromKey(keys[0]);
+  const last = dateFromKey(keys[keys.length - 1]);
+  return {
+    min: new Date(first.getFullYear(), first.getMonth(), 1),
+    max: new Date(last.getFullYear(), last.getMonth(), 1)
+  };
+}
+
+function renderArchiveSummary() {
+  const s = getArchiveSummary();
+  document.getElementById('archive-summary').innerHTML = `
+    <div class="archive-summary-item"><strong>${s.solved}</strong><span>${escHtml(t('archiveSummarySolved'))}</span></div>
+    <div class="archive-summary-item"><strong>${s.total}</strong><span>${escHtml(t('archiveSummaryTotal'))}</span></div>
+    <div class="archive-summary-item"><strong>${s.perfect}</strong><span>${escHtml(t('archiveSummaryPerfect'))}</span></div>
+    <div class="archive-summary-item"><strong>${s.pct}%</strong><span>${escHtml(t('archiveSummaryDone'))}</span></div>`;
+}
+
+function renderArchiveCalendar() {
+  const bounds = archiveMonthBounds();
+  const grid = document.getElementById('archive-grid');
+  if (!bounds) {
+    grid.innerHTML = `<div class="archive-empty" style="grid-column:1/-1;text-align:center;padding:18px;color:var(--faint)">${escHtml(t('archiveEmpty'))}</div>`;
+    document.getElementById('archive-month-label').textContent = '—';
+    document.getElementById('archive-prev').disabled = true;
+    document.getElementById('archive-next').disabled = true;
+    return;
+  }
+  if (!archiveViewMonth) archiveViewMonth = new Date(bounds.max);
+  if (archiveViewMonth < bounds.min) archiveViewMonth = new Date(bounds.min);
+  if (archiveViewMonth > bounds.max) archiveViewMonth = new Date(bounds.max);
+
+  const year = archiveViewMonth.getFullYear();
+  const month = archiveViewMonth.getMonth();
+  const locale = archiveLocale();
+
+  // Weekday headers (Sun-first), Sun red / Sat blue
+  const weekdayFmt = new Intl.DateTimeFormat(locale, { weekday: 'short' });
+  document.getElementById('archive-weekdays').innerHTML =
+    Array.from({ length: 7 }, (_, i) => {
+      const cls = i === 0 ? ' class="wd-sun"' : i === 6 ? ' class="wd-sat"' : '';
+      return `<span${cls}>${escHtml(weekdayFmt.format(new Date(2023, 0, 1 + i)))}</span>`;
+    }).join('');
+
+  const monthLabel = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }).format(archiveViewMonth);
+  const mStats = archiveMonthStats(year, month);
+  document.getElementById('archive-month-label').innerHTML =
+    `<span>${escHtml(monthLabel)}</span>` +
+    (mStats.total ? `<span class="am-sub">${mStats.solved}/${mStats.total} ${escHtml(t('archiveSolvedWord'))} · ${mStats.pct}%</span>` : '');
+
+  document.getElementById('archive-prev').disabled = archiveViewMonth <= bounds.min;
+  document.getElementById('archive-next').disabled = archiveViewMonth >= bounds.max;
+
+  const dark = document.documentElement.classList.contains('dark-mode');
+  const results = loadArchiveResults();
+  const firstWeekday = new Date(year, month, 1).getDay();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  let cells = '';
+  for (let i = 0; i < firstWeekday; i++) cells += `<div class="archive-day is-blank"></div>`;
+  for (let day = 1; day <= daysInMonth; day++) {
+    const key = localDateKey(new Date(year, month, day));
+    const dow = (firstWeekday + day - 1) % 7;
+    const dowCls = dow === 0 ? ' is-sun' : dow === 6 ? ' is-sat' : '';
+    const result = results[key];
+    if (result) {
+      const hue = Math.round((result.correct / DAILY_GUESS_COUNT) * 120); // 0=red, 120=green
+      const bg = `hsl(${hue}, ${dark ? 36 : 58}%, ${dark ? 16 : 87}%)`;
+      const scoreColor = `hsl(${hue}, ${dark ? 60 : 60}%, ${dark ? 64 : 30}%)`;
+      const perfect = result.correct === DAILY_GUESS_COUNT ? `<span class="ad-perfect">&#9733;</span>` : '';
+      cells += `<div class="archive-day is-solved${dowCls}" data-archive-date="${key}" title="${escHtml(key)} · ${result.correct}/${DAILY_GUESS_COUNT}" style="background:${bg}">
+          ${perfect}<span class="ad-day">${day}</span><span class="ad-score" style="color:${scoreColor}">${result.correct}/${DAILY_GUESS_COUNT}</span></div>`;
+    } else if (isArchiveDate(key)) {
+      cells += `<div class="archive-day is-available${dowCls}" data-archive-date="${key}" title="${escHtml(key)}"><span class="ad-day">${day}</span><span class="ad-play">${escHtml(t('archivePlay'))}</span></div>`;
+    } else {
+      cells += `<div class="archive-day is-locked${dowCls}"><span class="ad-day">${day}</span><span class="ad-note">${escHtml(t('archiveNoPuzzle'))}</span></div>`;
+    }
+  }
+  grid.innerHTML = cells;
+
+  grid.querySelectorAll('[data-archive-date]').forEach(cell => {
+    cell.addEventListener('click', () => startArchive(cell.dataset.archiveDate));
+  });
+}
+
+function renderArchiveLegend() {
+  document.getElementById('archive-legend').innerHTML = `
+    <span><i class="lg-available"></i>${escHtml(t('archiveLegendAvailable'))}</span>
+    <span><i class="lg-solved"></i>${escHtml(t('archiveLegendSolved'))}</span>
+    <span><i class="lg-locked"></i>${escHtml(t('archiveLegendLocked'))}</span>`;
+}
+
+function renderArchiveModal() {
+  document.getElementById('archive-title').textContent = t('archiveTitle');
+  document.getElementById('archive-note').textContent = t('archiveNote');
+  document.getElementById('archive-random').textContent = t('archiveRandom');
+  const keys = archiveDateKeys();
+  const results = loadArchiveResults();
+  const unplayed = keys.filter(key => !results[key]);
+  document.getElementById('archive-random').disabled = !keys.length;
+  document.getElementById('archive-random').dataset.pool = JSON.stringify(unplayed.length ? unplayed : keys);
+  renderArchiveSummary();
+  renderArchiveCalendar();
+  renderArchiveLegend();
+}
+
+function openArchive() {
+  archiveViewMonth = null;
+  renderArchiveModal();
+  document.getElementById('archive-modal').hidden = false;
+  document.getElementById('modal-backdrop').hidden = false;
+}
+
+function closeArchive() {
+  document.getElementById('archive-modal').hidden = true;
+  hideBackdropIfNoModals();
+}
+
+document.getElementById('archive-close').addEventListener('click', closeArchive);
+document.getElementById('archive-prev').addEventListener('click', () => {
+  if (!archiveViewMonth) return;
+  archiveViewMonth = new Date(archiveViewMonth.getFullYear(), archiveViewMonth.getMonth() - 1, 1);
+  renderArchiveCalendar();
+});
+document.getElementById('archive-next').addEventListener('click', () => {
+  if (!archiveViewMonth) return;
+  archiveViewMonth = new Date(archiveViewMonth.getFullYear(), archiveViewMonth.getMonth() + 1, 1);
+  renderArchiveCalendar();
+});
+document.getElementById('archive-random').addEventListener('click', () => {
+  let pool = [];
+  try { pool = JSON.parse(document.getElementById('archive-random').dataset.pool || '[]'); } catch {}
+  if (!pool.length) return;
+  unlockAchievement('archive_random');
+  startArchive(pool[Math.floor(Math.random() * pool.length)]);
+});
+
 /* ── Release notes modal ── */
 const RELEASES = [
+  {
+    version: 'v1.1',
+    newsByLang: {
+      en: [
+        'New Archive mode: replay any past daily set from a calendar, with solved days color-graded by score.',
+        'Redesigned the mode bar with a retro NicoNico-style tab strip for Daily, Unlimited, and Archive.',
+        'Daily Guesses gives everyone the same 10 questions each day, with progress and best score saved locally.'
+      ],
+      ja: [
+        '新アーカイブモード：カレンダーから過去のデイリーを再挑戦でき、クリア済みの日はスコアで色分けされます。',
+        'モードバーをレトロなニコニコ風タブ（デイリー／無制限／アーカイブ）に刷新しました。',
+        'デイリー予想は毎日全員共通の10問で、進行状況と最高スコアをローカルに保存します。'
+      ],
+      es: [
+        'Nuevo modo Archivo: repite cualquier diario desde un calendario, con los días resueltos coloreados según la puntuación.',
+        'Rediseñamos la barra de modos con un estilo retro tipo NicoNico para Diario, Ilimitado y Archivo.',
+        'Intentos diarios ofrece las mismas 10 preguntas a todos cada día, guardando progreso y mejor puntuación localmente.'
+      ],
+      ko: [
+        '새 아카이브 모드: 달력에서 지난 일일 세트를 다시 플레이하고, 해결한 날은 점수에 따라 색이 입혀집니다.',
+        '모드 바를 일일/무제한/아카이브용 레트로 니코니코 스타일 탭으로 새롭게 디자인했습니다.',
+        '일일 추측은 매일 모두에게 같은 10문제를 제공하며 진행 상황과 최고 점수를 로컬에 저장합니다.'
+      ]
+    },
+    notesByLang: {
+      en: [
+        'Added Daily Guesses: the same deterministic set of 10 Higher or Lower questions for everyone each day.',
+        'New Archive mode: replay any past daily set from a calendar, with solved days color-graded by score, a random-puzzle button, and progress saved per day.',
+        'Redesigned the mode bar with a retro, NicoNico-style tab strip for Daily, Unlimited, and Archive.',
+        'Daily progress survives refreshes, with its own local score history, best score, perfect days, average score, and spoiler-free share result.',
+        'Unlimited remains the endless lives-and-streak mode, with Daily, Unlimited, and Archive records kept separate.',
+        'Archive days can be replayed anytime to beat your best score, and added 7 Archive achievements (including solving the whole vault).',
+        'Cleaned up the song pool: only songs with an available original NicoNico upload (or a 1M+ re-upload) are included, so reprints with unreliable view counts can no longer appear and break streaks.'
+      ],
+      ja: [
+        '毎日全員共通の10問に挑戦できる「デイリー予想」を追加しました。',
+        '新しいアーカイブモードを追加：カレンダーから過去のデイリーを再挑戦でき、クリア済みの日はスコアに応じて色分け、ランダム出題ボタン、日付ごとの記録保存に対応します。',
+        'モードバーをレトロなニコニコ風タブ（デイリー／無制限／アーカイブ）に刷新しました。',
+        'デイリー進行状況はリロード後も保存され、最高スコア、全問正解日、平均スコア、共有結果を個別に記録します。',
+        '無制限モードは従来どおりライフと連勝を楽しめ、デイリー・無制限・アーカイブの記録は分けて保存されます。',
+        'アーカイブの各日はいつでも再挑戦して自己最高を更新でき、アーカイブ関連の実績を7個追加しました（全制覇の実績含む）。',
+        '曲プールを整理：オリジナルのニコニコ投稿（または100万再生以上の再投稿）がある曲のみを収録し、再生数が不安定な転載が出題されて連勝を崩すことがなくなりました。'
+      ],
+      es: [
+        'Se añadieron los Intentos diarios: una serie fija de 10 preguntas de Higher or Lower para todos cada día.',
+        'Nuevo modo Archivo: repite cualquier serie diaria anterior desde un calendario, con los días resueltos coloreados según la puntuación, botón de puzle aleatorio y progreso guardado por día.',
+        'Se rediseñó la barra de modos con un estilo retro tipo NicoNico para Diario, Ilimitado y Archivo.',
+        'El progreso diario sobrevive a las recargas y tiene historial, mejor puntuación, días perfectos, promedio y resultado compartible propios.',
+        'Ilimitado sigue siendo el modo infinito de vidas y rachas, con estadísticas separadas de Diario, Ilimitado y Archivo.',
+        'Los días del Archivo se pueden repetir cuando quieras para superar tu mejor marca, y se añadieron 7 logros de Archivo (incluido resolver todo el archivo).',
+        'Se depuró la lista de canciones: solo se incluyen las que tienen una subida original en NicoNico (o una resubida con más de 1M de vistas), así los reprints con vistas poco fiables ya no aparecen ni rompen rachas.'
+      ],
+      ko: [
+        '매일 모든 플레이어가 같은 10문제를 푸는 일일 추측 모드를 추가했습니다.',
+        '새 아카이브 모드 추가: 달력에서 지난 일일 세트를 다시 플레이하고, 해결한 날은 점수에 따라 색이 입혀지며, 랜덤 문제 버튼과 날짜별 기록 저장을 지원합니다.',
+        '모드 바를 일일/무제한/아카이브용 레트로 니코니코 스타일 탭으로 새롭게 디자인했습니다.',
+        '일일 진행 상황은 새로고침 후에도 유지되며 최고 점수, 퍼펙트 데이, 평균 점수, 공유 결과를 별도로 저장합니다.',
+        '무제한은 기존 라이프와 연승 모드로 유지되며 일일·무제한·아카이브 기록이 분리됩니다.',
+        '아카이브의 각 날짜는 언제든 다시 플레이해 최고 점수를 경신할 수 있으며, 아카이브 관련 업적 7개를 추가했습니다(전체 정복 포함).',
+        '곡 풀을 정리했습니다: 오리지널 니코니코 업로드(또는 100만 조회수 이상의 재업로드)가 있는 곡만 포함되어, 조회수가 불안정한 리프린트가 출제되어 연승을 깨는 일이 없어졌습니다.'
+      ]
+    }
+  },
   {
     version: 'v1.0',
     notesByLang: {

@@ -6,12 +6,13 @@ const CORS_HEADERS = {
 
 // Aggregates are intentionally allowed to be a little stale so normal play
 // does not force a full KV scan after every submitted result.
-const AGGREGATE_TTL_SECONDS = 1800;
+const AGGREGATE_TTL_SECONDS = 86400;
 const LEADERBOARD_KEY = "agg:leaderboard";
 const DIFFICULTY_MIN_PLAYS = 10;
 const DIFFICULTY_POOLS_KEY = "agg:difficulty-pools:v3";
-const HTTP_CACHE_SECONDS = 300;
-const STATS_HTTP_CACHE_SECONDS = 120;
+const HTTP_CACHE_SECONDS = 86400;
+const STATS_HTTP_CACHE_SECONDS = 21600;
+const VISITOR_HTTP_CACHE_SECONDS = 86400;
 const VISITOR_TOTAL_KEY = "site:visitors:total";
 
 function json(data, status = 200, extraHeaders = {}) {
@@ -23,6 +24,31 @@ function json(data, status = 200, extraHeaders = {}) {
       ...extraHeaders,
     },
   });
+}
+
+function cacheHeaders(seconds) {
+  return {
+    "Cache-Control": `public, max-age=${seconds}, s-maxage=${seconds}, stale-while-revalidate=${seconds * 4}`,
+  };
+}
+
+async function edgeCachedGet(request, ctx, buildResponse) {
+  if (request.method !== "GET" || typeof caches === "undefined" || !ctx?.waitUntil) {
+    return buildResponse();
+  }
+
+  const url = new URL(request.url);
+  url.searchParams.sort();
+  const cacheKey = new Request(url.toString(), { method: "GET" });
+  const cache = caches.default;
+  const cached = await cache.match(cacheKey);
+  if (cached) return cached;
+
+  const response = await buildResponse();
+  if (response.status === 200) {
+    ctx.waitUntil(cache.put(cacheKey, response.clone()));
+  }
+  return response;
 }
 
 function computeRow(songId, data) {
@@ -132,7 +158,7 @@ async function incrementVisitorTotal(env) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
     if (request.method === "OPTIONS") {
@@ -170,15 +196,13 @@ export default {
         const songId = url.searchParams.get("songId");
         if (!songId) return json({ error: "missing songId" }, 400);
         const data = await env.STATS.get(`song:${songId}`);
-        return json(data ? JSON.parse(data) : {}, 200, {
-          "Cache-Control": `public, max-age=${STATS_HTTP_CACHE_SECONDS}`,
-        });
+        return json(data ? JSON.parse(data) : {}, 200, cacheHeaders(STATS_HTTP_CACHE_SECONDS));
       }
 
       if (request.method === "GET" && url.pathname === "/difficulty-pools") {
-        return json(await getDifficultyPools(env), 200, {
-          "Cache-Control": `public, max-age=${HTTP_CACHE_SECONDS}`,
-        });
+        return edgeCachedGet(request, ctx, async () => (
+          json(await getDifficultyPools(env), 200, cacheHeaders(HTTP_CACHE_SECONDS))
+        ));
       }
 
       if (request.method === "POST" && url.pathname === "/visit") {
@@ -190,30 +214,30 @@ export default {
       }
 
       if (request.method === "GET" && url.pathname === "/visitors") {
-        return json({
-          total: await getVisitorTotal(env),
-          since: "June 2026",
-        }, 200, {
-          "Cache-Control": `public, max-age=${HTTP_CACHE_SECONDS}`,
-        });
+        return edgeCachedGet(request, ctx, async () => (
+          json({
+            total: await getVisitorTotal(env),
+            since: "June 2026",
+          }, 200, cacheHeaders(VISITOR_HTTP_CACHE_SECONDS))
+        ));
       }
 
       if (request.method === "GET" && url.pathname === "/leaderboard") {
-        const sort = url.searchParams.get("sort") || "plays";
-        const limit = Math.min(Number(url.searchParams.get("limit") || 20), 1000);
-        const { rows } = await getLeaderboard(env);
-        const sorted = [...rows];
+        return edgeCachedGet(request, ctx, async () => {
+          const sort = url.searchParams.get("sort") || "plays";
+          const limit = Math.min(Number(url.searchParams.get("limit") || 20), 1000);
+          const { rows } = await getLeaderboard(env);
+          const sorted = [...rows];
 
-        if (sort === "easiest") {
-          sorted.sort((a, b) => b.winRate - a.winRate || (a.avgAttempts ?? 99) - (b.avgAttempts ?? 99) || b.plays - a.plays);
-        } else if (sort === "hardest") {
-          sorted.sort((a, b) => a.winRate - b.winRate || (b.avgAttempts ?? 0) - (a.avgAttempts ?? 0) || b.plays - a.plays);
-        } else {
-          sorted.sort((a, b) => b.plays - a.plays);
-        }
+          if (sort === "easiest") {
+            sorted.sort((a, b) => b.winRate - a.winRate || (a.avgAttempts ?? 99) - (b.avgAttempts ?? 99) || b.plays - a.plays);
+          } else if (sort === "hardest") {
+            sorted.sort((a, b) => a.winRate - b.winRate || (b.avgAttempts ?? 0) - (a.avgAttempts ?? 0) || b.plays - a.plays);
+          } else {
+            sorted.sort((a, b) => b.plays - a.plays);
+          }
 
-        return json(sorted.slice(0, limit), 200, {
-          "Cache-Control": `public, max-age=${HTTP_CACHE_SECONDS}`,
+          return json(sorted.slice(0, limit), 200, cacheHeaders(HTTP_CACHE_SECONDS));
         });
       }
 
