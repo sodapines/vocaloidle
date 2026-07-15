@@ -4,20 +4,19 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>39charts — Song</title>
+<meta property="og:site_name" content="39charts">
+<meta property="og:title" content="39charts — Song detail">
+<meta property="og:description" content="Per-song view counts, likes and comments across NicoNico, YouTube and bilibili.">
+<meta property="og:type" content="website">
+<meta name="description" content="Per-song view counts, likes and comments across NicoNico, YouTube and bilibili.">
+<script>try{if(localStorage.getItem("39c_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <style>
 :root {
-  --bg: #dedad2;
-  --surface: #fafaf7;
-  --sf: #f2f0eb;
-  --text: #111111;
-  --muted: #555555;
-  --faint: #999999;
-  --line: #c8c4bc;
-  --ls: #b8b4ac;
-  --red: #cc0000;
-  --red-dark: #990000;
-  --link: #0066cc;
+  --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
+  --text: #111111; --muted: #555555; --faint: #999999;
+  --line: #c8c4bc; --ls: #b8b4ac;
+  --red: #cc0000; --red-dark: #990000; --link: #0066cc; --gold: #c8980a;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -25,9 +24,7 @@
 html, body {
   min-height: 100%;
   font-family: "MS PGothic", "Hiragino Kaku Gothic Pro", "Meiryo", Arial, sans-serif;
-  font-size: 12px;
-  color: var(--text);
-  background-color: var(--bg);
+  font-size: 12px; color: var(--text); background-color: var(--bg);
   background-image:
     linear-gradient(rgba(255,255,240,0.22) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,240,0.18) 1px, transparent 1px);
@@ -70,42 +67,108 @@ button { font: inherit; cursor: pointer; }
   text-decoration: none; color: var(--red);
   background: #f6f4ee; border-color: #fff #9a968e #9a968e #fff;
 }
-.nnd-header-links a:active {
-  background: #ece9e2; border-color: #9a968e #fff #fff #9a968e;
-}
-.nnd-divider { color: var(--line); }
 
-/* ── BODY ── */
+/* Ko-fi support button (same as the games) */
+.nnd-header-links a.nnd-kofi {
+  background: var(--red); color: #fff; padding: 3px 9px;
+  border: 1px solid var(--red-dark); font-weight: 700;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
+}
+.nnd-header-links a.nnd-kofi:hover { background: #b30000; color: #fff; text-decoration: none; border-color: var(--red-dark); }
+
+/* ── [INFO] MARQUEE ── */
+.nnd-marquee-bar {
+  width: 100%;
+  background:
+    repeating-linear-gradient(0deg, rgba(204,153,0,0.08) 0, rgba(204,153,0,0.08) 1px, transparent 1px, transparent 4px),
+    #fffde8;
+  border-bottom: 1px solid #d0c878;
+  height: 20px; display: flex; align-items: center; overflow: hidden; font-size: 11px;
+}
+.nnd-marquee-label {
+  flex-shrink: 0; padding: 0 7px; background: #cc9900; color: #fff;
+  font-weight: 700; font-size: 10px; height: 100%;
+  display: flex; align-items: center; border-right: 1px solid #aa7700;
+}
+.nnd-marquee-wrap { flex: 1; overflow: hidden; height: 100%; display: flex; align-items: center; }
+.nnd-marquee-inner {
+  white-space: nowrap; color: #555500;
+  animation: marquee-scroll 32s linear infinite; padding-left: 100%;
+}
+@keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) { .nnd-marquee-inner { animation: none; padding-left: 0; } }
+
+/* ── BODY LAYOUT ── */
 .nnd-body {
-  flex: 1 0 auto; width: 100%; max-width: 860px;
-  margin: 0 auto; padding: 8px;
+  flex: 1 0 auto; width: 100%; max-width: 1000px;
+  margin: 0 auto; padding: 8px 10px;
   display: flex; flex-direction: column; gap: 6px;
 }
+.song-cols { display: flex; gap: 6px; align-items: flex-start; }
+.song-left { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.song-right { width: 288px; min-width: 288px; display: flex; flex-direction: column; gap: 6px; }
 
-/* ── SONG HEADER PANEL ── */
-.song-panel {
-  background: var(--surface); border: 1px solid var(--line);
-  border-top: 3px solid var(--red);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
-  display: grid;
-  grid-template-columns: 240px 1fr;
+/* ── SHARED PANEL CHROME (index style) ── */
+.panel {
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
   overflow: hidden;
 }
-
-/* ── COVER ART ── */
-.song-cover-wrap {
-  width: 240px; flex-shrink: 0;
-  border-right: 1px solid var(--line);
-  display: flex; flex-direction: column;
+.panel-header {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 8px;
+  font-size: 11px; font-weight: 700; color: var(--text);
+  font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+  display: flex; align-items: center; justify-content: space-between; gap: 6px;
 }
-.song-cover-thumb {
-  position: relative; width: 100%;
-  aspect-ratio: 4 / 3; overflow: hidden; flex-shrink: 0;
+.panel-note { font-size: 10px; font-weight: 400; color: var(--faint); font-style: italic; text-transform: none; letter-spacing: 0; }
+
+/* ── TITLE BAR (old watch-page header) ── */
+.watch-titlebar { padding: 4px 10px 5px; }
+.watch-posted {
+  font-size: 10px; color: var(--faint); margin-bottom: 1px;
+  font-family: "MS Gothic","Courier New",monospace;
+}
+.watch-posted b { color: var(--muted); font-weight: 700; }
+.wp-cat {
+  display: inline-block; padding: 0 6px; margin-right: 6px;
+  background: #f2f0ff; border: 1px solid #aeb5df; color: #3f268e;
+  font-size: 9px; line-height: 14px; letter-spacing: 0;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+}
+html.dark-mode .wp-cat { background: #1d1a2e; border-color: #3a3560; color: #9a90d8; box-shadow: none; }
+.watch-title-row { display: flex; align-items: flex-start; gap: 10px; }
+.watch-title { flex: 1; min-width: 0; font-size: 17px; font-weight: 900; line-height: 1.2; word-break: break-word; }
+.watch-rankbox {
+  flex-shrink: 0; display: flex; align-items: center; gap: 5px;
+  border: 1px solid var(--red-dark);
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; padding: 4px 9px; align-self: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.watch-rankbox .wr-num { font-family: Consolas, "MS Gothic", monospace; font-size: 14px; font-weight: 900; line-height: 1; text-shadow: 0 1px 0 rgba(90,0,0,0.6); }
+.watch-rankbox .wr-cap { font-size: 8px; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
+.watch-rankbox.wr-gold { background: linear-gradient(to bottom, #d8ae2e, #a87c0a); border-color: #6d4f05; }
+.watch-artist { font-size: 11px; font-weight: 400; color: var(--muted); margin-left: 8px; }
+.watch-artist a { color: var(--muted); font-weight: 700; }
+.watch-artist a:hover { color: var(--red); }
+.watch-vtags { display: inline-flex; gap: 3px; flex-wrap: wrap; margin-left: 6px; vertical-align: middle; }
+
+/* ── PLAYER ── */
+.player-frame { border-top-color: #444; }
+.player-media {
+  position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #000;
+  border-bottom: 1px solid var(--ls);
 }
 .cover-placeholder {
   position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 6px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
 }
 .cover-pattern {
   position: absolute; inset: 0; opacity: 0.15;
@@ -113,33 +176,128 @@ button { font: inherit; cursor: pointer; }
   background-size: 8px 8px;
 }
 .cover-note { font-size: 40px; opacity: 0.45; position: relative; z-index: 1; }
-.cover-img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; z-index: 1;
+.cover-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.cover-scanlines {
+  position: absolute; inset: 0; z-index: 4; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.06) 2px 3px);
 }
-.cover-rank {
-  position: absolute; top: 0; left: 0;
-  background: rgba(0,0,0,0.72); color: var(--red);
-  font-size: 18px; font-weight: 900; line-height: 1;
-  padding: 4px 8px; z-index: 2;
-  border-right: 2px solid var(--red);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-.cover-rank.rank-gold   { color: #ffcc44; border-right-color: #cc8800; }
-.cover-rank.rank-silver { color: #cccccc; border-right-color: #888; }
-.cover-rank.rank-bronze { color: #d4885a; border-right-color: #a05020; }
 .cover-tier {
-  position: absolute; bottom: 0; right: 0; z-index: 2;
-  background: rgba(0,0,0,0.65); color: #fff;
-  font-size: 10px; font-weight: 700; padding: 2px 5px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-left: 1px solid rgba(255,255,255,0.1);
+  position: absolute; bottom: 0; right: 0; z-index: 5;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(140,0,0,0.9); color: #fff;
+  font-size: 10px; font-weight: 700; line-height: 1; padding: 3px 6px 4px;
 }
-.song-pools {
-  padding: 6px 7px; flex: 1;
-  display: flex; flex-direction: column; gap: 2px;
-  border-top: 1px solid var(--line);
-  background: var(--sf);
+.cover-pvtag {
+  position: absolute; top: 0; left: 0; z-index: 5;
+  display: inline-flex; align-items: center; gap: 4px;
+  background: rgba(0,0,0,0.72); color: #ddd;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  line-height: 1; padding: 4px 7px;
+  border-right: 1px solid rgba(255,255,255,0.2); border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+.cover-pvtag.pv-nnd  { background: rgba(60,60,60,0.85); color: #fff; }
+.cover-pvtag.pv-bili { background: rgba(15,124,168,0.85); color: #fff; }
+.cover-play {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  z-index: 6; width: 50px; height: 34px; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; color: #fff; cursor: pointer;
+  background: rgba(204,0,0,0.88); border: 1px solid rgba(255,255,255,0.5);
+  border-radius: 5px; box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+.cover-play:hover { background: #cc0000; transform: translate(-50%,-50%) scale(1.07); }
+.cover-embed { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 7; background: #000; }
+/* stat strip under the player, like the old watch page */
+.player-statbar {
+  display: flex; flex-wrap: wrap; align-items: center;
+  background: linear-gradient(to bottom, #f3f1ea, #e2dfd6);
+  font-size: 11px; color: var(--muted);
+}
+.player-statbar .ps-cell {
+  padding: 4px 10px; border-right: 1px solid var(--line);
+  display: inline-flex; align-items: baseline; gap: 4px; white-space: nowrap;
+}
+.player-statbar .ps-k { font-size: 10px; color: var(--faint); }
+.player-statbar .ps-v { font-family: Consolas, "MS PGothic", monospace; font-weight: 700; color: var(--text); }
+.player-statbar .ps-v.is-red { color: var(--red); }
+.player-statbar .ps-bar { flex: 1; min-width: 130px; border-right: none; padding: 0 10px; align-self: stretch; display: flex; align-items: center; }
+.player-statbar .ps-bar .hv-bar { flex: 1; }
+
+/* platform share bar (same look as producer/vocalist pages) */
+.hv-bar {
+  display: flex; height: 12px; border: 1px solid var(--ls); overflow: hidden;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.12); background: var(--sf);
+}
+.hv-seg { height: 100%; }
+.hv-yt  { background: linear-gradient(to bottom, #e25555, var(--red-dark)); }
+.hv-nnd { background: linear-gradient(to bottom, #9a968e, #6a665e); }
+.hv-bili { background: linear-gradient(to bottom, #35b5e5, #0f7ca8); }
+.hv-dot { width: 8px; height: 8px; display: inline-block; border: 1px solid rgba(0,0,0,0.2); align-self: center; }
+.hv-dot.hv-yt { background: var(--red); }
+.hv-dot.hv-nnd { background: #7a766e; }
+.hv-dot.hv-bili { background: #1a9ace; }
+
+/* ── TAG ROW (old NND tag bar) ── */
+.tagbar { display: flex; align-items: center; padding: 5px 8px; gap: 0; background: var(--surface); }
+.tagbar-head {
+  font-size: 10px; font-weight: 900; color: var(--muted);
+  white-space: nowrap; padding: 2px 8px 2px 2px;
+  border-right: 2px solid var(--line); margin-right: 7px; line-height: 18px;
+}
+.tagbar-list { display: flex; flex-wrap: wrap; gap: 3px; flex: 1; }
+.tag-pill {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 0 6px; height: 18px;
+  background: var(--sf); border: 1px solid #c0bcb4;
+  color: #333; font-size: 10px; line-height: 1; cursor: default; user-select: none;
+}
+.tag-pill.tp-vocalist { background: #eef3fb; border-color: #96b4d8; color: #1a3a6a; }
+.tag-pill.tp-producer { background: #edfaed; border-color: #80b870; color: #1a4010; }
+.tag-pill.tp-source   { background: #fff6e0; border-color: #c89840; color: #5a3800; }
+.tag-pill.tp-more     { background: var(--surface); border-color: var(--ls); color: var(--link); font-weight: 700; cursor: pointer; }
+.tag-pill.tp-more:hover { color: var(--red); border-color: var(--red); background: #fff0f0; text-decoration: none; }
+.tag-lock { font-size: 7px; opacity: 0.4; }
+html.dark-mode .tag-pill.tp-more { background: #1d1d1d; border-color: #3b3b3b; color: #5aa0e0; }
+
+/* ── SIDEBAR TABLES ── */
+.data-table { width: 100%; border-collapse: collapse; }
+.data-table tr { border-bottom: 1px solid var(--line); }
+.data-table tr:last-child { border-bottom: none; }
+.data-table tr:nth-child(even) { background: #f6f5f0; }
+.data-table tr:hover { background: #fff0f0; }
+.data-table td { padding: 3px 8px; font-size: 10px; height: 21px; color: var(--muted); }
+.data-table td:last-child {
+  font-weight: 400; text-align: right; color: var(--text); font-size: 11px; white-space: nowrap;
+  font-family: Consolas, "MS PGothic", monospace;
+}
+.data-table td:last-child.is-red { color: var(--red); }
+.data-table td:last-child.is-plain { font-family: inherit; font-weight: 700; }
+.data-table .dt-section td {
+  background: #e8e5dc; color: var(--muted); font-weight: 700; font-size: 9px;
+  letter-spacing: 0.08em; text-transform: uppercase; height: 18px;
+  font-family: "MS Gothic","Courier New",monospace; text-align: left;
+}
+.data-table tr.dt-grand { background: transparent; }
+.data-table tr.dt-grand:hover { background: #fff0f0; }
+.data-table .dt-grand td {
+  border-top: 2px solid var(--red); height: 22px;
+  color: var(--muted); font-weight: 700; font-size: 9px;
+}
+.data-table .dt-grand td:last-child { font-size: 11px; color: var(--red-dark); font-weight: 700; }
+
+/* ranking list rows — compact */
+.rankrow { display: flex; align-items: center; gap: 7px; padding: 2px 8px; min-height: 21px; border-bottom: 1px dotted var(--line); }
+.rankrow:last-child { border-bottom: none; }
+.rankrow .rr-num {
+  min-width: 38px; text-align: center;
+  font-family: Consolas, "MS PGothic", monospace; font-size: 13px; font-weight: 900; color: var(--red);
+}
+.rankrow .rr-cap { font-size: 10px; color: var(--muted); }
+.hall-badge {
+  display: inline-block; padding: 1px 7px;
+  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  color: #fff; font-size: 10px; font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
 }
 .pool-tag {
   display: inline-block; padding: 0 5px;
@@ -147,33 +305,105 @@ button { font: inherit; cursor: pointer; }
   color: #a04b00; font-size: 9px; line-height: 15px; font-weight: 700;
 }
 
-/* ── SONG DETAILS ── */
-.song-details { padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
-.song-title-block { border-bottom: 1px solid var(--line); padding-bottom: 8px; }
-.song-title-main { font-size: 18px; font-weight: 900; color: var(--text); line-height: 1.25; margin-bottom: 2px; }
-.song-artist-string { font-size: 12px; color: var(--muted); }
-
-.detail-table { display: grid; gap: 0; border: 1px solid var(--line); }
-.detail-row {
-  display: grid; grid-template-columns: 90px 1fr;
-  border-bottom: 1px dotted var(--line); min-height: 22px;
-}
-.detail-row:last-child { border-bottom: none; }
-.detail-label {
-  padding: 3px 7px; background: var(--sf);
-  font-size: 11px; font-weight: 700; color: var(--muted);
+/* details table (label column) */
+.detail-table { width: 100%; border-collapse: collapse; }
+.detail-table tr { border-bottom: 1px dotted var(--line); }
+.detail-table tr:last-child { border-bottom: none; }
+.detail-table th {
+  width: 82px; padding: 3px 8px; background: var(--sf);
+  font-size: 10px; font-weight: 700; color: var(--muted); text-align: left;
   border-right: 1px solid var(--line);
-  display: flex; align-items: center;
+  font-family: "MS Gothic","Courier New",monospace; text-transform: uppercase; letter-spacing: 0.02em;
+  vertical-align: top;
 }
-.detail-value {
-  padding: 3px 7px; font-size: 11px; color: var(--text);
-  display: flex; align-items: center; flex-wrap: wrap; gap: 2px;
-}
+.detail-table td { padding: 3px 8px; font-size: 11px; color: var(--text); }
 
-.vtag {
-  display: inline-block; padding: 0 4px;
-  font-size: 9px; line-height: 14px; border: 1px solid; font-weight: 700;
+/* small standalone action buttons, sit under the Links panel (50/50 split) */
+.cta-row { display: flex; gap: 6px; }
+.cta-btn {
+  flex: 1 1 0; min-width: 0;
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  padding: 4px 11px; text-decoration: none; white-space: nowrap;
+  font-size: 11px; font-weight: 700; color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
 }
+.cta-btn .cc-ico { font-size: 12px; }
+.cta-btn .cc-svg { width: 12px; height: 12px; flex-shrink: 0; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+/* VocaDB logo mark: "DB" with a strike, like the site favicon */
+.cta-btn .cc-vdb {
+  flex-shrink: 0; font-family: Arial, sans-serif;
+  font-size: 10px; font-weight: 900; line-height: 1; letter-spacing: 0.02em;
+  text-decoration: line-through; text-decoration-thickness: 1.5px;
+}
+.compare-cta { background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark); }
+.compare-cta:hover { background: linear-gradient(to bottom, #ee2a2a, #bb0000); color: #fff; text-decoration: none; }
+.vocadb-cta { background: linear-gradient(to bottom, #3a78e0, #2457c5); border: 1px solid #1a3f97; }
+.vocadb-cta:hover { background: linear-gradient(to bottom, #4a86ec, #2f66d6); color: #fff; text-decoration: none; }
+html.dark-mode .compare-cta { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #5a0505; box-shadow: none; }
+html.dark-mode .compare-cta:hover { background: linear-gradient(to bottom, #c01414, #8a0a0a); }
+html.dark-mode .vocadb-cta { background: linear-gradient(to bottom, #2a5bb0, #1c4290); border-color: #14306a; box-shadow: none; }
+
+/* other official uploads (alternate PVs) — card list that fills the row */
+.ou-body { padding: 7px 8px; display: grid; grid-template-columns: repeat(auto-fit, minmax(104px, 1fr)); gap: 6px; }
+.ou-card {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--ls); background: var(--surface);
+  overflow: hidden; text-decoration: none; color: inherit;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.ou-card:hover { border-color: var(--red); text-decoration: none; }
+.ou-thumb { display: block; position: relative; width: 100%; aspect-ratio: 16/9; overflow: hidden; background: #222; }
+.ou-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ou-badge {
+  position: absolute; top: 0; left: 0; z-index: 2; padding: 0 5px;
+  color: #fff; font-size: 9px; font-weight: 700; line-height: 15px;
+}
+.ou-badge.ou-yt  { background: rgba(200,0,0,0.9); }
+.ou-badge.ou-nnd { background: rgba(70,70,70,0.9); }
+.ou-foot { padding: 3px 6px; display: flex; align-items: center; justify-content: space-between; font-size: 10px; color: var(--link); border-top: 1px solid var(--line); }
+.ou-card:hover .ou-foot { color: var(--red); }
+html.dark-mode .ou-card { background: #1a1a1a; border-color: #3b3b3b; box-shadow: none; }
+
+/* link buttons */
+.links-body { padding: 6px 8px; display: flex; gap: 4px; }
+.links-body .song-link-btn { flex: 1 1 0; min-width: 0; justify-content: center; }
+.song-link-btn {
+  display: inline-flex; align-items: center; min-height: 24px; padding: 0 10px;
+  border: 1px solid var(--ls);
+  background: linear-gradient(to bottom, #fff, #e8e8e8);
+  color: var(--text); font-size: 11px; font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9); text-decoration: none;
+}
+.song-link-btn:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); border-color: var(--red); text-decoration: none; }
+.btn-vocadb { border-color: #2457c5; color: #2457c5; }
+.btn-youtube { border-color: #c00; color: #c00; }
+.btn-nnd { border-color: #444; color: #333; }
+.btn-bili { border-color: #0f7ca8; color: #0f7ca8; }
+
+/* credits (person rows, compact) */
+.credit-list { display: flex; flex-direction: column; }
+.credit-row {
+  display: flex; align-items: center; gap: 7px; padding: 4px 8px;
+  border-bottom: 1px dotted var(--line); color: inherit; text-decoration: none;
+}
+.credit-row:last-child { border-bottom: none; }
+a.credit-row:hover { background: #fff0f0; text-decoration: none; }
+a.credit-row:hover .credit-name { color: var(--red); }
+.credit-av {
+  width: 24px; height: 24px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 900; border: 1px solid rgba(0,0,0,0.2);
+  position: relative; overflow: hidden;
+}
+.credit-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.credit-name { font-size: 11px; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+.credit-role { font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.04em; flex-shrink: 0; }
+/* muted "+N support vocalists" summary row */
+.credit-more .credit-av { background: var(--sf); color: var(--muted); font-size: 10px; font-weight: 700; }
+.credit-more .credit-name { font-weight: 400; color: var(--muted); }
+html.dark-mode .credit-more .credit-av { background: #222; }
+
+/* vocalist chips */
+.vtag { display: inline-block; padding: 0 4px; font-size: 9px; line-height: 14px; border: 1px solid; font-weight: 700; }
 .vtag-miku   { background: #e0f4f8; border-color: #39c5bb; color: #007a73; }
 .vtag-rin    { background: #fff4d0; border-color: #f5a623; color: #915800; }
 .vtag-len    { background: #fffacc; border-color: #d4b800; color: #7a6500; }
@@ -184,66 +414,79 @@ button { font: inherit; cursor: pointer; }
 .vtag-meiko  { background: #fce8e6; border-color: #e53935; color: #b71c1c; }
 .vtag-teto   { background: #fde8ec; border-color: #d44466; color: #8c1030; }
 .vtag-flower { background: #f0e4f8; border-color: #9040a0; color: #581070; }
-.vtag-kafu   { background: #d8f0f8; border-color: #2096b8; color: #005878; }
+.vtag-kafu   { background: #f0e6fa; border-color: #b48ad8; color: #6a3a9a; }
 .vtag-una    { background: #fdf0d0; border-color: #e08000; color: #7a4000; }
 .vtag-yuki   { background: #fff8d0; border-color: #b09000; color: #5a4800; }
 .vtag-rei    { background: #fce0f0; border-color: #cc3080; color: #880050; }
 .vtag-defoko { background: #e0e8f0; border-color: #6080a0; color: #304060; }
 .vtag-other  { background: var(--sf); border-color: var(--ls); color: var(--muted); }
 
-.song-links { display: flex; gap: 4px; flex-wrap: wrap; margin-top: 2px; }
-.song-link-btn {
-  display: inline-flex; align-items: center;
-  min-height: 24px; padding: 0 10px;
-  border: 1px solid var(--ls);
-  background: linear-gradient(to bottom, #fff, #e8e8e8);
-  color: var(--text); font-size: 11px; font-weight: 700;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
-  text-decoration: none;
-}
-.song-link-btn:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); border-color: var(--red); text-decoration: none; }
-.btn-vocadb { border-color: #2457c5; color: #2457c5; }
-.btn-vocadb:hover { background: linear-gradient(to bottom, #f0f4ff, #d0dcff); color: #1a3aaa; }
-.btn-youtube { border-color: #c00; color: #c00; }
-.btn-youtube:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: #900; }
-.btn-nnd { border-color: #444; color: #333; }
-.btn-nnd:hover { background: linear-gradient(to bottom, #f2f2f2, #dcdcdc); color: #000; }
-
-/* ── SECTION PANELS ── */
-.section-panel {
-  background: var(--surface); border: 1px solid var(--line);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
-}
-.section-header {
-  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
-  border-bottom: 1px solid var(--line);
-  padding: 4px 8px;
-  font-size: 11px; font-weight: 700; color: var(--text);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
-  display: flex; align-items: center; justify-content: space-between;
-}
-.section-note { font-size: 10px; font-weight: 400; color: var(--faint); font-style: italic; }
-
-/* ── CHART ── */
-.chart-body { position: relative; padding: 12px; height: 220px; }
-.chart-coming-soon {
-  position: absolute; inset: 0;
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 6px;
-  background: rgba(250,250,247,0.88); pointer-events: none;
-}
-.chart-coming-soon strong { font-size: 13px; color: var(--muted); }
-.chart-coming-soon span { font-size: 11px; color: var(--faint); text-align: center; max-width: 340px; line-height: 1.5; }
-
-/* ── ACCEPTED TITLES ── */
-.titles-body { padding: 8px 10px; display: flex; flex-wrap: wrap; gap: 4px; }
+/* titles */
+.titles-body { padding: 7px 9px; display: flex; flex-wrap: wrap; gap: 4px; }
 .title-chip {
   display: inline-block; padding: 1px 7px;
   background: #f2f0ff; border: 1px solid #aeb5df;
   color: #3f268e; font-size: 11px; line-height: 18px;
 }
 
-/* ── LOADING ── */
+/* view-history tabs + grid */
+.vh-tabs { display: inline-flex; border: 1px solid var(--ls); }
+.vh-tab {
+  min-height: 18px; padding: 0 8px; border: none; border-right: 1px solid var(--ls);
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  font-size: 9px; font-weight: 700; color: var(--muted);
+  letter-spacing: 0.05em; text-transform: uppercase;
+  font-family: "MS Gothic","Courier New",monospace;
+}
+.vh-tab:last-child { border-right: none; }
+.vh-tab:hover { color: var(--red); }
+.vh-tab.is-active {
+  background: linear-gradient(to bottom, #dd2222, #aa0000); color: #fff;
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+html.dark-mode .vh-tab { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); color: var(--muted); }
+html.dark-mode .vh-tab.is-active { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; }
+.vh-grid-wrap { overflow-x: auto; }
+.vh-table { width: 100%; border-collapse: collapse; white-space: nowrap; }
+.vh-table th, .vh-table td {
+  padding: 3px 8px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  font-size: 10px; text-align: right;
+  font-family: Consolas, "MS PGothic", monospace;
+}
+.vh-table th:last-child, .vh-table td:last-child { border-right: none; }
+.vh-table tr:last-child td { border-bottom: none; }
+.vh-table thead th {
+  background: #f4f1e8; color: var(--muted); font-weight: 700; text-align: right;
+  font-family: "MS Gothic","Courier New",monospace; font-size: 9px;
+  letter-spacing: 0.03em; text-transform: uppercase;
+}
+.vh-table thead tr.vh-groups th { text-align: center; border-bottom: 2px solid var(--ls); font-size: 9px; }
+.vh-table th.vh-date, .vh-table td.vh-date { text-align: left; font-weight: 700; color: var(--text); }
+.vh-table tbody tr:nth-child(even) { background: #f6f5f0; }
+.vh-table tbody tr:hover { background: #fff0f0; }
+.vh-table td.vh-views { font-weight: 700; color: var(--red); }
+.vh-table td.vh-combined { font-weight: 700; color: var(--red-dark); border-left: 2px solid var(--red); }
+.vh-delta { display: block; font-size: 9px; font-weight: 400; color: var(--faint); }
+.vh-delta.up { color: #1a7a1a; }
+.vh-delta.down { color: #b02020; }
+html.dark-mode .vh-table thead th { background: #222; }
+html.dark-mode .vh-table tbody tr:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .vh-table tbody tr:hover { background: #2a1414; }
+html.dark-mode .vh-delta.up { color: #6adf6a; }
+html.dark-mode .vh-delta.down { color: #ff7a7a; }
+html.dark-mode .vh-table td.vh-views { color: #ff6666; }
+html.dark-mode .vh-table td.vh-combined { color: #ff8888; }
+
+/* chart */
+.chart-body { position: relative; padding: 10px; height: 200px; }
+.chart-coming-soon {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+  background: rgba(250,250,247,0.88); pointer-events: none;
+}
+.chart-coming-soon strong { font-size: 13px; color: var(--muted); }
+.chart-coming-soon span { font-size: 11px; color: var(--faint); text-align: center; max-width: 340px; line-height: 1.5; }
+
 .loading-state {
   padding: 40px; text-align: center;
   color: var(--faint); font-size: 12px; font-style: italic;
@@ -253,266 +496,124 @@ button { font: inherit; cursor: pointer; }
 /* ── FOOTER ── */
 .site-footer {
   flex-shrink: 0; width: 100%;
-  background: #e0e0e0; border-top: 1px solid var(--ls);
-  padding: 5px 10px; font-size: 11px; color: var(--faint); text-align: center;
-}
-.site-footer a { color: var(--link); font-size: 11px; }
-.site-footer a:hover { text-decoration: underline; }
-
-/* ── SCANLINES ── */
-.cover-scanlines {
-  position: absolute; inset: 0; z-index: 4; pointer-events: none;
-  background: repeating-linear-gradient(
-    to bottom,
-    transparent 0px, transparent 2px,
-    rgba(0,0,0,0.055) 2px, rgba(0,0,0,0.055) 3px
-  );
+  background: linear-gradient(to bottom, #ececea, #dcdad4);
+  border-top: 2px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 6px 10px; font-size: 11px; color: var(--faint); text-align: center;
 }
 
-/* ── STATS BAR ── */
-.stats-bar {
-  background: linear-gradient(to bottom, #f7f5f0, #ebe8e0);
-  border: 1px solid var(--line);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 1px 2px rgba(0,0,0,0.07);
-  display: flex; height: 54px; overflow: hidden;
+/* ── SETTINGS MODAL ── */
+.settings-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; }
+.settings-modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 101; width: min(100vw - 32px, 340px);
+  background: var(--surface);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  padding: 14px;
 }
-.stat-block {
-  flex: 1; display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  padding: 4px 8px; gap: 2px;
-  border-right: 1px solid var(--line);
-  position: relative;
-}
-.stat-block::before {
-  content: ""; position: absolute; left: 0; top: 8px; bottom: 8px;
-  width: 1px; background: rgba(255,255,255,0.7);
-}
-.stat-block:last-child { border-right: none; }
-.stat-label {
-  font-size: 9px; color: var(--faint); font-weight: 700;
-  letter-spacing: 0.03em; white-space: nowrap; text-align: center;
-}
-.stat-value {
-  font-size: 15px; font-weight: 900; color: var(--text);
-  line-height: 1; text-align: center; white-space: nowrap;
-}
-.stat-value.sv-views { color: var(--red); font-size: 18px; }
-.stat-value.sv-muted { color: var(--faint); font-size: 12px; font-weight: 400; }
-.stat-value.sv-date  { font-size: 11px; font-weight: 700; color: var(--muted); }
-
-/* ── TAG ROW ── */
-.tag-row-panel {
-  background: #fff; border: 1px solid var(--line);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.06);
-  display: flex; align-items: flex-start;
-  padding: 5px 8px; gap: 0;
-}
-.tag-row-head {
-  font-size: 10px; font-weight: 900; color: var(--muted);
-  white-space: nowrap; padding: 3px 8px 3px 2px;
-  border-right: 2px solid var(--line); margin-right: 7px;
-  align-self: center; line-height: 1;
-}
-.tag-row-list { display: flex; flex-wrap: wrap; gap: 3px; flex: 1; }
-.tag-pill {
-  display: inline-flex; align-items: center; gap: 3px;
-  padding: 0 6px; height: 18px;
-  background: #f2f0eb; border: 1px solid #c0bcb4;
-  color: #333; font-size: 10px; line-height: 1;
-  cursor: default; user-select: none;
-}
-.tag-pill:hover { background: #dde8ff; border-color: #6080cc; color: #2040a0; }
-.tag-pill.tp-vocalist {
-  background: #eef3fb; border-color: #96b4d8; color: #1a3a6a;
-}
-.tag-pill.tp-producer {
-  background: #edfaed; border-color: #80b870; color: #1a4010;
-}
-.tag-pill.tp-source {
-  background: #fff6e0; border-color: #c89840; color: #5a3800;
-}
-.tag-pill.tp-other {
-  background: #f5f0fa; border-color: #b0a0cc; color: #3a2060;
-}
-.tag-lock { font-size: 7px; opacity: 0.4; }
-
-@media (max-width: 600px) {
-  .song-panel { grid-template-columns: 1fr; }
-  .song-cover-wrap { width: 100%; border-right: none; border-bottom: 1px solid var(--line); }
-  .song-cover-thumb { aspect-ratio: 16 / 9; }
-  .chart-body { height: 180px; }
-  .stats-bar { height: auto; flex-wrap: wrap; }
-  .stat-block { flex: 0 0 50%; border-bottom: 1px solid var(--line); height: 50px; }
-}
-
-/* ════════ VISUAL POLISH PASS ════════ */
-/* Modular, auto-fitting stat grid — drop in another statCard() to add a platform */
-.stat-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(118px, 1fr)); gap: 0;
-  border: 1px solid var(--line);
-  background: linear-gradient(to bottom, #f7f5f0, #ebe8e0);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 1px 2px rgba(0,0,0,0.07);
-  overflow: hidden;
-}
-.stat-card {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 3px; padding: 9px 6px; min-width: 0; position: relative;
-  border-right: 1px solid var(--line); border-top: 1px solid transparent;
-}
-.stat-card::before { content: ""; position: absolute; left: 0; top: 8px; bottom: 8px; width: 1px; background: rgba(255,255,255,0.7); }
-.stat-card.sc-primary { background: linear-gradient(to bottom, #fff5f5, #ffecec); }
-.sc-label { font-size: 9px; font-weight: 700; color: var(--faint); letter-spacing: 0.02em; white-space: nowrap; text-align: center; }
-.sc-value {
-  font-family: Consolas, "MS Gothic", monospace; font-size: 16px; font-weight: 900;
-  color: var(--text); line-height: 1; white-space: nowrap; text-shadow: 0 1px 0 rgba(255,255,255,0.85);
-}
-.stat-card.sc-primary .sc-value { color: var(--red); }
-.stat-card.sc-empty .sc-value { color: var(--faint); font-weight: 400; }
-.sc-sub { font-size: 8px; color: var(--faint); white-space: nowrap; }
-/* Hero cover: gentle zoom on hover, like the rankings cards */
-.cover-img { transition: transform .3s ease; }
-.song-cover-thumb:hover .cover-img { transform: scale(1.04); }
-/* Link buttons: beveled retro press */
-.song-link-btn {
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
-  transition: transform .08s ease;
-}
-.song-link-btn:active { transform: translateY(1px); }
-
-/* Click-to-play YouTube on the cover */
-.cover-play {
-  position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
-  z-index: 3; width: 46px; height: 32px; padding: 0;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px; color: #fff; cursor: pointer;
-  background: rgba(204,0,0,0.88); border: 1px solid rgba(255,255,255,0.5);
-  border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.5);
-}
-.cover-play:hover { background: #cc0000; transform: translate(-50%,-50%) scale(1.08); }
-.cover-embed { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; z-index: 5; background:#000; }
-
-/* Views breakdown bar (NicoNico vs YouTube share) */
-.vb-panel {
-  background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--red);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08); overflow: hidden;
-}
-.vb-head {
-  background: linear-gradient(to bottom, #f5f3ee, #ece9e2); border-bottom: 1px solid var(--line);
-  padding: 4px 10px; font-size: 12px; font-weight: 900; color: var(--text);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
-}
-.vb-sub { font-size: 9px; font-weight: 400; color: var(--faint); margin-left: 6px; }
-.vb-body { padding: 10px 12px; }
-.vb-bar {
-  display: flex; height: 18px; border: 1px solid var(--ls); overflow: hidden;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.12);
-}
-.vb-seg { height: 100%; }
-.vb-seg.vb-nnd { background: linear-gradient(to bottom, #e25555, var(--red-dark)); }
-.vb-seg.vb-yt  { background: linear-gradient(to bottom, #888, #555); }
-.vb-legend { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 7px; font-size: 10px; color: var(--muted); }
-.vb-leg { display: inline-flex; align-items: center; gap: 5px; }
-.vb-dot { width: 10px; height: 10px; display: inline-block; border: 1px solid rgba(0,0,0,0.2); }
-.vb-dot.vb-nnd { background: var(--red); }
-.vb-dot.vb-yt  { background: #666; }
-
-/* ════════ HERO (Human-inspired, retro-skinned) ════════ */
-.hero {
-  position: relative; overflow: hidden;
-  background: var(--surface); border: 1px solid var(--line); border-top: 3px solid var(--red);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
-  display: grid; grid-template-columns: minmax(0, 460px) 1fr;
-}
-.hero-media {
-  position: relative; aspect-ratio: 16 / 9; overflow: hidden; background: #1a1a1a;
-  border-right: 1px solid var(--line);
-}
-.hero-media:hover .cover-img { transform: scale(1.04); }
-.hero-info { position: relative; z-index: 1; padding: 16px 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0; }
-.hero-title { font-size: 26px; font-weight: 900; line-height: 1.1; color: var(--text); word-break: break-word; }
-.hero-artist { font-size: 13px; color: var(--muted); margin-top: 3px; }
-.hero-views { display: flex; align-items: baseline; gap: 6px; }
-.hv-num { font-family: Consolas, "MS Gothic", monospace; font-size: 30px; font-weight: 900; color: var(--red); line-height: 1; text-shadow: 0 1px 0 rgba(255,255,255,0.8); }
-.hv-label { font-size: 11px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.06em; }
-.hv-bar { display: flex; height: 8px; max-width: 420px; border: 1px solid var(--ls); overflow: hidden; box-shadow: inset 0 1px 2px rgba(0,0,0,0.15); }
-.hv-seg { height: 100%; }
-.hv-yt  { background: linear-gradient(to bottom, #e25555, var(--red-dark)); }
-.hv-nnd { background: linear-gradient(to bottom, #9a968e, #6a665e); }
-.hv-legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 10px; color: var(--muted); margin-top: -4px; }
-.hv-dot { width: 9px; height: 9px; display: inline-block; margin-right: 4px; border: 1px solid rgba(0,0,0,0.2); vertical-align: middle; }
-.hv-dot.hv-yt { background: var(--red); }
-.hv-dot.hv-nnd { background: #7a766e; }
-.hero-chips { display: flex; gap: 6px; flex-wrap: wrap; }
-.rank-chip {
-  display: inline-flex; align-items: baseline; gap: 4px; padding: 3px 9px;
-  font-size: 11px; color: var(--muted);
-  background: linear-gradient(to bottom, #f6f4ee, #e6e3dc);
-  border: 1px solid var(--ls); box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
-}
-.rank-chip strong { color: var(--text); font-size: 13px; font-family: Consolas, "MS Gothic", monospace; }
-.rank-chip-tier { background: linear-gradient(to bottom, #fff2f2, #ffe0e0); border-color: #e0a0a0; }
-.rank-chip-tier strong { color: var(--red); }
-.hero-links { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
-.hero-watermark {
-  position: absolute; right: -4px; bottom: -24px; z-index: 0;
-  font-size: 104px; font-weight: 900; line-height: 0.8; white-space: nowrap;
-  color: transparent; -webkit-text-stroke: 1px rgba(0,0,0,0.06);
-  pointer-events: none; max-width: 58%; overflow: hidden;
-}
-
-/* ── PERSON CARDS (vocalists / producers) ── */
-.person-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 6px; padding: 10px; }
-.person-card {
-  display: flex; align-items: center; gap: 8px; padding: 6px 8px;
-  background: var(--sf); border: 1px solid var(--line);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
-}
-.person-av {
-  width: 34px; height: 34px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
-  font-size: 16px; font-weight: 900; border: 1px solid rgba(0,0,0,0.2);
-}
-.person-av { position: relative; overflow: hidden; }
-.person-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.person-meta { min-width: 0; }
-.person-name { font-size: 12px; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.person-role { font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.04em; }
-
-/* ── PLATFORM STAT PANELS (NicoNico / YouTube grouped separately) ── */
-.platform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
-.platform-panel {
-  border: 1px solid var(--line); background: var(--surface); overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
-}
-.pp-head {
+.settings-title {
+  margin: -14px -14px 12px; padding: 5px 10px;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 4px 10px; font-size: 12px; font-weight: 900; color: #fff;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  font-size: 12px; font-weight: 700; color: var(--text);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
 }
-.platform-panel.pp-nnd { border-top: 3px solid #252525; }
-.platform-panel.pp-nnd .pp-head { background: linear-gradient(to bottom, #3a3a3a, #1f1f1f); }
-.platform-panel.pp-yt  { border-top: 3px solid var(--red-dark); }
-.platform-panel.pp-yt .pp-head { background: linear-gradient(to bottom, var(--red), var(--red-dark)); }
-.pp-asof { font-size: 9px; font-weight: 400; opacity: 0.85; }
-.pp-cells { display: grid; grid-template-columns: repeat(3, 1fr); }
-.pp-cell {
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 3px; padding: 9px 4px; border-right: 1px solid var(--line); min-width: 0;
+.settings-close {
+  width: 20px; height: 20px; padding: 0; line-height: 1;
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
+  border: 1px solid var(--ls); color: var(--muted);
+  font-size: 10px; font-weight: 700;
 }
-.pp-cell:last-child { border-right: 0; }
-.pp-clabel { font-size: 9px; color: var(--faint); white-space: nowrap; text-align: center; }
-.pp-cval {
-  font-family: Consolas, "MS Gothic", monospace; font-size: 15px; font-weight: 900;
-  color: var(--red); line-height: 1; white-space: nowrap; text-shadow: 0 1px 0 rgba(255,255,255,0.85);
+.settings-close:hover { background: linear-gradient(to bottom, #fff5f5, #ffcccc); color: var(--red); }
+.settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
+.settings-row .s-label { font-size: 12px; font-weight: 700; color: var(--text); }
+.settings-row .s-desc { font-size: 10px; color: var(--faint); }
+.settings-toggle {
+  flex-shrink: 0; height: 24px; min-width: 46px; padding: 0 10px;
+  font-size: 11px; font-weight: 700; color: var(--faint);
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
 }
-.pp-cval.is-empty { color: var(--faint); font-weight: 400; }
-@media (max-width: 640px) { .platform-row { grid-template-columns: 1fr; } }
+.settings-toggle.is-on {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; border-color: var(--red-dark);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
 
-@media (max-width: 640px) {
-  .hero { grid-template-columns: 1fr; }
-  .hero-media { border-right: 0; border-bottom: 1px solid var(--line); }
-  .hero-title { font-size: 20px; }
-  .hv-num { font-size: 24px; }
-  .hero-watermark { display: none; }
+/* ── DARK MODE ── */
+html.dark-mode {
+  --bg: #121212; --surface: #1a1a1a; --sf: #161616;
+  --text: #e1e1e1; --muted: #a6a39c; --faint: #7c7c7c;
+  --line: #2c2c2c; --ls: #3b3b3b;
+  --red: #dd2222; --link: #5aa0e0;
+}
+html.dark-mode body {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+}
+html.dark-mode .nnd-mainbar { background: #161616; }
+html.dark-mode .nnd-logo-text { color: #e1e1e1; }
+html.dark-mode .nnd-header-links a:hover { background: #241f1a; border-color: #3b3b3b; }
+html.dark-mode .nnd-marquee-bar { background: #211d09; border-color: #5a4a16; }
+html.dark-mode .nnd-marquee-inner { color: #d6c266; }
+html.dark-mode .nnd-marquee-label { background: #6e5a10; border-right-color: #4a3c0a; }
+html.dark-mode .panel-header {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+  border-color: #3b3b3b; box-shadow: none; color: #cccccc;
+}
+html.dark-mode .panel { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35); }
+html.dark-mode .player-statbar { background: linear-gradient(to bottom, #242424, #1a1a1a); }
+html.dark-mode .data-table tr:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .data-table tr:hover { background: #2a1414; }
+html.dark-mode .data-table .dt-section td { background: #222; }
+html.dark-mode .data-table tr.dt-grand { background: transparent; }
+html.dark-mode .data-table tr.dt-grand:hover { background: #2a1414; }
+html.dark-mode .data-table .dt-grand td { color: var(--muted); }
+html.dark-mode .data-table .dt-grand td:last-child { color: #ff8888; }
+html.dark-mode .data-table td:last-child.is-red { color: #ff6666; }
+html.dark-mode .detail-table th { background: #1d1d1d; }
+html.dark-mode a.credit-row:hover { background: #2a1414; }
+html.dark-mode .song-link-btn {
+  background: linear-gradient(to bottom, #2e2e2e, #1e1e1e);
+  border-color: #3b3b3b; color: var(--muted); box-shadow: none;
+}
+html.dark-mode .song-link-btn:hover { background: #2b2020; color: var(--red); border-color: var(--red); }
+html.dark-mode .tag-pill { background: #1d1d1d; border-color: #3b3b3b; color: var(--muted); }
+html.dark-mode .tag-pill.tp-vocalist { background: #14202e; border-color: #2a4a70; color: #7ea6dd; }
+html.dark-mode .tag-pill.tp-producer { background: #14260f; border-color: #2a5a2a; color: #7ac878; }
+html.dark-mode .tag-pill.tp-source   { background: #221d09; border-color: #4a3c0a; color: #d6c266; }
+html.dark-mode .title-chip { background: #1d1a2e; border-color: #3a3560; color: #9a90d8; }
+html.dark-mode .pool-tag { background: #221d09; border-color: #4a3c0a; color: #d6c266; }
+html.dark-mode .hall-badge, html.dark-mode .watch-rankbox { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #5a0505; box-shadow: none; }
+html.dark-mode .watch-rankbox.wr-gold { background: linear-gradient(to bottom, #a8821e, #6d4f05); border-color: #4a3603; }
+html.dark-mode .chart-coming-soon { background: rgba(26,26,26,0.88); }
+html.dark-mode .vtag { background: #1d1d1d; }
+html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); box-shadow: none; }
+html.dark-mode .settings-title {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+  border-color: #3b3b3b; color: #cccccc;
+}
+html.dark-mode .settings-toggle, html.dark-mode .settings-close {
+  background: linear-gradient(to bottom, #2e2e2e, #1e1e1e);
+  border-color: #3b3b3b; color: var(--muted); box-shadow: none;
+}
+html.dark-mode .settings-close:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .settings-toggle.is-on {
+  background: linear-gradient(to bottom, #b01111, #7a0808);
+  color: #fff; border-color: #5a0505;
+}
+
+@media (max-width: 760px) {
+  .song-cols { flex-direction: column; }
+  .song-right { width: 100%; min-width: 0; }
+  .watch-title { font-size: 16px; }
 }
 </style>
 </head>
@@ -530,11 +631,37 @@ button { font: inherit; cursor: pointer; }
   </a>
   <nav class="nnd-header-links">
     <a href="index.html">&#9664; Rankings</a>
-    <span class="nnd-divider">|</span>
-    <a href="producers.html">Producers</a>
-    <span class="nnd-divider">|</span>
-    <a href="about.html">About</a>
+    <span class="nnd-divider" style="color:var(--line)">|</span>
+    <a href="#" id="settings-open">Settings</a>
+    <span class="nnd-divider" style="color:var(--line)">|</span>
+    <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
   </nav>
+</div>
+
+<style>
+.nnd-mobile-nav { display: none; width: 100%; background: #fff; border-bottom: 1px solid var(--line); padding: 5px 10px; align-items: center; gap: 8px; font-size: 12px; }
+.nnd-mobile-nav a { color: var(--link); }
+.nnd-mobile-nav a:hover { color: var(--red); text-decoration: none; }
+.nnd-mobile-nav .nnd-divider { color: var(--line); }
+.nnd-mobile-nav a.nnd-kofi { margin-left: auto; background: var(--red); color: #fff; padding: 3px 9px; border: 1px solid var(--red-dark); font-weight: 700; box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25); }
+.nnd-mobile-nav a.nnd-kofi:hover { background: #b30000; color: #fff; }
+html.dark-mode .nnd-mobile-nav { background: #161616; border-bottom-color: #2c2c2c; }
+@media (max-width: 560px) { .nnd-header-links { display: none; } .nnd-mobile-nav { display: flex; } }
+</style>
+<nav class="nnd-mobile-nav" aria-label="Mobile navigation">
+  <a href="index.html">&#9664; Rankings</a>
+  <span class="nnd-divider">|</span>
+  <a href="#" data-proxy="settings-open">Settings</a>
+  <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
+</nav>
+<script>
+document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var t=document.getElementById(a.dataset.proxy);if(t)t.click();});});
+</script>
+<div class="nnd-marquee-bar">
+  <span class="nnd-marquee-label">[INFO]</span>
+  <div class="nnd-marquee-wrap">
+    <div class="nnd-marquee-inner" id="marquee-text">Loading song data… &nbsp;·&nbsp; ★ Thank you for using 39charts ♪</div>
+  </div>
 </div>
 
 <div class="nnd-body" id="page-body">
@@ -544,10 +671,44 @@ button { font: inherit; cursor: pointer; }
 <footer class="site-footer">
   <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
     <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
-    &nbsp;·&nbsp;
-    <a href="../">Vocaloid Heardle</a>
   </p>
 </footer>
+
+<div class="settings-backdrop" id="settings-backdrop" hidden></div>
+<div class="settings-modal" id="settings-modal" hidden>
+  <div class="settings-title">[ Settings ] <button type="button" class="settings-close" id="settings-close">✕</button></div>
+  <div class="settings-row">
+    <div>
+      <div class="s-label">Dark Mode</div>
+      <div class="s-desc">Dark page and panel colors, like the games.</div>
+    </div>
+    <button type="button" class="settings-toggle" id="opt-dark">OFF</button>
+  </div>
+</div>
+<script>
+(function () {
+  const openBtn = document.getElementById("settings-open");
+  const modal = document.getElementById("settings-modal");
+  const backdrop = document.getElementById("settings-backdrop");
+  const toggle = document.getElementById("opt-dark");
+  if (!openBtn || !modal || !toggle) return;
+  function sync() {
+    const on = document.documentElement.classList.contains("dark-mode");
+    toggle.classList.toggle("is-on", on);
+    toggle.textContent = on ? "ON" : "OFF";
+  }
+  function close() { modal.hidden = true; backdrop.hidden = true; }
+  openBtn.addEventListener("click", e => { e.preventDefault(); modal.hidden = false; backdrop.hidden = false; sync(); });
+  document.getElementById("settings-close").addEventListener("click", close);
+  backdrop.addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+  toggle.addEventListener("click", () => {
+    const on = document.documentElement.classList.toggle("dark-mode");
+    try { localStorage.setItem("39c_dark", on ? "1" : "0"); } catch (e) {}
+    sync();
+  });
+})();
+</script>
 
 <script>
 const VOCALIST_MAP = [
@@ -574,7 +735,7 @@ const THUMB_COLORS = {
   gumi:{bg:"#1b5e20",fg:"#66bb6a"}, ia:{bg:"#4a0e6a",fg:"#ce93d8"},
   kaito:{bg:"#0d1b6e",fg:"#5c6bc0"},meiko:{bg:"#7a0a0a",fg:"#ef5350"},
   teto:{bg:"#5a0820",fg:"#e3587a"}, flower:{bg:"#2e0840",fg:"#c060d0"},
-  kafu:{bg:"#083848",fg:"#40b8d8"}, una:{bg:"#4a2800",fg:"#f09000"},
+  kafu:{bg:"#3a2050",fg:"#c0a0e8"}, una:{bg:"#4a2800",fg:"#f09000"},
   yuki:{bg:"#3a3000",fg:"#d4b000"}, rei:{bg:"#400830",fg:"#cc3080"},
 };
 const DEFAULT_COLORS = {bg:"#2a2a2a",fg:"#888888"};
@@ -612,13 +773,34 @@ function viewTier(song) {
   return {label:null,score:0};
 }
 
-/* ── Real view counts (NicoNico: data/views.json, YouTube: data/ytviews.json) ── */
+/* ── Real view counts ── */
 let VIEWS = {};
 let VIEWS_UPDATED = null;
-let NND_STATS = {};       // { id: { views, comments, mylist } }
-let YT_STATS = {};        // { id: { views, likes, comments } }
+let NND_STATS = {};
+let YT_STATS = {};
 let YT_UPDATED = null;
-let ARTISTS = {};         // { artistName: imageUrl }
+let ARTISTS = {};
+let DETAILS = {};
+let BILI_STATS = {};
+let HISTORY = null;
+function biliStat(song, key) {
+  const s = BILI_STATS[String(song.vocadbId)];
+  return s && typeof s[key] === "number" ? s[key] : null;
+}
+function biliViews(song) { return biliStat(song, "views"); }
+function songDetails(song) { return DETAILS[String(song.vocadbId)] || null; }
+/* Full VocaDB credits: specific voicebank names + real producers behind "Various artists". */
+function songVocalistNames(song) {
+  const d = songDetails(song);
+  return (d && d.vocalists && d.vocalists.length) ? d.vocalists : (song.singerNames || []);
+}
+function songProducerNames(song) {
+  const real = (song.producerNames || []).filter(p => p && !/^various/i.test(p));
+  if (real.length) return real;
+  const d = songDetails(song);
+  if (d && d.producers && d.producers.length) return d.producers.map(p => p.name);
+  return (song.artist && !/^various/i.test(song.artist)) ? [song.artist] : [];
+}
 function getViewCount(song) {
   const v = VIEWS[String(song.vocadbId)];
   return typeof v === "number" ? v : null;
@@ -626,32 +808,18 @@ function getViewCount(song) {
 function nndStat(song, key) {
   const s = NND_STATS[String(song.vocadbId)];
   if (s && typeof s[key] === "number") return s[key];
-  return key === "views" ? getViewCount(song) : null; // views falls back to views.json
+  return key === "views" ? getViewCount(song) : null;
 }
 function ytStat(song, key) {
   const s = YT_STATS[String(song.vocadbId)];
   return s && typeof s[key] === "number" ? s[key] : null;
 }
 function getYtCount(song)    { return ytStat(song, "views"); }
-function getYtLikes(song)    { return ytStat(song, "likes"); }
-function getYtComments(song) { return ytStat(song, "comments"); }
 function ytEmbeddable(song)  { const s = YT_STATS[String(song.vocadbId)]; return !(s && s.embeddable === false); }
 function artistImg(name)     { const u = ARTISTS[name]; return (typeof u === "string" && u) ? u : null; }
-// Combined NicoNico + YouTube — used for the all-time / yearly rank so it matches
-// the total-views headline and the rankings page's "Both" mode.
 function combinedViews(song) {
-  const n = getViewCount(song), y = getYtCount(song);
-  return (n == null && y == null) ? null : (n || 0) + (y || 0);
-}
-function formatViews(n) {
-  if (n >= 1e9) return (n / 1e9).toFixed(n >= 1e10 ? 1 : 2).replace(/\.?0+$/, "") + "B";
-  if (n >= 1e6) return (n / 1e6).toFixed(n >= 1e7 ? 1 : 2).replace(/\.?0+$/, "") + "M";
-  if (n >= 1e3) return Math.round(n / 1e3) + "K";
-  return String(n);
-}
-
-function rankBadgeClass(i) {
-  return i===0?"rank-gold":i===1?"rank-silver":i===2?"rank-bronze":"";
+  const n = getViewCount(song), y = getYtCount(song), b = biliViews(song);
+  return (n == null && y == null && b == null) ? null : (n || 0) + (y || 0) + (b || 0);
 }
 
 function getYouTubeId(coverArts=[]) {
@@ -662,6 +830,32 @@ function getYouTubeId(coverArts=[]) {
   return null;
 }
 
+/* Alternate official uploads (extra YouTube / NicoNico PVs) pulled from the
+   song's cover-art chain, minus the primary upload already linked. SoundCloud /
+   Bandcamp / piapro art never matches these patterns, so they're excluded. */
+function otherUploads(song) {
+  const out = [], seen = new Set();
+  const mainYt = song.ytOriginalId || null;
+  const mainNnd = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/)?.[1] : null;
+  for (const url of (song.coverArts || [])) {
+    let m;
+    if ((m = url.match(/ytimg\.com\/vi\/([^/]+)\//))) {
+      const id = m[1];
+      if (id === mainYt || seen.has("y" + id)) continue;
+      seen.add("y" + id);
+      out.push({ cls:"ou-yt", label:"YT", url:`https://www.youtube.com/watch?v=${id}`,
+        thumb:`https://i.ytimg.com/vi/${id}/hqdefault.jpg`, srcs:[`https://i.ytimg.com/vi/${id}/mqdefault.jpg`] });
+    } else if ((m = url.match(/nimg\.jp\/thumbnails\/(\d+)/))) {
+      const n = m[1];
+      if (n === mainNnd || seen.has("n" + n)) continue;
+      seen.add("n" + n);
+      out.push({ cls:"ou-nnd", label:"NND", url:`https://www.nicovideo.jp/watch/sm${n}`,
+        thumb:`https://nicovideo.cdn.nimg.jp/thumbnails/${n}/${n}`, srcs:[] });
+    }
+  }
+  return out.slice(0, 8);
+}
+
 function coverArtChain(song) {
   const all=[...(song.coverArts||[])];
   if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
@@ -669,6 +863,8 @@ function coverArtChain(song) {
   if (ytHq) { all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`); }
   const nndNum = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/)?.[1] : null;
   if (nndNum) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${nndNum}/${nndNum}`);
+  const bp = BILI_STATS[String(song.vocadbId)];
+  if (bp && bp.pic) all.push(String(bp.pic).replace(/^http:/, "https:"));
   const p=u=>(ytHq&&u===ytHq)?-1:u.includes("ytimg.com")&&u.includes("hqdefault")?0:u.includes("ytimg.com")&&u.includes("mqdefault")?1:u.includes("ytimg.com")?2:u.includes("sndcdn.com")?3:4;
   return [...new Set(all)].sort((a,b)=>p(a)-p(b));
 }
@@ -692,15 +888,20 @@ function formatDate(iso) {
   if (!iso) return "—";
   return new Date(iso).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});
 }
-
-function getProducerDisplay(song) {
-  const real = (song.producerNames||[]).filter(p => !/^various/i.test(p));
-  if (real.length) return real.join(", ");
-  return song.artist || "—";
+function formatDateShort(iso) {
+  if (!iso) return "————/——/——";
+  const d = new Date(iso);
+  return `${d.getUTCFullYear()}/${String(d.getUTCMonth()+1).padStart(2,"0")}/${String(d.getUTCDate()).padStart(2,"0")}`;
 }
 
 function getArtistDisplay(song) {
-  if (/^various/i.test(song.artistString||"")) return song.artist || song.artistString || "—";
+  if (/^various/i.test(song.artistString||"")) {
+    // Expand "Various artists" into the real credited producers + vocalists.
+    const prods = songProducerNames(song);
+    const vocs = songVocalistNames(song).filter(n => n && !/various/i.test(n));
+    if (prods.length) return prods.join(", ") + (vocs.length ? ` feat. ${vocs.join(", ")}` : "");
+    return song.artist || song.artistString || "—";
+  }
   return song.artistString || song.artist || "—";
 }
 
@@ -713,73 +914,133 @@ const SOURCE_TAG_LABELS = {
   "project-sekai":"Project SEKAI","niconico-douga":"NicoNicodouga",
 };
 
+const CHARACTER_NAMES = {
+  miku:"Hatsune Miku", rin:"Kagamine Rin", len:"Kagamine Len", luka:"Megurine Luka",
+  gumi:"GUMI", ia:"IA", kaito:"KAITO", meiko:"MEIKO", teto:"Kasane Teto",
+  flower:"flower", kafu:"KAFU", una:"Otomachi Una", yuki:"Kaai Yuki",
+  rei:"Adachi Rei", defoko:"Defoko",
+};
+
 function buildTagList(song) {
   const tags = [];
   const vocalists = normalizeVocalists(song.singerNames, song.artistString);
-  for (const v of vocalists)
-    tags.push({ text:v.label, cls:"tp-vocalist", locked:true });
-  for (const p of (song.producerNames||[]))
-    tags.push({ text:p, cls:"tp-producer", locked:true });
-  for (const t of (song.sourceTags||[])) {
-    const label = SOURCE_TAG_LABELS[t] ||
-      t.replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase());
-    tags.push({ text:label, cls:"tp-source", locked:false });
-  }
+  for (const v of vocalists) tags.push({ text:CHARACTER_NAMES[v.key] || v.label, cls:"tp-vocalist", locked:true });
+  for (const p of (song.producerNames||[])) tags.push({ text:p, cls:"tp-producer", locked:true });
+  // Community tags from the song's VocaDB page (top few by vote count).
+  const d = songDetails(song);
+  const comm = (d && d.tags) || [];
+  for (const t of comm) tags.push({ text:t, cls:"tp-source", locked:false });
   return tags;
 }
 
-// Reusable stat cell — add a platform later by adding one statCard() call.
-function statCard(label, value, opts = {}) {
-  const has = value != null;
-  const cls = has ? (opts.primary ? "sc-primary" : "sc-muted") : "sc-empty";
-  const sub = has && opts.sub ? `<span class="sc-sub">${escHtml(opts.sub)}</span>` : "";
-  return `<div class="stat-card ${cls}">
-    <span class="sc-label">${escHtml(label)}</span>
-    <span class="sc-value"${has ? ` title="${value.toLocaleString()}"` : ""}>${has ? value.toLocaleString() : "—"}</span>
-    ${sub}
-  </div>`;
-}
-
-// Vocalist / producer card (Human-style people row). Uses a real VocaDB picture
-// when available, falling back to a colored letter avatar.
-function personCard(name, role, key, imgUrl) {
-  const c = (key && THUMB_COLORS[key]) ? THUMB_COLORS[key] : DEFAULT_COLORS;
-  const initial = escHtml((String(name||"?").trim().charAt(0) || "?").toUpperCase());
-  const img = imgUrl ? `<img class="person-img" src="${escHtml(imgUrl)}" alt="" loading="lazy" onerror="this.remove()">` : "";
-  return `<div class="person-card">
-    <div class="person-av" style="background:${c.bg};color:${c.fg}">${initial}${img}</div>
-    <div class="person-meta"><div class="person-name">${escHtml(name)}</div><div class="person-role">${escHtml(role)}</div></div>
-  </div>`;
-}
-
-// One platform's stats as a branded panel (NicoNico / YouTube / …). Scalable:
-// add a platform by calling platformPanel() again.
-function platformPanel(title, cls, asOf, cells) {
-  const body = cells.map(c =>
-    `<div class="pp-cell"><span class="pp-clabel">${escHtml(c.label)}</span>` +
-    `<span class="pp-cval${c.value == null ? " is-empty" : ""}"${c.value != null ? ` title="${c.value.toLocaleString()}"` : ""}>${c.value != null ? c.value.toLocaleString() : "—"}</span></div>`
-  ).join("");
-  return `<div class="platform-panel ${cls}">
-    <div class="pp-head"><span class="pp-title">${escHtml(title)}</span>${asOf ? `<span class="pp-asof">as of ${escHtml(asOf)}</span>` : ""}</div>
-    <div class="pp-cells">${body}</div>
-  </div>`;
-}
-
-// Custom "Hall of …" tier from real NicoNico views (falls back to the source-tag tier).
 const HALL_TIERS = [
   { min: 1e8, name: "Hall of Gods",    ms: "100M+" },
   { min: 1e7, name: "Hall of Myths",   ms: "10M+"  },
   { min: 1e6, name: "Hall of Legends", ms: "1M+"   },
   { min: 1e5, name: "Hall of Fame",    ms: "100K+" },
-  { min: 1e4, name: "Rising Star",     ms: "10K+"  },
+  { min: 1e4, name: "Hidden Gem",      ms: "10K+"  },
 ];
 function hallTier(song) {
   const v = nndStat(song, "views");
   if (v != null) return HALL_TIERS.find(h => v >= h.min) || { name: "Newcomer", ms: "<10K" };
   const t = viewTier(song);
   if (!t.label) return null;
-  const map = { "100M+": "Hall of Gods", "10M+": "Hall of Myths", "1M+": "Hall of Legends", "100K+": "Hall of Fame", "10K+": "Rising Star" };
+  const map = { "100M+": "Hall of Gods", "10M+": "Hall of Myths", "1M+": "Hall of Legends", "100K+": "Hall of Fame", "10K+": "Hidden Gem" };
   return { name: map[t.label] || t.label, ms: t.label };
+}
+
+function creditRow(name, role, key, imgUrl, href) {
+  const c = (key && THUMB_COLORS[key]) ? THUMB_COLORS[key] : DEFAULT_COLORS;
+  const initial = escHtml((String(name||"?").trim().charAt(0) || "?").toUpperCase());
+  const img = imgUrl ? `<img class="credit-img" src="${escHtml(imgUrl)}" alt="" loading="lazy" onerror="this.remove()">` : "";
+  const tag = href ? "a" : "div";
+  return `<${tag} class="credit-row"${href ? ` href="${href}"` : ""}>
+    <span class="credit-av" style="background:${c.bg};color:${c.fg}">${initial}${img}</span>
+    <span class="credit-name">${escHtml(name)}</span>
+    <span class="credit-role">${escHtml(role)}</span>
+  </${tag}>`;
+}
+
+function num(v, red) {
+  return v != null
+    ? `<td class="${red ? "is-red" : ""}" title="${v.toLocaleString()}">${v.toLocaleString()}</td>`
+    : `<td style="color:var(--faint);font-weight:400">—</td>`;
+}
+
+/* Split credited vocalists into mains vs support/sub-vocals. songs.json's
+   singerNames holds the main (non-parenthesised) credits; songdetails' fuller
+   list adds the support singers that VocaDB shows in parentheses. Songs with a
+   big collab can credit 15+ singers, so we only row the mains and summarise the
+   rest instead of flooding the panel. */
+function splitVocalists(song) {
+  const all = songVocalistNames(song).filter(n => n && !/various/i.test(n));
+  const mains = (song.singerNames || []).filter(n => n && !/various/i.test(n));
+  if (!mains.length) return { main: all, support: [] };
+  const isMain = n => mains.some(m => {
+    const a = n.toLowerCase(), b = m.toLowerCase();
+    return a === b || a.includes(b) || b.includes(a);
+  });
+  const main = all.filter(isMain);
+  const support = all.filter(n => !isMain(n));
+  return main.length ? { main, support } : { main: all, support: [] };
+}
+/* ── View-history grid (spreadsheet view) ── */
+const VH_COLS = [
+  { k: "n",  group: "NicoNico", label: "再生",   views: true },
+  { k: "nc", group: "NicoNico", label: "コメント" },
+  { k: "nm", group: "NicoNico", label: "マイリス" },
+  { k: "y",  group: "YouTube",  label: "Views",  views: true },
+  { k: "yl", group: "YouTube",  label: "Likes" },
+  { k: "yc", group: "YouTube",  label: "Comments" },
+  { k: "b",  group: "bilibili", label: "再生",   views: true },
+  { k: "bl", group: "bilibili", label: "点赞" },
+  { k: "bc", group: "bilibili", label: "评论" },
+];
+
+function historyGridHtml(hist, dates, idx, combined) {
+  if (!idx.length) return "";
+  const cols = VH_COLS.filter(c => hist && hist[c.k] && hist[c.k].some(v => v != null));
+  const groups = [];
+  for (const c of cols) {
+    const g = groups[groups.length - 1];
+    if (g && g.name === c.group) g.span++;
+    else groups.push({ name: c.group, span: 1 });
+  }
+  const fmt = v => v != null ? v.toLocaleString() : "—";
+  const delta = (series, i, prev) => {
+    if (prev == null || series[i] == null || series[prev] == null) return "";
+    const d = series[i] - series[prev];
+    if (d === 0) return `<span class="vh-delta">±0</span>`;
+    return `<span class="vh-delta ${d > 0 ? "up" : "down"}">${d > 0 ? "+" : ""}${d.toLocaleString()}</span>`;
+  };
+  // newest first; each row's delta compares against the previous snapshot
+  const rows = [...idx].reverse().map((i, r, arr) => {
+    const prev = arr[r + 1] != null ? arr[r + 1] : null;
+    const cells = cols.map(c => {
+      const s = hist[c.k];
+      return `<td class="${c.views ? "vh-views" : ""}">${fmt(s[i])}${delta(s, i, prev)}</td>`;
+    }).join("");
+    return `<tr>
+      <td class="vh-date">${dates[i]}</td>
+      ${cells}
+      <td class="vh-combined">${fmt(combined[i])}${delta(combined, i, prev)}</td>
+    </tr>`;
+  }).join("");
+  return `<table class="vh-table">
+    <thead>
+      <tr class="vh-groups"><th></th>${groups.map(g => `<th colspan="${g.span}">${g.name}</th>`).join("")}<th>All</th></tr>
+      <tr><th class="vh-date">Date</th>${cols.map(c => `<th>${c.label}</th>`).join("")}<th>Combined</th></tr>
+    </thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+}
+
+function creditMoreRow(count, label, names) {
+  return `<div class="credit-row credit-more" title="${escHtml(names.join(", "))}">
+    <span class="credit-av">+${count}</span>
+    <span class="credit-name">${count} ${escHtml(label)}${count === 1 ? "" : "s"}</span>
+    <span class="credit-role">VocaDB</span>
+  </div>`;
 }
 
 function buildPage(song, rank, yearRank) {
@@ -790,156 +1051,292 @@ function buildPage(song, rank, yearRank) {
   const tier      = viewTier(song);
   const count     = getViewCount(song);
   const ytCount   = getYtCount(song);
-  const ytLikes   = getYtLikes(song);
-  const ytComments = getYtComments(song);
-  const totalViews = (count || 0) + (ytCount || 0);
-  const hasAnyViews = count != null || ytCount != null;
+  const biliV     = biliViews(song);
+  const totalViews = (count || 0) + (ytCount || 0) + (biliV || 0);
+  const hasAnyViews = count != null || ytCount != null || biliV != null;
   const chain     = coverArtChain(song);
   const ytId      = song.ytOriginalId || getYouTubeId(song.coverArts||[]);
+  const ht        = hallTier(song);
+  const nndV = nndStat(song, "views"), nndC = nndStat(song, "comments"), nndM = nndStat(song, "mylist");
+  const ytL = ytStat(song, "likes"), ytCm = ytStat(song, "comments");
+  const biliL = biliStat(song, "likes"), biliCm = biliStat(song, "comments");
+  const bStats = BILI_STATS[String(song.vocadbId)];
+  const biliUrl = (bStats && bStats.id)
+    ? `https://www.bilibili.com/video/${/^BV/i.test(bStats.id) ? bStats.id : "av" + bStats.id}`
+    : null;
+  const fmtV = v => v >= 1e9 ? (v/1e9).toFixed(2)+"B" : v >= 1e6 ? (v/1e6).toFixed(1)+"M" : v >= 1e3 ? (v/1e3).toFixed(1)+"K" : String(v);
+  const ratio = (likes, views) => (likes != null && views > 0)
+    ? `<td title="likes per 1,000 views">${(likes / views * 1000).toFixed(1)}</td>`
+    : `<td style="color:var(--faint);font-weight:400">—</td>`;
+  const pctOf = v => Math.round((v || 0) / totalViews * 100);
+  const pctText = (hasAnyViews && totalViews > 0 && count != null && ytCount != null)
+    ? `YT ${pctOf(ytCount)}% / NND ${pctOf(count)}%${biliV != null ? ` / BILI ${pctOf(biliV)}%` : ""}`
+    : null;
+
+  // PV availability: upload-id presence drives which View Counts sections render.
+  const hasYtPv = !!(song.ytOriginalId || getYouTubeId(song.coverArts || []));
+  const hasNndPv = !!song.nndOriginalId;
+  const hasBiliPv = !!(bStats && bStats.id);
+  // The corner label goes by LIVE stats instead — a stored YouTube id whose
+  // video is dead/deleted still has no usable PV, so judge by what actually
+  // returns counts today.
+  let pvTag = null;
+  if (ytCount == null) {
+    if (count != null && biliV == null) pvTag = { cls: "pv-nnd", text: "NicoNico PV only" };
+    else if (biliV != null && count == null) pvTag = { cls: "pv-bili", text: "bilibili PV only" };
+    else if (count != null && biliV != null) pvTag = { cls: "pv-nnd", text: "NND + bilibili PV" };
+    else pvTag = { cls: "", text: "No live PV" };
+  }
 
   document.title = `39charts — ${song.title}`;
   document.getElementById("topbar-breadcrumb").textContent =
     `39charts › Rankings › ${song.title}`;
+  document.getElementById("marquee-text").textContent =
+    `★ ${song.title} — ${getArtistDisplay(song)}  ·  ` +
+    (hasAnyViews ? `★ ${totalViews.toLocaleString()} combined views${pctText ? ` (${pctText})` : ""}  ·  ` : "") +
+    (rank != null ? `★ Rank #${rank + 1} all-time  ·  ` : "") +
+    (ht ? `★ ${ht.name}  ·  ` : "") + `★ Thank you for using 39charts ♪`;
 
-  const vocalistTagsHtml = vocalists.length
-    ? vocalists.map(v=>`<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join(" ")
-    : `<span style="color:var(--faint)">—</span>`;
+  // Daily view history mined from the nightly refresh snapshots.
+  const hist = (HISTORY && HISTORY.songs && HISTORY.songs[String(song.vocadbId)]) || null;
+  const histDates = (HISTORY && HISTORY.dates) || [];
+  const hs = k => (hist && hist[k]) || null;
+  const histSeries = histDates.map((_, i) => {
+    const parts = [hs("n"), hs("y"), hs("b")].map(s => s && s[i] != null ? s[i] : null);
+    return parts.every(v => v == null) ? null : parts.reduce((a, v) => a + (v || 0), 0);
+  });
+  const histIdx = histSeries.map((v, i) => v != null ? i : -1).filter(i => i >= 0);
+  const histPoints = histIdx.length;
+  const histStart = histPoints ? histDates[histIdx[0]] : null;
 
-  const tagPillsHtml = buildTagList(song).map(t =>
-    `<span class="tag-pill ${t.cls}">${escHtml(t.text)}${t.locked?` <span class="tag-lock">[L]</span>`:""}</span>`
-  ).join("");
-
-  const poolsHtml = (song.vocadbPools||[]).length
-    ? song.vocadbPools.map(p=>`<span class="pool-tag">${escHtml(p)}</span>`).join("")
-    : `<span style="color:var(--faint);font-size:10px;padding:4px 7px;display:block">No pool data</span>`;
+  const vtagsHtml = vocalists.map(v=>`<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join("");
 
   const coverImgHtml = chain.length
-    ? `<img class="cover-img" src="${escHtml(chain[0])}" alt=""
+    ? `<img class="cover-img" src="${escHtml(chain[0])}" alt="" referrerpolicy="no-referrer"
            data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}"
-           loading="eager" onload="thumbOnload(this)" onerror="tryNextSrc(this)">`
-    : "";
+           loading="eager" onload="thumbOnload(this)" onerror="tryNextSrc(this)">` : "";
 
-  const rankHtml = rank!=null
-    ? `<div class="cover-rank ${rankBadgeClass(rank)}">#${rank+1}</div>` : "";
+  const allTags = buildTagList(song);
+  const MAX_TAGS = 8;
+  const tagPill = t =>
+    `<span class="tag-pill ${t.cls}"${t.locked?` title="Locked tag — from the song credits"`:` title="Community tag from VocaDB"`}>${escHtml(t.text)}${t.locked?` <span class="tag-lock">[L]</span>`:""}</span>`;
+  const hiddenTags = allTags.slice(MAX_TAGS);
+  const tagPillsHtml = allTags.slice(0, MAX_TAGS).map(tagPill).join("")
+    + (hiddenTags.length
+      ? `<span class="tag-pill tp-more" id="tags-more" role="button" tabindex="0" title="Show all tags">+${hiddenTags.length} more</span><span id="tags-rest" hidden>${hiddenTags.map(tagPill).join("")}</span>`
+      : "");
 
-  const tierHtml = tier.label
-    ? `<div class="cover-tier">${tier.label}</div>` : "";
-
-  const vocadbLinkHtml = song.vocadbUrl
-    ? `<a class="song-link-btn btn-vocadb" href="${escHtml(song.vocadbUrl)}" target="_blank" rel="noopener">VocaDB ↗</a>` : "";
-
-  const ytLinkHtml = ytId
-    ? `<a class="song-link-btn btn-youtube" href="https://www.youtube.com/watch?v=${escHtml(ytId)}" target="_blank" rel="noopener">YouTube ↗</a>` : "";
-
-  const nndLinkHtml = song.nndOriginalId
-    ? `<a class="song-link-btn btn-nnd" href="https://www.nicovideo.jp/watch/${escHtml(song.nndOriginalId)}" target="_blank" rel="noopener">NicoNico ↗</a>` : "";
-
-  const ht = hallTier(song);
+  const poolsHtml = (song.vocadbPools||[]).length
+    ? song.vocadbPools.map(p=>`<span class="pool-tag">${escHtml(p)}</span>`).join(" ")
+    : `<span style="color:var(--faint);font-size:10px">No pool data</span>`;
 
   const titlesHtml = (song.acceptedTitles||[])
     .map(t=>`<span class="title-chip">${escHtml(t)}</span>`).join("");
 
-  const vocalCards = (song.singerNames || []).filter(n => n && !/various/i.test(n)).map(n => {
+  const uploads = otherUploads(song);
+  const uploadsHtml = uploads.map(u => `
+    <a class="ou-card" href="${escHtml(u.url)}" target="_blank" rel="noopener">
+      <span class="ou-thumb">
+        <span class="ou-badge ${u.cls}">${u.label}</span>
+        <img src="${escHtml(u.thumb)}" alt="" loading="lazy" data-srcs="${escHtml(JSON.stringify(u.srcs))}" onerror="tryNextSrc(this)">
+      </span>
+      <span class="ou-foot">Watch <span>&#8599;</span></span>
+    </a>`).join("");
+
+  const { main: mainVocs, support: supportVocs } = splitVocalists(song);
+  const MAX_VOC = 8;
+  const shownVocs = mainVocs.slice(0, MAX_VOC);
+  const overflowMain = mainVocs.slice(MAX_VOC);
+  const vocalRows = shownVocs.map(n => {
     const v = VOCALIST_MAP.find(v => v.match.test(n));
-    return personCard(n, "Vocalist", v ? v.key : null, artistImg(n));
-  }).join("");
-  const producerCards = (song.producerNames || []).map(p => personCard(p, "Producer", null, artistImg(p))).join("");
-  const nndV = nndStat(song, "views"), nndC = nndStat(song, "comments"), nndM = nndStat(song, "mylist");
-  const ytPct = (count != null && ytCount != null && totalViews > 0) ? Math.round(ytCount / totalViews * 100) : null;
-  const nndPct = ytPct != null ? 100 - ytPct : null;
+    return creditRow(n, "Vocalist", v ? v.key : null, artistImg(n), `vocalist.html?name=${encodeURIComponent(n)}`);
+  }).join("")
+    + (overflowMain.length ? creditMoreRow(overflowMain.length, "more vocalist", overflowMain) : "")
+    + (supportVocs.length ? creditMoreRow(supportVocs.length, "support vocalist", supportVocs) : "");
+  const producerRows = songProducerNames(song).map(p =>
+    creditRow(p, "Producer", null, artistImg(p), `producer.html?name=${encodeURIComponent(p)}`)).join("");
+
+  const prodLink = songProducerNames(song)[0] || "";
 
   document.getElementById("page-body").innerHTML = `
-    <div class="hero">
-      <div class="hero-media" id="hero-media">
-        <div class="cover-placeholder" style="background:${colors.bg};color:${colors.fg};">
-          <div class="cover-pattern"></div><span class="cover-note">♪</span>
-        </div>
-        ${coverImgHtml}
-        ${rankHtml}
-        ${tierHtml}
-        <div class="cover-scanlines"></div>
-        ${(ytId && ytCount != null && ytEmbeddable(song)) ? `<button class="cover-play" id="cover-play" data-yt="${escHtml(ytId)}" aria-label="Play on YouTube">&#9654;</button>` : ""}
-      </div>
-      <div class="hero-info">
-        <div>
-          <h1 class="hero-title">${escHtml(song.title)}</h1>
-          <div class="hero-artist">${escHtml(getArtistDisplay(song))}</div>
-        </div>
-        <div class="hero-views">
-          <span class="hv-num">${hasAnyViews ? totalViews.toLocaleString() : "—"}</span>
-          <span class="hv-label">total views</span>
-        </div>
-        ${ytPct != null ? `
-          <div class="hv-bar" title="YouTube ${ytCount.toLocaleString()} · NicoNico ${count.toLocaleString()}">
-            <div class="hv-seg hv-yt" style="width:${(ytCount / totalViews * 100).toFixed(2)}%"></div>
-            <div class="hv-seg hv-nnd" style="width:${(count / totalViews * 100).toFixed(2)}%"></div>
+    <div class="panel watch-titlebar-panel">
+      <div class="watch-titlebar">
+        <div class="watch-posted"><span class="wp-cat">VOCALOID&nbsp;·&nbsp;音楽</span> 投稿日 <b>${formatDateShort(song.publishDate)}</b> &nbsp;·&nbsp; VocaDB #${song.vocadbId || "—"}</div>
+        <div class="watch-title-row">
+          <div style="flex:1;min-width:0">
+            <h1 class="watch-title">${escHtml(song.title)}<span class="watch-artist">${prodLink ? `<a href="producer.html?name=${encodeURIComponent(prodLink)}">${escHtml(getArtistDisplay(song))}</a>` : escHtml(getArtistDisplay(song))}</span></h1>
           </div>
-          <div class="hv-legend">
-            <span><i class="hv-dot hv-yt"></i>YouTube · ${ytCount.toLocaleString()} (${ytPct}%)</span>
-            <span><i class="hv-dot hv-nnd"></i>NicoNico · ${count.toLocaleString()} (${nndPct}%)</span>
+          ${rank != null ? `
+          <div class="watch-rankbox${rank < 3 ? " wr-gold" : ""}">
+            <span class="wr-num">#${(rank + 1).toLocaleString()}</span>
+            <span class="wr-cap">all-time</span>
           </div>` : ""}
-        <div class="hero-chips">
-          ${rank != null ? `<span class="rank-chip"><strong>#${(rank + 1).toLocaleString()}</strong> all-time</span>` : ""}
-          ${(yearRank != null && year) ? `<span class="rank-chip"><strong>#${yearRank}</strong> in ${year}</span>` : ""}
-          ${ht ? `<span class="rank-chip rank-chip-tier"><strong>${escHtml(ht.name)}</strong></span>` : ""}
-        </div>
-        <div class="hero-links">
-          ${ytLinkHtml}${nndLinkHtml}${vocadbLinkHtml}
         </div>
       </div>
     </div>
 
-    <div class="platform-row">
-      ${platformPanel("NicoNico", "pp-nnd", VIEWS_UPDATED, [
-        { label: "再生数 Views", value: nndV },
-        { label: "コメント Comments", value: nndC },
-        { label: "マイリスト Mylists", value: nndM },
-      ])}
-      ${platformPanel("YouTube", "pp-yt", YT_UPDATED, [
-        { label: "Views", value: ytCount },
-        { label: "Likes", value: ytLikes },
-        { label: "Comments", value: ytComments },
-      ])}
-    </div>
+    <div class="song-cols">
+      <div class="song-left">
 
-    ${vocalCards ? `<div class="section-panel"><div class="section-header">Vocalists</div><div class="person-grid">${vocalCards}</div></div>` : ""}
-    ${producerCards ? `<div class="section-panel"><div class="section-header">Producers</div><div class="person-grid">${producerCards}</div></div>` : ""}
-
-    <div class="section-panel">
-      <div class="section-header">Details</div>
-      <div class="detail-table">
-        <div class="detail-row"><span class="detail-label">Released</span><span class="detail-value">${formatDate(song.publishDate)}</span></div>
-        <div class="detail-row"><span class="detail-label">Tier</span><span class="detail-value">${ht ? `<span class="tier-badge">${escHtml(ht.name)}</span>&ensp;<span style="color:var(--faint);font-size:10px">${escHtml(ht.ms)} NicoNico views</span>` : `<span style="color:var(--faint)">—</span>`}</span></div>
-        <div class="detail-row"><span class="detail-label">VocaDB ID</span><span class="detail-value" style="color:var(--faint)">${song.vocadbId || "—"}</span></div>
-        <div class="detail-row"><span class="detail-label">Pools</span><span class="detail-value">${poolsHtml}</span></div>
-      </div>
-    </div>
-
-    <div class="tag-row-panel">
-      <div class="tag-row-head">タグ</div>
-      <div class="tag-row-list">${tagPillsHtml||`<span style="color:var(--faint);font-size:10px">No tags</span>`}</div>
-    </div>
-
-    <div class="section-panel">
-      <div class="section-header">View History <span class="section-note">view history over time — coming soon</span></div>
-      <div class="chart-body">
-        <canvas id="viewChart" style="width:100%;height:100%"></canvas>
-        <div class="chart-coming-soon">
-          <strong>No data yet</strong>
-          <span>Daily view history will appear here once it's collected over time.</span>
+        <div class="panel player-frame">
+          <div class="player-media" id="hero-media">
+            <div class="cover-placeholder" style="background:${colors.bg};color:${colors.fg};">
+              <div class="cover-pattern"></div><span class="cover-note">♪</span>
+            </div>
+            ${coverImgHtml}
+            ${pvTag ? `<div class="cover-pvtag ${pvTag.cls}">${pvTag.text}</div>` : ""}
+            ${tier.label ? `<div class="cover-tier">${tier.label}</div>` : ""}
+            <div class="cover-scanlines"></div>
+            ${(ytId && ytCount != null && ytEmbeddable(song)) ? `<button class="cover-play" id="cover-play" data-yt="${escHtml(ytId)}" aria-label="Play on YouTube">&#9654;</button>` : ""}
+          </div>
+          <div class="player-statbar">
+            <span class="ps-cell"><span class="ps-k">再生</span><span class="ps-v is-red" title="combined views · all platforms">${hasAnyViews ? totalViews.toLocaleString() : "—"}</span></span>
+            ${ytCount != null ? `<span class="ps-cell"><i class="hv-dot hv-yt"></i><span class="ps-k">YT</span><span class="ps-v" title="${ytCount.toLocaleString()}">${fmtV(ytCount)}</span></span>` : ""}
+            ${count != null ? `<span class="ps-cell"><i class="hv-dot hv-nnd"></i><span class="ps-k">NND</span><span class="ps-v" title="${count.toLocaleString()}">${fmtV(count)}</span></span>` : ""}
+            ${biliV != null ? `<span class="ps-cell"><i class="hv-dot hv-bili"></i><span class="ps-k">BILI</span><span class="ps-v" title="${biliV.toLocaleString()}">${fmtV(biliV)}</span></span>` : ""}
+            ${(hasAnyViews && totalViews > 0) ? `
+            <span class="ps-cell ps-bar">
+              <span class="hv-bar" title="${pctText || "platform share"}">
+                ${ytCount ? `<span class="hv-seg hv-yt" style="width:${(ytCount / totalViews * 100).toFixed(2)}%"></span>` : ""}
+                ${count ? `<span class="hv-seg hv-nnd" style="width:${(count / totalViews * 100).toFixed(2)}%"></span>` : ""}
+                ${biliV ? `<span class="hv-seg hv-bili" style="width:${(biliV / totalViews * 100).toFixed(2)}%"></span>` : ""}
+              </span>
+            </span>` : ""}
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="section-panel">
-      <div class="section-header">Accepted Titles</div>
-      <div class="titles-body">
-        ${titlesHtml||`<span style="color:var(--faint);font-style:italic">None listed</span>`}
+        <div class="panel">
+          <div class="tagbar">
+            <span class="tagbar-head">Tags</span>
+            <div class="tagbar-list">${tagPillsHtml||`<span style="color:var(--faint);font-size:10px">No tags</span>`}</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">[ View History ]
+            <span style="display:flex;align-items:center;gap:6px">
+              ${histPoints ? `
+              <span class="vh-tabs" role="tablist">
+                <button type="button" class="vh-tab is-active" data-vh-tab="grid">Grid</button>
+                <button type="button" class="vh-tab" data-vh-tab="chart">Chart</button>
+              </span>` : ""}
+              <span class="panel-note">${histPoints ? `${histPoints} snapshot${histPoints !== 1 ? "s" : ""} since ${histStart}` : "daily tracking — collecting data"}</span>
+            </span>
+          </div>
+          <div id="vh-grid" class="vh-grid-wrap">${historyGridHtml(hist, histDates, histIdx, histSeries)}</div>
+          <div class="chart-body" id="vh-chart" hidden>
+            <canvas id="viewChart" style="width:100%;height:100%"></canvas>
+          </div>
+          ${histPoints ? "" : `
+          <div class="chart-body" style="height:120px">
+            <div class="chart-coming-soon">
+              <strong>No data yet</strong>
+              <span>Daily view history is collected by the nightly refresh; this song's history will appear once snapshots exist.</span>
+            </div>
+          </div>`}
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">[ Accepted Titles ]</div>
+          <div class="titles-body">
+            ${titlesHtml||`<span style="color:var(--faint);font-style:italic">None listed</span>`}
+          </div>
+        </div>
+
+        ${uploads.length ? `
+        <div class="panel">
+          <div class="panel-header">[ Other Uploads ] <span class="panel-note">alternate PVs · via VocaDB</span></div>
+          <div class="ou-body">${uploadsHtml}</div>
+        </div>` : ""}
+
+      </div>
+      <div class="song-right">
+
+        <div class="panel">
+          <div class="panel-header">[ Ranking ]</div>
+          ${rank != null ? `
+          <div class="rankrow"><span class="rr-num">#${(rank + 1).toLocaleString()}</span><span class="rr-cap">all-time · all platforms</span></div>` : ""}
+          ${(yearRank != null && year) ? `
+          <div class="rankrow"><span class="rr-num">#${yearRank}</span><span class="rr-cap">of ${year} uploads</span></div>` : ""}
+          ${rank == null && yearRank == null ? `<div class="rankrow"><span class="rr-cap">Not ranked yet</span></div>` : ""}
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">[ View Counts ]</div>
+          <table class="data-table">
+            ${(hasNndPv || nndV != null || nndC != null || nndM != null) ? `
+            <tr class="dt-section"><td colspan="2">NicoNico</td></tr>
+            <tr><td>再生 Views</td>${num(nndV, true)}</tr>
+            <tr><td>コメント Comments</td>${num(nndC)}</tr>
+            <tr><td>マイリスト Mylists</td>${num(nndM)}</tr>` : ""}
+            ${(hasYtPv || ytCount != null || ytL != null || ytCm != null) ? `
+            <tr class="dt-section"><td colspan="2">YouTube</td></tr>
+            <tr><td>Views</td>${num(ytCount, true)}</tr>
+            <tr><td>Likes</td>${num(ytL)}</tr>
+            <tr><td>Comments</td>${num(ytCm)}</tr>
+            <tr><td>Likes / 1K views</td>${ratio(ytL, ytCount)}</tr>` : ""}
+            ${(hasBiliPv || biliV != null) ? `
+            <tr class="dt-section"><td colspan="2">bilibili</td></tr>
+            <tr><td>再生 Views</td>${num(biliV, true)}</tr>
+            <tr><td>点赞 Likes</td>${num(biliL)}</tr>
+            <tr><td>评论 Comments</td>${num(biliCm)}</tr>
+            <tr><td>Likes / 1K views</td>${ratio(biliL, biliV)}</tr>` : ""}
+            ${(!hasNndPv && !hasYtPv && !hasBiliPv && !hasAnyViews) ? `
+            <tr><td colspan="2" style="color:var(--faint);font-style:italic;text-align:center">No live view data for this song yet</td></tr>` : ""}
+            <tr class="dt-grand"><td>Combined views<span style="font-weight:400;color:var(--faint);font-size:9px"> · all platforms</span></td>${num(hasAnyViews ? totalViews : null, true)}</tr>
+          </table>
+        </div>
+
+        ${vocalRows ? `
+        <div class="panel">
+          <div class="panel-header">[ Vocalists ]</div>
+          <div class="credit-list">${vocalRows}</div>
+        </div>` : ""}
+
+        ${producerRows ? `
+        <div class="panel">
+          <div class="panel-header">[ Producers ]</div>
+          <div class="credit-list">${producerRows}</div>
+        </div>` : ""}
+
+        <div class="panel">
+          <div class="panel-header">[ Details ]</div>
+          <table class="detail-table">
+            <tr><th>Released</th><td>${formatDate(song.publishDate)}</td></tr>
+            <tr><th>Tier</th><td>${ht ? `<span class="hall-badge">${escHtml(ht.name)}</span>` : `<span style="color:var(--faint)">—</span>`}</td></tr>
+            <tr><th>VocaDB</th><td style="color:var(--faint)">#${song.vocadbId || "—"}</td></tr>
+            <tr><th>Pools</th><td>${poolsHtml}</td></tr>
+          </table>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">[ Links ]</div>
+          <div class="links-body">
+            ${ytId ? `<a class="song-link-btn btn-youtube" href="https://www.youtube.com/watch?v=${escHtml(ytId)}" target="_blank" rel="noopener">YouTube ↗</a>` : ""}
+            ${song.nndOriginalId ? `<a class="song-link-btn btn-nnd" href="https://www.nicovideo.jp/watch/${escHtml(song.nndOriginalId)}" target="_blank" rel="noopener">NicoNico ↗</a>` : ""}
+            ${biliUrl ? `<a class="song-link-btn btn-bili" href="${escHtml(biliUrl)}" target="_blank" rel="noopener">bilibili ↗</a>` : ""}
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="cta-btn compare-cta" href="compare.html?ids=${encodeURIComponent(song.vocadbId)}"><span class="cc-ico">⚖</span> Compare song</a>
+          ${song.vocadbUrl ? `<a class="cta-btn vocadb-cta" href="${escHtml(song.vocadbUrl)}" target="_blank" rel="noopener"><span class="cc-vdb" aria-hidden="true">DB</span> VocaDB ↗</a>` : ""}
+        </div>
+
       </div>
     </div>
   `;
 
-  /* Click-to-play: swap the cover for an embedded YouTube player */
+  const moreBtn = document.getElementById("tags-more");
+  if (moreBtn) {
+    const expand = () => {
+      const rest = document.getElementById("tags-rest");
+      if (rest) { moreBtn.outerHTML = rest.innerHTML; rest.remove(); }
+    };
+    moreBtn.addEventListener("click", expand);
+    moreBtn.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); expand(); } });
+  }
+
   const playBtn = document.getElementById("cover-play");
   if (playBtn) playBtn.addEventListener("click", () => {
     const id = playBtn.dataset.yt;
@@ -948,56 +1345,78 @@ function buildPage(song, rank, yearRank) {
       `<iframe class="cover-embed" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0" title="${escHtml(song.title)}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
   });
 
-  /* render empty chart so axes are visible */
-  new Chart(document.getElementById("viewChart").getContext("2d"), {
-    type: "line",
-    data: {
-      labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
-      datasets: [{ label:"Views", data:[], borderColor:"#cc0000", backgroundColor:"rgba(204,0,0,0.06)", tension:0.3, fill:true }]
-    },
-    options: {
-      responsive:true, maintainAspectRatio:false, animation:false,
-      plugins:{ legend:{display:false}, tooltip:{enabled:false} },
-      scales:{
-        x:{ grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:{family:'"MS PGothic",Arial,sans-serif',size:10},color:"#aaa"} },
-        y:{ beginAtZero:true, grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:{family:'"MS PGothic",Arial,sans-serif',size:10},color:"#aaa"} }
+  // Chart tab: per-platform lines + combined, initialised lazily on first open.
+  let vhChart = null;
+  function initHistoryChart() {
+    if (vhChart || !histPoints) return;
+    const labels = histIdx.map(i => histDates[i]);
+    const line = (name, series, color, dashed) => series ? {
+      label: name, data: histIdx.map(i => series[i]),
+      borderColor: color, backgroundColor: "transparent",
+      tension: 0.3, pointRadius: 2.5, pointBackgroundColor: color,
+      spanGaps: true, borderDash: dashed ? [4, 3] : undefined, borderWidth: dashed ? 1.5 : 2,
+    } : null;
+    const datasets = [
+      line("Combined", histSeries, "#cc0000"),
+      line("NicoNico", hs("n"), "#7a766e", true),
+      line("YouTube", hs("y"), "#dd6644", true),
+      line("bilibili", hs("b"), "#1a9ace", true),
+    ].filter(Boolean);
+    vhChart = new Chart(document.getElementById("viewChart").getContext("2d"), {
+      type: "line",
+      data: { labels, datasets },
+      options: {
+        responsive:true, maintainAspectRatio:false, animation:false,
+        plugins:{
+          legend:{ display:true, labels:{ boxWidth:10, font:{family:'"MS PGothic",Arial,sans-serif',size:10}, color:"#888" } },
+          tooltip:{ callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${Number(ctx.parsed.y).toLocaleString()}` } }
+        },
+        scales:{
+          x:{ grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:{family:'"MS PGothic",Arial,sans-serif',size:10},color:"#aaa"} },
+          y:{ beginAtZero:false, grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:{family:'"MS PGothic",Arial,sans-serif',size:10},color:"#aaa",
+            callback: v => v >= 1e9 ? (v/1e9)+"B" : v >= 1e6 ? (v/1e6)+"M" : v >= 1e3 ? (v/1e3)+"K" : v } }
+        }
       }
-    }
+    });
+  }
+  document.querySelectorAll(".vh-tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".vh-tab").forEach(b => b.classList.toggle("is-active", b === btn));
+      const showChart = btn.dataset.vhTab === "chart";
+      document.getElementById("vh-grid").hidden = showChart;
+      document.getElementById("vh-chart").hidden = !showChart;
+      if (showChart) { initHistoryChart(); if (vhChart) vhChart.resize(); }
+    });
   });
 }
 
 /* ── Cache ── */
+/* sessionStorage cache with a short TTL so refreshed data JSON is picked up quickly. */
+const CACHE_TTL_MS = 10 * 60 * 1000;
+function cacheGet(key) {
+  try {
+    const o = JSON.parse(sessionStorage.getItem(key));
+    if (!o || typeof o.t !== "number" || Date.now() - o.t > CACHE_TTL_MS) return null;
+    return o.v;
+  } catch (e) { return null; }
+}
+function cachePut(key, v) {
+  try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), v })); } catch (e) {}
+}
+
 function loadSongs() {
   const KEY = "39c_songs_v2";
-  try { const c = sessionStorage.getItem(KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e) {}
+  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
   return fetch("../data/songs.json")
     .then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-    .then(data=>{ try { sessionStorage.setItem(KEY,JSON.stringify(data)); } catch(e) {} return data; });
-}
-
-function loadViews() {
-  const KEY = "39c_views_v2";
-  try { const c = sessionStorage.getItem(KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e) {}
-  return fetch("../data/views.json")
-    .then(r=>r.ok?r.json():null)
-    .then(data=>{ if(data){ try { sessionStorage.setItem(KEY,JSON.stringify(data)); } catch(e) {} } return data; })
-    .catch(()=>null);
-}
-
-function loadYtViews() {
-  const KEY = "39c_ytviews_v2";
-  try { const c = sessionStorage.getItem(KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e) {}
-  return fetch("../data/ytviews.json")
-    .then(r=>r.ok?r.json():null)
-    .then(data=>{ if(data){ try { sessionStorage.setItem(KEY,JSON.stringify(data)); } catch(e) {} } return data; })
-    .catch(()=>null);
+    .then(data=>{ cachePut(KEY, data); return data; });
 }
 
 function loadJsonCached(file, key) {
-  try { const c = sessionStorage.getItem(key); if(c) return Promise.resolve(JSON.parse(c)); } catch(e) {}
+  { const c = cacheGet(key); if (c) return Promise.resolve(c); }
   return fetch(file)
     .then(r=>r.ok?r.json():null)
-    .then(data=>{ if(data){ try { sessionStorage.setItem(key,JSON.stringify(data)); } catch(e) {} } return data; })
+    .then(data=>{ if(data){ cachePut(key, data); } return data; })
     .catch(()=>null);
 }
 
@@ -1010,23 +1429,31 @@ if (!songId) {
     `<div class="loading-state">No song ID specified. <a href="index.html">&#9664; Back to rankings</a></div>`;
 } else {
   Promise.all([
-    loadSongs(), loadViews(), loadYtViews(),
+    loadSongs(),
+    loadJsonCached("../data/views.json", "39c_views_v2"),
+    loadJsonCached("../data/ytviews.json", "39c_ytviews_v2"),
     loadJsonCached("../data/nndstats.json", "39c_nndstats_v2"),
-    loadJsonCached("../data/artists.json", "39c_artists_v2"),
+    loadJsonCached("../data/artists.json", "39c_artists_v3"),
+    loadJsonCached("../data/songdetails.json", "39c_details_v2"),
+    loadJsonCached("../data/biliviews.json", "39c_biliviews_v3"),
+    loadJsonCached("../data/viewhistory.json", "39c_viewhist_v1"),
   ])
-    .then(([data, views, ytviews, nndstats, artists])=>{
+    .then(([data, views, ytviews, nndstats, artists, details, biliviews, history])=>{
+      if (history && history.dates && history.songs) { HISTORY = history; }
+      if (biliviews && biliviews.stats) { BILI_STATS = biliviews.stats; }
       if (views && views.views) { VIEWS = views.views; VIEWS_UPDATED = views.updated || null; }
       if (ytviews && ytviews.stats) { YT_STATS = ytviews.stats; YT_UPDATED = ytviews.updated || null; }
       if (nndstats && nndstats.stats) { NND_STATS = nndstats.stats; }
       if (artists && artists.images) { ARTISTS = artists.images; }
+      if (details && details.songs) { DETAILS = details.songs; }
       const tierScore = s=>{
         const tags=s.sourceTags||[];
         for (const t of VIEW_TIERS)
           if(tags.some(tag=>tag.endsWith("-"+t.tag)||tag===t.tag)) return t.score;
         return 0;
       };
-      // Rank by combined NicoNico + YouTube views (matches the total-views headline
-      // and the rankings page's "Both" mode); tier + date break ties / order the rest.
+      // Rank by combined NicoNico + YouTube views (matches the rankings page's
+      // "Both" mode); tier + date break ties / order the rest.
       const sorted = [...data].sort((a,b)=>{
         const av=combinedViews(a), bv=combinedViews(b);
         if (av!=null || bv!=null) {
@@ -1044,7 +1471,6 @@ if (!songId) {
           `<div class="loading-state">Song #${escHtml(songId)} not found. <a href="index.html">&#9664; Back to rankings</a></div>`;
         return;
       }
-      // Rank within the song's release year (combined views), matching the all-time order.
       let yearRank = null;
       const yr = song.publishDate ? new Date(song.publishDate).getFullYear() : null;
       if (yr) {

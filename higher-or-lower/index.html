@@ -169,6 +169,47 @@ button { font: inherit; cursor: pointer; }
 .game-mode-hint::before { content: "\25B6"; color: var(--red); font-size: 8px; }
 .game-mode-hint .gm-ico { width: 12px; height: 12px; opacity: 0.65; flex-shrink: 0; }
 
+/* ── VIEW SOURCE SWITCH (unlimited only) ──
+   Styled as a recessed metal tray with beveled key buttons, matching the
+   retro tab bar it lives in. */
+.view-src-switch {
+  margin: 0 4px 3px auto; align-self: center;
+  display: flex; align-items: stretch; gap: 3px;
+  padding: 3px;
+  border: 1px solid #a8a49c;
+  background:
+    repeating-linear-gradient(0deg, rgba(0,0,0,0.02) 0 1px, transparent 1px 3px),
+    #dedad0;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.18), inset 0 -1px 0 rgba(255,255,255,0.7);
+}
+.view-src-label {
+  display: inline-flex; align-items: center;
+  padding: 0 8px;
+  color: #fff; font-size: 9px; font-weight: 900;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  border: 1px solid var(--red-dark);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.view-src-btn {
+  min-height: 19px; padding: 0 9px;
+  font-family: inherit; font-size: 9px; font-weight: 700;
+  letter-spacing: 0.06em; color: var(--muted); cursor: pointer;
+  background: linear-gradient(to bottom, #ffffff, #e2ded5);
+  border: 1px solid;
+  border-color: #ffffff var(--ls) var(--ls) #ffffff;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.15);
+}
+.view-src-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff5f5, #f2dcdc); }
+.view-src-btn.is-active {
+  color: #fff;
+  background: linear-gradient(to bottom, #c41111, var(--red-dark));
+  border-color: var(--red-dark) #e05555 #e05555 var(--red-dark);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.35);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+
 /* ── LAYOUT ── */
 .game-layout { display: flex; gap: 6px; align-items: flex-start; }
 .game-main   { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
@@ -178,8 +219,8 @@ button { font: inherit; cursor: pointer; }
 .streak-bar {
   display: flex; align-items: stretch;
   background: linear-gradient(to bottom, #ffffff, #e9e7e1);
-  border: 1px solid #b0aca4;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.08);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.85), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
 }
 .streak-scores { display: flex; align-items: stretch; flex-shrink: 0; }
 .streak-block {
@@ -229,9 +270,11 @@ button { font: inherit; cursor: pointer; }
   display: grid; grid-template-columns: minmax(0,1fr) 96px minmax(0,1fr);
   gap: 8px; align-items: stretch;
   padding: 8px;
-  background: linear-gradient(to bottom, #fffdf5, #f6f1e6);
-  border: 1px solid var(--line);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.75);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.015) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #fffdf5, #f6f1e6);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
   overflow: visible;
 }
 .vs-col {
@@ -338,13 +381,29 @@ button { font: inherit; cursor: pointer; }
   font-size: 40px; font-weight: 900; color: rgba(255,255,255,0.22);
   line-height: 1; letter-spacing: -2px; user-select: none;
 }
-.tier-badge {
+.tier-badges {
   position: absolute; bottom: 3px; right: 3px; z-index: 4;
+  display: flex; gap: 3px;
+}
+.tier-badge {
   padding: 0 4px; background: var(--red); color: #fff;
   font-size: 9px; font-weight: 700; line-height: 15px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.45);
 }
-.tier-badge.mystery-badge { opacity: 0; transition: opacity 0.45s ease 0.2s; }
-.tier-badge.mystery-badge.revealed { opacity: 1; }
+.tier-badge.is-nnd {
+  background: linear-gradient(to bottom, #7a7a7a, #565656);
+  border: 1px solid #3f3f3f; line-height: 13px;
+}
+.tier-badge.is-yt {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  border: 1px solid var(--red-dark); line-height: 13px;
+}
+.tier-badge.is-bili {
+  background: linear-gradient(to bottom, #35b5e5, #0f7ca8);
+  border: 1px solid #0a5e80; line-height: 13px;
+}
+.tier-badges.mystery-badge { opacity: 0; transition: opacity 0.45s ease 0.2s; }
+.tier-badges.mystery-badge.revealed { opacity: 1; }
 
 /* ── SONG META BAR (NND metadata row) ── */
 .song-meta-bar {
@@ -408,27 +467,54 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* ── GUESS BUTTONS ── */
-.guess-btns { display: flex; flex-direction: column; gap: 7px; width: 100%; }
+.guess-btns { display: flex; flex-direction: column; gap: 9px; width: 100%; }
 .guess-btn {
-  width: 100%; height: 48px; font-size: 14px; font-weight: 900;
+  width: 100%; min-height: 58px; padding: 6px 2px;
+  font-size: 12px; font-weight: 900;
+  letter-spacing: 0.05em; text-transform: uppercase;
   border: 1px solid; cursor: pointer; font-family: inherit;
-  display: flex; align-items: center; justify-content: center; gap: 5px;
-  text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+  position: relative;
+  transition: transform 0.06s ease, box-shadow 0.06s ease;
 }
-.guess-btn:disabled { cursor: default; filter: saturate(0.3) brightness(1.1); }
+.guess-lower { flex-direction: column-reverse; }
+.guess-btn::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0 4px, transparent 4px 9px);
+}
+.guess-btn:disabled { cursor: default; filter: saturate(0.25) brightness(1.12); }
+.guess-arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; flex-shrink: 0;
+  font-size: 14px; line-height: 1;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.4);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 1px rgba(0,0,0,0.25);
+  transition: transform 0.1s ease;
+}
 .guess-higher {
   background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #cc0000 100%);
   color: #fff; border-color: var(--red-dark);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 1px 2px rgba(0,0,0,0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -2px 0 rgba(0,0,0,0.22),
+    0 2px 0 #7a0000, 0 3px 4px rgba(0,0,0,0.28);
 }
 .guess-higher:not(:disabled):hover { background: linear-gradient(to bottom, #ff6666 0%, #ee3333 48%, #cc1111 52%, #dd1111 100%); }
+.guess-higher:not(:disabled):hover .guess-arrow { transform: translateY(-2px); }
 .guess-lower {
   background: linear-gradient(to bottom, #4e78ca 0%, #2d58ad 48%, #173b82 52%, #244b98 100%);
   color: #fff; border-color: #102c61;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), 0 1px 2px rgba(0,0,0,0.25);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -2px 0 rgba(0,0,0,0.22),
+    0 2px 0 #0b2050, 0 3px 4px rgba(0,0,0,0.28);
 }
 .guess-lower:not(:disabled):hover { background: linear-gradient(to bottom, #5f8ae0 0%, #3b68bf 48%, #224b99 52%, #2c5cad 100%); }
-.guess-arrow { font-size: 15px; line-height: 1; }
+.guess-lower:not(:disabled):hover .guess-arrow { transform: translateY(2px); }
+.guess-btn:not(:disabled):active {
+  transform: translateY(2px);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 2px 3px rgba(0,0,0,0.25), 0 0 0 transparent, 0 1px 2px rgba(0,0,0,0.2);
+}
 .guess-placeholder { display: none; }
 .song-links {
   display: flex; height: 32px; margin: 5px 6px 6px; gap: 4px;
@@ -450,15 +536,20 @@ button { font: inherit; cursor: pointer; }
 /* ── RECENT BATTLES ── */
 .recent-battles {
   margin-top: 5px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-top: 3px solid var(--line);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--ls);
+  border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
 }
 .recent-header {
-  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
-  border-bottom: 1px solid var(--line);
-  padding: 3px 8px; font-size: 11px; font-weight: 700;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 8px; font-size: 11px; font-weight: 700; color: var(--text);
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
 }
 .recent-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 .recent-table th,
@@ -484,17 +575,23 @@ button { font: inherit; cursor: pointer; }
 .recent-guess.higher { color: var(--red); }
 .recent-guess.lower { color: #194da6; }
 /* ── SIDEBAR PANELS ── */
+/* Sidebar panels share the retro mode-bar look: red top accent, ridge/bevel
+   border, and a hatched monospace header. Body stays on a clean surface. */
 .sidebar-panel {
-  background: var(--surface); border: 1px solid var(--line);
-  border-top: 3px solid var(--line);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+  background: linear-gradient(to bottom, var(--surface), var(--sf)); border: 2px solid var(--ls);
+  border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
   overflow: hidden;
 }
 .sidebar-header {
-  background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
-  border-bottom: 1px solid var(--line);
-  padding: 3px 8px; font-size: 11px; font-weight: 700; color: var(--text);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 8px; font-size: 11px; font-weight: 700; color: var(--text);
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
 }
 .sidebar-body { padding: 6px 8px; }
 
@@ -610,9 +707,9 @@ button { font: inherit; cursor: pointer; }
 
 /* ── GAME OVER ── */
 .gameover-panel {
-  background: var(--surface); border: 1px solid var(--line);
+  background: linear-gradient(to bottom, var(--surface), var(--sf)); border: 2px solid var(--ls);
   border-top: 4px solid var(--red);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
   padding: 0 14px 14px; text-align: center; display: flex; flex-direction: column; align-items: stretch; gap: 10px;
 }
 .gameover-title {
@@ -731,19 +828,27 @@ button { font: inherit; cursor: pointer; }
 }
 .settings-modal {
   position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  z-index: 101; background: var(--surface); border: 1px solid var(--ls);
+  z-index: 101; background: var(--surface);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
   width: min(100vw - 32px, 360px); max-height: 86vh; overflow: auto;
   padding: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6), 0 4px 20px rgba(0,0,0,0.35);
 }
+/* Modal title becomes a full-bleed retro header bar (matches the [ … ] boxes) */
 .modal-title {
-  margin: 0 0 12px; padding: 0 0 8px 8px;
-  font-size: 13px; font-weight: 700; color: var(--text);
-  border-left: 3px solid var(--red); border-bottom: 1px solid var(--line);
+  margin: -16px -16px 14px; padding: 5px 10px;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  font-size: 12px; font-weight: 700; color: var(--text);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
 }
 .modal-close-btn {
-  position: absolute; top: 8px; right: 8px;
-  width: 20px; height: 20px; padding: 0;
+  position: absolute; top: 2px; right: 8px;
+  width: 22px; height: 22px; padding: 0; line-height: 1;
   background: linear-gradient(to bottom, #ffffff, #dddddd);
   border: 1px solid var(--ls); color: var(--muted);
   font-size: 11px; font-weight: 700; font-family: inherit; cursor: pointer;
@@ -802,25 +907,28 @@ button { font: inherit; cursor: pointer; }
 /* ── RELEASE NOTES MODAL ── */
 .notes-modal {
   position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  z-index: 101; background: var(--surface); border: 1px solid var(--ls);
+  z-index: 101; background: var(--surface);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
   width: min(100vw - 32px, 380px); max-height: min(86vh, 480px); overflow: auto;
   padding: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6), 0 4px 20px rgba(0,0,0,0.35);
 }
 .achievements-modal {
   position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  z-index: 101; background: var(--surface); border: 1px solid var(--ls);
+  z-index: 101; background: var(--surface);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
   width: min(100vw - 32px, 460px); max-height: min(86vh, 560px); overflow: auto;
   padding: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6), 0 4px 20px rgba(0,0,0,0.35);
 }
 /* ── ARCHIVE MODAL ── */
 .archive-modal {
   position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  z-index: 101; background: var(--surface); border: 1px solid var(--ls);
+  z-index: 101; background: var(--surface);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
   width: min(100vw - 32px, 400px); max-height: min(88vh, 600px); overflow: auto;
   padding: 16px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6), 0 4px 20px rgba(0,0,0,0.35);
 }
 .archive-note { font-size: 11px; color: var(--muted); margin: -4px 0 10px; line-height: 1.45; font-style: italic; }
 
@@ -1081,6 +1189,13 @@ button { font: inherit; cursor: pointer; }
   .game-mode-btn:last-child { border-right: 1px solid var(--ls); }
   .game-mode-btn.is-active { padding-bottom: 6px; border-color: var(--red-dark); }
   .game-mode-hint { margin-left: 0; justify-content: center; width: 100%; border-top: 1px solid var(--ls); }
+  .view-src-switch {
+    margin: 0; width: 100%;
+    border-left: 0; border-right: 0; border-bottom: 0;
+    border-top: 1px solid var(--ls);
+    padding: 4px 5px;
+  }
+  .view-src-btn { flex: 1; min-height: 22px; }
   /* stacked HUD: scores grid on top, result + lives row below */
   .streak-bar { flex-direction: column; }
   .streak-scores { display: grid; grid-template-columns: repeat(5, 1fr); width: 100%; }
@@ -1109,7 +1224,7 @@ button { font: inherit; cursor: pointer; }
   .vs-round-label, .vs-round-num { display: none; }
   .vs-text { flex: 0 0 54px; height: auto; align-self: stretch; font-size: 13px; }
   .guess-btns { flex-direction: row; }
-  .guess-btn { height: 44px; font-size: 14px; }
+  .guess-btn, .guess-lower { flex-direction: row; min-height: 44px; padding: 0 2px; gap: 6px; font-size: 13px; }
   .song-links { display: none; }
   .recent-table { display: none; }
   .recent-cards { display: block; }
@@ -1195,6 +1310,20 @@ html.dark-mode .achievement-summary {
   background: #222;
   box-shadow: none;
 }
+/* Retro panels — dark variant (matches the dark mode bar) */
+html.dark-mode .sidebar-panel,
+html.dark-mode .recent-battles {
+  border-color: #3b3b3b; border-top-color: var(--red);
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05), inset -1px -1px 0 rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+}
+html.dark-mode .sidebar-header,
+html.dark-mode .recent-header,
+html.dark-mode .modal-title {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+  border-bottom-color: #3b3b3b; color: var(--text);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05);
+}
 html.dark-mode .game-area,
 html.dark-mode .vs-col,
 html.dark-mode .vs-text,
@@ -1222,17 +1351,32 @@ html.dark-mode .game-mode-btn.is-active {
   border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
   color: #fff;
 }
+html.dark-mode .view-src-switch {
+  background: #141414; border-color: #000;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.6), inset 0 -1px 0 rgba(255,255,255,0.05);
+}
+html.dark-mode .view-src-btn {
+  color: var(--muted);
+  background: linear-gradient(to bottom, #2e2e2e, #1e1e1e);
+  border-color: #4a4a4a #111 #111 #4a4a4a;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.4);
+}
+html.dark-mode .view-src-btn:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .view-src-btn.is-active {
+  background: linear-gradient(to bottom, #b01111, #7a0808);
+  border-color: #5a0505 #d04444 #d04444 #5a0505;
+  color: #fff;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+}
 html.dark-mode .daily-result-cell.is-correct { background: #173117; color: #79d479; }
 html.dark-mode .daily-result-cell.is-wrong { background: #351b1b; color: #ff6f6f; }
 html.dark-mode .game-area {
-  border-color: #383838;
-  box-shadow: inset 0 0 0 1px #242424;
+  border-color: #3b3b3b; border-top-color: var(--red);
+  background: linear-gradient(to bottom, #201f1c, #18120f);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05), inset -1px -1px 0 rgba(0,0,0,0.4);
 }
-html.dark-mode .vs-col,
-html.dark-mode .vs-text {
-  border-color: #383838;
-  box-shadow: none;
-}
+html.dark-mode .vs-col { background: #1d1c19; border-color: #383838; box-shadow: none; }
+html.dark-mode .vs-text { background: #161513; border-color: #383838; box-shadow: none; color: #9a958c; }
 html.dark-mode .go-stat {
   background: #202020;
   border-color: #383838;
@@ -1348,6 +1492,75 @@ html.dark-mode .winrate-track {
 html.dark-mode .nnd-mobile-nav {
   background: #171717;
   border-color: #333;
+}
+
+/* ── Achievements & Settings polish (retro cohesion) ── */
+.achievement-summary {
+  border: 2px solid var(--ls);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.achievement-meter { height: 10px; }
+.achievement-list { border: 2px solid var(--ls); }
+.achievement-row { transition: background 0.08s ease; }
+.achievement-row.is-unlocked { box-shadow: inset 3px 0 0 var(--red); }
+.achievement-row.is-unlocked:hover { background: #fff4f4; }
+.achievement-icon { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.3); }
+.settings-multi, .settings-toggle { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7); }
+.modal-close-btn { z-index: 2; }
+
+html.dark-mode .achievement-summary {
+  border-color: #3b3b3b;
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05);
+}
+html.dark-mode .achievement-list { border-color: #3b3b3b; }
+html.dark-mode .achievement-row.is-unlocked:hover { background: #2a1414; }
+
+/* ── Archive calendar: three visually distinct bands (month header > weekdays > blanks) ── */
+.archive-summary, .archive-toolbar, .archive-weekdays { border-color: var(--ls); }
+/* Summary label cells + month header: the strong "title" band (darker, hatched, monospace) */
+.archive-summary-item span,
+.archive-toolbar {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.04) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #e9e2d4, #cfc7b5);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7);
+}
+.archive-toolbar { border-bottom: 2px solid var(--red); }
+/* Weekday row: a lighter, flat band so it clearly separates from the month header above */
+.archive-weekdays {
+  background: #f6f4ee;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
+}
+.archive-summary-item span,
+.archive-weekdays span,
+#archive-month-label {
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  letter-spacing: 0.05em;
+}
+#archive-month-label { font-size: 14px; font-weight: 700; }
+/* Blank (no-puzzle) cells: stronger, clearly "crossed-out" hatch on a greyer base */
+.archive-day.is-blank {
+  background: repeating-linear-gradient(45deg, transparent 0 4px, rgba(0,0,0,0.10) 4px 5px) #e7e4dc !important;
+}
+html.dark-mode .archive-summary-item span,
+html.dark-mode .archive-toolbar {
+  background: linear-gradient(to bottom, #2f2f2f, #1f1f1f);
+  border-color: #3b3b3b; color: var(--text);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05);
+}
+html.dark-mode .archive-toolbar { border-bottom: 2px solid var(--red); }
+html.dark-mode .archive-weekdays {
+  background: #232323; border-color: #3b3b3b; color: var(--text);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+}
+html.dark-mode .archive-day.is-blank {
+  background: repeating-linear-gradient(45deg, transparent 0 4px, rgba(255,255,255,0.05) 4px 5px) #181818 !important;
 }
 </style>
 </head>
@@ -1522,6 +1735,7 @@ const TOTAL_CORRECT_KEY = 'soda_hol_total_correct';
 const GAMES_PLAYED_KEY = 'soda_hol_games_played';
 const LANGUAGE_KEY = 'soda_hol_language';
 const MODE_KEY = 'soda_hol_mode';
+const VIEWSRC_KEY = 'soda_hol_viewsrc';
 const DAILY_STATE_KEY = 'soda_hol_daily_state';
 const DAILY_STATS_KEY = 'soda_hol_daily_stats';
 const ARCHIVE_KEY = 'soda_hol_archive_results';
@@ -1638,6 +1852,11 @@ const I18N = {
     unlimitedMode: 'Unlimited',
     dailyModeNote: '10 a day · same set for everyone',
     unlimitedModeNote: 'Endless · lives & streaks',
+    viewSourceLabel: 'Views',
+    viewSource_nnd: 'Compare NicoNico views',
+    viewSource_yt: 'Compare YouTube views',
+    viewSource_bili: 'Compare bilibili views',
+    viewSource_combined: 'Compare combined views across all platforms (NicoNico + YouTube + bilibili)',
     dailyCorrect: 'Daily correct',
     dailyBest: 'Best daily',
     guessNumber: 'Guess',
@@ -1792,6 +2011,11 @@ const I18N = {
     unlimitedMode: '無制限',
     dailyModeNote: '1日10問・全員同じ出題',
     unlimitedModeNote: '無制限・ライフと連勝',
+    viewSourceLabel: '再生数',
+    viewSource_nnd: 'ニコニコ再生数で比較',
+    viewSource_yt: 'YouTube再生数で比較',
+    viewSource_bili: 'bilibili再生数で比較',
+    viewSource_combined: '全プラットフォーム合計（ニコニコ＋YouTube＋bilibili）で比較',
     dailyCorrect: '本日の正解',
     dailyBest: '最高デイリー',
     guessNumber: '問目',
@@ -1946,6 +2170,11 @@ const I18N = {
     unlimitedMode: 'Ilimitado',
     dailyModeNote: '10 al día · misma serie para todos',
     unlimitedModeNote: 'Infinito · vidas y rachas',
+    viewSourceLabel: 'Vistas',
+    viewSource_nnd: 'Comparar vistas de NicoNico',
+    viewSource_yt: 'Comparar vistas de YouTube',
+    viewSource_bili: 'Comparar vistas de bilibili',
+    viewSource_combined: 'Comparar vistas combinadas de todas las plataformas (NicoNico + YouTube + bilibili)',
     dailyCorrect: 'Aciertos de hoy',
     dailyBest: 'Mejor diario',
     guessNumber: 'Intento',
@@ -2100,6 +2329,11 @@ const I18N = {
     unlimitedMode: '무제한',
     dailyModeNote: '하루 10문제 · 모두 같은 문제',
     unlimitedModeNote: '무제한 · 라이프와 연승',
+    viewSourceLabel: '조회수',
+    viewSource_nnd: '니코니코 조회수 비교',
+    viewSource_yt: 'YouTube 조회수 비교',
+    viewSource_bili: 'bilibili 조회수 비교',
+    viewSource_combined: '모든 플랫폼 합산(니코니코 + YouTube + bilibili) 조회수 비교',
     dailyCorrect: '오늘의 정답',
     dailyBest: '일일 최고',
     guessNumber: '문제',
@@ -2473,11 +2707,36 @@ const ACHIEVEMENTS = [
     secret: true
   },
   {
+    id: 'youtube_titans',
+    title: 'Clash of the Titans',
+    desc: 'Get Mesmerizer vs Young Girl A in a single matchup — the two most-viewed VOCALOID songs on YouTube.',
+    icon: 'YT2',
+    secret: true
+  },
+  {
     id: 'flawless_failure',
     title: 'Flawless Failure',
     desc: 'Get all 10 wrong in a Daily or Archive set — you have to know the answers to miss every one.',
     icon: '0',
     secret: true
+  },
+  {
+    id: 'yt_route',
+    title: 'Tube Runner',
+    desc: 'In Unlimited, reach a streak of 10 while comparing YouTube views.',
+    icon: 'YT'
+  },
+  {
+    id: 'bili_route',
+    title: 'Bilibili Cruiser',
+    desc: 'In Unlimited, reach a streak of 10 while comparing bilibili views.',
+    icon: 'BL'
+  },
+  {
+    id: 'all_platform_route',
+    title: 'World Tour',
+    desc: 'In Unlimited, reach a streak of 10 while comparing all platforms combined.',
+    icon: 'ALL'
   },
 ];
 
@@ -2512,6 +2771,9 @@ const ACHIEVEMENT_TEXT = {
     archive_5: ['アーキビスト', '5日分のアーカイブをクリアする。'],
     archive_complete_all: ['書庫制覇', 'すべてのアーカイブをクリアする。'],
     against_all_logic: ['理屈に逆らう', 'Song Aが「千本桜」のときにHigherを選ぶ。'],
+    yt_route: ['チューブランナー', '無制限モードでYouTube再生数比較中に10連勝する。'],
+    bili_route: ['ビリビリクルーザー', '無制限モードでbilibili再生数比較中に10連勝する。'],
+    all_platform_route: ['ワールドツアー', '無制限モードで全プラットフォーム合計比較中に10連勝する。'],
     flawless_failure: ['完璧な失敗', 'デイリーまたはアーカイブで10問すべて不正解にする。全問外すには答えを知っている必要がある。']
   },
   es: {
@@ -2533,6 +2795,9 @@ const ACHIEVEMENT_TEXT = {
     million_club: ['Club del millón', 'En el pool 1M+, alcanza una racha de 5.'],
     fame_matcher: ['Comparador de leyendas', 'Compara correctamente dos canciones de 1M+.'],
     myth_matcher: ['Comparador mítico', 'Compara correctamente dos canciones Hall of Myths.'],
+    yt_route: ['Corredor de Tube', 'En Ilimitado, alcanza una racha de 10 comparando vistas de YouTube.'],
+    bili_route: ['Crucero de bilibili', 'En Ilimitado, alcanza una racha de 10 comparando vistas de bilibili.'],
+    all_platform_route: ['Gira mundial', 'En Ilimitado, alcanza una racha de 10 comparando todas las plataformas combinadas.'],
     photo_finish: ['Final ajustado', 'Compara canciones con vistas separadas por 10% o menos.'],
     blowout_call: ['Ni estuvo cerca', 'Acierta cuando una canción tiene al menos 10 veces más vistas.'],
     try_again: ['Inténtalo otra vez', 'Pierde todas las vidas una vez.'],
@@ -2565,6 +2830,9 @@ const ACHIEVEMENT_TEXT = {
     million_club: ['밀리언 클럽', '1M+ 풀에서 5연승하세요.'],
     fame_matcher: ['레전드 매처', '1M+ 곡 두 개를 정확히 비교하세요.'],
     myth_matcher: ['미스 매처', 'Hall of Myths 곡 두 개를 정확히 비교하세요.'],
+    yt_route: ['튜브 러너', '무제한 모드에서 YouTube 조회수 비교로 10연승하세요.'],
+    bili_route: ['빌리빌리 크루저', '무제한 모드에서 bilibili 조회수 비교로 10연승하세요.'],
+    all_platform_route: ['월드 투어', '무제한 모드에서 전체 플랫폼 합산 비교로 10연승하세요.'],
     photo_finish: ['포토 피니시', '조회수 차이가 10% 이내인 곡을 정확히 비교하세요.'],
     blowout_call: ['상대가 안 됨', '10배 이상 차이나는 매치업을 정확히 맞히세요.'],
     try_again: ['다시 도전', '라이프를 모두 잃으세요.'],
@@ -2783,6 +3051,8 @@ function getCoverArt(song) {
     song.picture?.urlOriginal,
     song.picture?.urlThumb,
   ].filter(Boolean);
+  const bp = BILI_PICS[String(song.vocadbId)];
+  if (bp) all.push(bp);
   const p = u => u.includes('ytimg.com')&&u.includes('hqdefault')?0
     :u.includes('ytimg.com')&&u.includes('mqdefault')?1
     :u.includes('ytimg.com')?2:u.includes('nimg.jp')?3:u.includes('sndcdn.com')?4:5;
@@ -2977,10 +3247,51 @@ function archiveMonthStats(year, month) {
 /* ── Views cache ── */
 let viewsCache = {};
 let viewsUpdated = null;
+let ytViewsCache = {};
+let ytViewsUpdated = null;
+let biliViewsCache = {};
+let biliViewsUpdated = null;
+let BILI_PICS = {};
+
+// Daily and archive puzzles are always judged on NicoNico views so every
+// player gets the same answers; the source switch only applies to unlimited.
+function activeViewSource() {
+  return state.mode === 'unlimited' ? state.viewSource : 'nnd';
+}
+
+function viewSourceMeta() {
+  const src = activeViewSource();
+  if (src === 'yt') return { name: 'YouTube', date: ytViewsUpdated };
+  if (src === 'bili') return { name: 'bilibili', date: biliViewsUpdated };
+  if (src === 'combined') return { name: 'All platforms', date: viewsUpdated || ytViewsUpdated || biliViewsUpdated };
+  return { name: 'NicoNico', date: viewsUpdated };
+}
+
+function viewTierLabel(v) {
+  if (typeof v !== 'number') return null;
+  return v >= 100000000 ? '100M+'
+    : v >= 10000000 ? '10M+'
+    : v >= 1000000 ? '1M+'
+    : v >= 100000 ? '100K+'
+    : v >= 10000 ? '10K+'
+    : null;
+}
+function ytTierLabel(song) { return viewTierLabel(ytViewsCache[String(song.vocadbId)]); }
+function biliTierLabel(song) { return viewTierLabel(biliViewsCache[String(song.vocadbId)]); }
 
 function getViewCount(song) {
-  const v = viewsCache[String(song.vocadbId)];
-  return (typeof v === 'number') ? v : null;
+  const key = String(song.vocadbId);
+  const nnd = viewsCache[key];
+  const yt = ytViewsCache[key];
+  const bili = biliViewsCache[key];
+  const src = activeViewSource();
+  if (src === 'yt') return (typeof yt === 'number') ? yt : null;
+  if (src === 'bili') return (typeof bili === 'number') ? bili : null;
+  if (src === 'combined') {
+    if (typeof nnd !== 'number' && typeof yt !== 'number' && typeof bili !== 'number') return null;
+    return (typeof nnd === 'number' ? nnd : 0) + (typeof yt === 'number' ? yt : 0) + (typeof bili === 'number' ? bili : 0);
+  }
+  return (typeof nnd === 'number') ? nnd : null;
 }
 
 /* ── Song pool ── */
@@ -2988,6 +3299,16 @@ let allSongsCache = [];
 
 function buildPool() {
   const cfg = getSettings();
+  // NND tiers come from VocaDB tags, so they only describe NicoNico fame. For
+  // YouTube/combined sources, apply the pool setting as a real view threshold
+  // on the selected source instead.
+  if (activeViewSource() !== 'nnd') {
+    const minViews = cfg.pool === '1m' ? 1000000 : cfg.pool === '100k' ? 100000 : 10000;
+    return allSongsCache.filter(s => {
+      const v = getViewCount(s);
+      return v !== null && v >= minViews;
+    });
+  }
   const minScore = cfg.pool === '1m' ? 4 : cfg.pool === '100k' ? 3 : 2;
   return allSongsCache.filter(s => {
     const t = getSongTier(s);
@@ -3003,6 +3324,8 @@ function poolLabel() {
 /* ── Game state ── */
 const state = {
   mode: localStorage.getItem(MODE_KEY) === 'unlimited' ? 'unlimited' : 'daily',
+  viewSource: ['nnd','yt','bili','combined'].includes(localStorage.getItem(VIEWSRC_KEY))
+    ? localStorage.getItem(VIEWSRC_KEY) : 'nnd',
   allSongs: [],
   usedIds: new Set(),
   recentBattles: [],
@@ -3098,13 +3421,20 @@ function animateCount(el, target, duration = 1000) {
 function thumbHtml(song, mystery) {
   const chain = getCoverArt(song);
   const imgHtml = chain.length
-    ? `<img src="${escHtml(chain[0])}" alt="" loading="lazy"
+    ? `<img src="${escHtml(chain[0])}" alt="" loading="lazy" referrerpolicy="no-referrer"
          data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}"
          onerror="nextThumb(this)">`
     : '';
   const tier = getSongTier(song);
-  const badgeCls = mystery ? 'tier-badge mystery-badge' : 'tier-badge';
+  const ytLabel = ytTierLabel(song);
+  const biliLabel = biliTierLabel(song);
+  const badgeCls = mystery ? 'tier-badges mystery-badge' : 'tier-badges';
   const badgeId  = mystery ? 'id="tier-badge-b"' : '';
+  const badgesHtml = (tier || ytLabel || biliLabel) ? `<span class="${badgeCls}" ${badgeId}>` +
+    (tier ? `<span class="tier-badge is-nnd" title="NicoNico view tier">NND ${escHtml(tier.label)}</span>` : '') +
+    (ytLabel ? `<span class="tier-badge is-yt" title="YouTube view tier">YT ${escHtml(ytLabel)}</span>` : '') +
+    (biliLabel ? `<span class="tier-badge is-bili" title="bilibili view tier">BILI ${escHtml(biliLabel)}</span>` : '') +
+    `</span>` : '';
   return `
     <div class="song-thumb">
       ${imgHtml}
@@ -3112,7 +3442,7 @@ function thumbHtml(song, mystery) {
       <div class="thumb-scanlines"></div>
       ${mystery ? `<div class="mystery-overlay" id="mystery-overlay"><span class="mystery-mark">???</span></div>` : ''}
       ${vocalistChipsHtml(song)}
-      ${tier ? `<span class="${badgeCls}" ${badgeId}>${tier.label}</span>` : ''}
+      ${badgesHtml}
     </div>`;
 }
 
@@ -3132,17 +3462,19 @@ function metaBarHtml(song, mystery) {
           <span class="meta-key">[artist]</span>
           <span class="meta-val meta-artist">${artist ? escHtml(artist) : '&mdash;'}</span>
         </div>`;
+  const vsrc = viewSourceMeta();
+  const srcSub = `${vsrc.name} · ${t('asOf', { date: vsrc.date || '—' })}`;
   if (mystery) return `
     <div class="song-meta-bar">
       <div class="meta-field">
         <span class="meta-key">[views]</span>
         <span class="meta-val mystery" id="meta-views-b">? ? ?</span>
-        <span class="meta-sub" id="meta-views-sub-b">${escHtml(t('asOf', { date: viewsUpdated || '—' }))}</span>
+        <span class="meta-sub" id="meta-views-sub-b">${escHtml(srcSub)}</span>
       </div>
       ${yearField}${srcField}
     </div>`;
   const displayNum = count !== null ? formatViews(count) : (tier ? formatMin(tier) : '—');
-  const subText    = count !== null ? t('asOf', { date: viewsUpdated || '—' }) : t('tierEstimate');
+  const subText    = count !== null ? srcSub : t('tierEstimate');
   return `
     <div class="song-meta-bar">
       <div class="meta-field">
@@ -3173,11 +3505,18 @@ function renderModeBar() {
   const mode = state.mode;
   const tab = (id, labelKey) => `
         <button class="game-mode-btn${mode === id ? ' is-active' : ''}" data-game-mode="${id}">${MODE_ICONS[id]}<span>${escHtml(t(labelKey))}</span></button>`;
+  const srcBtn = (id, label) => `<button class="view-src-btn${state.viewSource === id ? ' is-active' : ''}" data-view-src="${id}" title="${escHtml(t('viewSource_' + id))}">${label}</button>`;
+  const srcSwitch = mode === 'unlimited' ? `
+      <div class="view-src-switch" role="group" aria-label="${escHtml(t('viewSourceLabel'))}">
+        <span class="view-src-label">${escHtml(t('viewSourceLabel'))}</span>
+        ${srcBtn('nnd', 'NICONICO')}${srcBtn('yt', 'YOUTUBE')}${srcBtn('bili', 'BILIBILI')}${srcBtn('combined', 'ALL')}
+      </div>` : '';
   return `
     <div class="game-mode-bar">
       <div class="game-mode-tabs" role="tablist">
         ${tab('daily', 'dailyGuesses')}${tab('unlimited', 'unlimitedMode')}${tab('archive', 'archiveMode')}
       </div>
+      ${srcSwitch}
       <div class="game-mode-hint"><span>${escHtml(modeHintText())}</span></div>
     </div>`;
 }
@@ -3191,6 +3530,15 @@ function bindModeButtons() {
       state.mode = nextMode;
       state.archiveDate = null;
       localStorage.setItem(MODE_KEY, nextMode);
+      startGame();
+    });
+  });
+  document.querySelectorAll('[data-view-src]').forEach(button => {
+    button.addEventListener('click', () => {
+      const src = button.dataset.viewSrc;
+      if (src === state.viewSource) return;
+      state.viewSource = src;
+      localStorage.setItem(VIEWSRC_KEY, src);
       startGame();
     });
   });
@@ -3785,6 +4133,13 @@ function guess(direction) {
     unlockAchievement('against_all_logic');
   }
 
+  // Mesmerizer (610187) vs Young Girl A (42111): YouTube's top two VOCALOID songs.
+  const YT_TITAN_IDS = [610187, 42111];
+  if (YT_TITAN_IDS.includes(Number(state.songA?.vocadbId)) &&
+      YT_TITAN_IDS.includes(Number(state.songB?.vocadbId))) {
+    unlockAchievement('youtube_titans');
+  }
+
   document.getElementById('btn-higher').disabled = true;
   document.getElementById('btn-lower').disabled  = true;
 
@@ -3813,8 +4168,9 @@ function guess(direction) {
     else numEl.textContent = formatMin(tierB);
   }
   if (subEl) {
+    const vsrc = viewSourceMeta();
     subEl.textContent = countB !== null
-      ? t('asOf', { date: viewsUpdated || '—' })
+      ? `${vsrc.name} · ${t('asOf', { date: vsrc.date || '—' })}`
       : t('tierEstimate');
   }
 
@@ -3872,6 +4228,11 @@ function checkCorrectAchievements(roundMeta) {
   if (state.lives < state.totalLives) unlockAchievement('comeback_call');
   if (cfg.pool === '100k' && state.streak >= 10) unlockAchievement('hundred_k_club');
   if (cfg.pool === '1m' && state.streak >= 5) unlockAchievement('million_club');
+  if (state.mode === 'unlimited' && state.streak >= 10) {
+    if (state.viewSource === 'yt') unlockAchievement('yt_route');
+    if (state.viewSource === 'bili') unlockAchievement('bili_route');
+    if (state.viewSource === 'combined') unlockAchievement('all_platform_route');
+  }
   if ((roundMeta.tierA?.score || 0) >= 4 && (roundMeta.tierB?.score || 0) >= 4) {
     unlockAchievement('fame_matcher');
   }
@@ -4220,24 +4581,62 @@ document.getElementById('main').innerHTML =
 
 const SONGS_CACHE_KEY = '39c_songs_v2';
 const VIEWS_CACHE_KEY = '39c_views_v2';
+const YTVIEWS_CACHE_KEY = '39c_ytviews_v1';
+const BILIVIEWS_CACHE_KEY = '39c_biliviews_v1';
+
+/* These keys are shared with the 39charts pages, which store a { t, v } wrapper
+   (timestamp + value) for TTL expiry. Read/write that same shape so a cache
+   written by either site is understood by the other — otherwise 39charts's
+   wrapper object was being handed to songs.filter() and crashing the game. */
+const HOL_CACHE_TTL_MS = 10 * 60 * 1000;
+function holCacheGet(key) {
+  try {
+    const o = JSON.parse(sessionStorage.getItem(key));
+    if (!o || typeof o.t !== 'number' || Date.now() - o.t > HOL_CACHE_TTL_MS) return null;
+    return o.v;
+  } catch (e) { return null; }
+}
+function holCachePut(key, v) {
+  try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), v })); } catch (e) {}
+}
 
 function loadSongs() {
-  try { const c=sessionStorage.getItem(SONGS_CACHE_KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e){}
+  const c = holCacheGet(SONGS_CACHE_KEY);
+  if (Array.isArray(c)) return Promise.resolve(c);
   return fetch('../data/songs.json')
     .then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-    .then(data=>{ try{sessionStorage.setItem(SONGS_CACHE_KEY,JSON.stringify(data));}catch(e){} return data; });
+    .then(data=>{ holCachePut(SONGS_CACHE_KEY, data); return data; });
 }
 
 function loadViews() {
-  try { const c=sessionStorage.getItem(VIEWS_CACHE_KEY); if(c) return Promise.resolve(JSON.parse(c)); } catch(e){}
+  const c = holCacheGet(VIEWS_CACHE_KEY);
+  if (c) return Promise.resolve(c);
   return fetch('../data/views.json')
     .then(r => r.ok ? r.json() : null)
-    .then(data => { if(data) try{sessionStorage.setItem(VIEWS_CACHE_KEY,JSON.stringify(data));}catch(e){} return data; })
+    .then(data => { if(data) holCachePut(VIEWS_CACHE_KEY, data); return data; })
     .catch(() => null);
 }
 
-Promise.all([loadSongs(), loadViews()])
-  .then(([songs, views]) => {
+function loadYtViews() {
+  const c = holCacheGet(YTVIEWS_CACHE_KEY);
+  if (c) return Promise.resolve(c);
+  return fetch('../data/ytviews.json')
+    .then(r => r.ok ? r.json() : null)
+    .then(data => { if(data) holCachePut(YTVIEWS_CACHE_KEY, data); return data; })
+    .catch(() => null);
+}
+
+function loadBiliViews() {
+  const c = holCacheGet(BILIVIEWS_CACHE_KEY);
+  if (c) return Promise.resolve(c);
+  return fetch('../data/biliviews.json')
+    .then(r => r.ok ? r.json() : null)
+    .then(data => { if(data) holCachePut(BILIVIEWS_CACHE_KEY, data); return data; })
+    .catch(() => null);
+}
+
+Promise.all([loadSongs(), loadViews(), loadYtViews(), loadBiliViews()])
+  .then(([songs, views, ytViews, biliViews]) => {
     // A song is playable only if views.json has a count for it (checked in the
     // pool builders below). The view-fetch pipeline only records a count when a
     // song has a usable, live NicoNico upload — a live original, or a 1M+ live
@@ -4247,6 +4646,19 @@ Promise.all([loadSongs(), loadViews()])
     if (views && views.views) {
       viewsCache   = views.views;
       viewsUpdated = views.updated || null;
+    }
+    if (ytViews && ytViews.stats) {
+      for (const [id, s] of Object.entries(ytViews.stats)) {
+        if (s && typeof s.views === 'number') ytViewsCache[id] = s.views;
+      }
+      ytViewsUpdated = ytViews.updated || null;
+    }
+    if (biliViews && biliViews.stats) {
+      for (const [id, s] of Object.entries(biliViews.stats)) {
+        if (s && typeof s.views === 'number') biliViewsCache[id] = s.views;
+        if (s && s.pic) BILI_PICS[id] = String(s.pic).replace(/^http:/, 'https:');
+      }
+      biliViewsUpdated = biliViews.updated || null;
     }
     startGame();
   })
@@ -4483,21 +4895,29 @@ const RELEASES = [
     version: 'v1.1',
     newsByLang: {
       en: [
+        'bilibili views join the game: a new BILIBILI source in Unlimited, an ALL switch for combined views across every platform, and BILI tier badges on song cards.',
+        'Refreshed the whole interface with a cohesive retro NicoNico look, in light and dark.',
         'New Archive mode: replay any past daily set from a calendar, with solved days color-graded by score.',
         'Redesigned the mode bar with a retro NicoNico-style tab strip for Daily, Unlimited, and Archive.',
         'Daily Guesses gives everyone the same 10 questions each day, with progress and best score saved locally.'
       ],
       ja: [
+        'bilibili再生数が登場：無制限モードにBILIBILIソース、全プラットフォーム合計のALLスイッチ、曲カードにBILIバッジを追加しました。',
+        'インターフェース全体をレトロなニコニコ風デザインに刷新しました（ライト／ダーク対応）。',
         '新アーカイブモード：カレンダーから過去のデイリーを再挑戦でき、クリア済みの日はスコアで色分けされます。',
         'モードバーをレトロなニコニコ風タブ（デイリー／無制限／アーカイブ）に刷新しました。',
         'デイリー予想は毎日全員共通の10問で、進行状況と最高スコアをローカルに保存します。'
       ],
       es: [
+        'Llegan las vistas de bilibili: nueva fuente BILIBILI en Ilimitado, interruptor ALL para vistas combinadas de todas las plataformas e insignias BILI en las tarjetas.',
+        'Renovamos toda la interfaz con un estilo retro tipo NicoNico, en modo claro y oscuro.',
         'Nuevo modo Archivo: repite cualquier diario desde un calendario, con los días resueltos coloreados según la puntuación.',
         'Rediseñamos la barra de modos con un estilo retro tipo NicoNico para Diario, Ilimitado y Archivo.',
         'Intentos diarios ofrece las mismas 10 preguntas a todos cada día, guardando progreso y mejor puntuación localmente.'
       ],
       ko: [
+        'bilibili 조회수 추가: 무제한 모드의 BILIBILI 소스, 전체 플랫폼 합산 ALL 스위치, 곡 카드의 BILI 배지가 새로 생겼습니다.',
+        '인터페이스 전체를 레트로 니코니코 스타일로 새롭게 디자인했습니다(라이트/다크 지원).',
         '새 아카이브 모드: 달력에서 지난 일일 세트를 다시 플레이하고, 해결한 날은 점수에 따라 색이 입혀집니다.',
         '모드 바를 일일/무제한/아카이브용 레트로 니코니코 스타일 탭으로 새롭게 디자인했습니다.',
         '일일 추측은 매일 모두에게 같은 10문제를 제공하며 진행 상황과 최고 점수를 로컬에 저장합니다.'
@@ -4505,6 +4925,8 @@ const RELEASES = [
     },
     notesByLang: {
       en: [
+        'Added bilibili views: a BILIBILI source in Unlimited, the NND+YT switch is now ALL (NicoNico + YouTube + bilibili combined), BILI tier badges on song cards, and new achievements for streaks on the YouTube, bilibili, and All-platform sources.',
+        'Refreshed the entire interface with a cohesive retro NicoNico look — matching panels, sidebars, the streak bar, the matchup card, the archive calendar, and every dialog, in both light and dark mode.',
         'Added Daily Guesses: the same deterministic set of 10 Higher or Lower questions for everyone each day.',
         'New Archive mode: replay any past daily set from a calendar, with solved days color-graded by score, a random-puzzle button, and progress saved per day.',
         'Redesigned the mode bar with a retro, NicoNico-style tab strip for Daily, Unlimited, and Archive.',
@@ -4514,6 +4936,8 @@ const RELEASES = [
         'Cleaned up the song pool: only songs with an available original NicoNico upload (or a 1M+ re-upload) are included, so reprints with unreliable view counts can no longer appear and break streaks.'
       ],
       ja: [
+        'bilibili再生数を追加：無制限モードにBILIBILIソース、NND+YTスイッチはALL（ニコニコ＋YouTube＋bilibili合計）に変更、曲カードにBILIバッジ、YouTube／bilibili／全プラットフォームソースでの連勝実績を追加しました。',
+        'インターフェース全体をレトロなニコニコ風デザインに刷新しました——パネル、サイドバー、連勝バー、対戦カード、アーカイブカレンダー、各ダイアログをライト／ダーク両方で統一しました。',
         '毎日全員共通の10問に挑戦できる「デイリー予想」を追加しました。',
         '新しいアーカイブモードを追加：カレンダーから過去のデイリーを再挑戦でき、クリア済みの日はスコアに応じて色分け、ランダム出題ボタン、日付ごとの記録保存に対応します。',
         'モードバーをレトロなニコニコ風タブ（デイリー／無制限／アーカイブ）に刷新しました。',
@@ -4523,6 +4947,8 @@ const RELEASES = [
         '曲プールを整理：オリジナルのニコニコ投稿（または100万再生以上の再投稿）がある曲のみを収録し、再生数が不安定な転載が出題されて連勝を崩すことがなくなりました。'
       ],
       es: [
+        'Se añadieron las vistas de bilibili: fuente BILIBILI en Ilimitado, el interruptor NND+YT ahora es ALL (NicoNico + YouTube + bilibili combinados), insignias BILI en las tarjetas y nuevos logros por rachas en las fuentes de YouTube, bilibili y todas las plataformas.',
+        'Renovamos toda la interfaz con un estilo retro tipo NicoNico — paneles, barras laterales, la barra de racha, la tarjeta de duelo, el calendario del archivo y todos los diálogos, en modo claro y oscuro.',
         'Se añadieron los Intentos diarios: una serie fija de 10 preguntas de Higher or Lower para todos cada día.',
         'Nuevo modo Archivo: repite cualquier serie diaria anterior desde un calendario, con los días resueltos coloreados según la puntuación, botón de puzle aleatorio y progreso guardado por día.',
         'Se rediseñó la barra de modos con un estilo retro tipo NicoNico para Diario, Ilimitado y Archivo.',
@@ -4532,6 +4958,8 @@ const RELEASES = [
         'Se depuró la lista de canciones: solo se incluyen las que tienen una subida original en NicoNico (o una resubida con más de 1M de vistas), así los reprints con vistas poco fiables ya no aparecen ni rompen rachas.'
       ],
       ko: [
+        'bilibili 조회수를 추가했습니다: 무제한 모드의 BILIBILI 소스, NND+YT 스위치는 ALL(니코니코 + YouTube + bilibili 합산)로 변경, 곡 카드의 BILI 배지, YouTube/bilibili/전체 플랫폼 소스 연승 업적이 추가되었습니다.',
+        '인터페이스 전체를 레트로 니코니코 스타일로 새롭게 디자인했습니다 — 패널, 사이드바, 연승 바, 대결 카드, 아카이브 달력, 모든 대화상자를 라이트/다크 모드 모두에서 통일했습니다.',
         '매일 모든 플레이어가 같은 10문제를 푸는 일일 추측 모드를 추가했습니다.',
         '새 아카이브 모드 추가: 달력에서 지난 일일 세트를 다시 플레이하고, 해결한 날은 점수에 따라 색이 입혀지며, 랜덤 문제 버튼과 날짜별 기록 저장을 지원합니다.',
         '모드 바를 일일/무제한/아카이브용 레트로 니코니코 스타일 탭으로 새롭게 디자인했습니다.',

@@ -414,15 +414,28 @@ body.dark-mode .page-rail::before { background: rgba(255,255,255,0.08); }
   align-items: center;
   justify-content: flex-start;
   gap: 6px;
-  padding: 2px 0;
-  background: none;
-  border: none;
-  margin-top: -2px;
+  padding: 4px 6px;
+  border: 2px solid var(--ls);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f1efe9, #e2dfd7);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08);
+  margin-top: 0;
   margin-bottom: 0;
 }
 .difficulty-mode-label {
-  display: none;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 5px 0 2px;
+  color: var(--muted);
+  font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
+.difficulty-mode-label::before { content: "\25B6"; color: var(--red); font-size: 8px; margin-right: 5px; }
 .difficulty-mode-switch {
   display: flex;
   border: 1px solid var(--ls);
@@ -2642,7 +2655,10 @@ body.dark-mode .achievement-card.is-mikumiku small {
   .difficulty-mode-panel {
     flex-wrap: wrap;
     gap: 3px 0;
+    padding: 4px;
   }
+  .difficulty-mode-label { display: none; }
+  .unlimited-filter-button { width: 100%; margin-left: 0; margin-top: 3px; }
   .difficulty-mode-switch {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2834,6 +2850,11 @@ body.dark-mode .mode-button { background: linear-gradient(to bottom, #2a2a2a, #1
 body.dark-mode .mode-button:hover { background: linear-gradient(to bottom, #331111, #220a0a); color: #cc4444; }
 body.dark-mode .mode-button:last-child { border-right-color: #111; }
 body.dark-mode .mode-button.is-active { background: linear-gradient(to bottom, var(--red), var(--red-dark)); color: #ffffff; border-color: var(--red) var(--red-dark) var(--red-dark) var(--red); box-shadow: inset 1px 1px 0 rgba(255,255,255,0.2); }
+body.dark-mode .difficulty-mode-panel {
+  background: linear-gradient(to bottom, #212121, #191919);
+  border-color: #3b3b3b;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), inset -1px -1px 0 rgba(0,0,0,0.4);
+}
 body.dark-mode .difficulty-mode-switch { border-color: #333333; background: #161616; }
 body.dark-mode .difficulty-mode-button { background: linear-gradient(to bottom, #282828, #1a1a1a); color: #888888; border-color: #333333; box-shadow: none; }
 body.dark-mode .difficulty-mode-button:hover:not(:disabled) { background: linear-gradient(to bottom, #331111, #220a0a); color: #cc4444; }
@@ -6933,6 +6954,11 @@ body.dark-mode .sidebar-hof-item:nth-child(3) .hof-rank { background: linear-gra
 body.dark-mode .sidebar-hof-item:nth-child(4) .hof-rank,
 body.dark-mode .sidebar-hof-item:nth-child(5) .hof-rank { background: linear-gradient(to bottom, #525252, #3c3c3c); }
 body.dark-mode .sidebar-hof-item:nth-child(1) .hof-song::before { color: #a88a20; }
+/* Kill the light medal-tint gradients (rows 1-3) that glow in dark mode */
+body.dark-mode .nnd-sidebar-hof .sidebar-hof-item:nth-child(1) { background: linear-gradient(to right, #24200f, #1a1a1a 30%); }
+body.dark-mode .nnd-sidebar-hof .sidebar-hof-item:nth-child(2) { background: linear-gradient(to right, #212121, #1a1a1a 30%); }
+body.dark-mode .nnd-sidebar-hof .sidebar-hof-item:nth-child(3) { background: linear-gradient(to right, #241c12, #1a1a1a 30%); }
+body.dark-mode .nnd-sidebar-hof .sidebar-hof-item:hover { background: #2a1414 !important; }
 
 /* ── RETRO PASS 2: SIDEBAR UNIFICATION ── */
 
@@ -7779,4 +7805,148 @@ body.no-marquee .nnd-marquee-inner {
     background: #171717;
     border-color: var(--ls);
   }
+}
+
+/* ── GUESS FORM POLISH ── */
+.guess-form { gap: 7px; }
+.guess-field label {
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--faint);
+}
+#guess-input {
+  height: 32px;
+  min-height: 32px;
+  font-size: 13px;
+}
+.button-row { grid-template-columns: 2fr 1fr; }
+.button-row button {
+  min-height: 32px;
+}
+.button-row button[type="submit"] {
+  background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #cc0000 100%);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -2px 0 rgba(0,0,0,0.18), 0 1px 2px rgba(0,0,0,0.25);
+}
+.button-row button[type="submit"]:hover {
+  background: linear-gradient(to bottom, #ff6666 0%, #ee3333 48%, #cc1111 52%, #dd1111 100%);
+}
+
+/* ── GUESS LOG GRID ──
+   Numbered attempts, a result-colored edge stripe per row, and the verdict as
+   a bordered pill instead of bare colored text. */
+.guess-history ol { counter-reset: guessnum; }
+.guess-history li {
+  counter-increment: guessnum;
+  position: relative;
+  padding: 6px 9px 6px 32px;
+  border-left: 3px solid #c8c4bc;
+}
+.guess-history li::before {
+  content: counter(guessnum, decimal-leading-zero);
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--faint);
+  font-family: Consolas, "MS PGothic", monospace;
+  font-size: 10px;
+}
+.guess-history li > span:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.guess-history .guess-result {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  padding: 1px 7px;
+  border: 1px solid currentColor;
+  background: rgba(255,255,255,0.65);
+  font-size: 10px;
+  line-height: 15px;
+}
+.guess-history li:has(.guess-result.is-correct) { border-left-color: var(--red); background: #fdeeee; }
+.guess-history li:has(.guess-result.is-strong)  { border-left-color: #7a3fd1; background: #f5eefc; }
+.guess-history li:has(.guess-result.is-artist)  { border-left-color: #b8860b; background: #fdf7e4; }
+.guess-history li:has(.guess-result.is-vocal)   { border-left-color: #2457c5; background: #ecf2fc; }
+.guess-history li:hover { background: #fff0f0; }
+.guess-history li.empty-guess { padding-left: 9px; border-left-color: var(--line); }
+.guess-history li.empty-guess::before { content: none; }
+body.dark-mode .guess-history li { border-left-color: #3b3b3b; }
+body.dark-mode .guess-history .guess-result { background: rgba(0,0,0,0.3); }
+body.dark-mode .guess-history li:has(.guess-result.is-correct) { border-left-color: var(--red); background: #251314; }
+body.dark-mode .guess-history li:has(.guess-result.is-strong)  { border-left-color: #9a6fd8; background: #1e1626; }
+body.dark-mode .guess-history li:has(.guess-result.is-artist)  { border-left-color: #c8a030; background: #241f10; }
+body.dark-mode .guess-history li:has(.guess-result.is-vocal)   { border-left-color: #5a8ade; background: #131a28; }
+body.dark-mode .guess-history li:hover { background: #2a1414; }
+body.dark-mode .guess-history li.empty-guess { border-left-color: #2a2a2a; }
+
+/* ════════ Heardle sidebar boxes — retro look matching the H-or-L panels ════════ */
+.nnd-sidebar-box {
+  border: 2px solid var(--ls) !important;
+  border-top: 3px solid var(--red) !important;
+  background: linear-gradient(to bottom, var(--surface), var(--sf)) !important;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07) !important;
+  overflow: hidden;
+}
+.nnd-sidebar-header {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0) !important;
+  border-bottom: 1px solid var(--ls) !important;
+  border-left: 0 !important;
+  padding: 4px 8px !important;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace !important;
+  font-size: 11px !important; font-weight: 700 !important; color: var(--text) !important;
+  letter-spacing: 0.06em !important; text-transform: uppercase !important;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8) !important;
+}
+
+body.dark-mode .nnd-sidebar-box {
+  border-color: #3b3b3b !important; border-top-color: var(--red) !important;
+  background: linear-gradient(to bottom, var(--surface), var(--sf)) !important;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05), inset -1px -1px 0 rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3) !important;
+}
+body.dark-mode .nnd-sidebar-header {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c) !important;
+  border-bottom-color: #3b3b3b !important; border-left: 0 !important; color: var(--text) !important;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05) !important;
+}
+
+/* ════════ Heardle modals — retro header bars matching the H-or-L modals ════════ */
+.modal {
+  border: 2px solid var(--ls) !important; border-top: 3px solid var(--red) !important;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6), 0 4px 20px rgba(0,0,0,0.35) !important;
+}
+.modal h2 {
+  margin: -16px -16px 14px !important; padding: 5px 10px !important;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace !important;
+  font-size: 12px !important; font-weight: 700 !important; color: var(--text) !important;
+  letter-spacing: 0.06em !important; text-transform: uppercase !important;
+  border-left: 0 !important; border-bottom: 1px solid var(--ls) !important;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0) !important;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8) !important;
+}
+.modal-close, #achievements .modal-close {
+  top: 2px !important; right: 8px !important;
+  width: 22px !important; height: 22px !important; min-height: 22px !important; line-height: 1 !important;
+}
+
+body.dark-mode .modal {
+  border-color: #3b3b3b !important; border-top-color: var(--red) !important;
+}
+body.dark-mode .modal h2 {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c) !important;
+  border-bottom-color: #3b3b3b !important; color: var(--text) !important;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05) !important;
 }

@@ -130,6 +130,7 @@ const STRINGS = {
     visitorTotal: "Total visitors",
     visitorSince: "Since",
     sidebarNews: "News",
+    newsV16: "Retro UI overhaul",
     newsV15: "Unlimited song filters & pool milestones",
     newsV14: "Practice modes & pool checker",
     newsV13: "Bookmarks & partial credit",
@@ -185,7 +186,7 @@ const STRINGS = {
     placeholder: "type your guess...",
     disclaimer: "Some songs may not begin playing within the first second.",
     marquee: "★ A new daily puzzle is available each day ★ Use unlimited mode to practice anytime ★ Guess the VOCALOID song from the opening clip in 6 tries or less ★ Share your score with friends! ★ Songs sourced from VocaDB ★",
-    introCopy: "Guess the VOCALOID song from the opening clip.",
+    introCopy: "Guess the VOCALOID song!",
     breadcrumb: "Games > Music > VOCALOID > Heardle",
     footerText: "VOCALOID Heardle: fan-made daily guessing game (c) 2026 | Not affiliated with Crypton Future Media, NicoNico, or VocaDB | Song data from",
     footerPageTop: "Page Top",
@@ -274,6 +275,9 @@ const STRINGS = {
     filterProducerLabel: "Producer / artist",
     filterVoicebankLabel: "Voicebank / vocal synth",
     filterProducerPlaceholder: "type a producer...",
+    filterExcludeLabel: "Exclude producers / artists",
+    filterExcludePlaceholder: "type a producer to exclude...",
+    filterTagExclude: (value) => `Exclude: ${value}`,
     filterVoicebankPlaceholder: "type a voicebank...",
     filterProgramLabel: "Program used",
     filterYearLabel: "Publish year",
@@ -415,7 +419,7 @@ const STRINGS = {
     navSettings: "Settings",
     navUpdates: "Updates",
     linkReleaseNotes: "Release Notes",
-    linkReleaseVersion: "Release v1.5",
+    linkReleaseVersion: "Release v1.6",
     linkAchievements: "Achievements",
     linkSongPool: "Song Pool",
     linkSuggestSong: "Suggest a Song",
@@ -472,7 +476,7 @@ const STRINGS = {
     difficultyMedium: "Medium",
     difficultyHard: "Hard",
     difficultyUnknown: "what is this song???",
-    introCopy: "Guess the VOCALOID song from the opening clip.",
+    introCopy: "Guess the VOCALOID song!",
     breadcrumb: "Games > Music > VOCALOID > Heardle",
     footerText: "VOCALOID Heardle: fan-made daily guessing game (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from",
     howToPlayStep1: "Press ▶ to hear the opening clip",
@@ -572,7 +576,7 @@ const STRINGS = {
     placeholder: "曲名を入力...",
     disclaimer: "曲によっては最初の1秒で再生が始まらない場合があります。",
     marquee: "★ 毎日新しいパズルが更新されます ★ 無制限モードでいつでも練習できます ★ 6回以内にVOCALOID曲を当てよう ★ 結果をシェアしよう！ ★ 楽曲データはVocaDBより ★",
-    introCopy: "イントロを聴いてVOCALOID曲を当てよう。",
+    introCopy: "VOCALOID曲を当てよう！",
     breadcrumb: "ゲーム > 音楽 > VOCALOID > Heardle",
     footerText: "VOCALOID Heardle：ファンメイドの毎日クイズゲーム (c) 2026 | クリプトン・フューチャー・メディア及びニコニコと無関係 | 楽曲データ：",
     howToPlayStep1: "▶ を押してイントロを聴く",
@@ -799,7 +803,7 @@ const STRINGS = {
     difficultyMedium: "普通",
     difficultyHard: "難しい",
     difficultyUnknown: "なんの曲？？？",
-    introCopy: "イントロを聴いてVOCALOID曲を当てよう。",
+    introCopy: "VOCALOID曲を当てよう！",
     breadcrumb: "ゲーム > 音楽 > VOCALOID > Heardle",
     footerText: "VOCALOID Heardle：ファンメイドの毎日クイズゲーム (c) 2026 | クリプトン・フューチャー・メディア及びニコニコと無関係 | 楽曲データ：",
     howToPlayStep1: "▶ を押してイントロを聴く",
@@ -828,7 +832,7 @@ Object.assign(STRINGS.jp, {
 });
 
 Object.assign(STRINGS.jp, {
-  linkReleaseVersion: "\u30EA\u30EA\u30FC\u30B9 v1.5",
+  linkReleaseVersion: "\u30EA\u30EA\u30FC\u30B9 v1.6",
   strongMatch: "\u5F37\u4E00\u81F4",
   artistMatch: "\u30A2\u30FC\u30C6\u30A3\u30B9\u30C8\u4E00\u81F4",
   vocalMatch: "\u30DC\u30FC\u30AB\u30EB\u4E00\u81F4",
@@ -943,7 +947,7 @@ Object.assign(STRINGS.es, {
   placeholder: "escribe tu intento...",
   disclaimer: "Algunas canciones pueden no empezar a sonar durante el primer segundo.",
   marquee: "★ Hay un nuevo puzle diario cada dia ★ Usa el modo ilimitado para practicar cuando quieras ★ Adivina la cancion VOCALOID con el clip inicial en 6 intentos o menos ★ -Comparte tu resultado con tus amigos! ★ Canciones obtenidas de VocaDB ★",
-  introCopy: "Adivina la cancion VOCALOID a partir del clip inicial.",
+  introCopy: "¡Adivina la cancion VOCALOID!",
   breadcrumb: "Juegos - Masica - VOCALOID - Heardle",
   footerText: "VOCALOID Heardle: juego diario fan-made de adivinar canciones (c) 2026 | No afiliado con Crypton Future Media ni NicoNico | Datos de canciones de",
   howToPlayStep1: "Pulsa ▶ para escuchar el clip inicial",
@@ -1139,7 +1143,7 @@ Object.assign(STRINGS.es, {
   navSettings: "Ajustes",
   navUpdates: "Actualizaciones",
   linkReleaseNotes: "Notas de version",
-  linkReleaseVersion: "Version v1.5",
+  linkReleaseVersion: "Version v1.6",
   linkAchievements: "Logros",
   linkSongPool: "Pool de canciones",
   linkSuggestSong: "Sugerir una cancion",
@@ -1183,7 +1187,7 @@ Object.assign(STRINGS.es, {
   difficultyUnknown: "-que cancion es esta???",
 });
 
-let currentReleaseVersion = "v1.5";
+let currentReleaseVersion = "v1.6";
 
 
 STRINGS.ko = {
@@ -1286,7 +1290,7 @@ Object.assign(STRINGS.ko, {
   placeholder: "추측을 입력하세요...",
   disclaimer: "일부 곡은 첫 1초 안에 소리가 바로 나오지 않을 수 있습니다.",
   marquee: "★ 매일 새로운 데일리 퍼즐이 열립니다 ★ 무제한 모드로 언제든 연습하세요 ★ 6번 안에 오프닝 클립의 VOCALOID 곡을 맞혀보세요 ★ 친구에게 결과를 공유하세요! ★ 곡 정보는 VocaDB에서 가져옵니다 ★",
-  introCopy: "오프닝 클립을 듣고 VOCALOID 곡을 맞혀보세요.",
+  introCopy: "VOCALOID 곡을 맞혀보세요!",
   breadcrumb: "게임 > 음악 > VOCALOID > Heardle",
   footerText: "VOCALOID Heardle: 팬메이드 데일리 추측 게임 (c) 2026 | Crypton Future Media 또는 NicoNico와 관련이 없습니다 | 곡 데이터:",
   howToPlayStep1: "▶를 눌러 오프닝 클립을 듣기",
@@ -1499,7 +1503,7 @@ Object.assign(STRINGS.ko, {
   navSettings: "설정",
   navUpdates: "업데이트",
   linkReleaseNotes: "업데이트 내역",
-  linkReleaseVersion: "릴리스 v1.5",
+  linkReleaseVersion: "릴리스 v1.6",
   linkAchievements: "업적",
   linkSongPool: "곡 풀",
   linkSuggestSong: "곡 제안",
@@ -1554,6 +1558,9 @@ Object.assign(STRINGS.jp, SYSTEM_LABEL_STRINGS, {
   filterProducerLabel: "\u30d7\u30ed\u30c7\u30e5\u30fc\u30b5\u30fc / \u30a2\u30fc\u30c6\u30a3\u30b9\u30c8",
   filterVoicebankLabel: "\u97f3\u6e90 / \u30dc\u30fc\u30ab\u30eb\u30b7\u30f3\u30bb",
   filterProducerPlaceholder: "\u30d7\u30ed\u30c7\u30e5\u30fc\u30b5\u30fc\u3092\u5165\u529b...",
+  filterExcludeLabel: "\u9664\u5916\u3059\u308b\u30d7\u30ed\u30c7\u30e5\u30fc\u30b5\u30fc",
+  filterExcludePlaceholder: "\u9664\u5916\u3059\u308b\u30d7\u30ed\u30c7\u30e5\u30fc\u30b5\u30fc\u3092\u5165\u529b...",
+  filterTagExclude: (value) => `\u9664\u5916: ${value}`,
   filterVoicebankPlaceholder: "\u97f3\u6e90\u3092\u5165\u529b...",
   filterProgramLabel: "\u4f7f\u7528\u30bd\u30d5\u30c8",
   filterYearLabel: "\u516c\u958b\u5e74",
@@ -1580,6 +1587,7 @@ Object.assign(STRINGS.jp, SYSTEM_LABEL_STRINGS, {
   visitorTotal: "\u7dcf\u8a2a\u554f\u8005\u6570",
   visitorSince: "\u958b\u59cb",
   sidebarNews: "\u30cb\u30e5\u30fc\u30b9",
+  newsV16: "\u30ec\u30c8\u30edUI\u306e\u5168\u9762\u5237\u65b0",
   newsV15: "\u7121\u5236\u9650\u30d5\u30a3\u30eb\u30bf\u30fc\uff06\u30d7\u30fc\u30eb\u30de\u30a4\u30eb\u30b9\u30c8\u30fc\u30f3",
   newsV14: "\u7df4\u7fd2\u30e2\u30fc\u30c9\uff06\u30d7\u30fc\u30eb\u30c1\u30a7\u30c3\u30ab\u30fc",
   newsV13: "\u30d6\u30c3\u30af\u30de\u30fc\u30af\uff06\u90e8\u5206\u4e00\u81f4",
@@ -1604,6 +1612,9 @@ Object.assign(STRINGS.es, SYSTEM_LABEL_STRINGS, {
   filterProducerLabel: "Productor / artista",
   filterVoicebankLabel: "Voicebank / sintetizador vocal",
   filterProducerPlaceholder: "escribe un productor...",
+  filterExcludeLabel: "Excluir productores / artistas",
+  filterExcludePlaceholder: "escribe un productor a excluir...",
+  filterTagExclude: (value) => `Excluir: ${value}`,
   filterVoicebankPlaceholder: "escribe un voicebank...",
   filterProgramLabel: "Programa usado",
   filterYearLabel: "Ano de publicacion",
@@ -1630,6 +1641,7 @@ Object.assign(STRINGS.es, SYSTEM_LABEL_STRINGS, {
   visitorTotal: "Visitantes totales",
   visitorSince: "Desde",
   sidebarNews: "Noticias",
+  newsV16: "Renovacion visual retro",
   newsV15: "Filtros ilimitados e hitos del pool",
   newsV14: "Modos de practica y verificador",
   newsV13: "Favoritos y credito parcial",
@@ -1654,6 +1666,9 @@ Object.assign(STRINGS.ko, SYSTEM_LABEL_STRINGS, {
   filterProducerLabel: "\ud504\ub85c\ub4c0\uc11c / \uc544\ud2f0\uc2a4\ud2b8",
   filterVoicebankLabel: "\ubcf4\uc774\uc2a4\ubc45\ud06c / \ubcf4\uceec \uc2e0\uc2a4",
   filterProducerPlaceholder: "\ud504\ub85c\ub4c0\uc11c \uc785\ub825...",
+  filterExcludeLabel: "\uc81c\uc678\ud560 \ud504\ub85c\ub4c0\uc11c",
+  filterExcludePlaceholder: "\uc81c\uc678\ud560 \ud504\ub85c\ub4c0\uc11c \uc785\ub825...",
+  filterTagExclude: (value) => `\uc81c\uc678: ${value}`,
   filterVoicebankPlaceholder: "\ubcf4\uc774\uc2a4\ubc45\ud06c \uc785\ub825...",
   filterProgramLabel: "\uc0ac\uc6a9 \ud504\ub85c\uadf8\ub7a8",
   filterYearLabel: "\uacf5\uac1c \uc5f0\ub3c4",
@@ -1680,6 +1695,7 @@ Object.assign(STRINGS.ko, SYSTEM_LABEL_STRINGS, {
   visitorTotal: "\ucd1d \ubc29\ubb38\uc790",
   visitorSince: "\uc2dc\uc791",
   sidebarNews: "\ub274\uc2a4",
+  newsV16: "\ub808\ud2b8\ub85c UI \uc804\uba74 \uac1c\ud3b8",
   newsV15: "\ubb34\uc81c\ud55c \ud544\ud130 & \ud480 \ub9c8\uc77c\uc2a4\ud1a4",
   newsV14: "\uc5f0\uc2b5 \ubaa8\ub4dc & \ud480 \uccb4\ucee4",
   newsV13: "\ubd81\ub9c8\ud06c & \ubd80\ubd84 \uc77c\uce58",
@@ -1711,6 +1727,17 @@ Object.assign(STRINGS.ko, {
 
 const RELEASE_NOTES = {
   en: {
+    "v1.6": {
+      version: "Release v1.6",
+      intro: "This release is a site-wide visual refresh, giving the whole game a cohesive retro NicoNico look.",
+      items: [
+        "New Unlimited filter: exclude producers / artists. Excluded artists are removed from the pool even in Inclusive mode, show as removable Exclude tags, and count toward the filter badge.",
+        "Refreshed every sidebar box, panel, and modal with a unified retro NicoNico style: red top accents, beveled borders, and hatched monospace headers.",
+        "Redesigned all dialogs (How to Play, About, Support, Release Notes, Achievements, Global Rankings, Archive, Settings) with the new header bars and a properly centered close button.",
+        "Gave the boxes textured panel bodies instead of flat white, and fixed gradient backgrounds being cut off on mobile.",
+        "The new look stays consistent in both light and dark mode, and matches the redesigned VOCALOIDLE home page and Higher / Lower.",
+      ],
+    },
     "v1.5": {
       version: "Release v1.5",
       intro: "This update adds deeper Unlimited song filtering while keeping normal Unlimited stats separate and readable.",
@@ -1807,6 +1834,17 @@ const RELEASE_NOTES = {
     },
   },
   jp: {
+    "v1.6": {
+      version: "\u30EA\u30EA\u30FC\u30B9 v1.6",
+      intro: "\u4ECA\u56DE\u306E\u30A2\u30C3\u30D7\u30C7\u30FC\u30C8\u306F\u30B5\u30A4\u30C8\u5168\u4F53\u306E\u30D3\u30B8\u30E5\u30A2\u30EB\u5237\u65B0\u3067\u3001\u30B2\u30FC\u30E0\u5168\u4F53\u306B\u7D71\u4E00\u611F\u306E\u3042\u308B\u30EC\u30C8\u30ED\u306A\u30CB\u30B3\u30CB\u30B3\u98A8\u30C7\u30B6\u30A4\u30F3\u3092\u9069\u7528\u3057\u307E\u3057\u305F\u3002",
+      items: [
+        "\u7121\u5236\u9650\u30e2\u30fc\u30c9\u306b\u9664\u5916\u30d5\u30a3\u30eb\u30bf\u30fc(\u30d7\u30ed\u30c7\u30e5\u30fc\u30b5\u30fc/\u30a2\u30fc\u30c6\u30a3\u30b9\u30c8)\u3092\u8ffd\u52a0\u3057\u307e\u3057\u305f\u3002\u9664\u5916\u3057\u305f\u30a2\u30fc\u30c6\u30a3\u30b9\u30c8\u306e\u66f2\u306f\u51fa\u984c\u3055\u308c\u307e\u305b\u3093\u3002",
+        "\u3059\u3079\u3066\u306E\u30B5\u30A4\u30C9\u30D0\u30FC\u67A0\u30FB\u30D1\u30CD\u30EB\u30FB\u30E2\u30FC\u30C0\u30EB\u3092\u7D71\u4E00\u3055\u308C\u305F\u30EC\u30C8\u30ED\u306A\u30CB\u30B3\u30CB\u30B3\u98A8\u30C7\u30B6\u30A4\u30F3\u306B\u5237\u65B0\u3057\u307E\u3057\u305F\uFF08\u8D64\u3044\u4E0A\u90E8\u30A2\u30AF\u30BB\u30F3\u30C8\u3001\u30D9\u30D9\u30EB\u67A0\u3001\u30CF\u30C3\u30C1\u30F3\u30B0\u5165\u308A\u306E\u7B49\u5E45\u898B\u51FA\u3057\uFF09\u3002",
+        "\u3059\u3079\u3066\u306E\u30C0\u30A4\u30A2\u30ED\u30B0\uFF08\u904A\u3073\u65B9\u30FB\u6982\u8981\u30FB\u30B5\u30DD\u30FC\u30C8\u30FB\u66F4\u65B0\u60C5\u5831\u30FB\u5B9F\u7E3E\u30FB\u30B0\u30ED\u30FC\u30D0\u30EB\u30E9\u30F3\u30AD\u30F3\u30B0\u30FB\u30A2\u30FC\u30AB\u30A4\u30D6\u30FB\u8A2D\u5B9A\uFF09\u3092\u65B0\u3057\u3044\u898B\u51FA\u3057\u30D0\u30FC\u3068\u4E2D\u592E\u63C3\u3048\u306E\u9589\u3058\u308B\u30DC\u30BF\u30F3\u306B\u5237\u65B0\u3057\u307E\u3057\u305F\u3002",
+        "\u5404\u30DC\u30C3\u30AF\u30B9\u306E\u80CC\u666F\u3092\u771F\u3063\u767D\u304B\u3089\u8CEA\u611F\u306E\u3042\u308B\u30D1\u30CD\u30EB\u306B\u5909\u66F4\u3057\u3001\u30E2\u30D0\u30A4\u30EB\u3067\u30B0\u30E9\u30C7\u30FC\u30B7\u30E7\u30F3\u80CC\u666F\u304C\u9014\u5207\u308C\u308B\u554F\u984C\u3092\u4FEE\u6B63\u3057\u307E\u3057\u305F\u3002",
+        "\u65B0\u30C7\u30B6\u30A4\u30F3\u306F\u30E9\u30A4\u30C8\uFF0F\u30C0\u30FC\u30AF\u4E21\u65B9\u3067\u7D71\u4E00\u3055\u308C\u3001\u5237\u65B0\u3055\u308C\u305FVOCALOIDLE\u30DB\u30FC\u30E0\u30DA\u30FC\u30B8\u3084Higher / Lower\u3068\u3082\u63C3\u3063\u3066\u3044\u307E\u3059\u3002",
+      ],
+    },
     "v1.5": {
       version: "\u30EA\u30EA\u30FC\u30B9 v1.5",
       intro: "\u3053\u306E\u66F4\u65B0\u3067\u306F\u3001\u901A\u5E38\u306E\u7121\u5236\u9650\u7D71\u8A08\u3068\u5206\u3051\u305F\u307E\u307E\u3001\u3088\u308A\u7D30\u304B\u304F\u66F2\u3092\u7D5E\u308A\u8FBC\u3081\u308B\u6A5F\u80FD\u3092\u8FFD\u52A0\u3057\u307E\u3057\u305F\u3002",
@@ -1905,6 +1943,17 @@ const RELEASE_NOTES = {
 
 
 RELEASE_NOTES.ko = {
+  "v1.6": {
+    version: "릴리스 v1.6",
+    intro: "이번 업데이트는 사이트 전체의 시각적 리뉴얼로, 게임 전반에 통일된 레트로 니코니코 스타일을 적용했습니다.",
+    items: [
+        "\ubb34\uc81c\ud55c \ubaa8\ub4dc\uc5d0 \uc81c\uc678 \ud544\ud130(\ud504\ub85c\ub4c0\uc11c/\uc544\ud2f0\uc2a4\ud2b8)\uac00 \ucd94\uac00\ub418\uc5c8\uc2b5\ub2c8\ub2e4. \uc81c\uc678\ud55c \uc544\ud2f0\uc2a4\ud2b8\uc758 \uace1\uc740 \ucd9c\uc81c\ub418\uc9c0 \uc54a\uc2b5\ub2c8\ub2e4.",
+      "모든 사이드바 박스, 패널, 모달을 통일된 레트로 니코니코 스타일로 새롭게 디자인했습니다(빨간 상단 액센트, 베벨 테두리, 해치 무늬 고정폭 헤더).",
+      "모든 대화상자(플레이 방법, 정보, 지원, 업데이트 내역, 업적, 글로벌 랭킹, 아카이브, 설정)를 새 헤더 바와 가운데 정렬된 닫기 버튼으로 다시 디자인했습니다.",
+      "박스 본문을 단조로운 흰색 대신 질감 있는 패널로 바꾸고, 모바일에서 그라데이션 배경이 잘리는 문제를 수정했습니다.",
+      "새 디자인은 라이트/다크 모드 모두에서 통일되며, 새로워진 VOCALOIDLE 홈페이지 및 Higher / Lower와도 어울립니다.",
+    ],
+  },
   "v1.5": {
     version: "릴리스 v1.5",
     intro: "이번 업데이트는 일반 무제한 통계와 분리된 상태로 더 자세한 무제한 곡 필터를 추가합니다.",
@@ -1992,6 +2041,17 @@ RELEASE_NOTES.ko = {
 };
 
 RELEASE_NOTES.es = {
+  "v1.6": {
+    version: "Version v1.6",
+    intro: "Esta actualizacion es una renovacion visual de todo el sitio, dando al juego un estilo retro tipo NicoNico coherente.",
+    items: [
+        "Nuevo filtro de Ilimitado: excluir productores / artistas. Las canciones de los artistas excluidos no aparecen, incluso en modo Inclusivo.",
+      "Renovamos cada caja lateral, panel y ventana modal con un estilo retro tipo NicoNico unificado: acentos rojos arriba, bordes biselados y encabezados monoespaciados con trama.",
+      "Redisenamos todos los dialogos (Como jugar, Acerca de, Apoyo, Notas de version, Logros, Rankings globales, Archivo, Ajustes) con las nuevas barras de encabezado y un boton de cerrar bien centrado.",
+      "Las cajas ahora tienen fondos con textura en lugar de blanco plano, y se corrigio que los fondos degradados se cortaran en movil.",
+      "El nuevo aspecto se mantiene coherente en modo claro y oscuro, y combina con la pagina de inicio de VOCALOIDLE y Higher / Lower renovadas.",
+    ],
+  },
   "v1.5": {
     version: "Version v1.5",
     intro: "Esta actualizacion agrega filtros mas detallados para Unlimited manteniendo sus estadisticas separadas.",
@@ -3047,6 +3107,7 @@ function applyLanguage() {
   set(".sidebar-milestones-footer", "milestoneFooter");
   set(".visitor-total-label", "visitorTotal");
   set(".visitor-since-label", "visitorSince");
+  set(".news-v16", "newsV16");
   set(".news-v15", "newsV15");
   set(".news-v14", "newsV14");
   set(".news-v13", "newsV13");
@@ -3135,6 +3196,9 @@ function applyLanguage() {
   set("#filter-voicebank-label", "filterVoicebankLabel");
   const filterProducerInputEl = document.querySelector("#filter-producer-input");
   if (filterProducerInputEl) filterProducerInputEl.placeholder = t("filterProducerPlaceholder");
+  set("#filter-exclude-label", "filterExcludeLabel");
+  const filterExcludeInputEl = document.querySelector("#filter-exclude-input");
+  if (filterExcludeInputEl) filterExcludeInputEl.placeholder = t("filterExcludePlaceholder");
   const filterVoicebankInputEl = document.querySelector("#filter-voicebank-input");
   if (filterVoicebankInputEl) filterVoicebankInputEl.placeholder = t("filterVoicebankPlaceholder");
   set("#filter-program-label", "filterProgramLabel");
@@ -3509,6 +3573,9 @@ const difficultyModeButtons = [...document.querySelectorAll("[data-unlimited-dif
 const unlimitedFilterButton = document.querySelector("#unlimited-filter-button");
 const filterTagList = document.querySelector("#filter-tag-list");
 const filterProducerInput = document.querySelector("#filter-producer-input");
+const filterExcludeInput = document.querySelector("#filter-exclude-input");
+const filterExcludeSuggestions = document.querySelector("#filter-exclude-suggestions");
+const filterExcludeSelected = document.querySelector("#filter-exclude-selected");
 const filterVoicebankInput = document.querySelector("#filter-voicebank-input");
 const filterProducerSuggestions = document.querySelector("#filter-producer-suggestions");
 const filterVoicebankSuggestions = document.querySelector("#filter-voicebank-suggestions");
@@ -3751,6 +3818,7 @@ function normalizeFilterList(value) {
 function getDefaultUnlimitedFilters() {
   return {
     producers: [],
+    excludeProducers: [],
     voicebanks: [],
     programs: [],
     years: [],
@@ -3764,6 +3832,7 @@ function normalizeUnlimitedFilters(value) {
   const source = isPlainObject(value) ? value : {};
   return {
     producers: normalizeFilterList(source.producers || source.producer ? [].concat(source.producers || source.producer) : []),
+    excludeProducers: normalizeFilterList(source.excludeProducers ? [].concat(source.excludeProducers) : []),
     voicebanks: normalizeFilterList(source.voicebanks || source.voicebank ? [].concat(source.voicebanks || source.voicebank) : []),
     programs: normalizeFilterList(source.programs).filter((program) => FILTER_PROGRAMS.includes(program)),
     years: normalizeFilterList(source.years).filter((year) => FILTER_YEARS.includes(year)).sort(),
@@ -3790,6 +3859,7 @@ function saveUnlimitedFilters(filters) {
 function getActiveFilterCount(filters = state.unlimitedFilters || getDefaultUnlimitedFilters()) {
   return [
     filters.producers?.length,
+    filters.excludeProducers?.length,
     filters.voicebanks?.length,
     filters.programs?.length,
     filters.years?.length,
@@ -3901,6 +3971,11 @@ function songMatchesOneFilterCategory(song, filters, category) {
 }
 
 function songMatchesUnlimitedFilters(song, filters = state.unlimitedFilters || getDefaultUnlimitedFilters()) {
+  // Excluded producers are a hard veto, independent of inclusive mode.
+  if (filters.excludeProducers?.length) {
+    const names = new Set(getFilterProducerNames(song).map(normalizeGuess));
+    if (filters.excludeProducers.some((name) => names.has(normalizeGuess(name)))) return false;
+  }
   const checks = ["producers", "voicebanks", "programs", "years", "community", "newSongs"]
     .map((category) => songMatchesOneFilterCategory(song, filters, category))
     .filter((value) => value !== null);
@@ -6246,6 +6321,7 @@ function formatYearRanges(years = []) {
 function buildFilterTags(filters = state.unlimitedFilters || getDefaultUnlimitedFilters()) {
   const tags = [];
   filters.producers.forEach((producer) => tags.push({ type: "producer", value: producer, label: t("filterTagProducer", producer) }));
+  filters.excludeProducers.forEach((producer) => tags.push({ type: "exclude", value: producer, label: t("filterTagExclude", producer) }));
   filters.voicebanks.forEach((voicebank) => tags.push({ type: "voicebank", value: voicebank, label: t("filterTagVoicebank", getVoicebankTagName(voicebank)) }));
   filters.programs.forEach((program) => tags.push({ type: "program", value: program, label: t("filterTagProgram", program) }));
   if (filters.years.length) tags.push({ type: "years", value: "", label: t("filterTagYears", formatYearRanges(filters.years)) });
@@ -6257,6 +6333,7 @@ function buildFilterTags(filters = state.unlimitedFilters || getDefaultUnlimited
 function removeUnlimitedFilterTag(type, value) {
   const filters = normalizeUnlimitedFilters(state.unlimitedFilters);
   if (type === "producer") filters.producers = filters.producers.filter((item) => item !== value);
+  if (type === "exclude") filters.excludeProducers = filters.excludeProducers.filter((item) => item !== value);
   if (type === "voicebank") filters.voicebanks = filters.voicebanks.filter((item) => item !== value);
   if (type === "program") filters.programs = filters.programs.filter((item) => item !== value);
   if (type === "years") filters.years = [];
@@ -6295,7 +6372,7 @@ function getFilterOptionSongCount(option, type) {
   const normalizedOption = normalizeGuess(option);
   return songs.filter((song) => {
     if (!song.audioClip) return false;
-    const names = type === "producer" ? getFilterProducerNames(song) : getFilterVoicebankNames(song);
+    const names = type === "voicebank" ? getFilterVoicebankNames(song) : getFilterProducerNames(song);
     return names.some((name) => normalizeGuess(name) === normalizedOption);
   }).length;
 }
@@ -6327,23 +6404,28 @@ function renderFilterSuggestions(input, list, options, selected, type) {
   list.innerHTML = matches.map((option) => `
     <li data-filter-select="${escapeHtml(type)}" data-filter-value="${escapeHtml(option)}">
       <span class="filter-suggestion-title">${highlightMatch(type === "voicebank" ? getVoicebankTagName(option) : option, query)}</span>
-      <span class="filter-suggestion-meta">${escapeHtml(type === "voicebank" ? t("filterVoicebankLabel") : t("filterProducerLabel"))} · ${escapeHtml(t("filterSongsMatch", getFilterOptionSongCount(option, type)))}</span>
+      <span class="filter-suggestion-meta">${escapeHtml(type === "voicebank" ? t("filterVoicebankLabel") : type === "exclude" ? t("filterExcludeLabel") : t("filterProducerLabel"))} · ${escapeHtml(t("filterSongsMatch", getFilterOptionSongCount(option, type)))}</span>
     </li>
   `).join("");
 }
 
+function filterKeyForType(type) {
+  return type === "producer" ? "producers" : type === "exclude" ? "excludeProducers" : "voicebanks";
+}
+
 function addFilterValue(type, value) {
   if (!filterDraft) filterDraft = normalizeUnlimitedFilters(state.unlimitedFilters);
-  const key = type === "producer" ? "producers" : "voicebanks";
+  const key = filterKeyForType(type);
   filterDraft[key] = normalizeFilterList([...filterDraft[key], value]);
   if (type === "producer" && filterProducerInput) filterProducerInput.value = "";
+  if (type === "exclude" && filterExcludeInput) filterExcludeInput.value = "";
   if (type === "voicebank" && filterVoicebankInput) filterVoicebankInput.value = "";
   renderUnlimitedFilterModal();
 }
 
 function removeFilterValue(type, value) {
   if (!filterDraft) filterDraft = normalizeUnlimitedFilters(state.unlimitedFilters);
-  const key = type === "producer" ? "producers" : "voicebanks";
+  const key = filterKeyForType(type);
   filterDraft[key] = filterDraft[key].filter((item) => item !== value);
   renderUnlimitedFilterModal();
 }
@@ -6375,8 +6457,10 @@ function toggleYearRange(range) {
 function renderUnlimitedFilterModal() {
   if (!filterDraft) filterDraft = normalizeUnlimitedFilters(state.unlimitedFilters);
   renderFilterSelected(filterProducerSelected, filterDraft.producers, "producer");
+  renderFilterSelected(filterExcludeSelected, filterDraft.excludeProducers, "exclude");
   renderFilterSelected(filterVoicebankSelected, filterDraft.voicebanks, "voicebank");
   renderFilterSuggestions(filterProducerInput, filterProducerSuggestions, producerFilterOptions, filterDraft.producers, "producer");
+  renderFilterSuggestions(filterExcludeInput, filterExcludeSuggestions, producerFilterOptions, filterDraft.excludeProducers, "exclude");
   renderFilterSuggestions(filterVoicebankInput, filterVoicebankSuggestions, voicebankFilterOptions, filterDraft.voicebanks, "voicebank");
 
   filterProgramList?.querySelectorAll("[data-filter-program]").forEach((button) => {
@@ -8332,6 +8416,23 @@ unlimitedFilterButton?.addEventListener("click", () => {
 });
 
 filterProducerInput?.addEventListener("input", () => renderUnlimitedFilterModal());
+filterExcludeInput?.addEventListener("input", () => renderUnlimitedFilterModal());
+filterExcludeInput?.addEventListener("keydown", (event) => {
+  if (event.key !== "Enter") return;
+  event.preventDefault();
+  const first = filterExcludeSuggestions?.querySelector("[data-filter-value]");
+  if (first) addFilterValue("exclude", first.dataset.filterValue);
+});
+filterExcludeSuggestions?.addEventListener("mousedown", (event) => {
+  const item = event.target.closest("[data-filter-select]");
+  if (!item) return;
+  event.preventDefault();
+  addFilterValue("exclude", item.dataset.filterValue);
+});
+filterExcludeSelected?.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-filter-remove]");
+  if (button) removeFilterValue(button.dataset.filterRemove, button.dataset.filterValue);
+});
 filterVoicebankInput?.addEventListener("input", () => renderUnlimitedFilterModal());
 filterProducerInput?.addEventListener("keydown", (event) => {
   if (event.key !== "Enter") return;
@@ -8405,6 +8506,7 @@ filterInclusive?.addEventListener("change", () => {
 filterClearButton?.addEventListener("click", () => {
   filterDraft = getDefaultUnlimitedFilters();
   if (filterProducerInput) filterProducerInput.value = "";
+  if (filterExcludeInput) filterExcludeInput.value = "";
   if (filterVoicebankInput) filterVoicebankInput.value = "";
   renderUnlimitedFilterModal();
 });
@@ -8715,7 +8817,7 @@ statsDifficultyButtons.forEach((button) => {
 
 document.querySelectorAll(".release-tab").forEach((button) => {
   button.addEventListener("click", () => {
-    currentReleaseVersion = button.dataset.releaseVersion || "v1.5";
+    currentReleaseVersion = button.dataset.releaseVersion || "v1.6";
     renderReleaseNotes();
   });
 });

@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>39charts — Add Song</title>
+<meta property="og:site_name" content="39charts">
+<meta property="og:title" content="39charts — Add a song">
+<meta property="og:description" content="Suggest a Vocaloid song for the 39charts rankings — song info is fetched from VocaDB automatically.">
+<meta property="og:type" content="website">
+<meta name="description" content="Suggest a Vocaloid song for the 39charts rankings — song info is fetched from VocaDB automatically.">
+<script>try{if(localStorage.getItem("39c_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
 <style>
 :root {
   --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
@@ -37,6 +43,8 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
   justify-content: space-between; padding: 0 10px;
   font-size: 11px; color: #777;
 }
+.nnd-topbar-right { color: #666; font-size: 11px; }
+
 /* ── MAIN HEADER ── */
 .nnd-mainbar {
   width: 100%; background: #fff; border-bottom: 2px solid var(--red);
@@ -63,22 +71,164 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 .nnd-header-links a:active { background: #ece9e2; border-color: #9a968e #fff #fff #9a968e; }
 .nnd-divider { color: var(--line); }
 
-/* ── BODY ── */
-.nnd-body { flex: 1 0 auto; width: 100%; max-width: 760px; margin: 0 auto; padding: 8px; }
-.nnd-main { display: flex; flex-direction: column; gap: 6px; }
+/* Ko-fi support button (same as the games) */
+.nnd-header-links a.nnd-kofi {
+  background: var(--red); color: #fff; padding: 3px 9px;
+  border: 1px solid var(--red-dark); font-weight: 700;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
+}
+.nnd-header-links a.nnd-kofi:hover { background: #b30000; color: #fff; text-decoration: none; border-color: var(--red-dark); }
+
+/* ── [INFO] MARQUEE ── */
+.nnd-marquee-bar {
+  width: 100%;
+  background:
+    repeating-linear-gradient(0deg, rgba(204,153,0,0.08) 0, rgba(204,153,0,0.08) 1px, transparent 1px, transparent 4px),
+    #fffde8;
+  border-bottom: 1px solid #d0c878;
+  height: 20px; display: flex; align-items: center; overflow: hidden; font-size: 11px;
+}
+.nnd-marquee-label {
+  flex-shrink: 0; padding: 0 7px; background: #cc9900; color: #fff;
+  font-weight: 700; font-size: 10px; height: 100%;
+  display: flex; align-items: center; border-right: 1px solid #aa7700;
+}
+.nnd-marquee-wrap { flex: 1; overflow: hidden; height: 100%; display: flex; align-items: center; }
+.nnd-marquee-inner {
+  white-space: nowrap; color: #555500;
+  animation: marquee-scroll 32s linear infinite; padding-left: 100%;
+}
+@keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) { .nnd-marquee-inner { animation: none; padding-left: 0; } }
+
+/* ── TAG ROW ── */
+.nnd-tag-row {
+  width: 100%; background: var(--sf); border-bottom: 1px solid var(--line);
+  padding: 2px 8px; display: flex; align-items: center; gap: 3px; flex-wrap: wrap; font-size: 11px;
+}
+.nnd-tag-label { color: var(--faint); font-size: 11px; flex-shrink: 0; margin-right: 2px; }
+.nnd-tag {
+  display: inline-block; padding: 0 6px;
+  background: #f2f0ff; border: 1px solid #aeb5df; color: #3f268e;
+  font-size: 10px; line-height: 15px;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+}
+
+/* ── SIDE RAILS ── */
+.page-rail {
+  position: absolute; top: 150px; height: 400px; z-index: 0; width: 22px;
+  pointer-events: none; color: rgba(90,90,90,0.30);
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1;
+}
+.page-rail::before { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(0,0,0,0.10); }
+.page-rail span { position: absolute; top: 34px; white-space: nowrap; }
+.page-rail-left { right: calc(50% + 590px); }
+.page-rail-left::before { right: 0; }
+.page-rail-left span { right: 8px; transform: rotate(-90deg); transform-origin: right top; }
+.page-rail-right { left: calc(50% + 590px); }
+.page-rail-right::before { left: 0; }
+.page-rail-right span { left: 8px; transform: rotate(90deg); transform-origin: left top; }
+@media (max-width: 1260px) { .page-rail { display: none; } }
+
+/* ── BODY LAYOUT ── */
+.nnd-body {
+  flex: 1 0 auto; width: 100%; max-width: 1160px; margin: 0 auto; padding: 8px 10px;
+  display: flex; gap: 6px; align-items: flex-start; position: relative;
+}
+.nnd-sidebar { width: 200px; min-width: 200px; display: flex; flex-direction: column; gap: 5px; }
+.nnd-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+
+/* ── SIDEBAR PANELS ── */
+.sidebar-panel {
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.sidebar-header {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 8px; font-size: 11px; font-weight: 700; color: var(--text);
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+}
+.sidebar-body { padding: 6px 8px; }
+
+.htp-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 5px; }
+.htp-list li {
+  font-size: 10px; color: var(--muted); line-height: 1.5;
+  padding-left: 17px; position: relative;
+}
+.htp-list li::before {
+  position: absolute; left: 0; top: 1px;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 12px; height: 12px; color: #fff;
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+  font-size: 8px; font-weight: 900; content: attr(data-n);
+}
+.htp-list li strong { color: var(--text); }
+
+.links-list { display: flex; flex-direction: column; }
+.links-list a { display: block; padding: 4px 8px; font-size: 10px; color: var(--link); border-bottom: 1px solid var(--line); }
+.links-list a:last-child { border-bottom: none; }
+.links-list a::before { content: "\25B8"; color: var(--red); margin-right: 5px; }
+.links-list a:hover { color: var(--red); background: #fff0f0; text-decoration: none; }
+
+/* ── MODE BAR ── */
+.game-mode-bar {
+  display: flex; align-items: stretch; gap: 4px;
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #fbfaf6, #e6e3dc);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.85), inset -1px -1px 0 rgba(0,0,0,0.10);
+  padding: 3px 5px 0;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+}
+.game-mode-tabs { display: flex; align-items: flex-end; gap: 3px; }
+.game-mode-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px 6px; border: 2px solid; border-bottom: 0;
+  border-color: #fff var(--ls) var(--ls) #fff; margin-bottom: -2px;
+  background: linear-gradient(to bottom, #f3f1ea, #dcd8cf); color: var(--muted);
+  font-family: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  cursor: pointer; white-space: nowrap; text-decoration: none;
+}
+.game-mode-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff6f6, #f1dcdc); text-decoration: none; }
+.game-mode-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  color: #fff; padding-bottom: 8px; z-index: 2;
+  border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
+}
+.game-mode-hint {
+  margin-left: auto; align-self: center; display: flex; align-items: center; gap: 6px;
+  padding: 4px 10px; color: var(--muted); font-family: inherit;
+  font-size: 10px; letter-spacing: 0.04em;
+}
+.game-mode-hint::before { content: "\25B6"; color: var(--red); font-size: 8px; }
 
 /* ── PANELS ── */
 .panel {
-  background: var(--surface); border: 1px solid var(--line);
-  border-top: 3px solid var(--red);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
 }
 .panel-header {
-  background: linear-gradient(to bottom,#f0f0f0,#e0e0e0);
-  border-bottom: 1px solid var(--line);
-  padding: 4px 10px; font-size: 12px; font-weight: 700; color: var(--text);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
-  display: flex; align-items: center; gap: 6px;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 10px; font-size: 11px; font-weight: 700; color: var(--text);
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
 }
 .panel-body { padding: 12px 14px; }
 
@@ -92,11 +242,12 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 .fetch-input:focus { outline: none; border-color: var(--link); box-shadow: inset 0 1px 2px rgba(0,0,0,0.08), 0 0 0 2px rgba(0,102,204,0.18); }
 .fetch-btn {
   height: 28px; padding: 0 14px;
-  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #cc0000 100%);
   color: #fff; border: 1px solid var(--red-dark); font-size: 12px; font-weight: 700;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
 }
-.fetch-btn:hover { background: linear-gradient(to bottom,#dd1111,#aa0000); }
+.fetch-btn:hover { background: linear-gradient(to bottom, #ff6666 0%, #ee3333 48%, #cc1111 52%, #dd1111 100%); }
 .fetch-btn:disabled { opacity: 0.5; cursor: default; }
 .fetch-hint { font-size: 10px; color: var(--faint); margin-top: 5px; }
 
@@ -115,7 +266,7 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 .vtag-meiko  { background: #fce8e6; border-color: #e53935; color: #b71c1c; }
 .vtag-teto   { background: #fde8ec; border-color: #d44466; color: #8c1030; }
 .vtag-flower { background: #f0e4f8; border-color: #9040a0; color: #581070; }
-.vtag-kafu   { background: #d8f0f8; border-color: #2096b8; color: #005878; }
+.vtag-kafu   { background: #f0e6fa; border-color: #b48ad8; color: #6a3a9a; }
 .vtag-una    { background: #fdf0d0; border-color: #e08000; color: #7a4000; }
 .vtag-yuki   { background: #fff8d0; border-color: #b09000; color: #5a4800; }
 .vtag-rei    { background: #fce0f0; border-color: #cc3080; color: #880050; }
@@ -124,7 +275,7 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 
 /* ── PREVIEW ── */
 .preview-wrap {
-  background: var(--surface); border: 1px solid var(--green-line);
+  background: var(--surface); border: 2px solid var(--green-line);
   border-top: 3px solid var(--green);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
 }
@@ -139,6 +290,7 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 .preview-thumb {
   flex-shrink: 0; width: 120px; height: 68px;
   background: #1a1a1a; overflow: hidden; position: relative;
+  border: 1px solid #777;
 }
 .preview-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .preview-meta { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
@@ -161,6 +313,11 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
 }
 .note-input:focus, .tier-select:focus { outline: none; border-color: var(--link); }
+.plat-chip { display: inline-block; padding: 0 5px; font-size: 9px; line-height: 14px; border: 1px solid; font-weight: 700; }
+.plat-chip.pc-nnd  { background: #f0f0ee; border-color: #888; color: #333; }
+.plat-chip.pc-yt   { background: #fdeaea; border-color: #cc4444; color: #990000; }
+.plat-chip.pc-bili { background: #e2f4fb; border-color: #35a0cd; color: #0f6488; }
+.preview-hint { padding: 5px 12px 7px; font-size: 10px; color: var(--faint); background: var(--sf); border-top: 1px dotted var(--line); }
 .platform-checks { display: flex; gap: 8px; }
 .platform-checks label { font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 3px; cursor: pointer; }
 .submit-btn {
@@ -174,7 +331,7 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 
 /* ── STATUS MESSAGES ── */
 .msg {
-  padding: 10px 12px; font-size: 11px; border: 1px solid;
+  padding: 10px 12px; font-size: 11px; border: 2px solid;
   border-top-width: 3px;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
 }
@@ -185,28 +342,35 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 /* ── NOTE BOX ── */
 .note-box {
   background: var(--amber-bg); border: 1px solid var(--amber-line);
+  border-left: 3px solid #cc9900;
   padding: 8px 12px; font-size: 11px; color: var(--amber);
   display: flex; gap: 6px; align-items: flex-start;
 }
 
 /* ── ADMIN PANEL ── */
 .admin-panel {
-  background: var(--surface); border: 1px solid var(--blue-line);
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--blue-line);
   border-top: 3px solid var(--blue);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), 0 1px 2px rgba(0,0,0,0.08);
 }
 .admin-header {
-  background: linear-gradient(to bottom,#dde8f8,#c8d8f0);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,60,0.03) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom,#dde8f8,#c8d8f0);
   border-bottom: 1px solid var(--blue-line);
-  padding: 4px 10px; font-size: 12px; font-weight: 700; color: var(--blue);
-  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  padding: 4px 10px; font-size: 11px; font-weight: 700; color: var(--blue);
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
 }
 .admin-token-row { display: flex; gap: 5px; align-items: center; }
 .admin-token-input {
-  height: 22px; padding: 0 7px; font-size: 11px; width: 220px;
+  height: 22px; padding: 0 7px; font-size: 11px; width: 200px;
   background: #fff; border: 1px solid var(--blue-line);
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.06);
+  font-family: "MS PGothic", sans-serif; letter-spacing: 0; text-transform: none;
 }
 .admin-token-input:focus { outline: none; border-color: var(--blue); }
 .admin-load-btn {
@@ -233,9 +397,12 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
   padding: 7px 10px; border-bottom: 1px solid var(--line);
 }
 .sub-item:last-child { border-bottom: none; }
+.sub-item:nth-child(even) { background: #f6f5f0; }
+.sub-item:hover { background: #f0f4fb; }
 .sub-thumb {
   flex-shrink: 0; width: 64px; height: 36px;
   background: #1a1a1a; overflow: hidden; position: relative;
+  border: 1px solid #8a867e;
 }
 .sub-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .sub-info { flex: 1; min-width: 0; }
@@ -244,8 +411,9 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 .sub-note  { font-size: 10px; color: var(--faint); font-style: italic; }
 .sub-tier  {
   display: inline-block; padding: 0 4px;
-  background: var(--red); color: #fff;
-  font-size: 9px; font-weight: 700; line-height: 14px; flex-shrink: 0;
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  border: 1px solid var(--red-dark);
+  color: #fff; font-size: 9px; font-weight: 700; line-height: 14px; flex-shrink: 0;
 }
 .sub-actions { display: flex; gap: 4px; flex-shrink: 0; }
 .approve-btn {
@@ -262,21 +430,196 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 .reject-btn:hover { background: linear-gradient(to bottom,#fff5f5,#ffd0d0); color: var(--red); border-color: var(--red); }
 .sub-date  { font-size: 9px; color: var(--faint); flex-shrink: 0; white-space: nowrap; }
 
+/* ── ADD-SONG ACCENT TAB ── */
+/* + Add Song renders as a normal tab */
+
+/* ── SETTINGS MODAL ── */
+.settings-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; }
+.settings-modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 101; width: min(100vw - 32px, 340px);
+  background: var(--surface);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  padding: 14px;
+}
+.settings-title {
+  margin: -14px -14px 12px; padding: 5px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  font-size: 12px; font-weight: 700; color: var(--text);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+}
+.settings-close {
+  width: 20px; height: 20px; padding: 0; line-height: 1;
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
+  border: 1px solid var(--ls); color: var(--muted);
+  font-size: 10px; font-weight: 700;
+}
+.settings-close:hover { background: linear-gradient(to bottom, #fff5f5, #ffcccc); color: var(--red); }
+.settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
+.settings-row .s-label { font-size: 12px; font-weight: 700; color: var(--text); }
+.settings-row .s-desc { font-size: 10px; color: var(--faint); }
+.settings-toggle {
+  flex-shrink: 0; height: 24px; min-width: 46px; padding: 0 10px;
+  font-size: 11px; font-weight: 700; color: var(--faint);
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.settings-toggle.is-on {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; border-color: var(--red-dark);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+
+/* ── DARK MODE ── */
+html.dark-mode {
+  --bg: #121212; --surface: #1a1a1a; --sf: #161616;
+  --text: #e1e1e1; --muted: #a6a39c; --faint: #7c7c7c;
+  --line: #2c2c2c; --ls: #3b3b3b;
+  --red: #dd2222; --link: #5aa0e0;
+}
+html.dark-mode body {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+}
+html.dark-mode .nnd-mainbar { background: #161616; }
+html.dark-mode .nnd-logo-text { color: #e1e1e1; }
+html.dark-mode .nnd-header-links a:hover { background: #241f1a; border-color: #3b3b3b; }
+html.dark-mode .nnd-marquee-bar { background: #211d09; border-color: #5a4a16; }
+html.dark-mode .nnd-marquee-inner { color: #d6c266; }
+html.dark-mode .nnd-marquee-label { background: #6e5a10; border-right-color: #4a3c0a; }
+html.dark-mode .nnd-tag-row { background: #161616; border-color: #2c2c2c; }
+html.dark-mode .nnd-tag { background: #1d1a2e; border-color: #3a3560; color: #9a90d8; box-shadow: none; }
+html.dark-mode .sidebar-header,
+html.dark-mode .rank-section-header,
+html.dark-mode .settings-title {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+  border-color: #3b3b3b; box-shadow: none; color: #cccccc;
+}
+html.dark-mode .sidebar-panel,
+html.dark-mode .rank-section {
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35);
+}
+html.dark-mode .game-mode-bar {
+  background: linear-gradient(to bottom, #232323, #181818);
+  border-color: #3b3b3b; border-top-color: var(--red); box-shadow: none;
+}
+html.dark-mode .game-mode-btn {
+  background: linear-gradient(to bottom, #2a2a2a, #1d1d1d);
+  color: #888888; border-color: #4a4a4a #111 #111 #4a4a4a;
+}
+html.dark-mode .game-mode-btn:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .game-mode-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), #8f0000);
+  color: #fff; border-color: var(--red) #8f0000 #8f0000 var(--red);
+}
+html.dark-mode .sort-btn,
+html.dark-mode .settings-toggle,
+html.dark-mode .settings-close {
+  background: linear-gradient(to bottom, #2e2e2e, #1e1e1e);
+  border-color: #3b3b3b; color: var(--muted); box-shadow: none;
+}
+html.dark-mode .sort-btn:hover, html.dark-mode .settings-close:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .sort-btn.is-active, html.dark-mode .settings-toggle.is-on {
+  background: linear-gradient(to bottom, #b01111, #7a0808);
+  color: #fff; border-color: #5a0505;
+}
+html.dark-mode .sidebar-body input[type="text"] { background: #111111; color: var(--text); border-color: #3b3b3b; }
+html.dark-mode .stats-table tr:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .stats-table tr:hover, html.dark-mode .links-list a:hover { background: #2a1414; }
+html.dark-mode .producer-card { background: var(--surface); border-color: #2c2c2c; }
+html.dark-mode .producer-foot { background: #161616; border-top-color: #2c2c2c; }
+html.dark-mode .vtag { background: #1d1d1d; }
+html.dark-mode .site-footer {
+  background: linear-gradient(to bottom, #1c1c1c, #141414);
+  border-top-color: var(--red); box-shadow: none;
+}
+/* dark: main panels + form controls */
+html.dark-mode .panel-header {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+  border-color: #3b3b3b; box-shadow: none; color: #cccccc;
+}
+html.dark-mode .panel { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35); }
+html.dark-mode .fetch-input,
+html.dark-mode .note-input,
+html.dark-mode .plat-chip.pc-nnd  { background: #222; border-color: #555; color: #aaa; }
+html.dark-mode .plat-chip.pc-yt   { background: #2b1616; border-color: #7a3030; color: #e08080; }
+html.dark-mode .plat-chip.pc-bili { background: #10222c; border-color: #2a5a70; color: #6ab8d8; }
+html.dark-mode .tier-select,
+html.dark-mode .admin-token-input { background: #111111; color: var(--text); border-color: #3b3b3b; box-shadow: none; }
+html.dark-mode .note-box { background: #221d09; border-color: #4a3c0a; border-left-color: #8a6a10; color: #d6c266; }
+html.dark-mode .htp-list li::before { background: linear-gradient(to bottom, #b01111, #7a0808); box-shadow: none; }
+/* dark: admin panel */
+html.dark-mode .admin-panel {
+  background: linear-gradient(to bottom, #1a1a1a, #161616);
+  border-color: #2a3a55; border-top-color: #3a5a90; box-shadow: none;
+}
+html.dark-mode .admin-header {
+  background: linear-gradient(to bottom, #1d2634, #141a24);
+  border-bottom-color: #2a3a55; color: #7ea6dd; box-shadow: none;
+}
+html.dark-mode .admin-export-btn { background: linear-gradient(to bottom, #232a36, #181e28); color: #7ea6dd; border-color: #2a3a55; box-shadow: none; }
+html.dark-mode .admin-export-btn:hover { background: #1d2634; }
+html.dark-mode .sub-item:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .sub-item:hover { background: #1a2230; }
+html.dark-mode .reject-btn { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted); }
+html.dark-mode .reject-btn:hover { background: #2b2020; color: var(--red); border-color: var(--red); }
+/* dark: preview + status */
+html.dark-mode .preview-wrap { background: var(--surface); border-color: #2a5a2a; border-top-color: #2a8a2a; box-shadow: none; }
+html.dark-mode .preview-head { background: #14260f; border-bottom-color: #2a5a2a; color: #7ac878; }
+html.dark-mode .preview-wrap.is-dupe { border-color: #4a3c0a; border-top-color: #8a6a10; }
+html.dark-mode .preview-head.is-dupe { background: #221d09; border-bottom-color: #4a3c0a; color: #d6c266; }
+html.dark-mode .preview-foot { background: #161616; border-top-color: #2c2c2c; }
+html.dark-mode .msg-ok  { background: #14260f; border-color: #2a5a2a; border-top-color: #2a8a2a; color: #7ac878; box-shadow: none; }
+html.dark-mode .msg-err { background: #2a1414; border-color: #5a2a2a; border-top-color: var(--red); color: #e08080; box-shadow: none; }
+
+/* ── UPDATES MODAL ── */
+.updates-list { list-style: none; margin-top: 2px; max-height: 320px; overflow-y: auto; }
+.updates-list li { padding: 7px 0; border-bottom: 1px dotted var(--line); font-size: 11px; color: var(--muted); line-height: 1.55; }
+.updates-list li:last-child { border-bottom: none; }
+.updates-ver {
+  display: inline-block; padding: 0 5px; margin-right: 6px;
+  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  color: #fff; font-weight: 900; font-size: 9px; line-height: 15px;
+  font-family: "MS Gothic", "Courier New", monospace;
+}
+.upd-head { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+.upd-head strong { flex: 1; }
+.updates-date { color: var(--faint); font-size: 9px; white-space: nowrap; }
+.updates-list strong { color: var(--text); }
+
 /* ── FOOTER ── */
 .site-footer {
-  flex-shrink: 0; width: 100%; background: #e0e0e0;
-  border-top: 1px solid var(--ls); padding: 5px 10px;
-  font-size: 11px; color: var(--faint); text-align: center;
+  flex-shrink: 0; width: 100%; position: relative;
+  background: linear-gradient(to bottom, #ececea, #dcdad4);
+  border-top: 2px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 7px 10px 8px; text-align: center;
 }
-.site-footer a { color: var(--link); font-size: 11px; }
-.site-footer a:hover { text-decoration: underline; }
+.footer-copy { margin: 0; color: var(--faint); font-size: 10px; }
+.footer-pagetop { position: absolute; top: 8px; right: 10px; font-size: 10px; color: var(--link); white-space: nowrap; }
+.footer-pagetop:hover { text-decoration: underline; color: var(--red); }
+
+@media (max-width: 860px) {
+  .nnd-body { flex-direction: column; }
+  .nnd-sidebar { width: 100%; min-width: 0; flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+  .nnd-sidebar .sidebar-panel { flex: 1 1 240px; }
+}
+@media (max-width: 460px) { .nnd-header-links { display: none; } }
 </style>
 </head>
 <body>
 
 <div class="nnd-topbar">
-  <span>39charts &rsaquo; Add Song</span>
-  <span style="color:#666;font-size:11px">Song Submission</span>
+  <span>Charts &gt; Music &gt; VOCALOID &gt; 39charts &gt; Add Song</span>
+  <span class="nnd-topbar-right">Song Submission</span>
 </div>
 
 <div class="nnd-mainbar">
@@ -285,21 +628,71 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
     <span class="nnd-logo-text">39charts<span class="nnd-logo-sub">Vocaloid Song Rankings</span></span>
   </a>
   <nav class="nnd-header-links">
-    <a href="index.html">Rankings</a>
+    <a href="#" id="updates-open">Updates</a>
     <span class="nnd-divider">|</span>
-    <a href="producers.html">Producers</a>
-    <span class="nnd-divider">|</span>
-    <a href="about.html">About</a>
-    <span class="nnd-divider">|</span>
-    <a href="add.html">+ Add Song</a>
+    <a href="#" id="settings-open">Settings</a>
+    <span class="nnd-divider" style="color:var(--line)">|</span>
+    <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
   </nav>
 </div>
 
+<div class="nnd-marquee-bar">
+  <span class="nnd-marquee-label">[INFO]</span>
+  <div class="nnd-marquee-wrap">
+    <div class="nnd-marquee-inner">
+      ★ Know a song that belongs on the charts? Paste its VocaDB link below &nbsp;·&nbsp;
+      ★ Suggestions go into a review queue before appearing in the rankings &nbsp;·&nbsp;
+      ★ Thank you for using 39charts ♪
+    </div>
+  </div>
+</div>
+
+<div class="nnd-tag-row">
+  <span class="nnd-tag-label">Tags:</span>
+  <span class="nnd-tag">VOCALOID</span>
+  <span class="nnd-tag">曲を追加</span>
+  <span class="nnd-tag">VocaDB</span>
+  <span class="nnd-tag">Community</span>
+  <span class="nnd-tag">Fan-made</span>
+</div>
+
 <div class="nnd-body">
+  <div class="page-rail page-rail-left"><span>Vocaloid 39charts</span></div>
+  <div class="page-rail page-rail-right"><span>Add Song / 曲を追加</span></div>
+
+  <aside class="nnd-sidebar">
+
+    <div class="sidebar-panel">
+      <div class="sidebar-header">[ How It Works ]</div>
+      <div class="sidebar-body">
+        <ol class="htp-list">
+          <li data-n="1">Find the song on <strong>VocaDB</strong> and copy its URL or ID.</li>
+          <li data-n="2">Paste it below and press <strong>Fetch</strong> — the details fill in automatically.</li>
+          <li data-n="3">Confirm the tier, add an optional note, and <strong>submit for review</strong>.</li>
+          <li data-n="4">The maintainer approves it, and the song joins the rankings.</li>
+        </ol>
+      </div>
+    </div>
+
+  </aside>
+
   <main class="nnd-main">
 
+    <div class="game-mode-bar">
+      <div class="game-mode-tabs">
+        <a class="game-mode-btn" href="index.html">Songs</a>
+        <a class="game-mode-btn" href="trending.html">Trending</a>
+        <a class="game-mode-btn" href="years.html">Years</a>
+        <a class="game-mode-btn" href="producers.html">Producers</a>
+        <a class="game-mode-btn" href="vocalists.html">Vocalists</a>
+        <a class="game-mode-btn" href="compare.html">Compare</a>
+        <a class="game-mode-btn" href="about.html">About</a>
+        <a class="game-mode-btn is-active" href="add.html">+ Add Song</a>
+      </div>
+    </div>
+
     <div class="panel">
-      <div class="panel-header">▸ Suggest a Song</div>
+      <div class="panel-header">[ Suggest a Song ]</div>
       <div class="panel-body">
         <div class="fetch-row">
           <input type="text" class="fetch-input" id="url-input"
@@ -321,7 +714,7 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
     <!-- Admin panel -->
     <div class="admin-panel">
       <div class="admin-header">
-        <span>Admin — Review Queue</span>
+        <span>[ Admin — Review Queue ]</span>
         <div class="admin-token-row">
           <input type="password" class="admin-token-input" id="admin-token" placeholder="Admin token…">
           <button class="admin-load-btn" id="admin-load-btn">Load Queue</button>
@@ -337,11 +730,72 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 </div>
 
 <footer class="site-footer">
-  <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
-    <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
-    &nbsp;·&nbsp; <a href="../">Vocaloid Heardle</a>
-  </p>
+  <p class="footer-copy">39charts: fan-made Vocaloid rankings (c) 2026 | Not affiliated with Crypton Future Media, NicoNico or YouTube | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a></p>
+  <a class="footer-pagetop" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Page Top ▲</a>
 </footer>
+
+<div class="settings-backdrop" id="settings-backdrop" hidden></div>
+<div class="settings-modal" id="settings-modal" hidden>
+  <div class="settings-title">[ Settings ] <button type="button" class="settings-close" id="settings-close">✕</button></div>
+  <div class="settings-row">
+    <div>
+      <div class="s-label">Dark Mode</div>
+      <div class="s-desc">Dark page and panel colors, like the games.</div>
+    </div>
+    <button type="button" class="settings-toggle" id="opt-dark">OFF</button>
+  </div>
+</div>
+
+<div class="settings-backdrop" id="updates-backdrop" hidden></div>
+<div class="settings-modal" id="updates-modal" hidden>
+  <div class="settings-title">[ Updates ] <button type="button" class="settings-close" id="updates-close">✕</button></div>
+  <ul class="updates-list">
+    <li><div class="upd-head"><span class="updates-ver">v1.4</span><strong>Trending &amp; view history</strong><span class="updates-date">2026-07-09</span></div>New Trending tab scored on daily view growth &amp; engagement, per-day view-history grid &amp; chart on song pages, Growth (7d) sorting, a charts-on-a-day calendar, synth-type vocalist filters, and PV-availability labels.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.3</span><strong>bilibili stats &amp; polish</strong><span class="updates-date">2026-07-05</span></div>bilibili views, likes &amp; comments on song pages, platform share bar under the player, condensed ranking panel, and site-wide consistency fixes.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.2</span><strong>Vocalists &amp; redesigns</strong><span class="updates-date">2026-07-04</span></div>New Vocalists rankings tab, voicebank-level search &amp; filtering, fully redesigned song and producer pages, dark-mode fixes, this updates log.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.1</span><strong>Live view counts</strong><span class="updates-date">2026-06-24</span></div>Real NicoNico + YouTube views integrated into rankings, per-platform song stats, producer avatars from VocaDB.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.0</span><strong>Launch</strong><span class="updates-date">2026-06</span></div>Song rankings, producer index, About page, community add-song review queue.</li>
+  </ul>
+</div>
+
+<script>
+(function () {
+  const open = document.getElementById("updates-open");
+  const modal = document.getElementById("updates-modal");
+  const backdrop = document.getElementById("updates-backdrop");
+  if (!open || !modal) return;
+  const close = () => { modal.hidden = true; backdrop.hidden = true; };
+  open.addEventListener("click", e => { e.preventDefault(); modal.hidden = false; backdrop.hidden = false; });
+  document.getElementById("updates-close").addEventListener("click", close);
+  backdrop.addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+})();
+</script>
+<script>
+/* ── Settings modal + dark mode ── */
+(function () {
+  const openBtn = document.getElementById("settings-open");
+  const modal = document.getElementById("settings-modal");
+  const backdrop = document.getElementById("settings-backdrop");
+  const toggle = document.getElementById("opt-dark");
+  if (!openBtn || !modal || !toggle) return;
+  function sync() {
+    const on = document.documentElement.classList.contains("dark-mode");
+    toggle.classList.toggle("is-on", on);
+    toggle.textContent = on ? "ON" : "OFF";
+  }
+  function close() { modal.hidden = true; backdrop.hidden = true; }
+  openBtn.addEventListener("click", e => { e.preventDefault(); modal.hidden = false; backdrop.hidden = false; sync(); });
+  document.getElementById("settings-close").addEventListener("click", close);
+  backdrop.addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+  toggle.addEventListener("click", () => {
+    const on = document.documentElement.classList.toggle("dark-mode");
+    try { localStorage.setItem("39c_dark", on ? "1" : "0"); } catch (e) {}
+    sync();
+  });
+})();
+</script>
 
 <script>
 const API = "https://39charts-api.sodapines.workers.dev";
@@ -423,11 +877,16 @@ function buildSongEntry(data, tierOverride, platYt) {
   const vocalists = artists.filter(a=>/vocalist/i.test(a.categories||"")&&a.artist);
   const pvs = (data.pvs||[]).filter(p=>p.pvType==="Original"||p.pvType==="Reprint");
   const coverArts = buildCoverArts(pvs);
+  const bestPv = svc => pvs.find(p=>p.service===svc&&p.pvType==="Original") || pvs.find(p=>p.service===svc);
+  const nndPv = bestPv("NicoNicoDouga"), ytPv = bestPv("Youtube");
   let sourceTags = mapSourceTags(data.tags||[]);
   if (tierOverride && tierOverride!=="none") {
-    const nndTag = `nnd-${tierOverride}`;
-    if (!sourceTags.includes(nndTag)) sourceTags = [nndTag, ...sourceTags.filter(t=>!t.startsWith("nnd-"))];
-    if (platYt) { const ytTag=`yt-${tierOverride}`; if(!sourceTags.includes(ytTag)) sourceTags.push(ytTag); }
+    // Tag each platform the song was detected on (NND assumed if none detected).
+    const plats = data._platforms || { nnd: true };
+    const tierTags = [];
+    if (plats.nnd || (!plats.yt && !plats.bili)) tierTags.push(`nnd-${tierOverride}`);
+    if (plats.yt) tierTags.push(`yt-${tierOverride}`);
+    sourceTags = [...tierTags, ...sourceTags.filter(t=>!/^(nnd|yt)-/.test(t))];
   }
   return {
     vocadbId:      data.id,
@@ -442,6 +901,8 @@ function buildSongEntry(data, tierOverride, platYt) {
     acceptedTitles:(data.names||[]).map(n=>n.value).filter(Boolean),
     vocadbPools:   [],
     sourceTags,
+    nndOriginalId: (nndPv && nndPv.pvId) || "",
+    ytOriginalId:  (ytPv && ytPv.pvId) || "",
     audioClip:     "",
   };
 }
@@ -484,6 +945,14 @@ async function doFetch() {
     const vocals = normalizeVocalists(singerNames);
     const pvs = (data.pvs||[]).filter(p=>p.pvType==="Original"||p.pvType==="Reprint");
     const coverArts = buildCoverArts(pvs);
+    const services = new Set(pvs.map(p => p.service));
+    const hasNnd = services.has("NicoNicoDouga"), hasYt = services.has("Youtube"), hasBili = services.has("Bilibili");
+    data._platforms = { nnd: hasNnd, yt: hasYt, bili: hasBili };
+    const platChips = [
+      hasNnd ? `<span class="plat-chip pc-nnd">NicoNico</span>` : "",
+      hasYt ? `<span class="plat-chip pc-yt">YouTube</span>` : "",
+      hasBili ? `<span class="plat-chip pc-bili">bilibili</span>` : "",
+    ].filter(Boolean).join("");
     const autoTags = mapSourceTags(data.tags||[]);
     const guessedTier = ["100m","10m","1m","100k","10k"].find(t=>autoTags.some(tag=>tag.includes(t))) || "none";
     const inDb = (await existingIds()).has(String(data.id));
@@ -509,8 +978,9 @@ async function doFetch() {
                 : `<span style="color:var(--faint);font-size:10px">—</span>`}
             </div>
             <div class="preview-row">
-              <span class="preview-label">PVs</span>
-              <span style="font-size:10px;color:var(--muted)">${pvs.length} found &nbsp;·&nbsp; ID ${data.id}</span>
+              <span class="preview-label">Platforms</span>
+              ${platChips || `<span style="color:var(--faint);font-size:10px">none detected</span>`}
+              <span style="font-size:10px;color:var(--muted)">&nbsp;${pvs.length} PV${pvs.length!==1?"s":""} &nbsp;·&nbsp; VocaDB #${data.id}</span>
             </div>
             ${autoTags.length ? `<div class="preview-row">
               <span class="preview-label">Auto tier</span>
@@ -524,7 +994,7 @@ async function doFetch() {
           <a class="submit-btn" style="text-decoration:none;display:inline-flex;align-items:center" href="song.html?id=${encodeURIComponent(data.id)}">View song page ▶</a>
         </div>` : `
         <div class="preview-foot">
-          <span style="font-size:10px;color:var(--muted);font-weight:700">Tier</span>
+          <span style="font-size:10px;color:var(--muted);font-weight:700" title="The song&#39;s NicoNico view milestone — auto-guessed from VocaDB tags, correct it if you know better">View tier</span>
           <select class="tier-select" id="tier-select">
             <option value="none">— unknown</option>
             <option value="100m">100M+</option>
@@ -533,13 +1003,10 @@ async function doFetch() {
             <option value="100k">100K+</option>
             <option value="10k">10K+</option>
           </select>
-          <div class="platform-checks">
-            <label><input type="checkbox" id="plat-nnd" checked> NND</label>
-            <label><input type="checkbox" id="plat-yt"> YouTube</label>
-          </div>
           <input type="text" class="note-input" id="note-input" placeholder="Optional note…" maxlength="300">
           <button class="submit-btn" id="submit-btn">Submit for Review</button>
-        </div>`}
+        </div>
+        <div class="preview-hint">Platforms and view counts are handled automatically after approval. A rough view tier guess is fine.</div>`}
       </div>`;
 
     if (!inDb) {
@@ -565,7 +1032,7 @@ async function doSubmit() {
   btn.disabled = true; btn.textContent = "Submitting…";
 
   const tier  = document.getElementById("tier-select").value;
-  const platYt = document.getElementById("plat-yt").checked;
+  const platYt = Boolean(pendingData._platforms && pendingData._platforms.yt);
   const note  = document.getElementById("note-input").value.trim();
   const song  = buildSongEntry(pendingData, tier, platYt);
 
@@ -625,7 +1092,11 @@ function renderQueue(items, token) {
   }
   body.innerHTML = `<ul class="sub-list">${items.map(item => {
     const s = item.song;
-    const tier = s.sourceTags?.[0] || "";
+    const TIER_TXT = { "100m":"100M+", "10m":"10M+", "1m":"1M+", "100k":"100K+", "10k":"10K+" };
+    const tierChips = (s.sourceTags||[]).map(t => {
+      const m = t.match(/^(nnd|yt)-(100m|10m|1m|100k|10k)$/);
+      return m ? `${m[1]==="nnd"?"NND":"YT"} ${TIER_TXT[m[2]]}` : null;
+    }).filter(Boolean);
     const date = item.submittedAt ? item.submittedAt.slice(0,10) : "";
     return `
       <li class="sub-item" data-id="${escHtml(item.id)}">
@@ -637,7 +1108,7 @@ function renderQueue(items, token) {
           <div class="sub-meta">${escHtml(s.artist)} &nbsp;·&nbsp; ID ${s.vocadbId}</div>
           ${item.note ? `<div class="sub-note">"${escHtml(item.note)}"</div>` : ""}
         </div>
-        ${tier ? `<span class="sub-tier">${escHtml(tier)}</span>` : ""}
+        ${tierChips.map(t=>`<span class="sub-tier">${escHtml(t)}</span>`).join("")}
         <span class="sub-date">${escHtml(date)}</span>
         <div class="sub-actions">
           <button class="approve-btn" data-id="${escHtml(item.id)}">Approve</button>
@@ -699,5 +1170,39 @@ document.getElementById("admin-token").addEventListener("keydown", e => { if(e.k
 document.getElementById("url-input").addEventListener("keydown", e => { if(e.key==="Enter") doFetch(); });
 document.getElementById("fetch-btn").addEventListener("click", doFetch);
 </script>
+
+<style>
+/* Mobile: sidebar panels collapse to their headers (collapsed by default) */
+@media (max-width: 860px) {
+  .nnd-sidebar .sidebar-header { cursor: pointer; position: relative; padding-right: 22px; }
+  .nnd-sidebar .sidebar-header::after { content: "\25BE"; position: absolute; right: 8px; top: 4px; color: var(--red); font-size: 10px; }
+  .nnd-sidebar .sidebar-panel.is-collapsed .sidebar-header::after { content: "\25B8"; }
+  .nnd-sidebar .sidebar-panel.is-collapsed > :not(.sidebar-header) { display: none; }
+}
+</style>
+<script>
+(function () {
+  var mq = window.matchMedia("(max-width: 860px)");
+  var panels = document.querySelectorAll(".nnd-sidebar .sidebar-panel");
+  if (mq.matches) panels.forEach(function (p) { p.classList.add("is-collapsed"); });
+  panels.forEach(function (p) {
+    var h = p.querySelector(".sidebar-header");
+    if (h) h.addEventListener("click", function () {
+      if (mq.matches) p.classList.toggle("is-collapsed");
+    });
+  });
+})();
+</script>
+
+<style>
+/* Mobile: mode tabs wrap instead of forcing the page wider */
+@media (max-width: 620px) {
+  .game-mode-bar { padding: 3px 5px; }
+  .game-mode-tabs { flex-wrap: wrap; align-items: stretch; gap: 3px; }
+  .game-mode-btn { margin-bottom: 0; border-bottom: 2px solid var(--ls); padding-bottom: 5px; }
+  .game-mode-btn.is-active { padding-bottom: 5px; border-bottom-color: var(--red-dark); }
+  .game-mode-hint { display: none; }
+}
+</style>
 </body>
 </html>

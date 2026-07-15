@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>39charts — Producers</title>
+<title>39charts — Vocalists</title>
 <meta property="og:site_name" content="39charts">
-<meta property="og:title" content="39charts — Producer index">
-<meta property="og:description" content="Every producer on 39charts, ranked by total views across their songs.">
+<meta property="og:title" content="39charts — Vocalist rankings">
+<meta property="og:description" content="Voicebanks and characters ranked by total views across all their songs.">
 <meta property="og:type" content="website">
-<meta name="description" content="Every producer on 39charts, ranked by total views across their songs.">
+<meta name="description" content="Voicebanks and characters ranked by total views across all their songs.">
 <script>try{if(localStorage.getItem("39c_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
 <style>
 :root {
   --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
   --text: #111; --muted: #555; --faint: #999;
   --line: #c8c4bc; --ls: #b8b4ac;
-  --red: #cc0000; --red-dark: #990000; --link: #0066cc;
+  --red: #cc0000; --red-dark: #990000; --link: #0066cc; --gold: #c8980a;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
@@ -163,6 +163,7 @@ button, input { font: inherit; cursor: pointer; }
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.08), 0 0 0 2px rgba(0,102,204,0.18);
 }
 .search-count { display: block; margin-top: 4px; color: var(--faint); font-size: 10px; text-align: right; }
+.switch-note { display: block; margin-top: 4px; font-size: 9px; color: var(--faint); line-height: 1.4; }
 
 .sort-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
 .sort-btn {
@@ -193,12 +194,6 @@ button, input { font: inherit; cursor: pointer; }
   font-family: Consolas, "MS PGothic", monospace;
   overflow: hidden; text-overflow: ellipsis; max-width: 110px;
 }
-
-.links-list { display: flex; flex-direction: column; }
-.links-list a { display: block; padding: 4px 8px; font-size: 10px; color: var(--link); border-bottom: 1px solid var(--line); }
-.links-list a:last-child { border-bottom: none; }
-.links-list a::before { content: "\25B8"; color: var(--red); margin-right: 5px; }
-.links-list a:hover { color: var(--red); background: #fff0f0; text-decoration: none; }
 
 /* ── MODE BAR ── */
 .game-mode-bar {
@@ -235,7 +230,7 @@ button, input { font: inherit; cursor: pointer; }
 }
 .game-mode-hint::before { content: "\25B6"; color: var(--red); font-size: 8px; }
 
-/* ── PRODUCER SECTION ── */
+/* ── SECTION ── */
 .rank-section {
   background: linear-gradient(to bottom, var(--surface), var(--sf));
   border: 2px solid var(--ls); border-top: 3px solid var(--red);
@@ -254,42 +249,62 @@ button, input { font: inherit; cursor: pointer; }
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
 }
 .rank-section-header .rs-count { font-weight: 400; color: var(--faint); font-size: 10px; text-transform: none; letter-spacing: 0; margin-left: auto; }
-
-/* ── PRODUCER GRID ── */
-.producer-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 6px;
-  padding: 6px;
+/* split / combined switch (same look as the list/cards switch on rankings) */
+.combine-switch { display: flex; border: 1px solid var(--ls); font-family: "MS PGothic",sans-serif; text-transform: none; letter-spacing: 0; }
+.combine-btn {
+  min-height: 20px; padding: 0 8px;
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  border: none; border-right: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
 }
+.combine-btn:last-child { border-right: none; }
+.combine-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff5f5, #ffd0d0); }
+.combine-btn.is-active {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+html.dark-mode .combine-btn {
+  background: linear-gradient(to bottom, #2e2e2e, #1e1e1e);
+  border-color: #3b3b3b; color: var(--muted); box-shadow: none;
+}
+html.dark-mode .combine-btn:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .combine-btn.is-active { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; }
 
-.producer-card {
+/* ── VOCALIST GRID ── */
+.vocalist-grid {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 6px; padding: 6px;
+}
+.vocalist-card {
   background: var(--surface); border: 1px solid var(--line);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.08);
-  display: flex; flex-direction: column; overflow: hidden;
-  transition: box-shadow .12s ease, border-color .12s ease;
+  display: flex; flex-direction: column; overflow: hidden; position: relative;
+  color: inherit; text-decoration: none;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
 }
-.producer-card:hover {
-  border-color: var(--red);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 2px 6px rgba(0,0,0,0.18);
+.vocalist-card:hover {
+  transform: translateY(-2px); border-color: var(--red); text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 4px 11px rgba(0,0,0,0.20);
 }
-
-.producer-thumb {
-  position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden;
-  background: #2a2a2a; flex-shrink: 0;
+.vocalist-thumb { position: relative; width: 100%; aspect-ratio: 1/1; overflow: hidden; flex-shrink: 0; }
+.vocalist-thumb .vc-note {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 44px; opacity: 0.35;
 }
-.producer-thumb-placeholder {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-}
-.producer-cover-img {
-  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
-  z-index: 1; filter: brightness(0.7);
+.vocalist-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: top center; z-index: 1;
   transition: transform .28s ease;
 }
-.producer-card:hover .producer-cover-img { transform: scale(1.05); }
-.producer-cover-img.is-artist { object-position: top center; filter: brightness(0.78); }
-.producer-rank {
+.vocalist-card:hover .vocalist-img { transform: scale(1.05); }
+.vocalist-scanlines {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.05) 2px 3px);
+}
+.vocalist-rank {
   position: absolute; top: 0; left: 0; z-index: 4;
   min-width: 30px; padding: 2px 6px; text-align: center;
   background: rgba(0,0,0,0.78); border-right: 2px solid var(--red);
@@ -297,98 +312,36 @@ button, input { font: inherit; cursor: pointer; }
   font-size: 14px; font-weight: 900;
   text-shadow: 0 1px 2px rgba(0,0,0,0.8);
 }
-.producer-rank.rk-top { color: #ffcc44; border-right-color: #c8980a; }
-.producer-thumb-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0; z-index: 2;
-  background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, transparent 100%);
-  padding: 22px 8px 6px;
-}
-.producer-name-over {
-  font-size: 13px; font-weight: 900; color: #fff;
-  text-shadow: 0 1px 3px rgba(0,0,0,0.8);
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-  padding-right: 4px;
-}
-.producer-stats-over { font-size: 10px; color: rgba(255,255,255,0.75); margin-top: 1px; }
-/* Views: full number in a red pill at the bottom-right corner — same treatment
-   as the song cards' view badge. */
-.producer-views-over {
+.vocalist-rank.rk-top { color: #ffcc44; border-right-color: var(--gold); }
+/* Full-number views badge on the artwork, bottom-right — same as the song cards. */
+.vocalist-views {
   position: absolute; bottom: 0; right: 0; z-index: 4;
   padding: 1px 5px; background: rgba(140,0,0,0.9); color: #fff;
   font-family: Consolas, "MS PGothic", monospace; font-size: 10px; font-weight: 700; line-height: 1.5;
 }
-.producer-views-over .rv-cap {
+.vocalist-views .rv-cap {
   font-size: 8px; font-weight: 400; color: rgba(255,255,255,0.8);
   text-transform: uppercase; letter-spacing: 0.05em; margin-left: 3px;
 }
-/* Tier moves to the top-right corner (mirrors the rank tab at top-left). */
-.producer-tier-badge {
-  position: absolute; top: 0; right: 0; z-index: 4;
-  padding: 1px 6px; background: linear-gradient(to bottom, #dd2222, #aa0000);
-  border-left: 1px solid var(--red-dark); border-bottom: 1px solid var(--red-dark);
-  color: #fff; font-size: 9px; font-weight: 700; line-height: 15px;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+/* Name + song count sit BELOW the art (song-card layout), which sets these apart
+   from the producer cards (name-on-art). */
+.vocalist-body {
+  padding: 5px 7px 6px; display: flex; flex-direction: column; gap: 1px;
+  min-width: 0; background: var(--surface); border-top: 1px solid var(--line);
 }
-.producer-scanlines {
-  position: absolute; inset: 0; z-index: 3; pointer-events: none;
-  background: repeating-linear-gradient(to bottom,
-    transparent 0px, transparent 2px,
-    rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 3px);
-}
-
-.producer-foot {
-  height: 25px; padding: 0 7px; display: flex; align-items: center;
-  gap: 6px;
-  border-top: 1px solid var(--line); background: var(--sf);
-  flex-shrink: 0;
-}
-/* Now that views moved onto the picture, the chip row owns the whole footer
-   width — no more clipped chips or a cut-off "+N". One non-wrapping row also
-   keeps every card the same height (no stretched-card discolouration). */
-.producer-tags {
-  display: flex; align-items: center; gap: 4px;
-  flex: 1; min-width: 0; overflow: hidden; flex-wrap: nowrap;
-}
-/* Unified, calm chip: neutral body + a small voicebank-coloured dot for
-   identity. Replaces the 15 loud rainbow fills that used to wrap and clash. */
-.vtag {
-  display: inline-flex; align-items: center; gap: 4px;
-  flex-shrink: 0; max-width: 100%;
-  padding: 0 5px; height: 15px; line-height: 15px;
-  background: var(--surface); border: 1px solid var(--line); color: var(--muted);
-  font-size: 9px; font-weight: 700;
+.vocalist-name {
+  font-size: 12px; font-weight: 700; color: var(--text);
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
-.vtag::before {
-  content: ""; flex-shrink: 0; width: 7px; height: 7px;
-  background: var(--dot, var(--ls)); border: 1px solid rgba(0,0,0,0.25);
-}
-.vtag-more { color: var(--faint); font-size: 9px; font-weight: 700; flex-shrink: 0; }
-.vtag-miku   { --dot: #39c5bb; }
-.vtag-rin    { --dot: #f5a623; }
-.vtag-len    { --dot: #e6c200; }
-.vtag-luka   { --dot: #e91e8c; }
-.vtag-gumi   { --dot: #43a047; }
-.vtag-ia     { --dot: #9c27b0; }
-.vtag-kaito  { --dot: #3949ab; }
-.vtag-meiko  { --dot: #e53935; }
-.vtag-teto   { --dot: #d44466; }
-.vtag-flower { --dot: #9040a0; }
-.vtag-kafu   { --dot: #b48ad8; }
-.vtag-una    { --dot: #e08000; }
-.vtag-yuki   { --dot: #c0a000; }
-.vtag-rei    { --dot: #cc3080; }
-.vtag-defoko { --dot: #6080a0; }
-.vtag-other  { --dot: var(--ls); }
+.vocalist-card:hover .vocalist-name { color: var(--red); }
+.vocalist-sub { font-size: 10px; color: var(--muted); }
 
-/* ── LOADING ── */
+/* ── STATE / FOOTER / MODALS ── */
 .state-message {
   grid-column: 1 / -1; padding: 32px; text-align: center;
   color: var(--faint); font-size: 12px;
 }
 .state-message strong { display: block; margin-bottom: 4px; color: var(--muted); font-size: 13px; }
-
-/* ── FOOTER ── */
 .site-footer {
   flex-shrink: 0; width: 100%; position: relative;
   background: linear-gradient(to bottom, #ececea, #dcdad4);
@@ -400,10 +353,6 @@ button, input { font: inherit; cursor: pointer; }
 .footer-pagetop { position: absolute; top: 8px; right: 10px; font-size: 10px; color: var(--link); white-space: nowrap; }
 .footer-pagetop:hover { text-decoration: underline; color: var(--red); }
 
-/* ── ADD-SONG ACCENT TAB ── */
-/* + Add Song renders as a normal tab */
-
-/* ── SETTINGS MODAL ── */
 .settings-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; }
 .settings-modal {
   position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
@@ -446,6 +395,19 @@ button, input { font: inherit; cursor: pointer; }
   color: #fff; border-color: var(--red-dark);
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
 }
+.updates-list { list-style: none; margin-top: 2px; max-height: 320px; overflow-y: auto; }
+.updates-list li { padding: 7px 0; border-bottom: 1px dotted var(--line); font-size: 11px; color: var(--muted); line-height: 1.55; }
+.updates-list li:last-child { border-bottom: none; }
+.updates-ver {
+  display: inline-block; padding: 0 5px; margin-right: 6px;
+  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  color: #fff; font-weight: 900; font-size: 9px; line-height: 15px;
+  font-family: "MS Gothic", "Courier New", monospace;
+}
+.upd-head { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+.upd-head strong { flex: 1; }
+.updates-date { color: var(--faint); font-size: 9px; white-space: nowrap; }
+.updates-list strong { color: var(--text); }
 
 /* ── DARK MODE ── */
 html.dark-mode {
@@ -503,68 +465,29 @@ html.dark-mode .sort-btn.is-active, html.dark-mode .settings-toggle.is-on {
 }
 html.dark-mode .sidebar-body input[type="text"] { background: #111111; color: var(--text); border-color: #3b3b3b; }
 html.dark-mode .stats-table tr:nth-child(even) { background: #1e1e1e; }
-html.dark-mode .stats-table tr:hover, html.dark-mode .links-list a:hover { background: #2a1414; }
-html.dark-mode .producer-card { background: var(--surface); border-color: #2c2c2c; }
-html.dark-mode .producer-foot { background: #161616; border-top-color: #2c2c2c; }
-html.dark-mode .vtag { background: #202020; border-color: #333; color: #b0aca4; }
+html.dark-mode .stats-table tr:hover { background: #2a1414; }
+html.dark-mode .vocalist-card { border-color: #2c2c2c; }
+html.dark-mode .vocalist-body { background: #161616; border-top-color: #2c2c2c; }
 html.dark-mode .site-footer {
   background: linear-gradient(to bottom, #1c1c1c, #141414);
   border-top-color: var(--red); box-shadow: none;
 }
 
-/* ── UPDATES MODAL ── */
-.updates-list { list-style: none; margin-top: 2px; max-height: 320px; overflow-y: auto; }
-.updates-list li { padding: 7px 0; border-bottom: 1px dotted var(--line); font-size: 11px; color: var(--muted); line-height: 1.55; }
-.updates-list li:last-child { border-bottom: none; }
-.updates-ver {
-  display: inline-block; padding: 0 5px; margin-right: 6px;
-  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
-  color: #fff; font-weight: 900; font-size: 9px; line-height: 15px;
-  font-family: "MS Gothic", "Courier New", monospace;
-}
-.upd-head { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
-.upd-head strong { flex: 1; }
-.updates-date { color: var(--faint); font-size: 9px; white-space: nowrap; }
-.updates-list strong { color: var(--text); }
-
-/* ── VISUAL POLISH: producer index ── */
-.producer-card { position: relative; }
-.producer-card:hover { transform: translateY(-2px); box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 4px 11px rgba(0,0,0,0.22); transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease; }
-.producer-card::after {
-  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(to right, var(--red), transparent 70%);
-  opacity: 0; transition: opacity .12s ease; pointer-events: none; z-index: 5;
-}
-.producer-card:hover::after { opacity: 1; }
-.producer-rank { text-shadow: 0 1px 0 rgba(0,0,0,0.6); }
-.producer-rank.rk-1 { color: #ffcc44; border-right-color: #c8980a; background: rgba(40,28,0,0.82); }
-.producer-rank.rk-2 { color: #d8d8d8; border-right-color: #999; background: rgba(20,20,20,0.82); }
-.producer-rank.rk-3 { color: #e0925e; border-right-color: #a05020; background: rgba(35,16,0,0.82); }
-.producer-share {
-  height: 3px; background: var(--sf); position: relative; flex-shrink: 0;
-  border-top: 1px solid var(--line);
-}
-.producer-share i {
-  position: absolute; left: 0; top: 0; bottom: 0; display: block;
-  background: linear-gradient(to right, var(--red-dark), var(--red));
-}
-html.dark-mode .producer-share { background: #111; border-top-color: #2c2c2c; }
-
-@media (max-width: 1000px) { .producer-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (max-width: 1000px) { .vocalist-grid { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 860px) {
   .nnd-body { flex-direction: column; }
   .nnd-sidebar { width: 100%; min-width: 0; flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
   .nnd-sidebar .sidebar-panel { flex: 1 1 240px; }
-  .producer-grid { grid-template-columns: repeat(3, 1fr); }
+  .vocalist-grid { grid-template-columns: repeat(3, 1fr); }
 }
-@media (max-width: 460px) { .producer-grid { grid-template-columns: repeat(2, 1fr); } .nnd-header-links { display: none; } }
+@media (max-width: 460px) { .vocalist-grid { grid-template-columns: repeat(2, 1fr); } .nnd-header-links { display: none; } }
 </style>
 </head>
 <body>
 
 <div class="nnd-topbar">
-  <span>Charts &gt; Music &gt; VOCALOID &gt; 39charts &gt; Producers</span>
-  <span class="nnd-topbar-right">Producer Index</span>
+  <span>Charts &gt; Music &gt; VOCALOID &gt; 39charts &gt; Vocalists</span>
+  <span class="nnd-topbar-right">Vocalist Rankings</span>
 </div>
 
 <div class="nnd-mainbar">
@@ -604,8 +527,8 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
   <span class="nnd-marquee-label">[INFO]</span>
   <div class="nnd-marquee-wrap">
     <div class="nnd-marquee-inner" id="marquee-text">
-      ★ Every producer with a song on 39charts, ranked by total views &nbsp;·&nbsp;
-      ★ Click a producer to see their full catalog &nbsp;·&nbsp;
+      ★ Every voicebank with a credited song on 39charts, ranked by total views &nbsp;·&nbsp;
+      ★ Human guest vocalists are not ranked here &nbsp;·&nbsp;
       ★ Thank you for using 39charts ♪
     </div>
   </div>
@@ -614,8 +537,8 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
 <div class="nnd-tag-row">
   <span class="nnd-tag-label">Tags:</span>
   <span class="nnd-tag">VOCALOID</span>
-  <span class="nnd-tag">ボカロP</span>
-  <span class="nnd-tag">プロデューサー</span>
+  <span class="nnd-tag">ボーカリスト</span>
+  <span class="nnd-tag">初音ミク</span>
   <span class="nnd-tag">再生数</span>
   <span class="nnd-tag">Charts</span>
   <span class="nnd-tag">Fan-made</span>
@@ -623,14 +546,14 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
 
 <div class="nnd-body">
   <div class="page-rail page-rail-left"><span>Vocaloid 39charts</span></div>
-  <div class="page-rail page-rail-right"><span>Producers / ボカロP</span></div>
+  <div class="page-rail page-rail-right"><span>Vocalists / 歌声</span></div>
 
   <aside class="nnd-sidebar">
 
     <div class="sidebar-panel">
       <div class="sidebar-header">[ Search ]</div>
       <div class="sidebar-body">
-        <input type="text" id="search-input" placeholder="Search producers…" autocomplete="off">
+        <input type="text" id="search-input" placeholder="Search vocalists…" autocomplete="off">
         <span class="search-count" id="result-count">Loading…</span>
       </div>
     </div>
@@ -641,9 +564,26 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
         <div class="sort-grid">
           <button class="sort-btn is-active" data-sort="views">Views</button>
           <button class="sort-btn" data-sort="songs">Songs</button>
-          <button class="sort-btn" data-sort="tier">Top Tier</button>
           <button class="sort-btn" data-sort="name">Name</button>
         </div>
+        <span class="switch-note">Each specific voicebank (e.g. Hatsune Miku V4X) is ranked separately. Views combine NicoNico + YouTube; songs crediting several vocalists count for each of them.</span>
+      </div>
+    </div>
+
+    <div class="sidebar-panel">
+      <div class="sidebar-header">[ Synth Type ]</div>
+      <div class="sidebar-body">
+        <div class="sort-grid" id="type-filter">
+          <button class="sort-btn" data-type="VOCALOID">VOCALOID</button>
+          <button class="sort-btn" data-type="UTAU">UTAU</button>
+          <button class="sort-btn" data-type="SynthV">SynthV</button>
+          <button class="sort-btn" data-type="CeVIO">CeVIO</button>
+        </div>
+        <div class="sort-grid" id="type-mode" style="margin-top:4px">
+          <button class="sort-btn is-active" data-typemode="include">Include</button>
+          <button class="sort-btn" data-typemode="exclude">Exclude</button>
+        </div>
+        <span class="switch-note">Pick one or more engines. Include shows only those vocalists; Exclude hides them. Engine detection is best-effort from voicebank names.</span>
       </div>
     </div>
 
@@ -651,7 +591,7 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
       <div class="sidebar-header">[ Index Stats ]</div>
       <div class="sidebar-body stats-body">
         <table class="stats-table">
-          <tr><td>Producers</td><td id="stat-producers">&mdash;</td></tr>
+          <tr><td>Vocalists</td><td id="stat-vocalists">&mdash;</td></tr>
           <tr><td>Songs</td><td id="stat-songs">&mdash;</td></tr>
           <tr><td>Most songs</td><td id="stat-most-songs">&mdash;</td></tr>
           <tr><td>Most views</td><td id="stat-most-views">&mdash;</td></tr>
@@ -668,8 +608,8 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
         <a class="game-mode-btn" href="index.html">Songs</a>
         <a class="game-mode-btn" href="trending.html">Trending</a>
         <a class="game-mode-btn" href="years.html">Years</a>
-        <a class="game-mode-btn is-active" href="producers.html">Producers</a>
-        <a class="game-mode-btn" href="vocalists.html">Vocalists</a>
+        <a class="game-mode-btn" href="producers.html">Producers</a>
+        <a class="game-mode-btn is-active" href="vocalists.html">Vocalists</a>
         <a class="game-mode-btn" href="compare.html">Compare</a>
         <a class="game-mode-btn" href="about.html">About</a>
         <a class="game-mode-btn gm-add" href="add.html">+ Add Song</a>
@@ -678,11 +618,15 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
 
     <div class="rank-section">
       <div class="rank-section-header">
-        <span>[ Producer Index ]</span>
+        <span>[ Vocalist Rankings ]</span>
+        <div class="combine-switch" id="combine-switch" title="Combined merges all voicebanks of the same character (e.g. every Hatsune Miku bank) into one entry">
+          <button class="combine-btn" data-combine="0">Split Banks</button>
+          <button class="combine-btn" data-combine="1">Combined</button>
+        </div>
         <span class="rs-count" id="intro-copy">Loading…</span>
       </div>
-      <div class="producer-grid" id="producer-grid">
-        <div class="state-message"><strong>Loading…</strong>Fetching producer data</div>
+      <div class="vocalist-grid" id="vocalist-grid">
+        <div class="state-message"><strong>Loading…</strong>Fetching vocalist data</div>
       </div>
     </div>
 
@@ -719,11 +663,32 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
 </div>
 
 <script>
+/* ── Settings + updates modals, dark mode ── */
+(function () {
+  const openBtn = document.getElementById("settings-open");
+  const modal = document.getElementById("settings-modal");
+  const backdrop = document.getElementById("settings-backdrop");
+  const toggle = document.getElementById("opt-dark");
+  function sync() {
+    const on = document.documentElement.classList.contains("dark-mode");
+    toggle.classList.toggle("is-on", on);
+    toggle.textContent = on ? "ON" : "OFF";
+  }
+  function close() { modal.hidden = true; backdrop.hidden = true; }
+  openBtn.addEventListener("click", e => { e.preventDefault(); modal.hidden = false; backdrop.hidden = false; sync(); });
+  document.getElementById("settings-close").addEventListener("click", close);
+  backdrop.addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+  toggle.addEventListener("click", () => {
+    const on = document.documentElement.classList.toggle("dark-mode");
+    try { localStorage.setItem("39c_dark", on ? "1" : "0"); } catch (e) {}
+    sync();
+  });
+})();
 (function () {
   const open = document.getElementById("updates-open");
   const modal = document.getElementById("updates-modal");
   const backdrop = document.getElementById("updates-backdrop");
-  if (!open || !modal) return;
   const close = () => { modal.hidden = true; backdrop.hidden = true; };
   open.addEventListener("click", e => { e.preventDefault(); modal.hidden = false; backdrop.hidden = false; });
   document.getElementById("updates-close").addEventListener("click", close);
@@ -734,99 +699,25 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
 
 <script>
 const VOCALIST_MAP = [
-  { key:"miku",   label:"Miku",   match:/hatsune miku/i,       cls:"vtag-miku"   },
-  { key:"rin",    label:"Rin",    match:/kagamine rin/i,        cls:"vtag-rin"    },
-  { key:"len",    label:"Len",    match:/kagamine len/i,        cls:"vtag-len"    },
-  { key:"luka",   label:"Luka",   match:/megurine luka/i,       cls:"vtag-luka"   },
-  { key:"gumi",   label:"GUMI",   match:/\bgumi\b|megpoid/i,    cls:"vtag-gumi"   },
-  { key:"ia",     label:"IA",     match:/^ia$|^ia :/i,          cls:"vtag-ia"     },
-  { key:"kaito",  label:"KAITO",  match:/\bkaito\b/i,           cls:"vtag-kaito"  },
-  { key:"meiko",  label:"MEIKO",  match:/\bmeiko\b/i,           cls:"vtag-meiko"  },
-  { key:"teto",   label:"Teto",   match:/kasane teto/i,         cls:"vtag-teto"   },
-  { key:"flower", label:"flower", match:/\bflower\b|v flower/i, cls:"vtag-flower" },
-  { key:"kafu",   label:"KAFU",   match:/\bkafu\b/i,            cls:"vtag-kafu"   },
-  { key:"una",    label:"Una",    match:/otomachi una/i,         cls:"vtag-una"    },
-  { key:"yuki",   label:"Yuki",   match:/kaai yuki/i,           cls:"vtag-yuki"   },
-  { key:"rei",    label:"Rei",    match:/adachi rei/i,           cls:"vtag-rei"    },
-  { key:"defoko", label:"Defoko", match:/utane uta|defoko/i,    cls:"vtag-defoko" },
+  { key:"miku",   name:"Hatsune Miku",  match:/hatsune miku/i },
+  { key:"rin",    name:"Kagamine Rin",  match:/kagamine rin/i },
+  { key:"len",    name:"Kagamine Len",  match:/kagamine len/i },
+  { key:"luka",   name:"Megurine Luka", match:/megurine luka/i },
+  { key:"meiko",  name:"MEIKO",         match:/\bmeiko\b/i },
+  { key:"kaito",  name:"KAITO",         match:/\bkaito\b/i },
+  { key:"gumi",   name:"GUMI",          match:/\bgumi\b|megpoid/i },
+  { key:"ia",     name:"IA",            match:/^ia$|^ia :/i },
+  { key:"flower", name:"flower",        match:/\bflower\b|v flower/i },
+  { key:"teto",   name:"Kasane Teto",   match:/kasane teto/i },
+  { key:"kafu",   name:"KAFU",          match:/\bkafu\b/i },
+  { key:"una",    name:"Otomachi Una",  match:/otomachi una/i },
+  { key:"yuki",   name:"Kaai Yuki",     match:/kaai yuki/i },
+  { key:"rei",    name:"Adachi Rei",    match:/adachi rei/i },
+  { key:"defoko", name:"Defoko",        match:/utane uta|defoko/i },
 ];
 
-const VIEW_TIERS = [
-  {tag:"100m",label:"100M+",score:6},{tag:"10m",label:"10M+",score:5},
-  {tag:"1m",  label:"1M+",  score:4},{tag:"100k",label:"100K+",score:3},
-  {tag:"10k", label:"10K+", score:2},
-];
-
-function tierScore(song) {
-  const tags = song.sourceTags||[];
-  for (const t of VIEW_TIERS)
-    if (tags.some(tag=>tag.endsWith("-"+t.tag)||tag===t.tag)) return t;
-  return {label:null,score:0};
-}
-
-/* ── Real view counts ── */
-let VIEWS = {};
-let YT_STATS = {};
-let BILI_STATS = {};
-function nndViews(song){ const v=VIEWS[String(song.vocadbId)]; return typeof v==="number"?v:null; }
-function ytViews(song){ const s=YT_STATS[String(song.vocadbId)]; return s&&typeof s.views==="number"?s.views:null; }
-function biliViews(song){ const s=BILI_STATS[String(song.vocadbId)]; return s&&typeof s.views==="number"?s.views:null; }
-function getViewCount(song){ const n=nndViews(song),y=ytViews(song),b=biliViews(song); return (n==null&&y==null&&b==null)?null:(n||0)+(y||0)+(b||0); }
-function formatViews(n){ if(n>=1e9)return (n/1e9).toFixed(n>=1e10?1:2).replace(/\.?0+$/,"")+"B"; if(n>=1e6)return (n/1e6).toFixed(n>=1e7?1:2).replace(/\.?0+$/,"")+"M"; if(n>=1e3)return Math.round(n/1e3)+"K"; return String(n); }
-function loadViews(){
-  const KEY="39c_views_v2";
-  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
-  return fetch("../data/views.json").then(r=>r.ok?r.json():null)
-    .then(d=>{ if(d){ cachePut(KEY, d); } return d; })
-    .catch(()=>null);
-}
-function loadYtViews(){
-  const KEY="39c_ytviews_v2";
-  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
-  return fetch("../data/ytviews.json").then(r=>r.ok?r.json():null)
-    .then(d=>{ if(d){ cachePut(KEY, d); } return d; })
-    .catch(()=>null);
-}
-let ARTISTS = {};
-function artistImg(name){ const u=ARTISTS[name]; return (typeof u==="string"&&u)?u:null; }
-function loadArtists(){
-  const KEY="39c_artists_v3";
-  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
-  return fetch("../data/artists.json").then(r=>r.ok?r.json():null)
-    .then(d=>{ if(d){ cachePut(KEY, d); } return d; })
-    .catch(()=>null);
-}
-
-function coverArtChain(song) {
-  const all = [...(song.coverArts||[])];
-  if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
-  const ytHq = song.ytOriginalId ? `https://i.ytimg.com/vi/${song.ytOriginalId}/hqdefault.jpg` : null;
-  if (ytHq) { all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`); }
-  const nndNum = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/)?.[1] : null;
-  if (nndNum) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${nndNum}/${nndNum}`);
-  const bp = BILI_STATS[String(song.vocadbId)];
-  if (bp && bp.pic) all.push(String(bp.pic).replace(/^http:/, "https:"));
-  const p = u => (ytHq&&u===ytHq)?-1:u.includes("ytimg.com")&&u.includes("hqdefault")?0:u.includes("ytimg.com")&&u.includes("mqdefault")?1:u.includes("ytimg.com")?2:u.includes("sndcdn.com")?3:4;
-  return [...new Set(all)].sort((a,b)=>p(a)-p(b));
-}
-
-function advanceThumb(img, skipYt) {
-  let rest = JSON.parse(img.dataset.srcs||"[]");
-  if (skipYt) rest = rest.filter(u=>!u.includes("ytimg.com"));
-  if (rest.length) { img.src=rest[0]; img.dataset.srcs=JSON.stringify(rest.slice(1)); }
-  else img.remove();
-}
-function tryNextSrc(img) { advanceThumb(img, false); }
-function thumbOnload(img) {
-  if (img.naturalWidth && img.naturalWidth<=120 && img.naturalHeight<=90 && /ytimg\.com/.test(img.currentSrc||img.src)) advanceThumb(img, true);
-}
-
-function escHtml(s) {
-  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-}
-
-/* Known vocal-synth voicebanks beyond the main map. Singer credits matching
-   neither are human guest vocalists and are left out of the producer chips. */
+/* Known vocal-synth voicebanks beyond the main map — anything matching neither
+   is treated as a human guest vocalist and left out of these rankings. */
 const SYNTH_PATTERNS = [
   /sekai/i, /\blily\b/i, /yuzuki yukari/i, /luo tianyi/i, /nekomura iroha/i,
   /\bmayu\b/i, /^vy[12]/i, /sekka yufu/i, /gackpo|gakupo/i, /hanakuma chifuyu/i,
@@ -855,115 +746,45 @@ function isSynthName(name) {
     SYNTH_PATTERNS.some(r => r.test(name));
 }
 
-function topVocalists(songs) {
-  const counts = {};
-  songs.forEach(s => {
-    (s.singerNames||[]).forEach(name => {
-      if (!name || /various/i.test(name)) return;
-      const v = VOCALIST_MAP.find(v => v.match.test(name));
-      // Human guest vocalists (e.g. a producer singing on their own track)
-      // aren't voicebanks — skip them here.
-      if (!v && !isSynthName(name)) return;
-      const key = v ? v.key : name;
-      counts[key] = (counts[key]||0) + 1;
-    });
-  });
-  return Object.entries(counts)
-    .sort((a,b)=>b[1]-a[1])
-    .slice(0, 12)
-    .map(([key]) => VOCALIST_MAP.find(v=>v.key===key) || {key,label:key,cls:"vtag-other"});
+/* Best-effort engine classification from the voicebank name. Order matters:
+   an explicit SV/SynthV marker wins over the character's original engine
+   (e.g. "Kasane Teto SV" is SynthV, plain "Kasane Teto" is UTAU). */
+const PROGRAM_RULES = [
+  { p: "SynthV", r: /\bsv\b|synthv|synthesizer v|solaria|asterian|eleanor forte|natsuki karin|^kevin$|^anri$|^mai$|hanakuma chifuyu|tsurumaki maki ai|cangqiong|mo chen|qixuan|q[ǐi]xu[aā]n|d-4c|weina|^ryo$|hayden|^saki( ai)?$/i },
+  { p: "CeVIO",  r: /cevio|kafu|可不|sekai|星界|\brime\b|裏命|\bcoko\b|狐子|\bharu\b|羽累|^one$|ci flower|kasukabe tsumugi|t[oō]hoku|touhoku|koharu rikka|takahashi|akasaki minato|natalia|feng yi|futaba minato/i },
+  { p: "UTAU",   r: /utau|kasane teto|namine ritsu|momone momo|defoko|utane uta|yokune ruko|sukone tei|sekka yufu|yamine renri|gahata meiji|matsudappoiyo|kikyuune aiko|samune zimi|gekiyaku|kazehiki|koronba|kasuka(ne)? ako|adachi rei|makimiya fuki|acme iku|kikone|momone|health|^o[иn]e$|poyoroid|plaintalk|nurse robot/i },
+];
+function programOf(name) {
+  for (const rule of PROGRAM_RULES) if (rule.r.test(name)) return rule.p;
+  return "VOCALOID";
 }
 
-/* ── State ── */
-let ALL_PRODUCERS = [];
-let activeSort   = "views";
-let searchQuery  = "";
+const THUMB_COLORS = {
+  miku:{bg:"#1a6b68",fg:"#39c5bb"}, rin:{bg:"#7a4800",fg:"#f5a623"},
+  len:{bg:"#6a5500",fg:"#e8d000"},  luka:{bg:"#7a005a",fg:"#e91e8c"},
+  gumi:{bg:"#1b5e20",fg:"#66bb6a"}, ia:{bg:"#4a0e6a",fg:"#ce93d8"},
+  kaito:{bg:"#0d1b6e",fg:"#5c6bc0"},meiko:{bg:"#7a0a0a",fg:"#ef5350"},
+  teto:{bg:"#5a0820",fg:"#e3587a"}, flower:{bg:"#2e0840",fg:"#c060d0"},
+  kafu:{bg:"#3a2050",fg:"#c0a0e8"}, una:{bg:"#4a2800",fg:"#f09000"},
+  yuki:{bg:"#3a3000",fg:"#d4b000"}, rei:{bg:"#400830",fg:"#cc3080"},
+  defoko:{bg:"#2a3440",fg:"#8098b0"},
+};
+const DEFAULT_COLORS = {bg:"#2a2a2a",fg:"#888888"};
 
-function getProducers() {
-  let list = [...ALL_PRODUCERS];
-  if (searchQuery) {
-    const q = searchQuery.toLowerCase();
-    list = list.filter(p => p.name.toLowerCase().includes(q));
-  }
-  if (activeSort === "name") {
-    list.sort((a,b) => a.name.localeCompare(b.name));
-  } else if (activeSort === "tier") {
-    list.sort((a,b) => b.topScore - a.topScore || b.count - a.count);
-  } else if (activeSort === "songs") {
-    list.sort((a,b) => b.count - a.count || a.name.localeCompare(b.name));
-  } else {
-    list.sort((a,b) => b.views - a.views || b.count - a.count);
-  }
-  return list;
-}
+/* ── Data ── */
+let VIEWS = {};
+let YT_STATS = {};
+let BILI_STATS = {};
+let DETAILS = {};
+let ARTISTS = {};
+function nndViews(id){ const v=VIEWS[String(id)]; return typeof v==="number"?v:null; }
+function ytViews(id){ const s=YT_STATS[String(id)]; return s&&typeof s.views==="number"?s.views:null; }
+function biliV(id){ const s=BILI_STATS[String(id)]; return s&&typeof s.views==="number"?s.views:null; }
+function combinedViews(id){ const n=nndViews(id),y=ytViews(id),b=biliV(id); return (n==null&&y==null&&b==null)?null:(n||0)+(y||0)+(b||0); }
+function formatViews(n){ if(n>=1e9)return (n/1e9).toFixed(n>=1e10?1:2).replace(/\.?0+$/,"")+"B"; if(n>=1e6)return (n/1e6).toFixed(n>=1e7?1:2).replace(/\.?0+$/,"")+"M"; if(n>=1e3)return Math.round(n/1e3)+"K"; return String(n); }
+function artistImg(name){ const u=ARTISTS[name]; return (typeof u==="string"&&u)?u:null; }
+function escHtml(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 
-const SORT_LABELS = { views: "by total views", songs: "by song count", tier: "by top tier", name: "by name" };
-
-function render() {
-  const list = getProducers();
-  const grid = document.getElementById("producer-grid");
-  document.getElementById("result-count").textContent =
-    `${list.length} producer${list.length !== 1 ? "s" : ""}`;
-  { const mh = document.getElementById("mode-hint"); if (mh) mh.textContent = `Producer index · ${SORT_LABELS[activeSort] || ""}`; }
-
-  if (list.length === 0) {
-    grid.innerHTML = `<div class="state-message">No producers match your search.</div>`;
-    return;
-  }
-
-  const showRank = activeSort === "views" && !searchQuery;
-  const maxViews = list.reduce((m, p) => Math.max(m, p.views || 0), 0);
-
-  grid.innerHTML = list.map((p, idx) => {
-    const name    = escHtml(p.name);
-    const link    = `producer.html?name=${encodeURIComponent(p.name)}`;
-    const chain   = p.topSong ? coverArtChain(p.topSong) : [];
-    const pic     = artistImg(p.name);
-    const first   = pic || chain[0];
-    const srcs    = pic ? chain : chain.slice(1); // artist image first, song covers as fallback
-    const coverHtml = first
-      ? `<img class="producer-cover-img${pic ? " is-artist" : ""}" src="${escHtml(first)}" alt="" referrerpolicy="no-referrer" loading="lazy" data-srcs="${escHtml(JSON.stringify(srcs))}" onload="thumbOnload(this)" onerror="tryNextSrc(this)">`
-      : "";
-    const tierBadge = p.topTier
-      ? `<span class="producer-tier-badge">${p.topTier}</span>` : "";
-    const rankBadge = showRank
-      ? `<span class="producer-rank${idx < 3 ? ` rk-top rk-${idx + 1}` : ""}">${idx + 1}</span>` : "";
-    const shareBar = `<div class="producer-share" title="${(p.views||0).toLocaleString()} views"><i style="width:100%"></i></div>`;
-    const viewsOver = p.views
-      ? `<div class="producer-views-over" title="${p.views.toLocaleString()} views">${p.views.toLocaleString()}<span class="rv-cap">views</span></div>` : "";
-    const vocalists = topVocalists(p.songs);
-    const shownV = vocalists.slice(0, 2);
-    const tagHtml = shownV.map(v=>`<span class="vtag ${v.cls}" title="${escHtml(v.label)}">${escHtml(v.label)}</span>`).join("")
-      + (vocalists.length > shownV.length ? `<span class="vtag-more">+${vocalists.length - shownV.length}</span>` : "");
-    const colors = {bg:"#2a2a2a",fg:"#888"};
-
-    return `
-      <div class="producer-card">
-        <a href="${link}" style="display:block;flex-shrink:0">
-          <div class="producer-thumb">
-            <div class="producer-thumb-placeholder" style="background:${colors.bg};color:${colors.fg};">
-              <span style="font-size:28px;opacity:0.3">♪</span>
-            </div>
-            ${coverHtml}
-            ${rankBadge}
-            <div class="producer-thumb-overlay">
-              <div class="producer-name-over">${name}</div>
-              <div class="producer-stats-over">${p.count} song${p.count!==1?"s":""}</div>
-            </div>
-            ${viewsOver}
-            ${tierBadge}
-            <div class="producer-scanlines"></div>
-          </div>
-        </a>
-        ${shareBar}
-        <div class="producer-foot">
-          <div class="producer-tags">${tagHtml||`<span style="color:var(--faint);font-size:9px">—</span>`}</div>
-        </div>
-      </div>`;
-  }).join("");
-}
-
-/* ── Cache ── */
 /* sessionStorage cache with a short TTL so refreshed data JSON is picked up quickly. */
 const CACHE_TTL_MS = 10 * 60 * 1000;
 function cacheGet(key) {
@@ -984,58 +805,171 @@ function loadSongs() {
     .then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
     .then(data=>{ cachePut(KEY, data); return data; });
 }
-
-/* ── Build producer index from song data ── */
-function loadBiliViews(){
-  const KEY="39c_biliviews_v3";
-  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
-  return fetch("../data/biliviews.json").then(r=>r.ok?r.json():null)
-    .then(d=>{ if(d){ cachePut(KEY, d); } return d; })
+function loadJsonCached(file, key) {
+  { const c = cacheGet(key); if (c) return Promise.resolve(c); }
+  return fetch(file)
+    .then(r=>r.ok?r.json():null)
+    .then(d=>{ if(d){ cachePut(key, d); } return d; })
     .catch(()=>null);
 }
 
-Promise.all([loadSongs(), loadViews(), loadYtViews(), loadArtists(), loadBiliViews()])
-  .then(([data, views, ytviews, artists, biliviews]) => {
+/* Credited vocalist names: prefer the full VocaDB credits from songdetails. */
+function songVocalistNames(song) {
+  const d = DETAILS[String(song.vocadbId)];
+  return (d && d.vocalists && d.vocalists.length) ? d.vocalists : (song.singerNames || []);
+}
+
+/* ── State ── */
+let SPLIT_INDEX = [];
+let COMBINED_INDEX = [];
+let combineMode = localStorage.getItem("39c_voc_combine") === "1";
+let activeSort = "views";
+let searchQuery = "";
+let typeFilter = new Set();
+let typeMode = "include";
+
+function getVocalists() {
+  let list = [...(combineMode ? COMBINED_INDEX : SPLIT_INDEX)];
+  if (searchQuery) {
+    const q = searchQuery.toLowerCase();
+    list = list.filter(v => v.name.toLowerCase().includes(q));
+  }
+  if (typeFilter.size) {
+    list = list.filter(v => {
+      const hit = (v.programs || []).some(p => typeFilter.has(p));
+      return typeMode === "include" ? hit : !hit;
+    });
+  }
+  if (activeSort === "name") list.sort((a,b)=>a.name.localeCompare(b.name));
+  else if (activeSort === "songs") list.sort((a,b)=>b.count-a.count || b.views-a.views);
+  else list.sort((a,b)=>b.views-a.views || b.count-a.count);
+  return list;
+}
+
+const SORT_LABELS = { views: "by total views", songs: "by song count", name: "by name" };
+
+function updateIntro() {
+  const el = document.getElementById("intro-copy");
+  if (!el) return;
+  el.textContent = combineMode
+    ? `${COMBINED_INDEX.length} vocalists (similar banks combined)`
+    : `${SPLIT_INDEX.length} voicebanks ranked separately`;
+}
+
+function syncCombineButtons() {
+  document.querySelectorAll("#combine-switch .combine-btn").forEach(b =>
+    b.classList.toggle("is-active", (b.dataset.combine === "1") === combineMode));
+}
+
+function render() {
+  const list = getVocalists();
+  const grid = document.getElementById("vocalist-grid");
+  document.getElementById("result-count").textContent =
+    `${list.length} vocalist${list.length !== 1 ? "s" : ""}`;
+  { const mh = document.getElementById("mode-hint"); if (mh) mh.textContent = `Vocalist rankings · ${SORT_LABELS[activeSort] || ""}`; }
+
+  if (list.length === 0) {
+    grid.innerHTML = `<div class="state-message">No vocalists match your search.</div>`;
+    return;
+  }
+
+  const showRank = activeSort === "views" && !searchQuery && !typeFilter.size;
+  const maxViews = list.reduce((m,v)=>Math.max(m, v.views||0), 0);
+
+  grid.innerHTML = list.map((v, idx) => {
+    const colors = (v.charKey && THUMB_COLORS[v.charKey]) || DEFAULT_COLORS;
+    const pic = artistImg(v.name) || (v.baseName ? artistImg(v.baseName) : null);
+    const rankBadge = showRank
+      ? `<span class="vocalist-rank${idx < 3 ? " rk-top" : ""}">${idx + 1}</span>` : "";
+    const viewsBadge = v.views
+      ? `<div class="vocalist-views" title="${v.views.toLocaleString()} views (NicoNico + YouTube + bilibili)">${v.views.toLocaleString()}<span class="rv-cap">views</span></div>` : "";
+    return `
+      <a class="vocalist-card" href="vocalist.html?name=${encodeURIComponent(v.name)}">
+        <div class="vocalist-thumb" style="background:${colors.bg};color:${colors.fg};">
+          <span class="vc-note">♪</span>
+          ${pic ? `<img class="vocalist-img" src="${escHtml(pic)}" alt="" loading="lazy" onerror="this.remove()">` : ""}
+          ${rankBadge}
+          ${viewsBadge}
+          <div class="vocalist-scanlines"></div>
+        </div>
+        <div class="vocalist-body">
+          <div class="vocalist-name">${escHtml(v.name)}</div>
+          <div class="vocalist-sub">${v.count} song${v.count!==1?"s":""}</div>
+        </div>
+      </a>`;
+  }).join("");
+}
+
+/* ── Build the voicebank index ── */
+Promise.all([
+  loadSongs(),
+  loadJsonCached("../data/views.json", "39c_views_v2"),
+  loadJsonCached("../data/ytviews.json", "39c_ytviews_v2"),
+  loadJsonCached("../data/songdetails.json", "39c_details_v2"),
+  loadJsonCached("../data/artists.json", "39c_artists_v3"),
+  loadJsonCached("../data/biliviews.json", "39c_biliviews_v3"),
+])
+  .then(([data, views, ytviews, details, artists, biliviews]) => {
+    if (biliviews && biliviews.stats) BILI_STATS = biliviews.stats;
     if (views && views.views) VIEWS = views.views;
     if (ytviews && ytviews.stats) YT_STATS = ytviews.stats;
-    if (biliviews && biliviews.stats) BILI_STATS = biliviews.stats;
+    if (details && details.songs) DETAILS = details.songs;
     if (artists && artists.images) ARTISTS = artists.images;
-    const map = {};
-    data.forEach(s => {
-      const a = s.artist || "";
-      if (!a || /^various/i.test(a)) return;
-      if (!map[a]) map[a] = { name:a, songs:[], topScore:0, topTier:null, topSong:null, views:0 };
-      map[a].songs.push(s);
-      map[a].views += getViewCount(s) || 0;
-      const t = tierScore(s);
-      if (t.score > map[a].topScore) {
-        map[a].topScore = t.score;
-        map[a].topTier  = t.label;
-        map[a].topSong  = s;
-      }
-    });
-    ALL_PRODUCERS = Object.values(map).map(p => ({ ...p, count: p.songs.length }));
-    document.getElementById("intro-copy").textContent =
-      `${ALL_PRODUCERS.length} producers across ${data.length.toLocaleString()} songs`;
 
+    // Split index: each distinct credited voicebank name is its own entry
+    // ("Hatsune Miku" and "Hatsune Miku V4X" rank separately).
+    // Combined index: every voicebank of a mapped character merges into one
+    // entry; a song crediting several banks of that character counts once.
+    function buildIndex(combine) {
+      const map = {};
+      for (const s of data) {
+        const seen = new Set();
+        for (const raw of songVocalistNames(s)) {
+          if (!raw || /^various$/i.test(raw)) continue;
+          if (!isSynthName(raw)) continue; // human guest vocalists are excluded
+          const chr = VOCALIST_MAP.find(v => v.match.test(raw));
+          const display = combine && chr ? chr.name : raw;
+          const key = display.toLowerCase();
+          if (seen.has(key)) continue;     // don't double-count within one song
+          seen.add(key);
+          if (!map[key]) map[key] = { name: display, charKey: chr ? chr.key : null, baseName: chr ? chr.name : null, count: 0, views: 0, programs: [] };
+          map[key].count++;
+          map[key].views += combinedViews(s.vocadbId) || 0;
+          const prog = programOf(raw);
+          if (!map[key].programs.includes(prog)) map[key].programs.push(prog);
+        }
+      }
+      return Object.values(map);
+    }
+    SPLIT_INDEX = buildIndex(false);
+    COMBINED_INDEX = buildIndex(true);
+
+    updateIntro();
     const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
-    set("stat-producers", ALL_PRODUCERS.length.toLocaleString());
+    set("stat-vocalists", SPLIT_INDEX.length.toLocaleString());
     set("stat-songs", data.length.toLocaleString());
-    const mostSongs = [...ALL_PRODUCERS].sort((a,b)=>b.count-a.count)[0];
-    const mostViews = [...ALL_PRODUCERS].sort((a,b)=>b.views-a.views)[0];
+    const mostSongs = [...SPLIT_INDEX].sort((a,b)=>b.count-a.count)[0];
+    const mostViews = [...SPLIT_INDEX].sort((a,b)=>b.views-a.views)[0];
     if (mostSongs) set("stat-most-songs", mostSongs.name);
     if (mostViews) set("stat-most-views", mostViews.name);
 
     document.getElementById("marquee-text").textContent =
-      `★ ${ALL_PRODUCERS.length} producers across ${data.length.toLocaleString()} songs  ·  ` +
+      `★ ${SPLIT_INDEX.length} voicebanks ranked by combined NicoNico + YouTube views  ·  ` +
       `★ Most views: ${mostViews ? `${mostViews.name} (${formatViews(mostViews.views)})` : "?"}  ·  ` +
       `★ Most songs: ${mostSongs ? `${mostSongs.name} (${mostSongs.count})` : "?"}  ·  ` +
       `★ Thank you for using 39charts ♪`;
 
+    /* pre-fill search from URL ?q= param (used by song pages) */
+    const urlQ = new URLSearchParams(window.location.search).get("q");
+    if (urlQ) {
+      document.getElementById("search-input").value = urlQ;
+      searchQuery = urlQ;
+    }
+
     render();
   })
   .catch(err => {
-    document.getElementById("producer-grid").innerHTML =
+    document.getElementById("vocalist-grid").innerHTML =
       `<div class="state-message"><strong>Could not load songs.json</strong>${escHtml(err.message)}</div>`;
     document.getElementById("result-count").textContent = "error";
   });
@@ -1055,29 +989,35 @@ document.getElementById("search-input").addEventListener("input", e => {
   render();
 });
 
-/* ── Settings modal + dark mode ── */
-(function () {
-  const openBtn = document.getElementById("settings-open");
-  const modal = document.getElementById("settings-modal");
-  const backdrop = document.getElementById("settings-backdrop");
-  const toggle = document.getElementById("opt-dark");
-  if (!openBtn || !modal || !toggle) return;
-  function sync() {
-    const on = document.documentElement.classList.contains("dark-mode");
-    toggle.classList.toggle("is-on", on);
-    toggle.textContent = on ? "ON" : "OFF";
-  }
-  function close() { modal.hidden = true; backdrop.hidden = true; }
-  openBtn.addEventListener("click", e => { e.preventDefault(); modal.hidden = false; backdrop.hidden = false; sync(); });
-  document.getElementById("settings-close").addEventListener("click", close);
-  backdrop.addEventListener("click", close);
-  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
-  toggle.addEventListener("click", () => {
-    const on = document.documentElement.classList.toggle("dark-mode");
-    try { localStorage.setItem("39c_dark", on ? "1" : "0"); } catch (e) {}
-    sync();
+document.querySelectorAll("#type-filter .sort-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const type = btn.dataset.type;
+    if (typeFilter.has(type)) typeFilter.delete(type);
+    else typeFilter.add(type);
+    btn.classList.toggle("is-active", typeFilter.has(type));
+    render();
   });
-})();
+});
+
+document.querySelectorAll("#type-mode .sort-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    typeMode = btn.dataset.typemode;
+    document.querySelectorAll("#type-mode .sort-btn").forEach(b =>
+      b.classList.toggle("is-active", b.dataset.typemode === typeMode));
+    render();
+  });
+});
+
+document.querySelectorAll("#combine-switch .combine-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    combineMode = btn.dataset.combine === "1";
+    localStorage.setItem("39c_voc_combine", combineMode ? "1" : "0");
+    syncCombineButtons();
+    updateIntro();
+    render();
+  });
+});
+syncCombineButtons();
 </script>
 
 <style>

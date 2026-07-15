@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>39charts — Producer</title>
+<title>39charts — Vocalist</title>
 <meta property="og:site_name" content="39charts">
-<meta property="og:title" content="39charts — Producer detail">
-<meta property="og:description" content="Producer discography with real view counts and platform breakdown.">
+<meta property="og:title" content="39charts — Vocalist detail">
+<meta property="og:description" content="All songs featuring a voicebank, with real view counts.">
 <meta property="og:type" content="website">
-<meta name="description" content="Producer discography with real view counts and platform breakdown.">
+<meta name="description" content="All songs featuring a voicebank, with real view counts.">
 <script>try{if(localStorage.getItem("39c_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
 <style>
 :root {
@@ -99,9 +99,9 @@ button { font: inherit; cursor: pointer; }
   flex: 1 0 auto; width: 100%; max-width: 1060px; margin: 0 auto; padding: 8px 10px;
   display: flex; flex-direction: column; gap: 6px;
 }
-.prod-cols { display: flex; gap: 6px; align-items: flex-start; }
-.prod-left { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
-.prod-right { width: 232px; min-width: 232px; display: flex; flex-direction: column; gap: 6px; }
+.voc-cols { display: flex; gap: 6px; align-items: flex-start; }
+.voc-left { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.voc-right { width: 232px; min-width: 232px; display: flex; flex-direction: column; gap: 6px; }
 
 /* ── PANEL CHROME ── */
 .panel {
@@ -124,40 +124,44 @@ button { font: inherit; cursor: pointer; }
 }
 .panel-note { font-size: 10px; font-weight: 400; color: var(--faint); font-style: italic; text-transform: none; letter-spacing: 0; }
 
-/* ── PRODUCER TITLE BAR ── */
-.prod-titlebar { display: flex; gap: 10px; padding: 8px 10px; align-items: flex-start; }
-.prod-avatar {
-  width: 84px; height: 84px; flex-shrink: 0; position: relative; overflow: hidden;
-  background: #2a2a2a; border: 1px solid #777;
+/* ── VOCALIST TITLE BAR ── */
+.voc-titlebar { display: flex; gap: 10px; padding: 8px 10px; align-items: flex-start; }
+.voc-avatar {
+  width: 96px; height: 96px; flex-shrink: 0; position: relative; overflow: hidden;
+  border: 1px solid #777;
   box-shadow: inset 0 0 0 1px #fff, 0 1px 2px rgba(0,0,0,0.25);
 }
-.prod-avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.prod-avatar .pa-note { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 30px; color: #888; opacity: 0.4; }
-.prod-avatar .pa-scan {
-  position: absolute; inset: 0; pointer-events: none;
+.voc-avatar img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; z-index: 1; }
+.voc-avatar .va-note { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 34px; opacity: 0.4; }
+.voc-avatar .va-scan {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
   background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.06) 2px 3px);
 }
-.prod-head-main { flex: 1; min-width: 0; }
-.prod-posted {
+.voc-head-main { flex: 1; min-width: 0; }
+.voc-posted {
   font-size: 10px; color: var(--faint); margin-bottom: 1px;
   font-family: "MS Gothic","Courier New",monospace;
 }
-.prod-name { font-size: 21px; font-weight: 900; line-height: 1.15; word-break: break-word; }
-.prod-strip {
+.voc-name { font-size: 21px; font-weight: 900; line-height: 1.15; word-break: break-word; }
+.voc-strip {
   margin-top: 6px; display: flex; flex-wrap: wrap; align-items: stretch;
   border: 1px solid var(--line); background: var(--sf); width: fit-content; max-width: 100%;
 }
-.prod-strip .pst {
-  padding: 3px 10px 4px; border-right: 1px solid var(--line); text-align: center; min-width: 62px;
-}
-.prod-strip .pst:last-child { border-right: none; }
-.prod-strip .pst-v {
+.voc-strip .pst { padding: 3px 10px 4px; border-right: 1px solid var(--line); text-align: center; min-width: 62px; }
+.voc-strip .pst:last-child { border-right: none; }
+.voc-strip .pst-v {
   display: block; font-family: Consolas, "MS PGothic", monospace;
   font-size: 14px; font-weight: 900; color: var(--text); line-height: 1.2; white-space: nowrap;
 }
-.prod-strip .pst-v.is-red { color: var(--red); }
-.prod-strip .pst-k { font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.04em; }
-.prod-chips { margin-top: 6px; display: flex; gap: 3px; flex-wrap: wrap; }
+.voc-strip .pst-v.is-red { color: var(--red); }
+.voc-strip .pst-k { font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.04em; }
+.voc-banks { margin-top: 6px; display: flex; gap: 3px; flex-wrap: wrap; }
+.bank-chip {
+  display: inline-block; padding: 0 6px;
+  background: #eef3fb; border: 1px solid #96b4d8; color: #1a3a6a;
+  font-size: 10px; line-height: 17px; font-weight: 700; text-decoration: none;
+}
+.bank-chip:hover { background: #dce8fa; color: var(--red); text-decoration: none; }
 
 /* ── VIEWS BREAKDOWN ── */
 .vp-body { padding: 9px 10px; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
@@ -168,7 +172,6 @@ button { font: inherit; cursor: pointer; }
   color: var(--red); line-height: 1.05;
 }
 .vp-sub { font-size: 10px; color: var(--muted); }
-/* NicoNico vs YouTube share (like the song page) */
 .vp-split { flex: 1; min-width: 220px; }
 .hv-bar {
   display: flex; height: 14px; border: 1px solid var(--ls); overflow: hidden;
@@ -184,7 +187,7 @@ button { font: inherit; cursor: pointer; }
 .hv-dot.hv-nnd { background: #7a766e; }
 .hv-dot.hv-bili { background: #1a9ace; }
 
-/* ── DISCOGRAPHY HEADER CONTROLS ── */
+/* ── DISCOGRAPHY CONTROLS ── */
 .disc-count { font-weight: 400; color: var(--faint); font-size: 10px; text-transform: none; letter-spacing: 0; }
 .disc-controls { margin-left: auto; display: flex; align-items: center; gap: 8px; font-family: "MS PGothic",sans-serif; text-transform: none; letter-spacing: 0; }
 .view-switch, .sort-switch { display: flex; border: 1px solid var(--ls); }
@@ -204,7 +207,7 @@ button { font: inherit; cursor: pointer; }
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
 }
 
-/* ── DISCOGRAPHY: LIST VIEW ── */
+/* ── LIST VIEW ── */
 .rank-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
 .rank-table th, .rank-table td {
   border-right: 1px solid var(--line);
@@ -231,8 +234,9 @@ tr.is-top3 .rt-rank { color: var(--red); }
 .thumb-link { position: absolute; inset: 0; z-index: 3; display: block; }
 .rt-title a { color: var(--text); font-weight: 700; font-size: 12px; }
 .rt-title a:hover { color: var(--red); text-decoration: none; }
-.rt-voc { width: 16%; }
-.rank-table td.rt-voc { white-space: normal; overflow: visible; }
+.rt-prod { width: 18%; color: var(--muted); font-size: 10px; }
+.rt-prod a { color: var(--muted); }
+.rt-prod a:hover { color: var(--red); }
 .rt-year { width: 44px; text-align: center; color: var(--faint); font-size: 10px; }
 .rt-views {
   width: 108px; text-align: right;
@@ -241,7 +245,7 @@ tr.is-top3 .rt-rank { color: var(--red); }
 }
 .rt-views.is-tier { color: var(--faint); font-weight: 400; }
 
-/* ── DISCOGRAPHY: CARD VIEW ── */
+/* ── CARD VIEW ── */
 .song-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 5px; padding: 5px; }
 .song-card {
   background: var(--surface); border: 1px solid var(--line);
@@ -276,12 +280,11 @@ tr.is-top3 .rt-rank { color: var(--red); }
 }
 .card-views .cv-num { font-size: 10px; font-weight: 700; }
 .card-views .cv-label { font-size: 8px; opacity: .75; text-transform: uppercase; letter-spacing: .04em; }
-.card-body { padding: 4px 6px 3px; flex: 1 0 auto; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.card-body { padding: 4px 6px 4px; flex: 1 0 auto; display: flex; flex-direction: column; gap: 1px; min-width: 0; }
 .card-title { font-size: 11px; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; line-height: 1.3; }
 .card-title a { color: inherit; }
 .card-title a:hover { color: var(--red); text-decoration: none; }
-.card-year { font-size: 10px; color: var(--muted); }
-.card-vocals { display: flex; gap: 2px; flex-wrap: wrap; padding: 2px 6px 4px; }
+.card-prod { font-size: 10px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ── SIDEBAR TABLES ── */
 .data-table { width: 100%; border-collapse: collapse; }
@@ -289,45 +292,14 @@ tr.is-top3 .rt-rank { color: var(--red); }
 .data-table tr:last-child { border-bottom: none; }
 .data-table tr:nth-child(even) { background: #f6f5f0; }
 .data-table tr:hover { background: #fff0f0; }
-.data-table td { padding: 3px 8px; font-size: 10px; height: 21px; color: var(--muted); }
+.data-table td { padding: 3px 8px; font-size: 10px; height: 21px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; }
 .data-table td:last-child {
   font-weight: 900; text-align: right; color: var(--text); font-size: 11px; white-space: nowrap;
   font-family: Consolas, "MS PGothic", monospace;
-  overflow: hidden; text-overflow: ellipsis; max-width: 120px;
+  max-width: 120px;
 }
 .data-table td:last-child.is-red { color: var(--red); }
-.data-table td:last-child a { color: var(--link); font-family: inherit; }
-
-/* tier badge */
-.tier-badge {
-  display: inline-block; padding: 0 5px;
-  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
-  color: #fff; font-size: 10px; font-weight: 700; line-height: 16px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
-}
-
-/* vocalist chips */
-.vtag { display: inline-block; padding: 0 4px; font-size: 9px; line-height: 14px; border: 1px solid; font-weight: 700; }
-.vtag-miku   { background: #e0f4f8; border-color: #39c5bb; color: #007a73; }
-.vtag-rin    { background: #fff4d0; border-color: #f5a623; color: #915800; }
-.vtag-len    { background: #fffacc; border-color: #d4b800; color: #7a6500; }
-.vtag-luka   { background: #fce4ec; border-color: #e91e8c; color: #9c0060; }
-.vtag-gumi   { background: #e8f5e9; border-color: #43a047; color: #1b5e20; }
-.vtag-ia     { background: #f3e5f5; border-color: #9c27b0; color: #6a1b9a; }
-.vtag-kaito  { background: #e8eaf6; border-color: #3949ab; color: #1a237e; }
-.vtag-meiko  { background: #fce8e6; border-color: #e53935; color: #b71c1c; }
-.vtag-teto   { background: #fde8ec; border-color: #d44466; color: #8c1030; }
-.vtag-flower { background: #f0e4f8; border-color: #9040a0; color: #581070; }
-.vtag-kafu   { background: #f0e6fa; border-color: #b48ad8; color: #6a3a9a; }
-.vtag-una    { background: #fdf0d0; border-color: #e08000; color: #7a4000; }
-.vtag-yuki   { background: #fff8d0; border-color: #b09000; color: #5a4800; }
-.vtag-rei    { background: #fce0f0; border-color: #cc3080; color: #880050; }
-.vtag-defoko { background: #e0e8f0; border-color: #6080a0; color: #304060; }
-.vtag-other  { background: var(--sf); border-color: var(--ls); color: var(--muted); }
-.vtag-guest  {
-  background: #f4f4f2; border-color: #c0bcb4; border-style: dashed;
-  color: var(--faint); font-weight: 400;
-}
+.data-table td a { color: var(--link); }
 
 /* ── STATE / FOOTER ── */
 .state-message {
@@ -343,55 +315,6 @@ tr.is-top3 .rt-rank { color: var(--red); }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
   padding: 6px 10px; font-size: 11px; color: var(--faint); text-align: center;
 }
-
-/* ── DARK MODE ── */
-html.dark-mode {
-  --bg: #121212; --surface: #1a1a1a; --sf: #161616;
-  --text: #e1e1e1; --muted: #a6a39c; --faint: #7c7c7c;
-  --line: #2c2c2c; --ls: #3b3b3b;
-  --red: #dd2222; --link: #5aa0e0;
-}
-html.dark-mode body {
-  background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-}
-html.dark-mode .nnd-mainbar { background: #161616; }
-html.dark-mode .nnd-logo-text { color: #e1e1e1; }
-html.dark-mode .nnd-header-links a:hover { background: #241f1a; border-color: #3b3b3b; }
-html.dark-mode .nnd-marquee-bar { background: #211d09; border-color: #5a4a16; }
-html.dark-mode .nnd-marquee-inner { color: #d6c266; }
-html.dark-mode .nnd-marquee-label { background: #6e5a10; border-right-color: #4a3c0a; }
-html.dark-mode .panel-header {
-  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
-  border-color: #3b3b3b; box-shadow: none; color: #cccccc;
-}
-html.dark-mode .panel { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35); }
-html.dark-mode .prod-strip { background: #1d1d1d; border-color: #2c2c2c; }
-html.dark-mode .prod-avatar { border-color: #444; box-shadow: none; }
-html.dark-mode .data-table tr:nth-child(even) { background: #1e1e1e; }
-html.dark-mode .data-table tr:hover { background: #2a1414; }
-html.dark-mode .data-table td:last-child.is-red { color: #ff6666; }
-html.dark-mode .rank-table th { background: #222222; }
-html.dark-mode .rank-table tbody tr:nth-child(even) { background: #1e1e1e; }
-html.dark-mode .rank-table tbody tr:hover { background: #2a1414; }
-html.dark-mode .rt-views { color: #ff6666; }
-html.dark-mode .row-thumb { border-color: #444; box-shadow: none; }
-html.dark-mode .view-btn, html.dark-mode .sort-btn {
-  background: linear-gradient(to bottom, #2e2e2e, #1e1e1e);
-  border-color: #3b3b3b; color: var(--muted); box-shadow: none;
-}
-html.dark-mode .view-btn:hover, html.dark-mode .sort-btn:hover { background: #2b2020; color: var(--red); }
-html.dark-mode .view-btn.is-active, html.dark-mode .sort-btn.is-active {
-  background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff;
-}
-html.dark-mode .song-card { border-color: #2c2c2c; }
-html.dark-mode .vtag { background: #1d1d1d; }
-html.dark-mode .vtag-guest { background: #1a1a1a; border-color: #444; color: #888; }
-html.dark-mode .vp-total { color: #ff6666; }
-html.dark-mode .tier-badge { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #5a0505; box-shadow: none; }
-html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); box-shadow: none; }
-html.dark-mode .hv-bar { background: #111; border-color: #3b3b3b; }
 
 /* ── SETTINGS MODAL ── */
 .settings-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; }
@@ -436,35 +359,94 @@ html.dark-mode .hv-bar { background: #111; border-color: #3b3b3b; }
   color: #fff; border-color: var(--red-dark);
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
 }
-html.dark-mode .settings-title {
-  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
-  border-color: #3b3b3b; color: #cccccc;
+
+/* ── MOSTLY FEATURED BY (producer grid) ── */
+.feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 6px; }
+.feat-card {
+  display: flex; align-items: center; gap: 6px; min-width: 0;
+  padding: 4px 6px; text-decoration: none; color: inherit;
+  background: var(--surface); border: 1px solid var(--line);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
 }
+.feat-card:hover { border-color: var(--red); text-decoration: none; }
+.feat-card:hover .feat-name { color: var(--red); }
+.feat-av {
+  width: 26px; height: 26px; flex-shrink: 0; position: relative; overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  background: #2a2a2a; color: #999; font-size: 12px; font-weight: 900;
+  border: 1px solid rgba(0,0,0,0.25);
+}
+.feat-av img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.feat-info { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.feat-name { font-size: 10px; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.feat-count { font-size: 9px; color: var(--faint); font-family: Consolas, "MS PGothic", monospace; }
+.feat-count b { color: var(--red); font-size: 10px; }
+html.dark-mode .feat-card { background: #1a1a1a; border-color: #2c2c2c; box-shadow: none; }
+
+/* ── DARK MODE ── */
+html.dark-mode {
+  --bg: #121212; --surface: #1a1a1a; --sf: #161616;
+  --text: #e1e1e1; --muted: #a6a39c; --faint: #7c7c7c;
+  --line: #2c2c2c; --ls: #3b3b3b;
+  --red: #dd2222; --link: #5aa0e0;
+}
+html.dark-mode body {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+}
+html.dark-mode .nnd-mainbar { background: #161616; }
+html.dark-mode .nnd-logo-text { color: #e1e1e1; }
+html.dark-mode .nnd-header-links a:hover { background: #241f1a; border-color: #3b3b3b; }
+html.dark-mode .nnd-marquee-bar { background: #211d09; border-color: #5a4a16; }
+html.dark-mode .nnd-marquee-inner { color: #d6c266; }
+html.dark-mode .nnd-marquee-label { background: #6e5a10; border-right-color: #4a3c0a; }
+html.dark-mode .panel-header, html.dark-mode .settings-title {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+  border-color: #3b3b3b; box-shadow: none; color: #cccccc;
+}
+html.dark-mode .panel { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35); }
+html.dark-mode .voc-strip { background: #1d1d1d; border-color: #2c2c2c; }
+html.dark-mode .voc-avatar { border-color: #444; box-shadow: none; }
+html.dark-mode .bank-chip { background: #14202e; border-color: #2a4a70; color: #7ea6dd; }
+html.dark-mode .bank-chip:hover { background: #1a2a40; }
+html.dark-mode .data-table tr:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .data-table tr:hover { background: #2a1414; }
+html.dark-mode .data-table td:last-child.is-red { color: #ff6666; }
+html.dark-mode .rank-table th { background: #222222; }
+html.dark-mode .rank-table tbody tr:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .rank-table tbody tr:hover { background: #2a1414; }
+html.dark-mode .rt-views { color: #ff6666; }
+html.dark-mode .row-thumb { border-color: #444; box-shadow: none; }
+html.dark-mode .view-btn, html.dark-mode .sort-btn,
 html.dark-mode .settings-toggle, html.dark-mode .settings-close {
   background: linear-gradient(to bottom, #2e2e2e, #1e1e1e);
   border-color: #3b3b3b; color: var(--muted); box-shadow: none;
 }
-html.dark-mode .settings-close:hover { background: #2b2020; color: var(--red); }
-html.dark-mode .settings-toggle.is-on {
-  background: linear-gradient(to bottom, #b01111, #7a0808);
-  color: #fff; border-color: #5a0505;
+html.dark-mode .view-btn:hover, html.dark-mode .sort-btn:hover, html.dark-mode .settings-close:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .view-btn.is-active, html.dark-mode .sort-btn.is-active, html.dark-mode .settings-toggle.is-on {
+  background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; border-color: #5a0505;
 }
+html.dark-mode .song-card { border-color: #2c2c2c; }
+html.dark-mode .vp-total { color: #ff6666; }
+html.dark-mode .hv-bar { background: #111; border-color: #3b3b3b; }
+html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); box-shadow: none; }
 
 @media (max-width: 860px) {
-  .prod-cols { flex-direction: column; }
-  .prod-right { width: 100%; min-width: 0; }
+  .voc-cols { flex-direction: column; }
+  .voc-right { width: 100%; min-width: 0; }
   .song-grid { grid-template-columns: repeat(2, 1fr); }
-  .rt-voc, .rt-year { display: none; }
+  .rt-prod, .rt-year { display: none; }
 }
 @media (max-width: 620px) {
   .panel-header { flex-wrap: wrap; }
   .panel-header .ph-title { white-space: nowrap; }
   .disc-controls { margin-left: 0; width: 100%; flex-wrap: wrap; padding: 2px 0; }
-  .prod-titlebar { flex-wrap: wrap; }
-  .prod-strip { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
-  .prod-strip .pst { border-top: 1px solid var(--line); text-align: left; }
-  .prod-strip .pst:nth-child(-n+2) { border-top: none; }
-  .prod-strip .pst:nth-child(even) { border-right: none; }
+  .voc-titlebar { flex-wrap: wrap; }
+  .voc-strip { display: grid; grid-template-columns: 1fr 1fr; width: 100%; }
+  .voc-strip .pst { border-top: 1px solid var(--line); text-align: left; }
+  .voc-strip .pst:nth-child(-n+2) { border-top: none; }
+  .voc-strip .pst:nth-child(even) { border-right: none; }
 }
 @media (max-width: 480px) { .song-grid { grid-template-columns: 1fr; } }
 @media (min-width: 861px) and (max-width: 1080px) { .song-grid { grid-template-columns: repeat(3, 1fr); } }
@@ -473,8 +455,8 @@ html.dark-mode .settings-toggle.is-on {
 <body>
 
 <div class="nnd-topbar">
-  <span id="topbar-crumb">39charts &rsaquo; Producers &rsaquo; …</span>
-  <span style="color:#666;font-size:11px">Producer Detail</span>
+  <span id="topbar-crumb">39charts &rsaquo; Vocalists &rsaquo; …</span>
+  <span style="color:#666;font-size:11px">Vocalist Detail</span>
 </div>
 
 <div class="nnd-mainbar">
@@ -483,7 +465,7 @@ html.dark-mode .settings-toggle.is-on {
     <span class="nnd-logo-text">39charts<span class="nnd-logo-sub">Vocaloid Song Rankings</span></span>
   </a>
   <nav class="nnd-header-links">
-    <a href="producers.html">&#9664; Producers</a>
+    <a href="vocalists.html">&#9664; Vocalists</a>
     <span class="nnd-divider">|</span>
     <a href="#" id="settings-open">Settings</a>
     <span class="nnd-divider" style="color:var(--line)">|</span>
@@ -494,12 +476,12 @@ html.dark-mode .settings-toggle.is-on {
 <div class="nnd-marquee-bar">
   <span class="nnd-marquee-label">[INFO]</span>
   <div class="nnd-marquee-wrap">
-    <div class="nnd-marquee-inner" id="marquee-text">Loading producer data… &nbsp;·&nbsp; ★ Thank you for using 39charts ♪</div>
+    <div class="nnd-marquee-inner" id="marquee-text">Loading vocalist data… &nbsp;·&nbsp; ★ Thank you for using 39charts ♪</div>
   </div>
 </div>
 
 <div class="nnd-body" id="page-body">
-  <div class="state-message"><strong>Loading…</strong>Fetching producer data</div>
+  <div class="state-message"><strong>Loading…</strong>Fetching vocalist data</div>
 </div>
 
 <footer class="site-footer">
@@ -545,7 +527,102 @@ html.dark-mode .settings-toggle.is-on {
 </script>
 
 <script>
-/* ── Cache ── */
+const VOCALIST_MAP = [
+  { key:"miku",   name:"Hatsune Miku",  match:/hatsune miku/i },
+  { key:"rin",    name:"Kagamine Rin",  match:/kagamine rin/i },
+  { key:"len",    name:"Kagamine Len",  match:/kagamine len/i },
+  { key:"luka",   name:"Megurine Luka", match:/megurine luka/i },
+  { key:"meiko",  name:"MEIKO",         match:/\bmeiko\b/i },
+  { key:"kaito",  name:"KAITO",         match:/\bkaito\b/i },
+  { key:"gumi",   name:"GUMI",          match:/\bgumi\b|megpoid/i },
+  { key:"ia",     name:"IA",            match:/^ia$|^ia :/i },
+  { key:"flower", name:"flower",        match:/\bflower\b|v flower/i },
+  { key:"teto",   name:"Kasane Teto",   match:/kasane teto/i },
+  { key:"kafu",   name:"KAFU",          match:/\bkafu\b/i },
+  { key:"una",    name:"Otomachi Una",  match:/otomachi una/i },
+  { key:"yuki",   name:"Kaai Yuki",     match:/kaai yuki/i },
+  { key:"rei",    name:"Adachi Rei",    match:/adachi rei/i },
+  { key:"defoko", name:"Defoko",        match:/utane uta|defoko/i },
+];
+
+const THUMB_COLORS = {
+  miku:{bg:"#1a6b68",fg:"#39c5bb"}, rin:{bg:"#7a4800",fg:"#f5a623"},
+  len:{bg:"#6a5500",fg:"#e8d000"},  luka:{bg:"#7a005a",fg:"#e91e8c"},
+  gumi:{bg:"#1b5e20",fg:"#66bb6a"}, ia:{bg:"#4a0e6a",fg:"#ce93d8"},
+  kaito:{bg:"#0d1b6e",fg:"#5c6bc0"},meiko:{bg:"#7a0a0a",fg:"#ef5350"},
+  teto:{bg:"#5a0820",fg:"#e3587a"}, flower:{bg:"#2e0840",fg:"#c060d0"},
+  kafu:{bg:"#3a2050",fg:"#c0a0e8"}, una:{bg:"#4a2800",fg:"#f09000"},
+  yuki:{bg:"#3a3000",fg:"#d4b000"}, rei:{bg:"#400830",fg:"#cc3080"},
+  defoko:{bg:"#2a3440",fg:"#8098b0"},
+};
+const DEFAULT_COLORS = {bg:"#2a2a2a",fg:"#888888"};
+
+const VIEW_TIERS = [
+  {tag:"100m",label:"100M+",score:6},{tag:"10m",label:"10M+",score:5},
+  {tag:"1m",  label:"1M+",  score:4},{tag:"100k",label:"100K+",score:3},
+  {tag:"10k", label:"10K+", score:2},
+];
+function tierScore(song) {
+  const tags = song.sourceTags||[];
+  for (const t of VIEW_TIERS)
+    if (tags.some(tag=>tag.endsWith("-"+t.tag)||tag===t.tag)) return t;
+  return {label:null,score:0};
+}
+
+let VIEWS = {};
+let YT_STATS = {};
+let BILI_STATS = {};
+let ARTISTS = {};
+let DETAILS = {};
+function nndViews(song){ const v=VIEWS[String(song.vocadbId)]; return typeof v==="number"?v:null; }
+function ytViews(song){ const s=YT_STATS[String(song.vocadbId)]; return s&&typeof s.views==="number"?s.views:null; }
+function biliViews(song){ const s=BILI_STATS[String(song.vocadbId)]; return s&&typeof s.views==="number"?s.views:null; }
+function getViewCount(song){ const n=nndViews(song),y=ytViews(song),b=biliViews(song); return (n==null&&y==null&&b==null)?null:(n||0)+(y||0)+(b||0); }
+function formatViews(n){ if(n>=1e9)return (n/1e9).toFixed(n>=1e10?1:2).replace(/\.?0+$/,"")+"B"; if(n>=1e6)return (n/1e6).toFixed(n>=1e7?1:2).replace(/\.?0+$/,"")+"M"; if(n>=1e3)return Math.round(n/1e3)+"K"; return String(n); }
+function artistImg(name){ const u=ARTISTS[name]; return (typeof u==="string"&&u)?u:null; }
+function escHtml(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+function songVocalistNames(song) {
+  const d = DETAILS[String(song.vocadbId)];
+  return (d && d.vocalists && d.vocalists.length) ? d.vocalists : (song.singerNames || []);
+}
+function songProducerNames(song) {
+  const real = (song.producerNames || []).filter(p => p && !/^various/i.test(p));
+  if (real.length) return real;
+  const d = DETAILS[String(song.vocadbId)];
+  if (d && d.producers && d.producers.length) return d.producers.map(p => p.name);
+  return (song.artist && !/^various/i.test(song.artist)) ? [song.artist] : [];
+}
+
+function coverArtChain(song) {
+  const all = [...(song.coverArts||[])];
+  if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
+  const ytHq = song.ytOriginalId ? `https://i.ytimg.com/vi/${song.ytOriginalId}/hqdefault.jpg` : null;
+  if (ytHq) { all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`); }
+  const nndNum = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/)?.[1] : null;
+  if (nndNum) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${nndNum}/${nndNum}`);
+  const bp = BILI_STATS[String(song.vocadbId)];
+  if (bp && bp.pic) all.push(String(bp.pic).replace(/^http:/, "https:"));
+  const p = u => (ytHq&&u===ytHq)?-1:u.includes("ytimg.com")&&u.includes("hqdefault")?0:u.includes("ytimg.com")&&u.includes("mqdefault")?1:u.includes("ytimg.com")?2:u.includes("sndcdn.com")?3:4;
+  return [...new Set(all)].sort((a,b)=>p(a)-p(b));
+}
+function advanceThumb(img, skipYt) {
+  let rest = JSON.parse(img.dataset.srcs||"[]");
+  if (skipYt) rest = rest.filter(u=>!u.includes("ytimg.com"));
+  if (rest.length) { img.src=rest[0]; img.dataset.srcs=JSON.stringify(rest.slice(1)); }
+  else img.remove();
+}
+function tryNextSrc(img) { advanceThumb(img, false); }
+function thumbOnload(img) {
+  if (img.naturalWidth && img.naturalWidth<=120 && img.naturalHeight<=90 && /ytimg\.com/.test(img.currentSrc||img.src)) advanceThumb(img, true);
+}
+function thumbHtml(song) {
+  const chain = coverArtChain(song);
+  return chain.length
+    ? `<img src="${escHtml(chain[0])}" alt="" referrerpolicy="no-referrer" loading="lazy" data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}" onload="thumbOnload(this)" onerror="tryNextSrc(this)">`
+    : "";
+}
+
 /* sessionStorage cache with a short TTL so refreshed data JSON is picked up quickly. */
 const CACHE_TTL_MS = 10 * 60 * 1000;
 function cacheGet(key) {
@@ -574,156 +651,9 @@ function loadJsonCached(file, key) {
     .catch(()=>null);
 }
 
-const VOCALIST_MAP = [
-  { key:"miku",   label:"Miku",   match:/hatsune miku/i,       cls:"vtag-miku"   },
-  { key:"rin",    label:"Rin",    match:/kagamine rin/i,        cls:"vtag-rin"    },
-  { key:"len",    label:"Len",    match:/kagamine len/i,        cls:"vtag-len"    },
-  { key:"luka",   label:"Luka",   match:/megurine luka/i,       cls:"vtag-luka"   },
-  { key:"gumi",   label:"GUMI",   match:/\bgumi\b|megpoid/i,    cls:"vtag-gumi"   },
-  { key:"ia",     label:"IA",     match:/^ia$|^ia :/i,          cls:"vtag-ia"     },
-  { key:"kaito",  label:"KAITO",  match:/\bkaito\b/i,           cls:"vtag-kaito"  },
-  { key:"meiko",  label:"MEIKO",  match:/\bmeiko\b/i,           cls:"vtag-meiko"  },
-  { key:"teto",   label:"Teto",   match:/kasane teto/i,         cls:"vtag-teto"   },
-  { key:"flower", label:"flower", match:/\bflower\b|v flower/i, cls:"vtag-flower" },
-  { key:"kafu",   label:"KAFU",   match:/\bkafu\b/i,            cls:"vtag-kafu"   },
-  { key:"una",    label:"Una",    match:/otomachi una/i,         cls:"vtag-una"    },
-  { key:"yuki",   label:"Yuki",   match:/kaai yuki/i,           cls:"vtag-yuki"   },
-  { key:"rei",    label:"Rei",    match:/adachi rei/i,           cls:"vtag-rei"    },
-  { key:"defoko", label:"Defoko", match:/utane uta|defoko/i,    cls:"vtag-defoko" },
-];
-
-const VIEW_TIERS = [
-  {tag:"100m",label:"100M+",score:6},{tag:"10m",label:"10M+",score:5},
-  {tag:"1m",  label:"1M+",  score:4},{tag:"100k",label:"100K+",score:3},
-  {tag:"10k", label:"10K+", score:2},
-];
-
-function tierScore(song) {
-  const tags = song.sourceTags||[];
-  for (const t of VIEW_TIERS)
-    if (tags.some(tag=>tag.endsWith("-"+t.tag)||tag===t.tag)) return t;
-  return {label:null,score:0};
-}
-
-let VIEWS = {};
-let VIEWS_UPDATED = null;
-let YT_STATS = {};
-let BILI_STATS = {};
-let ARTISTS = {};
-let DETAILS = {};
-function nndViews(song){ const v=VIEWS[String(song.vocadbId)]; return typeof v==="number"?v:null; }
-function ytViews(song){ const s=YT_STATS[String(song.vocadbId)]; return s&&typeof s.views==="number"?s.views:null; }
-function biliViews(song){ const s=BILI_STATS[String(song.vocadbId)]; return s&&typeof s.views==="number"?s.views:null; }
-function getViewCount(song){ const n=nndViews(song),y=ytViews(song),b=biliViews(song); return (n==null&&y==null&&b==null)?null:(n||0)+(y||0)+(b||0); }
-/* Full VocaDB vocalist credits (expands "Various artists" songs). */
-function songVocalistNames(song) {
-  const d = DETAILS[String(song.vocadbId)];
-  return (d && d.vocalists && d.vocalists.length) ? d.vocalists : (song.singerNames || []);
-}
-function formatViews(n){ if(n>=1e9)return (n/1e9).toFixed(n>=1e10?1:2).replace(/\.?0+$/,"")+"B"; if(n>=1e6)return (n/1e6).toFixed(n>=1e7?1:2).replace(/\.?0+$/,"")+"M"; if(n>=1e3)return Math.round(n/1e3)+"K"; return String(n); }
-function artistImg(name){ const u=ARTISTS[name]; return (typeof u==="string"&&u)?u:null; }
-
-function coverArtChain(song) {
-  const all = [...(song.coverArts||[])];
-  if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
-  const ytHq = song.ytOriginalId ? `https://i.ytimg.com/vi/${song.ytOriginalId}/hqdefault.jpg` : null;
-  if (ytHq) { all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`); }
-  const nndNum = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/)?.[1] : null;
-  if (nndNum) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${nndNum}/${nndNum}`);
-  const bp = BILI_STATS[String(song.vocadbId)];
-  if (bp && bp.pic) all.push(String(bp.pic).replace(/^http:/, "https:"));
-  const p = u => (ytHq&&u===ytHq)?-1:u.includes("ytimg.com")&&u.includes("hqdefault")?0:u.includes("ytimg.com")&&u.includes("mqdefault")?1:u.includes("ytimg.com")?2:u.includes("sndcdn.com")?3:4;
-  return [...new Set(all)].sort((a,b)=>p(a)-p(b));
-}
-
-function advanceThumb(img, skipYt) {
-  let rest = JSON.parse(img.dataset.srcs||"[]");
-  if (skipYt) rest = rest.filter(u=>!u.includes("ytimg.com"));
-  if (rest.length) { img.src=rest[0]; img.dataset.srcs=JSON.stringify(rest.slice(1)); }
-  else img.remove();
-}
-function tryNextSrc(img) { advanceThumb(img, false); }
-function thumbOnload(img) {
-  if (img.naturalWidth && img.naturalWidth<=120 && img.naturalHeight<=90 && /ytimg\.com/.test(img.currentSrc||img.src)) advanceThumb(img, true);
-}
-
-function escHtml(s) {
-  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
-}
-
-function normalizeVocalists(singerNames, artistString) {
-  const singers = singerNames||[];
-  const found = [];
-  const seenKeys = new Set();
-  singers.forEach(name => {
-    if (!name || /various/i.test(name)) return;
-    const v = VOCALIST_MAP.find(v=>v.match.test(name));
-    if (v) { if(!seenKeys.has(v.key)){seenKeys.add(v.key);found.push({ key:v.key, label:name, cls:v.cls, title:name });} }
-    else {
-      const key = name.toLowerCase();
-      if (!seenKeys.has(key)) {
-        seenKeys.add(key);
-        const guest = !isSynthName(name);
-        found.push({
-          key, label: name + (guest ? " ♦" : ""),
-          cls: guest ? "vtag-guest" : "vtag-other",
-          title: guest ? "Guest vocalist (human)" : name,
-        });
-      }
-    }
-  });
-  if (found.length===0 && /various/i.test(artistString||""))
-    found.push({key:"various",label:"Various",cls:"vtag-other"});
-  return found;
-}
-
-/* Human guest vocalists (not vocal synths) are left out of the vocalist chips. */
-const SYNTH_PATTERNS = [
-  /sekai/i, /\blily\b/i, /yuzuki yukari/i, /luo tianyi/i, /nekomura iroha/i,
-  /\bmayu\b/i, /^vy[12]/i, /sekka yufu/i, /gackpo|gakupo/i, /hanakuma chifuyu/i,
-  /meika (mikoto|hime)/i, /tsurumaki maki/i, /seeu/i, /zundamon/i, /\bdex\b/i,
-  /\bdaina\b/i, /yanhe/i, /\bmaika\b/i, /avanna/i, /codename miki/i,
-  /tsuina-?chan/i, /yamine renri/i, /\bkyo\b/i, /miyamai moca/i, /sukone tei/i,
-  /yohioloid/i, /kotonoha (akane|aoi)/i, /\brime\b/i, /cyber (diva|songman)/i,
-  /chis-a/i, /xin hua/i, /yokune ruko/i, /yi xi/i, /\bmew\b/i, /q[ǐi]xu[aā]n/i,
-  /tone rion/i, /momone momo/i, /\bpopy\b/i, /\brana\b/i, /macne nana/i,
-  /\breml\b/i, /aoki lapis/i, /eleanor forte/i, /koharu rikka/i, /\boliver\b/i,
-  /^anon$/i, /^kanon$/i, /\brose\b/i, /natsuki karin/i, /utatane piko/i,
-  /acme iku/i, /makimiya fuki/i, /^o[иn]e$/i, /kikyuune aiko/i, /kizuna akari/i,
-  /nurse robot/i, /samune zimi/i, /yuezheng (ling|longya)/i, /stardust/i,
-  /\blola\b/i, /\bleon\b/i, /\bmiriam\b/i, /poyoroid/i, /plaintalk/i,
-  /touhoku|tohoku (kiritan|zunko|itako)/i, /haruno sora/i, /\bcoko\b/i,
-  /namine ritsu/i, /cherico/i, /\bsaki\b/i, /gekiyaku/i, /kazehiki/i,
-  /kasukabe tsumugi/i, /fukase/i, /asane ema/i, /tsumitsugu nae/i, /\bharu\b/i,
-  /^kevin$/i, /^anri$/i, /^mai$/i, /soyogi soyogi/i, /koronba no\.? ?4/i,
-  /galaco/i, /merli/i, /prima/i, /sonika/i, /sweet ann/i, /big al/i, /tonio/i,
-  /sachiko/i, /arsloid/i, /unity-chan/i, /^uni$/i, /ruby/i, /^solaria$/i,
-  /^asterian$/i, /gahata meiji/i, /matsudappoiyo/i, /kasuka(ne)? ako/i,
-  /^po-?uta$/i, /synthesizer v/i,
-];
-function isSynthName(name) {
-  return VOCALIST_MAP.some(v => v.match.test(name)) ||
-    SYNTH_PATTERNS.some(r => r.test(name));
-}
-
-function vocalistCounts(songs) {
-  const counts = {};
-  songs.forEach(s => {
-    const synthOnly = songVocalistNames(s).filter(n => n && isSynthName(n));
-    const vs = normalizeVocalists(synthOnly, s.artistString);
-    vs.forEach(v => {
-      // Header chips group all banks of a character — use the short map label.
-      const known = VOCALIST_MAP.find(m => m.key === v.key);
-      const short = known ? { key:v.key, label:known.label, cls:known.cls } : v;
-      counts[v.key] = (counts[v.key]||{v:short,n:0}); counts[v.key].n++;
-    });
-  });
-  return Object.values(counts).sort((a,b)=>b.n-a.n);
-}
-
 let ALL_SONGS = [];
 let activeSort = "views";
-let viewMode = (localStorage.getItem("39c_prod_viewmode") === "cards") ? "cards" : "list";
+let viewMode = (localStorage.getItem("39c_voc_viewmode") === "cards") ? "cards" : "list";
 
 function byViews(a, b) {
   const av=getViewCount(a), bv=getViewCount(b);
@@ -734,7 +664,6 @@ function byViews(a, b) {
   }
   return tierScore(b).score-tierScore(a).score || (b.publishDate||"").localeCompare(a.publishDate||"");
 }
-
 function getSorted() {
   const s = [...ALL_SONGS];
   if (activeSort === "date") s.sort((a,b)=>(b.publishDate||"").localeCompare(a.publishDate||""));
@@ -743,29 +672,16 @@ function getSorted() {
   return s;
 }
 
-function thumbHtml(song) {
-  const chain = coverArtChain(song);
-  return chain.length
-    ? `<img src="${escHtml(chain[0])}" alt="" referrerpolicy="no-referrer" loading="lazy" data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}" onload="thumbOnload(this)" onerror="tryNextSrc(this)">`
-    : "";
-}
-
-function capVocals(all) {
-  const MAX = 3;
-  if (all.length <= MAX) return all;
-  const rest = all.slice(MAX);
-  return all.slice(0, MAX).concat([{ key: "more", label: "+" + rest.length, cls: "vtag-other" }]);
-}
-
 function rowHtml(song, rank) {
   const tier = tierScore(song);
-  const vocals = capVocals(normalizeVocalists(songVocalistNames(song), song.artistString));
   const link = `song.html?id=${song.vocadbId}`;
   const count = getViewCount(song);
-  const nv = nndViews(song), yv = ytViews(song);
-  const bd = [nv!=null?`NicoNico ${nv.toLocaleString()}`:null, yv!=null?`YouTube ${yv.toLocaleString()}`:null].filter(Boolean).join("  ·  ");
+  const prods = songProducerNames(song);
+  const prodHtml = prods.length
+    ? `<a href="producer.html?name=${encodeURIComponent(prods[0])}" title="${escHtml(prods.join(", "))}">${escHtml(prods.length > 1 ? `${prods[0]} +${prods.length - 1}` : prods[0])}</a>`
+    : "—";
   const viewsCell = count != null
-    ? `<td class="rt-views" title="${bd}">${count.toLocaleString()}</td>`
+    ? `<td class="rt-views" title="${count.toLocaleString()}">${count.toLocaleString()}</td>`
     : `<td class="rt-views is-tier">${tier.label || "—"}</td>`;
   return `
     <tr class="${rank <= 3 ? "is-top3" : ""}">
@@ -774,7 +690,7 @@ function rowHtml(song, rank) {
         <div class="row-thumb">${thumbHtml(song)}<a class="thumb-link" href="${link}" tabindex="-1" aria-label="${escHtml(song.title)}"></a></div>
       </td>
       <td class="rt-title"><a href="${link}">${escHtml(song.title)}</a></td>
-      <td class="rt-voc">${vocals.map(v=>`<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join("")}</td>
+      <td class="rt-prod">${prodHtml}</td>
       <td class="rt-year">${song.publishDate ? song.publishDate.slice(0,4) : "—"}</td>
       ${viewsCell}
     </tr>`;
@@ -782,9 +698,9 @@ function rowHtml(song, rank) {
 
 function cardHtml(song, rank) {
   const tier = tierScore(song);
-  const vocals = capVocals(normalizeVocalists(songVocalistNames(song), song.artistString));
   const link = `song.html?id=${song.vocadbId}`;
   const count = getViewCount(song);
+  const prods = songProducerNames(song);
   const tierHtml = count != null
     ? `<span class="card-views"><span class="cv-num">${count.toLocaleString()}</span><span class="cv-label">views</span></span>`
     : (tier.label ? `<span class="card-tier">${escHtml(tier.label)}</span>` : "");
@@ -799,9 +715,8 @@ function cardHtml(song, rank) {
       </div>
       <div class="card-body">
         <div class="card-title"><a href="${link}">${escHtml(song.title)}</a></div>
-        <div class="card-year">${song.publishDate ? song.publishDate.slice(0,4) : ""}</div>
+        <div class="card-prod">${escHtml(prods.join(", "))}${song.publishDate ? ` · ${song.publishDate.slice(0,4)}` : ""}</div>
       </div>
-      ${vocals.length ? `<div class="card-vocals">${vocals.map(v=>`<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join("")}</div>` : ""}
     </div>`;
 }
 
@@ -822,7 +737,7 @@ function renderGrid() {
       <table class="rank-table">
         <thead><tr>
           <th class="rt-rank">#</th><th class="rt-thumb-cell"></th><th class="rt-title">Song</th>
-          <th class="rt-voc">Vocalist</th><th class="rt-year">Year</th><th class="rt-views">Views</th>
+          <th class="rt-prod">Producer</th><th class="rt-year">Year</th><th class="rt-views">Views</th>
         </tr></thead>
         <tbody>${sorted.map((s,i)=>rowHtml(s,i+1)).join("")}</tbody>
       </table>`;
@@ -830,38 +745,46 @@ function renderGrid() {
   syncDiscControls();
 }
 
-function buildPage(producerName, songs) {
-  document.title = `39charts — ${producerName}`;
-  document.getElementById("topbar-crumb").textContent = `39charts › Producers › ${producerName}`;
+function buildPage(vocalistName, songs, allSongs) {
+  document.title = `39charts — ${vocalistName}`;
+  document.getElementById("topbar-crumb").textContent = `39charts › Vocalists › ${vocalistName}`;
 
   ALL_SONGS = songs;
 
-  const topTier = songs.reduce((best,s)=>{
-    const t=tierScore(s); return t.score>best.score?t:best;
-  },{score:0,label:null});
+  const chr = VOCALIST_MAP.find(v => v.match.test(vocalistName));
   const years = songs.map(s=>s.publishDate?parseInt(s.publishDate.slice(0,4)):null).filter(Boolean);
   const yearRange = years.length ? (Math.min(...years)===Math.max(...years)?String(Math.min(...years)):`${Math.min(...years)}–${Math.max(...years)}`) : "—";
   const counted = songs.filter(s=>getViewCount(s)!=null);
   const totalViews = counted.reduce((sum,s)=>sum+getViewCount(s),0);
   const topByViews = [...counted].sort((a,b)=>getViewCount(b)-getViewCount(a));
-  const topSong = topByViews[0] || songs.slice().sort((a,b)=>tierScore(b).score-tierScore(a).score)[0];
-  const chain = topSong ? coverArtChain(topSong) : [];
+  const topSong = topByViews[0] || songs[0];
   const avgViews = counted.length ? Math.round(totalViews / counted.length) : null;
-  const newest = songs.filter(s=>s.publishDate).sort((a,b)=>(b.publishDate||"").localeCompare(a.publishDate||""))[0];
+  const colors = (chr && THUMB_COLORS[chr.key]) || DEFAULT_COLORS;
+  const pic = artistImg(vocalistName) || (chr ? artistImg(chr.name) : null);
 
-  const pic = artistImg(producerName);
+  // Top producers featuring this voicebank.
+  const prodCounts = {};
+  for (const s of songs)
+    for (const p of songProducerNames(s))
+      prodCounts[p] = (prodCounts[p] || 0) + 1;
+  const topProds = Object.entries(prodCounts).sort((a,b)=>b[1]-a[1]).slice(0,8);
 
-  const vcounts = vocalistCounts(songs);
-  const vocChips = vcounts.slice(0,8).map(({v,n})=>
-    `<span class="vtag ${v.cls}" title="${n} song${n!==1?"s":""}">${escHtml(v.label)} · ${n}</span>`).join("");
+  // Other banks of the same character (from full VocaDB credits).
+  const bankTotals = {};
+  if (chr) {
+    for (const s of allSongs) {
+      for (const n of songVocalistNames(s)) {
+        if (!n || !chr.match.test(n)) continue;
+        if (n.toLowerCase() === vocalistName.toLowerCase()) continue;
+        bankTotals[n] = (bankTotals[n] || 0) + 1;
+      }
+    }
+  }
+  const allBanks = Object.entries(bankTotals).sort((a,b)=>b[1]-a[1]);
+  const otherBanks = allBanks.slice(0, 5);
+  const moreBanks = allBanks.length - otherBanks.length;
 
-  document.getElementById("marquee-text").textContent =
-    `★ ${producerName}  ·  ★ ${songs.length} songs on 39charts  ·  ` +
-    (totalViews ? `★ ${totalViews.toLocaleString()} combined NicoNico + YouTube views  ·  ` : "") +
-    (topSong ? `★ Top song: ${topSong.title}  ·  ` : "") +
-    `★ Active ${yearRange}  ·  ★ Thank you for using 39charts ♪`;
-
-  // Platform split across the whole discography (like the song page bar).
+  // Platform split.
   const nndTotal = songs.reduce((sum,s)=>sum+(nndViews(s)||0),0);
   const ytTotal  = songs.reduce((sum,s)=>sum+(ytViews(s)||0),0);
   const biliTotal = songs.reduce((sum,s)=>sum+(biliViews(s)||0),0);
@@ -881,31 +804,37 @@ function buildPage(producerName, songs) {
       </div>
     </div>` : "";
 
+  document.getElementById("marquee-text").textContent =
+    `★ ${vocalistName}  ·  ★ ${songs.length} songs on 39charts  ·  ` +
+    (totalViews ? `★ ${totalViews.toLocaleString()} combined NicoNico + YouTube views  ·  ` : "") +
+    (topSong ? `★ Top song: ${topSong.title}  ·  ` : "") +
+    `★ Featured ${yearRange}  ·  ★ Thank you for using 39charts ♪`;
+
   document.getElementById("page-body").innerHTML = `
     <div class="panel">
-      <div class="prod-titlebar">
-        <div class="prod-avatar">
-          ${pic ? `<img src="${escHtml(pic)}" alt="" onerror="this.remove()">`
-                : (chain.length ? `<img src="${escHtml(chain[0])}" alt="" onerror="this.remove()">` : "")}
-          <span class="pa-note">♪</span>
-          <span class="pa-scan"></span>
+      <div class="voc-titlebar">
+        <div class="voc-avatar" style="background:${colors.bg};color:${colors.fg}">
+          <span class="va-note">♪</span>
+          ${pic ? `<img src="${escHtml(pic)}" alt="" onerror="this.remove()">` : ""}
+          <span class="va-scan"></span>
         </div>
-        <div class="prod-head-main">
-          <div class="prod-posted">PRODUCER / ボカロP</div>
-          <div class="prod-name">${escHtml(producerName)}</div>
-          <div class="prod-strip">
+        <div class="voc-head-main">
+          <div class="voc-posted">VOCALIST / 歌声${chr && chr.name.toLowerCase() !== vocalistName.toLowerCase() ? ` &nbsp;·&nbsp; ${escHtml(chr.name)} voicebank` : ""}</div>
+          <div class="voc-name">${escHtml(vocalistName)}</div>
+          <div class="voc-strip">
             <span class="pst"><span class="pst-v">${songs.length}</span><span class="pst-k">Songs</span></span>
-            <span class="pst"><span class="pst-v is-red"${totalViews?` title="${totalViews.toLocaleString()} combined views"`:""}>${totalViews ? formatViews(totalViews) : "—"}</span><span class="pst-k">Total Views</span></span>
-            <span class="pst"><span class="pst-v">${topTier.label ? `<span class="tier-badge">${escHtml(topTier.label)}</span>` : "—"}</span><span class="pst-k">Top Tier</span></span>
-            <span class="pst"><span class="pst-v">${escHtml(yearRange)}</span><span class="pst-k">Active</span></span>
+            <span class="pst"><span class="pst-v is-red"${totalViews?` title="${totalViews.toLocaleString()} combined views"`:""}>${totalViews ? totalViews.toLocaleString() : "—"}</span><span class="pst-k">Total Views</span></span>
+            <span class="pst"><span class="pst-v">${avgViews != null ? formatViews(avgViews) : "—"}</span><span class="pst-k">Avg / Song</span></span>
+            <span class="pst"><span class="pst-v">${escHtml(yearRange)}</span><span class="pst-k">Featured</span></span>
           </div>
-          ${vocChips ? `<div class="prod-chips">${vocChips}</div>` : ""}
+          ${otherBanks.length ? `<div class="voc-banks">${otherBanks.map(([n,c]) =>
+            `<a class="bank-chip" href="vocalist.html?name=${encodeURIComponent(n)}" title="${c} song${c!==1?"s":""}">${escHtml(n)}</a>`).join("")}${moreBanks > 0 && chr ? `<a class="bank-chip" href="vocalists.html?q=${encodeURIComponent(chr.name)}" title="See every ${escHtml(chr.name)} voicebank">+${moreBanks} more</a>` : ""}</div>` : ""}
         </div>
       </div>
     </div>
 
-    <div class="prod-cols">
-      <div class="prod-left">
+    <div class="voc-cols">
+      <div class="voc-left">
 
         <div class="panel">
           <div class="panel-header">[ Views Breakdown ]
@@ -923,7 +852,7 @@ function buildPage(producerName, songs) {
 
         <div class="panel">
           <div class="panel-header">
-            <span class="ph-title">[ Discography ]</span>
+            <span class="ph-title">[ Songs ]</span>
             <span class="disc-count" id="disc-count"></span>
             <div class="disc-controls">
               <div class="view-switch">
@@ -941,7 +870,7 @@ function buildPage(producerName, songs) {
         </div>
 
       </div>
-      <div class="prod-right">
+      <div class="voc-right">
 
         <div class="panel">
           <div class="panel-header">[ Stats ]</div>
@@ -949,25 +878,39 @@ function buildPage(producerName, songs) {
             <tr><td>Songs indexed</td><td>${songs.length}</td></tr>
             <tr><td>Total views</td><td class="is-red"${totalViews?` title="${totalViews.toLocaleString()}"`:""}>${totalViews ? totalViews.toLocaleString() : "—"}</td></tr>
             <tr><td>Average / song</td><td>${avgViews != null ? formatViews(avgViews) : "—"}</td></tr>
-            <tr><td>Active years</td><td>${escHtml(yearRange)}</td></tr>
-            <tr><td>Latest upload</td><td>${newest && newest.publishDate ? newest.publishDate.slice(0,10) : "—"}</td></tr>
+            <tr><td>Featured years</td><td>${escHtml(yearRange)}</td></tr>
             <tr><td>Top song</td><td>${topSong ? `<a href="song.html?id=${topSong.vocadbId}" title="${escHtml(topSong.title)}">${escHtml(topSong.title)}</a>` : "—"}</td></tr>
           </table>
         </div>
+
+        ${topProds.length ? `
+        <div class="panel">
+          <div class="panel-header">[ Mostly Featured By ]</div>
+          <div class="feat-grid">
+            ${topProds.map(([p,c]) => {
+              const img = artistImg(p);
+              const initial = escHtml((p.trim().charAt(0) || "?").toUpperCase());
+              return `<a class="feat-card" href="producer.html?name=${encodeURIComponent(p)}" title="${escHtml(p)} — ${c} song${c!==1?"s":""}">
+                <span class="feat-av">${initial}${img ? `<img src="${escHtml(img)}" alt="" loading="lazy" onerror="this.remove()">` : ""}</span>
+                <span class="feat-info">
+                  <span class="feat-name">${escHtml(p)}</span>
+                  <span class="feat-count"><b>${c}</b> song${c!==1?"s":""}</span>
+                </span>
+              </a>`;
+            }).join("")}
+          </div>
+        </div>` : ""}
 
       </div>
     </div>`;
 
   document.querySelectorAll(".sort-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      activeSort = btn.dataset.sort;
-      renderGrid();
-    });
+    btn.addEventListener("click", () => { activeSort = btn.dataset.sort; renderGrid(); });
   });
   document.querySelectorAll(".view-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       viewMode = btn.dataset.view === "cards" ? "cards" : "list";
-      localStorage.setItem("39c_prod_viewmode", viewMode);
+      localStorage.setItem("39c_voc_viewmode", viewMode);
       renderGrid();
     });
   });
@@ -977,11 +920,11 @@ function buildPage(producerName, songs) {
 
 /* ── Bootstrap ── */
 const params = new URLSearchParams(location.search);
-const producerName = (params.get("name")||"").trim();
+const vocalistName = (params.get("name")||"").trim();
 
-if (!producerName) {
+if (!vocalistName) {
   document.getElementById("page-body").innerHTML =
-    `<div class="state-message"><strong>No producer specified</strong><a href="producers.html">Browse all producers</a></div>`;
+    `<div class="state-message"><strong>No vocalist specified</strong><a href="vocalists.html">Browse all vocalists</a></div>`;
 } else {
   Promise.all([
     loadSongs(),
@@ -992,18 +935,19 @@ if (!producerName) {
     loadJsonCached("../data/biliviews.json", "39c_biliviews_v3"),
   ])
     .then(([data, views, ytviews, artists, details, biliviews]) => {
-      if (details && details.songs) { DETAILS = details.songs; }
-      if (biliviews && biliviews.stats) { BILI_STATS = biliviews.stats; }
-      if (views && views.views) { VIEWS = views.views; VIEWS_UPDATED = views.updated || null; }
-      if (ytviews && ytviews.stats) { YT_STATS = ytviews.stats; }
-      if (artists && artists.images) { ARTISTS = artists.images; }
-      const songs = data.filter(s => s.artist === producerName);
+      if (biliviews && biliviews.stats) BILI_STATS = biliviews.stats;
+      if (views && views.views) VIEWS = views.views;
+      if (ytviews && ytviews.stats) YT_STATS = ytviews.stats;
+      if (artists && artists.images) ARTISTS = artists.images;
+      if (details && details.songs) DETAILS = details.songs;
+      const lower = vocalistName.toLowerCase();
+      const songs = data.filter(s => songVocalistNames(s).some(n => n && n.toLowerCase() === lower));
       if (songs.length === 0) {
         document.getElementById("page-body").innerHTML =
-          `<div class="state-message"><strong>Producer not found</strong>"${escHtml(producerName)}" was not found in the dataset. <a href="producers.html">Browse all producers</a></div>`;
+          `<div class="state-message"><strong>Vocalist not found</strong>"${escHtml(vocalistName)}" has no songs in the dataset. <a href="vocalists.html">Browse all vocalists</a></div>`;
         return;
       }
-      buildPage(producerName, songs);
+      buildPage(vocalistName, songs, data);
     })
     .catch(err => {
       document.getElementById("page-body").innerHTML =

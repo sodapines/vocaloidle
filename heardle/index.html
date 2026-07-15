@@ -53,7 +53,7 @@
         <span class="nnd-divider">|</span>
         <a href="#" data-modal-target="release-notes">Updates</a>
         <span class="nnd-divider">|</span>
-        <a href="#" data-modal-target="settings">&#9881; Settings</a>
+        <a href="#" data-modal-target="settings">Settings</a>
         <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
       </div>
     </div>
@@ -96,11 +96,11 @@
         <div class="nnd-sidebar-box sb-extra-news">
           <div class="nnd-sidebar-header sb-news-header"><span class="sb-hbracket">[</span>News<span class="sb-hbracket">]</span></div>
           <div class="nnd-sidebar-body nnd-sidebar-news">
+            <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.6</span><span class="news-text news-v16">Retro UI overhaul</span></a>
             <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.5</span><span class="news-text news-v15">Unlimited song filters &amp; pool milestones</span></a>
             <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.4</span><span class="news-text news-v14">Practice modes &amp; pool checker</span></a>
             <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.3</span><span class="news-text news-v13">Bookmarks &amp; partial credit</span></a>
             <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.2</span><span class="news-text news-v12">Artist match feedback</span></a>
-            <a href="#" data-modal-target="release-notes" class="news-item"><span class="news-ver">v1.1</span><span class="news-text news-v11">Achievements &amp; global rankings</span></a>
           </div>
         </div>
 
@@ -162,7 +162,7 @@
 
         <div class="nnd-intro-panel">
           <span class="eyebrow" id="mode-eyebrow">daily puzzle</span>
-          <span class="intro-copy">Guess the VOCALOID song from the opening clip.</span>
+          <span class="intro-copy">Guess the VOCALOID song!</span>
           <div class="mode-switch">
             <button class="mode-button is-active" id="daily-mode-button" type="button">Daily <span class="new-badge" id="new-badge" hidden>NEW</span></button>
             <button class="mode-button" id="unlimited-mode-button" type="button">&#9654; Unlimited</button>
@@ -388,14 +388,15 @@
       <button class="modal-close" type="button" aria-label="Close dialog">x</button>
       <h2 id="release-notes-title">Release Notes</h2>
       <div class="release-tabs" aria-label="Release versions">
-        <button class="release-tab is-active" data-release-version="v1.5" type="button">v1.5</button>
+        <button class="release-tab is-active" data-release-version="v1.6" type="button">v1.6</button>
+        <button class="release-tab" data-release-version="v1.5" type="button">v1.5</button>
         <button class="release-tab" data-release-version="v1.4" type="button">v1.4</button>
         <button class="release-tab" data-release-version="v1.3" type="button">v1.3</button>
         <button class="release-tab" data-release-version="v1.2" type="button">v1.2</button>
         <button class="release-tab" data-release-version="v1.1" type="button">v1.1</button>
         <button class="release-tab" data-release-version="v1.0" type="button">v1.0</button>
       </div>
-      <p class="release-version" id="release-version">Release v1.5</p>
+      <p class="release-version" id="release-version">Release v1.6</p>
       <p id="release-intro">This release collects the major updates being prepared for the public site.</p>
       <ul class="release-list">
         <li>Added Unlimited song filters for producer, voicebank, program, publish year, and community-suggested songs.</li>
@@ -475,6 +476,15 @@
           <div class="filter-selected-list" id="filter-producer-selected" hidden></div>
           <input id="filter-producer-input" type="search" autocomplete="off" placeholder="type a producer...">
           <ul class="filter-suggestions" id="filter-producer-suggestions" hidden></ul>
+        </div>
+      </div>
+
+      <div class="filter-section">
+        <div class="filter-section-header"><span class="filter-section-bracket">[</span><span id="filter-exclude-label">Exclude producers / artists</span><span class="filter-section-bracket">]</span></div>
+        <div class="filter-section-body">
+          <div class="filter-selected-list" id="filter-exclude-selected" hidden></div>
+          <input id="filter-exclude-input" type="search" autocomplete="off" placeholder="type a producer to exclude...">
+          <ul class="filter-suggestions" id="filter-exclude-suggestions" hidden></ul>
         </div>
       </div>
 

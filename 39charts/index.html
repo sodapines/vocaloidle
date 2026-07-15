@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>39charts — Vocaloid Song Rankings</title>
+<meta property="og:site_name" content="39charts">
+<meta property="og:title" content="39charts — Vocaloid song rankings">
+<meta property="og:description" content="Vocaloid, SynthV and UTAU songs ranked by real NicoNico, YouTube and bilibili view counts. Filter by vocalist, producer, year and more.">
+<meta property="og:type" content="website">
+<meta name="description" content="Vocaloid, SynthV and UTAU songs ranked by real NicoNico, YouTube and bilibili view counts. Filter by vocalist, producer, year and more.">
+<script>try{if(localStorage.getItem("39c_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
 <style>
 :root {
   --bg: #dedad2;
@@ -17,7 +23,7 @@
   --red: #cc0000;
   --red-dark: #990000;
   --link: #0066cc;
-  --link-visited: #551a8b;
+  --gold: #c8980a;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,9 +47,8 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; color: var(--red); }
-a:visited { color: var(--link-visited); }
 
-button, input { font: inherit; cursor: pointer; }
+button, input, select { font: inherit; cursor: pointer; }
 
 /* ── TOP BLACK BAR ── */
 .nnd-topbar {
@@ -114,14 +119,21 @@ button, input { font: inherit; cursor: pointer; }
 }
 .nnd-divider { color: var(--line); }
 
-/* ── MARQUEE BAR ── */
+/* Ko-fi support button (same as the games) */
+.nnd-header-links a.nnd-kofi {
+  background: var(--red); color: #fff; padding: 3px 9px;
+  border: 1px solid var(--red-dark); font-weight: 700;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
+}
+.nnd-header-links a.nnd-kofi:hover { background: #b30000; color: #fff; text-decoration: none; border-color: var(--red-dark); }
+
+/* ── [INFO] MARQUEE BAR ── */
 .nnd-marquee-bar {
   width: 100%;
   background:
     repeating-linear-gradient(0deg, rgba(204,153,0,0.08) 0, rgba(204,153,0,0.08) 1px, transparent 1px, transparent 4px),
     #fffde8;
   border-bottom: 1px solid #d0c878;
-  border-top: 1px solid #d0c878;
   height: 20px;
   display: flex;
   align-items: center;
@@ -151,8 +163,9 @@ button, input { font: inherit; cursor: pointer; }
   0%   { transform: translateX(0); }
   100% { transform: translateX(-100%); }
 }
+@media (prefers-reduced-motion: reduce) { .nnd-marquee-inner { animation: none; padding-left: 0; } }
 
-/* ── TAG / FILTER ROW ── */
+/* ── TAG ROW ── */
 .nnd-tag-row {
   width: 100%;
   background: var(--sf);
@@ -160,7 +173,7 @@ button, input { font: inherit; cursor: pointer; }
   padding: 2px 8px;
   display: flex;
   align-items: center;
-  gap: 2px;
+  gap: 3px;
   flex-wrap: wrap;
   font-size: 11px;
 }
@@ -174,77 +187,78 @@ button, input { font: inherit; cursor: pointer; }
   font-size: 10px;
   line-height: 15px;
   text-decoration: none;
-  cursor: pointer;
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
 }
 .nnd-tag:hover { background: #e3e0ff; text-decoration: none; color: var(--red); }
-.nnd-tag.is-active { background: #3f268e; color: #fff; border-color: #2a1a6e; }
-.nnd-tag.is-active:hover { background: #2a1a6e; color: #fff; }
+
+/* ── SIDE RAILS ── */
+.page-rail {
+  position: absolute; top: 150px; height: 400px; z-index: 0; width: 22px;
+  pointer-events: none; color: rgba(90,90,90,0.30);
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1;
+}
+.page-rail::before { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(0,0,0,0.10); }
+.page-rail span { position: absolute; top: 34px; white-space: nowrap; }
+.page-rail-left { right: calc(50% + 590px); }
+.page-rail-left::before { right: 0; }
+.page-rail-left span { right: 8px; transform: rotate(-90deg); transform-origin: right top; }
+.page-rail-right { left: calc(50% + 590px); }
+.page-rail-right::before { left: 0; }
+.page-rail-right span { left: 8px; transform: rotate(90deg); transform-origin: left top; }
+@media (max-width: 1260px) { .page-rail { display: none; } }
 
 /* ── BODY LAYOUT ── */
 .nnd-body {
   flex: 1 0 auto;
   width: 100%;
-  max-width: 1060px;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 8px;
+  padding: 8px 10px;
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  position: relative;
 }
-.nnd-main {
+.nnd-sidebar {
+  width: 200px;
+  min-width: 200px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-}
-
-/* ── INTRO / CONTROLS PANEL ── */
-.nnd-intro-panel {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 5px 8px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  flex-wrap: wrap;
-}
-.eyebrow {
-  display: inline-block;
-  padding: 1px 7px;
-  background: var(--red);
-  color: #ffffff;
-  font-size: 11px;
-  font-weight: 700;
-  flex-shrink: 0;
-}
-.intro-copy { color: var(--muted); font-size: 12px; }
-.mode-switch { display: flex; border: 1px solid var(--ls); flex-shrink: 0; margin-left: auto; }
-.mode-button {
-  min-height: 24px;
-  height: 24px;
-  padding: 0 12px;
-  color: var(--muted);
-  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
-  border: none;
-  border-right: 1px solid var(--ls);
-  font-size: 12px;
-  font-weight: 400;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), inset 0 -1px 0 rgba(0,0,0,0.08);
-}
-.mode-button:last-child { border-right: none; }
-.mode-button:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); }
-.mode-button.is-active { background: var(--red); color: #ffffff; font-weight: 700; box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); }
-
-/* ── SEARCH + SORT BAR ── */
-.controls-bar {
-  display: flex;
-  align-items: center;
   gap: 5px;
-  padding: 4px 6px;
-  background: var(--sf);
-  border: 1px solid var(--line);
 }
-.controls-bar input[type="text"] {
+.nnd-main {
   flex: 1;
-  height: 24px;
-  min-height: 24px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* ── SIDEBAR PANELS ── */
+.sidebar-panel {
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--ls);
+  border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
+  overflow: visible;
+}
+.sidebar-header {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 8px;
+  font-size: 11px; font-weight: 700; color: var(--text);
+  font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+}
+.sidebar-body { padding: 7px 8px; }
+
+/* inputs */
+.sidebar-body input[type="text"] {
+  width: 100%;
+  height: 26px;
   padding: 0 7px;
   font-size: 11px;
   color: var(--text);
@@ -253,77 +267,572 @@ button, input { font: inherit; cursor: pointer; }
   border-radius: 0;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
 }
-.controls-bar input[type="text"]:focus {
+.sidebar-body input[type="text"]:focus {
   outline: none;
   border-color: var(--link);
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.08), 0 0 0 2px rgba(0,102,204,0.18);
 }
-.sort-switch { display: flex; border: 1px solid var(--ls); }
-.sort-button {
-  min-height: 22px;
-  height: 22px;
-  padding: 0 9px;
-  color: var(--muted);
+.search-count { display: block; margin-top: 4px; color: var(--faint); font-size: 10px; text-align: right; }
+
+/* segmented bevel switch */
+.settings-multi { display: flex; border: 1px solid var(--ls); }
+.settings-choice {
+  flex: 1;
+  min-height: 24px;
+  padding: 0 4px;
+  font-size: 10px; font-weight: 700; color: var(--muted);
   background: linear-gradient(to bottom, #ffffff, #e8e8e8);
-  border: none;
-  border-right: 1px solid var(--ls);
+  border: none; border-right: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.settings-choice:last-child { border-right: none; }
+.settings-choice:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); }
+.settings-choice.is-active {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+.switch-note { display: block; margin-top: 4px; font-size: 9px; color: var(--faint); line-height: 1.4; }
+
+/* custom autocomplete */
+.auto-wrap { position: relative; }
+.auto-list {
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  z-index: 30;
+  max-height: 176px;
+  overflow-y: auto;
+  margin-top: -1px;
+  background: #ffffff;
+  border: 1px solid var(--ls);
+  border-top: 2px solid var(--red);
+  list-style: none;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.22);
+}
+.auto-list li {
+  padding: 4px 8px;
+  font-size: 11px;
+  color: var(--text);
+  cursor: pointer;
+  border-bottom: 1px dotted var(--line);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.auto-list li:last-child { border-bottom: none; }
+.auto-list li::before { content: "\25B8 "; color: var(--line); font-size: 9px; }
+.auto-list li:hover, .auto-list li.is-active { background: #fff0f0; color: var(--red); }
+.auto-list li:hover::before, .auto-list li.is-active::before { color: var(--red); }
+.auto-list .auto-empty { color: var(--faint); font-style: italic; cursor: default; }
+.auto-list .auto-empty::before { content: ""; }
+.auto-list .auto-empty:hover { background: transparent; color: var(--faint); }
+
+/* custom dropdown (shared with header controls) */
+.dd { position: relative; width: 100%; }
+.dd-btn {
+  display: flex; align-items: center; justify-content: space-between; gap: 5px;
+  width: 100%;
+  min-height: 24px;
+  padding: 0 6px;
+  font-size: 11px;
+  color: var(--text);
+  text-align: left;
+  background: linear-gradient(to bottom, #ffffff, #eeeeee);
+  border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85);
+}
+.dd-btn .dd-label { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dd-btn::after { content: "\25BE"; color: var(--red); font-size: 9px; flex-shrink: 0; }
+.dd-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff5f5, #ffd0d0); }
+.dd.is-open .dd-btn { border-color: var(--red); color: var(--red); }
+.dd-list {
+  position: absolute;
+  top: 100%; left: 0; right: 0;
+  z-index: 40;
+  max-height: 190px;
+  overflow-y: auto;
+  margin-top: -1px;
+  background: #ffffff;
+  border: 1px solid var(--ls);
+  border-top: 2px solid var(--red);
+  list-style: none;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.22);
+}
+.dd-list li {
+  padding: 4px 8px;
+  font-size: 11px;
+  color: var(--text);
+  cursor: pointer;
+  border-bottom: 1px dotted var(--line);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.dd-list li:last-child { border-bottom: none; }
+.dd-list li::before { content: "\25B8 "; color: var(--line); font-size: 9px; }
+.dd-list li:hover { background: #fff0f0; color: var(--red); }
+.dd-list li:hover::before { color: var(--red); }
+.dd-list li.is-selected {
+  background: linear-gradient(to bottom, #fff0f0, #fbe2e2);
+  color: var(--red-dark); font-weight: 700;
+}
+.dd-list li.is-selected::before { content: "\25B6 "; color: var(--red); }
+.rank-controls .dd { width: auto; min-width: 74px; }
+.rank-controls .dd-btn { min-height: 20px; font-size: 10px; padding: 0 5px; }
+
+/* song-type toggle grid (multi-select; none selected = all) */
+.type-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 3px; }
+.type-btn {
+  min-height: 22px;
+  padding: 2px 3px;
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.type-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff5f5, #ffd0d0); }
+.type-btn.is-active {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  border-color: var(--red-dark);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+
+/* chips */
+.chip-row { display: flex; flex-wrap: wrap; gap: 3px; margin-top: 5px; }
+.chip-row:empty { display: none; }
+.fchip {
+  display: inline-flex; align-items: center; gap: 4px;
+  max-width: 100%;
+  padding: 1px 5px 1px 6px;
+  background: linear-gradient(to bottom, #fff5f5, #fbe2e2);
+  border: 1px solid #d8a0a0;
+  color: var(--red-dark);
+  font-size: 10px; font-weight: 700;
+  cursor: pointer;
+}
+.fchip span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.fchip:hover { border-color: var(--red); background: #ffd8d8; }
+.fchip .fchip-x { flex-shrink: 0; font-weight: 400; color: #b06060; }
+.fchip:hover .fchip-x { color: var(--red); }
+.fchip.is-exclude {
+  background: linear-gradient(to bottom, #f4f4f4, #e4e4e4);
+  border-color: #a8a49c;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+/* filter rows */
+.filter-row { margin-bottom: 8px; }
+.filter-row:last-child { margin-bottom: 0; }
+.filter-label {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  margin-bottom: 3px;
+  letter-spacing: 0.02em;
+}
+.filter-label .flag-pill {
+  display: inline-flex; align-items: center;
+  padding: 0 6px;
+  min-height: 14px;
+  font-size: 9px; font-weight: 900; letter-spacing: 0.06em;
+  color: #fff;
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  border: 1px solid var(--red-dark);
+  cursor: pointer;
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+.filter-label .flag-pill.is-or { background: linear-gradient(to bottom, #4e78ca, #244b98); border-color: #102c61; text-shadow: 0 1px 0 rgba(0,20,60,0.5); }
+.filter-label .flag-pill:hover { filter: brightness(1.12); }
+.filter-select, .filter-num {
+  width: 100%;
+  height: 24px;
+  padding: 0 4px;
+  font-size: 11px;
+  color: var(--text);
+  background: linear-gradient(to bottom, #ffffff, #eeeeee);
+  border: 1px solid var(--ls);
+  border-radius: 0;
+}
+.filter-num { background: #ffffff; box-shadow: inset 0 1px 2px rgba(0,0,0,0.08); cursor: text; }
+.filter-select:focus, .filter-num:focus { outline: none; border-color: var(--red); }
+.filter-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
+.filter-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 4px; }
+
+/* toggle rows */
+.toggle-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  margin-bottom: 6px;
+}
+.toggle-row:last-child { margin-bottom: 0; }
+.toggle-label { font-size: 10px; font-weight: 700; color: var(--muted); }
+.settings-toggle {
+  flex-shrink: 0; height: 20px; min-width: 40px; padding: 0 8px;
+  font-size: 10px; font-weight: 700; color: var(--faint); font-family: inherit;
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.settings-toggle.is-on {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; border-color: var(--red-dark);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+
+.filter-reset {
+  width: 100%;
+  min-height: 24px;
+  margin-top: 8px;
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  background: linear-gradient(to bottom, #ffffff, #e2e2e2);
+  border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85);
+  font-family: "MS Gothic", "Courier New", monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+}
+.filter-reset:hover { color: var(--red); background: linear-gradient(to bottom, #fff5f5, #ffd0d0); }
+
+/* stats table */
+.sidebar-body.stats-body { padding: 0; }
+.stats-table { width: 100%; border-collapse: collapse; }
+.stats-table tr { border-bottom: 1px solid var(--line); }
+.stats-table tr:last-child { border-bottom: none; }
+.stats-table tr:nth-child(even) { background: #f6f5f0; }
+.stats-table tr:hover { background: #fff0f0; }
+.stats-table td { padding: 2px 7px; font-size: 10px; height: 20px; color: var(--muted); }
+.stats-table td:last-child {
+  font-weight: 900; text-align: right; color: var(--red); font-size: 11px; white-space: nowrap;
+  font-family: Consolas, "MS PGothic", monospace;
+}
+
+/* ── MODE BAR ── */
+.game-mode-bar {
+  display: flex; align-items: stretch; gap: 4px;
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #fbfaf6, #e6e3dc);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.85), inset -1px -1px 0 rgba(0,0,0,0.10);
+  padding: 3px 5px 0;
+  font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
+}
+.game-mode-tabs { display: flex; align-items: flex-end; gap: 3px; }
+.game-mode-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px 6px; border: 2px solid; border-bottom: 0;
+  border-color: #ffffff var(--ls) var(--ls) #ffffff; margin-bottom: -2px;
+  background: linear-gradient(to bottom, #f3f1ea, #dcd8cf); color: var(--muted);
+  font-family: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  cursor: pointer; white-space: nowrap;
+  text-decoration: none;
+}
+.game-mode-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff6f6, #f1dcdc); text-decoration: none; }
+.game-mode-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  color: #fff; padding-bottom: 8px; z-index: 2;
+  border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
+}
+.game-mode-hint {
+  margin-left: auto; align-self: center; display: flex; align-items: center; gap: 6px;
+  padding: 4px 10px; color: var(--muted); font-family: inherit;
+  font-size: 10px; letter-spacing: 0.04em;
+}
+.game-mode-hint::before { content: "\25B6"; color: var(--red); font-size: 8px; }
+
+/* ── TOP 3 PODIUM (song-col chrome) ── */
+.podium-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+.podium-card {
+  display: flex; flex-direction: column; min-width: 0;
+  background: #e6e6e6; border: 1px solid #777777;
+  box-shadow: inset 0 0 0 1px #ffffff, 0 1px 0 rgba(255,255,255,0.8);
+}
+.podium-header {
+  min-height: 21px; flex-shrink: 0;
+  display: flex; align-items: center; gap: 6px;
+  padding: 2px 7px; margin: 1px 1px 0;
+  border-bottom: 1px solid #999999;
+  color: #ffffff;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.45);
+}
+.podium-header .ph-rank { font-size: 12px; font-weight: 900; flex-shrink: 0; }
+.podium-header .ph-title {
+  font-size: 11px; font-weight: 700;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  flex: 1 1 auto; min-width: 0;
+}
+.podium-header .ph-title a { color: #ffffff; }
+.podium-header .ph-title a:hover { color: #ffe0e0; text-decoration: none; }
+.podium-gold   .podium-header { background: linear-gradient(to bottom, #d8ae2e 0%, #b8860b 48%, #8f6708 52%, #a87c0a 100%); border-bottom-color: #6d4f05; }
+.podium-silver .podium-header { background: linear-gradient(to bottom, #a8a8a8 0%, #8a8a8a 48%, #6a6a6a 52%, #7d7d7d 100%); border-bottom-color: #555555; }
+.podium-bronze .podium-header { background: linear-gradient(to bottom, #b87848 0%, #9a5a2a 48%, #74421c 52%, #8a4f22 100%); border-bottom-color: #563214; }
+
+.podium-thumb {
+  position: relative; aspect-ratio: 16 / 9;
+  overflow: hidden; background: #000; flex-shrink: 0;
+  margin: 0 1px;
+  box-shadow: inset 0 0 0 1px #777777;
+}
+.podium-meta {
+  background: #f7f7f7; border-top: 1px solid #999999;
+  padding: 4px 7px 5px; margin: 0 1px 1px;
+  display: flex; gap: 0; align-items: flex-start;
+}
+.meta-field {
+  display: flex; flex-direction: column; flex-shrink: 0;
+  padding-right: 9px; margin-right: 8px; border-right: 1px solid #dddddd;
+  min-width: 0;
+}
+.meta-field:last-child { border-right: none; padding-right: 0; margin-right: 0; flex: 1; }
+.meta-key { font-size: 9px; color: #444444; font-weight: 700; letter-spacing: 0.02em; line-height: 1.2; margin-bottom: 1px; }
+.meta-val {
+  font-size: 14px; font-weight: 900; color: var(--red); line-height: 1.15;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-family: Consolas, "MS PGothic", monospace;
+}
+.meta-val.meta-artist {
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  font-family: inherit;
+}
+.meta-val.meta-artist a { color: var(--muted); }
+.meta-val.meta-artist a:hover { color: var(--red); }
+.meta-sub { font-size: 8px; color: var(--faint); margin-top: 2px; line-height: 1; }
+
+.thumb-vtags {
+  position: absolute; top: 4px; left: 4px; z-index: 5;
+  display: flex; flex-wrap: wrap; gap: 3px; max-width: 72%;
+}
+.thumb-vtags .vtag { box-shadow: 0 1px 2px rgba(0,0,0,0.55); }
+
+/* ── RANK SECTION ── */
+.rank-section {
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--ls);
+  border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
+}
+.rank-section-header {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 8px;
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  font-size: 11px; font-weight: 700; color: var(--text);
+  font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+}
+.rank-section-header .rs-count { font-weight: 400; color: var(--faint); font-size: 10px; text-transform: none; letter-spacing: 0; }
+.rank-controls { margin-left: auto; display: flex; align-items: center; gap: 8px; font-family: "MS PGothic", sans-serif; text-transform: none; letter-spacing: 0; }
+.rank-controls label { font-size: 10px; font-weight: 400; color: var(--muted); display: inline-flex; align-items: center; gap: 4px; }
+.rank-controls select {
+  height: 20px;
+  padding: 0 2px;
   font-size: 10px;
-  font-weight: 400;
+  color: var(--text);
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  border: 1px solid var(--ls);
+  border-radius: 0;
+}
+.rank-controls select:focus { outline: none; border-color: var(--red); }
+
+/* list/cards view toggle */
+.view-switch { display: flex; border: 1px solid var(--ls); }
+.view-btn {
+  min-height: 20px; padding: 0 8px;
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  border: none; border-right: 1px solid var(--ls);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
 }
-.sort-button:last-child { border-right: none; }
-.sort-button:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); }
-.sort-button.is-active { background: var(--red); color: #fff; font-weight: 700; }
-.result-count { color: var(--faint); font-size: 10px; white-space: nowrap; }
+.view-btn:last-child { border-right: none; }
+.view-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff5f5, #ffd0d0); }
+.view-btn.is-active {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
 
-/* ── CARD GRID ── */
+/* table view */
+.rank-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.rank-table th, .rank-table td {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 3px 6px;
+  font-size: 11px; line-height: 1.25;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  vertical-align: middle;
+}
+.rank-table th {
+  background: #f4f1e8; color: var(--muted); font-weight: 700; font-size: 10px;
+}
+.rank-table th:last-child, .rank-table td:last-child { border-right: none; }
+.rank-table th[data-sort] { cursor: pointer; user-select: none; }
+.rank-table th[data-sort]:hover { color: var(--red); }
+.th-arrow { font-size: 8px; margin-left: 3px; color: var(--red); }
+.rank-table tr:last-child td { border-bottom: none; }
+.rank-table tbody tr:nth-child(even) { background: #f6f5f0; }
+.rank-table tbody tr:hover { background: #fff0f0; }
+
+.rt-rank { width: 36px; text-align: center; font-family: Consolas, "MS PGothic", monospace; font-weight: 900; font-size: 13px; color: var(--muted); }
+tr.is-top10 .rt-rank { color: var(--red); }
+.rt-thumb-cell { width: 82px; padding: 3px 5px; }
+.row-thumb {
+  position: relative;
+  width: 70px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+  border: 1px solid #8a867e;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.18);
+}
+.row-thumb .thumb-note { font-size: 14px; }
+.rank-table .thumb-cover { transition: transform 0.25s ease; }
+.rank-table tbody tr:hover .thumb-cover { transform: scale(1.08); }
+.rt-title a { color: var(--text); font-weight: 700; font-size: 12px; }
+.rt-title a:hover { color: var(--red); text-decoration: none; }
+.rt-producer { width: 17%; color: var(--muted); font-size: 10px; }
+.rt-producer a { color: var(--muted); }
+.rt-producer a:hover { color: var(--red); }
+.rt-voc { width: 15%; }
+.rank-table td.rt-voc { white-space: normal; overflow: visible; }
+.rt-year { width: 56px; text-align: center; color: var(--faint); font-size: 10px; }
+.rt-views {
+  width: 112px; text-align: right;
+  font-family: Consolas, "MS PGothic", monospace;
+  font-weight: 900; font-size: 12px; color: var(--red);
+}
+.rt-views.is-tier { color: var(--faint); font-weight: 400; }
+.rv-cap {
+  font-size: 8px; font-weight: 400; color: var(--faint);
+  text-transform: uppercase; letter-spacing: 0.05em; margin-left: 3px;
+}
+
+/* card view */
 .card-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+  padding: 6px;
 }
-
-/* ── LOADING / ERROR STATE ── */
-.state-message {
-  grid-column: 1 / -1;
-  padding: 32px;
-  text-align: center;
-  color: var(--faint);
-  font-size: 12px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-}
-.state-message strong { display: block; margin-bottom: 4px; color: var(--muted); font-size: 13px; }
-
-/* ── SONG CARD ── */
 .song-card {
+  display: flex; flex-direction: column; min-width: 0;
   background: var(--surface);
   border: 1px solid var(--line);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.08);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+  transition: box-shadow 0.1s ease, border-color 0.1s ease;
 }
 .song-card:hover {
-  border-color: var(--ls);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 5px rgba(0,0,0,0.13);
+  border-color: var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 2px 5px rgba(0,0,0,0.16);
 }
-
-/* ── THUMBNAIL ── */
 .card-thumb {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  flex-shrink: 0;
+  background: #000;
   border-bottom: 1px solid var(--line);
 }
-.thumb-link {
-  position: absolute; inset: 0; z-index: 3;
-  display: block;
+.card-thumb .thumb-cover { transition: transform 0.25s ease; }
+.song-card:hover .thumb-cover { transform: scale(1.05); }
+.card-rank {
+  position: absolute; top: 0; left: 0; z-index: 3;
+  min-width: 32px;
+  padding: 3px 7px;
+  text-align: center;
+  background: rgba(0,0,0,0.78);
+  border-right: 2px solid var(--red);
+  color: #fff;
+  font-family: Consolas, "MS PGothic", monospace;
+  font-size: 15px; font-weight: 900;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.8);
 }
+.card-pvtag {
+  position: absolute; top: 0; right: 0; z-index: 3;
+  padding: 2px 5px;
+  background: rgba(0,0,0,0.72); color: #ddd;
+  font-size: 8px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  border-bottom: 1px solid rgba(255,255,255,0.2); border-left: 1px solid rgba(255,255,255,0.2);
+}
+.card-pvtag.pv-nnd  { background: rgba(60,60,60,0.85); color: #fff; }
+.card-pvtag.pv-bili { background: rgba(15,124,168,0.85); color: #fff; }
+.card-rank.rk-top { color: #ffcc44; border-right-color: var(--gold); }
+.card-views-overlay {
+  position: absolute; bottom: 0; right: 0; z-index: 3;
+  padding: 1px 5px;
+  background: rgba(140,0,0,0.85);
+  color: #ffffff;
+  font-family: Consolas, "MS PGothic", monospace;
+  font-size: 10px; font-weight: 700;
+}
+.card-views-overlay.is-tier { background: rgba(0,0,0,0.65); font-weight: 400; }
+.card-views-overlay .rv-cap { color: rgba(255,255,255,0.7); }
+.card-body {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 5px 7px 6px;
+  min-width: 0;
+}
+.card-title { font-size: 11px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card-title a { color: var(--text); }
+.card-title a:hover { color: var(--red); text-decoration: none; }
+.card-meta { display: flex; align-items: baseline; gap: 5px; min-width: 0; }
+.card-producer { font-size: 10px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; min-width: 0; }
+.card-producer a { color: var(--muted); }
+.card-producer a:hover { color: var(--red); }
+.card-year { font-size: 9px; color: var(--faint); flex-shrink: 0; }
+.card-tags { display: flex; gap: 2px; flex-wrap: wrap; }
 
-/* Colored placeholder — always rendered as background layer */
+/* "as of" calendar */
+.asof-btn { border: 1px solid var(--ls); }
+.asof-btn.is-active {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+.cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.cal-head strong { font-size: 12px; }
+.cal-nav {
+  min-width: 24px; height: 22px; padding: 0 6px;
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border: 1px solid var(--ls); color: var(--muted); font-size: 10px; font-weight: 700;
+}
+.cal-nav:disabled { opacity: 0.35; cursor: default; }
+.cal-nav:not(:disabled):hover { color: var(--red); }
+.cal-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+.cal-table th { font-size: 9px; color: var(--faint); padding: 2px 0; text-transform: uppercase; }
+.cal-table td { padding: 1px; }
+.cal-day {
+  width: 100%; height: 26px; padding: 0; font-size: 11px;
+  background: var(--sf); border: 1px solid var(--line); color: var(--faint); cursor: default;
+}
+.cal-day.has-data {
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  color: var(--text); font-weight: 700; cursor: pointer;
+}
+.cal-day.has-data:hover { border-color: var(--red); color: var(--red); }
+.cal-day.is-selected {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; border-color: var(--red-dark);
+}
+.cal-live-btn {
+  width: 100%; margin-top: 10px; min-height: 24px;
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border: 1px solid var(--ls); font-size: 11px; font-weight: 700; color: var(--muted);
+}
+.cal-live-btn:hover { color: var(--red); border-color: var(--red); }
+html.dark-mode .cal-day { background: #1d1d1d; border-color: #2c2c2c; }
+html.dark-mode .cal-day.has-data { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); color: var(--text); }
+html.dark-mode .cal-nav, html.dark-mode .cal-live-btn { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted); }
+
+/* placeholder + cover internals (logic untouched) */
 .thumb-placeholder {
   position: absolute;
   inset: 0;
@@ -342,12 +851,11 @@ button, input { font: inherit; cursor: pointer; }
   background-size: 8px 8px;
 }
 .thumb-note {
-  font-size: 28px;
+  font-size: 26px;
   line-height: 1;
   opacity: 0.55;
   position: relative;
   z-index: 1;
-  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3));
 }
 .thumb-title-preview {
   position: relative;
@@ -355,7 +863,6 @@ button, input { font: inherit; cursor: pointer; }
   font-size: 10px;
   font-weight: 700;
   color: rgba(255,255,255,0.75);
-  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
   text-align: center;
   padding: 0 8px;
   overflow: hidden;
@@ -363,8 +870,6 @@ button, input { font: inherit; cursor: pointer; }
   white-space: nowrap;
   max-width: 100%;
 }
-
-/* Real cover art — sits above placeholder, removed on error */
 .thumb-cover {
   position: absolute;
   inset: 0;
@@ -373,87 +878,15 @@ button, input { font: inherit; cursor: pointer; }
   object-fit: cover;
   z-index: 1;
 }
-
-/* Rank badge — top-left */
-.card-rank-badge {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 30px;
-  padding: 3px 6px;
-  background: rgba(0,0,0,0.72);
-  border-right: 2px solid var(--red);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  z-index: 2;
+.thumb-scanlines {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: repeating-linear-gradient(to bottom,
+    transparent 0px, transparent 2px,
+    rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 3px);
 }
-.card-rank-badge.rank-gold   { border-right-color: #cc8800; }
-.card-rank-badge.rank-silver { border-right-color: #888888; }
-.card-rank-badge.rank-bronze { border-right-color: #a05020; }
+.thumb-link { position: absolute; inset: 0; z-index: 4; display: block; }
 
-.rank-num {
-  font-size: 15px;
-  font-weight: 900;
-  color: var(--red);
-  line-height: 1;
-}
-.card-rank-badge.rank-gold   .rank-num { color: #ffcc44; }
-.card-rank-badge.rank-silver .rank-num { color: #cccccc; }
-.card-rank-badge.rank-bronze .rank-num { color: #d4885a; }
-
-/* View tier badge — bottom-right */
-.card-views-overlay {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  background: rgba(0,0,0,0.65);
-  color: #ffffff;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 2px 5px;
-  z-index: 2;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-left: 1px solid rgba(255,255,255,0.1);
-  white-space: nowrap;
-}
-/* real NicoNico count gets a subtle red accent; tier fallback stays neutral */
-.card-views-overlay:not(.is-tier) { background: rgba(150,0,0,0.78); }
-.card-views-overlay.is-tier { color: #d8d8d8; font-weight: 400; }
-
-/* ── CARD BODY ── */
-.card-body {
-  padding: 6px 7px 7px;
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  flex: 1;
-}
-.card-title {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text);
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  line-height: 1.3;
-}
-.card-title a { color: var(--text); text-decoration: none; }
-.card-title a:hover { color: var(--red); text-decoration: underline; }
-
-.card-meta {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 4px;
-}
-.card-producer { font-size: 10px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.card-producer a { color: var(--muted); }
-.card-producer a:hover { color: var(--red); text-decoration: underline; }
-.card-year { font-size: 10px; color: var(--faint); flex-shrink: 0; }
-
-.card-tags { display: flex; gap: 2px; flex-wrap: wrap; }
+/* vocalist chips */
 .vtag {
   display: inline-block;
   padding: 0 4px;
@@ -472,130 +905,38 @@ button, input { font: inherit; cursor: pointer; }
 .vtag-meiko  { background: #fce8e6; border-color: #e53935; color: #b71c1c; }
 .vtag-teto   { background: #fde8ec; border-color: #d44466; color: #8c1030; }
 .vtag-flower { background: #f0e4f8; border-color: #9040a0; color: #581070; }
-.vtag-kafu   { background: #d8f0f8; border-color: #2096b8; color: #005878; }
+.vtag-kafu   { background: #f0e6fa; border-color: #b48ad8; color: #6a3a9a; }
 .vtag-una    { background: #fdf0d0; border-color: #e08000; color: #7a4000; }
 .vtag-yuki   { background: #fff8d0; border-color: #b09000; color: #5a4800; }
 .vtag-rei    { background: #fce0f0; border-color: #cc3080; color: #880050; }
 .vtag-defoko { background: #e0e8f0; border-color: #6080a0; color: #304060; }
 .vtag-other  { background: var(--sf); border-color: var(--ls); color: var(--muted); }
+.vtag-guest  {
+  background: #f4f4f2; border-color: #c0bcb4; border-style: dashed;
+  color: var(--faint); font-weight: 400;
+}
 
+/* ── STATES ── */
+.state-message {
+  padding: 32px;
+  text-align: center;
+  color: var(--faint);
+  font-size: 12px;
+}
+.state-message strong { display: block; margin-bottom: 4px; color: var(--muted); font-size: 13px; }
 .no-results {
-  grid-column: 1 / -1;
   padding: 24px;
   text-align: center;
   color: var(--faint);
   font-style: italic;
   font-size: 12px;
-  background: var(--surface);
-  border: 1px solid var(--line);
 }
-
-/* ── FOOTER ── */
-.site-footer {
-  flex-shrink: 0;
-  width: 100%;
-  background: #e0e0e0;
-  border-top: 1px solid var(--ls);
-  padding: 5px 10px;
-  font-size: 11px;
-  color: var(--faint);
-  text-align: center;
-}
-.site-footer p { margin: 0; }
-.site-footer a { color: var(--link); font-size: 11px; }
-.site-footer a:hover { text-decoration: underline; }
-
-/* ── PODIUM ── */
-.podium-section {
-  background: var(--surface); overflow: hidden;
-  border: 1px solid var(--line); border-top: 3px solid #c8980a;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
-}
-.podium-header {
-  background: linear-gradient(to bottom, #fffae0, #f5e070);
-  border-bottom: 1px solid #c8a820;
-  padding: 4px 8px; font-size: 11px; font-weight: 700; color: #5a3e00;
-  display: flex; align-items: center; justify-content: space-between;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
-}
-.podium-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.35fr 1fr;
-}
-.podium-card {
-  position: relative; display: flex; flex-direction: column;
-  border-right: 1px solid var(--line);
-}
-.podium-card:last-child { border-right: none; }
-.podium-gold   { border-top: 3px solid #c8980a; }
-.podium-silver { border-top: 3px solid #909090; }
-.podium-bronze { border-top: 3px solid #8a4820; }
-
-.podium-thumb-link { display: block; flex-shrink: 0; }
-.podium-thumb {
-  position: relative; width: 100%; height: 190px; overflow: hidden;
-}
-.podium-placeholder {
-  position: absolute; inset: 0;
-  display: flex; align-items: center; justify-content: center;
-}
-.podium-cover-img {
-  position: absolute; inset: 0; width: 100%; height: 100%;
-  object-fit: cover; z-index: 1;
-}
-.podium-scanlines {
-  position: absolute; inset: 0; z-index: 4; pointer-events: none;
-  background: repeating-linear-gradient(to bottom,
-    transparent 0px, transparent 2px,
-    rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 3px);
-}
-.podium-rank {
-  position: absolute; top: 0; left: 0; z-index: 3;
-  font-size: 40px; font-weight: 900; line-height: 1;
-  padding: 4px 8px 8px;
-  background: rgba(0,0,0,0.68);
-  border-right: 2px solid; border-bottom: 1px solid rgba(255,255,255,0.15);
-  text-shadow: 1px 2px 0 rgba(0,0,0,0.6);
-}
-.podium-rank-gold   { color: #ffcc44; border-right-color: #c8980a; }
-.podium-rank-silver { color: #d8d8d8; border-right-color: #888; }
-.podium-rank-bronze { color: #d4885a; border-right-color: #8a4820; }
-.podium-tier-badge {
-  position: absolute; bottom: 0; right: 0; z-index: 3;
-  background: rgba(0,0,0,0.65); color: #fff;
-  font-size: 10px; font-weight: 700; padding: 2px 5px;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-left: 1px solid rgba(255,255,255,0.1);
-}
-.podium-info {
-  padding: 6px 8px 7px; display: flex; flex-direction: column; gap: 2px;
-  flex: 1; background: var(--surface); border-top: 1px solid var(--line);
-}
-.podium-title {
-  font-size: 12px; font-weight: 700;
-  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
-}
-.podium-title a { color: var(--text); }
-.podium-title a:hover { color: var(--red); text-decoration: underline; }
-.podium-producer { font-size: 10px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.podium-tags { display: flex; gap: 2px; flex-wrap: wrap; margin-top: 1px; }
-
-/* ── RANKING SECTION DIVIDER ── */
-.ranking-divider {
-  display: flex; align-items: center; gap: 8px; padding: 4px 8px;
-  background: linear-gradient(to bottom, #f5f3ee, #ece9e2);
-  border: 1px solid var(--line); border-top: 3px solid var(--red);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75);
-}
-.ranking-divider-title { font-size: 12px; font-weight: 900; color: var(--text); }
-.ranking-divider-sub   { font-size: 10px; color: var(--faint); }
-.ranking-divider-count { font-size: 10px; color: var(--muted); margin-left: auto; }
 
 /* ── PAGINATION ── */
 .pagination-bar {
   display: flex; align-items: center; justify-content: center;
   gap: 3px; flex-wrap: wrap; padding: 6px 8px;
-  background: var(--sf); border: 1px solid var(--line);
+  background: var(--sf); border: 2px solid var(--ls);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
 }
 .page-btn {
@@ -606,114 +947,243 @@ button, input { font: inherit; cursor: pointer; }
   font: inherit;
 }
 .page-btn:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); border-color: var(--red); }
-.page-btn.is-active { background: var(--red); color: #fff; border-color: var(--red-dark); font-weight: 700; box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); }
+.page-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  color: #fff; border-color: var(--red-dark); font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
 .page-btn[disabled] { opacity: 0.38; cursor: default; pointer-events: none; }
 .page-ellipsis { color: var(--faint); font-size: 11px; line-height: 24px; padding: 0 2px; }
 .page-info { color: var(--faint); font-size: 10px; margin-left: 6px; white-space: nowrap; }
 
+/* ── FOOTER ── */
+.site-footer {
+  flex-shrink: 0; width: 100%; position: relative;
+  background: linear-gradient(to bottom, #ececea, #dcdad4);
+  border-top: 2px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 7px 10px 8px;
+  text-align: center;
+}
+.footer-copy { margin: 0; color: var(--faint); font-size: 10px; }
+.footer-pagetop { position: absolute; top: 8px; right: 10px; font-size: 10px; color: var(--link); white-space: nowrap; }
+.footer-pagetop:hover { text-decoration: underline; color: var(--red); }
+
+/* ── ADD-SONG ACCENT TAB ── */
+/* + Add Song renders as a normal tab */
+
+/* ── SETTINGS MODAL ── */
+.settings-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; }
+.settings-modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 101; width: min(100vw - 32px, 340px);
+  background: var(--surface);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  padding: 14px;
+}
+.settings-title {
+  margin: -14px -14px 12px; padding: 5px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  font-size: 12px; font-weight: 700; color: var(--text);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+}
+.settings-close {
+  width: 20px; height: 20px; padding: 0; line-height: 1;
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
+  border: 1px solid var(--ls); color: var(--muted);
+  font-size: 10px; font-weight: 700;
+}
+.settings-close:hover { background: linear-gradient(to bottom, #fff5f5, #ffcccc); color: var(--red); }
+.settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
+.settings-row .s-label { font-size: 12px; font-weight: 700; color: var(--text); }
+.settings-row .s-desc { font-size: 10px; color: var(--faint); }
+.settings-toggle {
+  flex-shrink: 0; height: 24px; min-width: 46px; padding: 0 10px;
+  font-size: 11px; font-weight: 700; color: var(--faint);
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.settings-toggle.is-on {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; border-color: var(--red-dark);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+
+/* ── DARK MODE ── */
+html.dark-mode {
+  --bg: #121212; --surface: #1a1a1a; --sf: #161616;
+  --text: #e1e1e1; --muted: #a6a39c; --faint: #7c7c7c;
+  --line: #2c2c2c; --ls: #3b3b3b;
+  --red: #dd2222; --link: #5aa0e0;
+}
+html.dark-mode body {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+}
+html.dark-mode .nnd-mainbar { background: #161616; }
+html.dark-mode .nnd-logo-text { color: #e1e1e1; }
+html.dark-mode .nnd-header-links a:hover { background: #241f1a; border-color: #3b3b3b; }
+html.dark-mode .nnd-marquee-bar { background: #211d09; border-color: #5a4a16; }
+html.dark-mode .nnd-marquee-inner { color: #d6c266; }
+html.dark-mode .nnd-marquee-label { background: #6e5a10; border-right-color: #4a3c0a; }
+html.dark-mode .nnd-tag-row { background: #161616; border-color: #2c2c2c; }
+html.dark-mode .nnd-tag { background: #1d1a2e; border-color: #3a3560; color: #9a90d8; box-shadow: none; }
+html.dark-mode .sidebar-header,
+html.dark-mode .rank-section-header,
+html.dark-mode .countdown-header,
+html.dark-mode .info-panel-header,
+html.dark-mode .panel-header,
+html.dark-mode .settings-title {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+  border-color: #3b3b3b; box-shadow: none; color: #cccccc;
+}
+html.dark-mode .sidebar-panel,
+html.dark-mode .rank-section,
+html.dark-mode .info-panel,
+html.dark-mode .panel {
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35);
+}
+html.dark-mode .game-mode-bar {
+  background: linear-gradient(to bottom, #232323, #181818);
+  border-color: #3b3b3b; border-top-color: var(--red); box-shadow: none;
+}
+html.dark-mode .game-mode-btn {
+  background: linear-gradient(to bottom, #2a2a2a, #1d1d1d);
+  color: #888888; border-color: #4a4a4a #111 #111 #4a4a4a;
+}
+html.dark-mode .game-mode-btn:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .game-mode-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), #8f0000);
+  color: #fff; border-color: var(--red) #8f0000 #8f0000 var(--red);
+}
+html.dark-mode .settings-choice,
+html.dark-mode .sort-btn,
+html.dark-mode .sort-button,
+html.dark-mode .type-btn,
+html.dark-mode .view-btn,
+html.dark-mode .page-btn,
+html.dark-mode .dd-btn,
+html.dark-mode .filter-select,
+html.dark-mode .filter-reset,
+html.dark-mode .settings-toggle,
+html.dark-mode .settings-close {
+  background: linear-gradient(to bottom, #2e2e2e, #1e1e1e);
+  border-color: #3b3b3b; color: var(--muted); box-shadow: none;
+}
+html.dark-mode .settings-choice:hover, html.dark-mode .sort-btn:hover,
+html.dark-mode .sort-button:hover, html.dark-mode .type-btn:hover,
+html.dark-mode .view-btn:hover, html.dark-mode .page-btn:hover,
+html.dark-mode .dd-btn:hover, html.dark-mode .filter-reset:hover,
+html.dark-mode .settings-close:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .settings-choice.is-active, html.dark-mode .sort-btn.is-active,
+html.dark-mode .sort-button.is-active, html.dark-mode .type-btn.is-active,
+html.dark-mode .view-btn.is-active, html.dark-mode .page-btn.is-active,
+html.dark-mode .settings-toggle.is-on {
+  background: linear-gradient(to bottom, #b01111, #7a0808);
+  color: #fff; border-color: #5a0505;
+}
+html.dark-mode .sidebar-body input[type="text"],
+html.dark-mode .filter-num,
+html.dark-mode .fetch-input,
+html.dark-mode .note-input,
+html.dark-mode .tier-select {
+  background: #111111; color: var(--text); border-color: #3b3b3b;
+}
+html.dark-mode .dd-list,
+html.dark-mode .auto-list { background: #1d1d1d; border-color: #3b3b3b; }
+html.dark-mode .dd-list li, html.dark-mode .auto-list li { color: var(--text); border-bottom-color: #2c2c2c; }
+html.dark-mode .dd-list li:hover, html.dark-mode .auto-list li:hover,
+html.dark-mode .auto-list li.is-active { background: #2a1414; }
+html.dark-mode .dd-list li.is-selected { background: #2a1414; color: #ff8888; }
+html.dark-mode .stats-table tr:nth-child(even),
+html.dark-mode .rank-table tbody tr:nth-child(even),
+html.dark-mode .sub-item:nth-child(even),
+html.dark-mode .tier-table tr:nth-child(even) td { background: #1e1e1e; }
+html.dark-mode .stats-table tr:hover,
+html.dark-mode .rank-table tbody tr:hover,
+html.dark-mode .links-list a:hover,
+html.dark-mode .sub-item:hover { background: #2a1414; }
+html.dark-mode .rank-table th, html.dark-mode .tier-table th { background: #222222; }
+html.dark-mode .rt-views { color: #ff6666; }
+html.dark-mode .podium-card { background: #222222; border-color: #111; box-shadow: none; }
+html.dark-mode .podium-meta { background: #191919; border-top-color: #333; }
+html.dark-mode .meta-key { color: #bbbbbb; }
+html.dark-mode .meta-field { border-right-color: #333333; }
+html.dark-mode .song-card, html.dark-mode .producer-card { background: var(--surface); border-color: #2c2c2c; }
+html.dark-mode .card-thumb { border-bottom-color: #2c2c2c; }
+html.dark-mode .producer-foot { background: #161616; border-top-color: #2c2c2c; }
+html.dark-mode .row-thumb, html.dark-mode .sub-thumb, html.dark-mode .preview-thumb { border-color: #444; box-shadow: none; }
+html.dark-mode .pagination-bar { background: var(--sf); border-color: #3b3b3b; box-shadow: none; }
+html.dark-mode .site-footer {
+  background: linear-gradient(to bottom, #1c1c1c, #141414);
+  border-top-color: var(--red); box-shadow: none;
+}
+html.dark-mode .fchip { background: #2a1414; border-color: #5a2a2a; color: #e08080; }
+html.dark-mode .fchip.is-exclude { background: #222; border-color: #3b3b3b; color: #888; }
+html.dark-mode .vtag { background: #1d1d1d; }
+html.dark-mode .vtag-guest { background: #1a1a1a; border-color: #444; color: #888; }
+html.dark-mode .htp-list li::before { background: linear-gradient(to bottom, #aa1818, #7a0808); box-shadow: none; }
+html.dark-mode .view-src-label { }
+
+/* ── UPDATES MODAL ── */
+.updates-list { list-style: none; margin-top: 2px; max-height: 320px; overflow-y: auto; }
+.updates-list li { padding: 7px 0; border-bottom: 1px dotted var(--line); font-size: 11px; color: var(--muted); line-height: 1.55; }
+.updates-list li:last-child { border-bottom: none; }
+.updates-ver {
+  display: inline-block; padding: 0 5px; margin-right: 6px;
+  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  color: #fff; font-weight: 900; font-size: 9px; line-height: 15px;
+  font-family: "MS Gothic", "Courier New", monospace;
+}
+.upd-head { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+.upd-head strong { flex: 1; }
+.updates-date { color: var(--faint); font-size: 9px; white-space: nowrap; }
+.updates-list strong { color: var(--text); }
+
 /* ── RESPONSIVE ── */
+@media (max-width: 1080px) {
+  .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
 @media (max-width: 860px) {
-  .card-grid { grid-template-columns: repeat(2, 1fr); }
-  .podium-grid { grid-template-columns: 1fr 1fr 1fr; }
-}
-@media (max-width: 480px) {
-  .card-grid { grid-template-columns: 1fr; }
+  .nnd-body { flex-direction: column; }
+  .nnd-sidebar { width: 100%; min-width: 0; flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+  .nnd-sidebar .sidebar-panel { flex: 1 1 250px; }
+  /* Filters spread into columns instead of one long strip */
+  .nnd-sidebar .filters-panel { flex: 1 1 100%; }
+  .filters-body { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 4px 14px; align-items: start; }
+  .filters-body .filter-row { margin-bottom: 4px; }
+  .filters-body .filter-reset { grid-column: 1 / -1; margin-top: 4px; }
   .podium-grid { grid-template-columns: 1fr; }
-  .podium-rank { font-size: 28px; }
+  .rt-producer, .rt-year { display: none; }
+  .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
-/* ════════ VISUAL POLISH PASS ════════ */
-.card-grid { gap: 6px; }
-@media (min-width: 861px) and (max-width: 1080px) { .card-grid { grid-template-columns: repeat(3, 1fr); } }
-
-/* Cards: smooth lift, red accent, cover zoom, CRT scanlines */
-.song-card {
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
-}
-.song-card:hover {
-  transform: translateY(-2px);
-  border-color: var(--red);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.85), 0 4px 11px rgba(0,0,0,0.20);
-}
-.card-thumb::after {
-  content: ""; position: absolute; inset: 0; z-index: 2; pointer-events: none;
-  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.045) 2px 3px);
-}
-.thumb-cover { transition: transform .28s ease; }
-.song-card:hover .thumb-cover { transform: scale(1.06); }
-.card-rank-badge {
-  z-index: 4;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.82), rgba(0,0,0,0.64));
-}
-
-/* View-count ribbon (full numbers, monospace) */
-.card-views-overlay {
-  z-index: 4; display: flex; align-items: baseline; gap: 3px;
-  background: linear-gradient(to top, rgba(130,0,0,0.92), rgba(150,0,0,0.74));
-  font-family: Consolas, "MS Gothic", monospace;
-}
-.card-views-overlay.is-tier { background: rgba(0,0,0,0.66); }
-.card-views-overlay .cv-num { font-size: 11px; font-weight: 700; letter-spacing: .01em; }
-.card-views-overlay .cv-label { font-size: 8px; font-weight: 400; opacity: .75; text-transform: uppercase; letter-spacing: .04em; }
-
-/* Time tabs + sort: gradient active state to match the rest of the suite */
-.mode-button.is-active {
-  background: linear-gradient(to bottom, var(--red), var(--red-dark));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
-}
-.sort-button.is-active {
-  background: linear-gradient(to bottom, var(--red), var(--red-dark));
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.28);
-}
-/* Beveled eyebrow tag (matches Heardle / H-or-L) */
-.eyebrow {
-  background: linear-gradient(to bottom, var(--red), var(--red-dark));
-  border: 1px solid var(--red-dark);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
-  letter-spacing: .04em;
-}
-
-/* Podium: cover zoom + view ribbon styling */
-.podium-cover-img { transition: transform .3s ease; }
-.podium-card:hover .podium-cover-img { transform: scale(1.05); }
-.podium-card { transition: box-shadow .12s ease; }
-.podium-gold:hover   { box-shadow: inset 0 0 0 2px rgba(200,152,10,0.5); }
-.podium-silver:hover { box-shadow: inset 0 0 0 2px rgba(150,150,150,0.5); }
-.podium-bronze:hover { box-shadow: inset 0 0 0 2px rgba(160,90,50,0.5); }
-.podium-views {
-  display: flex; align-items: baseline; gap: 3px;
-  background: linear-gradient(to top, rgba(130,0,0,0.92), rgba(150,0,0,0.74));
-  font-family: Consolas, "MS Gothic", monospace;
-}
-.podium-views .cv-num { font-size: 12px; font-weight: 700; }
-.podium-views .cv-label { font-size: 8px; opacity: .75; text-transform: uppercase; letter-spacing: .04em; }
-
-/* Platform toggle (NicoNico / YouTube / Both) */
-.platform-switch { display: flex; border: 1px solid var(--ls); flex-shrink: 0; }
-.plat-button {
-  min-height: 22px; height: 22px; padding: 0 8px;
-  font-size: 10px; font-weight: 700; color: var(--muted);
-  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
-  border: none; border-right: 1px solid var(--ls); cursor: pointer;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
-}
-.plat-button:last-child { border-right: none; }
-.plat-button:hover { color: var(--red); background: linear-gradient(to bottom, #fff5f5, #ffd0d0); }
-.plat-button.is-active {
-  background: linear-gradient(to bottom, var(--red), var(--red-dark));
-  color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.28);
+@media (max-width: 560px) {
+  .rt-voc { display: none; }
+  /* full view counts must fit — drop the "views" cap and give digits the room */
+  .rt-views { width: 96px; font-size: 11px; padding-left: 2px; }
+  .rt-views .rv-cap { display: none; }
+  .nnd-header-links { display: none; }
+  .card-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 <body>
 
 <div class="nnd-topbar">
-  <span>39charts &gt; Rankings</span>
-  <span class="nnd-topbar-right">Vocaloid Song Charts</span>
+  <span>Charts &gt; Music &gt; VOCALOID &gt; 39charts</span>
+  <span class="nnd-topbar-right">Vocaloid Song Rankings</span>
 </div>
 
 <div class="nnd-mainbar">
-  <a class="nnd-logo" href="#">
+  <a class="nnd-logo" href="../" title="Back to VOCALOIDLE home">
     <span class="nnd-logo-mark">39</span>
     <span class="nnd-logo-text">
       39charts
@@ -721,138 +1191,427 @@ button, input { font: inherit; cursor: pointer; }
     </span>
   </a>
   <nav class="nnd-header-links">
-    <a href="index.html">Rankings</a>
+    <a href="#" id="updates-open">Updates</a>
     <span class="nnd-divider">|</span>
-    <a href="producers.html">Producers</a>
-    <span class="nnd-divider">|</span>
-    <a href="about.html">About</a>
-    <span class="nnd-divider">|</span>
-    <a href="add.html">+ Add Song</a>
+    <a href="#" id="settings-open">Settings</a>
+    <span class="nnd-divider" style="color:var(--line)">|</span>
+    <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
   </nav>
 </div>
 
+<style>
+.nnd-mobile-nav { display: none; width: 100%; background: #fff; border-bottom: 1px solid var(--line); padding: 5px 10px; align-items: center; gap: 8px; font-size: 12px; }
+.nnd-mobile-nav a { color: var(--link); }
+.nnd-mobile-nav a:hover { color: var(--red); text-decoration: none; }
+.nnd-mobile-nav .nnd-divider { color: var(--line); }
+.nnd-mobile-nav a.nnd-kofi { margin-left: auto; background: var(--red); color: #fff; padding: 3px 9px; border: 1px solid var(--red-dark); font-weight: 700; box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25); }
+.nnd-mobile-nav a.nnd-kofi:hover { background: #b30000; color: #fff; }
+html.dark-mode .nnd-mobile-nav { background: #161616; border-bottom-color: #2c2c2c; }
+@media (max-width: 560px) { .nnd-header-links { display: none; } .nnd-mobile-nav { display: flex; } }
+</style>
+<nav class="nnd-mobile-nav" aria-label="Mobile navigation">
+  <a href="#" data-proxy="updates-open">Updates</a>
+  <span class="nnd-divider">|</span>
+  <a href="#" data-proxy="settings-open">Settings</a>
+  <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
+</nav>
+<script>
+document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var t=document.getElementById(a.dataset.proxy);if(t)t.click();});});
+</script>
 <div class="nnd-marquee-bar">
-  <span class="nnd-marquee-label">NEWS</span>
+  <span class="nnd-marquee-label">[INFO]</span>
   <div class="nnd-marquee-wrap">
     <div class="nnd-marquee-inner" id="marquee-text">
       Loading chart data from VocaDB… &nbsp;·&nbsp;
       ★ Charts powered by community data &nbsp;·&nbsp;
-      ★ 39 = san-kyu = thank you ♪
+      ★ Thank you for using 39charts ♪
     </div>
   </div>
 </div>
 
 <div class="nnd-tag-row">
-  <span class="nnd-tag-label">Vocalist:</span>
-  <a class="nnd-tag is-active" href="#" data-filter="all">All</a>
-  <a class="nnd-tag" href="#" data-filter="miku">Hatsune Miku</a>
-  <a class="nnd-tag" href="#" data-filter="rin">Kagamine Rin</a>
-  <a class="nnd-tag" href="#" data-filter="len">Kagamine Len</a>
-  <a class="nnd-tag" href="#" data-filter="luka">Megurine Luka</a>
-  <a class="nnd-tag" href="#" data-filter="gumi">GUMI</a>
-  <a class="nnd-tag" href="#" data-filter="ia">IA</a>
-  <a class="nnd-tag" href="#" data-filter="kaito">KAITO</a>
-  <a class="nnd-tag" href="#" data-filter="meiko">MEIKO</a>
-  <a class="nnd-tag" href="#" data-filter="teto">Kasane Teto</a>
-  <a class="nnd-tag" href="#" data-filter="flower">flower</a>
-  <a class="nnd-tag" href="#" data-filter="kafu">KAFU</a>
+  <span class="nnd-tag-label">Tags:</span>
+  <span class="nnd-tag">VOCALOID</span>
+  <span class="nnd-tag">ランキング</span>
+  <span class="nnd-tag">再生数</span>
+  <span class="nnd-tag">殿堂入り</span>
+  <span class="nnd-tag">初音ミク</span>
+  <span class="nnd-tag">Charts</span>
+  <span class="nnd-tag">Fan-made</span>
 </div>
 
 <div class="nnd-body">
+  <div class="page-rail page-rail-left"><span>Vocaloid 39charts</span></div>
+  <div class="page-rail page-rail-right"><span>Rankings / Songs / Producers</span></div>
+
+  <aside class="nnd-sidebar">
+
+    <div class="sidebar-panel">
+      <div class="sidebar-header">[ Search ]</div>
+      <div class="sidebar-body">
+        <input type="text" id="search-input" placeholder="Songs or producers…" autocomplete="off">
+        <span class="search-count" id="result-count">Loading…</span>
+      </div>
+    </div>
+
+    <div class="sidebar-panel">
+      <div class="sidebar-header">[ Ranked By ]</div>
+      <div class="sidebar-body">
+        <div class="settings-multi" id="platform-switch" title="Which view count to rank by">
+          <button class="settings-choice" data-platform="nnd">NND</button>
+          <button class="settings-choice" data-platform="yt">YT</button>
+          <button class="settings-choice" data-platform="bili">BILI</button>
+          <button class="settings-choice" data-platform="both">ALL</button>
+        </div>
+        <span class="switch-note" id="platform-note">Ranking by combined NicoNico + YouTube views.</span>
+      </div>
+    </div>
+
+    <div class="sidebar-panel">
+      <div class="sidebar-header">[ Title Language ]</div>
+      <div class="sidebar-body">
+        <select class="filter-select" id="f-titlelang">
+          <option value="english">English</option>
+          <option value="native">Native</option>
+          <option value="romaji">Romaji</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="sidebar-panel">
+      <div class="sidebar-header">[ Vocalist ]</div>
+      <div class="sidebar-body">
+        <div class="auto-wrap">
+          <input type="text" id="vocalist-input" placeholder="Type a vocalist…" autocomplete="off">
+          <ul class="auto-list" id="vocalist-auto" hidden></ul>
+        </div>
+        <div class="chip-row" id="vocalist-chips"></div>
+        <span class="switch-note">Add any number to include songs by any of them.</span>
+      </div>
+    </div>
+
+    <div class="sidebar-panel filters-panel">
+      <div class="sidebar-header">[ Filters ]</div>
+      <div class="sidebar-body filters-body">
+
+        <div class="filter-row">
+          <div class="filter-label">Language</div>
+          <select class="filter-select" id="f-language">
+            <option value="any">Any</option>
+            <option value="ja">Japanese</option>
+            <option value="en">English</option>
+            <option value="zh">Chinese</option>
+            <option value="ko">Korean</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="filter-row">
+          <div class="filter-label">Song Types</div>
+          <div class="type-grid" id="type-grid">
+            <button type="button" class="type-btn" data-type="Original">Original</button>
+            <button type="button" class="type-btn" data-type="Remaster">Remaster</button>
+            <button type="button" class="type-btn" data-type="Remix">Remix</button>
+            <button type="button" class="type-btn" data-type="Cover">Cover</button>
+            <button type="button" class="type-btn" data-type="PV">PV</button>
+            <button type="button" class="type-btn" data-type="Other">Other</button>
+          </div>
+        </div>
+
+        <div class="filter-row filter-grid-2">
+          <div>
+            <div class="filter-label">Vocals</div>
+            <select class="filter-select" id="f-vocals">
+              <option value="any">Any</option>
+              <option value="solo">Solo</option>
+              <option value="duet">Duet</option>
+              <option value="group">Group (3+)</option>
+            </select>
+          </div>
+          <div>
+            <div class="filter-label">Producers</div>
+            <select class="filter-select" id="f-producers">
+              <option value="any">Any</option>
+              <option value="solo">Solo</option>
+              <option value="collab">Collab</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <div class="filter-label">Published</div>
+          <div class="filter-grid-3">
+            <select class="filter-select" id="f-year"><option value="any">Year</option></select>
+            <select class="filter-select" id="f-month"><option value="any">Month</option></select>
+            <select class="filter-select" id="f-day"><option value="any">Day</option></select>
+          </div>
+        </div>
+
+        <div class="filter-row filter-grid-2">
+          <div>
+            <div class="filter-label">Min Views</div>
+            <input class="filter-num" id="f-minviews" type="text" inputmode="numeric" placeholder="None" autocomplete="off">
+          </div>
+          <div>
+            <div class="filter-label">Max Views</div>
+            <input class="filter-num" id="f-maxviews" type="text" inputmode="numeric" placeholder="None" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="toggle-row">
+          <span class="toggle-label">Single upload only</span>
+          <button type="button" class="settings-toggle" id="f-single" title="Only songs with a single original upload (one platform)">OFF</button>
+        </div>
+
+        <div class="filter-row">
+          <div class="filter-label">Artists <button type="button" class="flag-pill" id="f-artistmode" title="AND: song must credit every artist. OR: any artist matches.">AND</button></div>
+          <div class="auto-wrap">
+            <input type="text" id="artist-input" placeholder="Enter an artist's name…" autocomplete="off">
+            <ul class="auto-list" id="artist-auto" hidden></ul>
+          </div>
+          <div class="chip-row" id="artist-chips"></div>
+        </div>
+
+        <div class="filter-row">
+          <div class="filter-label">Exclude Artists <span class="flag-pill is-or" title="Songs crediting any excluded artist are hidden.">OR</span></div>
+          <div class="auto-wrap">
+            <input type="text" id="exclude-input" placeholder="Enter an artist's name…" autocomplete="off">
+            <ul class="auto-list" id="exclude-auto" hidden></ul>
+          </div>
+          <div class="chip-row" id="exclude-chips"></div>
+        </div>
+
+        <div class="toggle-row">
+          <span class="toggle-label">Include similar artists</span>
+          <button type="button" class="settings-toggle" id="f-similar" title="Widens a specific voicebank filter to every version of that character, and also matches featured/collab credits and alternate artist names">OFF</button>
+        </div>
+
+        <button type="button" class="filter-reset" id="f-reset">&#10227; Reset Filters</button>
+      </div>
+    </div>
+
+    <div class="sidebar-panel">
+      <div class="sidebar-header">[ Chart Data ]</div>
+      <div class="sidebar-body stats-body">
+        <table class="stats-table">
+          <tr><td>Songs indexed</td><td id="fact-songs">&mdash;</td></tr>
+          <tr><td>Total views</td><td id="fact-views">&mdash;</td></tr>
+          <tr><td>100M+ club</td><td id="fact-100m">&mdash;</td></tr>
+          <tr><td>10M+ club</td><td id="fact-10m">&mdash;</td></tr>
+          <tr><td>View data</td><td id="fact-updated">&mdash;</td></tr>
+        </table>
+      </div>
+    </div>
+
+  </aside>
+
   <main class="nnd-main">
 
-    <div class="nnd-intro-panel">
-      <span class="eyebrow">CHARTS</span>
-      <span class="intro-copy">Top Vocaloid songs ranked by view count</span>
-      <div class="mode-switch">
-        <button class="mode-button is-active" data-tab="alltime">All Time</button>
-        <button class="mode-button" data-tab="weekly">Weekly</button>
-        <button class="mode-button" data-tab="monthly">Monthly</button>
+    <div class="game-mode-bar">
+      <div class="game-mode-tabs">
+        <a class="game-mode-btn is-active" href="index.html">Songs</a>
+        <a class="game-mode-btn" href="trending.html">Trending</a>
+        <a class="game-mode-btn" href="years.html">Years</a>
+        <a class="game-mode-btn" href="producers.html">Producers</a>
+        <a class="game-mode-btn" href="vocalists.html">Vocalists</a>
+        <a class="game-mode-btn" href="compare.html">Compare</a>
+        <a class="game-mode-btn" href="about.html">About</a>
+        <a class="game-mode-btn gm-add" href="add.html">+ Add Song</a>
       </div>
     </div>
 
-    <div class="controls-bar">
-      <input type="text" id="search-input" placeholder="Search songs or producers…" autocomplete="off">
-      <div class="platform-switch" id="platform-switch" title="Which view count to rank by">
-        <button class="plat-button" data-platform="nnd">NND</button>
-        <button class="plat-button" data-platform="yt">YT</button>
-        <button class="plat-button" data-platform="both">Both</button>
+    <div class="podium-grid" id="podium-section" hidden></div>
+
+    <div class="rank-section">
+      <div class="rank-section-header">
+        <span id="rank-section-title">[ Rankings ]</span>
+        <span class="rs-count" id="ranking-divider-count"></span>
+        <div class="rank-controls">
+          <div class="view-switch" id="view-switch">
+            <button class="view-btn" data-view="list">&#9776; List</button>
+            <button class="view-btn" data-view="cards">&#9638; Cards</button>
+          </div>
+          <label>Sort:
+            <select id="sort-select">
+              <option value="views">Views</option>
+              <option value="growth">Growth (7d)</option>
+              <option value="title">Title</option>
+              <option value="producer">Producer</option>
+              <option value="year">Year</option>
+            </select>
+          </label>
+          <label>Show:
+            <select id="pagesize-select">
+              <option value="25">25</option>
+              <option value="50" selected>50</option>
+              <option value="100">100</option>
+            </select>
+          </label>
+          <button type="button" class="view-btn asof-btn" id="asof-btn" title="View the charts as they were on a past day">Rewind</button>
+        </div>
       </div>
-      <div class="sort-switch">
-        <button class="sort-button is-active" data-sort="views">Views</button>
-        <button class="sort-button" data-sort="title">Title</button>
-        <button class="sort-button" data-sort="year">Year</button>
+      <div id="card-grid">
+        <div class="state-message">
+          <strong>Loading songs…</strong>
+          Fetching data from songs.json
+        </div>
       </div>
-      <span class="result-count" id="result-count">Loading…</span>
     </div>
 
-    <div id="podium-section" hidden></div>
-
-    <div class="ranking-divider" id="ranking-divider" hidden>
-      <span class="ranking-divider-title">Rankings</span>
-      <span class="ranking-divider-sub">All Time — by NicoNico views</span>
-      <span class="ranking-divider-count" id="ranking-divider-count"></span>
-    </div>
-
-    <div class="card-grid" id="card-grid">
-      <div class="state-message">
-        <strong>Loading songs…</strong>
-        Fetching data from songs.json
-      </div>
-    </div>
-
-    <div id="pagination-bar" hidden></div>
+    <div class="pagination-bar" id="pagination-bar" hidden></div>
 
   </main>
 </div>
 
+<div class="settings-backdrop" id="asof-backdrop" hidden></div>
+<div class="settings-modal" id="asof-modal" hidden>
+  <div class="settings-title">[ Rewind the charts ] <button type="button" class="settings-close" id="asof-close">✕</button></div>
+  <div id="asof-cal"></div>
+  <button type="button" class="cal-live-btn" id="asof-live">↩ Back to live charts</button>
+</div>
+
 <footer class="site-footer">
-  <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
-    <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
-    &nbsp;·&nbsp;
-    <a href="../" target="_blank" rel="noopener">Vocaloid Heardle</a>
-  </p>
+  <p class="footer-copy">39charts: fan-made Vocaloid rankings (c) 2026 | Not affiliated with Crypton Future Media, NicoNico or YouTube | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a></p>
+  <a class="footer-pagetop" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Page Top ▲</a>
 </footer>
+
+<div class="settings-backdrop" id="settings-backdrop" hidden></div>
+<div class="settings-modal" id="settings-modal" hidden>
+  <div class="settings-title">[ Settings ] <button type="button" class="settings-close" id="settings-close">✕</button></div>
+  <div class="settings-row">
+    <div>
+      <div class="s-label">Dark Mode</div>
+      <div class="s-desc">Dark page and panel colors, like the games.</div>
+    </div>
+    <button type="button" class="settings-toggle" id="opt-dark">OFF</button>
+  </div>
+</div>
+
+<div class="settings-backdrop" id="updates-backdrop" hidden></div>
+<div class="settings-modal" id="updates-modal" hidden>
+  <div class="settings-title">[ Updates ] <button type="button" class="settings-close" id="updates-close">✕</button></div>
+  <ul class="updates-list">
+    <li><div class="upd-head"><span class="updates-ver">v1.4</span><strong>Trending &amp; view history</strong><span class="updates-date">2026-07-09</span></div>New Trending tab scored on daily view growth &amp; engagement, per-day view-history grid &amp; chart on song pages, Growth (7d) sorting, a charts-on-a-day calendar, synth-type vocalist filters, and PV-availability labels.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.3</span><strong>bilibili stats &amp; polish</strong><span class="updates-date">2026-07-05</span></div>bilibili views, likes &amp; comments on song pages, platform share bar under the player, condensed ranking panel, and site-wide consistency fixes.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.2</span><strong>Vocalists &amp; redesigns</strong><span class="updates-date">2026-07-04</span></div>New Vocalists rankings tab, voicebank-level search &amp; filtering, fully redesigned song and producer pages, dark-mode fixes, this updates log.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.1</span><strong>Live view counts</strong><span class="updates-date">2026-06-24</span></div>Real NicoNico + YouTube views integrated into rankings, per-platform song stats, producer avatars from VocaDB.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.0</span><strong>Launch</strong><span class="updates-date">2026-06</span></div>Song rankings, producer index, About page, community add-song review queue.</li>
+  </ul>
+</div>
+
+<script>
+(function () {
+  const open = document.getElementById("updates-open");
+  const modal = document.getElementById("updates-modal");
+  const backdrop = document.getElementById("updates-backdrop");
+  if (!open || !modal) return;
+  const close = () => { modal.hidden = true; backdrop.hidden = true; };
+  open.addEventListener("click", e => { e.preventDefault(); modal.hidden = false; backdrop.hidden = false; });
+  document.getElementById("updates-close").addEventListener("click", close);
+  backdrop.addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+})();
+</script>
+<script>
+(function () {
+  const openBtn = document.getElementById("settings-open");
+  const modal = document.getElementById("settings-modal");
+  const backdrop = document.getElementById("settings-backdrop");
+  const toggle = document.getElementById("opt-dark");
+  if (!openBtn || !modal || !toggle) return;
+  function sync() {
+    const on = document.documentElement.classList.contains("dark-mode");
+    toggle.classList.toggle("is-on", on);
+    toggle.textContent = on ? "ON" : "OFF";
+  }
+  function close() { modal.hidden = true; backdrop.hidden = true; }
+  openBtn.addEventListener("click", e => { e.preventDefault(); modal.hidden = false; backdrop.hidden = false; sync(); });
+  document.getElementById("settings-close").addEventListener("click", close);
+  backdrop.addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+  toggle.addEventListener("click", () => {
+    const on = document.documentElement.classList.toggle("dark-mode");
+    try { localStorage.setItem("39c_dark", on ? "1" : "0"); } catch (e) {}
+    sync();
+  });
+})();
+</script>
 
 <script>
 /* ── Vocalist normalisation ── */
 const VOCALIST_MAP = [
-  { key: "miku",   label: "Miku",   match: /hatsune miku/i,            cls: "vtag-miku"   },
-  { key: "rin",    label: "Rin",    match: /kagamine rin/i,             cls: "vtag-rin"    },
-  { key: "len",    label: "Len",    match: /kagamine len/i,             cls: "vtag-len"    },
-  { key: "luka",   label: "Luka",   match: /megurine luka/i,            cls: "vtag-luka"   },
-  { key: "gumi",   label: "GUMI",   match: /\bgumi\b|megpoid/i,         cls: "vtag-gumi"   },
-  { key: "ia",     label: "IA",     match: /^ia$|^ia :/i,               cls: "vtag-ia"     },
-  { key: "kaito",  label: "KAITO",  match: /\bkaito\b/i,                cls: "vtag-kaito"  },
-  { key: "meiko",  label: "MEIKO",  match: /\bmeiko\b/i,                cls: "vtag-meiko"  },
-  { key: "teto",   label: "Teto",   match: /kasane teto/i,              cls: "vtag-teto"   },
-  { key: "flower", label: "flower", match: /\bflower\b|v flower/i,      cls: "vtag-flower" },
-  { key: "kafu",   label: "KAFU",   match: /\bkafu\b/i,                 cls: "vtag-kafu"   },
-  { key: "una",    label: "Una",    match: /otomachi una/i,              cls: "vtag-una"    },
-  { key: "yuki",   label: "Yuki",   match: /kaai yuki/i,                cls: "vtag-yuki"   },
-  { key: "rei",    label: "Rei",    match: /adachi rei/i,                cls: "vtag-rei"    },
-  { key: "defoko", label: "Defoko", match: /utane uta|defoko/i,          cls: "vtag-defoko" },
+  { key: "miku",   label: "Miku",   name: "Hatsune Miku",  match: /hatsune miku/i,            cls: "vtag-miku"   },
+  { key: "rin",    label: "Rin",    name: "Kagamine Rin",  match: /kagamine rin/i,             cls: "vtag-rin"    },
+  { key: "len",    label: "Len",    name: "Kagamine Len",  match: /kagamine len/i,             cls: "vtag-len"    },
+  { key: "luka",   label: "Luka",   name: "Megurine Luka", match: /megurine luka/i,            cls: "vtag-luka"   },
+  { key: "meiko",  label: "MEIKO",  name: "MEIKO",         match: /\bmeiko\b/i,                cls: "vtag-meiko"  },
+  { key: "kaito",  label: "KAITO",  name: "KAITO",         match: /\bkaito\b/i,                cls: "vtag-kaito"  },
+  { key: "gumi",   label: "GUMI",   name: "GUMI",          match: /\bgumi\b|megpoid/i,         cls: "vtag-gumi"   },
+  { key: "ia",     label: "IA",     name: "IA",            match: /^ia$|^ia :/i,               cls: "vtag-ia"     },
+  { key: "flower", label: "flower", name: "flower",        match: /\bflower\b|v flower/i,      cls: "vtag-flower" },
+  { key: "teto",   label: "Teto",   name: "Kasane Teto",   match: /kasane teto/i,              cls: "vtag-teto"   },
+  { key: "kafu",   label: "KAFU",   name: "KAFU",          match: /\bkafu\b/i,                 cls: "vtag-kafu"   },
+  { key: "una",    label: "Una",    name: "Otomachi Una",  match: /otomachi una/i,              cls: "vtag-una"    },
+  { key: "yuki",   label: "Yuki",   name: "Kaai Yuki",     match: /kaai yuki/i,                 cls: "vtag-yuki"   },
+  { key: "rei",    label: "Rei",    name: "Adachi Rei",    match: /adachi rei/i,                cls: "vtag-rei"    },
+  { key: "defoko", label: "Defoko", name: "Defoko",        match: /utane uta|defoko/i,          cls: "vtag-defoko" },
 ];
 
+/* Known vocal-synth voicebanks beyond the main map (VOCALOID / UTAU / CeVIO /
+   SynthV / VOICEROID / A.I.VOICE …). Singer credits that match neither this
+   list nor the map are treated as human guest vocalists: shown as a gray
+   "guest" tag and kept out of the vocalist filter. */
+const SYNTH_PATTERNS = [
+  /sekai/i, /\blily\b/i, /yuzuki yukari/i, /luo tianyi/i, /nekomura iroha/i,
+  /\bmayu\b/i, /^vy[12]/i, /sekka yufu/i, /gackpo|gakupo/i, /hanakuma chifuyu/i,
+  /meika (mikoto|hime)/i, /tsurumaki maki/i, /seeu/i, /zundamon/i, /\bdex\b/i,
+  /\bdaina\b/i, /yanhe/i, /\bmaika\b/i, /avanna/i, /codename miki/i,
+  /tsuina-?chan/i, /yamine renri/i, /\bkyo\b/i, /miyamai moca/i, /sukone tei/i,
+  /yohioloid/i, /kotonoha (akane|aoi)/i, /\brime\b/i, /cyber (diva|songman)/i,
+  /chis-a/i, /xin hua/i, /yokune ruko/i, /yi xi/i, /\bmew\b/i, /q[ǐi]xu[aā]n/i,
+  /tone rion/i, /momone momo/i, /\bpopy\b/i, /\brana\b/i, /macne nana/i,
+  /\breml\b/i, /aoki lapis/i, /eleanor forte/i, /koharu rikka/i, /\boliver\b/i,
+  /^anon$/i, /^kanon$/i, /\brose\b/i, /natsuki karin/i, /utatane piko/i,
+  /acme iku/i, /makimiya fuki/i, /^o[иn]e$/i, /kikyuune aiko/i, /kizuna akari/i,
+  /nurse robot/i, /samune zimi/i, /yuezheng (ling|longya)/i, /stardust/i,
+  /\blola\b/i, /\bleon\b/i, /\bmiriam\b/i, /poyoroid/i, /plaintalk/i,
+  /touhoku|tohoku (kiritan|zunko|itako)/i, /haruno sora/i, /\bcoko\b/i,
+  /namine ritsu/i, /cherico/i, /\bsaki\b/i, /gekiyaku/i, /kazehiki/i,
+  /kasukabe tsumugi/i, /fukase/i, /asane ema/i, /tsumitsugu nae/i, /\bharu\b/i,
+  /^kevin$/i, /^anri$/i, /^mai$/i, /soyogi soyogi/i, /koronba no\.? ?4/i,
+  /galaco/i, /merli/i, /prima/i, /sonika/i, /sweet ann/i, /big al/i, /tonio/i,
+  /sachiko/i, /arsloid/i, /unity-chan/i, /^uni$/i, /ruby/i, /^solaria$/i,
+  /^asterian$/i, /gahata meiji/i, /matsudappoiyo/i, /kasuka(ne)? ako/i,
+  /^po-?uta$/i, /synthesizer v/i, /momone momo continuous/i,
+];
+
+function isSynthName(name) {
+  return VOCALIST_MAP.some(v => v.match.test(name)) ||
+    SYNTH_PATTERNS.some(r => r.test(name));
+}
+
+/* Chips show the specific credited voicebank ("Hatsune Miku V4X", "Kasane
+   Teto SV") while keeping the character's color from the map. */
 function normalizeVocalists(singerNames = [], artistString = "") {
   const seen = new Set();
   const result = [];
   for (const name of singerNames) {
     if (!name || name.toLowerCase() === "various") continue;
-    let matched = false;
-    for (const v of VOCALIST_MAP) {
-      if (!seen.has(v.key) && v.match.test(name)) {
-        seen.add(v.key);
-        result.push(v);
-        matched = true;
-        break;
-      }
+    const dedupe = name.toLowerCase();
+    if (seen.has(dedupe)) continue;
+    seen.add(dedupe);
+    const known = VOCALIST_MAP.find(v => v.match.test(name));
+    if (known) {
+      result.push({ key: known.key, label: name, cls: known.cls, title: name });
+      continue;
     }
-    if (!matched && !seen.has(name)) {
-      seen.add(name);
-      const label = name.length > 12 ? name.split(" ")[0] : name;
-      result.push({ key: name, label, cls: "vtag-other" });
-    }
+    const guest = !isSynthName(name);
+    result.push({
+      key: name,
+      label: guest ? name + " ♦" : name,
+      cls: guest ? "vtag-guest" : "vtag-other",
+      title: guest ? "Guest vocalist (human)" : name,
+    });
   }
   if (result.length === 0 && /various/i.test(artistString))
     result.push({ key: "various", label: "Various", cls: "vtag-other" });
@@ -878,31 +1637,147 @@ function viewTier(song) {
   return { label: null, score: 0 };
 }
 
-/* ── Real NicoNico view counts (data/views.json) ── */
-let VIEWS = {};          // NicoNico view counts
+/* ── View counts ── */
+let VIEWS = {};
 let VIEWS_UPDATED = null;
-let YT_STATS = {};        // YouTube { id: { views, likes, comments } }
+let YT_STATS = {};
 let YT_UPDATED = null;
-let activePlatform = (localStorage.getItem("39c_platform") || "both"); // nnd | yt | both
+let BILI_STATS = {};
+let BILI_UPDATED = null;
+let DETAILS = {};            // vocadbId -> { type, langs, producers:[{name,roles}], vocalists:[] }
+let activePlatform = (localStorage.getItem("39c_platform") || "both"); // nnd | yt | bili | both
+let titleLang = ["native","english","romaji"].includes(localStorage.getItem("39c_titlelang"))
+  ? localStorage.getItem("39c_titlelang") : "english";
+
+function songDetails(song) { return DETAILS[String(song.vocadbId)] || null; }
+
+/* Vocalists: prefer the full VocaDB credits (fixes "Various artists" songs
+   whose singers were missing from the flattened artist string). */
+function songVocalistNames(song) {
+  const d = songDetails(song);
+  return (d && d.vocalists && d.vocalists.length) ? d.vocalists : (song.singerNames || []);
+}
+
+function songTypeGroup(song) {
+  const t = songDetails(song)?.type;
+  if (t === "MusicPV" || t === "DramaPV") return "PV";
+  return (t === "Original" || t === "Remaster" || t === "Remix" || t === "Cover") ? t : "Other";
+}
+
+function songLangMatch(song, code) {
+  const langs = songDetails(song)?.langs || [];
+  const norm = langs.map(l => {
+    const v = String(l).toLowerCase();
+    if (v === "cmn" || v.startsWith("zh")) return "zh";
+    return v.slice(0, 2);
+  });
+  if (code === "other") return norm.length > 0 && !norm.some(l => ["ja","en","zh","ko"].includes(l));
+  return norm.includes(code);
+}
+
+function hasCJK(t) { return /[　-ヿ㐀-鿿가-힯ｦ-ﾟ]/.test(t); }
+
+function displayTitle(song) {
+  const accepted = song.acceptedTitles || [];
+  if (titleLang === "native") {
+    return accepted.find(hasCJK) || song.vocadbName || song.title || "";
+  }
+  if (titleLang === "romaji") {
+    const en = String(song.title || "").toLowerCase();
+    return accepted.find(t => /^[\x20-\x7e]+$/.test(t) && t.toLowerCase() !== en) || song.title || "";
+  }
+  return song.title || "";
+}
+
+/* Producer display: expand "Various artists" into the real credited producers. */
+function producerDisplay(song) {
+  const d = songDetails(song);
+  const various = [song.artist, song.artistString, song.displayArtist]
+    .some(v => /various artists?/i.test(v || ""));
+  if (d && d.producers && d.producers.length && (various || !song.artist)) {
+    const names = d.producers.map(p => p.name);
+    const text = names.length > 2 ? `${names.slice(0, 2).join(", ")} +${names.length - 2}` : names.join(", ");
+    const title = d.producers.map(p => p.roles ? `${p.name} (${p.roles})` : p.name).join(", ");
+    return { text, link: names[0] || "", title };
+  }
+  const title = d && d.producers && d.producers.length > 1
+    ? d.producers.map(p => p.roles ? `${p.name} (${p.roles})` : p.name).join(", ")
+    : (song.artist || "");
+  return { text: song.artist || "", link: song.artist || "", title };
+}
+
+/* ── View history (daily snapshots) + "as of" time travel ── */
+let HISTORY = null;      // { dates:[], songs:{ id:{n,y,b,...} } }
+let asOfIdx = null;      // index into HISTORY.dates, or null = live
+let asOfDate = null;
+const GROWTH_CACHE = new Map();
+
+function histAt(song, k) {
+  const e = HISTORY && HISTORY.songs && HISTORY.songs[String(song.vocadbId)];
+  const s = e && e[k];
+  return s && s[asOfIdx] != null ? s[asOfIdx] : null;
+}
+
+function combinedHistSeries(id) {
+  const e = HISTORY && HISTORY.songs && HISTORY.songs[String(id)];
+  if (!e) return null;
+  return HISTORY.dates.map((_, i) => {
+    const p = [e.n, e.y, e.b].map(s => s && s[i] != null ? s[i] : null);
+    return p.every(v => v == null) ? null : p.reduce((a, v) => a + (v || 0), 0);
+  });
+}
+
+/* Combined views gained over the most recent ~7-day window of snapshots. */
+function growthOf(song) {
+  const id = String(song.vocadbId);
+  if (GROWTH_CACHE.has(id)) return GROWTH_CACHE.get(id);
+  let gain = null;
+  const comb = combinedHistSeries(id);
+  if (comb) {
+    const idx = comb.map((v, i) => v != null ? i : -1).filter(i => i >= 0);
+    if (idx.length >= 2) {
+      const last = idx[idx.length - 1];
+      const lastDate = new Date(HISTORY.dates[last]);
+      let first = idx[0];
+      for (const i of idx) {
+        if ((lastDate - new Date(HISTORY.dates[i])) / 864e5 <= 7) { first = i; break; }
+      }
+      if (first === last) first = idx[idx.length - 2];
+      gain = comb[last] - comb[first];
+    }
+  }
+  GROWTH_CACHE.set(id, gain);
+  return gain;
+}
 
 function nndViews(song) {
+  if (asOfIdx != null) return histAt(song, "n");
   const v = VIEWS[String(song.vocadbId)];
   return typeof v === "number" ? v : null;
 }
 function ytViews(song) {
+  if (asOfIdx != null) return histAt(song, "y");
   const s = YT_STATS[String(song.vocadbId)];
   return s && typeof s.views === "number" ? s.views : null;
 }
-// The count used for ranking + the card figure, per the active platform toggle.
+function biliViews(song) {
+  if (asOfIdx != null) return histAt(song, "b");
+  const s = BILI_STATS[String(song.vocadbId)];
+  return s && typeof s.views === "number" ? s.views : null;
+}
 function getViewCount(song) {
-  const n = nndViews(song), y = ytViews(song);
+  const n = nndViews(song), y = ytViews(song), b = biliViews(song);
   if (activePlatform === "nnd") return n;
   if (activePlatform === "yt") return y;
-  if (n == null && y == null) return null;
-  return (n || 0) + (y || 0);
+  if (activePlatform === "bili") return b;
+  if (n == null && y == null && b == null) return null;
+  return (n || 0) + (y || 0) + (b || 0);
 }
 function platformLabel() {
-  return activePlatform === "nnd" ? "NicoNico" : activePlatform === "yt" ? "YouTube" : "NicoNico + YouTube";
+  return activePlatform === "nnd" ? "NicoNico"
+    : activePlatform === "yt" ? "YouTube"
+    : activePlatform === "bili" ? "bilibili"
+    : "combined NND + YT + BILI";
 }
 
 function formatViews(n) {
@@ -912,7 +1787,7 @@ function formatViews(n) {
   return String(n);
 }
 
-/* ── Thumb placeholder colours by primary vocalist ── */
+/* ── Thumb placeholder colours ── */
 const THUMB_COLORS = {
   miku:   { bg: "#1a6b68", fg: "#39c5bb" },
   rin:    { bg: "#7a4800", fg: "#f5a623" },
@@ -924,7 +1799,7 @@ const THUMB_COLORS = {
   meiko:  { bg: "#7a0a0a", fg: "#ef5350" },
   teto:   { bg: "#5a0820", fg: "#e3587a" },
   flower: { bg: "#2e0840", fg: "#c060d0" },
-  kafu:   { bg: "#083848", fg: "#40b8d8" },
+  kafu:   { bg: "#3a2050", fg: "#c0a0e8" },
   una:    { bg: "#4a2800", fg: "#f09000" },
   yuki:   { bg: "#3a3000", fg: "#d4b000" },
   rei:    { bg: "#400830", fg: "#cc3080" },
@@ -941,6 +1816,9 @@ function coverArtChain(song) {
   if (ytHq) { all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`); }
   const nndNum = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/)?.[1] : null;
   if (nndNum) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${nndNum}/${nndNum}`);
+  // bilibili cover (from biliviews.json) — rescues bilibili-only songs.
+  const bp = BILI_STATS[String(song.vocadbId)];
+  if (bp && bp.pic) all.push(String(bp.pic).replace(/^http:/, "https:"));
 
   const priority = u => {
     if (ytHq && u === ytHq)                                 return -1; /* canonical YT first */
@@ -975,35 +1853,140 @@ function thumbOnload(img) {
 }
 
 function escHtml(s) {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-}
-
-function rankBadgeClass(i) {
-  if (i === 0) return "rank-gold";
-  if (i === 1) return "rank-silver";
-  if (i === 2) return "rank-bronze";
-  return "";
+  return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
 /* ── State ── */
-let ALL_SONGS    = [];
-let activeFilter = "all";
-let activeSort   = "views";
-let activeTab    = "alltime";
-let searchQuery  = "";
-let currentPage  = 1;
-const PAGE_SIZE  = 50;
+let ALL_SONGS       = [];
+let activeVocalists = [];   // selected vocalist names (strings)
+let activeSort      = "views";
+let searchQuery     = "";
+let currentPage     = 1;
+let pageSize        = 50;
+let viewMode        = (localStorage.getItem("39c_viewmode") === "cards") ? "cards" : "list";
+
+const FILTER_DEFAULTS = {
+  language: "any",    // any | ja | en | zh | ko | other
+  types: [],          // subset of Original/Remaster/Remix/Cover/Other; empty = all
+  vocals: "any",      // any | solo | duet | group
+  producers: "any",   // any | solo | collab
+  year: "any", month: "any", day: "any",
+  minViews: null, maxViews: null,
+  singleUpload: false,
+  similar: false,
+  artistMode: "and",  // and | or
+  artists: [],
+  excludeArtists: [],
+};
+let F = { ...FILTER_DEFAULTS, artists: [], excludeArtists: [], types: [] };
+let sortDir = "desc";
+const SORT_DEFAULT_DIR = { views: "desc", growth: "desc", title: "asc", producer: "asc", year: "asc" };
+
+/* ── URL state: every filter/sort/search is deep-linkable ── */
+function urlState() {
+  const p = new URLSearchParams();
+  if (searchQuery) p.set("q", searchQuery);
+  if (activePlatform !== "both") p.set("src", activePlatform);
+  if (activeSort !== "views") p.set("sort", activeSort);
+  if (sortDir !== SORT_DEFAULT_DIR[activeSort]) p.set("dir", sortDir);
+  if (activeVocalists.length) p.set("voc", activeVocalists.join("|"));
+  if (F.language !== "any") p.set("lang", F.language);
+  if (F.types.length) p.set("types", F.types.join("|"));
+  if (F.vocals !== "any") p.set("vocals", F.vocals);
+  if (F.producers !== "any") p.set("producers", F.producers);
+  if (F.year !== "any") p.set("year", F.year);
+  if (F.month !== "any") p.set("month", F.month);
+  if (F.day !== "any") p.set("day", F.day);
+  if (F.minViews != null) p.set("min", F.minViews);
+  if (F.maxViews != null) p.set("max", F.maxViews);
+  if (F.singleUpload) p.set("single", "1");
+  if (F.artists.length) p.set("artist", F.artists.join("|"));
+  if (F.excludeArtists.length) p.set("exclude", F.excludeArtists.join("|"));
+  if (F.artistMode !== "and") p.set("mode", F.artistMode);
+  if (currentPage > 1) p.set("page", currentPage);
+  return p;
+}
+function syncUrl() {
+  const qs = urlState().toString();
+  history.replaceState(null, "", qs ? "?" + qs : location.pathname);
+}
+function applyUrlState() {
+  const p = new URLSearchParams(location.search);
+  const g = k => p.get(k);
+  if (g("q")) searchQuery = g("q");
+  if (["nnd","yt","bili","both"].includes(g("src"))) activePlatform = g("src");
+  if (["views","title","producer","year"].includes(g("sort"))) activeSort = g("sort");
+  sortDir = (g("dir") === "asc" || g("dir") === "desc") ? g("dir") : SORT_DEFAULT_DIR[activeSort];
+  if (g("voc")) activeVocalists = g("voc").split("|").filter(Boolean);
+  if (g("lang")) F.language = g("lang");
+  if (g("types")) F.types = g("types").split("|").filter(Boolean);
+  if (g("vocals")) F.vocals = g("vocals");
+  if (g("producers")) F.producers = g("producers");
+  if (g("year")) F.year = g("year");
+  if (g("month")) F.month = g("month");
+  if (g("day")) F.day = g("day");
+  if (g("min")) F.minViews = parseViewsInput(g("min"));
+  if (g("max")) F.maxViews = parseViewsInput(g("max"));
+  if (g("single") === "1") F.singleUpload = true;
+  if (g("artist")) F.artists = g("artist").split("|").filter(Boolean);
+  if (g("exclude")) F.excludeArtists = g("exclude").split("|").filter(Boolean);
+  if (g("mode") === "or") F.artistMode = "or";
+  const pg = parseInt(g("page"), 10);
+  if (pg > 1) currentPage = pg;
+}
+
+/* ── Views text parsing: allows 1000000, "1m", "500k", "1.2b" ── */
+function parseViewsInput(text) {
+  const t = String(text).trim().toLowerCase().replace(/,/g, "");
+  if (!t) return null;
+  const m = t.match(/^([\d.]+)\s*([kmb])?$/);
+  if (!m) return null;
+  let n = parseFloat(m[1]);
+  if (!Number.isFinite(n)) return null;
+  if (m[2] === "k") n *= 1e3;
+  if (m[2] === "m") n *= 1e6;
+  if (m[2] === "b") n *= 1e9;
+  return Math.round(n);
+}
+
+/* ── Artist matching ── */
+function artistHaystack(song) {
+  const parts = [song.artist || "", ...(song.producerNames || [])];
+  const d = songDetails(song);
+  if (d && d.producers) parts.push(...d.producers.map(p => p.name));
+  if (F.similar) {
+    parts.push(
+      song.artistString || "",
+      song.displayArtist || "",
+      song.suggestionArtistString || "",
+      ...(song.artistSearchNames || [])
+    );
+  }
+  return parts.join("\n").toLowerCase();
+}
+
+function songMatchesVocalistName(song, name) {
+  const names = songVocalistNames(song);
+  const lower = name.toLowerCase();
+  // The base character name ("Hatsune Miku") always covers every voicebank.
+  const base = VOCALIST_MAP.find(v => v.name.toLowerCase() === lower);
+  if (base) return names.some(n => base.match.test(n));
+  // Specific voicebank ("Hatsune Miku V4X"): with "Include similar artists" ON
+  // it widens to every voicebank of that character; OFF matches only that bank.
+  const chr = VOCALIST_MAP.find(v => v.match.test(name));
+  if (F.similar) {
+    if (chr) return names.some(n => chr.match.test(n));
+    return names.some(n => n.toLowerCase().includes(lower));
+  }
+  return names.some(n => n.toLowerCase() === lower);
+}
 
 /* ── Filtering + sorting ── */
 function getSongs() {
   let list = [...ALL_SONGS];
 
-  if (activeFilter !== "all") {
-    list = list.filter(s =>
-      (s.singerNames || []).some(name =>
-        VOCALIST_MAP.find(v => v.key === activeFilter)?.match.test(name)
-      )
-    );
+  if (activeVocalists.length > 0) {
+    list = list.filter(s => activeVocalists.some(name => songMatchesVocalistName(s, name)));
   }
 
   if (searchQuery) {
@@ -1016,18 +1999,101 @@ function getSongs() {
     );
   }
 
+  /* language (from VocaDB culture codes) */
+  if (F.language !== "any") {
+    list = list.filter(s => songLangMatch(s, F.language));
+  }
+
+  /* song types (multi-select; empty = all) */
+  if (F.types.length > 0) {
+    list = list.filter(s => F.types.includes(songTypeGroup(s)));
+  }
+
+  /* vocal count */
+  if (F.vocals !== "any") {
+    list = list.filter(s => {
+      const n = (s.singerNames || []).filter(x => x && x.toLowerCase() !== "various").length;
+      if (F.vocals === "solo")  return n === 1;
+      if (F.vocals === "duet")  return n === 2;
+      if (F.vocals === "group") return n >= 3;
+      return true;
+    });
+  }
+
+  /* producer count */
+  if (F.producers !== "any") {
+    list = list.filter(s => {
+      const n = (s.producerNames || []).length || 1;
+      return F.producers === "solo" ? n === 1 : n >= 2;
+    });
+  }
+
+  /* publish date parts */
+  if (F.year !== "any" || F.month !== "any" || F.day !== "any") {
+    list = list.filter(s => {
+      if (!s.publishDate) return false;
+      const d = new Date(s.publishDate);
+      if (F.year  !== "any" && d.getUTCFullYear() !== Number(F.year))  return false;
+      if (F.month !== "any" && d.getUTCMonth() + 1 !== Number(F.month)) return false;
+      if (F.day   !== "any" && d.getUTCDate() !== Number(F.day))       return false;
+      return true;
+    });
+  }
+
+  /* min / max views (on the active platform count) */
+  if (F.minViews != null || F.maxViews != null) {
+    list = list.filter(s => {
+      const c = getViewCount(s);
+      if (c == null) return false;
+      if (F.minViews != null && c < F.minViews) return false;
+      if (F.maxViews != null && c > F.maxViews) return false;
+      return true;
+    });
+  }
+
+  /* single upload */
+  if (F.singleUpload) {
+    list = list.filter(s => Boolean(s.nndOriginalId) !== Boolean(s.ytOriginalId));
+  }
+
+  /* include artists (AND / OR) */
+  if (F.artists.length > 0) {
+    list = list.filter(s => {
+      const hay = artistHaystack(s);
+      const hit = a => hay.includes(a.toLowerCase());
+      return F.artistMode === "and" ? F.artists.every(hit) : F.artists.some(hit);
+    });
+  }
+
+  /* exclude artists (OR) */
+  if (F.excludeArtists.length > 0) {
+    list = list.filter(s => {
+      const hay = artistHaystack(s);
+      return !F.excludeArtists.some(a => hay.includes(a.toLowerCase()));
+    });
+  }
+
+  const dirMul = sortDir === "asc" ? 1 : -1;
   if (activeSort === "title") {
-    list.sort((a, b) => a.title.localeCompare(b.title));
+    list.sort((a, b) => dirMul * a.title.localeCompare(b.title));
+  } else if (activeSort === "producer") {
+    list.sort((a, b) => dirMul * (a.artist || "").localeCompare(b.artist || "") || a.title.localeCompare(b.title));
   } else if (activeSort === "year") {
     list.sort((a, b) => {
       const ay = a.publishDate ? new Date(a.publishDate).getFullYear() : 0;
       const by = b.publishDate ? new Date(b.publishDate).getFullYear() : 0;
-      return ay - by;
+      return dirMul * (ay - by);
+    });
+  } else if (activeSort === "growth") {
+    list.sort((a, b) => {
+      const ag = growthOf(a), bg = growthOf(b);
+      if (ag == null && bg == null) return 0;
+      if (ag == null) return 1;
+      if (bg == null) return -1;
+      return sortDir === "asc" ? ag - bg : bg - ag;
     });
   } else {
     list.sort((a, b) => {
-      // Rank by real NicoNico views when available; songs with a count rank
-      // above tier-only songs, and tier + date break ties / order the rest.
       const av = getViewCount(a), bv = getViewCount(b);
       if (av != null || bv != null) {
         if (av == null) return 1;
@@ -1038,42 +2104,187 @@ function getSongs() {
       if (diff !== 0) return diff;
       return new Date(b.publishDate || 0) - new Date(a.publishDate || 0);
     });
+    if (sortDir === "asc") list.reverse();
   }
 
   return list;
 }
 
-/* ── Podium card HTML ── */
-function podiumCardHtml(song, rankIdx, medal) {
-  const vocalists = normalizeVocalists(song.singerNames, song.artistString);
+function filtersActive() {
+  return F.language !== "any" || F.types.length > 0 ||
+    F.vocals !== "any" || F.producers !== "any" ||
+    F.year !== "any" || F.month !== "any" || F.day !== "any" ||
+    F.minViews != null || F.maxViews != null || F.singleUpload ||
+    F.artists.length > 0 || F.excludeArtists.length > 0;
+}
+
+/* ── Shared thumb markup (placeholder + cover chain — logic unchanged) ── */
+function thumbInnerHtml(song, opts = {}) {
+  const vocalists = normalizeVocalists(songVocalistNames(song), song.artistString);
   const primary   = vocalists[0];
   const colors    = primary ? (THUMB_COLORS[primary.key] || DEFAULT_COLORS) : DEFAULT_COLORS;
-  const tier      = viewTier(song);
   const chain     = coverArtChain(song);
-  const title     = escHtml(song.title || "");
-  const producer  = escHtml(song.artist || "");
-  const link      = `song.html?id=${encodeURIComponent(song.vocadbId)}`;
+  const title     = escHtml(displayTitle(song));
   const coverHtml = chain.length
-    ? `<img class="podium-cover-img" src="${escHtml(chain[0])}" alt="" loading="eager" data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}" onload="thumbOnload(this)" onerror="tryNextSrc(this)">`
+    ? `<img class="thumb-cover" src="${escHtml(chain[0])}" alt="" referrerpolicy="no-referrer" loading="${opts.eager ? "eager" : "lazy"}" data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}" onload="thumbOnload(this)" onerror="tryNextSrc(this)">`
     : "";
-  const tags = vocalists.map(v => `<span class="vtag ${v.cls}">${v.label}</span>`).join("");
   return `
-    <div class="podium-card podium-${medal}">
-      <a href="${link}" class="podium-thumb-link">
-        <div class="podium-thumb">
-          <div class="podium-placeholder" style="background:${colors.bg};color:${colors.fg};">
-            <div class="thumb-pattern"></div><span class="thumb-note">♪</span>
-          </div>
-          ${coverHtml}
-          <div class="podium-rank podium-rank-${medal}">#${rankIdx + 1}</div>
-          ${(() => { const c = getViewCount(song); const nv = nndViews(song), yv = ytViews(song); const bd = [nv!=null?`NicoNico ${nv.toLocaleString()}`:null, yv!=null?`YouTube ${yv.toLocaleString()}`:null].filter(Boolean).join("  ·  "); return c != null ? `<div class="podium-tier-badge podium-views" title="${bd}"><span class="cv-num">${c.toLocaleString()}</span><span class="cv-label">views</span></div>` : (tier.label ? `<div class="podium-tier-badge">${tier.label}</div>` : ""); })()}
-          <div class="podium-scanlines"></div>
+    <div class="thumb-placeholder" style="background:${colors.bg};color:${colors.fg};">
+      <div class="thumb-pattern"></div>
+      <span class="thumb-note">♪</span>
+      ${opts.titlePreview ? `<span class="thumb-title-preview">${title}</span>` : ""}
+    </div>
+    ${coverHtml}
+    <div class="thumb-scanlines"></div>`;
+}
+
+function vocalistTagsHtml(song) {
+  const all = normalizeVocalists(songVocalistNames(song), song.artistString);
+  // Cap the chips so big collab songs do not hog the row/card.
+  const MAX = 3;
+  const shown = all.slice(0, MAX);
+  const rest = all.slice(MAX);
+  return shown
+    .map(v => `<span class="vtag ${v.cls}"${v.title ? ` title="${escHtml(v.title)}"` : ""}>${escHtml(v.label)}</span>`)
+    .join("") +
+    (rest.length ? `<span class="vtag vtag-other" title="${escHtml(rest.map(v => v.label).join(", "))}">+${rest.length}</span>` : "");
+}
+
+/* ── Top 3 podium ── */
+function heroHtml(list) {
+  const link = s => `song.html?id=${encodeURIComponent(s.vocadbId)}`;
+  const card = (song, medal, rank) => {
+    const c = getViewCount(song);
+    const tier = viewTier(song);
+    const year = song.publishDate ? new Date(song.publishDate).getFullYear() : null;
+    const title = escHtml(displayTitle(song));
+    const prod = producerDisplay(song);
+    return `
+      <div class="podium-card podium-${medal}">
+        <div class="podium-header">
+          <span class="ph-rank">#${rank}</span>
+          <span class="ph-title"><a href="${link(song)}">${title}</a></span>
         </div>
-      </a>
-      <div class="podium-info">
-        <div class="podium-title"><a href="${link}">${title}</a></div>
-        <div class="podium-producer">${producer}</div>
-        <div class="podium-tags">${tags}</div>
+        <div class="podium-thumb">
+          ${thumbInnerHtml(song, { eager: true })}
+          <div class="thumb-vtags">${vocalistTagsHtml(song)}</div>
+          <a class="thumb-link" href="${link(song)}" aria-label="${title}" tabindex="-1"></a>
+        </div>
+        <div class="podium-meta">
+          <div class="meta-field">
+            <span class="meta-key">[views]</span>
+            <span class="meta-val">${c != null ? c.toLocaleString() : (tier.label || "—")}</span>
+            <span class="meta-sub">${escHtml(platformLabel())} views</span>
+          </div>
+          ${year ? `
+          <div class="meta-field">
+            <span class="meta-key">[year]</span>
+            <span class="meta-val" style="color:var(--text)">${year}</span>
+            <span class="meta-sub">upload</span>
+          </div>` : ""}
+          <div class="meta-field">
+            <span class="meta-key">[artist]</span>
+            <span class="meta-val meta-artist" title="${escHtml(prod.title)}"><a href="producer.html?name=${encodeURIComponent(prod.link)}">${escHtml(prod.text || "—")}</a></span>
+          </div>
+        </div>
+      </div>`;
+  };
+  return card(list[0], "gold", 1) + card(list[1], "silver", 2) + card(list[2], "bronze", 3);
+}
+
+/* ── Table row ── */
+function rowHtml(song, globalRank) {
+  const tier     = viewTier(song);
+  const year     = song.publishDate ? new Date(song.publishDate).getFullYear() : "—";
+  const prod     = producerDisplay(song);
+  const title    = escHtml(displayTitle(song));
+  const link     = `song.html?id=${encodeURIComponent(song.vocadbId)}`;
+  const count    = getViewCount(song);
+  const nv = nndViews(song), yv = ytViews(song), bv = biliViews(song);
+  const breakdown = [nv != null ? `NicoNico ${nv.toLocaleString()}` : null, yv != null ? `YouTube ${yv.toLocaleString()}` : null, bv != null ? `bilibili ${bv.toLocaleString()}` : null].filter(Boolean).join("  ·  ");
+  const gain = activeSort === "growth" ? growthOf(song) : null;
+  const viewsCell = gain != null
+    ? `<td class="rt-views" title="${count != null ? `${count.toLocaleString()} total views` : ""}">+${gain.toLocaleString()}<span class="rv-cap">gained</span></td>`
+    : count != null
+    ? `<td class="rt-views" title="${breakdown}">${count.toLocaleString()}<span class="rv-cap">views</span></td>`
+    : `<td class="rt-views is-tier">${tier.label || "—"}</td>`;
+  return `
+    <tr class="${globalRank < 10 ? "is-top10" : ""}">
+      <td class="rt-rank">${globalRank + 1}</td>
+      <td class="rt-thumb-cell">
+        <div class="row-thumb">
+          ${thumbInnerHtml(song)}
+          <a class="thumb-link" href="${link}" aria-label="${title}" tabindex="-1"></a>
+        </div>
+      </td>
+      <td class="rt-title"><a href="${link}">${title}</a></td>
+      <td class="rt-producer" title="${escHtml(prod.title)}"><a href="producer.html?name=${encodeURIComponent(prod.link)}">${escHtml(prod.text)}</a></td>
+      <td class="rt-voc">${vocalistTagsHtml(song)}</td>
+      <td class="rt-year">${year}</td>
+      ${viewsCell}
+    </tr>`;
+}
+
+function tableHtml(rowsHtml) {
+  return `
+    <table class="rank-table">
+      <thead>
+        <tr>
+          <th class="rt-rank">#</th>
+          <th class="rt-thumb-cell"></th>
+          <th class="rt-title" data-sort="title" title="Sort by title">Song${thArrow("title")}</th>
+          <th class="rt-producer" data-sort="producer" title="Sort by producer">Producer${thArrow("producer")}</th>
+          <th class="rt-voc">Vocalist</th>
+          <th class="rt-year" data-sort="year" title="Sort by year">Year${thArrow("year")}</th>
+          <th class="rt-views" data-sort="views" title="Sort by views">Views${thArrow("views")}</th>
+        </tr>
+      </thead>
+      <tbody>${rowsHtml}</tbody>
+    </table>`;
+}
+
+/* ── Card view ── */
+function cardHtml(song, globalRank) {
+  const tier     = viewTier(song);
+  const year     = song.publishDate ? new Date(song.publishDate).getFullYear() : "—";
+  const prod     = producerDisplay(song);
+  const title    = escHtml(displayTitle(song));
+  const link     = `song.html?id=${encodeURIComponent(song.vocadbId)}`;
+  const count    = getViewCount(song);
+  const nv = nndViews(song), yv = ytViews(song), bv = biliViews(song);
+  const breakdown = [nv != null ? `NicoNico ${nv.toLocaleString()}` : null, yv != null ? `YouTube ${yv.toLocaleString()}` : null, bv != null ? `bilibili ${bv.toLocaleString()}` : null].filter(Boolean).join("  ·  ");
+  const cardGain = activeSort === "growth" ? growthOf(song) : null;
+  const viewsHtml = cardGain != null
+    ? `<div class="card-views-overlay" title="${count != null ? `${count.toLocaleString()} total views` : ""}">+${cardGain.toLocaleString()}<span class="rv-cap">gained</span></div>`
+    : count != null
+    ? `<div class="card-views-overlay" title="${breakdown}">${count.toLocaleString()}<span class="rv-cap">views</span></div>`
+    : (tier.label ? `<div class="card-views-overlay is-tier">${tier.label}</div>` : "");
+  // Judge by live stats: a stored YouTube id whose video is dead still has no
+  // usable PV, so only count platforms that actually return views today.
+  let pvHtml = "";
+  if (yv == null) {
+    const t = nv != null && bv == null ? { cls: "pv-nnd", text: "NND only" }
+      : bv != null && nv == null ? { cls: "pv-bili", text: "BILI only" }
+      : nv != null && bv != null ? { cls: "pv-nnd", text: "NND + BILI" }
+      : { cls: "", text: "No PV" };
+    pvHtml = `<div class="card-pvtag ${t.cls}" title="No live YouTube PV">${t.text}</div>`;
+  }
+  return `
+    <div class="song-card">
+      <div class="card-thumb">
+        ${thumbInnerHtml(song)}
+        <div class="card-rank${globalRank < 3 ? " rk-top" : ""}">${globalRank + 1}</div>
+        ${pvHtml}
+        ${viewsHtml}
+        <a class="thumb-link" href="${link}" aria-label="${title}" tabindex="-1"></a>
+      </div>
+      <div class="card-body">
+        <div class="card-title"><a href="${link}">${title}</a></div>
+        <div class="card-meta">
+          <span class="card-producer" title="${escHtml(prod.title)}"><a href="producer.html?name=${encodeURIComponent(prod.link)}">${escHtml(prod.text)}</a></span>
+          <span class="card-year">${year}</span>
+        </div>
+        <div class="card-tags">${vocalistTagsHtml(song)}</div>
       </div>
     </div>`;
 }
@@ -1090,8 +2301,8 @@ function paginationHtml(current, total, songCount) {
     if (current < total - 2) pages.push("…");
     pages.push(total);
   }
-  const start = (current - 1) * PAGE_SIZE + 1;
-  const end   = Math.min(current * PAGE_SIZE, songCount);
+  const start = (current - 1) * pageSize + 1;
+  const end   = Math.min(current * pageSize, songCount);
   const prevDisabled = current === 1 ? "disabled" : "";
   const nextDisabled = current === total ? "disabled" : "";
   return `
@@ -1104,103 +2315,322 @@ function paginationHtml(current, total, songCount) {
     <span class="page-info">${start}–${end} / ${songCount}</span>`;
 }
 
+/* ── Sidebar facts ── */
+function updateFacts() {
+  let total = 0, over100m = 0, over10m = 0;
+  for (const s of ALL_SONGS) {
+    const c = getViewCount(s);
+    if (c == null) continue;
+    total += c;
+    if (c >= 1e8) over100m++;
+    if (c >= 1e7) over10m++;
+  }
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  set("fact-songs", ALL_SONGS.length.toLocaleString());
+  set("fact-views", formatViews(total));
+  set("fact-100m", String(over100m));
+  set("fact-10m", String(over10m));
+  const updated = activePlatform === "yt" ? YT_UPDATED : activePlatform === "bili" ? BILI_UPDATED : (VIEWS_UPDATED || YT_UPDATED);
+  set("fact-updated", updated || "—");
+  set("platform-note", `Ranking by ${platformLabel()} views.`);
+  set("mode-hint", "All-time rankings");
+}
+
+/* ── Custom dropdown: replaces native <select> with a retro panel ──
+   The hidden <select> stays the source of truth (value + change events), so
+   all existing filter logic is untouched. Options are read on every open,
+   which also covers selects rebuilt later (publish-year list). */
+const DD_REGISTRY = [];
+function enhanceSelect(id) {
+  const sel = document.getElementById(id);
+  if (!sel) return;
+  const wrap = document.createElement("div");
+  wrap.className = "dd";
+  sel.parentNode.insertBefore(wrap, sel);
+  wrap.appendChild(sel);
+  sel.hidden = true;
+
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.className = "dd-btn";
+  btn.innerHTML = `<span class="dd-label"></span>`;
+  const list = document.createElement("ul");
+  list.className = "dd-list";
+  list.hidden = true;
+  wrap.appendChild(btn);
+  wrap.appendChild(list);
+
+  const label = btn.querySelector(".dd-label");
+  function refresh() {
+    const opt = sel.options[sel.selectedIndex];
+    label.textContent = opt ? opt.textContent : "";
+  }
+  function close() { list.hidden = true; wrap.classList.remove("is-open"); }
+  function open() {
+    list.innerHTML = [...sel.options].map((o, i) =>
+      `<li data-i="${i}" class="${i === sel.selectedIndex ? "is-selected" : ""}">${escHtml(o.textContent)}</li>`).join("");
+    list.hidden = false;
+    wrap.classList.add("is-open");
+    const cur = list.querySelector(".is-selected");
+    if (cur) cur.scrollIntoView({ block: "nearest" });
+  }
+
+  btn.addEventListener("click", () => { list.hidden ? open() : close(); });
+  btn.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+      e.preventDefault();
+      const dir = e.key === "ArrowDown" ? 1 : -1;
+      const next = Math.min(sel.options.length - 1, Math.max(0, sel.selectedIndex + dir));
+      if (next !== sel.selectedIndex) {
+        sel.selectedIndex = next;
+        refresh();
+        sel.dispatchEvent(new Event("change"));
+        if (!list.hidden) open();
+      }
+    } else if (e.key === "Escape") { close(); }
+  });
+  list.addEventListener("mousedown", e => {
+    const li = e.target.closest("li[data-i]");
+    if (!li) return;
+    e.preventDefault();
+    sel.selectedIndex = Number(li.dataset.i);
+    refresh();
+    close();
+    sel.dispatchEvent(new Event("change"));
+  });
+  document.addEventListener("mousedown", e => {
+    if (!wrap.contains(e.target)) close();
+  });
+  sel.addEventListener("change", refresh);
+
+  refresh();
+  DD_REGISTRY.push(refresh);
+}
+function refreshAllDropdowns() { DD_REGISTRY.forEach(fn => fn()); }
+
+/* ── Custom autocomplete (shared) ── */
+function attachAutocomplete(inputId, listId, getMatches, onPick) {
+  const input = document.getElementById(inputId);
+  const listEl = document.getElementById(listId);
+  let items = [];
+  let idx = -1;
+
+  function close() { listEl.hidden = true; idx = -1; }
+  function open() {
+    if (!items.length) {
+      listEl.innerHTML = `<li class="auto-empty">No matches</li>`;
+      listEl.hidden = false;
+      return;
+    }
+    listEl.innerHTML = items.map((it, i) =>
+      `<li class="${i === idx ? "is-active" : ""}" data-i="${i}" title="${escHtml(it)}">${escHtml(it)}</li>`).join("");
+    listEl.hidden = false;
+  }
+  function pick(value) {
+    if (!value) return;
+    onPick(value);
+    input.value = "";
+    close();
+  }
+
+  input.addEventListener("input", () => {
+    const q = input.value.trim();
+    if (!q) { close(); return; }
+    items = getMatches(q);
+    idx = -1;
+    open();
+  });
+  input.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      if (!items.length) return;
+      idx = (idx + 1) % items.length; open();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      if (!items.length) return;
+      idx = (idx - 1 + items.length) % items.length; open();
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      pick(idx >= 0 ? items[idx] : (items[0] || input.value.trim()));
+    } else if (e.key === "Escape") {
+      close();
+    }
+  });
+  listEl.addEventListener("mousedown", e => {
+    const li = e.target.closest("li[data-i]");
+    if (li) { e.preventDefault(); pick(items[Number(li.dataset.i)]); }
+  });
+  input.addEventListener("blur", () => setTimeout(close, 140));
+}
+
+/* option pools built from data */
+let VOCALIST_OPTIONS = [];
+let ARTIST_OPTIONS = [];
+
+function buildOptionPools() {
+  const vocSet = new Map(); // lower -> display
+  for (const v of VOCALIST_MAP) vocSet.set(v.name.toLowerCase(), v.name);
+  for (const s of ALL_SONGS) {
+    for (const n of songVocalistNames(s)) {
+      if (!n || n.toLowerCase() === "various") continue;
+      // Guest (human) vocalists stay out of the vocalist filter — they belong
+      // to the artist filters instead. Specific voicebanks ("Hatsune Miku V4X",
+      // "Kasane Teto SV") are offered alongside the base character name.
+      if (isSynthName(n) && !vocSet.has(n.toLowerCase())) vocSet.set(n.toLowerCase(), n);
+    }
+  }
+  VOCALIST_OPTIONS = [...vocSet.values()];
+
+  const artSet = new Map();
+  for (const s of ALL_SONGS) {
+    const names = [s.artist, ...(s.producerNames || [])];
+    for (const n of names) {
+      if (n && !artSet.has(n.toLowerCase())) artSet.set(n.toLowerCase(), n);
+    }
+  }
+  ARTIST_OPTIONS = [...artSet.values()].sort((a, b) => a.localeCompare(b));
+}
+
+function matchOptions(pool, q, exclude = []) {
+  const lq = q.toLowerCase();
+  const ex = new Set(exclude.map(x => x.toLowerCase()));
+  const starts = [], contains = [];
+  for (const name of pool) {
+    if (ex.has(name.toLowerCase())) continue;
+    const ln = name.toLowerCase();
+    if (ln.startsWith(lq)) starts.push(name);
+    else if (ln.includes(lq)) contains.push(name);
+    if (starts.length >= 8) break;
+  }
+  return [...starts, ...contains].slice(0, 8);
+}
+
+/* chips */
+function renderChips(elId, arr, onRemove, exclude = false) {
+  const box = document.getElementById(elId);
+  box.innerHTML = arr.map((name, i) =>
+    `<button type="button" class="fchip${exclude ? " is-exclude" : ""}" data-i="${i}" title="Remove"><span>${escHtml(name)}</span><span class="fchip-x">✕</span></button>`
+  ).join("");
+  box.onclick = e => {
+    const chip = e.target.closest("[data-i]");
+    if (chip) onRemove(Number(chip.dataset.i));
+  };
+}
+
+function renderAllChips() {
+  renderChips("vocalist-chips", activeVocalists, i => {
+    activeVocalists.splice(i, 1);
+    renderAllChips(); currentPage = 1; render();
+  });
+  renderChips("artist-chips", F.artists, i => {
+    F.artists.splice(i, 1);
+    renderAllChips(); currentPage = 1; render();
+  });
+  renderChips("exclude-chips", F.excludeArtists, i => {
+    F.excludeArtists.splice(i, 1);
+    renderAllChips(); currentPage = 1; render();
+  }, true);
+}
+
+/* publish-date dropdowns */
+function buildDateSelects() {
+  const years = [...new Set(ALL_SONGS
+    .map(s => s.publishDate ? new Date(s.publishDate).getUTCFullYear() : null)
+    .filter(y => y && y > 1990))].sort((a, b) => b - a);
+  const ySel = document.getElementById("f-year");
+  ySel.innerHTML = `<option value="any">Year</option>` +
+    years.map(y => `<option value="${y}">${y}</option>`).join("");
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  document.getElementById("f-month").innerHTML = `<option value="any">Month</option>` +
+    months.map((m, i) => `<option value="${i + 1}">${m}</option>`).join("");
+  document.getElementById("f-day").innerHTML = `<option value="any">Day</option>` +
+    Array.from({ length: 31 }, (_, i) => `<option value="${i + 1}">${i + 1}</option>`).join("");
+}
+
+/* ── Marquee ── */
+function updateMarquee() {
+  const topSong = getSongs()[0];
+  const topCount = topSong ? getViewCount(topSong) : null;
+  const asOf = VIEWS_UPDATED ? `  ·  views as of ${VIEWS_UPDATED}` : "";
+  document.getElementById("marquee-text").textContent =
+    `★ ${ALL_SONGS.length} songs loaded from VocaDB  ·  ` +
+    `★ #1: ${topSong ? displayTitle(topSong) : "?"} by ${topSong ? producerDisplay(topSong).text : "?"}${topCount != null ? ` (${topCount.toLocaleString()} views)` : ""}  ·  ` +
+    `★ Ranked by ${platformLabel()} views${asOf}  ·  ` +
+    `★ Thank you for using 39charts ♪`;
+}
+
+function thArrow(k) {
+  return activeSort === k ? `<span class="th-arrow">${sortDir === "asc" ? "▲" : "▼"}</span>` : "";
+}
+document.getElementById("card-grid").addEventListener("click", e => {
+  const th = e.target.closest("th[data-sort]");
+  if (!th) return;
+  const k = th.dataset.sort;
+  if (activeSort === k) sortDir = sortDir === "asc" ? "desc" : "asc";
+  else { activeSort = k; sortDir = SORT_DEFAULT_DIR[k]; }
+  document.getElementById("sort-select").value = activeSort;
+  refreshAllDropdowns();
+  currentPage = 1; render();
+});
+
 /* ── Render ── */
 function render() {
-  const list      = getSongs();
-  const grid      = document.getElementById("card-grid");
-  const pagBar    = document.getElementById("pagination-bar");
+  syncUrl();
+  const list       = getSongs();
+  const grid       = document.getElementById("card-grid");
+  const pagBar     = document.getElementById("pagination-bar");
   const podiumEl   = document.getElementById("podium-section");
-  const dividerEl  = document.getElementById("ranking-divider");
+  const titleEl    = document.getElementById("rank-section-title");
   const divCountEl = document.getElementById("ranking-divider-count");
 
   document.getElementById("result-count").textContent =
     `${list.length} song${list.length !== 1 ? "s" : ""}`;
 
-  /* podium: only in default all-time/views/no-filter view */
-  const showPodium = activeFilter === "all" && activeSort === "views" && !searchQuery && list.length >= 3;
-  if (showPodium) {
+  updateFacts();
+
+  const showHero = activeVocalists.length === 0 && activeSort === "views" && sortDir === "desc" &&
+    !searchQuery && !filtersActive() && list.length >= 3;
+  const asOfNote = asOfDate ? ` · as of ${asOfDate}` : "";
+  if (showHero) {
     podiumEl.hidden = false;
-    podiumEl.innerHTML = `
-      <div class="podium-header">
-        <span>★ TOP RANKINGS <span style="font-weight:400;color:#8a6820">— all-time by ${platformLabel()} views</span></span>
-        <span style="font-weight:400;color:#8a6820;font-size:10px">${ALL_SONGS.length.toLocaleString()} songs indexed</span>
-      </div>
-      <div class="podium-grid">
-        ${podiumCardHtml(list[1], 1, "silver")}
-        ${podiumCardHtml(list[0], 0, "gold")}
-        ${podiumCardHtml(list[2], 2, "bronze")}
-      </div>`;
-    dividerEl.hidden = false;
-    const sub = dividerEl.querySelector(".ranking-divider-sub");
-    if (sub) sub.textContent = `All Time — by ${platformLabel()} views`;
-    divCountEl.textContent = `${Math.max(0, list.length - 3).toLocaleString()} more`;
+    podiumEl.innerHTML = heroHtml(list);
+    titleEl.textContent = `[ Rank #4 and below${asOfNote} ]`;
+    divCountEl.textContent = `${Math.max(0, list.length - 3).toLocaleString()} songs`;
   } else {
     podiumEl.hidden = true;
-    dividerEl.hidden = true;
+    titleEl.textContent = `[ Rankings${asOfNote} ]`;
+    divCountEl.textContent = `${list.length.toLocaleString()} songs`;
+  }
+  const asofBtn = document.getElementById("asof-btn");
+  if (asofBtn) {
+    asofBtn.classList.toggle("is-active", asOfDate != null);
+    asofBtn.textContent = asOfDate ? `Rewind: ${asOfDate}` : "Rewind";
   }
 
   if (list.length === 0) {
-    grid.innerHTML = `<div class="no-results">No songs match your search.</div>`;
+    grid.innerHTML = `<div class="no-results">No songs match your filters.</div>`;
     pagBar.hidden = true;
     return;
   }
 
-  // When the podium is shown it already covers #1–#3, so the grid starts at #4.
-  const gridList = showPodium ? list.slice(3) : list;
-  const rankOffset = showPodium ? 3 : 0;
+  const gridList = showHero ? list.slice(3) : list;
+  const rankOffset = showHero ? 3 : 0;
   if (gridList.length === 0) { grid.innerHTML = ""; pagBar.hidden = true; return; }
 
-  const totalPages = Math.ceil(gridList.length / PAGE_SIZE);
+  const totalPages = Math.ceil(gridList.length / pageSize);
   if (currentPage > totalPages) currentPage = totalPages;
-  const start = (currentPage - 1) * PAGE_SIZE;
-  const pageSongs = gridList.slice(start, start + PAGE_SIZE);
+  const start = (currentPage - 1) * pageSize;
+  const pageSongs = gridList.slice(start, start + pageSize);
 
-  grid.innerHTML = pageSongs.map((s, i) => {
-    const globalRank = rankOffset + start + i;
-    const vocalists  = normalizeVocalists(s.singerNames, s.artistString);
-    const primary    = vocalists[0];
-    const colors     = primary ? (THUMB_COLORS[primary.key] || DEFAULT_COLORS) : DEFAULT_COLORS;
-    const tier       = viewTier(s);
-    const year       = s.publishDate ? new Date(s.publishDate).getFullYear() : "—";
-    const producer   = escHtml(s.artist || "");
-    const title      = escHtml(s.title || "");
-    const link       = `song.html?id=${encodeURIComponent(s.vocadbId)}`;
-    const tags       = vocalists.map(v => `<span class="vtag ${v.cls}">${v.label}</span>`).join("");
-    const count      = getViewCount(s);
-    const nv = nndViews(s), yv = ytViews(s);
-    const breakdown = [nv != null ? `NicoNico ${nv.toLocaleString()}` : null, yv != null ? `YouTube ${yv.toLocaleString()}` : null].filter(Boolean).join("  ·  ");
-    const viewsHtml  = count != null
-      ? `<div class="card-views-overlay" title="${breakdown}"><span class="cv-num">${count.toLocaleString()}</span><span class="cv-label">views</span></div>`
-      : (tier.label ? `<div class="card-views-overlay is-tier">${tier.label}</div>` : "");
-    const chain      = coverArtChain(s);
-    const coverHtml  = chain.length
-      ? `<img class="thumb-cover" src="${escHtml(chain[0])}" alt="" loading="lazy" data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}" onload="thumbOnload(this)" onerror="tryNextSrc(this)">`
-      : "";
-    return `
-      <div class="song-card">
-        <div class="card-thumb">
-          <a href="${link}" class="thumb-link" aria-label="${title}" tabindex="-1"></a>
-          <div class="thumb-placeholder" style="background:${colors.bg};color:${colors.fg};">
-            <div class="thumb-pattern"></div>
-            <span class="thumb-note">♪</span>
-            <span class="thumb-title-preview">${title}</span>
-          </div>
-          ${coverHtml}
-          <div class="card-rank-badge ${rankBadgeClass(globalRank)}">
-            <span class="rank-num">${globalRank + 1}</span>
-          </div>
-          ${viewsHtml}
-        </div>
-        <div class="card-body">
-          <div class="card-title"><a href="${link}">${title}</a></div>
-          <div class="card-meta">
-            <span class="card-producer"><a href="producer.html?name=${encodeURIComponent(s.artist||"")}">${producer}</a></span>
-            <span class="card-year">${year}</span>
-          </div>
-          <div class="card-tags">${tags}</div>
-        </div>
-      </div>`;
-  }).join("");
+  if (viewMode === "cards") {
+    grid.innerHTML = `<div class="card-grid">` +
+      pageSongs.map((s, i) => cardHtml(s, rankOffset + start + i)).join("") +
+      `</div>`;
+  } else {
+    grid.innerHTML = tableHtml(
+      pageSongs.map((s, i) => rowHtml(s, rankOffset + start + i)).join("")
+    );
+  }
 
   if (totalPages > 1) {
     pagBar.hidden = false;
@@ -1211,83 +2641,204 @@ function render() {
 }
 
 /* ── Load data (sessionStorage cache) ── */
+/* sessionStorage cache with a short TTL so refreshed data JSON is picked up quickly. */
+const CACHE_TTL_MS = 10 * 60 * 1000;
+function cacheGet(key) {
+  try {
+    const o = JSON.parse(sessionStorage.getItem(key));
+    if (!o || typeof o.t !== "number" || Date.now() - o.t > CACHE_TTL_MS) return null;
+    return o.v;
+  } catch (e) { return null; }
+}
+function cachePut(key, v) {
+  try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), v })); } catch (e) {}
+}
+
 function loadSongs() {
   const KEY = "39c_songs_v2";
-  try {
-    const c = sessionStorage.getItem(KEY);
-    if (c) return Promise.resolve(JSON.parse(c));
-  } catch(e) {}
+  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
   return fetch("../data/songs.json")
     .then(r => { if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-    .then(data => { try { sessionStorage.setItem(KEY, JSON.stringify(data)); } catch(e) {} return data; });
+    .then(data => { cachePut(KEY, data); return data; });
 }
 
 function loadViews() {
   const KEY = "39c_views_v2";
-  try {
-    const c = sessionStorage.getItem(KEY);
-    if (c) return Promise.resolve(JSON.parse(c));
-  } catch(e) {}
+  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
   return fetch("../data/views.json")
     .then(r => r.ok ? r.json() : null)
-    .then(data => { if (data) { try { sessionStorage.setItem(KEY, JSON.stringify(data)); } catch(e) {} } return data; })
+    .then(data => { if (data) { cachePut(KEY, data); } return data; })
     .catch(() => null);
 }
 
 function loadYtViews() {
   const KEY = "39c_ytviews_v2";
-  try {
-    const c = sessionStorage.getItem(KEY);
-    if (c) return Promise.resolve(JSON.parse(c));
-  } catch(e) {}
+  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
   return fetch("../data/ytviews.json")
     .then(r => r.ok ? r.json() : null)
-    .then(data => { if (data) { try { sessionStorage.setItem(KEY, JSON.stringify(data)); } catch(e) {} } return data; })
+    .then(data => { if (data) { cachePut(KEY, data); } return data; })
     .catch(() => null);
 }
 
+function loadBiliViews() {
+  const KEY = "39c_biliviews_v3";
+  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
+  return fetch("../data/biliviews.json")
+    .then(r => r.ok ? r.json() : null)
+    .then(data => { if (data) { cachePut(KEY, data); } return data; })
+    .catch(() => null);
+}
+
+function loadHistory() {
+  const KEY = "39c_viewhist_v2";
+  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
+  return fetch("../data/viewhistory.json")
+    .then(r => r.ok ? r.json() : null)
+    .then(data => { if (data) { cachePut(KEY, data); } return data; })
+    .catch(() => null);
+}
+
+function loadDetails() {
+  const KEY = "39c_details_v2";
+  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
+  return fetch("../data/songdetails.json")
+    .then(r => r.ok ? r.json() : null)
+    .then(data => { if (data) { cachePut(KEY, data); } return data; })
+    .catch(() => null);
+}
+
+/* ── "As of" calendar (view charts on a past day; snapshots start July 2026) ── */
+const ASOF_MIN = "2026-07-01";
+let calYear = null, calMonth = null; // displayed month
+
+function asofDates() {
+  return HISTORY ? HISTORY.dates.filter(d => d >= ASOF_MIN) : [];
+}
+
+function setAsOf(date) {
+  if (date && HISTORY) {
+    const i = HISTORY.dates.indexOf(date);
+    if (i < 0) return;
+    asOfDate = date; asOfIdx = i;
+  } else {
+    asOfDate = null; asOfIdx = null;
+  }
+  currentPage = 1;
+  render();
+}
+
+function renderCalendar() {
+  const box = document.getElementById("asof-cal");
+  const avail = asofDates();
+  if (!avail.length) {
+    box.innerHTML = `<p style="color:var(--faint);font-size:11px">No daily snapshots yet — history is collected by the nightly refresh starting July 2026.</p>`;
+    return;
+  }
+  const availSet = new Set(avail);
+  const [minY, minM] = avail[0].split("-").map(Number);
+  const [maxY, maxM] = avail[avail.length - 1].split("-").map(Number);
+  if (calYear == null) { calYear = maxY; calMonth = maxM; }
+  const cur = calYear * 12 + calMonth, lo = minY * 12 + minM, hi = maxY * 12 + maxM;
+  const monthName = new Date(calYear, calMonth - 1, 1).toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  const firstDow = new Date(calYear, calMonth - 1, 1).getDay();
+  const daysIn = new Date(calYear, calMonth, 0).getDate();
+  let cells = "";
+  for (let i = 0; i < firstDow; i++) cells += "<td></td>";
+  for (let d = 1; d <= daysIn; d++) {
+    const iso = `${calYear}-${String(calMonth).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+    const has = availSet.has(iso);
+    cells += `<td><button type="button" class="cal-day${has ? " has-data" : ""}${iso === asOfDate ? " is-selected" : ""}"${has ? ` data-cal-date="${iso}"` : " disabled"}>${d}</button></td>`;
+    if ((firstDow + d) % 7 === 0 && d !== daysIn) cells += "</tr><tr>";
+  }
+  box.innerHTML = `
+    <div class="cal-head">
+      <button type="button" class="cal-nav" id="cal-prev" ${cur <= lo ? "disabled" : ""}>&#9664;</button>
+      <strong>${monthName}</strong>
+      <button type="button" class="cal-nav" id="cal-next" ${cur >= hi ? "disabled" : ""}>&#9654;</button>
+    </div>
+    <table class="cal-table">
+      <thead><tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr></thead>
+      <tbody><tr>${cells}</tr></tbody>
+    </table>`;
+  const nav = (id, delta) => {
+    const b = document.getElementById(id);
+    if (b) b.addEventListener("click", () => {
+      calMonth += delta;
+      if (calMonth < 1) { calMonth = 12; calYear--; }
+      if (calMonth > 12) { calMonth = 1; calYear++; }
+      renderCalendar();
+    });
+  };
+  nav("cal-prev", -1); nav("cal-next", 1);
+  box.querySelectorAll("[data-cal-date]").forEach(b =>
+    b.addEventListener("click", () => { setAsOf(b.dataset.calDate); closeAsofModal(); }));
+}
+
+function closeAsofModal() {
+  document.getElementById("asof-modal").hidden = true;
+  document.getElementById("asof-backdrop").hidden = true;
+}
+(function () {
+  const btn = document.getElementById("asof-btn");
+  const modal = document.getElementById("asof-modal");
+  const backdrop = document.getElementById("asof-backdrop");
+  if (!btn || !modal) return;
+  btn.addEventListener("click", () => {
+    renderCalendar();
+    modal.hidden = false; backdrop.hidden = false;
+  });
+  document.getElementById("asof-close").addEventListener("click", closeAsofModal);
+  backdrop.addEventListener("click", closeAsofModal);
+  document.getElementById("asof-live").addEventListener("click", () => { setAsOf(null); closeAsofModal(); });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") closeAsofModal(); });
+})();
+
 function syncPlatformButtons() {
-  document.querySelectorAll("#platform-switch .plat-button").forEach(b =>
+  document.querySelectorAll("#platform-switch .settings-choice").forEach(b =>
     b.classList.toggle("is-active", b.dataset.platform === activePlatform));
 }
 
-function updateMarquee() {
-  const topSong = getSongs()[0];
-  const topCount = topSong ? getViewCount(topSong) : null;
-  const asOf = VIEWS_UPDATED ? `  ·  as of ${VIEWS_UPDATED}` : "";
-  document.getElementById("marquee-text").textContent =
-    `★ ${ALL_SONGS.length} songs loaded from VocaDB  ·  ` +
-    `★ #1: ${topSong?.title || "?"} by ${topSong?.artist || "?"}${topCount != null ? ` (${topCount.toLocaleString()} views)` : ""}  ·  ` +
-    `★ Ranked by ${platformLabel()} views${asOf}  ·  ` +
-    `★ 39 = san-kyu = thank you ♪`;
+function syncViewButtons() {
+  document.querySelectorAll("#view-switch .view-btn").forEach(b =>
+    b.classList.toggle("is-active", b.dataset.view === viewMode));
 }
 
-Promise.all([loadSongs(), loadViews(), loadYtViews()])
-  .then(([data, views, ytviews]) => {
+Promise.all([loadSongs(), loadViews(), loadYtViews(), loadDetails(), loadBiliViews(), loadHistory()])
+  .then(([data, views, ytviews, details, biliviews, history]) => {
     ALL_SONGS = data;
+    if (history && history.dates && history.songs) { HISTORY = history; }
     if (views && views.views) { VIEWS = views.views; VIEWS_UPDATED = views.updated || null; }
     if (ytviews && ytviews.stats) { YT_STATS = ytviews.stats; YT_UPDATED = ytviews.updated || null; }
+    if (details && details.songs) { DETAILS = details.songs; }
+    if (biliviews && biliviews.stats) { BILI_STATS = biliviews.stats; BILI_UPDATED = biliviews.updated || null; }
+    document.getElementById("f-titlelang").value = titleLang;
+    applyUrlState();
     if (!Object.keys(YT_STATS).length && activePlatform !== "nnd") activePlatform = "nnd";
+    if (!Object.keys(BILI_STATS).length && activePlatform === "bili") activePlatform = "nnd";
     syncPlatformButtons();
+    syncViewButtons();
+    buildOptionPools();
+    buildDateSelects();
 
-    /* pre-fill search from URL ?q= param (used by producers page) */
-    const urlQ = new URLSearchParams(window.location.search).get("q");
-    if (urlQ) {
-      document.getElementById("search-input").value = urlQ;
-      searchQuery = urlQ;
-    }
+    /* restore UI controls from URL state (deep links) */
+    document.getElementById("search-input").value = searchQuery;
+    document.getElementById("f-language").value = F.language;
+    document.getElementById("f-vocals").value = F.vocals;
+    document.getElementById("f-producers").value = F.producers;
+    document.getElementById("f-year").value = F.year;
+    document.getElementById("f-month").value = F.month;
+    document.getElementById("f-day").value = F.day;
+    document.getElementById("sort-select").value = activeSort;
+    if (F.minViews != null) document.getElementById("f-minviews").value = F.minViews;
+    if (F.maxViews != null) document.getElementById("f-maxviews").value = F.maxViews;
+    const singleBtn = document.getElementById("f-single");
+    if (singleBtn && F.singleUpload) { singleBtn.classList.add("is-on"); singleBtn.textContent = "ON"; }
+    document.querySelectorAll("#type-grid .type-btn").forEach(b =>
+      b.classList.toggle("is-active", F.types.includes(b.dataset.type)));
+    renderAllChips();
+    refreshAllDropdowns();
 
-    /* update marquee with real stats */
-    const total = data.length;
-    const topSong = getSongs()[0];
-    const topCount = topSong ? getViewCount(topSong) : null;
-    const asOf = VIEWS_UPDATED ? `  ·  views as of ${VIEWS_UPDATED}` : "";
-    document.getElementById("marquee-text").textContent =
-      `★ ${total} songs loaded from VocaDB  ·  ` +
-      `★ #1: ${topSong?.title || "?"} by ${topSong?.artist || "?"}${topCount != null ? ` (${topCount.toLocaleString()} views)` : ""}  ·  ` +
-      `★ Ranked by ${platformLabel()} views${asOf}  ·  ` +
-      `★ 39 = san-kyu = thank you ♪`;
-
+    updateMarquee();
     render();
   })
   .catch(err => {
@@ -1299,36 +2850,56 @@ Promise.all([loadSongs(), loadViews(), loadYtViews()])
     document.getElementById("result-count").textContent = "error";
   });
 
+/* ── Autocompletes ── */
+attachAutocomplete("vocalist-input", "vocalist-auto",
+  q => matchOptions(VOCALIST_OPTIONS, q, activeVocalists),
+  name => {
+    if (!activeVocalists.some(v => v.toLowerCase() === name.toLowerCase())) {
+      activeVocalists.push(name);
+      renderAllChips(); currentPage = 1; render();
+    }
+  });
+
+attachAutocomplete("artist-input", "artist-auto",
+  q => matchOptions(ARTIST_OPTIONS, q, F.artists),
+  name => {
+    if (!F.artists.some(a => a.toLowerCase() === name.toLowerCase())) {
+      F.artists.push(name);
+      renderAllChips(); currentPage = 1; render();
+    }
+  });
+
+attachAutocomplete("exclude-input", "exclude-auto",
+  q => matchOptions(ARTIST_OPTIONS, q, F.excludeArtists),
+  name => {
+    if (!F.excludeArtists.some(a => a.toLowerCase() === name.toLowerCase())) {
+      F.excludeArtists.push(name);
+      renderAllChips(); currentPage = 1; render();
+    }
+  });
+
 /* ── Event listeners ── */
-document.querySelectorAll("[data-tab]").forEach(btn => {
+document.getElementById("sort-select").addEventListener("change", e => {
+  activeSort = e.target.value;
+  sortDir = SORT_DEFAULT_DIR[activeSort] || "desc";
+  currentPage = 1; render();
+});
+
+document.getElementById("pagesize-select").addEventListener("change", e => {
+  pageSize = parseInt(e.target.value) || 50;
+  currentPage = 1; render();
+});
+
+document.querySelectorAll("#view-switch .view-btn").forEach(btn => {
   btn.addEventListener("click", () => {
-    document.querySelectorAll("[data-tab]").forEach(b => b.classList.remove("is-active"));
-    btn.classList.add("is-active");
-    activeTab = btn.dataset.tab;
-    currentPage = 1; render();
+    viewMode = btn.dataset.view === "cards" ? "cards" : "list";
+    localStorage.setItem("39c_viewmode", viewMode);
+    syncViewButtons();
+    render();
   });
 });
 
-document.querySelectorAll("[data-sort]").forEach(btn => {
-  btn.addEventListener("click", () => {
-    document.querySelectorAll("[data-sort]").forEach(b => b.classList.remove("is-active"));
-    btn.classList.add("is-active");
-    activeSort = btn.dataset.sort;
-    currentPage = 1; render();
-  });
-});
-
-document.querySelectorAll("[data-filter]").forEach(tag => {
-  tag.addEventListener("click", e => {
-    e.preventDefault();
-    document.querySelectorAll("[data-filter]").forEach(t => t.classList.remove("is-active"));
-    tag.classList.add("is-active");
-    activeFilter = tag.dataset.filter;
-    currentPage = 1; render();
-  });
-});
-
-document.querySelectorAll("#platform-switch .plat-button").forEach(btn => {
+document.querySelectorAll("#platform-switch .settings-choice").forEach(btn => {
   btn.addEventListener("click", () => {
     activePlatform = btn.dataset.platform;
     localStorage.setItem("39c_platform", activePlatform);
@@ -1343,6 +2914,93 @@ document.getElementById("search-input").addEventListener("input", e => {
   currentPage = 1; render();
 });
 
+/* filter controls */
+const bindSelect = (id, key) => {
+  document.getElementById(id).addEventListener("change", e => {
+    F[key] = e.target.value;
+    currentPage = 1; render();
+  });
+};
+bindSelect("f-language", "language");
+bindSelect("f-vocals", "vocals");
+bindSelect("f-producers", "producers");
+bindSelect("f-year", "year");
+bindSelect("f-month", "month");
+bindSelect("f-day", "day");
+
+document.getElementById("f-minviews").addEventListener("input", e => {
+  F.minViews = parseViewsInput(e.target.value);
+  currentPage = 1; render();
+});
+document.getElementById("f-maxviews").addEventListener("input", e => {
+  F.maxViews = parseViewsInput(e.target.value);
+  currentPage = 1; render();
+});
+
+function syncToggle(btn, on) {
+  btn.classList.toggle("is-on", on);
+  btn.textContent = on ? "ON" : "OFF";
+}
+document.getElementById("f-single").addEventListener("click", e => {
+  F.singleUpload = !F.singleUpload;
+  syncToggle(e.currentTarget, F.singleUpload);
+  currentPage = 1; render();
+});
+document.getElementById("f-similar").addEventListener("click", e => {
+  F.similar = !F.similar;
+  syncToggle(e.currentTarget, F.similar);
+  currentPage = 1; render();
+});
+
+document.getElementById("f-titlelang").addEventListener("change", e => {
+  titleLang = e.target.value;
+  localStorage.setItem("39c_titlelang", titleLang);
+  updateMarquee();
+  render();
+});
+
+document.getElementById("type-grid").addEventListener("click", e => {
+  const btn = e.target.closest(".type-btn");
+  if (!btn) return;
+  const t = btn.dataset.type;
+  const i = F.types.indexOf(t);
+  if (i === -1) F.types.push(t); else F.types.splice(i, 1);
+  btn.classList.toggle("is-active", i === -1);
+  currentPage = 1; render();
+});
+
+document.getElementById("f-artistmode").addEventListener("click", e => {
+  F.artistMode = F.artistMode === "and" ? "or" : "and";
+  e.currentTarget.textContent = F.artistMode.toUpperCase();
+  e.currentTarget.classList.toggle("is-or", F.artistMode === "or");
+  currentPage = 1; render();
+});
+
+document.getElementById("f-reset").addEventListener("click", () => {
+  F = { ...FILTER_DEFAULTS, artists: [], excludeArtists: [], types: [] };
+  document.getElementById("f-language").value = "any";
+  document.querySelectorAll("#type-grid .type-btn").forEach(b => b.classList.remove("is-active"));
+  document.getElementById("f-vocals").value = "any";
+  document.getElementById("f-producers").value = "any";
+  document.getElementById("f-year").value = "any";
+  document.getElementById("f-month").value = "any";
+  document.getElementById("f-day").value = "any";
+  document.getElementById("f-minviews").value = "";
+  document.getElementById("f-maxviews").value = "";
+  syncToggle(document.getElementById("f-single"), false);
+  syncToggle(document.getElementById("f-similar"), false);
+  const modeBtn = document.getElementById("f-artistmode");
+  modeBtn.textContent = "AND";
+  modeBtn.classList.remove("is-or");
+  renderAllChips();
+  refreshAllDropdowns();
+  currentPage = 1; render();
+});
+
+/* enhance all native selects into retro dropdowns */
+["f-titlelang", "f-language", "f-vocals", "f-producers",
+ "f-year", "f-month", "f-day", "sort-select", "pagesize-select"].forEach(enhanceSelect);
+
 document.getElementById("pagination-bar").addEventListener("click", e => {
   const btn = e.target.closest("[data-page]");
   if (!btn || btn.disabled || btn.hasAttribute("disabled")) return;
@@ -1351,5 +3009,39 @@ document.getElementById("pagination-bar").addEventListener("click", e => {
   document.getElementById("card-grid").scrollIntoView({ behavior: "smooth", block: "start" });
 });
 </script>
+
+<style>
+/* Mobile: sidebar panels collapse to their headers (collapsed by default) */
+@media (max-width: 860px) {
+  .nnd-sidebar .sidebar-header { cursor: pointer; position: relative; padding-right: 22px; }
+  .nnd-sidebar .sidebar-header::after { content: "\25BE"; position: absolute; right: 8px; top: 4px; color: var(--red); font-size: 10px; }
+  .nnd-sidebar .sidebar-panel.is-collapsed .sidebar-header::after { content: "\25B8"; }
+  .nnd-sidebar .sidebar-panel.is-collapsed > :not(.sidebar-header) { display: none; }
+}
+</style>
+<script>
+(function () {
+  var mq = window.matchMedia("(max-width: 860px)");
+  var panels = document.querySelectorAll(".nnd-sidebar .sidebar-panel");
+  if (mq.matches) panels.forEach(function (p) { p.classList.add("is-collapsed"); });
+  panels.forEach(function (p) {
+    var h = p.querySelector(".sidebar-header");
+    if (h) h.addEventListener("click", function () {
+      if (mq.matches) p.classList.toggle("is-collapsed");
+    });
+  });
+})();
+</script>
+
+<style>
+/* Mobile: mode tabs wrap instead of forcing the page wider */
+@media (max-width: 620px) {
+  .game-mode-bar { padding: 3px 5px; }
+  .game-mode-tabs { flex-wrap: wrap; align-items: stretch; gap: 3px; }
+  .game-mode-btn { margin-bottom: 0; border-bottom: 2px solid var(--ls); padding-bottom: 5px; }
+  .game-mode-btn.is-active { padding-bottom: 5px; border-bottom-color: var(--red-dark); }
+  .game-mode-hint { display: none; }
+}
+</style>
 </body>
 </html>

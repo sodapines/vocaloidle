@@ -16,6 +16,8 @@
       --faint: #999;
       --line: #c8c4bc;
       --line-dark: #aaa69e;
+      --ls: #b0aca4;
+      --sf: #f2f0eb;
       --red: #cc0000;
       --red-dark: #990000;
       --link: #0066cc;
@@ -113,10 +115,10 @@
       flex: 1;
     }
     .intro {
-      background: var(--surface);
-      border: 1px solid var(--line-dark);
+      background: linear-gradient(to bottom, var(--surface), var(--sf));
+      border: 2px solid var(--ls);
       border-top: 3px solid var(--red);
-      box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,0.1);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
     }
     .intro-copy { padding: 10px 14px; }
     .intro-label { color: var(--red); font-size: 10px; font-weight: 700; }
@@ -129,25 +131,31 @@
     }
     .section-title {
       margin-top: 9px;
-      padding: 4px 9px;
-      background: linear-gradient(#f5f5f5, #dfdfdf);
-      border: 1px solid var(--line);
+      padding: 5px 10px;
+      background:
+        repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+        linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+      border: 1px solid var(--ls);
       border-left: 3px solid var(--red);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+      font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
     .play-grid {
       margin-top: 6px;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 8px;
     }
     .play-card {
       min-width: 0;
       display: grid;
-      grid-template-rows: auto 170px auto auto;
-      background: var(--surface);
-      border: 1px solid var(--line-dark);
-      box-shadow: inset 0 1px 0 #fff, 0 2px 4px rgba(0,0,0,0.12);
+      grid-template-rows: auto 170px 1fr auto;
+      background: linear-gradient(to bottom, var(--surface), var(--sf));
+      border: 2px solid var(--ls);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.12);
     }
     .card-head {
       min-height: 34px;
@@ -159,6 +167,8 @@
     }
     .heardle .card-head { background: linear-gradient(#e52b2b, #aa0000); }
     .higher .card-head { background: linear-gradient(#3769c9, #174690); }
+    .charts .card-head { background: linear-gradient(#2faf57, #1a7d3c); }
+    .charts .card-icon { font-size: 13px; letter-spacing: -0.02em; }
     .card-icon {
       align-self: stretch;
       min-width: 42px;
@@ -195,6 +205,36 @@
       font-weight: 700;
     }
     .card-copy { min-height: 70px; padding: 12px; color: var(--muted); line-height: 1.65; }
+    .card-tag {
+      margin-left: auto;
+      margin-right: 10px;
+      padding: 1px 6px;
+      color: #665d16;
+      background: #fffde5;
+      border: 1px solid #c9b43a;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-shadow: none;
+    }
+    .image-wip {
+      position: absolute;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 3px 8px;
+      color: #fff8d8;
+      background: rgba(20,16,0,0.82);
+      border-bottom: 1px solid #c9b43a;
+      font-size: 9px;
+      line-height: 1.45;
+    }
+    html.dark-mode .card-tag {
+      color: #d6c266;
+      background: #211d09;
+      border-color: #5a4a16;
+    }
     .card-foot {
       min-height: 38px;
       display: grid;
@@ -214,6 +254,13 @@
       font-weight: 700;
     }
     .launch:hover { color: #fff; text-decoration: none; background: linear-gradient(#ee2222, #bb0000); }
+    .launch.is-disabled {
+      background: linear-gradient(#8a8a8a, #6a6a6a);
+      border-left-color: #555;
+      cursor: default;
+      font-size: 11px;
+    }
+    .launch.is-disabled:hover { background: linear-gradient(#8a8a8a, #6a6a6a); }
     .shuffle-btn {
       position: absolute;
       top: 8px;
@@ -242,10 +289,13 @@
       position: relative;
       min-width: 0;
       display: grid;
-      grid-template-columns: 220px minmax(0, 1fr);
-      background: var(--surface);
-      border: 1px solid var(--line-dark);
-      box-shadow: inset 0 1px 0 #fff, 0 2px 4px rgba(0,0,0,0.12);
+      /* 284 × 160 ≈ 16:9, so the image box matches a 1280×720 thumbnail and
+         object-fit: cover zooms non-16:9 art to fill instead of side-cropping. */
+      grid-template-columns: 284px minmax(0, 1fr);
+      min-height: 160px;
+      background: linear-gradient(to bottom, var(--surface), var(--sf));
+      border: 2px solid var(--ls);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.12);
     }
     .spot-image {
       position: relative;
@@ -282,37 +332,93 @@
     .spot-views { margin-top: 7px; }
     .spot-views-num { font-size: 21px; font-weight: 900; color: var(--text); font-family: Consolas, "MS PGothic", monospace; }
     .spot-views-cap { margin-left: 4px; font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.05em; }
+    .spot-plat { margin-top: 2px; font-size: 10px; color: var(--faint); font-family: Consolas, "MS PGothic", monospace; }
+    .spot-plat b { color: var(--muted); font-weight: 700; }
     .spot-links { margin-top: auto; padding-top: 8px; display: flex; gap: 14px; flex-wrap: wrap; }
     .spot-link { font-size: 11px; }
     .site-stats {
       display: flex;
       flex-direction: column;
-      background: var(--surface);
-      border: 1px solid var(--line-dark);
-      box-shadow: inset 0 1px 0 #fff, 0 2px 4px rgba(0,0,0,0.12);
+      background: linear-gradient(to bottom, var(--surface), var(--sf));
+      border: 2px solid var(--ls);
+      border-top: 3px solid var(--red);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.12);
       overflow: hidden;
     }
     .stats-head {
       flex-shrink: 0;
-      padding: 4px 9px;
-      background: linear-gradient(#f0f0f0, #e0e0e0);
-      border-bottom: 1px solid var(--line);
+      padding: 5px 10px;
+      background:
+        repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+        linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+      border-bottom: 1px solid var(--ls);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+      font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
       font-size: 11px;
       font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
     }
-    .site-stats .stat-row {
+    .stats-hero {
       flex: 1;
+      display: grid;
+      grid-template-columns: 3fr 2fr;
+      align-items: stretch;
+      border-bottom: 1px solid var(--line);
+    }
+    .stats-hero-item {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2px;
+      padding: 12px 6px;
+      text-align: center;
+    }
+    .stats-hero-item + .stats-hero-item { border-left: 1px solid var(--line); }
+    .stats-hero-item strong {
+      color: var(--red);
+      font-size: 22px;
+      font-weight: 900;
+      line-height: 1;
+      font-family: Consolas, "MS PGothic", monospace;
+    }
+    .stats-hero-item span {
+      color: var(--faint);
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+    .stats-vers { display: flex; flex-direction: column; }
+    .stats-ver {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 8px;
-      padding: 6px 10px;
+      padding: 5px 10px;
       border-bottom: 1px solid var(--line);
       font-size: 11px;
       color: var(--muted);
     }
-    .site-stats .stat-row:last-child { border-bottom: none; }
-    .site-stats strong { color: var(--red); font-size: 13px; white-space: nowrap; }
+    .stats-ver:nth-child(even) { background: var(--sf); }
+    .stats-ver strong {
+      padding: 0 5px;
+      color: #fff;
+      background: linear-gradient(#dd1111, #aa0000);
+      border: 1px solid var(--red-dark);
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 15px;
+      white-space: nowrap;
+    }
+    .stats-foot {
+      padding: 6px 10px;
+      color: var(--faint);
+      background: var(--soft);
+      font-size: 10px;
+    }
+    .stats-foot strong { color: var(--muted); font-weight: 700; }
     .footer {
       margin-top: auto;
       padding: 6px 10px;
@@ -322,6 +428,67 @@
       text-align: center;
       font-size: 10px;
     }
+    .theme-toggle {
+      margin-left: auto;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 11px;
+      font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      background: linear-gradient(to bottom, #f3f1ea, #dcd8cf);
+      border: 1px solid var(--ls);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+    }
+    .theme-toggle:hover { color: var(--red); background: linear-gradient(to bottom, #fff6f6, #f1dcdc); }
+    .theme-toggle .tt-ico { font-size: 12px; }
+    html.dark-mode .theme-toggle {
+      color: #f0d870;
+      background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+      border-color: #3b3b3b;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.06);
+    }
+    html.dark-mode .theme-toggle:hover { color: #ffe890; }
+
+    /* ── Dark mode (hub) ── */
+    html.dark-mode {
+      --bg: #121212;
+      --surface: #1a1a1a;
+      --sf: #161616;
+      --soft: #202020;
+      --text: #e4e4e4;
+      --muted: #a6a39c;
+      --faint: #7c7c7c;
+      --line: #2c2c2c;
+      --line-dark: #3b3b3b;
+      --ls: #3b3b3b;
+      --red: #dd2222;
+      --link: #5aa0e0;
+    }
+    html.dark-mode body {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    }
+    html.dark-mode .mainbar { background: #161616; }
+    html.dark-mode .notice {
+      background: #211d09; color: #d6c266; border-bottom-color: #5a4a16;
+    }
+    html.dark-mode .notice strong { background: #6e5a10; border-right-color: #4a3c0a; color: #fff; }
+    html.dark-mode .section-title,
+    html.dark-mode .stats-head {
+      background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+      border-color: #3b3b3b;
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05);
+    }
+    html.dark-mode .footer { background: #161616; border-top-color: #3b3b3b; }
+
     @media (max-width: 700px) {
       .topbar { display: none; }
       .mainbar { flex-wrap: wrap; }
@@ -333,6 +500,10 @@
       .spot-title { padding-right: 0; }
     }
   </style>
+  <script>
+    // Apply saved theme before paint to avoid a flash.
+    try { if (localStorage.getItem("vl-home-theme") === "dark") document.documentElement.classList.add("dark-mode"); } catch (e) {}
+  </script>
 </head>
 <body>
   <div class="topbar">
@@ -346,6 +517,9 @@
       <div class="logo-name">VOCALOIDLE</div>
       <div class="logo-sub">VOCALOID games and other projects</div>
     </div>
+    <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+      <span class="tt-ico" aria-hidden="true">&#9789;</span><span class="tt-label">Dark</span>
+    </button>
   </header>
 
   <div class="notice">
@@ -410,6 +584,26 @@
           <a class="launch" href="higher-or-lower/">Play &#9654;</a>
         </footer>
       </article>
+
+      <article class="play-card charts">
+        <header class="card-head">
+          <span class="card-icon">39</span>
+          <span class="card-name">39charts</span>
+          <span class="card-tag">WIP</span>
+        </header>
+        <div class="card-image">
+          <img id="charts-preview" src="favicon.jpg" alt="">
+          <span class="image-wip">&#9888; Work in progress &mdash; the name (and everything else) may change &middot; no daily view refresh yet</span>
+          <span class="image-note">Who has the most views?</span>
+        </div>
+        <div class="card-copy">
+          Browse NicoNico and YouTube view rankings for VOCALOID songs and producers, with combined totals and custom Hall tiers.
+        </div>
+        <footer class="card-foot">
+          <span>Views from NicoNico &amp; YouTube</span>
+          <span class="launch is-disabled" title="Not open yet — coming soon">Coming soon</span>
+        </footer>
+      </article>
     </section>
 
     <div class="section-title">[ RANDOM FEATURED SONG ]</div>
@@ -426,8 +620,9 @@
           <div class="spot-meta" id="spot-meta"></div>
           <div class="spot-views">
             <span class="spot-views-num" id="spot-views-val">&mdash;</span>
-            <span class="spot-views-cap">NicoNico views</span>
+            <span class="spot-views-cap" id="spot-views-cap">views</span>
           </div>
+          <div class="spot-plat" id="spot-plat" hidden></div>
           <div class="spot-links">
             <a class="spot-link" id="spot-link-nico" href="#" target="_blank" rel="noopener" hidden>View on NicoNico &rarr;</a>
             <a class="spot-link" id="spot-link" href="https://vocadb.net" target="_blank" rel="noopener">View on VocaDB &rarr;</a>
@@ -436,11 +631,22 @@
       </article>
       <aside class="site-stats" aria-label="Site stats">
         <div class="stats-head">[ Site Stats ]</div>
-        <div class="stat-row"><span>Songs in pool</span><strong id="stat-songs">&mdash;</strong></div>
-        <div class="stat-row"><span>Games available</span><strong>2</strong></div>
-        <div class="stat-row"><span>Heardle</span><strong>v1.5</strong></div>
-        <div class="stat-row"><span>Higher / Lower</span><strong>v1.0</strong></div>
-        <div class="stat-row"><span>View data updated</span><strong id="stat-updated">&mdash;</strong></div>
+        <div class="stats-hero">
+          <div class="stats-hero-item">
+            <strong id="stat-songs">&mdash;</strong>
+            <span>songs in pool</span>
+          </div>
+          <div class="stats-hero-item">
+            <strong>3</strong>
+            <span>projects</span>
+          </div>
+        </div>
+        <div class="stats-vers">
+          <div class="stats-ver"><span>Heardle</span><strong>v1.6</strong></div>
+          <div class="stats-ver"><span>Higher / Lower</span><strong>v1.1</strong></div>
+          <div class="stats-ver"><span>39charts</span><strong>v1.3</strong></div>
+        </div>
+        <div class="stats-foot">View data updated <strong id="stat-updated">&mdash;</strong></div>
       </aside>
     </section>
 
@@ -451,6 +657,26 @@
   </footer>
 
   <script>
+    // Dark-mode toggle
+    (function () {
+      var btn = document.getElementById("theme-toggle");
+      if (!btn) return;
+      var label = btn.querySelector(".tt-label");
+      var ico = btn.querySelector(".tt-ico");
+      function sync() {
+        var dark = document.documentElement.classList.contains("dark-mode");
+        btn.setAttribute("aria-checked", String(dark));
+        if (label) label.textContent = dark ? "Light" : "Dark";
+        if (ico) ico.innerHTML = dark ? "&#9788;" : "&#9789;"; // ☀ / ☽
+      }
+      sync();
+      btn.addEventListener("click", function () {
+        var dark = document.documentElement.classList.toggle("dark-mode");
+        try { localStorage.setItem("vl-home-theme", dark ? "dark" : "light"); } catch (e) {}
+        sync();
+      });
+    })();
+
     function tierLabel(v) {
       return v >= 100000000 ? "100M+"
         : v >= 10000000 ? "10M+"
@@ -467,15 +693,61 @@
       }
       return null;
     }
+
+    /* Cover-art fallback ladder — the raw song.coverArt is often a YouTube
+       maxresdefault.jpg (404s for many videos → blank card) or a tiny
+       default.jpg (120×90 → blurry when upscaled). Prefer hqdefault, then
+       step down, skipping dead/tiny sources. Mirrors the 39charts pages. */
+    function coverChain(song) {
+      const all = [...(song.coverArts || [])];
+      if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
+      const ytHq = song.ytOriginalId ? "https://i.ytimg.com/vi/" + song.ytOriginalId + "/hqdefault.jpg" : null;
+      if (ytHq) all.push(ytHq, "https://i.ytimg.com/vi/" + song.ytOriginalId + "/mqdefault.jpg");
+      const p = u => (ytHq && u === ytHq) ? -1
+        : u.includes("ytimg.com") && u.includes("hqdefault") ? 0
+        : u.includes("ytimg.com") && u.includes("mqdefault") ? 1
+        : u.includes("ytimg.com") && u.includes("maxresdefault") ? 2
+        : u.includes("ytimg.com") && u.includes("sddefault") ? 2
+        : u.includes("ytimg.com") ? 5          // default.jpg (tiny) — last resort
+        : u.includes("sndcdn.com") ? 4 : 3;
+      return [...new Set(all)].sort((a, b) => p(a) - p(b));
+    }
+    function advanceCover(img, skipYt) {
+      let rest = [];
+      try { rest = JSON.parse(img.dataset.srcs || "[]"); } catch (e) {}
+      if (skipYt) rest = rest.filter(u => !u.includes("ytimg.com"));
+      if (rest.length) { img.src = rest[0]; img.dataset.srcs = JSON.stringify(rest.slice(1)); }
+      else { img.onerror = null; img.onload = null; img.src = "favicon.jpg"; }
+    }
+    function setCover(img, song) {
+      if (!img || !song) return;
+      const chain = coverChain(song);
+      if (!chain.length) { img.src = "favicon.jpg"; return; }
+      img.dataset.srcs = JSON.stringify(chain.slice(1));
+      img.onerror = () => advanceCover(img, false);
+      img.onload = () => {
+        // YouTube serves a 120×90 grey "no thumbnail" placeholder for missing
+        // sizes — detect it and drop the rest of the YT chain.
+        if (img.naturalWidth && img.naturalWidth <= 120 && img.naturalHeight <= 90 &&
+            /ytimg\.com/.test(img.currentSrc || img.src)) advanceCover(img, true);
+      };
+      img.src = chain[0];
+    }
     Promise.all([
       fetch("data/songs.json").then(r => r.ok ? r.json() : []).catch(() => []),
-      fetch("data/views.json").then(r => r.ok ? r.json() : {}).catch(() => ({}))
-    ]).then(([songs, viewsData]) => {
+      fetch("data/views.json").then(r => r.ok ? r.json() : {}).catch(() => ({})),
+      fetch("data/ytviews.json").then(r => r.ok ? r.json() : {}).catch(() => ({})),
+      fetch("data/biliviews.json").then(r => r.ok ? r.json() : {}).catch(() => ({}))
+    ]).then(([songs, viewsData, ytData, biliData]) => {
       const views = (viewsData && viewsData.views) || {};
+      const ytStats = (ytData && ytData.stats) || {};
+      const biliStats = (biliData && biliData.stats) || {};
+      const fmtV = v => v >= 1e9 ? (v/1e9).toFixed(2)+"B" : v >= 1e6 ? (v/1e6).toFixed(1)+"M" : v >= 1e3 ? (v/1e3).toFixed(1)+"K" : String(v);
       const usable = (songs || []).filter(song => song && song.coverArt);
       if (usable.length >= 3) {
-        document.getElementById("heardle-preview").src = usable[2].coverArt;
-        document.getElementById("higher-preview").src = usable[0].coverArt;
+        setCover(document.getElementById("heardle-preview"), usable[2]);
+        setCover(document.getElementById("higher-preview"), usable[0]);
+        setCover(document.getElementById("charts-preview"), usable[1]);
       }
 
       const pool = usable.filter(s => typeof views[String(s.vocadbId)] === "number");
@@ -494,12 +766,27 @@
           song = spotPool[Math.floor(Math.random() * spotPool.length)];
         }
         showSpotlight.lastId = song.vocadbId;
-        const v = views[String(song.vocadbId)];
-        const img = document.getElementById("spot-img");
-        if (img) img.src = song.coverArt;
+        const id = String(song.vocadbId);
+        const v = views[id];
+        const yv = ytStats[id] && typeof ytStats[id].views === "number" ? ytStats[id].views : null;
+        const bv = biliStats[id] && typeof biliStats[id].views === "number" ? biliStats[id].views : null;
+        const parts = [];
+        if (typeof v === "number") parts.push({ k: "NND", v });
+        if (yv != null) parts.push({ k: "YT", v: yv });
+        if (bv != null) parts.push({ k: "BILI", v: bv });
+        const total = parts.reduce((sum, p) => sum + p.v, 0);
+        setCover(document.getElementById("spot-img"), song);
         set("spot-title", song.title || "—");
         set("spot-artist", song.artistString || song.artist || "");
-        set("spot-views-val", typeof v === "number" ? v.toLocaleString() : "—");
+        set("spot-views-val", parts.length ? total.toLocaleString() : "—");
+        set("spot-views-cap", parts.length > 1 ? "combined views" : parts.length === 1 ? ({NND:"NicoNico",YT:"YouTube",BILI:"bilibili"})[parts[0].k] + " views" : "views");
+        const plat = document.getElementById("spot-plat");
+        if (plat) {
+          if (parts.length > 1) {
+            plat.innerHTML = parts.map(p => "<b>" + p.k + "</b> " + fmtV(p.v)).join(" &middot; ");
+            plat.hidden = false;
+          } else plat.hidden = true;
+        }
 
         let meta = "";
         const year = song.publishDate ? new Date(song.publishDate).getFullYear() : null;

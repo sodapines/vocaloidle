@@ -8,7 +8,7 @@
  *
  * It refreshes the WHOLE catalogue every night, split across 3 cron fires so each
  * run stays under the Workers subrequest cap (~1,000/invocation):
- *   - "0 0 * * *"   -> NicoNico slice 0  +  full YouTube refresh (YT is cheap/batched)
+ *   - "0 0 * * *"   -> NicoNico+bilibili slice 0, full YouTube refresh, publish approved
  *   - "30 0 * * *"  -> NicoNico slice 1
  *   - "0 1 * * *"   -> NicoNico slice 2
  *
@@ -20,6 +20,8 @@
  *                        with "Contents: Read and write".
  *        YT_API_KEY    = your YouTube Data API v3 key.
  *        REFRESH_TOKEN = any random string (lets you trigger a run manually).
+ *   3b. Settings -> Bindings -> add the CHARTS_DB KV namespace (same one the
+ *       submissions Worker uses) so approved songs are auto-published nightly.
  *   4. Settings -> Triggers -> Cron Triggers -> add the three schedules above.
  *
  * Manual test (after deploy):
@@ -58,9 +60,16 @@ async function ghPutJson(path, obj, sha, token, message) {
   if (!res.ok) throw new Error(`GitHub PUT ${path}: ${res.status} ${await res.text()}`);
 }
 
+let SONGS_TOKEN = null; // set per-run so fetchSongs works on private repos too
 async function fetchSongs() {
-  const res = await fetch(`https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/data/songs.json`, {
-    headers: { "User-Agent": UA },
+  // Contents API with the raw media type: authenticated, works for private
+  // repos and for files over the 1 MB base64 limit (songs.json is ~3 MB).
+  const res = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/data/songs.json?ref=${BRANCH}`, {
+    headers: {
+      "User-Agent": UA,
+      Accept: "application/vnd.github.raw",
+      ...(SONGS_TOKEN ? { Authorization: `Bearer ${SONGS_TOKEN}` } : {}),
+    },
   });
   if (!res.ok) throw new Error(`songs.json: ${res.status}`);
   return res.json();
@@ -91,9 +100,11 @@ async function refreshNicoSlice(sliceIndex, env) {
   const views = (viewsFile.data && viewsFile.data.views) || {};
   const stats = (statsFile.data && statsFile.data.stats) || {};
 
-  // Refresh only songs that already have a NicoNico count (the maintained set).
-  const ids = Object.keys(views).filter((_, i) => i % N_SLICES === sliceIndex);
-  let updated = 0;
+  // Refresh every song with a NicoNico id (so newly published songs get their
+  // first count on the next nightly run).
+  const allIds = songs.filter(s => s.nndOriginalId).map(s => String(s.vocadbId));
+  const ids = allIds.filter((_, i) => i % N_SLICES === sliceIndex);
+  let updated = 0, failed = 0, lastError = "";
   for (const id of ids) {
     const song = byId.get(id);
     const vid = song && song.nndOriginalId;
@@ -102,12 +113,19 @@ async function refreshNicoSlice(sliceIndex, env) {
     try {
       const s = await fetchNndStats(vid);
       if (s) { views[id] = s.views; stats[id] = s; updated++; }
-    } catch { /* transient -> keep existing */ }
+      else failed++;
+    } catch (e) { failed++; lastError = e.message; }
   }
 
+  // Nothing changed -> don't commit an identical snapshot; surface the failure
+  // count instead so a broken night is visible in the worker logs.
+  if (updated === 0) {
+    console.log(`NND slice ${sliceIndex}: 0 updated, ${failed} failed of ${ids.length}${lastError ? ` — last error: ${lastError}` : ""}`);
+    return 0;
+  }
   const today = new Date().toISOString().slice(0, 10);
-  await ghPutJson("data/views.json", { updated: today, views }, viewsFile.sha, token, `chore(data): refresh NicoNico views slice ${sliceIndex} (${updated})`);
-  await ghPutJson("data/nndstats.json", { updated: today, stats }, statsFile.sha, token, `chore(data): refresh NicoNico stats slice ${sliceIndex} (${updated})`);
+  await ghPutJson("data/views.json", { updated: today, views }, viewsFile.sha, token, `chore(data): refresh NicoNico views slice ${sliceIndex} (${updated} ok, ${failed} failed)`);
+  await ghPutJson("data/nndstats.json", { updated: today, stats }, statsFile.sha, token, `chore(data): refresh NicoNico stats slice ${sliceIndex} (${updated} ok, ${failed} failed)`);
   return updated;
 }
 
@@ -154,17 +172,128 @@ async function refreshYouTube(env) {
     }
   }
 
+  if (updated === 0) {
+    console.log(`YouTube refresh: 0 updated of ${ytIds.length} ids — check YT_API_KEY / quota`);
+    return 0;
+  }
   await ghPutJson("data/ytviews.json", { updated: new Date().toISOString().slice(0, 10), stats }, ytFile.sha, token, `chore(data): refresh YouTube stats (${updated})`);
   return updated;
+}
+
+/* ───────────────────────── bilibili ───────────────────────── */
+
+const BILI_DELAY_MS = 150;
+const BILI_DISCOVER_MAX = 15; // new-PV lookups per night (2 subrequests each)
+const BILI_HEADERS = { "User-Agent": "Mozilla/5.0", Referer: "https://www.bilibili.com" };
+
+async function fetchBiliStat(id) {
+  const q = /^BV/i.test(id) ? `bvid=${id}` : `aid=${id}`;
+  const res = await fetch(`https://api.bilibili.com/x/web-interface/view?${q}`, { headers: BILI_HEADERS });
+  if (!res.ok) return null;
+  const j = await res.json();
+  if (j.code !== 0 || !j.data || !j.data.stat) return null;
+  const out = { views: j.data.stat.view, likes: j.data.stat.like, comments: j.data.stat.reply, id };
+  if (j.data.pic) out.pic = String(j.data.pic).replace(/^http:/, "https:");
+  return out;
+}
+
+async function refreshBiliSlice(sliceIndex, env) {
+  const token = env.GITHUB_TOKEN;
+  const file = await ghGetJson("data/biliviews.json", token);
+  const stats = (file.data && file.data.stats) || {};
+  const checked = (file.data && file.data.checked) || {};
+
+  // Refresh the stored set, sliced like NicoNico.
+  const ids = Object.keys(stats).filter((_, i) => i % N_SLICES === sliceIndex);
+  let updated = 0;
+  for (const id of ids) {
+    const st = stats[id];
+    if (!st || !st.id) continue;
+    await sleep(BILI_DELAY_MS);
+    try {
+      const r = await fetchBiliStat(st.id);
+      if (r) { stats[id] = r; updated++; }
+    } catch { /* transient -> keep existing */ }
+  }
+
+  // Slice 0 also checks a few never-checked songs for a bilibili PV (bounded).
+  let discovered = 0;
+  if (sliceIndex === 0) {
+    const songs = await fetchSongs();
+    const unchecked = songs.filter(s => !stats[String(s.vocadbId)] && checked[String(s.vocadbId)] === undefined).slice(0, BILI_DISCOVER_MAX);
+    for (const song of unchecked) {
+      const key = String(song.vocadbId);
+      await sleep(BILI_DELAY_MS);
+      try {
+        const res = await fetch(`https://vocadb.net/api/songs/${key}?fields=PVs`, { headers: { "User-Agent": UA } });
+        if (!res.ok) { continue; }
+        const data = await res.json();
+        const pvs = (data.pvs || []).filter(p => p.service === "Bilibili" && !p.disabled);
+        const pv = pvs.find(p => p.pvType === "Original") || pvs.find(p => p.pvType === "Reprint");
+        if (!pv) { checked[key] = 0; continue; }
+        const sId = String(pv.pvId || pv.url || "");
+        const bv = sId.match(/BV[0-9A-Za-z]+/);
+        const id = bv ? bv[0] : sId.replace(/D/g, "");
+        if (!id) { checked[key] = 0; continue; }
+        await sleep(BILI_DELAY_MS);
+        const r = await fetchBiliStat(id);
+        if (r) { stats[key] = r; checked[key] = 1; discovered++; }
+        else checked[key] = 0;
+      } catch { /* leave unchecked -> retried next night */ }
+    }
+  }
+
+  if (updated + discovered === 0) {
+    console.log(`bilibili slice ${sliceIndex}: 0 updated of ${ids.length} — bilibili may be blocking Cloudflare IPs`);
+    return 0;
+  }
+  await ghPutJson("data/biliviews.json", { updated: new Date().toISOString().slice(0, 10), stats, checked }, file.sha, token, `chore(data): refresh bilibili stats slice ${sliceIndex} (${updated}+${discovered})`);
+  return updated + discovered;
+}
+
+/* ───────────────────── Publish approved submissions ───────────────────── */
+
+// Appends approved-but-unpublished queue entries to data/songs.json and marks
+// them published in KV. Needs the CHARTS_DB binding; silently skipped without it.
+async function publishApproved(env) {
+  if (!env.CHARTS_DB) return 0;
+  const token = env.GITHUB_TOKEN;
+  const { keys } = await env.CHARTS_DB.list({ prefix: "sub:" });
+  const entries = (await Promise.all(
+    keys.map(k => env.CHARTS_DB.get(k.name).then(v => (v ? JSON.parse(v) : null)))
+  )).filter(e => e && e.status === "approved" && !e.published && e.song);
+  if (!entries.length) return 0;
+
+  const songsFile = await ghGetJson("data/songs.json", token);
+  const songs = songsFile.data || [];
+  const have = new Set(songs.map(s => String(s.vocadbId)));
+  let added = 0;
+  for (const e of entries) {
+    if (!have.has(String(e.song.vocadbId))) {
+      songs.push(e.song);
+      have.add(String(e.song.vocadbId));
+      added++;
+    }
+    e.published = true;
+    await env.CHARTS_DB.put(`sub:${e.id}`, JSON.stringify(e));
+  }
+  if (added) {
+    await ghPutJson("data/songs.json", songs, songsFile.sha, token, `feat(data): publish ${added} approved submission(s)`);
+  }
+  return added;
 }
 
 /* ───────────────────────── Entry points ───────────────────────── */
 
 async function runSlice(sliceIndex, env) {
+  SONGS_TOKEN = env.GITHUB_TOKEN;
+  let published = 0;
+  if (sliceIndex === 0) published = await publishApproved(env);
   const nico = await refreshNicoSlice(sliceIndex, env);
+  const bili = await refreshBiliSlice(sliceIndex, env);
   let yt = 0;
   if (sliceIndex === 0) yt = await refreshYouTube(env); // YouTube is cheap -> full refresh nightly
-  return { sliceIndex, nico, yt };
+  return { sliceIndex, nico, bili, yt, published };
 }
 
 export default {

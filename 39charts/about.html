@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>39charts — About</title>
+<meta property="og:site_name" content="39charts">
+<meta property="og:title" content="About 39charts">
+<meta property="og:description" content="What 39charts is, how songs are ranked, and where the data comes from.">
+<meta property="og:type" content="website">
+<meta name="description" content="What 39charts is, how songs are ranked, and where the data comes from.">
+<script>try{if(localStorage.getItem("39c_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
 <style>
 :root {
   --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
@@ -20,7 +26,7 @@ html, body {
     linear-gradient(rgba(255,255,240,0.22) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,240,0.18) 1px, transparent 1px);
   background-size: 28px 28px, 28px 28px;
-  line-height: 1.6;
+  line-height: 1.4;
 }
 body { min-height: 100vh; display: flex; flex-direction: column; }
 a { color: var(--link); text-decoration: none; }
@@ -33,6 +39,7 @@ a:hover { text-decoration: underline; color: var(--red); }
   justify-content: space-between; padding: 0 10px;
   font-size: 11px; color: #777;
 }
+.nnd-topbar-right { color: #666; font-size: 11px; }
 
 /* ── MAIN HEADER ── */
 .nnd-mainbar {
@@ -60,25 +67,160 @@ a:hover { text-decoration: underline; color: var(--red); }
 .nnd-header-links a:active { background: #ece9e2; border-color: #9a968e #fff #fff #9a968e; }
 .nnd-divider { color: var(--line); }
 
-/* ── BODY ── */
-.nnd-body { flex: 1 0 auto; width: 100%; max-width: 760px; margin: 0 auto; padding: 8px; }
-.nnd-main { display: flex; flex-direction: column; gap: 6px; }
+/* Ko-fi support button (same as the games) */
+.nnd-header-links a.nnd-kofi {
+  background: var(--red); color: #fff; padding: 3px 9px;
+  border: 1px solid var(--red-dark); font-weight: 700;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
+}
+.nnd-header-links a.nnd-kofi:hover { background: #b30000; color: #fff; text-decoration: none; border-color: var(--red-dark); }
 
-/* ── INFO PANELS ── */
+/* ── [INFO] MARQUEE ── */
+.nnd-marquee-bar {
+  width: 100%;
+  background:
+    repeating-linear-gradient(0deg, rgba(204,153,0,0.08) 0, rgba(204,153,0,0.08) 1px, transparent 1px, transparent 4px),
+    #fffde8;
+  border-bottom: 1px solid #d0c878;
+  height: 20px; display: flex; align-items: center; overflow: hidden; font-size: 11px;
+}
+.nnd-marquee-label {
+  flex-shrink: 0; padding: 0 7px; background: #cc9900; color: #fff;
+  font-weight: 700; font-size: 10px; height: 100%;
+  display: flex; align-items: center; border-right: 1px solid #aa7700;
+}
+.nnd-marquee-wrap { flex: 1; overflow: hidden; height: 100%; display: flex; align-items: center; }
+.nnd-marquee-inner {
+  white-space: nowrap; color: #555500;
+  animation: marquee-scroll 32s linear infinite; padding-left: 100%;
+}
+@keyframes marquee-scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) { .nnd-marquee-inner { animation: none; padding-left: 0; } }
+
+/* ── TAG ROW ── */
+.nnd-tag-row {
+  width: 100%; background: var(--sf); border-bottom: 1px solid var(--line);
+  padding: 2px 8px; display: flex; align-items: center; gap: 3px; flex-wrap: wrap; font-size: 11px;
+}
+.nnd-tag-label { color: var(--faint); font-size: 11px; flex-shrink: 0; margin-right: 2px; }
+.nnd-tag {
+  display: inline-block; padding: 0 6px;
+  background: #f2f0ff; border: 1px solid #aeb5df; color: #3f268e;
+  font-size: 10px; line-height: 15px;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+}
+
+/* ── SIDE RAILS ── */
+.page-rail {
+  position: absolute; top: 150px; height: 400px; z-index: 0; width: 22px;
+  pointer-events: none; color: rgba(90,90,90,0.30);
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; line-height: 1;
+}
+.page-rail::before { content: ""; position: absolute; top: 0; bottom: 0; width: 1px; background: rgba(0,0,0,0.10); }
+.page-rail span { position: absolute; top: 34px; white-space: nowrap; }
+.page-rail-left { right: calc(50% + 590px); }
+.page-rail-left::before { right: 0; }
+.page-rail-left span { right: 8px; transform: rotate(-90deg); transform-origin: right top; }
+.page-rail-right { left: calc(50% + 590px); }
+.page-rail-right::before { left: 0; }
+.page-rail-right span { left: 8px; transform: rotate(90deg); transform-origin: left top; }
+@media (max-width: 1260px) { .page-rail { display: none; } }
+
+/* ── BODY LAYOUT ── */
+.nnd-body {
+  flex: 1 0 auto; width: 100%; max-width: 1160px; margin: 0 auto; padding: 8px 10px;
+  display: flex; gap: 6px; align-items: flex-start; position: relative;
+}
+.nnd-sidebar { width: 200px; min-width: 200px; display: flex; flex-direction: column; gap: 5px; }
+.nnd-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+
+/* ── SIDEBAR PANELS ── */
+.sidebar-panel {
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.sidebar-header {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 8px; font-size: 11px; font-weight: 700; color: var(--text);
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+}
+.links-list { display: flex; flex-direction: column; }
+.links-list a { display: block; padding: 4px 8px; font-size: 10px; color: var(--link); border-bottom: 1px solid var(--line); }
+.links-list a:last-child { border-bottom: none; }
+.links-list a::before { content: "\25B8"; color: var(--red); margin-right: 5px; }
+.links-list a:hover { color: var(--red); background: #fff0f0; text-decoration: none; }
+
+.stats-table { width: 100%; border-collapse: collapse; }
+.stats-table tr { border-bottom: 1px solid var(--line); }
+.stats-table tr:last-child { border-bottom: none; }
+.stats-table tr:nth-child(even) { background: #f6f5f0; }
+.stats-table tr:hover { background: #fff0f0; }
+.stats-table td { padding: 2px 7px; font-size: 10px; height: 20px; color: var(--muted); }
+.stats-table td:last-child {
+  font-weight: 900; text-align: right; color: var(--red); font-size: 11px; white-space: nowrap;
+  font-family: Consolas, "MS PGothic", monospace;
+}
+
+/* ── MODE BAR ── */
+.game-mode-bar {
+  display: flex; align-items: stretch; gap: 4px;
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #fbfaf6, #e6e3dc);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.85), inset -1px -1px 0 rgba(0,0,0,0.10);
+  padding: 3px 5px 0;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+}
+.game-mode-tabs { display: flex; align-items: flex-end; gap: 3px; }
+.game-mode-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px 6px; border: 2px solid; border-bottom: 0;
+  border-color: #fff var(--ls) var(--ls) #fff; margin-bottom: -2px;
+  background: linear-gradient(to bottom, #f3f1ea, #dcd8cf); color: var(--muted);
+  font-family: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase;
+  cursor: pointer; white-space: nowrap; text-decoration: none;
+}
+.game-mode-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff6f6, #f1dcdc); text-decoration: none; }
+.game-mode-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  color: #fff; padding-bottom: 8px; z-index: 2;
+  border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
+}
+.game-mode-hint {
+  margin-left: auto; align-self: center; display: flex; align-items: center; gap: 6px;
+  padding: 4px 10px; color: var(--muted); font-family: inherit;
+  font-size: 10px; letter-spacing: 0.04em;
+}
+.game-mode-hint::before { content: "\25B6"; color: var(--red); font-size: 8px; }
+
+/* ── INFO PANELS (bracket style) ── */
 .info-panel {
-  background: var(--surface); border: 1px solid var(--line);
-  border-top: 3px solid var(--red);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.75), 0 1px 2px rgba(0,0,0,0.08);
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
   overflow: hidden;
 }
 .info-panel-header {
-  background: linear-gradient(to bottom,#f0f0f0,#e0e0e0);
-  border-bottom: 1px solid var(--line);
-  padding: 4px 10px; font-size: 12px; font-weight: 700; color: var(--text);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
-  display: flex; align-items: center; gap: 6px;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 10px; min-height: 29px; display: flex; align-items: center;
+  font-size: 11px; font-weight: 700; color: var(--text);
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
 }
-.panel-icon { font-size: 14px; }
 .info-panel-body { padding: 12px 14px; font-size: 12px; line-height: 1.7; color: var(--text); }
 .info-panel-body p + p { margin-top: 8px; }
 .info-panel-body strong { color: var(--text); }
@@ -90,14 +232,13 @@ a:hover { text-decoration: underline; color: var(--red); }
   padding: 4px 10px; border: 1px solid var(--line);
   font-size: 11px; text-align: left;
 }
-.tier-table th {
-  background: var(--sf); font-weight: 700; color: var(--muted);
-}
-.tier-table tr:nth-child(even) td { background: var(--sf); }
+.tier-table th { background: #f4f1e8; font-weight: 700; color: var(--muted); }
+.tier-table tr:nth-child(even) td { background: #f6f5f0; }
 .tier-badge {
   display: inline-block; padding: 0 5px;
-  background: var(--red); color: #fff;
-  font-size: 10px; font-weight: 700; line-height: 16px;
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  border: 1px solid var(--red-dark);
+  color: #fff; font-size: 10px; font-weight: 700; line-height: 16px;
 }
 
 /* ── ROADMAP LIST ── */
@@ -108,26 +249,173 @@ a:hover { text-decoration: underline; color: var(--red); }
 }
 .roadmap-list li:last-child { border-bottom: none; }
 .roadmap-list li::before {
-  content: "▷"; position: absolute; left: 0;
-  color: var(--faint); font-size: 9px; top: 6px;
+  content: "▶"; position: absolute; left: 0;
+  color: var(--red); font-size: 8px; top: 7px;
 }
 .roadmap-list li strong { color: var(--text); }
 
+/* ── ADD-SONG ACCENT TAB ── */
+/* + Add Song renders as a normal tab */
+
+/* ── SETTINGS MODAL ── */
+.settings-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; }
+.settings-modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 101; width: min(100vw - 32px, 340px);
+  background: var(--surface);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  padding: 14px;
+}
+.settings-title {
+  margin: -14px -14px 12px; padding: 5px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  font-size: 12px; font-weight: 700; color: var(--text);
+  letter-spacing: 0.06em; text-transform: uppercase;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+}
+.settings-close {
+  width: 20px; height: 20px; padding: 0; line-height: 1;
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
+  border: 1px solid var(--ls); color: var(--muted);
+  font-size: 10px; font-weight: 700;
+}
+.settings-close:hover { background: linear-gradient(to bottom, #fff5f5, #ffcccc); color: var(--red); }
+.settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
+.settings-row .s-label { font-size: 12px; font-weight: 700; color: var(--text); }
+.settings-row .s-desc { font-size: 10px; color: var(--faint); }
+.settings-toggle {
+  flex-shrink: 0; height: 24px; min-width: 46px; padding: 0 10px;
+  font-size: 11px; font-weight: 700; color: var(--faint);
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.settings-toggle.is-on {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; border-color: var(--red-dark);
+  text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+
+/* ── DARK MODE ── */
+html.dark-mode {
+  --bg: #121212; --surface: #1a1a1a; --sf: #161616;
+  --text: #e1e1e1; --muted: #a6a39c; --faint: #7c7c7c;
+  --line: #2c2c2c; --ls: #3b3b3b;
+  --red: #dd2222; --link: #5aa0e0;
+}
+html.dark-mode body {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+}
+html.dark-mode .nnd-mainbar { background: #161616; }
+html.dark-mode .nnd-logo-text { color: #e1e1e1; }
+html.dark-mode .nnd-header-links a:hover { background: #241f1a; border-color: #3b3b3b; }
+html.dark-mode .nnd-marquee-bar { background: #211d09; border-color: #5a4a16; }
+html.dark-mode .nnd-marquee-inner { color: #d6c266; }
+html.dark-mode .nnd-marquee-label { background: #6e5a10; border-right-color: #4a3c0a; }
+html.dark-mode .nnd-tag-row { background: #161616; border-color: #2c2c2c; }
+html.dark-mode .nnd-tag { background: #1d1a2e; border-color: #3a3560; color: #9a90d8; box-shadow: none; }
+html.dark-mode .sidebar-header,
+html.dark-mode .rank-section-header,
+html.dark-mode .settings-title {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+  border-color: #3b3b3b; box-shadow: none; color: #cccccc;
+}
+html.dark-mode .sidebar-panel,
+html.dark-mode .rank-section {
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35);
+}
+html.dark-mode .game-mode-bar {
+  background: linear-gradient(to bottom, #232323, #181818);
+  border-color: #3b3b3b; border-top-color: var(--red); box-shadow: none;
+}
+html.dark-mode .game-mode-btn {
+  background: linear-gradient(to bottom, #2a2a2a, #1d1d1d);
+  color: #888888; border-color: #4a4a4a #111 #111 #4a4a4a;
+}
+html.dark-mode .game-mode-btn:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .game-mode-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), #8f0000);
+  color: #fff; border-color: var(--red) #8f0000 #8f0000 var(--red);
+}
+html.dark-mode .sort-btn,
+html.dark-mode .settings-toggle,
+html.dark-mode .settings-close {
+  background: linear-gradient(to bottom, #2e2e2e, #1e1e1e);
+  border-color: #3b3b3b; color: var(--muted); box-shadow: none;
+}
+html.dark-mode .sort-btn:hover, html.dark-mode .settings-close:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .sort-btn.is-active, html.dark-mode .settings-toggle.is-on {
+  background: linear-gradient(to bottom, #b01111, #7a0808);
+  color: #fff; border-color: #5a0505;
+}
+html.dark-mode .sidebar-body input[type="text"] { background: #111111; color: var(--text); border-color: #3b3b3b; }
+html.dark-mode .stats-table tr:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .stats-table tr:hover, html.dark-mode .links-list a:hover { background: #2a1414; }
+html.dark-mode .producer-card { background: var(--surface); border-color: #2c2c2c; }
+html.dark-mode .producer-foot { background: #161616; border-top-color: #2c2c2c; }
+html.dark-mode .vtag { background: #1d1d1d; }
+html.dark-mode .site-footer {
+  background: linear-gradient(to bottom, #1c1c1c, #141414);
+  border-top-color: var(--red); box-shadow: none;
+}
+html.dark-mode .info-panel-header {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+  border-color: #3b3b3b; box-shadow: none; color: #cccccc;
+}
+html.dark-mode .info-panel {
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35);
+}
+html.dark-mode .tier-table th { background: #222222; }
+html.dark-mode .tier-table tr:nth-child(even) td { background: #1e1e1e; }
+html.dark-mode .tier-badge { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #5a0505; }
+
+/* ── UPDATES MODAL ── */
+.updates-list { list-style: none; margin-top: 2px; max-height: 320px; overflow-y: auto; }
+.updates-list li { padding: 7px 0; border-bottom: 1px dotted var(--line); font-size: 11px; color: var(--muted); line-height: 1.55; }
+.updates-list li:last-child { border-bottom: none; }
+.updates-ver {
+  display: inline-block; padding: 0 5px; margin-right: 6px;
+  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  color: #fff; font-weight: 900; font-size: 9px; line-height: 15px;
+  font-family: "MS Gothic", "Courier New", monospace;
+}
+.upd-head { display: flex; align-items: center; gap: 6px; margin-bottom: 2px; }
+.upd-head strong { flex: 1; }
+.updates-date { color: var(--faint); font-size: 9px; white-space: nowrap; }
+.updates-list strong { color: var(--text); }
+
 /* ── FOOTER ── */
 .site-footer {
-  flex-shrink: 0; width: 100%; background: #e0e0e0;
-  border-top: 1px solid var(--ls); padding: 5px 10px;
-  font-size: 11px; color: var(--faint); text-align: center;
+  flex-shrink: 0; width: 100%; position: relative;
+  background: linear-gradient(to bottom, #ececea, #dcdad4);
+  border-top: 2px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 7px 10px 8px; text-align: center;
 }
-.site-footer a { color: var(--link); font-size: 11px; }
-.site-footer a:hover { text-decoration: underline; }
+.footer-copy { margin: 0; color: var(--faint); font-size: 10px; }
+.footer-pagetop { position: absolute; top: 8px; right: 10px; font-size: 10px; color: var(--link); white-space: nowrap; }
+.footer-pagetop:hover { text-decoration: underline; color: var(--red); }
+
+@media (max-width: 860px) {
+  .nnd-body { flex-direction: column; }
+  .nnd-sidebar { width: 100%; min-width: 0; flex-direction: row; flex-wrap: wrap; align-items: flex-start; }
+  .nnd-sidebar .sidebar-panel { flex: 1 1 240px; }
+}
+@media (max-width: 460px) { .nnd-header-links { display: none; } }
 </style>
 </head>
 <body>
 
 <div class="nnd-topbar">
-  <span>39charts &rsaquo; About</span>
-  <span style="color:#666;font-size:11px">About this site</span>
+  <span>Charts &gt; Music &gt; VOCALOID &gt; 39charts &gt; About</span>
+  <span class="nnd-topbar-right">About this site</span>
 </div>
 
 <div class="nnd-mainbar">
@@ -136,21 +424,100 @@ a:hover { text-decoration: underline; color: var(--red); }
     <span class="nnd-logo-text">39charts<span class="nnd-logo-sub">Vocaloid Song Rankings</span></span>
   </a>
   <nav class="nnd-header-links">
-    <a href="index.html">Rankings</a>
+    <a href="#" id="updates-open">Updates</a>
     <span class="nnd-divider">|</span>
-    <a href="producers.html">Producers</a>
-    <span class="nnd-divider">|</span>
-    <a href="about.html">About</a>
-    <span class="nnd-divider">|</span>
-    <a href="add.html">+ Add Song</a>
+    <a href="#" id="settings-open">Settings</a>
+    <span class="nnd-divider" style="color:var(--line)">|</span>
+    <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
   </nav>
 </div>
 
+<style>
+.nnd-mobile-nav { display: none; width: 100%; background: #fff; border-bottom: 1px solid var(--line); padding: 5px 10px; align-items: center; gap: 8px; font-size: 12px; }
+.nnd-mobile-nav a { color: var(--link); }
+.nnd-mobile-nav a:hover { color: var(--red); text-decoration: none; }
+.nnd-mobile-nav .nnd-divider { color: var(--line); }
+.nnd-mobile-nav a.nnd-kofi { margin-left: auto; background: var(--red); color: #fff; padding: 3px 9px; border: 1px solid var(--red-dark); font-weight: 700; box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25); }
+.nnd-mobile-nav a.nnd-kofi:hover { background: #b30000; color: #fff; }
+html.dark-mode .nnd-mobile-nav { background: #161616; border-bottom-color: #2c2c2c; }
+@media (max-width: 560px) { .nnd-header-links { display: none; } .nnd-mobile-nav { display: flex; } }
+</style>
+<nav class="nnd-mobile-nav" aria-label="Mobile navigation">
+  <a href="#" data-proxy="updates-open">Updates</a>
+  <span class="nnd-divider">|</span>
+  <a href="#" data-proxy="settings-open">Settings</a>
+  <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
+</nav>
+<script>
+document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var t=document.getElementById(a.dataset.proxy);if(t)t.click();});});
+</script>
+<div class="nnd-marquee-bar">
+  <span class="nnd-marquee-label">[INFO]</span>
+  <div class="nnd-marquee-wrap">
+    <div class="nnd-marquee-inner">
+      ★ 39charts is a fan-made Vocaloid rankings site &nbsp;·&nbsp;
+      ★ Thank you for using 39charts ♪ &nbsp;·&nbsp;
+      ★ Song data from VocaDB, view counts from NicoNico, YouTube and bilibili &nbsp;·&nbsp;
+      ★ A companion project to Vocaloid Heardle and Vocaloid Higher or Lower
+    </div>
+  </div>
+</div>
+
+<div class="nnd-tag-row">
+  <span class="nnd-tag-label">Tags:</span>
+  <span class="nnd-tag">VOCALOID</span>
+  <span class="nnd-tag">ランキング</span>
+  <span class="nnd-tag">殿堂入り</span>
+  <span class="nnd-tag">初音ミク</span>
+  <span class="nnd-tag">About</span>
+  <span class="nnd-tag">Fan-made</span>
+</div>
+
 <div class="nnd-body">
+  <div class="page-rail page-rail-left"><span>Vocaloid 39charts</span></div>
+  <div class="page-rail page-rail-right"><span>About / このサイトについて</span></div>
+
+  <aside class="nnd-sidebar">
+
+    <div class="sidebar-panel">
+      <div class="sidebar-header">[ Contents ]</div>
+      <div class="links-list">
+        <a href="#what">What is 39charts?</a>
+        <a href="#ranked">How are songs ranked?</a>
+        <a href="#data">Data source</a>
+        <a href="#roadmap">What's coming</a>
+      </div>
+    </div>
+
+    <div class="sidebar-panel">
+      <div class="sidebar-header">[ Quick Facts ]</div>
+      <table class="stats-table">
+        <tr><td>Songs</td><td id="qf-songs">&mdash;</td></tr>
+        <tr><td>Producers</td><td id="qf-producers">&mdash;</td></tr>
+        <tr><td>Platforms</td><td>NND + YT + BILI</td></tr>
+        <tr><td>Since</td><td>June 2026</td></tr>
+      </table>
+    </div>
+
+  </aside>
+
   <main class="nnd-main">
 
-    <div class="info-panel">
-      <div class="info-panel-header"><span class="panel-icon">★</span> What is 39charts?</div>
+    <div class="game-mode-bar">
+      <div class="game-mode-tabs">
+        <a class="game-mode-btn" href="index.html">Songs</a>
+        <a class="game-mode-btn" href="trending.html">Trending</a>
+        <a class="game-mode-btn" href="years.html">Years</a>
+        <a class="game-mode-btn" href="producers.html">Producers</a>
+        <a class="game-mode-btn" href="vocalists.html">Vocalists</a>
+        <a class="game-mode-btn" href="compare.html">Compare</a>
+        <a class="game-mode-btn is-active" href="about.html">About</a>
+        <a class="game-mode-btn gm-add" href="add.html">+ Add Song</a>
+      </div>
+    </div>
+
+    <div class="info-panel" id="what">
+      <div class="info-panel-header">[ What is 39charts? ]</div>
       <div class="info-panel-body">
         <p>
           <strong>39charts</strong> is a fan-made Vocaloid song rankings site inspired by the classic
@@ -159,35 +526,38 @@ a:hover { text-decoration: underline; color: var(--red); }
           view milestones on NicoNicodouga and YouTube.
         </p>
         <p>
-          The name "39" comes from the Japanese wordplay <em>三九 (san-kyu)</em> — "thank you" —
+          The name "39" comes from the Japanese wordplay <em>三九 (san-kyu)</em>, meaning "thank you",
           a long-standing tradition in the Vocaloid community as a way of expressing gratitude to
           Hatsune Miku and the creators who built this world.
         </p>
         <p>
-          This site is a companion to <a href="../">Vocaloid Heardle</a>, a daily Vocaloid song
-          guessing game. Both projects are fan-made and not affiliated with Crypton Future Media,
-          Dwango / NicoNico, or any other rights holders.
+          This site is a companion to the fan-made games on this domain:
+          <a href="../heardle/">Vocaloid Heardle</a>, a daily Vocaloid song guessing game, and
+          <a href="../higher-or-lower/">Vocaloid Higher or Lower</a>, a view-count comparison game
+          that draws on the same view data you see here. All of these projects are fan-made and not
+          affiliated with Crypton Future Media, Dwango / NicoNico, or any other rights holders.
         </p>
       </div>
     </div>
 
-    <div class="info-panel">
-      <div class="info-panel-header"><span class="panel-icon">▸</span> How are songs ranked?</div>
+    <div class="info-panel" id="ranked">
+      <div class="info-panel-header">[ How are songs ranked? ]</div>
       <div class="info-panel-body">
         <p>
           Songs are ranked by their <strong>real view counts</strong>. Use the
-          <strong>NND / YT / Both</strong> toggle on the rankings to rank by NicoNicodouga views,
-          YouTube views, or the two combined (the default). Songs without a live count fall back to
+          platform switch on the rankings to rank by NicoNicodouga views, YouTube views, bilibili
+          views, or all platforms combined (the default). Songs without a live count fall back to
           their view tier, newest first within a tier.
         </p>
         <p>
-          Each song page shows the full per-platform breakdown — NicoNico <strong>views, comments,
-          and mylists</strong> and YouTube <strong>views, likes, and comments</strong> — plus a
-          combined total and an embedded player where the video allows it.
+          Each song page shows the full per-platform breakdown: NicoNico <strong>views, comments,
+          and mylists</strong>, YouTube <strong>views, likes, and comments</strong>, and bilibili
+          <strong>views, likes, and comments</strong>, plus a combined total and an embedded player
+          where the video allows it.
         </p>
         <p>
-          Songs also carry a <strong>"Hall" tier</strong> based on NicoNico views — Hall of Fame
-          (100K+), Hall of Legends (1M+), Hall of Myths (10M+), Hall of Gods (100M+) — shown
+          Songs also carry a <strong>"Hall" tier</strong> based on NicoNico views: Hall of Fame
+          (100K+), Hall of Legends (1M+), Hall of Myths (10M+), and Hall of Gods (100M+), shown
           alongside the classic milestone badge below.
         </p>
         <table class="tier-table">
@@ -218,26 +588,26 @@ a:hover { text-decoration: underline; color: var(--red); }
             <tr>
               <td><span class="tier-badge">10K+</span></td>
               <td>10,000 views</td>
-              <td>Emerging song</td>
+              <td>Hidden gem</td>
             </tr>
           </tbody>
         </table>
         <p style="margin-top:8px;color:var(--muted)">
-          Live <strong>NicoNicodouga and YouTube</strong> counts are integrated. Bilibili is a
-          possible future addition.
+          Live <strong>NicoNicodouga, YouTube, and bilibili</strong> counts are integrated.
         </p>
       </div>
     </div>
 
-    <div class="info-panel">
-      <div class="info-panel-header"><span class="panel-icon">▸</span> Data source</div>
+    <div class="info-panel" id="data">
+      <div class="info-panel-header">[ Data source ]</div>
       <div class="info-panel-body">
         <p>
-          Song metadata — titles, producers, vocalists, cover art, view tags, and accepted title
-          variants — comes from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>,
+          Song metadata (titles, producers, vocalists, cover art, view tags, song types, languages,
+          and accepted title variants) comes from
+          <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>,
           a community-maintained database of Vocaloid music.
           VocaDB data is used under its
-          <a href="https://vocadb.net/terms" target="_blank" rel="noopener">terms of use</a>.
+          <a href="https://wiki.vocadb.net/docs/footer/terms" target="_blank" rel="noopener">terms of use</a>.
         </p>
         <p>
           Cover art is sourced from YouTube and NicoNicodouga via the URLs stored in VocaDB, and
@@ -248,15 +618,13 @@ a:hover { text-decoration: underline; color: var(--red); }
       </div>
     </div>
 
-    <div class="info-panel">
-      <div class="info-panel-header"><span class="panel-icon">▸</span> What's coming</div>
+    <div class="info-panel" id="roadmap">
+      <div class="info-panel-header">[ What's coming ]</div>
       <div class="info-panel-body">
         <ul class="roadmap-list">
-          <li><strong>Bilibili view counts</strong> — a third platform alongside the live NicoNico + YouTube counts</li>
-          <li><strong>Weekly / monthly charts</strong> — time-based ranking slices once view history is collected over time</li>
-          <li><strong>View history graphs</strong> — daily view tracking on each song page</li>
-          <li><strong>Producer view-over-time</strong> — real history on producer pages (currently a placeholder)</li>
-          <li><strong>Dark mode</strong> — consistent with Heardle's dark mode</li>
+          <li><strong>View history graphs:</strong> daily view tracking on each song page. History can only be collected going forward from when the automated refreshes started, so graphs will fill in gradually.</li>
+          <li><strong>Weekly / monthly charts:</strong> time-based ranking slices once enough daily view history has accumulated.</li>
+          <li><strong>Producer view-over-time:</strong> real history on producer pages (currently a placeholder), built from the same collected data.</li>
         </ul>
       </div>
     </div>
@@ -265,12 +633,72 @@ a:hover { text-decoration: underline; color: var(--red); }
 </div>
 
 <footer class="site-footer">
-  <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
-    <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
-    &nbsp;·&nbsp;
-    <a href="../">Vocaloid Heardle</a>
-  </p>
+  <p class="footer-copy">39charts: fan-made Vocaloid rankings (c) 2026 | Not affiliated with Crypton Future Media, NicoNico or YouTube | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a></p>
+  <a class="footer-pagetop" href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Page Top ▲</a>
 </footer>
+
+<div class="settings-backdrop" id="settings-backdrop" hidden></div>
+<div class="settings-modal" id="settings-modal" hidden>
+  <div class="settings-title">[ Settings ] <button type="button" class="settings-close" id="settings-close">✕</button></div>
+  <div class="settings-row">
+    <div>
+      <div class="s-label">Dark Mode</div>
+      <div class="s-desc">Dark page and panel colors, like the games.</div>
+    </div>
+    <button type="button" class="settings-toggle" id="opt-dark">OFF</button>
+  </div>
+</div>
+
+<div class="settings-backdrop" id="updates-backdrop" hidden></div>
+<div class="settings-modal" id="updates-modal" hidden>
+  <div class="settings-title">[ Updates ] <button type="button" class="settings-close" id="updates-close">✕</button></div>
+  <ul class="updates-list">
+    <li><div class="upd-head"><span class="updates-ver">v1.4</span><strong>Trending &amp; view history</strong><span class="updates-date">2026-07-09</span></div>New Trending tab scored on daily view growth &amp; engagement, per-day view-history grid &amp; chart on song pages, Growth (7d) sorting, a charts-on-a-day calendar, synth-type vocalist filters, and PV-availability labels.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.3</span><strong>bilibili stats &amp; polish</strong><span class="updates-date">2026-07-05</span></div>bilibili views, likes &amp; comments on song pages, platform share bar under the player, condensed ranking panel, and site-wide consistency fixes.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.2</span><strong>Vocalists &amp; redesigns</strong><span class="updates-date">2026-07-04</span></div>New Vocalists rankings tab, voicebank-level search &amp; filtering, fully redesigned song and producer pages, dark-mode fixes, this updates log.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.1</span><strong>Live view counts</strong><span class="updates-date">2026-06-24</span></div>Real NicoNico + YouTube views integrated into rankings, per-platform song stats, producer avatars from VocaDB.</li>
+    <li><div class="upd-head"><span class="updates-ver">v1.0</span><strong>Launch</strong><span class="updates-date">2026-06</span></div>Song rankings, producer index, About page, community add-song review queue.</li>
+  </ul>
+</div>
+
+<script>
+(function () {
+  const open = document.getElementById("updates-open");
+  const modal = document.getElementById("updates-modal");
+  const backdrop = document.getElementById("updates-backdrop");
+  if (!open || !modal) return;
+  const close = () => { modal.hidden = true; backdrop.hidden = true; };
+  open.addEventListener("click", e => { e.preventDefault(); modal.hidden = false; backdrop.hidden = false; });
+  document.getElementById("updates-close").addEventListener("click", close);
+  backdrop.addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+})();
+</script>
+<script>
+/* ── Settings modal + dark mode ── */
+(function () {
+  const openBtn = document.getElementById("settings-open");
+  const modal = document.getElementById("settings-modal");
+  const backdrop = document.getElementById("settings-backdrop");
+  const toggle = document.getElementById("opt-dark");
+  if (!openBtn || !modal || !toggle) return;
+  function sync() {
+    const on = document.documentElement.classList.contains("dark-mode");
+    toggle.classList.toggle("is-on", on);
+    toggle.textContent = on ? "ON" : "OFF";
+  }
+  function close() { modal.hidden = true; backdrop.hidden = true; }
+  openBtn.addEventListener("click", e => { e.preventDefault(); modal.hidden = false; backdrop.hidden = false; sync(); });
+  document.getElementById("settings-close").addEventListener("click", close);
+  backdrop.addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+  toggle.addEventListener("click", () => {
+    const on = document.documentElement.classList.toggle("dark-mode");
+    try { localStorage.setItem("39c_dark", on ? "1" : "0"); } catch (e) {}
+    sync();
+  });
+})();
+</script>
 
 <script>
 function loadSongs() {
@@ -284,12 +712,48 @@ function loadSongs() {
 loadSongs()
   .then(data => {
     const producers = new Set(data.map(s=>s.artist).filter(a=>a&&!/^various/i.test(a)));
-    const el = document.getElementById("data-stats");
-    el.textContent = `Current dataset: ${data.length.toLocaleString()} songs from ${producers.size} producers.`;
+    document.getElementById("data-stats").textContent =
+      `Current dataset: ${data.length.toLocaleString()} songs from ${producers.size} producers.`;
+    document.getElementById("qf-songs").textContent = data.length.toLocaleString();
+    document.getElementById("qf-producers").textContent = producers.size.toLocaleString();
   })
   .catch(() => {
     document.getElementById("data-stats").textContent = "";
   });
 </script>
+
+<style>
+/* Mobile: sidebar panels collapse to their headers (collapsed by default) */
+@media (max-width: 860px) {
+  .nnd-sidebar .sidebar-header { cursor: pointer; position: relative; padding-right: 22px; }
+  .nnd-sidebar .sidebar-header::after { content: "\25BE"; position: absolute; right: 8px; top: 4px; color: var(--red); font-size: 10px; }
+  .nnd-sidebar .sidebar-panel.is-collapsed .sidebar-header::after { content: "\25B8"; }
+  .nnd-sidebar .sidebar-panel.is-collapsed > :not(.sidebar-header) { display: none; }
+}
+</style>
+<script>
+(function () {
+  var mq = window.matchMedia("(max-width: 860px)");
+  var panels = document.querySelectorAll(".nnd-sidebar .sidebar-panel");
+  if (mq.matches) panels.forEach(function (p) { p.classList.add("is-collapsed"); });
+  panels.forEach(function (p) {
+    var h = p.querySelector(".sidebar-header");
+    if (h) h.addEventListener("click", function () {
+      if (mq.matches) p.classList.toggle("is-collapsed");
+    });
+  });
+})();
+</script>
+
+<style>
+/* Mobile: mode tabs wrap instead of forcing the page wider */
+@media (max-width: 620px) {
+  .game-mode-bar { padding: 3px 5px; }
+  .game-mode-tabs { flex-wrap: wrap; align-items: stretch; gap: 3px; }
+  .game-mode-btn { margin-bottom: 0; border-bottom: 2px solid var(--ls); padding-bottom: 5px; }
+  .game-mode-btn.is-active { padding-bottom: 5px; border-bottom-color: var(--red-dark); }
+  .game-mode-hint { display: none; }
+}
+</style>
 </body>
 </html>
