@@ -27,15 +27,23 @@ jobs:
       - name: Refresh bilibili stats
         run: node scripts/fetch-bilibili-views.js --refresh
 
+      # Commit bilibili BEFORE rebuilding history: the history builder reads
+      # git commits, so tonight's bilibili numbers must be committed first or
+      # they'd always lag one day behind in the grid.
+      - name: Commit bilibili stats
+        run: |
+          git config user.name "sodapines"
+          git config user.email "kzen@sodapines.dev"
+          git add data/biliviews.json
+          git diff --cached --quiet && echo "No bilibili changes" || \
+            git commit -m "chore(data): nightly bilibili refresh"
+
       - name: Rebuild view history
         run: node scripts/build-view-history.js HEAD
 
       - name: Commit and push if changed
         run: |
-          git config user.name "sodapines"
-          git config user.email "kzen@sodapines.dev"
-          git add data/biliviews.json data/viewhistory.json
-          git diff --cached --quiet && echo "No changes" || {
-            git commit -m "chore(data): nightly bilibili refresh + view history"
-            git push
-          }
+          git add data/viewhistory.json
+          git diff --cached --quiet && echo "No history changes" || \
+            git commit -m "chore(data): rebuild view history"
+          git push
