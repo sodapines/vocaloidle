@@ -1017,32 +1017,23 @@ function historyGridHtml(hist, dates, idx, combined) {
     else groups.push({ name: c.group, span: 1 });
   }
   const fmt = v => v != null ? v.toLocaleString() : "—";
-  // Engagement columns use compact numbers so the whole grid fits without a
-  // horizontal scroll; full values stay in the tooltip.
-  const short = v => v == null ? "—"
-    : Math.abs(v) >= 1e6 ? (v / 1e6).toFixed(2).replace(/\.?0+$/, "") + "M"
-    : Math.abs(v) >= 1e4 ? (v / 1e3).toFixed(1).replace(/\.0$/, "") + "K"
-    : v.toLocaleString();
-  const delta = (series, i, prev, compact) => {
+  const delta = (series, i, prev) => {
     if (prev == null || series[i] == null || series[prev] == null) return "";
     const d = series[i] - series[prev];
     if (d === 0) return `<span class="vh-delta">±0</span>`;
-    const txt = compact ? short(Math.abs(d)) : Math.abs(d).toLocaleString();
-    return `<span class="vh-delta ${d > 0 ? "up" : "down"}">${d > 0 ? "+" : "−"}${txt}</span>`;
+    return `<span class="vh-delta ${d > 0 ? "up" : "down"}">${d > 0 ? "+" : "−"}${Math.abs(d).toLocaleString()}</span>`;
   };
   // newest first; each row's delta compares against the previous snapshot
   const rows = [...idx].reverse().map((i, r, arr) => {
     const prev = arr[r + 1] != null ? arr[r + 1] : null;
     const cells = cols.map(c => {
       const s = hist[c.k];
-      const compact = !c.views;
-      const title = !compact || s[i] == null ? "" : ` title="${s[i].toLocaleString()}"`;
-      return `<td class="${c.cls}${c.views ? " vh-views" : ""}"${title}>${compact ? short(s[i]) : fmt(s[i])}${delta(s, i, prev, compact)}</td>`;
+      return `<td class="${c.cls}${c.views ? " vh-views" : ""}">${fmt(s[i])}${delta(s, i, prev)}</td>`;
     }).join("");
     return `<tr>
       <td class="vh-date">${dates[i]}</td>
       ${cells}
-      <td class="vh-combined">${fmt(combined[i])}${delta(combined, i, prev, false)}</td>
+      <td class="vh-combined">${fmt(combined[i])}${delta(combined, i, prev)}</td>
     </tr>`;
   }).join("");
   return `<table class="vh-table">
