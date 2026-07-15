@@ -31,7 +31,9 @@ function git(...args) {
   return execFileSync("git", args, { cwd: path.join(__dirname, ".."), maxBuffer: 256 * 1024 * 1024 }).toString();
 }
 
-const log = git("log", "--format=%H %ad", "--date=short", "--reverse", REF, "--", ...FILES)
+// --full-history: without it, git prunes nightly data commits that a later
+// merge overrode, and whole snapshot days disappear from the output.
+const log = git("log", "--full-history", "--format=%H %ad", "--date=short", "--reverse", REF, "--", ...FILES)
   .trim().split("\n").filter(Boolean)
   .map(l => { const [sha, date] = l.split(" "); return { sha, date }; });
 
@@ -50,6 +52,7 @@ const num = v => (typeof v === "number" ? v : null);
 
 const dates = [];
 const perDay = [];
+const seenSnapshots = new Set();
 for (const [date, sha] of days) {
   const views = readJsonAt(sha, "data/views.json");
   const nndstats = readJsonAt(sha, "data/nndstats.json");
@@ -75,6 +78,15 @@ for (const [date, sha] of days) {
     };
     if (Object.values(e).some(v => v !== null)) day[id] = e;
   }
+  // Dedupe: the broken-pipeline era committed byte-identical stale snapshots
+  // nightly. A day that matches an already-kept day adds no information (and
+  // makes series dip back to old values), so skip it.
+  const hash = JSON.stringify(Object.keys(day).sort().map(id => [id, day[id]]));
+  if (seenSnapshots.has(hash)) {
+    console.log(`${date} (${sha.slice(0, 7)}): identical to an earlier snapshot — skipped`);
+    continue;
+  }
+  seenSnapshots.add(hash);
   dates.push(date);
   perDay.push(day);
   console.log(`${date} (${sha.slice(0, 7)}): ${Object.keys(day).length} songs`);
