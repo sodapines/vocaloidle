@@ -317,12 +317,12 @@ html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #
 </div>
 
 <div class="nnd-mainbar">
-  <a class="nnd-logo" href="index.html">
+  <a class="nnd-logo" href="./">
     <span class="nnd-logo-mark">39</span>
     <span class="nnd-logo-text">39charts<span class="nnd-logo-sub">Vocaloid Song Rankings</span></span>
   </a>
   <nav class="nnd-header-links">
-    <a href="index.html">&#9664; Rankings</a>
+    <a href="./">&#9664; Rankings</a>
     <span style="color:var(--line)">|</span>
     <a href="#" id="settings-open">Settings</a>
     <span style="color:var(--line)">|</span>
@@ -341,7 +341,7 @@ html.dark-mode .nnd-mobile-nav { background: #161616; border-bottom-color: #2c2c
 @media (max-width: 560px) { .nnd-header-links { display: none; } .nnd-mobile-nav { display: flex; } }
 </style>
 <nav class="nnd-mobile-nav" aria-label="Mobile navigation">
-  <a href="index.html">&#9664; Rankings</a>
+  <a href="./">&#9664; Rankings</a>
   <span class="nnd-divider">|</span>
   <a href="#" data-proxy="settings-open">Settings</a>
   <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
@@ -360,7 +360,7 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
 
   <div class="game-mode-bar">
     <div class="game-mode-tabs">
-      <a class="game-mode-btn" href="index.html">Songs</a>
+      <a class="game-mode-btn" href="./">Songs</a>
         <a class="game-mode-btn" href="trending.html">Trending</a>
       <a class="game-mode-btn is-active" href="years.html">Years</a>
       <a class="game-mode-btn" href="producers.html">Producers</a>
@@ -547,7 +547,7 @@ Promise.all([
       <div class="panel-header">
         <span>[ ${y} ]</span>
         <span class="panel-note">${list.length} song${list.length !== 1 ? "s" : ""} · ${formatViews(total)} combined views</span>
-        <a class="year-full-link" href="index.html?year=${y}">Full ${y} chart &rarr;</a>
+        <a class="year-full-link" href="./?year=${y}">Full ${y} chart &rarr;</a>
       </div>
       <div class="year-rows">${rows || `<div style="padding:10px;color:var(--faint);font-size:11px">No songs</div>`}</div>
     </div>`;

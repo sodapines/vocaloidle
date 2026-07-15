@@ -632,12 +632,12 @@ html.dark-mode .settings-toggle.is-on {
 </div>
 
 <div class="nnd-mainbar">
-  <a class="nnd-logo" href="index.html">
+  <a class="nnd-logo" href="./">
     <span class="nnd-logo-mark">39</span>
     <span class="nnd-logo-text">39charts<span class="nnd-logo-sub">Vocaloid Song Rankings</span></span>
   </a>
   <nav class="nnd-header-links">
-    <a href="index.html">&#9664; Rankings</a>
+    <a href="./">&#9664; Rankings</a>
     <span class="nnd-divider" style="color:var(--line)">|</span>
     <a href="#" id="settings-open">Settings</a>
     <span class="nnd-divider" style="color:var(--line)">|</span>
@@ -656,7 +656,7 @@ html.dark-mode .nnd-mobile-nav { background: #161616; border-bottom-color: #2c2c
 @media (max-width: 560px) { .nnd-header-links { display: none; } .nnd-mobile-nav { display: flex; } }
 </style>
 <nav class="nnd-mobile-nav" aria-label="Mobile navigation">
-  <a href="index.html">&#9664; Rankings</a>
+  <a href="./">&#9664; Rankings</a>
   <span class="nnd-divider">|</span>
   <a href="#" data-proxy="settings-open">Settings</a>
   <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
@@ -1442,7 +1442,7 @@ const songId = params.get("id");
 
 if (!songId) {
   document.getElementById("page-body").innerHTML =
-    `<div class="loading-state">No song ID specified. <a href="index.html">&#9664; Back to rankings</a></div>`;
+    `<div class="loading-state">No song ID specified. <a href="./">&#9664; Back to rankings</a></div>`;
 } else {
   Promise.all([
     loadSongs(),
@@ -1484,7 +1484,7 @@ if (!songId) {
       const song = rank>=0?sorted[rank]:data.find(s=>String(s.vocadbId)===String(songId));
       if (!song) {
         document.getElementById("page-body").innerHTML =
-          `<div class="loading-state">Song #${escHtml(songId)} not found. <a href="index.html">&#9664; Back to rankings</a></div>`;
+          `<div class="loading-state">Song #${escHtml(songId)} not found. <a href="./">&#9664; Back to rankings</a></div>`;
         return;
       }
       let yearRank = null;
