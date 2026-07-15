@@ -31,7 +31,7 @@ html, body {
   background-size: 28px 28px, 28px 28px;
   line-height: 1.4;
 }
-body { min-height: 100vh; display: flex; flex-direction: column; }
+body { min-height: 100vh; display: flex; flex-direction: column; overflow-x: hidden; }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; color: var(--red); }
 button { font: inherit; cursor: pointer; }
@@ -446,7 +446,7 @@ html.dark-mode .credit-more .credit-av { background: #222; }
 }
 html.dark-mode .vh-tab { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); color: var(--muted); }
 html.dark-mode .vh-tab.is-active { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; }
-.vh-grid-wrap { overflow-x: auto; }
+.vh-grid-wrap { overflow-x: auto; max-width: 100%; -webkit-overflow-scrolling: touch; }
 .vh-table { width: 100%; border-collapse: collapse; white-space: nowrap; }
 .vh-table th, .vh-table td {
   padding: 2px 5px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);

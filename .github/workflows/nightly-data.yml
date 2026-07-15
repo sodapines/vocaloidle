@@ -1,0 +1,41 @@
+name: Nightly bilibili refresh + view history
+
+on:
+  schedule:
+    # 01:30 UTC — after the Cloudflare worker's three slices (00:00/00:30/01:00)
+    - cron: "30 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # build-view-history.js walks the full data-file history
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # bilibili blocks Cloudflare IPs, so the worker can't refresh it; GitHub
+      # runners may fare better. If bilibili blocks these too, the step just
+      # updates 0 songs and the history rebuild still runs.
+      - name: Refresh bilibili stats
+        run: node scripts/fetch-bilibili-views.js --refresh
+
+      - name: Rebuild view history
+        run: node scripts/build-view-history.js HEAD
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "sodapines"
+          git config user.email "kzen@sodapines.dev"
+          git add data/biliviews.json data/viewhistory.json
+          git diff --cached --quiet && echo "No changes" || {
+            git commit -m "chore(data): nightly bilibili refresh + view history"
+            git push
+          }

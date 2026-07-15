@@ -793,6 +793,9 @@ tr.is-top10 .rt-rank { color: var(--red); }
 
 /* "as of" calendar */
 .asof-btn { border: 1px solid var(--ls); }
+/* .view-btn:last-child strips border-right; this button stands alone, so
+   restore its full border explicitly */
+.rank-controls .asof-btn { border-right: 1px solid var(--ls); }
 .asof-btn.is-active {
   background: linear-gradient(to bottom, #dd2222, #aa0000);
   color: #fff; text-shadow: 0 1px 0 rgba(90,0,0,0.5);
