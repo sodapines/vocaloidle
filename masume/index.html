@@ -145,6 +145,18 @@ button { font: inherit; cursor: pointer; }
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
 }
 .mode-tools { margin-left: auto; display: flex; align-items: center; gap: 4px; padding-bottom: 3px; }
+.mode-tools[hidden] { display: none; }
+.arch-list { display: flex; flex-wrap: wrap; gap: 5px; padding: 10px; }
+.arch-day {
+  min-width: 106px; padding: 6px 9px; text-align: left;
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  border: 1px solid var(--ls); font-size: 10px; color: var(--muted);
+}
+.arch-day:hover { border-color: var(--red); color: var(--red); }
+.arch-day b { display: block; font-size: 11px; color: var(--text); font-family: Consolas, monospace; }
+.arch-day .ad-score { color: var(--red); font-weight: 700; }
+html.dark-mode .arch-day { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; }
+html.dark-mode .arch-day b { color: var(--text); }
 .size-btn, .tool-btn {
   min-height: 22px; padding: 0 9px;
   font-size: 10px; font-weight: 700; color: var(--muted);
@@ -411,6 +423,7 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
     <div class="game-mode-tabs">
       <button class="game-mode-btn is-active" data-mode="daily">Daily Grid</button>
       <button class="game-mode-btn" data-mode="unlimited">Unlimited</button>
+      <button class="game-mode-btn" data-mode="archive">Archive</button>
     </div>
     <div class="mode-tools" id="mode-tools" hidden>
       <button class="size-btn" data-size="3">3×3</button>
@@ -649,8 +662,10 @@ function maxScore(grid) {
 
 /* ═══════════════ game state ═══════════════ */
 const MAX_STRIKES = 6;
+const EPOCH = "2026-07-16"; // first daily grid
 const state = {
-  mode: "daily",           // daily | unlimited
+  mode: "daily",           // daily | unlimited | archive
+  dateKey: null,           // which daily/archive date is being played
   size: 4,
   grid: null,              // { rows, cols }
   answers: {},             // "r,c" -> vocadbId
@@ -661,9 +676,9 @@ const state = {
   seed: null,
 };
 
-const dailyStorageKey = () => `masume_daily_${todayKey()}`;
+const dailyStorageKey = () => `masume_daily_${state.dateKey}`;
 function saveDaily() {
-  if (state.mode !== "daily") return;
+  if (state.mode === "unlimited" || !state.dateKey) return;
   try {
     localStorage.setItem(dailyStorageKey(), JSON.stringify({
       answers: state.answers, strikes: state.strikes, done: state.done,
@@ -704,15 +719,53 @@ function renderRecords() {
 }
 
 /* ═══════════════ grid setup ═══════════════ */
+function archiveDates() {
+  const out = [];
+  const today = todayKey();
+  for (let d = new Date(EPOCH); ; d.setDate(d.getDate() + 1)) {
+    const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+    if (key >= today) break;
+    out.push(key);
+  }
+  return out.reverse();
+}
+
+function renderArchiveList() {
+  const days = archiveDates();
+  $("status-strip").innerHTML = `<div class="st-cell"><span class="st-k">Archive</span><span class="st-v">${days.length} day${days.length !== 1 ? "s" : ""}</span></div>`;
+  $("result-panel").hidden = true;
+  if (!days.length) {
+    $("grid-wrap").innerHTML = `<div class="loading-state">No past dailies yet — the archive fills up one grid per day, starting ${EPOCH}.</div>`;
+    return;
+  }
+  $("grid-wrap").innerHTML = `<div class="arch-list">` + days.map(day => {
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(`masume_daily_${day}`)); } catch (e) {}
+    const status = saved && saved.done
+      ? `<span class="ad-score">done</span>`
+      : saved && Object.keys(saved.answers || {}).length ? "in progress" : "unplayed";
+    return `<button type="button" class="arch-day" data-day="${day}"><b>${day}</b>${status}</button>`;
+  }).join("") + `</div>`;
+  $("grid-wrap").querySelectorAll("[data-day]").forEach(b =>
+    b.addEventListener("click", () => { state.dateKey = b.dataset.day; startGame(); }));
+}
+
 function startGame() {
   state.answers = {}; state.rarity = {}; state.strikes = 0; state.done = false; state.activeCell = null;
-  const size = state.mode === "daily" ? 4 : state.size;
-  const seedStr = state.mode === "daily" ? `masume-daily-${todayKey()}` : `masume-free-${Date.now()}-${Math.random()}`;
+  $("mode-tools").hidden = state.mode !== "unlimited";
+  if (state.mode === "daily") state.dateKey = todayKey();
+  if (state.mode === "unlimited") state.dateKey = null;
+  if (state.mode === "archive" && !state.dateKey) { renderArchiveList(); return; }
+
+  const size = state.mode === "unlimited" ? state.size : 4;
+  const seedStr = state.mode === "unlimited"
+    ? `masume-free-${Date.now()}-${Math.random()}`
+    : `masume-daily-${state.dateKey}`;
   const rnd = mulberry32(seedFromString(seedStr));
   state.grid = generateGrid(size, rnd);
   if (!state.grid) { $("grid-wrap").innerHTML = `<div class="loading-state">Could not generate a grid — data problem?</div>`; return; }
 
-  if (state.mode === "daily") {
+  if (state.mode !== "unlimited") {
     const saved = loadDaily();
     if (saved) {
       state.answers = saved.answers || {};
@@ -724,7 +777,6 @@ function startGame() {
       }
     }
   }
-  $("mode-tools").hidden = state.mode !== "unlimited";
   renderAll();
 }
 
@@ -747,14 +799,19 @@ function renderStatus() {
   const boxes = Array.from({ length: MAX_STRIKES }, (_, i) =>
     `<span class="strike-box${i < state.strikes ? " used" : ""}"></span>`).join("");
   $("status-strip").innerHTML = `
-    <div class="st-cell"><span class="st-k">${state.mode === "daily" ? "Daily · " + todayKey() : "Unlimited"}</span><span class="st-v">${filled} / ${total}</span></div>
+    <div class="st-cell"><span class="st-k">${state.mode === "unlimited" ? "Unlimited" : (state.mode === "archive" ? "Archive · " : "Daily · ") + state.dateKey}</span><span class="st-v">${filled} / ${total}</span></div>
     <div class="st-cell"><span class="st-k">Rarity score</span><span class="st-v is-red">${currentScore()}</span></div>
     <div class="st-cell"><span class="st-k">Max possible</span><span class="st-v" style="color:var(--faint)">${maxScore(state.grid)}</span></div>
     <div class="st-cell"><span class="st-k">Strikes</span><span class="st-v"><span class="strike-boxes">${boxes}</span></span></div>
-    ${!state.done ? `<div class="st-cell" style="margin-left:auto;border-right:none;justify-content:center"><button type="button" class="reveal-btn" style="margin:0" id="giveup-btn">Give up</button></div>` : ""}
+    <div class="st-cell" style="margin-left:auto;border-right:none;justify-content:center;flex-direction:row;gap:6px;align-items:center">
+      ${state.mode === "archive" ? `<button type="button" class="reveal-btn" style="margin:0" id="arch-back-btn">◀ All days</button>` : ""}
+      ${!state.done ? `<button type="button" class="reveal-btn" style="margin:0" id="giveup-btn">Give up</button>` : ""}
+    </div>
   `;
   const gu = $("giveup-btn");
   if (gu) gu.addEventListener("click", () => { if (confirm("Give up and reveal the grid?")) finishGame(false); });
+  const ab = $("arch-back-btn");
+  if (ab) ab.addEventListener("click", () => { saveDaily(); state.dateKey = null; renderArchiveList(); });
 }
 
 function headCell(critIdx) {
@@ -903,7 +960,8 @@ function shareText() {
     art += "\n";
   });
   const filled = Object.keys(state.answers).length;
-  const head = state.mode === "daily" ? `Masume #${Math.max(1, dayNum)}` : "Masume (unlimited)";
+  const head = state.mode === "daily" ? `Masume #${Math.max(1, dayNum)}`
+    : state.mode === "archive" ? `Masume ${state.dateKey} (archive)` : "Masume (unlimited)";
   return `${head} · ${filled}/${n * n} · rarity ${currentScore()}/${maxScore(state.grid)}\n${art}https://vocaloidle.sodapines.dev/masume/`;
 }
 
@@ -914,15 +972,18 @@ function renderResult() {
   const total = state.grid.rows.length * state.grid.cols.length;
   const filled = Object.keys(state.answers).length;
   const score = currentScore(), max = maxScore(state.grid);
-  $("result-note").textContent = state.mode === "daily" ? `daily · ${todayKey()}` : "unlimited round";
+  $("result-note").textContent = state.mode === "unlimited" ? "unlimited round"
+    : `${state.mode} · ${state.dateKey}`;
   const pct = max ? Math.round(score / max * 100) : 0;
   $("result-body").innerHTML = `
     <div><span class="result-score">${score}</span> <span class="result-max">/ ${max} max rarity (${pct}%)</span></div>
     <div class="result-line">${filled} of ${total} squares filled · ${state.strikes} strike${state.strikes !== 1 ? "s" : ""} used${filled === total && state.strikes === 0 ? " · flawless!" : ""}</div>
     <button type="button" class="share-btn" id="share-btn">Copy share text</button>
     <button type="button" class="reveal-btn" id="reveal-btn">Reveal answer pools</button>
+    ${state.mode === "archive" ? `<button type="button" class="reveal-btn" id="best-btn">Show best solution</button>` : ""}
     ${state.mode === "unlimited" ? `<button type="button" class="new-grid-btn" id="result-new">↻ New grid</button>` : ""}
     <div id="reveal-box"></div>
+    <div id="best-box"></div>
   `;
   $("share-btn").addEventListener("click", () => {
     navigator.clipboard.writeText(shareText()).then(
@@ -930,8 +991,45 @@ function renderResult() {
       () => prompt("Copy your result:", shareText()));
   });
   $("reveal-btn").addEventListener("click", renderReveal);
+  const bb = $("best-btn");
+  if (bb) bb.addEventListener("click", renderBestSolution);
   const rn = $("result-new");
   if (rn) rn.addEventListener("click", startGame);
+}
+
+/* The optimal fill: rarest available answer per cell, smallest pools first.
+   Archive-only so the current daily cannot be min-maxed from its own page. */
+function bestSolution(grid) {
+  const cells = [];
+  grid.rows.forEach((r, ri) => grid.cols.forEach((c, ci) => cells.push({ ri, ci, r, c, pool: cellPool(r, c) })));
+  cells.sort((a, b) => a.pool.length - b.pool.length);
+  const used = new Set(), picks = [];
+  for (const cell of cells) {
+    for (let k = cell.pool.length - 1; k >= 0; k--) {
+      if (!used.has(cell.pool[k])) {
+        used.add(cell.pool[k]);
+        picks.push({ ri: cell.ri, ci: cell.ci, r: cell.r, c: cell.c, id: cell.pool[k], score: Math.round(100 * k / (cell.pool.length - 1)) });
+        break;
+      }
+    }
+  }
+  picks.sort((a, b) => a.ri - b.ri || a.ci - b.ci);
+  return picks;
+}
+
+function renderBestSolution() {
+  const picks = bestSolution(state.grid);
+  const total = picks.reduce((a, p) => a + p.score, 0);
+  let html = `<div style="margin-top:10px;font-size:11px"><b>Best possible fill — ${total} rarity:</b>`;
+  for (const p of picks) {
+    html += `<div style="padding:3px 0;border-bottom:1px dotted var(--line)">
+      <span style="color:var(--faint)">${escHtml(CRITS[p.r].name)} × ${escHtml(CRITS[p.c].name)}:</span>
+      <b>${escHtml(SONG_BY_ID.get(p.id).title)}</b> <span style="color:var(--red);font-weight:700">(${p.score})</span>
+    </div>`;
+  }
+  html += `</div>`;
+  $("best-box").innerHTML = html;
+  $("best-btn").remove();
 }
 
 function renderReveal() {
@@ -971,6 +1069,7 @@ document.querySelectorAll("[data-mode]").forEach(btn => btn.addEventListener("cl
   if (btn.dataset.mode === state.mode) return;
   if (state.mode === "unlimited" && !state.done && Object.keys(state.answers).length && !confirm("Leave this unlimited grid?")) return;
   state.mode = btn.dataset.mode;
+  state.dateKey = null;
   document.querySelectorAll("[data-mode]").forEach(b => b.classList.toggle("is-active", b === btn));
   startGame();
 }));
