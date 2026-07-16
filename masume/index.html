@@ -171,7 +171,11 @@ html.dark-mode .arch-day b { color: var(--text); }
 }
 
 /* ── status strip ── */
-.status-strip { display: flex; flex-wrap: wrap; align-items: stretch; background: linear-gradient(to bottom, #f3f1ea, #e2dfd6); }
+.status-strip {
+  display: flex; flex-wrap: wrap; align-items: stretch;
+  background: linear-gradient(to bottom, #f3f1ea, #e2dfd6);
+  border-bottom: 2px solid var(--ls);
+}
 .st-cell {
   padding: 7px 14px; border-right: 1px solid var(--line);
   display: flex; flex-direction: column; justify-content: center; min-width: 76px;
@@ -316,13 +320,16 @@ html.dark-mode .arch-day b { color: var(--text); }
 @media (max-width: 700px) { .rv-grid { grid-template-columns: 1fr 1fr !important; } }
 .rv-card { border: 1px solid var(--line); background: var(--surface); }
 .rv-head {
-  padding: 4px 8px; font-size: 10px; font-weight: 700; line-height: 1.3;
+  padding: 5px 8px; font-size: 10.5px; font-weight: 700; line-height: 1.35;
   background: linear-gradient(to bottom, #f3f1ea, #e5e2d9); border-bottom: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 8px;
 }
-.rv-head .rv-n { float: right; font-weight: 400; color: var(--faint); }
-.rv-body { padding: 5px 8px; font-size: 10px; line-height: 1.5; }
+.rv-head .rv-n { flex-shrink: 0; font-weight: 400; color: var(--faint); white-space: nowrap; }
+.rv-body { padding: 6px 8px 7px; font-size: 10.5px; line-height: 1.55; }
 .rv-row { display: flex; gap: 6px; }
-.rv-row .rv-k { flex-shrink: 0; width: 52px; color: var(--faint); text-transform: uppercase; font-size: 9px; letter-spacing: 0.04em; padding-top: 1px; }
+.rv-row { padding: 2px 0; }
+.rv-row + .rv-row { border-top: 1px dotted var(--line); }
+.rv-row .rv-k { flex-shrink: 0; width: 54px; color: var(--faint); text-transform: uppercase; font-size: 9px; letter-spacing: 0.04em; padding-top: 2px; }
 .rv-row .rv-v { flex: 1; min-width: 0; }
 .rv-you { color: var(--red); font-weight: 700; }
 .rv-you .rv-score { font-family: Consolas, monospace; }
@@ -391,6 +398,7 @@ html.dark-mode .size-btn, html.dark-mode .tool-btn, html.dark-mode .settings-tog
 html.dark-mode .size-btn.is-active, html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; border-color: #5a0505; }
 html.dark-mode .status-strip { background: linear-gradient(to bottom, #242424, #1a1a1a); }
 html.dark-mode .st-cell { border-right-color: #3b3b3b; }
+html.dark-mode .status-strip { border-bottom-color: #3b3b3b; }
 html.dark-mode .masu-cell { box-shadow: none; }
 html.dark-mode .masu-cell.open:hover { background: #2b2020; }
 html.dark-mode .masu-cell.dead { background: repeating-linear-gradient(45deg, #202020 0 6px, #191919 6px 12px); }
@@ -1104,7 +1112,7 @@ function renderReveal() {
         ? `<span class="rv-you">${escHtml(SONG_BY_ID.get(state.answers[key]).title)} <span class="rv-score">(${state.rarity[key]})</span></span>`
         : `<span class="rv-miss">unanswered</span>`;
       cards += `<div class="rv-card">
-        <div class="rv-head">${escHtml(CRITS[r].name)} × ${escHtml(CRITS[c].name)}<span class="rv-n">${pool.length} songs</span></div>
+        <div class="rv-head"><span>${escHtml(CRITS[r].name)} × ${escHtml(CRITS[c].name)}</span><span class="rv-n">${pool.length} songs</span></div>
         <div class="rv-body">
           <div class="rv-row"><span class="rv-k">You</span><span class="rv-v">${yours}</span></div>
           <div class="rv-row"><span class="rv-k">Popular</span><span class="rv-v">${popular}</span></div>
