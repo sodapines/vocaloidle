@@ -1863,30 +1863,33 @@ function renderMilestones() {
       const parts = [e.n, e.y, e.b].map(x => x && x[i] != null ? x[i] : null);
       return parts.every(v => v == null) ? null : parts.reduce((a, v) => a + (v || 0), 0);
     };
+    // Which platforms report on a given day — a "crossing" only counts if the
+    // platform coverage is identical on both ends, otherwise the jump is just
+    // a new platform being counted for the first time, not real growth.
+    const platKey = i => ["n", "y", "b"].map(k => e[k] && e[k][i] != null ? "1" : "0").join("");
     const idx = dates.map((_, i) => at(i) != null ? i : -1).filter(i => i >= 0);
-    // Scan every consecutive snapshot pair so each crossing gets its own date.
     for (let k = 1; k < idx.length; k++) {
+      if (platKey(idx[k - 1]) !== platKey(idx[k])) continue;
       const a = at(idx[k - 1]), b = at(idx[k]);
       if (b <= a) continue;
       const t = MS_THRESHOLDS.find(t => a < t.min && b >= t.min);
       if (!t) continue;
       const gapDays = (new Date(dates[idx[k]]) - new Date(dates[idx[k - 1]])) / 864e5;
-      crossed.push({ song, t, views: at(idx[idx.length - 1]), date: dates[idx[k]], approx: gapDays > 1.5 });
+      crossed.push({ song, t, date: dates[idx[k]], approx: gapDays > 1.5 });
     }
   }
   if (!crossed.length) return;
-  // newest crossings first, biggest milestones breaking ties
-  crossed.sort((x, y) => y.date.localeCompare(x.date) || y.t.min - x.t.min || y.views - x.views);
-  list.innerHTML = crossed.slice(0, 8).map(({ song, t, views, date, approx }) => `
+  crossed.sort((x, y) => y.date.localeCompare(x.date) || y.t.min - x.t.min);
+  list.innerHTML = crossed.slice(0, 8).map(({ song, t, date, approx }) => `
     <div class="ms-row">
       <span class="ms-badge">${t.label}+</span>
       <span class="ms-title">
         <a href="song.html?id=${encodeURIComponent(song.vocadbId)}" title="${escHtml(displayTitle(song))}">${escHtml(displayTitle(song))}</a>
-        <span class="ms-sub">${approx ? "by" : "on"} ${date} · now ${views.toLocaleString()} views</span>
+        <span class="ms-sub">${approx ? "by" : "on"} ${date}</span>
       </span>
     </div>`).join("");
   document.getElementById("milestones-note").textContent =
-    `from daily snapshots${crossed.length > 8 ? ` · +${crossed.length - 8} more` : ""} · "by" = crossed sometime before that snapshot`;
+    `combined-view milestones from daily snapshots${crossed.length > 8 ? ` · +${crossed.length - 8} more` : ""}`;
   panel.hidden = false;
 }
 
