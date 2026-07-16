@@ -550,7 +550,14 @@ const combined = s => {
 };
 
 /* ═══════════════ criteria ═══════════════ */
-const TAG_BLOCKLIST = new Set(["flashing lights warning", "photosensitive epilepsy warning", "self-cover", "in medias res"]);
+/* Tags a player can plausibly judge from knowing the song itself — broad
+   genres and themes. Database-trivia tags (karaoke available, good tuning,
+   flashing lights…) are excluded: the game tests song knowledge, not VocaDB
+   tagging habits. */
+const TAG_WHITELIST = new Set([
+  "rock", "sad", "ProSeka", "cute", "love", "dark", "EDM", "piano",
+  "uplifting", "funny", "ballad", "creepy", "fast tempo", "metal", "English subtitles",
+]);
 let CRITS = [];        // { name, kind, kindLabel, set:Set<vocadbId> }
 let MATRIX = null;     // MATRIX[i][j] = intersection size
 const MIN_CELL = 5;
@@ -561,7 +568,7 @@ function buildCriteria() {
     for (const p of (s.producerNames || [])) prodCount[p] = (prodCount[p] || 0) + 1;
     for (const v of (s.singerNames || [])) vocCount[v] = (vocCount[v] || 0) + 1;
     const d = DETAILS[String(s.vocadbId)];
-    for (const t of ((d && d.tags) || [])) if (!TAG_BLOCKLIST.has(t)) tagCount[t] = (tagCount[t] || 0) + 1;
+    for (const t of ((d && d.tags) || [])) if (TAG_WHITELIST.has(t)) tagCount[t] = (tagCount[t] || 0) + 1;
   }
   const yr = s => s.publishDate ? new Date(s.publishDate).getFullYear() : 0;
   const langOf = s => { const d = DETAILS[String(s.vocadbId)]; return (d && d.langs) || []; };
@@ -577,8 +584,6 @@ function buildCriteria() {
   defs.push({ name: "Under 1M combined views", kind: "views", f: s => { const v = combined(s); return v != null && v < 1e6; } });
   defs.push({ name: "2+ vocalists", kind: "credits", f: s => (s.singerNames || []).filter(x => !/various/i.test(x)).length >= 2 });
   defs.push({ name: "Collab (2+ producers)", kind: "credits", f: s => (s.producerNames || []).length >= 2 });
-  defs.push({ name: "Has a bilibili PV", kind: "platform", f: s => !!BILI[String(s.vocadbId)] });
-  defs.push({ name: "No NicoNico upload", kind: "platform", f: s => !s.nndOriginalId });
   defs.push({ name: "English lyrics", kind: "language", f: s => langOf(s).some(l => String(l).toLowerCase().startsWith("en")) });
   defs.push({ name: "Chinese lyrics", kind: "language", f: s => langOf(s).some(l => { const v = String(l).toLowerCase(); return v === "cmn" || v.startsWith("zh"); }) });
   for (const [t, c] of Object.entries(tagCount)) if (c >= 40)
@@ -605,9 +610,16 @@ function generateGrid(size, rnd) {
   for (let attempt = 0; attempt < 400; attempt++) {
     const order = [...CRITS.keys()].sort(() => rnd() - 0.5);
     const rows = [], cols = [];
+    let tagUsed = 0;
     for (const c of order) {
-      if (rows.length < size && cols.every(x => MATRIX[c][x] >= MIN_CELL) && !rows.includes(c) && !cols.includes(c)) { rows.push(c); continue; }
-      if (cols.length < size && rows.every(x => MATRIX[c][x] >= MIN_CELL) && !rows.includes(c) && !cols.includes(c)) cols.push(c);
+      // tags are the fuzziest criteria — allow at most one per grid
+      if (CRITS[c].kind === "tag" && tagUsed >= 1) continue;
+      if (rows.length < size && cols.every(x => MATRIX[c][x] >= MIN_CELL) && !rows.includes(c) && !cols.includes(c)) {
+        rows.push(c); if (CRITS[c].kind === "tag") tagUsed++; continue;
+      }
+      if (cols.length < size && rows.every(x => MATRIX[c][x] >= MIN_CELL) && !rows.includes(c) && !cols.includes(c)) {
+        cols.push(c); if (CRITS[c].kind === "tag") tagUsed++;
+      }
       if (rows.length === size && cols.length === size) break;
     }
     if (rows.length === size && cols.length === size) return { rows, cols };
@@ -803,8 +815,10 @@ function openGuess(ri, ci) {
   state.activeCell = [ri, ci];
   const r = state.grid.rows[ri], c = state.grid.cols[ci];
   $("guess-heading").textContent = `[ Square ${ri + 1}-${ci + 1} ]`;
+  const poolN = cellPool(r, c).length;
   $("guess-crits").innerHTML =
-    `Needs: <b>${escHtml(CRITS[r].name)}</b> <span style="color:var(--faint)">(${CRITS[r].kindLabel})</span> × <b>${escHtml(CRITS[c].name)}</b> <span style="color:var(--faint)">(${CRITS[c].kindLabel})</span>`;
+    `Needs: <b>${escHtml(CRITS[r].name)}</b> <span style="color:var(--faint)">(${CRITS[r].kindLabel})</span> × <b>${escHtml(CRITS[c].name)}</b> <span style="color:var(--faint)">(${CRITS[c].kindLabel})</span>
+     <div style="margin-top:2px;font-size:10px;color:var(--faint)">${poolN} song${poolN !== 1 ? "s" : ""} fit this square</div>`;
   $("guess-input").value = "";
   $("guess-sugg").innerHTML = "";
   $("guess-msg").textContent = "";
@@ -868,8 +882,12 @@ function submitGuess(id) {
   } else {
     state.strikes++;
     const song = SONG_BY_ID.get(id);
+    const fitsRow = CRITS[r].set.has(id), fitsCol = CRITS[c].set.has(id);
+    const why = fitsRow ? `fits “${CRITS[r].name}” but not “${CRITS[c].name}”`
+      : fitsCol ? `fits “${CRITS[c].name}” but not “${CRITS[r].name}”`
+      : `fits neither criterion`;
     if (state.strikes >= MAX_STRIKES) { closeGuess(); finishGame(false); return; }
-    $("guess-msg").textContent = `✕ ${song ? song.title : "That song"} doesn't fit — strike ${state.strikes} of ${MAX_STRIKES}.`;
+    $("guess-msg").textContent = `✕ ${song ? song.title : "That song"} ${why} — strike ${state.strikes} of ${MAX_STRIKES}.`;
     saveDaily();
     renderStatus();
   }
