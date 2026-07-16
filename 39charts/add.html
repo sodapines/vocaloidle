@@ -858,6 +858,14 @@ function buildCoverArts(pvs) {
   return [...new Set(arts)];
 }
 
+const TIER_OPTIONS = `
+  <option value="none">— unknown</option>
+  <option value="100m">100M+</option>
+  <option value="10m">10M+</option>
+  <option value="1m">1M+</option>
+  <option value="100k">100K+</option>
+  <option value="10k">10K+</option>`;
+
 function mapSourceTags(tags) {
   const result = [];
   tags.forEach(t => {
@@ -877,7 +885,7 @@ function normalizeVocalists(names) {
   return found;
 }
 
-function buildSongEntry(data, tierOverride, platYt) {
+function buildSongEntry(data, tiers) {
   const artists = data.artists||[];
   const producers = artists.filter(a=>/producer/i.test(a.categories||"")&&a.artist);
   const vocalists = artists.filter(a=>/vocalist/i.test(a.categories||"")&&a.artist);
@@ -886,14 +894,12 @@ function buildSongEntry(data, tierOverride, platYt) {
   const bestPv = svc => pvs.find(p=>p.service===svc&&p.pvType==="Original") || pvs.find(p=>p.service===svc);
   const nndPv = bestPv("NicoNicoDouga"), ytPv = bestPv("Youtube");
   let sourceTags = mapSourceTags(data.tags||[]);
-  if (tierOverride && tierOverride!=="none") {
-    // Tag each platform the song was detected on (NND assumed if none detected).
-    const plats = data._platforms || { nnd: true };
-    const tierTags = [];
-    if (plats.nnd || (!plats.yt && !plats.bili)) tierTags.push(`nnd-${tierOverride}`);
-    if (plats.yt) tierTags.push(`yt-${tierOverride}`);
-    sourceTags = [...tierTags, ...sourceTags.filter(t=>!/^(nnd|yt)-/.test(t))];
-  }
+  // Per-platform tier tags: each platform gets only the tier the submitter
+  // picked for it, so an NND 1M+ / YT 100K+ song is tagged accordingly.
+  const tierTags = [];
+  if (tiers && tiers.nnd && tiers.nnd !== "none") tierTags.push(`nnd-${tiers.nnd}`);
+  if (tiers && tiers.yt && tiers.yt !== "none") tierTags.push(`yt-${tiers.yt}`);
+  if (tierTags.length) sourceTags = [...tierTags, ...sourceTags.filter(t=>!/^(nnd|yt)-/.test(t))];
   return {
     vocadbId:      data.id,
     title:         data.defaultName||data.name||"",
@@ -1000,23 +1006,23 @@ async function doFetch() {
           <a class="submit-btn" style="text-decoration:none;display:inline-flex;align-items:center" href="song.html?id=${encodeURIComponent(data.id)}">View song page ▶</a>
         </div>` : `
         <div class="preview-foot">
-          <span style="font-size:10px;color:var(--muted);font-weight:700" title="The song&#39;s NicoNico view milestone — auto-guessed from VocaDB tags, correct it if you know better">View tier</span>
-          <select class="tier-select" id="tier-select">
-            <option value="none">— unknown</option>
-            <option value="100m">100M+</option>
-            <option value="10m">10M+</option>
-            <option value="1m">1M+</option>
-            <option value="100k">100K+</option>
-            <option value="10k">10K+</option>
-          </select>
+          ${(data._platforms && data._platforms.nnd) || !(data._platforms && (data._platforms.yt || data._platforms.bili)) ? `
+          <span style="font-size:10px;color:var(--muted);font-weight:700" title="This song&#39;s NicoNico view milestone — a rough guess is fine">NND tier</span>
+          <select class="tier-select" id="tier-nnd">${TIER_OPTIONS}</select>` : ""}
+          ${data._platforms && data._platforms.yt ? `
+          <span style="font-size:10px;color:var(--muted);font-weight:700" title="This song&#39;s YouTube view milestone — a rough guess is fine">YT tier</span>
+          <select class="tier-select" id="tier-yt">${TIER_OPTIONS}</select>` : ""}
           <input type="text" class="note-input" id="note-input" placeholder="Optional note…" maxlength="300">
           <button class="submit-btn" id="submit-btn">Submit for Review</button>
         </div>
-        <div class="preview-hint">Platforms and view counts are handled automatically after approval. A rough view tier guess is fine.</div>`}
+        <div class="preview-hint">Tiers are per platform — a song can be 1M+ on NicoNico but 100K+ on YouTube. Real view counts are fetched automatically after approval, so rough guesses are fine.</div>`}
       </div>`;
 
     if (!inDb) {
-      document.getElementById("tier-select").value = guessedTier;
+      const tn = document.getElementById("tier-nnd");
+      const ty = document.getElementById("tier-yt");
+      if (tn) tn.value = guessedTier;
+      if (ty) ty.value = guessedTier;
       document.getElementById("submit-btn").addEventListener("click", doSubmit);
     }
 
@@ -1037,10 +1043,10 @@ async function doSubmit() {
   const btn = document.getElementById("submit-btn");
   btn.disabled = true; btn.textContent = "Submitting…";
 
-  const tier  = document.getElementById("tier-select").value;
-  const platYt = Boolean(pendingData._platforms && pendingData._platforms.yt);
+  const tierNnd = document.getElementById("tier-nnd") ? document.getElementById("tier-nnd").value : "none";
+  const tierYt  = document.getElementById("tier-yt") ? document.getElementById("tier-yt").value : "none";
   const note  = document.getElementById("note-input").value.trim();
-  const song  = buildSongEntry(pendingData, tier, platYt);
+  const song  = buildSongEntry(pendingData, { nnd: tierNnd, yt: tierYt });
 
   try {
     const res = await fetch(`${API}/submissions`, {
