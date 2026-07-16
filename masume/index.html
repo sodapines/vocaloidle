@@ -311,7 +311,9 @@ html.dark-mode .arch-day b { color: var(--text); }
 }
 
 /* reveal: one card per square instead of dense text lines */
-.rv-grid { margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px; }
+.rv-wrap { overflow-x: auto; }
+.rv-grid { margin-top: 10px; display: grid; gap: 6px; }
+@media (max-width: 700px) { .rv-grid { grid-template-columns: 1fr 1fr !important; } }
 .rv-card { border: 1px solid var(--line); background: var(--surface); }
 .rv-head {
   padding: 4px 8px; font-size: 10px; font-weight: 700; line-height: 1.3;
@@ -581,11 +583,49 @@ let CRITS = [];        // { name, kind, kindLabel, set:Set<vocadbId> }
 let MATRIX = null;     // MATRIX[i][j] = intersection size
 const MIN_CELL = 5;
 
+/* Vocalist criteria match the CHARACTER, not the exact voicebank string —
+   "GUMI Megpoid SynthV" and "V3 GUMI (Native)" both count as GUMI, every
+   Miku Append/V4X counts as Hatsune Miku, "Kasane Teto SV" counts as Teto. */
+const CHAR_MAP = [
+  ["Hatsune Miku", /hatsune miku/i],
+  ["Kagamine Rin", /kagamine rin/i],
+  ["Kagamine Len", /kagamine len/i],
+  ["Megurine Luka", /megurine luka/i],
+  ["GUMI", /\bgumi\b|megpoid/i],
+  ["KAITO", /\bkaito\b/i],
+  ["MEIKO", /\bmeiko\b/i],
+  ["Kasane Teto", /kasane teto/i],
+  ["IA", /^ia$|^ia \(|^ia :/i],
+  ["flower", /\bflower\b/i],
+  ["KAFU", /\bkafu\b/i],
+  ["Otomachi Una", /otomachi una/i],
+  ["Kaai Yuki", /kaai yuki/i],
+  ["Adachi Rei", /adachi rei/i],
+  ["Camui Gackpo", /gackpo|gakupo/i],
+  ["Yuzuki Yukari", /yuzuki yukari/i],
+  ["Luo Tianyi", /luo tianyi/i],
+  ["Fukase", /\bfukase\b/i],
+  ["Sekai", /^sekai$|星界/i],
+];
+const CHAR_CACHE = new Map();
+function songCharacters(s) {
+  const id = String(s.vocadbId);
+  if (CHAR_CACHE.has(id)) return CHAR_CACHE.get(id);
+  const out = new Set();
+  for (const name of (s.singerNames || [])) {
+    if (!name || /^various/i.test(name)) continue;
+    const hit = CHAR_MAP.find(([, re]) => re.test(name));
+    out.add(hit ? hit[0] : name);
+  }
+  CHAR_CACHE.set(id, out);
+  return out;
+}
+
 function buildCriteria() {
   const prodCount = {}, vocCount = {}, tagCount = {};
   for (const s of SONGS) {
     for (const p of (s.producerNames || [])) prodCount[p] = (prodCount[p] || 0) + 1;
-    for (const v of (s.singerNames || [])) vocCount[v] = (vocCount[v] || 0) + 1;
+    for (const ch of songCharacters(s)) vocCount[ch] = (vocCount[ch] || 0) + 1;
     const d = DETAILS[String(s.vocadbId)];
     for (const t of ((d && d.tags) || [])) if (TAG_WHITELIST.has(t)) tagCount[t] = (tagCount[t] || 0) + 1;
   }
@@ -595,7 +635,7 @@ function buildCriteria() {
   for (const [p, c] of Object.entries(prodCount)) if (c >= 8 && !/^various/i.test(p))
     defs.push({ name: p, kind: "producer", f: s => (s.producerNames || []).includes(p) });
   for (const [v, c] of Object.entries(vocCount)) if (c >= 15 && !/^various/i.test(v))
-    defs.push({ name: v, kind: "vocalist", f: s => (s.singerNames || []).includes(v) });
+    defs.push({ name: v, kind: "vocalist", f: s => songCharacters(s).has(v) });
   for (const [a, b] of [[2007,2010],[2011,2013],[2014,2016],[2017,2019],[2020,2022],[2023,2026]])
     defs.push({ name: `${a}–${b}`, kind: "year", f: s => yr(s) >= a && yr(s) <= b });
   defs.push({ name: "10M+ combined views", kind: "views", f: s => (combined(s) || 0) >= 1e7 });
@@ -1072,7 +1112,7 @@ function renderReveal() {
       </div>`;
     });
   });
-  $("reveal-box").innerHTML = `<div class="rv-grid">${cards}</div>`;
+  $("reveal-box").innerHTML = `<div class="rv-wrap"><div class="rv-grid" style="grid-template-columns: repeat(${g.cols.length}, minmax(160px, 1fr))">${cards}</div></div>`;
   $("reveal-btn").remove();
 }
 
