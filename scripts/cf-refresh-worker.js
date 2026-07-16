@@ -60,6 +60,26 @@ async function ghPutJson(path, obj, sha, token, message) {
   if (!res.ok) throw new Error(`GitHub PUT ${path}: ${res.status} ${await res.text()}`);
 }
 
+/* The contents API refuses to inline files over 1 MB in JSON mode (songs.json
+   is ~3 MB) — fetch the body via the raw media type, and the sha via the
+   parent directory listing, which reports it regardless of file size. */
+async function ghGetLargeJson(path, token) {
+  const rawRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}?ref=${BRANCH}`, {
+    headers: { Authorization: `Bearer ${token}`, "User-Agent": UA, Accept: "application/vnd.github.raw" },
+  });
+  if (rawRes.status === 404) return { sha: null, data: null };
+  if (!rawRes.ok) throw new Error(`GitHub GET(raw) ${path}: ${rawRes.status}`);
+  const data = JSON.parse(await rawRes.text());
+  const dir = path.split("/").slice(0, -1).join("/");
+  const name = path.split("/").pop();
+  const listRes = await fetch(`https://api.github.com/repos/${OWNER}/${REPO}/contents/${dir}?ref=${BRANCH}`, {
+    headers: { Authorization: `Bearer ${token}`, "User-Agent": UA, Accept: "application/vnd.github+json" },
+  });
+  if (!listRes.ok) throw new Error(`GitHub LIST ${dir}: ${listRes.status}`);
+  const entry = (await listRes.json()).find((e) => e.name === name);
+  return { sha: entry ? entry.sha : null, data };
+}
+
 let SONGS_TOKEN = null; // set per-run so fetchSongs works on private repos too
 async function fetchSongs() {
   // Contents API with the raw media type: authenticated, works for private
@@ -264,7 +284,7 @@ async function publishApproved(env) {
   )).filter(e => e && e.status === "approved" && !e.published && e.song);
   if (!entries.length) return 0;
 
-  const songsFile = await ghGetJson("data/songs.json", token);
+  const songsFile = await ghGetLargeJson("data/songs.json", token);
   const songs = songsFile.data || [];
   const have = new Set(songs.map(s => String(s.vocadbId)));
   let added = 0;
@@ -287,13 +307,17 @@ async function publishApproved(env) {
 
 async function runSlice(sliceIndex, env) {
   SONGS_TOKEN = env.GITHUB_TOKEN;
-  let published = 0;
-  if (sliceIndex === 0) published = await publishApproved(env);
+  let published = 0, publishError = null;
+  // A publish failure must never take the view refreshes down with it.
+  if (sliceIndex === 0) {
+    try { published = await publishApproved(env); }
+    catch (e) { publishError = e.message; console.log(`publishApproved failed: ${e.message}`); }
+  }
   const nico = await refreshNicoSlice(sliceIndex, env);
   const bili = await refreshBiliSlice(sliceIndex, env);
   let yt = 0;
   if (sliceIndex === 0) yt = await refreshYouTube(env); // YouTube is cheap -> full refresh nightly
-  return { sliceIndex, nico, bili, yt, published };
+  return { sliceIndex, nico, bili, yt, published, publishError };
 }
 
 export default {
