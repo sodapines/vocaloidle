@@ -310,6 +310,24 @@ html.dark-mode .arch-day b { color: var(--text); }
   font-family: Consolas, "MS PGothic", monospace;
 }
 
+/* reveal: one card per square instead of dense text lines */
+.rv-grid { margin-top: 10px; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 6px; }
+.rv-card { border: 1px solid var(--line); background: var(--surface); }
+.rv-head {
+  padding: 4px 8px; font-size: 10px; font-weight: 700; line-height: 1.3;
+  background: linear-gradient(to bottom, #f3f1ea, #e5e2d9); border-bottom: 1px solid var(--line);
+}
+.rv-head .rv-n { float: right; font-weight: 400; color: var(--faint); }
+.rv-body { padding: 5px 8px; font-size: 10px; line-height: 1.5; }
+.rv-row { display: flex; gap: 6px; }
+.rv-row .rv-k { flex-shrink: 0; width: 52px; color: var(--faint); text-transform: uppercase; font-size: 9px; letter-spacing: 0.04em; padding-top: 1px; }
+.rv-row .rv-v { flex: 1; min-width: 0; }
+.rv-you { color: var(--red); font-weight: 700; }
+.rv-you .rv-score { font-family: Consolas, monospace; }
+.rv-miss { color: var(--faint); font-style: italic; }
+html.dark-mode .rv-card { background: #1a1a1a; }
+html.dark-mode .rv-head { background: linear-gradient(to bottom, #262626, #1e1e1e); }
+
 .loading-state { padding: 40px; text-align: center; color: var(--faint); font-style: italic; }
 
 .site-footer {
@@ -1034,23 +1052,27 @@ function renderBestSolution() {
 
 function renderReveal() {
   const g = state.grid;
-  let html = `<div style="margin-top:10px;font-size:11px">`;
+  let cards = "";
   g.rows.forEach((r, ri) => {
     g.cols.forEach((c, ci) => {
       const pool = cellPool(r, c);
       const key = `${ri},${ci}`;
-      const examples = pool.slice(0, 3).map(id => SONG_BY_ID.get(id).title);
-      const rare = SONG_BY_ID.get(pool[pool.length - 1]).title;
-      html += `<div style="padding:4px 0;border-bottom:1px dotted var(--line)">
-        <b>${escHtml(CRITS[r].name)} × ${escHtml(CRITS[c].name)}</b>
-        <span style="color:var(--faint)">(${pool.length} songs)</span>
-        ${state.answers[key] ? `— you: <b style="color:var(--red)">${escHtml(SONG_BY_ID.get(state.answers[key]).title)}</b> (${state.rarity[key]})` : `— unanswered`}
-        <div style="color:var(--muted)">popular: ${examples.map(escHtml).join(" · ")} &nbsp;|&nbsp; rarest: ${escHtml(rare)}</div>
+      const popular = pool.slice(0, 3).map(id => escHtml(SONG_BY_ID.get(id).title)).join("<br>");
+      const rare = escHtml(SONG_BY_ID.get(pool[pool.length - 1]).title);
+      const yours = state.answers[key]
+        ? `<span class="rv-you">${escHtml(SONG_BY_ID.get(state.answers[key]).title)} <span class="rv-score">(${state.rarity[key]})</span></span>`
+        : `<span class="rv-miss">unanswered</span>`;
+      cards += `<div class="rv-card">
+        <div class="rv-head">${escHtml(CRITS[r].name)} × ${escHtml(CRITS[c].name)}<span class="rv-n">${pool.length} songs</span></div>
+        <div class="rv-body">
+          <div class="rv-row"><span class="rv-k">You</span><span class="rv-v">${yours}</span></div>
+          <div class="rv-row"><span class="rv-k">Popular</span><span class="rv-v">${popular}</span></div>
+          <div class="rv-row"><span class="rv-k">Rarest</span><span class="rv-v">${rare}</span></div>
+        </div>
       </div>`;
     });
   });
-  html += `</div>`;
-  $("reveal-box").innerHTML = html;
+  $("reveal-box").innerHTML = `<div class="rv-grid">${cards}</div>`;
   $("reveal-btn").remove();
 }
 
