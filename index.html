@@ -146,7 +146,7 @@
     .play-grid {
       margin-top: 6px;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 8px;
     }
     .play-card {
@@ -168,6 +168,7 @@
     .heardle .card-head { background: linear-gradient(#e52b2b, #aa0000); }
     .higher .card-head { background: linear-gradient(#3769c9, #174690); }
     .charts .card-head { background: linear-gradient(#2faf57, #1a7d3c); }
+    .masume .card-head { background: linear-gradient(#2aa8a0, #157a73); }
     .charts .card-icon { font-size: 13px; letter-spacing: -0.02em; }
     .card-icon {
       align-self: stretch;
@@ -617,6 +618,25 @@
           <a class="launch" href="39charts/">Open &#9654;</a>
         </footer>
       </article>
+
+      <article class="play-card masume">
+        <header class="card-head">
+          <span class="card-icon">マス</span>
+          <span class="card-name">Masume マス目</span>
+          <span class="card-tag">NEW</span>
+        </header>
+        <div class="card-image">
+          <img id="masume-preview" src="favicon.jpg" alt="">
+          <span class="image-note">Fill the grid. One song per square.</span>
+        </div>
+        <div class="card-copy">
+          A daily 4×4 knowledge grid: every square needs a song matching its row and column. Six strikes, rarer answers score more, one shared puzzle a day.
+        </div>
+        <footer class="card-foot">
+          <span>New daily grid at local midnight</span>
+          <a class="launch" href="masume/">Play &#9654;</a>
+        </footer>
+      </article>
     </section>
 
     <div class="section-title">[ RANDOM FEATURED SONG ]</div>
@@ -650,7 +670,7 @@
             <span>songs in pool</span>
           </div>
           <div class="stats-hero-item">
-            <strong>3</strong>
+            <strong>4</strong>
             <span>projects</span>
           </div>
         </div>
@@ -658,6 +678,7 @@
           <div class="stats-ver"><span>Heardle</span><strong>v1.6</strong></div>
           <div class="stats-ver"><span>Higher / Lower</span><strong>v1.1</strong></div>
           <div class="stats-ver"><span>39charts</span><strong>v1.4</strong></div>
+          <div class="stats-ver"><span>Masume</span><strong>v1.0</strong></div>
         </div>
         <div class="stats-foot">View data updated <strong id="stat-updated">&mdash;</strong></div>
       </aside>
