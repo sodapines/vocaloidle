@@ -859,8 +859,8 @@ html.dark-mode .rt-rank .rk-delta.down { color: #ffa050; }
   color: #fff; font-size: 9px; font-weight: 900; line-height: 15px;
   font-family: "MS Gothic","Courier New",monospace;
 }
-.ms-title { flex: 1; min-width: 0; font-size: 10px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ms-title a { color: var(--text); font-weight: 700; }
+.ms-title { flex: 1; min-width: 0; font-size: 10px; }
+.ms-title a { display: block; color: var(--text); font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ms-title a:hover { color: var(--red); text-decoration: none; }
 .ms-sub { display: block; font-size: 9px; color: var(--faint); font-weight: 400; }
 .ms-note { padding: 3px 8px 5px; font-size: 9px; color: var(--faint); font-style: italic; }
@@ -1875,7 +1875,7 @@ function renderMilestones() {
       <span class="ms-badge">${t.label}+</span>
       <span class="ms-title">
         <a href="song.html?id=${encodeURIComponent(song.vocadbId)}" title="${escHtml(displayTitle(song))}">${escHtml(displayTitle(song))}</a>
-        <span class="ms-sub">crossed ${t.label} combined views · ${views.toLocaleString()}</span>
+        <span class="ms-sub">now ${views.toLocaleString()} combined views</span>
       </span>
     </div>`).join("");
   document.getElementById("milestones-note").textContent =
@@ -2295,7 +2295,7 @@ function heroHtml(list) {
     return `
       <div class="podium-card podium-${medal}">
         <div class="podium-header">
-          <span class="ph-rank">#${rank}${rankDeltaHtml(song)}</span>
+          <span class="ph-rank">#${rank}</span>
           <span class="ph-title"><a href="${link(song)}">${title}</a></span>
         </div>
         <div class="podium-thumb">
