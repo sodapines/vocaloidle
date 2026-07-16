@@ -49,8 +49,14 @@ button { font: inherit; cursor: pointer; }
 .nnd-logo-mark {
   display: inline-flex; align-items: center; justify-content: center;
   width: 28px; height: 28px; background: var(--red); color: #fff;
-  font-size: 12px; font-weight: 900; border: 1px solid var(--red-dark); flex-shrink: 0;
+  border: 1px solid var(--red-dark); flex-shrink: 0;
 }
+.lm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.lm-grid i {
+  width: 8px; height: 8px; background: #fff;
+  box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25);
+}
+.lm-grid i:nth-child(3) { background: rgba(255,255,255,0.45); }
 .nnd-logo-text { font-size: 15px; font-weight: 900; letter-spacing: -0.02em; line-height: 1; }
 .nnd-logo-sub { display: block; font-size: 10px; font-weight: 400; color: var(--muted); }
 .nnd-header-links { display: flex; align-items: center; gap: 6px; font-size: 12px; margin-left: auto; }
@@ -291,11 +297,6 @@ button { font: inherit; cursor: pointer; }
   font-weight: 900; text-align: right; color: var(--red); font-size: 11px;
   font-family: Consolas, "MS PGothic", monospace;
 }
-.links-list { display: flex; flex-direction: column; }
-.links-list a { display: block; padding: 4px 10px; font-size: 10px; color: var(--link); border-bottom: 1px solid var(--line); }
-.links-list a:last-child { border-bottom: none; }
-.links-list a::before { content: "▸"; color: var(--red); margin-right: 5px; }
-.links-list a:hover { color: var(--red); background: #fff0f0; text-decoration: none; }
 
 .loading-state { padding: 40px; text-align: center; color: var(--faint); font-style: italic; }
 
@@ -365,7 +366,6 @@ html.dark-mode .strike-box { background: #1d1d1d; }
 html.dark-mode .guess-input { background: #111; color: var(--text); border-color: #3b3b3b; }
 html.dark-mode .guess-sugg li:hover, html.dark-mode .guess-sugg li.is-active { background: #2a1414; }
 html.dark-mode .stats-table tr:nth-child(even) { background: #1e1e1e; }
-html.dark-mode .links-list a:hover { background: #2a1414; }
 html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); }
 html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a2a2a); border-color: #222; }
 
@@ -388,12 +388,10 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
 
 <div class="nnd-mainbar">
   <a class="nnd-logo" href="../" title="Back to VOCALOIDLE home">
-    <span class="nnd-logo-mark">マス</span>
+    <span class="nnd-logo-mark" aria-hidden="true"><span class="lm-grid"><i></i><i></i><i></i><i></i></span></span>
     <span class="nnd-logo-text">Masume<span class="nnd-logo-sub">マス目 · fill the grid, one song per square</span></span>
   </a>
   <nav class="nnd-header-links">
-    <a href="../">&#9664; VOCALOIDLE</a>
-    <span style="color:var(--line)">|</span>
     <a href="#" id="settings-open">Settings</a>
     <span style="color:var(--line)">|</span>
     <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
@@ -457,16 +455,6 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
           <tr><td>Current streak</td><td id="rec-streak">0</td></tr>
           <tr><td>Best rarity score</td><td id="rec-best">—</td></tr>
         </table>
-      </div>
-
-      <div class="panel">
-        <div class="panel-header">[ Links ]</div>
-        <div class="links-list">
-          <a href="../heardle/">Vocaloid Heardle</a>
-          <a href="../higher-or-lower/">Higher or Lower</a>
-          <a href="../39charts/">39charts rankings</a>
-          <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB ↗</a>
-        </div>
       </div>
 
     </div>
