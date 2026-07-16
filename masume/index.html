@@ -495,7 +495,7 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
           <tr><td>Dailies played</td><td id="rec-played">0</td></tr>
           <tr><td>Perfect grids</td><td id="rec-perfect">0</td></tr>
           <tr><td>Current streak</td><td id="rec-streak">0</td></tr>
-          <tr><td>Best rarity score</td><td id="rec-best">—</td></tr>
+          <tr><td>Best score</td><td id="rec-best">—</td></tr>
         </table>
       </div>
 
@@ -867,7 +867,7 @@ function renderStatus() {
     `<span class="strike-box${i < state.strikes ? " used" : ""}"></span>`).join("");
   $("status-strip").innerHTML = `
     <div class="st-cell"><span class="st-k">${state.mode === "unlimited" ? "Unlimited" : (state.mode === "archive" ? "Archive · " : "Daily · ") + state.dateKey}</span><span class="st-v">${filled} / ${total}</span></div>
-    <div class="st-cell"><span class="st-k">Rarity score</span><span class="st-v is-red">${currentScore()}</span></div>
+    <div class="st-cell"><span class="st-k">Score</span><span class="st-v is-red">${currentScore()}</span></div>
     <div class="st-cell"><span class="st-k">Max possible</span><span class="st-v" style="color:var(--faint)">${maxScore(state.grid)}</span></div>
     <div class="st-cell"><span class="st-k">Strikes</span><span class="st-v"><span class="strike-boxes">${boxes}</span></span></div>
     <div class="st-cell" style="margin-left:auto;border-right:none;justify-content:center;flex-direction:row;gap:6px;align-items:center">
@@ -1029,7 +1029,7 @@ function shareText() {
   const filled = Object.keys(state.answers).length;
   const head = state.mode === "daily" ? `Masume #${Math.max(1, dayNum)}`
     : state.mode === "archive" ? `Masume ${state.dateKey} (archive)` : "Masume (unlimited)";
-  return `${head} · ${filled}/${n * n} · rarity ${currentScore()}/${maxScore(state.grid)}\n${art}https://vocaloidle.sodapines.dev/masume/`;
+  return `${head} · ${filled}/${n * n} · score ${currentScore()}/${maxScore(state.grid)}\n${art}https://vocaloidle.sodapines.dev/masume/`;
 }
 
 function renderResult() {
@@ -1043,7 +1043,7 @@ function renderResult() {
     : `${state.mode} · ${state.dateKey}`;
   const pct = max ? Math.round(score / max * 100) : 0;
   $("result-body").innerHTML = `
-    <div><span class="result-score">${score}</span> <span class="result-max">/ ${max} max rarity (${pct}%)</span></div>
+    <div><span class="result-score">${score}</span> <span class="result-max">/ ${max} max score (${pct}%)</span></div>
     <div class="result-line">${filled} of ${total} squares filled · ${state.strikes} strike${state.strikes !== 1 ? "s" : ""} used${filled === total && state.strikes === 0 ? " · flawless!" : ""}</div>
     <button type="button" class="share-btn" id="share-btn">Copy share text</button>
     <button type="button" class="reveal-btn" id="reveal-btn">Reveal answer pools</button>
@@ -1087,7 +1087,7 @@ function bestSolution(grid) {
 function renderBestSolution() {
   const picks = bestSolution(state.grid);
   const total = picks.reduce((a, p) => a + p.score, 0);
-  let html = `<div style="margin-top:10px;font-size:11px"><b>Best possible fill — ${total} rarity:</b>`;
+  let html = `<div style="margin-top:10px;font-size:11px"><b>Best possible fill — ${total} points:</b>`;
   for (const p of picks) {
     html += `<div style="padding:3px 0;border-bottom:1px dotted var(--line)">
       <span style="color:var(--faint)">${escHtml(CRITS[p.r].name)} × ${escHtml(CRITS[p.c].name)}:</span>
