@@ -1853,7 +1853,7 @@ function renderMilestones() {
   const panel = document.getElementById("milestones-panel");
   const list = document.getElementById("milestones-list");
   if (!panel || !list || !HISTORY || HISTORY.dates.length < 2) return;
-  const last = HISTORY.dates.length - 1, prev = last - 1;
+  const dates = HISTORY.dates;
   const byId = new Map(ALL_SONGS.map(s => [String(s.vocadbId), s]));
   const crossed = [];
   for (const [id, e] of Object.entries(HISTORY.songs)) {
@@ -1863,23 +1863,30 @@ function renderMilestones() {
       const parts = [e.n, e.y, e.b].map(x => x && x[i] != null ? x[i] : null);
       return parts.every(v => v == null) ? null : parts.reduce((a, v) => a + (v || 0), 0);
     };
-    const a = at(prev), b = at(last);
-    if (a == null || b == null || b <= a) continue;
-    const t = MS_THRESHOLDS.find(t => a < t.min && b >= t.min);
-    if (t) crossed.push({ song, t, views: b });
+    const idx = dates.map((_, i) => at(i) != null ? i : -1).filter(i => i >= 0);
+    // Scan every consecutive snapshot pair so each crossing gets its own date.
+    for (let k = 1; k < idx.length; k++) {
+      const a = at(idx[k - 1]), b = at(idx[k]);
+      if (b <= a) continue;
+      const t = MS_THRESHOLDS.find(t => a < t.min && b >= t.min);
+      if (!t) continue;
+      const gapDays = (new Date(dates[idx[k]]) - new Date(dates[idx[k - 1]])) / 864e5;
+      crossed.push({ song, t, views: at(idx[idx.length - 1]), date: dates[idx[k]], approx: gapDays > 1.5 });
+    }
   }
   if (!crossed.length) return;
-  crossed.sort((x, y) => y.t.min - x.t.min || y.views - x.views);
-  list.innerHTML = crossed.slice(0, 8).map(({ song, t, views }) => `
+  // newest crossings first, biggest milestones breaking ties
+  crossed.sort((x, y) => y.date.localeCompare(x.date) || y.t.min - x.t.min || y.views - x.views);
+  list.innerHTML = crossed.slice(0, 8).map(({ song, t, views, date, approx }) => `
     <div class="ms-row">
       <span class="ms-badge">${t.label}+</span>
       <span class="ms-title">
         <a href="song.html?id=${encodeURIComponent(song.vocadbId)}" title="${escHtml(displayTitle(song))}">${escHtml(displayTitle(song))}</a>
-        <span class="ms-sub">now ${views.toLocaleString()} combined views</span>
+        <span class="ms-sub">${approx ? "by" : "on"} ${date} · now ${views.toLocaleString()} views</span>
       </span>
     </div>`).join("");
   document.getElementById("milestones-note").textContent =
-    `between ${HISTORY.dates[prev]} and ${HISTORY.dates[last]}${crossed.length > 8 ? ` · +${crossed.length - 8} more` : ""}`;
+    `from daily snapshots${crossed.length > 8 ? ` · +${crossed.length - 8} more` : ""} · "by" = crossed sometime before that snapshot`;
   panel.hidden = false;
 }
 
@@ -3158,7 +3165,10 @@ document.getElementById("pagination-bar").addEventListener("click", e => {
 (function () {
   var mq = window.matchMedia("(max-width: 860px)");
   var panels = document.querySelectorAll(".nnd-sidebar .sidebar-panel");
-  if (mq.matches) panels.forEach(function (p) { p.classList.add("is-collapsed"); });
+  function collapseAll() { panels.forEach(function (p) { p.classList.add("is-collapsed"); }); }
+  if (mq.matches) collapseAll();
+  // also collapse when the viewport becomes mobile after load (rotation, devtools emulation)
+  if (mq.addEventListener) mq.addEventListener("change", function (e) { if (e.matches) collapseAll(); });
   panels.forEach(function (p) {
     var h = p.querySelector(".sidebar-header");
     if (h) h.addEventListener("click", function () {
