@@ -230,7 +230,7 @@ html.dark-mode .arch-day b { color: var(--text); }
   font-family: Consolas, monospace; color: #fff;
   background: rgba(140,0,0,0.9);
 }
-.cell-rarity.r-hi { background: rgba(178,138,10,0.95); }
+.cell-rarity.r-hi { background: rgba(122,58,154,0.95); }
 
 /* ── input modal ── */
 .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; }
@@ -390,6 +390,7 @@ html.dark-mode .size-btn, html.dark-mode .tool-btn, html.dark-mode .settings-tog
 }
 html.dark-mode .size-btn.is-active, html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; border-color: #5a0505; }
 html.dark-mode .status-strip { background: linear-gradient(to bottom, #242424, #1a1a1a); }
+html.dark-mode .st-cell { border-right-color: #3b3b3b; }
 html.dark-mode .masu-cell { box-shadow: none; }
 html.dark-mode .masu-cell.open:hover { background: #2b2020; }
 html.dark-mode .masu-cell.dead { background: repeating-linear-gradient(45deg, #202020 0 6px, #191919 6px 12px); }
@@ -1013,7 +1014,7 @@ function shareText() {
   g.rows.forEach((r, ri) => {
     g.cols.forEach((c, ci) => {
       const rar = state.rarity[`${ri},${ci}`];
-      art += rar == null ? "⬛" : rar >= 70 ? "🟨" : "🟩";
+      art += rar == null ? "⬛" : rar >= 70 ? "🟪" : "🟩";
     });
     art += "\n";
   });
