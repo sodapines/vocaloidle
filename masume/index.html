@@ -9,6 +9,7 @@
 <meta property="og:description" content="Fill the grid. One song per square. A daily VOCALOID knowledge puzzle.">
 <meta property="og:type" content="website">
 <meta name="description" content="Fill the grid. One song per square. A daily VOCALOID knowledge puzzle.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
 <script>try{if(localStorage.getItem("masume_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
 <style>
 :root {
@@ -59,6 +60,23 @@ button { font: inherit; cursor: pointer; }
 .lm-grid i:nth-child(3) { background: rgba(255,255,255,0.45); }
 .nnd-logo-text { font-size: 15px; font-weight: 900; letter-spacing: -0.02em; line-height: 1; }
 .nnd-logo-sub { display: block; font-size: 10px; font-weight: 400; color: var(--muted); }
+.language-switcher { display: flex; align-items: center; gap: 3px; }
+.language-button {
+  width: 24px; height: 16px; min-height: unset; padding: 0;
+  border: 1px solid var(--ls); border-radius: 2px;
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.2);
+  opacity: 0.55; overflow: hidden; position: relative;
+}
+.language-button:hover { opacity: 0.85; }
+.language-button.is-active { opacity: 1; box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 0 0 1px var(--red); }
+.language-button .fi { width: 100%; height: 100%; background-size: cover; background-position: center; border-radius: 1px; }
+.language-button::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: 1px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.05) 100%);
+}
+html.dark-mode .language-button { border-color: #444; background: linear-gradient(to bottom, #303030, #1d1d1d); }
 .nnd-header-links { display: flex; align-items: center; gap: 6px; font-size: 12px; margin-left: auto; }
 .nnd-header-links a { color: var(--link); padding: 2px 8px; border: 1px solid transparent; }
 .nnd-header-links a:hover {
@@ -481,6 +499,12 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
     <span class="nnd-logo-mark" aria-hidden="true"><span class="lm-grid"><i></i><i></i><i></i><i></i></span></span>
     <span class="nnd-logo-text">Masume<span class="nnd-logo-sub">マス目 · fill the grid, one song per square</span></span>
   </a>
+  <div class="language-switcher" aria-label="Language">
+    <button class="language-button" type="button" data-lang="en" title="English"><span class="fi fi-us"></span></button>
+    <button class="language-button" type="button" data-lang="es" title="Espa&ntilde;ol"><span class="fi fi-es"></span></button>
+    <button class="language-button" type="button" data-lang="ja" title="日本語"><span class="fi fi-jp"></span></button>
+    <button class="language-button" type="button" data-lang="ko" title="한국어"><span class="fi fi-kr"></span></button>
+  </div>
   <nav class="nnd-header-links">
     <a href="#" id="settings-open">Settings</a>
     <span style="color:var(--line)">|</span>
@@ -590,10 +614,6 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
   <div class="settings-row">
     <div><b id="set-dark-label">Dark Mode</b><div style="font-size:10px;color:var(--faint)" id="set-dark-desc">Dark page and panels, like the other games.</div></div>
     <button type="button" class="settings-toggle" id="opt-dark">OFF</button>
-  </div>
-  <div class="settings-row">
-    <div><b id="set-lang-label">Language</b><div style="font-size:10px;color:var(--faint)" id="set-lang-desc">Interface language.</div></div>
-    <button type="button" class="settings-toggle" id="opt-lang">EN</button>
   </div>
   <div class="settings-row">
     <div><b id="set-tut-label">Tutorial</b><div style="font-size:10px;color:var(--faint)" id="set-tut-desc">Show the intro again.</div></div>
@@ -818,8 +838,8 @@ function applyStatic() {
   $("rec-l-fav").textContent = t("recFav");
   $("set-dark-label").textContent = t("settingsDark");
   $("set-dark-desc").textContent = t("settingsDarkDesc");
-  $("set-lang-label").textContent = t("settingsLang");
-  $("set-lang-desc").textContent = t("settingsLangDesc");
+  document.querySelectorAll(".language-button").forEach(b =>
+    b.classList.toggle("is-active", b.dataset.lang === LANG));
   $("set-tut-label").textContent = t("settingsTut");
   $("set-tut-desc").textContent = t("settingsTutDesc");
   $("opt-tut").textContent = t("settingsTutBtn");
@@ -1634,14 +1654,6 @@ $("ch-link-btn").addEventListener("click", copyChallengeLink);
     try { localStorage.setItem("masume_dark", on ? "1" : "0"); } catch (e) {}
     sync();
   });
-  $("opt-lang").addEventListener("click", () => {
-    LANG = LANGS[(LANGS.indexOf(LANG) + 1) % LANGS.length];
-    try { localStorage.setItem("masume_lang", LANG); } catch (e) {}
-    applyStatic();
-    renderAchievements();
-    renderSpark();
-    if (state.grid) renderAll();
-  });
   $("opt-tut").addEventListener("click", () => { close(); openTutorial(); });
 })();
 
@@ -1656,6 +1668,19 @@ function closeTutorial() {
   $("tut-backdrop").hidden = true;
   try { localStorage.setItem("masume_tut", "1"); } catch (e) {}
 }
+document.querySelectorAll(".language-button").forEach(btn => btn.addEventListener("click", () => {
+  if (btn.dataset.lang === LANG) return;
+  LANG = btn.dataset.lang;
+  try { localStorage.setItem("masume_lang", LANG); } catch (e) {}
+  applyStatic();
+  renderAchievements();
+  renderSpark();
+  if (state.grid) {
+    if (state.mode === "archive" && !state.dateKey) renderArchiveList();
+    else renderAll();
+  }
+}));
+
 $("tut-ok").addEventListener("click", closeTutorial);
 $("tut-close").addEventListener("click", closeTutorial);
 $("tut-backdrop").addEventListener("click", closeTutorial);
