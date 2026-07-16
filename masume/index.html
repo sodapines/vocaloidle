@@ -164,17 +164,44 @@ html.dark-mode .language-button { border-color: #444; background: linear-gradien
 }
 .mode-tools { margin-left: auto; display: flex; align-items: center; gap: 4px; padding-bottom: 3px; }
 .mode-tools[hidden] { display: none; }
-.arch-list { display: flex; flex-wrap: wrap; gap: 5px; padding: 10px; }
-.arch-day {
-  min-width: 106px; padding: 6px 9px; text-align: left;
-  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
-  border: 1px solid var(--ls); font-size: 10px; color: var(--muted);
+.mcal { max-width: 420px; margin: 0 auto; }
+.mcal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.mcal-head strong { font-size: 13px; font-family: "MS Gothic","Courier New",monospace; letter-spacing: 0.04em; }
+.mcal-nav {
+  min-width: 26px; height: 24px; padding: 0 8px;
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border: 1px solid var(--ls); color: var(--muted); font-size: 10px; font-weight: 700;
 }
-.arch-day:hover { border-color: var(--red); color: var(--red); }
-.arch-day b { display: block; font-size: 11px; color: var(--text); font-family: Consolas, monospace; }
-.arch-day .ad-score { color: var(--red); font-weight: 700; }
-html.dark-mode .arch-day { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; }
-html.dark-mode .arch-day b { color: var(--text); }
+.mcal-nav:disabled { opacity: 0.35; cursor: default; }
+.mcal-nav:not(:disabled):hover { color: var(--red); }
+.mcal-dows { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin-bottom: 3px; }
+.mcal-dows span { text-align: center; font-size: 9px; color: var(--faint); text-transform: uppercase; }
+.mcal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.mcal-day {
+  aspect-ratio: 1; min-height: 34px; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-family: Consolas, "MS PGothic", monospace;
+  border: 1px solid transparent; color: var(--faint); background: transparent; padding: 0;
+}
+.mcal-day.off { background: var(--sf); border-color: var(--line); opacity: 0.55; cursor: default; }
+.mcal-day.playable {
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  border-color: var(--ls); color: var(--text); font-weight: 700; cursor: pointer;
+}
+.mcal-day.playable:hover { border-color: var(--red); color: var(--red); }
+.mcal-day.playable.done {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  border-color: var(--red-dark); color: #fff;
+}
+.mcal-day.playable.prog { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
+.mcal-legend { display: flex; gap: 14px; justify-content: center; margin-top: 8px; font-size: 9px; color: var(--faint); }
+.mcal-legend span { display: inline-flex; align-items: center; gap: 4px; }
+.mcal-key { width: 10px; height: 10px; display: inline-block; border: 1px solid var(--ls); background: linear-gradient(to bottom, #fff, #e8e8e8); }
+.mcal-key.done { background: linear-gradient(to bottom, #dd2222, #aa0000); border-color: var(--red-dark); }
+.mcal-key.prog { border-color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
+html.dark-mode .mcal-day.playable { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; }
+html.dark-mode .mcal-day.off { background: #191919; border-color: #242424; }
+html.dark-mode .mcal-nav, html.dark-mode .mcal-key { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; }
+html.dark-mode .mcal-key.done { background: linear-gradient(to bottom, #b01111, #7a0808); }
 .size-btn, .tool-btn {
   min-height: 22px; padding: 0 9px;
   font-size: 10px; font-weight: 700; color: var(--muted);
@@ -215,7 +242,7 @@ html.dark-mode .arch-day b { color: var(--text); }
     repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0 3px, transparent 3px 7px),
     linear-gradient(to bottom, #f3f1ea, #ddd9d0);
   border: 1px solid var(--ls);
-  font-size: 10px; font-weight: 700; line-height: 1.25; word-break: break-word;
+  font-size: 10px; font-weight: 700; line-height: 1.25; overflow-wrap: break-word;
 }
 .masu-head .crit-kind { font-size: 8px; font-weight: 400; color: var(--faint); text-transform: uppercase; letter-spacing: 0.08em; }
 .masu-corner {
@@ -478,12 +505,22 @@ html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #1
 html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a2a2a); border-color: #222; }
 
 @media (max-width: 820px) {
-  .ms-cols { flex-direction: column; }
-  .ms-right { width: 100%; min-width: 0; }
+  .ms-cols { flex-direction: column; align-items: stretch; }
+  .ms-left, .ms-right { width: 100%; min-width: 0; }
   .nnd-header-links { display: none; }
-  .masu-head { font-size: 9px; min-height: 38px; }
-  .masu-cell { min-height: 62px; }
-  .cell-song { font-size: 9px; }
+  .nnd-body { padding: 6px; }
+  .grid-wrap { padding: 8px; }
+  .masu-grid { gap: 4px; --rowhead: minmax(54px, 76px); }
+  .masu-head { font-size: 9px; min-height: 40px; padding: 4px 3px; line-height: 1.2; overflow-wrap: break-word; }
+  .masu-head .crit-kind { display: none; }
+  .masu-cell { min-height: 64px; }
+  .masu-cell.open::after { font-size: 18px; }
+  .cell-song { font-size: 8.5px; padding: 2px 4px; }
+  .cell-pool { font-size: 8px; }
+  .st-cell { min-width: 0; padding: 6px 10px; }
+  .st-v { font-size: 13px; }
+  .guess-modal { top: 8%; }
+  .mode-tools { flex-wrap: wrap; }
 }
 </style>
 </head>
@@ -946,9 +983,9 @@ function buildCriteria() {
     defs.push({ name: v, kind: "vocalist", f: s => songCharacters(s).has(v) });
   for (const [a, b] of [[2007,2010],[2011,2013],[2014,2016],[2017,2019],[2020,2022],[2023,2026]])
     defs.push({ name: `${a}–${b}`, kind: "year", f: s => yr(s) >= a && yr(s) <= b });
-  defs.push({ name: "10M+ combined views", kind: "views", f: s => (combined(s) || 0) >= 1e7 });
-  defs.push({ name: "1M–10M combined views", kind: "views", f: s => { const v = combined(s); return v != null && v >= 1e6 && v < 1e7; } });
-  defs.push({ name: "Under 1M combined views", kind: "views", f: s => { const v = combined(s); return v != null && v < 1e6; } });
+  defs.push({ name: "10M+ views", kind: "views", f: s => (combined(s) || 0) >= 1e7 });
+  defs.push({ name: "1M–10M views", kind: "views", f: s => { const v = combined(s); return v != null && v >= 1e6 && v < 1e7; } });
+  defs.push({ name: "Under 1M views", kind: "views", f: s => { const v = combined(s); return v != null && v < 1e6; } });
   defs.push({ name: "2+ vocalists", kind: "credits", f: s => (s.singerNames || []).filter(x => !/various/i.test(x)).length >= 2 });
   defs.push({ name: "Collab (2+ producers)", kind: "credits", f: s => (s.producerNames || []).length >= 2 });
   defs.push({ name: "English lyrics", kind: "language", f: s => langOf(s).some(l => String(l).toLowerCase().startsWith("en")) });
@@ -1188,22 +1225,63 @@ function archiveDates() {
   return out.reverse();
 }
 
+let calYear = null, calMonth = null; // displayed archive month
 function renderArchiveList() {
   const days = archiveDates();
+  const daySet = new Set(days);
   $("status-strip").innerHTML = `<div class="st-cell"><span class="st-k">${t("archive")}</span><span class="st-v">${days.length}</span></div>`;
   $("result-panel").hidden = true;
   if (!days.length) {
     $("grid-wrap").innerHTML = `<div class="loading-state">${t("archNone", EPOCH)}</div>`;
     return;
   }
-  $("grid-wrap").innerHTML = `<div class="arch-list">` + days.map(day => {
+  const newest = days[0], oldest = days[days.length - 1];
+  const [minY, minM] = oldest.split("-").map(Number);
+  const [maxY, maxM] = newest.split("-").map(Number);
+  if (calYear == null) { calYear = maxY; calMonth = maxM; }
+  const cur = calYear * 12 + calMonth, lo = minY * 12 + minM, hi = maxY * 12 + maxM;
+  const monthName = new Date(calYear, calMonth - 1, 1)
+    .toLocaleDateString(LANG === "ja" ? "ja-JP" : LANG === "ko" ? "ko-KR" : LANG === "es" ? "es-ES" : "en-US", { month: "long", year: "numeric" });
+  const dows = { en: ["Su","Mo","Tu","We","Th","Fr","Sa"], ja: ["日","月","火","水","木","金","土"],
+                 es: ["Do","Lu","Ma","Mi","Ju","Vi","Sá"], ko: ["일","월","화","수","목","금","토"] }[LANG];
+  const firstDow = new Date(calYear, calMonth - 1, 1).getDay();
+  const daysIn = new Date(calYear, calMonth, 0).getDate();
+  let cells = "";
+  for (let i = 0; i < firstDow; i++) cells += `<span class="mcal-day empty"></span>`;
+  for (let d = 1; d <= daysIn; d++) {
+    const iso = `${calYear}-${String(calMonth).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+    if (!daySet.has(iso)) { cells += `<span class="mcal-day off">${d}</span>`; continue; }
     let saved = null;
-    try { saved = JSON.parse(localStorage.getItem(`masume_daily_${day}`)); } catch (e) {}
-    const status = saved && saved.done
-      ? `<span class="ad-score">${t("archDone")}</span>`
-      : saved && Object.keys(saved.answers || {}).length ? t("archProg") : t("archNew");
-    return `<button type="button" class="arch-day" data-day="${day}"><b>${day}</b>${status}</button>`;
-  }).join("") + `</div>`;
+    try { saved = JSON.parse(localStorage.getItem(`masume_daily_${iso}`)); } catch (e) {}
+    const cls = saved && saved.done ? " done" : saved && Object.keys(saved.answers || {}).length ? " prog" : "";
+    const tip = saved && saved.done ? t("archDone") : cls ? t("archProg") : t("archNew");
+    cells += `<button type="button" class="mcal-day playable${cls}" data-day="${iso}" title="${iso} · ${tip}">${d}</button>`;
+  }
+  $("grid-wrap").innerHTML = `
+    <div class="mcal">
+      <div class="mcal-head">
+        <button type="button" class="mcal-nav" id="mcal-prev" ${cur <= lo ? "disabled" : ""}>&#9664;</button>
+        <strong>${monthName}</strong>
+        <button type="button" class="mcal-nav" id="mcal-next" ${cur >= hi ? "disabled" : ""}>&#9654;</button>
+      </div>
+      <div class="mcal-dows">${dows.map(d => `<span>${d}</span>`).join("")}</div>
+      <div class="mcal-grid">${cells}</div>
+      <div class="mcal-legend">
+        <span><i class="mcal-key done"></i>${t("archDone")}</span>
+        <span><i class="mcal-key prog"></i>${t("archProg")}</span>
+        <span><i class="mcal-key"></i>${t("archNew")}</span>
+      </div>
+    </div>`;
+  const nav = (id, delta) => {
+    const b = $(id);
+    if (b) b.addEventListener("click", () => {
+      calMonth += delta;
+      if (calMonth < 1) { calMonth = 12; calYear--; }
+      if (calMonth > 12) { calMonth = 1; calYear++; }
+      renderArchiveList();
+    });
+  };
+  nav("mcal-prev", -1); nav("mcal-next", 1);
   $("grid-wrap").querySelectorAll("[data-day]").forEach(b =>
     b.addEventListener("click", () => { state.dateKey = b.dataset.day; startGame(); }));
 }
@@ -1214,7 +1292,7 @@ function startGame(keepSeed) {
   $("mode-tools").hidden = state.mode !== "unlimited";
   if (state.mode === "daily") state.dateKey = todayKey();
   if (state.mode === "unlimited") state.dateKey = null;
-  if (state.mode === "archive" && !state.dateKey) { renderArchiveList(); return; }
+  if (state.mode === "archive" && !state.dateKey) { calYear = calMonth = null; renderArchiveList(); return; }
 
   const size = state.mode === "unlimited" ? state.size : 4;
   if (state.mode === "unlimited") {
@@ -1291,7 +1369,7 @@ function headCell(critIdx) {
 function renderGrid() {
   const g = state.grid;
   const n = g.cols.length;
-  let html = `<div class="masu-grid" style="grid-template-columns: minmax(70px,110px) repeat(${n}, 1fr)">`;
+  let html = `<div class="masu-grid" style="grid-template-columns: var(--rowhead, minmax(70px,110px)) repeat(${n}, 1fr)">`;
   html += `<div class="masu-corner"></div>` + g.cols.map(headCell).join("");
   g.rows.forEach((r, ri) => {
     html += headCell(r);
