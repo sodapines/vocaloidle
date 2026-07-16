@@ -339,6 +339,55 @@ html.dark-mode .rv-head { background: linear-gradient(to bottom, #262626, #1e1e1
 
 .loading-state { padding: 40px; text-align: center; color: var(--faint); font-style: italic; }
 
+/* pool-size badge on open cells */
+.cell-pool {
+  position: absolute; bottom: 2px; right: 4px; z-index: 2;
+  font-size: 9px; font-family: Consolas, monospace; color: var(--faint);
+}
+/* keyboard cursor */
+.masu-cell.is-cursor { outline: 2px solid var(--red); outline-offset: -2px; }
+
+/* achievements */
+.ach-row { display: flex; gap: 8px; padding: 5px 10px; border-bottom: 1px solid var(--line); align-items: center; }
+.ach-row:last-child { border-bottom: none; }
+.ach-row.locked { opacity: 0.42; }
+.ach-ico {
+  flex-shrink: 0; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  color: #fff; font-size: 10px; font-weight: 900;
+}
+.ach-row.locked .ach-ico { background: linear-gradient(to bottom, #9a9a9a, #7a7a7a); border-color: #666; }
+.ach-name { font-size: 10px; font-weight: 700; }
+.ach-desc { display: block; font-size: 9px; color: var(--faint); font-weight: 400; }
+html.dark-mode .ach-row.locked .ach-ico { background: linear-gradient(to bottom, #3a3a3a, #2a2a2a); border-color: #222; }
+
+/* toast */
+.ms-toast {
+  position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
+  z-index: 200; padding: 8px 14px; max-width: min(90vw, 360px);
+  background: linear-gradient(to bottom, #2a2a2a, #161616); color: #fff;
+  border: 1px solid #000; border-top: 3px solid var(--red);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.4); font-size: 11px;
+  opacity: 1; transition: opacity 0.3s ease;
+}
+.ms-toast.hide { opacity: 0; }
+.ms-toast b { color: #ffd24a; }
+
+/* records sparkline */
+.rec-spark { padding: 6px 10px 8px; border-top: 1px solid var(--line); }
+.rec-spark svg { display: block; width: 100%; height: 34px; }
+.rec-spark-cap { font-size: 9px; color: var(--faint); margin-top: 2px; }
+
+/* hint button */
+.hint-btn {
+  margin-top: 6px; min-height: 22px; padding: 0 10px;
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  background: linear-gradient(to bottom, #fff7df, #f0e2b0); border: 1px solid #c8a840;
+}
+.hint-btn:disabled { opacity: 0.45; cursor: default; }
+.hint-btn:not(:disabled):hover { color: #7a5a00; }
+html.dark-mode .hint-btn { background: linear-gradient(to bottom, #3a3010, #2a2208); border-color: #5a4a16; color: #d6c266; }
+
 .site-footer {
   flex-shrink: 0; width: 100%;
   background: linear-gradient(to bottom, #ececea, #dcdad4);
@@ -458,6 +507,7 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
       <button class="size-btn" data-size="3">3×3</button>
       <button class="size-btn is-active" data-size="4">4×4</button>
       <button class="tool-btn" id="new-grid-btn">↻ New grid</button>
+      <button class="tool-btn" id="ch-link-btn">⧉ Challenge link</button>
     </div>
   </div>
 
@@ -479,7 +529,7 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
     </div>
     <div class="ms-right">
 
-      <div class="panel">
+      <div class="panel" id="how-panel">
         <div class="panel-header">[ How to Play ]</div>
         <div class="side-list">
           <div class="side-row"><span class="sr-num">1</span><span>Each square needs a song matching <b>both</b> its row and column.</span></div>
@@ -490,13 +540,21 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
       </div>
 
       <div class="panel">
-        <div class="panel-header">[ Records ]</div>
+        <div class="panel-header" id="hdr-records">[ Records ]</div>
         <table class="stats-table" id="records-table">
-          <tr><td>Dailies played</td><td id="rec-played">0</td></tr>
-          <tr><td>Perfect grids</td><td id="rec-perfect">0</td></tr>
-          <tr><td>Current streak</td><td id="rec-streak">0</td></tr>
-          <tr><td>Best score</td><td id="rec-best">—</td></tr>
+          <tr><td id="rec-l-played">Dailies played</td><td id="rec-played">0</td></tr>
+          <tr><td id="rec-l-perfect">Perfect grids</td><td id="rec-perfect">0</td></tr>
+          <tr><td id="rec-l-streak">Current streak</td><td id="rec-streak">0</td></tr>
+          <tr><td id="rec-l-best">Best score</td><td id="rec-best">—</td></tr>
+          <tr><td id="rec-l-avg">Avg fill</td><td id="rec-avg">—</td></tr>
+          <tr><td id="rec-l-fav">Most answered</td><td id="rec-fav" style="font-size:10px">—</td></tr>
         </table>
+        <div class="rec-spark" id="rec-spark" hidden></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header" id="hdr-ach">[ Achievements ] <span class="panel-note" id="ach-count"></span></div>
+        <div id="ach-list"></div>
       </div>
 
     </div>
@@ -515,15 +573,31 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
     <input type="search" class="guess-input" id="guess-input" autocomplete="off" placeholder="type a song title…">
     <ul class="guess-sugg" id="guess-sugg"></ul>
     <div class="guess-msg" id="guess-msg"></div>
+    <button type="button" class="hint-btn" id="hint-btn"></button>
   </div>
+</div>
+
+<div class="modal-backdrop" id="tut-backdrop" hidden></div>
+<div class="settings-modal" id="tut-modal" hidden>
+  <div class="settings-title"><span id="tut-title">[ Welcome to Masume ]</span> <button type="button" class="guess-close" id="tut-close">✕</button></div>
+  <div id="tut-body" style="font-size:11px;line-height:1.7"></div>
+  <button type="button" class="share-btn" id="tut-ok" style="width:100%">OK, let's play!</button>
 </div>
 
 <div class="modal-backdrop" id="settings-backdrop" hidden></div>
 <div class="settings-modal" id="settings-modal" hidden>
   <div class="settings-title">[ Settings ] <button type="button" class="guess-close" id="settings-close">✕</button></div>
   <div class="settings-row">
-    <div><b>Dark Mode</b><div style="font-size:10px;color:var(--faint)">Dark page and panels, like the other games.</div></div>
+    <div><b id="set-dark-label">Dark Mode</b><div style="font-size:10px;color:var(--faint)" id="set-dark-desc">Dark page and panels, like the other games.</div></div>
     <button type="button" class="settings-toggle" id="opt-dark">OFF</button>
+  </div>
+  <div class="settings-row">
+    <div><b id="set-lang-label">Language</b><div style="font-size:10px;color:var(--faint)" id="set-lang-desc">Interface language.</div></div>
+    <button type="button" class="settings-toggle" id="opt-lang">EN</button>
+  </div>
+  <div class="settings-row">
+    <div><b id="set-tut-label">Tutorial</b><div style="font-size:10px;color:var(--faint)" id="set-tut-desc">Show the intro again.</div></div>
+    <button type="button" class="settings-toggle" id="opt-tut">SHOW</button>
   </div>
 </div>
 
@@ -553,6 +627,212 @@ function normalizeGuess(s) {
   return String(s || "").normalize("NFKC").toLowerCase()
     .replace(/[ぁ-ゖ]/g, ch => String.fromCharCode(ch.charCodeAt(0) + 0x60)) // hiragana -> katakana
     .replace(/[^\p{L}\p{N}]+/gu, "");
+}
+
+/* ═══════════════ i18n ═══════════════ */
+const LANGS = ["en", "ja", "es", "ko"];
+const STR = {
+en: {
+  daily: "Daily", unlimited: "Unlimited", archive: "Archive", challenge: "Challenge",
+  score: "Score", maxPossible: "Max possible", strikes: "Strikes", giveUp: "Give up",
+  allDays: "◀ All days", confirmGiveUp: "Give up and reveal the grid?",
+  confirmLeave: "Leave this unfinished grid?",
+  needs: (a, ak, b, bk) => `Needs: <b>${a}</b> <span style="color:var(--faint)">(${ak})</span> × <b>${b}</b> <span style="color:var(--faint)">(${bk})</span>`,
+  poolFit: n => `${n} song${n !== 1 ? "s" : ""} fit this square`,
+  alreadyUsed: "Already used in another square — every song can only be used once.",
+  strikeMsg: (t, why, n, m) => `✕ ${t} ${why} — strike ${n} of ${m}.`,
+  fitsButNot: (a, b) => `fits “${a}” but not “${b}”`, fitsNeither: "fits neither criterion",
+  squaresFilled: (f, t, st) => `${f} of ${t} squares filled · ${st} strike${st !== 1 ? "s" : ""} used`,
+  flawless: " · flawless!", maxScoreLabel: (m, p) => `/ ${m} max score (${p}%)`,
+  copyShare: "Copy share text", copied: "Copied!", revealPools: "Reveal answer pools",
+  bestSolution: "Show best solution", bestFill: t => `Best possible fill — ${t} points:`,
+  newGrid: "↻ New grid", challengeLink: "⧉ Challenge link", challengeCopied: "Challenge link copied — send it to a friend!",
+  you: "You", popular: "Popular", rarest: "Rarest", unanswered: "unanswered", songsN: n => `${n} songs`,
+  hint: "💡 Hint: reveal the popular answer's producer (this square then scores 0)",
+  hintUsed: "Hint already used this grid", hintOut: p => `Hint: the most popular answer here is by <b>${p}</b>. This square now scores 0.`,
+  recPlayed: "Dailies played", recPerfect: "Perfect grids", recStreak: "Current streak",
+  recBest: "Best score", recAvg: "Avg fill", recFav: "Most answered",
+  sparkCap: "daily scores · % of max",
+  hdrHow: "[ How to Play ]", hdrRecords: "[ Records ]", hdrAch: "[ Achievements ]", hdrResult: "[ Result ]",
+  how1: "Each square needs a song matching <b>both</b> its row and column.",
+  how2: "Tap a square, type a song title, pick it from the list.",
+  how3: "Wrong answers cost a strike — you have <b>6</b>. No song can be used twice.",
+  how4: "Rarer answers score more. Obvious picks score 0, deep cuts score up to 100 per square.",
+  tutTitle: "[ Welcome to Masume ]",
+  tutBody: `<p><b>Masume マス目</b> is a daily VOCALOID knowledge grid.</p>
+    <p style="margin-top:6px">▸ Every square needs a song matching <b>both</b> its row and column criteria — tap one to answer.</p>
+    <p style="margin-top:6px">▸ Wrong guesses cost a <b>strike</b> (you have 6), and no song can be used twice.</p>
+    <p style="margin-top:6px">▸ Every square accepts many songs — the <b>rarer</b> your pick, the more it scores. Obvious hits score 0.</p>
+    <p style="margin-top:6px">▸ One shared grid per day. Come back at midnight for the next one!</p>`,
+  tutOk: "OK, let's play!",
+  archDone: "done", archProg: "in progress", archNew: "unplayed",
+  archNone: e => `No past dailies yet — the archive fills up one grid per day, starting ${e}.`,
+  resultNote: (m, d) => m === "unlimited" ? "unlimited round" : `${m} · ${d}`,
+  achUnlocked: "Achievement unlocked!",
+  settingsDark: "Dark Mode", settingsDarkDesc: "Dark page and panels, like the other games.",
+  settingsLang: "Language", settingsLangDesc: "Interface language.",
+  settingsTut: "Tutorial", settingsTutDesc: "Show the intro again.", settingsTutBtn: "SHOW",
+},
+ja: {
+  daily: "デイリー", unlimited: "無制限", archive: "アーカイブ", challenge: "チャレンジ",
+  score: "スコア", maxPossible: "最大スコア", strikes: "ストライク", giveUp: "ギブアップ",
+  allDays: "◀ 日付一覧", confirmGiveUp: "ギブアップして答えを見ますか？",
+  confirmLeave: "このグリッドを離れますか？",
+  needs: (a, ak, b, bk) => `条件: <b>${a}</b> <span style="color:var(--faint)">(${ak})</span> × <b>${b}</b> <span style="color:var(--faint)">(${bk})</span>`,
+  poolFit: n => `このマスに合う曲: ${n}曲`,
+  alreadyUsed: "他のマスで使用済みです — 同じ曲は一度しか使えません。",
+  strikeMsg: (t, why, n, m) => `✕ ${t} は${why} — ストライク ${n}/${m}`,
+  fitsButNot: (a, b) => `「${a}」には合いますが「${b}」には合いません`, fitsNeither: "どちらの条件にも合いません",
+  squaresFilled: (f, t, st) => `${f}/${t} マス正解 · ストライク ${st}`,
+  flawless: " · パーフェクト！", maxScoreLabel: (m, p) => `/ 最大 ${m} (${p}%)`,
+  copyShare: "結果をコピー", copied: "コピーしました！", revealPools: "答え一覧を見る",
+  bestSolution: "最適解を見る", bestFill: t => `理論上の最高記録 — ${t}点:`,
+  newGrid: "↻ 新しいグリッド", challengeLink: "⧉ チャレンジリンク", challengeCopied: "チャレンジリンクをコピーしました！",
+  you: "あなた", popular: "人気", rarest: "最レア", unanswered: "未回答", songsN: n => `${n}曲`,
+  hint: "💡 ヒント: 人気曲のプロデューサーを表示（このマスは0点になります）",
+  hintUsed: "ヒントは使用済みです", hintOut: p => `ヒント: このマスの人気曲のプロデューサーは <b>${p}</b> です。このマスは0点になります。`,
+  recPlayed: "プレイ日数", recPerfect: "全マス正解", recStreak: "連続日数",
+  recBest: "最高スコア", recAvg: "平均達成率", recFav: "最多回答",
+  sparkCap: "デイリースコア · 最大比%",
+  hdrHow: "[ 遊び方 ]", hdrRecords: "[ 記録 ]", hdrAch: "[ 実績 ]", hdrResult: "[ 結果 ]",
+  how1: "各マスには行と列の<b>両方</b>の条件に合う曲を入れます。",
+  how2: "マスをタップして曲名を入力し、リストから選択。",
+  how3: "間違えるとストライク（<b>6回</b>まで）。同じ曲は一度だけ。",
+  how4: "レアな曲ほど高得点。有名曲は0点、深堀りは最大100点。",
+  tutTitle: "[ Masumeへようこそ ]",
+  tutBody: `<p><b>Masume マス目</b>は毎日のVOCALOID知識グリッドです。</p>
+    <p style="margin-top:6px">▸ 各マスには行と列<b>両方</b>の条件に合う曲を入れます。</p>
+    <p style="margin-top:6px">▸ 間違えると<b>ストライク</b>（6回まで）。同じ曲は一度だけ。</p>
+    <p style="margin-top:6px">▸ <b>レア</b>な曲ほど高得点。有名曲は0点です。</p>
+    <p style="margin-top:6px">▸ グリッドは1日1問、全員共通。毎日0時に更新！</p>`,
+  tutOk: "プレイする！",
+  archDone: "クリア", archProg: "プレイ中", archNew: "未プレイ",
+  archNone: e => `まだ過去のデイリーがありません — ${e}から毎日1問ずつ増えます。`,
+  resultNote: (m, d) => m === "unlimited" ? "無制限モード" : `${m === "archive" ? "アーカイブ" : "デイリー"} · ${d}`,
+  achUnlocked: "実績を解除しました！",
+  settingsDark: "ダークモード", settingsDarkDesc: "他のゲームと同じダーク配色。",
+  settingsLang: "言語", settingsLangDesc: "表示言語。",
+  settingsTut: "チュートリアル", settingsTutDesc: "説明をもう一度表示。", settingsTutBtn: "表示",
+},
+es: {
+  daily: "Diario", unlimited: "Ilimitado", archive: "Archivo", challenge: "Desafío",
+  score: "Puntos", maxPossible: "Máximo posible", strikes: "Fallos", giveUp: "Rendirse",
+  allDays: "◀ Todos los días", confirmGiveUp: "¿Rendirse y revelar la cuadrícula?",
+  confirmLeave: "¿Salir de esta cuadrícula sin terminar?",
+  needs: (a, ak, b, bk) => `Necesita: <b>${a}</b> <span style="color:var(--faint)">(${ak})</span> × <b>${b}</b> <span style="color:var(--faint)">(${bk})</span>`,
+  poolFit: n => `${n} canciones encajan aquí`,
+  alreadyUsed: "Ya usada en otra casilla — cada canción solo puede usarse una vez.",
+  strikeMsg: (t, why, n, m) => `✕ ${t} ${why} — fallo ${n} de ${m}.`,
+  fitsButNot: (a, b) => `encaja con “${a}” pero no con “${b}”`, fitsNeither: "no encaja con ninguno",
+  squaresFilled: (f, t, st) => `${f} de ${t} casillas · ${st} fallo${st !== 1 ? "s" : ""}`,
+  flawless: " · ¡impecable!", maxScoreLabel: (m, p) => `/ ${m} máximo (${p}%)`,
+  copyShare: "Copiar resultado", copied: "¡Copiado!", revealPools: "Revelar respuestas",
+  bestSolution: "Ver la mejor solución", bestFill: t => `Mejor llenado posible — ${t} puntos:`,
+  newGrid: "↻ Nueva cuadrícula", challengeLink: "⧉ Enlace de desafío", challengeCopied: "¡Enlace copiado — envíalo a un amigo!",
+  you: "Tú", popular: "Popular", rarest: "Más rara", unanswered: "sin responder", songsN: n => `${n} canciones`,
+  hint: "💡 Pista: revela el productor de la respuesta popular (la casilla puntúa 0)",
+  hintUsed: "Pista ya usada", hintOut: p => `Pista: la respuesta más popular aquí es de <b>${p}</b>. Esta casilla ahora puntúa 0.`,
+  recPlayed: "Diarios jugados", recPerfect: "Cuadrículas perfectas", recStreak: "Racha actual",
+  recBest: "Mejor puntuación", recAvg: "Llenado medio", recFav: "Más respondido",
+  sparkCap: "puntuaciones diarias · % del máximo",
+  hdrHow: "[ Cómo jugar ]", hdrRecords: "[ Récords ]", hdrAch: "[ Logros ]", hdrResult: "[ Resultado ]",
+  how1: "Cada casilla necesita una canción que cumpla <b>ambos</b> criterios.",
+  how2: "Toca una casilla, escribe un título y elígelo de la lista.",
+  how3: "Los errores cuestan fallos — tienes <b>6</b>. Ninguna canción se repite.",
+  how4: "Las respuestas raras puntúan más: lo obvio 0, lo profundo hasta 100.",
+  tutTitle: "[ Bienvenido a Masume ]",
+  tutBody: `<p><b>Masume マス目</b> es una cuadrícula diaria de conocimiento VOCALOID.</p>
+    <p style="margin-top:6px">▸ Cada casilla necesita una canción que cumpla <b>ambos</b> criterios.</p>
+    <p style="margin-top:6px">▸ Los errores cuestan <b>fallos</b> (tienes 6). Ninguna canción se repite.</p>
+    <p style="margin-top:6px">▸ Cuanto más <b>rara</b> tu elección, más puntúa. Lo obvio vale 0.</p>
+    <p style="margin-top:6px">▸ Una cuadrícula compartida al día. ¡Vuelve a medianoche!</p>`,
+  tutOk: "¡A jugar!",
+  archDone: "completado", archProg: "en curso", archNew: "sin jugar",
+  archNone: e => `Aún no hay diarios pasados — el archivo crece un día a la vez desde ${e}.`,
+  resultNote: (m, d) => m === "unlimited" ? "ronda ilimitada" : `${m === "archive" ? "archivo" : "diario"} · ${d}`,
+  achUnlocked: "¡Logro desbloqueado!",
+  settingsDark: "Modo oscuro", settingsDarkDesc: "Colores oscuros, como los otros juegos.",
+  settingsLang: "Idioma", settingsLangDesc: "Idioma de la interfaz.",
+  settingsTut: "Tutorial", settingsTutDesc: "Mostrar la introducción otra vez.", settingsTutBtn: "VER",
+},
+ko: {
+  daily: "데일리", unlimited: "무제한", archive: "아카이브", challenge: "챌린지",
+  score: "점수", maxPossible: "최대 점수", strikes: "스트라이크", giveUp: "포기",
+  allDays: "◀ 전체 날짜", confirmGiveUp: "포기하고 정답을 볼까요?",
+  confirmLeave: "이 그리드를 떠날까요?",
+  needs: (a, ak, b, bk) => `조건: <b>${a}</b> <span style="color:var(--faint)">(${ak})</span> × <b>${b}</b> <span style="color:var(--faint)">(${bk})</span>`,
+  poolFit: n => `이 칸에 맞는 곡: ${n}곡`,
+  alreadyUsed: "다른 칸에서 이미 사용했습니다 — 같은 곡은 한 번만 쓸 수 있어요.",
+  strikeMsg: (t, why, n, m) => `✕ ${t}은(는) ${why} — 스트라이크 ${n}/${m}`,
+  fitsButNot: (a, b) => `“${a}”에는 맞지만 “${b}”에는 맞지 않습니다`, fitsNeither: "두 조건 모두 맞지 않습니다",
+  squaresFilled: (f, t, st) => `${f}/${t}칸 정답 · 스트라이크 ${st}`,
+  flawless: " · 완벽!", maxScoreLabel: (m, p) => `/ 최대 ${m} (${p}%)`,
+  copyShare: "결과 복사", copied: "복사됨!", revealPools: "정답 풀 보기",
+  bestSolution: "최적 해 보기", bestFill: t => `이론상 최고 기록 — ${t}점:`,
+  newGrid: "↻ 새 그리드", challengeLink: "⧉ 챌린지 링크", challengeCopied: "챌린지 링크 복사됨 — 친구에게 보내세요!",
+  you: "나", popular: "인기", rarest: "최고 레어", unanswered: "미응답", songsN: n => `${n}곡`,
+  hint: "💡 힌트: 인기 답변의 프로듀서 공개 (이 칸은 0점이 됩니다)",
+  hintUsed: "힌트를 이미 사용했습니다", hintOut: p => `힌트: 이 칸의 인기곡 프로듀서는 <b>${p}</b>입니다. 이 칸은 0점이 됩니다.`,
+  recPlayed: "플레이한 데일리", recPerfect: "퍼펙트 그리드", recStreak: "연속 기록",
+  recBest: "최고 점수", recAvg: "평균 달성률", recFav: "최다 응답",
+  sparkCap: "데일리 점수 · 최대 대비 %",
+  hdrHow: "[ 게임 방법 ]", hdrRecords: "[ 기록 ]", hdrAch: "[ 업적 ]", hdrResult: "[ 결과 ]",
+  how1: "각 칸에는 행과 열 <b>양쪽</b> 조건에 맞는 곡을 넣습니다.",
+  how2: "칸을 탭하고 곡명을 입력해 목록에서 선택하세요.",
+  how3: "오답은 스트라이크 — <b>6번</b>까지. 같은 곡은 한 번만.",
+  how4: "레어한 답일수록 고득점. 유명곡은 0점, 딥컷은 최대 100점.",
+  tutTitle: "[ Masume에 오신 것을 환영합니다 ]",
+  tutBody: `<p><b>Masume マス目</b>는 매일의 VOCALOID 지식 그리드입니다.</p>
+    <p style="margin-top:6px">▸ 각 칸에는 행과 열 <b>양쪽</b> 조건에 맞는 곡을 넣습니다.</p>
+    <p style="margin-top:6px">▸ 오답은 <b>스트라이크</b> (6번까지). 같은 곡은 한 번만.</p>
+    <p style="margin-top:6px">▸ <b>레어</b>한 선택일수록 높은 점수. 유명곡은 0점.</p>
+    <p style="margin-top:6px">▸ 하루에 하나, 모두 같은 그리드. 자정에 갱신!</p>`,
+  tutOk: "플레이!",
+  archDone: "완료", archProg: "진행 중", archNew: "미플레이",
+  archNone: e => `아직 지난 데일리가 없습니다 — ${e}부터 하루에 하나씩 쌓입니다.`,
+  resultNote: (m, d) => m === "unlimited" ? "무제한 라운드" : `${m === "archive" ? "아카이브" : "데일리"} · ${d}`,
+  achUnlocked: "업적 달성!",
+  settingsDark: "다크 모드", settingsDarkDesc: "다른 게임과 같은 어두운 배색.",
+  settingsLang: "언어", settingsLangDesc: "인터페이스 언어.",
+  settingsTut: "튜토리얼", settingsTutDesc: "소개를 다시 봅니다.", settingsTutBtn: "보기",
+},
+};
+let LANG = LANGS.includes(localStorage.getItem("masume_lang")) ? localStorage.getItem("masume_lang") : "en";
+function t(key, ...args) {
+  const v = (STR[LANG] && STR[LANG][key]) != null ? STR[LANG][key] : STR.en[key];
+  return typeof v === "function" ? v(...args) : v;
+}
+function applyStatic() {
+  $("hdr-records").textContent = t("hdrRecords");
+  $("hdr-ach").firstChild.textContent = t("hdrAch") + " ";
+  document.querySelector("#how-panel .panel-header").textContent = t("hdrHow");
+  ["how1","how2","how3","how4"].forEach((k, i) => {
+    const el = document.querySelectorAll("#how-panel .side-row span:last-child")[i];
+    if (el) el.innerHTML = t(k);
+  });
+  $("rec-l-played").textContent = t("recPlayed");
+  $("rec-l-perfect").textContent = t("recPerfect");
+  $("rec-l-streak").textContent = t("recStreak");
+  $("rec-l-best").textContent = t("recBest");
+  $("rec-l-avg").textContent = t("recAvg");
+  $("rec-l-fav").textContent = t("recFav");
+  $("set-dark-label").textContent = t("settingsDark");
+  $("set-dark-desc").textContent = t("settingsDarkDesc");
+  $("set-lang-label").textContent = t("settingsLang");
+  $("set-lang-desc").textContent = t("settingsLangDesc");
+  $("set-tut-label").textContent = t("settingsTut");
+  $("set-tut-desc").textContent = t("settingsTutDesc");
+  $("opt-tut").textContent = t("settingsTutBtn");
+  $("opt-lang").textContent = LANG.toUpperCase();
+  $("tut-title").textContent = t("tutTitle");
+  $("tut-body").innerHTML = t("tutBody");
+  $("tut-ok").textContent = t("tutOk");
+  document.querySelector('[data-mode="daily"]').textContent = t("daily");
+  document.querySelector('[data-mode="unlimited"]').textContent = t("unlimited");
+  document.querySelector('[data-mode="archive"]').textContent = t("archive");
+  $("new-grid-btn").textContent = t("newGrid");
+  $("ch-link-btn").textContent = t("challengeLink");
+  $("result-panel").querySelector(".panel-header").firstChild.textContent = t("hdrResult") + " ";
 }
 
 /* ═══════════════ data ═══════════════ */
@@ -740,7 +1020,10 @@ const state = {
   strikes: 0,
   done: false,
   activeCell: null,        // [rIdx, cIdx] into grid.rows/cols
-  seed: null,
+  cursor: [0, 0],          // keyboard cursor
+  hinted: {},              // "r,c" -> true (square scores 0)
+  hintUsed: false,
+  chSeed: null,            // unlimited challenge seed (from URL or generated)
 };
 
 const dailyStorageKey = () => `masume_daily_${state.dateKey}`;
@@ -749,6 +1032,7 @@ function saveDaily() {
   try {
     localStorage.setItem(dailyStorageKey(), JSON.stringify({
       answers: state.answers, strikes: state.strikes, done: state.done,
+      hinted: state.hinted, hintUsed: state.hintUsed,
     }));
   } catch (e) {}
 }
@@ -771,6 +1055,7 @@ function recordDailyFinish(score) {
   const yesterday = new Date(Date.now() - 864e5);
   const yKey = `${yesterday.getFullYear()}-${String(yesterday.getMonth()+1).padStart(2,"0")}-${String(yesterday.getDate()).padStart(2,"0")}`;
   st.streak = st.lastDay === yKey ? st.streak + 1 : 1;
+  if (st.streak >= 7) unlockAch("streak_7");
   st.best = Math.max(st.best, score);
   st.lastDay = today;
   saveStats(st);
@@ -783,6 +1068,93 @@ function renderRecords() {
   $("rec-perfect").textContent = st.perfect;
   $("rec-streak").textContent = st.streak;
   $("rec-best").textContent = st.best || "—";
+  const h = loadHist();
+  $("rec-avg").textContent = h.length ? Math.round(h.reduce((a, e) => a + e.f / e.t, 0) / h.length * 100) + "%" : "—";
+  $("rec-fav").textContent = favProducer() || "—";
+}
+
+/* ═══════════════ achievements ═══════════════ */
+const ACH = [
+  { id: "first_fill",  ico: "1",  en: ["First Square", "Answer your first square."], ja: ["最初のマス", "初めてマスに正解する。"], es: ["Primera casilla", "Responde tu primera casilla."], ko: ["첫 칸", "첫 칸에 정답을 넣으세요."] },
+  { id: "first_clear", ico: "16", en: ["Grid Complete", "Fill an entire grid."], ja: ["グリッド完成", "グリッドを全マス埋める。"], es: ["Cuadrícula completa", "Llena una cuadrícula entera."], ko: ["그리드 완성", "그리드를 모두 채우세요."] },
+  { id: "flawless",    ico: "◎",  en: ["Flawless", "Complete a grid with zero strikes."], ja: ["パーフェクト", "ストライク0でクリアする。"], es: ["Impecable", "Completa sin fallos."], ko: ["무결점", "스트라이크 0으로 완성하세요."] },
+  { id: "half_max",    ico: "50", en: ["Deep Diver", "Finish with at least half the max score."], ja: ["深掘り名人", "最大スコアの半分以上で終える。"], es: ["Buceador", "Termina con al menos la mitad del máximo."], ko: ["딥 다이버", "최대 점수의 절반 이상으로 끝내세요."] },
+  { id: "deep_cut",    ico: "100",en: ["Deepest Cut", "Answer a square with its rarest valid song."], ja: ["最深部", "そのマスで最もレアな曲で正解する。"], es: ["Corte profundo", "Responde con la canción más rara de la casilla."], ko: ["최고 레어", "그 칸에서 가장 레어한 곡으로 정답."] },
+  { id: "tiny_pool",   ico: "≤6", en: ["Needle Threader", "Correctly fill a square with 6 or fewer valid songs."], ja: ["針の穴", "候補6曲以下のマスに正解する。"], es: ["Aguja enhebrada", "Acierta una casilla con 6 o menos canciones válidas."], ko: ["바늘구멍", "정답 후보 6곡 이하인 칸을 맞히세요."] },
+  { id: "streak_7",    ico: "7",  en: ["One Week", "Keep a 7-day daily streak."], ja: ["一週間", "デイリーを7日連続でプレイする。"], es: ["Una semana", "Mantén una racha de 7 días."], ko: ["일주일", "7일 연속 데일리를 플레이하세요."] },
+  { id: "archive_5",   ico: "旧", en: ["Historian", "Complete 5 archive days."], ja: ["歴史家", "アーカイブを5日分クリアする。"], es: ["Historiador", "Completa 5 días del archivo."], ko: ["역사가", "아카이브 5일을 완료하세요."] },
+  { id: "challenger",  ico: "⚔",  en: ["Challenger", "Finish a grid from a challenge link."], ja: ["挑戦者", "チャレンジリンクのグリッドを完了する。"], es: ["Retador", "Termina una cuadrícula de un enlace de desafío."], ko: ["도전자", "챌린지 링크 그리드를 완료하세요."] },
+];
+function loadAch() { try { return JSON.parse(localStorage.getItem("masume_ach")) || {}; } catch (e) { return {}; } }
+function saveAch(a) { try { localStorage.setItem("masume_ach", JSON.stringify(a)); } catch (e) {} }
+function unlockAch(id) {
+  const a = loadAch();
+  if (a[id]) return;
+  a[id] = true;
+  saveAch(a);
+  const def = ACH.find(x => x.id === id);
+  const [name] = def[LANG] || def.en;
+  toast(`🏆 <b>${escHtml(name)}</b> — ${escHtml(t("achUnlocked"))}`);
+  renderAchievements();
+}
+function renderAchievements() {
+  const a = loadAch();
+  const n = ACH.filter(x => a[x.id]).length;
+  $("ach-count").textContent = `${n} / ${ACH.length}`;
+  $("ach-list").innerHTML = ACH.map(x => {
+    const [name, desc] = x[LANG] || x.en;
+    return `<div class="ach-row${a[x.id] ? "" : " locked"}">
+      <span class="ach-ico">${escHtml(x.ico)}</span>
+      <span><span class="ach-name">${escHtml(name)}</span><span class="ach-desc">${escHtml(desc)}</span></span>
+    </div>`;
+  }).join("");
+}
+let toastTimer = null;
+function toast(html) {
+  document.querySelectorAll(".ms-toast").forEach(el => el.remove());
+  const el = document.createElement("div");
+  el.className = "ms-toast";
+  el.innerHTML = html;
+  document.body.appendChild(el);
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.classList.add("hide"); setTimeout(() => el.remove(), 400); }, 3200);
+}
+
+/* ═══════════════ stats depth ═══════════════ */
+function loadHist() { try { return JSON.parse(localStorage.getItem("masume_hist")) || []; } catch (e) { return []; } }
+function pushHist(entry) {
+  const h = loadHist();
+  h.push(entry);
+  try { localStorage.setItem("masume_hist", JSON.stringify(h.slice(-90))); } catch (e) {}
+}
+function bumpProducer(song) {
+  const p = (song.producerNames || [])[0] || song.artist;
+  if (!p) return;
+  let m = {};
+  try { m = JSON.parse(localStorage.getItem("masume_prods")) || {}; } catch (e) {}
+  m[p] = (m[p] || 0) + 1;
+  try { localStorage.setItem("masume_prods", JSON.stringify(m)); } catch (e) {}
+}
+function favProducer() {
+  let m = {};
+  try { m = JSON.parse(localStorage.getItem("masume_prods")) || {}; } catch (e) {}
+  const top = Object.entries(m).sort((a, b) => b[1] - a[1])[0];
+  return top ? `${top[0]} ×${top[1]}` : null;
+}
+function renderSpark() {
+  const h = loadHist();
+  const box = $("rec-spark");
+  if (h.length < 2) { box.hidden = true; return; }
+  box.hidden = false;
+  const W = 200, H = 30;
+  const pts = h.slice(-14).map((e, i, arr) => {
+    const x = arr.length === 1 ? W / 2 : i * (W / (arr.length - 1));
+    const pct = e.m ? Math.min(1, e.s / e.m) : 0;
+    return `${x.toFixed(1)},${(H - 2 - pct * (H - 4)).toFixed(1)}`;
+  });
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+    <polyline points="${pts.join(" ")}" fill="none" stroke="#cc0000" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline>
+  </svg><div class="rec-spark-cap">${escHtml(t("sparkCap"))}</div>`;
 }
 
 /* ═══════════════ grid setup ═══════════════ */
@@ -799,34 +1171,43 @@ function archiveDates() {
 
 function renderArchiveList() {
   const days = archiveDates();
-  $("status-strip").innerHTML = `<div class="st-cell"><span class="st-k">Archive</span><span class="st-v">${days.length} day${days.length !== 1 ? "s" : ""}</span></div>`;
+  $("status-strip").innerHTML = `<div class="st-cell"><span class="st-k">${t("archive")}</span><span class="st-v">${days.length}</span></div>`;
   $("result-panel").hidden = true;
   if (!days.length) {
-    $("grid-wrap").innerHTML = `<div class="loading-state">No past dailies yet — the archive fills up one grid per day, starting ${EPOCH}.</div>`;
+    $("grid-wrap").innerHTML = `<div class="loading-state">${t("archNone", EPOCH)}</div>`;
     return;
   }
   $("grid-wrap").innerHTML = `<div class="arch-list">` + days.map(day => {
     let saved = null;
     try { saved = JSON.parse(localStorage.getItem(`masume_daily_${day}`)); } catch (e) {}
     const status = saved && saved.done
-      ? `<span class="ad-score">done</span>`
-      : saved && Object.keys(saved.answers || {}).length ? "in progress" : "unplayed";
+      ? `<span class="ad-score">${t("archDone")}</span>`
+      : saved && Object.keys(saved.answers || {}).length ? t("archProg") : t("archNew");
     return `<button type="button" class="arch-day" data-day="${day}"><b>${day}</b>${status}</button>`;
   }).join("") + `</div>`;
   $("grid-wrap").querySelectorAll("[data-day]").forEach(b =>
     b.addEventListener("click", () => { state.dateKey = b.dataset.day; startGame(); }));
 }
 
-function startGame() {
+function startGame(keepSeed) {
   state.answers = {}; state.rarity = {}; state.strikes = 0; state.done = false; state.activeCell = null;
+  state.hinted = {}; state.hintUsed = false; state.cursor = [0, 0];
   $("mode-tools").hidden = state.mode !== "unlimited";
   if (state.mode === "daily") state.dateKey = todayKey();
   if (state.mode === "unlimited") state.dateKey = null;
   if (state.mode === "archive" && !state.dateKey) { renderArchiveList(); return; }
 
   const size = state.mode === "unlimited" ? state.size : 4;
+  if (state.mode === "unlimited") {
+    // every unlimited grid has a shareable seed; ?seed=… reproduces it exactly
+    if (!keepSeed || !state.chSeed) state.chSeed = Math.random().toString(36).slice(2, 8);
+    try { history.replaceState(null, "", `?seed=${state.chSeed}&size=${size}`); } catch (e) {}
+  } else {
+    state.chSeed = null;
+    try { history.replaceState(null, "", location.pathname); } catch (e) {}
+  }
   const seedStr = state.mode === "unlimited"
-    ? `masume-free-${Date.now()}-${Math.random()}`
+    ? `masume-ch-${state.chSeed}-${size}`
     : `masume-daily-${state.dateKey}`;
   const rnd = mulberry32(seedFromString(seedStr));
   state.grid = generateGrid(size, rnd);
@@ -838,9 +1219,11 @@ function startGame() {
       state.answers = saved.answers || {};
       state.strikes = saved.strikes || 0;
       state.done = !!saved.done;
+      state.hinted = saved.hinted || {};
+      state.hintUsed = !!saved.hintUsed;
       for (const [key, id] of Object.entries(state.answers)) {
         const [ri, ci] = key.split(",").map(Number);
-        state.rarity[key] = rarityOf(cellPool(state.grid.rows[ri], state.grid.cols[ci]), id);
+        state.rarity[key] = state.hinted[key] ? 0 : rarityOf(cellPool(state.grid.rows[ri], state.grid.cols[ci]), id);
       }
     }
   }
@@ -866,17 +1249,17 @@ function renderStatus() {
   const boxes = Array.from({ length: MAX_STRIKES }, (_, i) =>
     `<span class="strike-box${i < state.strikes ? " used" : ""}"></span>`).join("");
   $("status-strip").innerHTML = `
-    <div class="st-cell"><span class="st-k">${state.mode === "unlimited" ? "Unlimited" : (state.mode === "archive" ? "Archive · " : "Daily · ") + state.dateKey}</span><span class="st-v">${filled} / ${total}</span></div>
-    <div class="st-cell"><span class="st-k">Score</span><span class="st-v is-red">${currentScore()}</span></div>
-    <div class="st-cell"><span class="st-k">Max possible</span><span class="st-v" style="color:var(--faint)">${maxScore(state.grid)}</span></div>
-    <div class="st-cell"><span class="st-k">Strikes</span><span class="st-v"><span class="strike-boxes">${boxes}</span></span></div>
+    <div class="st-cell"><span class="st-k">${state.mode === "unlimited" ? (state.chSeed ? t("challenge") + " " + state.chSeed : t("unlimited")) : (state.mode === "archive" ? t("archive") + " · " : t("daily") + " · ") + state.dateKey}</span><span class="st-v">${filled} / ${total}</span></div>
+    <div class="st-cell"><span class="st-k">${t("score")}</span><span class="st-v is-red">${currentScore()}</span></div>
+    <div class="st-cell"><span class="st-k">${t("maxPossible")}</span><span class="st-v" style="color:var(--faint)">${maxScore(state.grid)}</span></div>
+    <div class="st-cell"><span class="st-k">${t("strikes")}</span><span class="st-v"><span class="strike-boxes">${boxes}</span></span></div>
     <div class="st-cell" style="margin-left:auto;border-right:none;justify-content:center;flex-direction:row;gap:6px;align-items:center">
-      ${state.mode === "archive" ? `<button type="button" class="reveal-btn" style="margin:0" id="arch-back-btn">◀ All days</button>` : ""}
-      ${!state.done ? `<button type="button" class="reveal-btn" style="margin:0" id="giveup-btn">Give up</button>` : ""}
+      ${state.mode === "archive" ? `<button type="button" class="reveal-btn" style="margin:0" id="arch-back-btn">${t("allDays")}</button>` : ""}
+      ${!state.done ? `<button type="button" class="reveal-btn" style="margin:0" id="giveup-btn">${t("giveUp")}</button>` : ""}
     </div>
   `;
   const gu = $("giveup-btn");
-  if (gu) gu.addEventListener("click", () => { if (confirm("Give up and reveal the grid?")) finishGame(false); });
+  if (gu) gu.addEventListener("click", () => { if (confirm(t("confirmGiveUp"))) finishGame(false); });
   const ab = $("arch-back-btn");
   if (ab) ab.addEventListener("click", () => { saveDaily(); state.dateKey = null; renderArchiveList(); });
 }
@@ -900,7 +1283,7 @@ function renderGrid() {
         const song = SONG_BY_ID.get(id);
         const t = thumbUrl(song);
         const rar = state.rarity[key];
-        html += `<div class="masu-cell correct" title="${escHtml(song.title)} — rarity ${rar}">
+        html += `<div class="masu-cell correct" data-r="${ri}" data-c="${ci}" title="${escHtml(song.title)} — rarity ${rar}">
           <div class="cell-fill">
             ${t ? `<div class="cell-thumb"><img src="${escHtml(t)}" alt="" referrerpolicy="no-referrer" loading="lazy" onerror="this.remove()"></div>` : ""}
             <span class="cell-rarity${rar >= 70 ? " r-hi" : ""}">${rar}</span>
@@ -910,7 +1293,7 @@ function renderGrid() {
       } else if (state.done) {
         html += `<div class="masu-cell dead" data-r="${ri}" data-c="${ci}" title="Unfilled"></div>`;
       } else {
-        html += `<button type="button" class="masu-cell open" data-r="${ri}" data-c="${ci}" aria-label="Answer ${escHtml(CRITS[r].name)} × ${escHtml(CRITS[c].name)}"></button>`;
+        html += `<button type="button" class="masu-cell open" data-r="${ri}" data-c="${ci}" aria-label="Answer ${escHtml(CRITS[r].name)} × ${escHtml(CRITS[c].name)}"><span class="cell-pool">${MATRIX[r][c]}</span></button>`;
       }
     });
   });
@@ -918,7 +1301,35 @@ function renderGrid() {
   $("grid-wrap").innerHTML = html;
   $("grid-wrap").querySelectorAll(".masu-cell.open").forEach(el =>
     el.addEventListener("click", () => openGuess(+el.dataset.r, +el.dataset.c)));
+  syncCursor();
 }
+
+/* keyboard: arrows move the cursor, Enter opens the square */
+function syncCursor() {
+  document.querySelectorAll(".masu-cell").forEach(el => {
+    el.classList.toggle("is-cursor",
+      +el.dataset.r === state.cursor[0] && +el.dataset.c === state.cursor[1] && el.dataset.r != null);
+  });
+}
+document.addEventListener("keydown", e => {
+  if (!state.grid || state.done) return;
+  if (!$("guess-modal").hidden || !$("settings-modal").hidden || !$("tut-modal").hidden) return;
+  if (document.activeElement && /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;
+  const n = state.grid.cols.length, m = state.grid.rows.length;
+  let [r, c] = state.cursor, moved = false;
+  if (e.key === "ArrowUp") { r = (r - 1 + m) % m; moved = true; }
+  else if (e.key === "ArrowDown") { r = (r + 1) % m; moved = true; }
+  else if (e.key === "ArrowLeft") { c = (c - 1 + n) % n; moved = true; }
+  else if (e.key === "ArrowRight") { c = (c + 1) % n; moved = true; }
+  else if (e.key === "Enter") {
+    const el = document.querySelector(`.masu-cell.open[data-r="${r}"][data-c="${c}"]`);
+    if (el) { e.preventDefault(); openGuess(r, c); }
+    return;
+  } else return;
+  e.preventDefault();
+  state.cursor = [r, c];
+  syncCursor();
+});
 
 /* ═══════════════ guessing ═══════════════ */
 let suggIds = [], suggActive = -1;
@@ -929,8 +1340,11 @@ function openGuess(ri, ci) {
   $("guess-heading").textContent = `[ Square ${ri + 1}-${ci + 1} ]`;
   const poolN = cellPool(r, c).length;
   $("guess-crits").innerHTML =
-    `Needs: <b>${escHtml(CRITS[r].name)}</b> <span style="color:var(--faint)">(${CRITS[r].kindLabel})</span> × <b>${escHtml(CRITS[c].name)}</b> <span style="color:var(--faint)">(${CRITS[c].kindLabel})</span>
-     <div style="margin-top:2px;font-size:10px;color:var(--faint)">${poolN} song${poolN !== 1 ? "s" : ""} fit this square</div>`;
+    t("needs", escHtml(CRITS[r].name), CRITS[r].kindLabel, escHtml(CRITS[c].name), CRITS[c].kindLabel) +
+    `<div style="margin-top:2px;font-size:10px;color:var(--faint)">${t("poolFit", poolN)}</div>`;
+  const hb = $("hint-btn");
+  hb.textContent = state.hintUsed ? t("hintUsed") : t("hint");
+  hb.disabled = state.hintUsed;
   $("guess-input").value = "";
   $("guess-sugg").innerHTML = "";
   $("guess-msg").textContent = "";
@@ -979,13 +1393,18 @@ function submitGuess(id) {
   const key = `${ri},${ci}`;
   const r = state.grid.rows[ri], c = state.grid.cols[ci];
   if (Object.values(state.answers).includes(id)) {
-    $("guess-msg").textContent = "Already used in another square — every song can only be used once.";
+    $("guess-msg").textContent = t("alreadyUsed");
     return;
   }
   const fits = CRITS[r].set.has(id) && CRITS[c].set.has(id);
   if (fits) {
+    const pool = cellPool(r, c);
     state.answers[key] = id;
-    state.rarity[key] = rarityOf(cellPool(r, c), id);
+    state.rarity[key] = state.hinted[key] ? 0 : rarityOf(pool, id);
+    bumpProducer(SONG_BY_ID.get(id));
+    unlockAch("first_fill");
+    if (!state.hinted[key] && rarityOf(pool, id) === 100) unlockAch("deep_cut");
+    if (pool.length <= 6) unlockAch("tiny_pool");
     closeGuess();
     const total = state.grid.rows.length * state.grid.cols.length;
     if (Object.keys(state.answers).length === total) { finishGame(true); return; }
@@ -995,11 +1414,11 @@ function submitGuess(id) {
     state.strikes++;
     const song = SONG_BY_ID.get(id);
     const fitsRow = CRITS[r].set.has(id), fitsCol = CRITS[c].set.has(id);
-    const why = fitsRow ? `fits “${CRITS[r].name}” but not “${CRITS[c].name}”`
-      : fitsCol ? `fits “${CRITS[c].name}” but not “${CRITS[r].name}”`
-      : `fits neither criterion`;
+    const why = fitsRow ? t("fitsButNot", CRITS[r].name, CRITS[c].name)
+      : fitsCol ? t("fitsButNot", CRITS[c].name, CRITS[r].name)
+      : t("fitsNeither");
     if (state.strikes >= MAX_STRIKES) { closeGuess(); finishGame(false); return; }
-    $("guess-msg").textContent = `✕ ${song ? song.title : "That song"} ${why} — strike ${state.strikes} of ${MAX_STRIKES}.`;
+    $("guess-msg").textContent = t("strikeMsg", song ? song.title : "?", why, state.strikes, MAX_STRIKES);
     saveDaily();
     renderStatus();
   }
@@ -1009,8 +1428,27 @@ function submitGuess(id) {
 function finishGame(completed) {
   state.done = true;
   saveDaily();
-  const score = currentScore();
-  if (state.mode === "daily") recordDailyFinish(score);
+  const score = currentScore(), max = maxScore(state.grid);
+  const total = state.grid.rows.length * state.grid.cols.length;
+  const filled = Object.keys(state.answers).length;
+  if (filled === total) {
+    unlockAch("first_clear");
+    if (state.strikes === 0) unlockAch("flawless");
+    if (max && score >= max / 2) unlockAch("half_max");
+    if (state.chSeed) unlockAch("challenger");
+  }
+  if (state.mode === "daily") {
+    recordDailyFinish(score);
+    pushHist({ d: state.dateKey, f: filled, t: total, s: score, m: max });
+    renderSpark();
+  }
+  if (state.mode === "archive") {
+    let doneCount = 0;
+    for (const day of archiveDates()) {
+      try { const sv = JSON.parse(localStorage.getItem(`masume_daily_${day}`)); if (sv && sv.done) doneCount++; } catch (e) {}
+    }
+    if (doneCount >= 5) unlockAch("archive_5");
+  }
   renderAll();
 }
 
@@ -1028,8 +1466,12 @@ function shareText() {
   });
   const filled = Object.keys(state.answers).length;
   const head = state.mode === "daily" ? `Masume #${Math.max(1, dayNum)}`
-    : state.mode === "archive" ? `Masume ${state.dateKey} (archive)` : "Masume (unlimited)";
-  return `${head} · ${filled}/${n * n} · score ${currentScore()}/${maxScore(state.grid)}\n${art}https://vocaloidle.sodapines.dev/masume/`;
+    : state.mode === "archive" ? `Masume ${state.dateKey} (archive)`
+    : `Masume challenge ${state.chSeed}`;
+  const url = state.mode === "unlimited" && state.chSeed
+    ? `https://vocaloidle.sodapines.dev/masume/?seed=${state.chSeed}&size=${n}`
+    : "https://vocaloidle.sodapines.dev/masume/";
+  return `${head} · ${filled}/${n * n} · score ${currentScore()}/${maxScore(state.grid)}\n${art}${url}`;
 }
 
 function renderResult() {
@@ -1039,29 +1481,30 @@ function renderResult() {
   const total = state.grid.rows.length * state.grid.cols.length;
   const filled = Object.keys(state.answers).length;
   const score = currentScore(), max = maxScore(state.grid);
-  $("result-note").textContent = state.mode === "unlimited" ? "unlimited round"
-    : `${state.mode} · ${state.dateKey}`;
+  $("result-note").textContent = t("resultNote", state.mode, state.dateKey);
   const pct = max ? Math.round(score / max * 100) : 0;
   $("result-body").innerHTML = `
-    <div><span class="result-score">${score}</span> <span class="result-max">/ ${max} max score (${pct}%)</span></div>
-    <div class="result-line">${filled} of ${total} squares filled · ${state.strikes} strike${state.strikes !== 1 ? "s" : ""} used${filled === total && state.strikes === 0 ? " · flawless!" : ""}</div>
-    <button type="button" class="share-btn" id="share-btn">Copy share text</button>
-    <button type="button" class="reveal-btn" id="reveal-btn">Reveal answer pools</button>
-    ${state.mode === "archive" ? `<button type="button" class="reveal-btn" id="best-btn">Show best solution</button>` : ""}
-    ${state.mode === "unlimited" ? `<button type="button" class="new-grid-btn" id="result-new">↻ New grid</button>` : ""}
+    <div><span class="result-score">${score}</span> <span class="result-max">${t("maxScoreLabel", max, pct)}</span></div>
+    <div class="result-line">${t("squaresFilled", filled, total, state.strikes)}${filled === total && state.strikes === 0 ? t("flawless") : ""}</div>
+    <button type="button" class="share-btn" id="share-btn">${t("copyShare")}</button>
+    <button type="button" class="reveal-btn" id="reveal-btn">${t("revealPools")}</button>
+    ${state.mode === "archive" ? `<button type="button" class="reveal-btn" id="best-btn">${t("bestSolution")}</button>` : ""}
+    ${state.mode === "unlimited" ? `<button type="button" class="reveal-btn" id="result-ch">${t("challengeLink")}</button><button type="button" class="new-grid-btn" id="result-new">${t("newGrid")}</button>` : ""}
     <div id="reveal-box"></div>
     <div id="best-box"></div>
   `;
   $("share-btn").addEventListener("click", () => {
     navigator.clipboard.writeText(shareText()).then(
-      () => { $("share-btn").textContent = "Copied!"; setTimeout(() => $("share-btn").textContent = "Copy share text", 1500); },
-      () => prompt("Copy your result:", shareText()));
+      () => { $("share-btn").textContent = t("copied"); setTimeout(() => $("share-btn").textContent = t("copyShare"), 1500); },
+      () => prompt("Copy:", shareText()));
   });
+  const rc = $("result-ch");
+  if (rc) rc.addEventListener("click", copyChallengeLink);
   $("reveal-btn").addEventListener("click", renderReveal);
   const bb = $("best-btn");
   if (bb) bb.addEventListener("click", renderBestSolution);
   const rn = $("result-new");
-  if (rn) rn.addEventListener("click", startGame);
+  if (rn) rn.addEventListener("click", () => startGame());
 }
 
 /* The optimal fill: rarest available answer per cell, smallest pools first.
@@ -1087,7 +1530,7 @@ function bestSolution(grid) {
 function renderBestSolution() {
   const picks = bestSolution(state.grid);
   const total = picks.reduce((a, p) => a + p.score, 0);
-  let html = `<div style="margin-top:10px;font-size:11px"><b>Best possible fill — ${total} points:</b>`;
+  let html = `<div style="margin-top:10px;font-size:11px"><b>${t("bestFill", total)}</b>`;
   for (const p of picks) {
     html += `<div style="padding:3px 0;border-bottom:1px dotted var(--line)">
       <span style="color:var(--faint)">${escHtml(CRITS[p.r].name)} × ${escHtml(CRITS[p.c].name)}:</span>
@@ -1110,13 +1553,13 @@ function renderReveal() {
       const rare = escHtml(SONG_BY_ID.get(pool[pool.length - 1]).title);
       const yours = state.answers[key]
         ? `<span class="rv-you">${escHtml(SONG_BY_ID.get(state.answers[key]).title)} <span class="rv-score">(${state.rarity[key]})</span></span>`
-        : `<span class="rv-miss">unanswered</span>`;
+        : `<span class="rv-miss">${t("unanswered")}</span>`;
       cards += `<div class="rv-card">
-        <div class="rv-head"><span>${escHtml(CRITS[r].name)} × ${escHtml(CRITS[c].name)}</span><span class="rv-n">${pool.length} songs</span></div>
+        <div class="rv-head"><span>${escHtml(CRITS[r].name)} × ${escHtml(CRITS[c].name)}</span><span class="rv-n">${t("songsN", pool.length)}</span></div>
         <div class="rv-body">
-          <div class="rv-row"><span class="rv-k">You</span><span class="rv-v">${yours}</span></div>
-          <div class="rv-row"><span class="rv-k">Popular</span><span class="rv-v">${popular}</span></div>
-          <div class="rv-row"><span class="rv-k">Rarest</span><span class="rv-v">${rare}</span></div>
+          <div class="rv-row"><span class="rv-k">${t("you")}</span><span class="rv-v">${yours}</span></div>
+          <div class="rv-row"><span class="rv-k">${t("popular")}</span><span class="rv-v">${popular}</span></div>
+          <div class="rv-row"><span class="rv-k">${t("rarest")}</span><span class="rv-v">${rare}</span></div>
         </div>
       </div>`;
     });
@@ -1135,10 +1578,24 @@ $("guess-input").addEventListener("keydown", e => {
 });
 $("guess-close").addEventListener("click", closeGuess);
 $("guess-backdrop").addEventListener("click", closeGuess);
+$("hint-btn").addEventListener("click", () => {
+  if (state.hintUsed || !state.activeCell) return;
+  const [ri, ci] = state.activeCell;
+  const key = `${ri},${ci}`;
+  const pool = cellPool(state.grid.rows[ri], state.grid.cols[ci]);
+  const top = SONG_BY_ID.get(pool[0]);
+  const prod = (top.producerNames || [])[0] || top.artist || "?";
+  state.hintUsed = true;
+  state.hinted[key] = true;
+  $("guess-msg").innerHTML = t("hintOut", escHtml(prod));
+  $("hint-btn").disabled = true;
+  $("hint-btn").textContent = t("hintUsed");
+  saveDaily();
+});
 
 document.querySelectorAll("[data-mode]").forEach(btn => btn.addEventListener("click", () => {
   if (btn.dataset.mode === state.mode) return;
-  if (state.mode === "unlimited" && !state.done && Object.keys(state.answers).length && !confirm("Leave this unlimited grid?")) return;
+  if (state.mode === "unlimited" && !state.done && Object.keys(state.answers).length && !confirm(t("confirmLeave"))) return;
   state.mode = btn.dataset.mode;
   state.dateKey = null;
   document.querySelectorAll("[data-mode]").forEach(b => b.classList.toggle("is-active", b === btn));
@@ -1150,9 +1607,15 @@ document.querySelectorAll("[data-size]").forEach(btn => btn.addEventListener("cl
   startGame();
 }));
 $("new-grid-btn").addEventListener("click", () => {
-  if (!state.done && Object.keys(state.answers).length && !confirm("Abandon this grid and start a new one?")) return;
+  if (!state.done && Object.keys(state.answers).length && !confirm(t("confirmLeave"))) return;
   startGame();
 });
+function copyChallengeLink() {
+  if (!state.chSeed) return;
+  const url = `${location.origin}${location.pathname}?seed=${state.chSeed}&size=${state.grid.cols.length}`;
+  navigator.clipboard.writeText(url).then(() => toast(escHtml(t("challengeCopied"))), () => prompt("Copy:", url));
+}
+$("ch-link-btn").addEventListener("click", copyChallengeLink);
 
 /* settings */
 (function () {
@@ -1171,7 +1634,31 @@ $("new-grid-btn").addEventListener("click", () => {
     try { localStorage.setItem("masume_dark", on ? "1" : "0"); } catch (e) {}
     sync();
   });
+  $("opt-lang").addEventListener("click", () => {
+    LANG = LANGS[(LANGS.indexOf(LANG) + 1) % LANGS.length];
+    try { localStorage.setItem("masume_lang", LANG); } catch (e) {}
+    applyStatic();
+    renderAchievements();
+    renderSpark();
+    if (state.grid) renderAll();
+  });
+  $("opt-tut").addEventListener("click", () => { close(); openTutorial(); });
 })();
+
+/* tutorial */
+function openTutorial() {
+  applyStatic();
+  $("tut-modal").hidden = false;
+  $("tut-backdrop").hidden = false;
+}
+function closeTutorial() {
+  $("tut-modal").hidden = true;
+  $("tut-backdrop").hidden = true;
+  try { localStorage.setItem("masume_tut", "1"); } catch (e) {}
+}
+$("tut-ok").addEventListener("click", closeTutorial);
+$("tut-close").addEventListener("click", closeTutorial);
+$("tut-backdrop").addEventListener("click", closeTutorial);
 
 /* ═══════════════ boot ═══════════════ */
 Promise.all([
@@ -1190,8 +1677,24 @@ Promise.all([
   SONG_BY_ID = new Map(SONGS.map(s => [String(s.vocadbId), s]));
   buildCriteria();
   buildTitleIndex();
+  applyStatic();
   renderRecords();
-  startGame();
+  renderAchievements();
+  renderSpark();
+  // challenge link: ?seed=abc123&size=4 boots straight into that unlimited grid
+  const qs = new URLSearchParams(location.search);
+  const urlSeed = (qs.get("seed") || "").replace(/[^a-z0-9]/gi, "").slice(0, 12);
+  if (urlSeed) {
+    state.mode = "unlimited";
+    state.size = qs.get("size") === "3" ? 3 : 4;
+    state.chSeed = urlSeed;
+    document.querySelectorAll("[data-mode]").forEach(b => b.classList.toggle("is-active", b.dataset.mode === "unlimited"));
+    document.querySelectorAll("[data-size]").forEach(b => b.classList.toggle("is-active", +b.dataset.size === state.size));
+    startGame(true);
+  } else {
+    startGame();
+  }
+  if (!localStorage.getItem("masume_tut")) openTutorial();
 }).catch(err => {
   $("grid-wrap").innerHTML = `<div class="loading-state">Could not load data — ${escHtml(err.message)}. Open via a local server rather than file://</div>`;
 });
