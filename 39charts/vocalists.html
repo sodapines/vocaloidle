@@ -396,6 +396,12 @@ html.dark-mode .combine-btn.is-active { background: linear-gradient(to bottom, #
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
 }
 .updates-list { list-style: none; margin-top: 2px; max-height: 320px; overflow-y: auto; }
+/* slim, unobtrusive scrollbar for the updates list */
+.updates-list { scrollbar-width: thin; scrollbar-color: var(--ls) transparent; }
+.updates-list::-webkit-scrollbar { width: 6px; }
+.updates-list::-webkit-scrollbar-thumb { background: var(--ls); border-radius: 0; }
+.updates-list::-webkit-scrollbar-track { background: transparent; }
+
 .updates-list li { padding: 7px 0; border-bottom: 1px dotted var(--line); font-size: 11px; color: var(--muted); line-height: 1.55; }
 .updates-list li:last-child { border-bottom: none; }
 .updates-ver {
