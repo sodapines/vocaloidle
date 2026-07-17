@@ -3438,7 +3438,7 @@ function applyLanguage() {
     if (target === "achievements") a.textContent = t("linkAchievements");
     if (target === "bookmarks") a.textContent = t("modalBookmarksTitle");
     if (target === "release-notes") a.textContent = t("navUpdates");
-    if (target === "settings") a.textContent = "⚙ " + t("navSettings");
+    if (target === "settings") a.textContent = t("navSettings");
     // Ko-fi link has no data-modal-target - leave its text alone.
   });
 
