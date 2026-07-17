@@ -542,17 +542,23 @@ html.dark-mode #ach-modal .settings-title { background: repeating-linear-gradien
 html.dark-mode #ach-count { background: rgba(0,0,0,0.25); }
 html.dark-mode .ach-row:nth-child(even) { background: rgba(255,255,255,0.018); }
 
-/* toast */
-.ms-toast {
-  position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
-  z-index: 200; padding: 8px 14px; max-width: min(90vw, 360px);
-  background: linear-gradient(to bottom, #2a2a2a, #161616); color: #fff;
-  border: 1px solid #000; border-top: 3px solid var(--red);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.4); font-size: 11px;
-  opacity: 1; transition: opacity 0.3s ease;
+/* toast — matches Heardle / Higher-or-Lower's achievement toast */
+.nnd-toast {
+  position: fixed; top: 50px; right: 18px; z-index: 1000;
+  display: flex; align-items: stretch; width: min(92vw, 360px);
+  background: #fffde8; border: 1px solid #d0c35a; color: #555500;
+  font-size: 11px; line-height: 1.35;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.18);
+  opacity: 1; transition: opacity 0.5s ease;
 }
-.ms-toast.hide { opacity: 0; }
-.ms-toast b { color: #ffd24a; }
+.nnd-toast.nnd-toast-fade { opacity: 0; }
+.nnd-toast .nnd-toast-label {
+  background: #cc0000; color: #fff; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  min-width: 42px; padding: 0 10px; font-size: 15px; line-height: 1;
+}
+.nnd-toast .nnd-toast-msg { padding: 6px 12px; display: flex; flex-direction: column; justify-content: center; }
+.nnd-toast .nnd-toast-msg b { color: #333300; }
 
 /* records sparkline */
 .rec-spark { padding: 6px 10px 8px; border-top: 1px solid var(--line); }
@@ -1535,7 +1541,7 @@ function unlockAch(id) {
   saveAch(a);
   const def = ACH.find(x => x.id === id);
   const [name] = def[LANG] || def.en;
-  toast(`<b>${escHtml(name)}</b> — ${escHtml(t("achUnlocked"))}`);
+  toast(`<b>${escHtml(name)}</b><span>${escHtml(t("achUnlocked"))}</span>`, "🏆");
   renderAchievements();
 }
 let achCategory = "all", achQuery = "";
@@ -1565,14 +1571,14 @@ function renderAchievements() {
   }).join("") : `<div class="library-empty">No achievements match that search.</div>`;
 }
 let toastTimer = null;
-function toast(html) {
-  document.querySelectorAll(".ms-toast").forEach(el => el.remove());
+function toast(html, symbol) {
+  document.querySelectorAll(".nnd-toast").forEach(el => el.remove());
   const el = document.createElement("div");
-  el.className = "ms-toast";
-  el.innerHTML = html;
+  el.className = "nnd-toast";
+  el.innerHTML = `<span class="nnd-toast-label">${symbol || "\u2605"}</span><span class="nnd-toast-msg">${html}</span>`;
   document.body.appendChild(el);
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { el.classList.add("hide"); setTimeout(() => el.remove(), 400); }, 3200);
+  toastTimer = setTimeout(() => { el.classList.add("nnd-toast-fade"); setTimeout(() => el.remove(), 500); }, 3000);
 }
 
 /* ═══════════════ stats depth ═══════════════ */
