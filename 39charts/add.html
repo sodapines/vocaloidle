@@ -1064,8 +1064,10 @@ async function doSubmit() {
   } catch(e) {
     btn.disabled = false; btn.textContent = "Submit for Review";
     const area = document.getElementById("status-area");
+    // one error banner at a time — repeated clicks replace it instead of stacking
+    area.querySelectorAll(".msg-err.submit-err").forEach(el => el.remove());
     area.insertAdjacentHTML("beforeend",
-      `<div class="msg msg-err" style="margin-top:4px"><strong>Submit failed</strong>${escHtml(e.message)}</div>`);
+      `<div class="msg msg-err submit-err" style="margin-top:4px"><strong>Submit failed</strong>${escHtml(e.message)}</div>`);
   }
 }
 
