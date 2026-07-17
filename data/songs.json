@@ -3039,11 +3039,11 @@
     ],
     "vocadbPools": [
       "(NND) More than 1M views",
-      "(YT) More than 10M views"
+      "(YT) More than 100M views"
     ],
     "sourceTags": [
       "nnd-1m",
-      "yt-10m"
+      "yt-100m"
     ],
     "nndOriginal": true,
     "nndOriginalId": "sm42682989",
@@ -43019,9 +43019,11 @@
     ],
     "sourceTags": [
       "community",
+      "nnd-100k",
       "yt-10m"
     ],
     "vocadbPools": [
+      "(NND) More than 100K views",
       "(YT) More than 10M views"
     ],
     "nndOriginal": true,
@@ -50879,11 +50881,11 @@
     ],
     "vocadbPools": [
       "(NND) More than 1M views",
-      "(YT) More than 10M views"
+      "(YT) More than 100M views"
     ],
     "sourceTags": [
       "nnd-1m",
-      "yt-10m"
+      "yt-100m"
     ],
     "nndOriginal": true,
     "nndOriginalId": "sm37198038",
@@ -55915,9 +55917,12 @@
       "Hatsune Miku V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm46296464",
     "ytOriginalId": "adE8jVLoLPo"
@@ -58822,11 +58827,11 @@
     ],
     "sourceTags": [
       "community",
-      "nnd-100k",
+      "nnd-1m",
       "yt-10m"
     ],
     "vocadbPools": [
-      "(NND) More than 100K views",
+      "(NND) More than 1M views",
       "(YT) More than 10M views"
     ],
     "nndOriginal": true,
@@ -65811,11 +65816,14 @@
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "nnd-100k"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm43340135",
     "ytOriginalId": "zP7ux8WsYYI"
@@ -66183,11 +66191,16 @@
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "nnd-100k",
+      "yt-10m"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm46354721",
     "ytOriginalId": "T24rF_x0TmQ"
@@ -67183,11 +67196,14 @@
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "nnd-100k"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm46278358",
     "ytOriginalId": "hbGFPAF9-_Q"
@@ -67342,11 +67358,14 @@
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "yt-1m"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm46267757",
     "ytOriginalId": "YSBZFVSvqL0"
@@ -69494,11 +69513,14 @@
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "nnd-100k"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm45871877",
     "ytOriginalId": "RD-g6a56XKU"
@@ -70239,11 +70261,13 @@
     "sourceTags": [
       "community",
       "new",
+      "nnd-100k",
       "yt-1m"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
     "vocadbPools": [
+      "(NND) More than 100K views",
       "(YT) More than 1M views"
     ],
     "nndOriginal": true,
@@ -79006,11 +79030,14 @@
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "nnd-100k"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm42515726",
     "ytOriginalId": "lp-dv1Tb1KI"
@@ -81719,11 +81746,13 @@
     "sourceTags": [
       "community",
       "new",
+      "nnd-100k",
       "yt-1m"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
     "vocadbPools": [
+      "(NND) More than 100K views",
       "(YT) More than 1M views"
     ],
     "nndOriginal": true,
@@ -82108,22 +82137,22 @@
   },
   {
     "vocadbId": 5858,
-    "title": "今日生まれる君　明日生まれる僕",
+    "title": "I Was Born Tomorrow, You Were Born Today",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "",
     "coverArts": [],
     "publishDate": "2009-09-06",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "I Was Born Tomorrow, You Were Born Today",
       "今日生まれる君　明日生まれる僕",
-      "Kyou Umareru Kimi Ashita Umareru Boku",
-      "I Was Born Tomorrow, You Were Born Today"
+      "Kyou Umareru Kimi Ashita Umareru Boku"
     ],
     "vocadbPools": [],
     "sourceTags": [],
@@ -82133,9 +82162,9 @@
   },
   {
     "vocadbId": 10746,
-    "title": "帰想本能",
+    "title": "Heart's Homing Instinct",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://i.ytimg.com/vi/BI1jUG8uW7A/hqdefault.jpg",
     "coverArts": [
       "https://i.ytimg.com/vi/BI1jUG8uW7A/hqdefault.jpg",
@@ -82144,15 +82173,15 @@
     ],
     "publishDate": "2009-12-30",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "Heart's Homing Instinct",
       "帰想本能",
-      "Kisou Honnou",
-      "Heart's Homing Instinct"
+      "Kisou Honnou"
     ],
     "vocadbPools": [],
     "sourceTags": [
@@ -82166,12 +82195,12 @@
     "vocadbId": 1081,
     "title": "ANIMALIA",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "",
     "coverArts": [],
     "publishDate": "2010-03-24",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
@@ -82187,9 +82216,9 @@
   },
   {
     "vocadbId": 8481,
-    "title": "一人ぼっちで二人きり",
+    "title": "Alone By Myself",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://i.ytimg.com/vi/h3DxLK-oUh0/hqdefault.jpg",
     "coverArts": [
       "https://i.ytimg.com/vi/h3DxLK-oUh0/hqdefault.jpg",
@@ -82199,20 +82228,22 @@
     ],
     "publishDate": "2009-12-18",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "Alone By Myself",
       "一人ぼっちで二人きり",
-      "Hitoribocchi de Futarikiri",
-      "Alone By Myself"
+      "Hitoribocchi de Futarikiri"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "sourceTags": [
-      "nnd-100k",
-      "yt-100k"
+      "yt-100k",
+      "nnd-100k"
     ],
     "nndOriginalId": "sm9127445",
     "ytOriginalId": "x91g8_oBFOU",
@@ -82220,22 +82251,22 @@
   },
   {
     "vocadbId": 10744,
-    "title": "なんでしょ?",
+    "title": "What Is It?",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "",
     "coverArts": [],
     "publishDate": "2009-12-30",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "What Is It?",
       "なんでしょ?",
-      "Nandesho?",
-      "What Is It?"
+      "Nandesho?"
     ],
     "vocadbPools": [],
     "sourceTags": [],
@@ -82245,9 +82276,9 @@
   },
   {
     "vocadbId": 8474,
-    "title": "心壊サミット",
+    "title": "Heartbreak Summit",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://nicovideo.jp/watch/sm7767386",
     "coverArts": [
       "https://nicovideo.jp/watch/sm7767386",
@@ -82259,21 +82290,22 @@
     ],
     "publishDate": "2009-07-28",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "Heartbreak Summit",
       "心壊サミット",
       "Shinkai Summit",
-      "Heartbreak Summit",
       "Heartbeat Summit"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
     "sourceTags": [
-      "nnd-1m",
-      "yt-1m"
+      "nnd-1m"
     ],
     "nndOriginalId": "sm7767386",
     "ytOriginalId": "QssHc_SqCZc",
@@ -82283,12 +82315,12 @@
     "vocadbId": 11237,
     "title": "ing",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "",
     "coverArts": [],
     "publishDate": "2009-05-17",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
@@ -82305,22 +82337,22 @@
   },
   {
     "vocadbId": 11242,
-    "title": "くるくるおにく♪",
+    "title": "Round and Round Goes the Meat ♪",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 巡音ルカ",
+    "artistString": "DECO*27 feat. Megurine Luka",
     "coverArt": "",
     "coverArts": [],
     "publishDate": "2009-02-22",
     "singerNames": [
-      "巡音ルカ"
+      "Megurine Luka"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "Round and Round Goes the Meat ♪",
       "くるくるおにく♪",
-      "Kurukuru Oniku ♪",
-      "Round and Round Goes the Meat ♪"
+      "Kurukuru Oniku ♪"
     ],
     "vocadbPools": [],
     "sourceTags": [],
@@ -82332,7 +82364,7 @@
     "vocadbId": 5863,
     "title": "No You, No Me",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://nicovideo.jp/watch/sm8117266",
     "coverArts": [
       "https://nicovideo.jp/watch/sm8117266",
@@ -82343,8 +82375,8 @@
     ],
     "publishDate": "2009-09-02",
     "singerNames": [
-      "初音ミク",
-      "とぴ"
+      "Hatsune Miku",
+      "Topi"
     ],
     "producerNames": [
       "DECO*27"
@@ -82352,10 +82384,12 @@
     "acceptedTitles": [
       "No You, No Me"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "sourceTags": [
-      "nnd-100k",
-      "yt-100k"
+      "yt-100k",
+      "nnd-100k"
     ],
     "nndOriginalId": "sm8117266",
     "ytOriginalId": "cln0yLgRThg",
@@ -82363,9 +82397,9 @@
   },
   {
     "vocadbId": 5861,
-    "title": "オートスコピー",
+    "title": "Auto Copy",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://i.ytimg.com/vi/xIxPAE9H7TU/hqdefault.jpg",
     "coverArts": [
       "https://i.ytimg.com/vi/xIxPAE9H7TU/hqdefault.jpg",
@@ -82373,15 +82407,15 @@
     ],
     "publishDate": "2009-09-06",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "Auto Copy",
       "オートスコピー",
-      "Autoscopy",
-      "Auto Copy"
+      "Autoscopy"
     ],
     "vocadbPools": [],
     "sourceTags": [
@@ -82395,15 +82429,15 @@
     "vocadbId": 11244,
     "title": "6ui",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://i.ytimg.com/vi/5MqieBbj_FA/hqdefault.jpg",
     "coverArts": [
       "https://i.ytimg.com/vi/5MqieBbj_FA/hqdefault.jpg"
     ],
     "publishDate": "2009-05-17",
     "singerNames": [
-      "初音ミク",
-      "とぴ"
+      "Hatsune Miku",
+      "Topi"
     ],
     "producerNames": [
       "DECO*27"
@@ -82420,9 +82454,9 @@
   },
   {
     "vocadbId": 8476,
-    "title": "僕みたいな君、君みたいな僕。",
+    "title": "You Who Resemble Me, I Who Resemble You",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://i.ytimg.com/vi/-vfo7XsGdKE/hqdefault.jpg",
     "coverArts": [
       "https://i.ytimg.com/vi/-vfo7XsGdKE/hqdefault.jpg",
@@ -82434,21 +82468,22 @@
     ],
     "publishDate": "2008-10-07",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "You Who Resemble Me, I Who Resemble You",
       "僕みたいな君、君みたいな僕。",
       "Boku Mitai na Kimi, Kimi Mitai na Boku",
-      "You Who Resemble Me, I Who Resemble You",
       "나 같은 너, 너 같은 나."
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "sourceTags": [
-      "nnd-1m",
-      "yt-1m"
+      "nnd-100k"
     ],
     "nndOriginalId": "nm4862028",
     "ytOriginalId": "MJWVfqNtbg4",
@@ -82456,22 +82491,22 @@
   },
   {
     "vocadbId": 10747,
-    "title": "5/29 -ボクノオト-",
+    "title": "5/29 -My Sound-",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "",
     "coverArts": [],
     "publishDate": "2009-12-30",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "5/29 -My Sound-",
       "5/29 -ボクノオト-",
-      "5/29 -Boku no Oto-",
-      "5/29 -My Sound-"
+      "5/29 -Boku no Oto-"
     ],
     "vocadbPools": [],
     "sourceTags": [],
@@ -82481,22 +82516,22 @@
   },
   {
     "vocadbId": 5857,
-    "title": "過去世",
+    "title": "Past Life",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "",
     "coverArts": [],
     "publishDate": "2009-09-06",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "Past Life",
       "過去世",
-      "Kako Se",
-      "Past Life"
+      "Kako Se"
     ],
     "vocadbPools": [],
     "sourceTags": [],
@@ -82506,9 +82541,9 @@
   },
   {
     "vocadbId": 40408,
-    "title": "砂時計",
+    "title": "Sandglass",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://nicovideo.jp/watch/sm5589101",
     "coverArts": [
       "https://nicovideo.jp/watch/sm5589101",
@@ -82517,22 +82552,24 @@
     ],
     "publishDate": "2008-12-18",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "Sandglass",
       "砂時計",
       "Sunadokei",
-      "Sandglass",
       "Hourglass",
       "모래시계"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "sourceTags": [
-      "nnd-100k",
-      "yt-100k"
+      "yt-100k",
+      "nnd-100k"
     ],
     "nndOriginalId": "sm5589101",
     "ytOriginalId": "TNM4iYMcTk0",
@@ -82540,9 +82577,9 @@
   },
   {
     "vocadbId": 8471,
-    "title": "相愛性理論",
+    "title": "A Theory of Loving Each Other",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://nicovideo.jp/watch/sm6743291",
     "coverArts": [
       "https://nicovideo.jp/watch/sm6743291",
@@ -82554,24 +82591,25 @@
     ],
     "publishDate": "2009-04-13",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "A Theory of Loving Each Other",
       "相愛性理論",
       "Sou Ai Sei Ri Ron",
-      "A Theory of Loving Each Other",
       "Souaisei Riron",
       "The Theory of Loving Each Other",
       "Theory of Mutual Love Relativity",
       "상애성이론"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "sourceTags": [
-      "nnd-1m",
-      "yt-1m"
+      "nnd-100k"
     ],
     "nndOriginalId": "sm6743291",
     "ytOriginalId": "qXUdP2yPnug",
@@ -82579,9 +82617,9 @@
   },
   {
     "vocadbId": 10745,
-    "title": "ダミーダミー",
+    "title": "Dummy Dummy",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://nicovideo.jp/watch/sm8712009",
     "coverArts": [
       "https://nicovideo.jp/watch/sm8712009",
@@ -82592,19 +82630,21 @@
     ],
     "publishDate": "2009-11-04",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
-      "ダミーダミー",
-      "Dummy Dummy"
+      "Dummy Dummy",
+      "ダミーダミー"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "sourceTags": [
-      "nnd-100k",
-      "yt-100k"
+      "yt-100k",
+      "nnd-100k"
     ],
     "nndOriginalId": "sm8712009",
     "ytOriginalId": "t9CyWGjdTDk",
@@ -82612,9 +82652,9 @@
   },
   {
     "vocadbId": 413064,
-    "title": "バグ",
-    "artist": "かいりきベア",
-    "artistString": "かいりきベア feat. various",
+    "title": "bug",
+    "artist": "Kairiki bear",
+    "artistString": "Kairiki bear feat. various",
     "coverArt": "https://i.ytimg.com/vi/2Ii7UBMxWVw/hqdefault.jpg",
     "coverArts": [
       "https://i.ytimg.com/vi/2Ii7UBMxWVw/hqdefault.jpg",
@@ -82624,23 +82664,26 @@
     ],
     "publishDate": "2022-06-10",
     "singerNames": [
-      "朝比奈まふゆ",
-      "鏡音レン",
-      "宵崎奏",
-      "東雲絵名",
-      "暁山瑞希"
+      "Asahina Mafuyu",
+      "Kagamine Len",
+      "Yoisaki Kanade",
+      "Shinonome Ena",
+      "Akiyama Mizuki"
     ],
     "producerNames": [
-      "かいりきベア"
+      "Kairiki bear"
     ],
     "acceptedTitles": [
-      "バグ",
       "bug",
+      "バグ",
       "버그"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
     "sourceTags": [
-      "nnd-10m",
+      "nnd-1m",
       "yt-10m"
     ],
     "nndOriginalId": "so40968868",
@@ -82649,7 +82692,7 @@
   },
   {
     "vocadbId": 10741,
-    "title": "5/29 -キミノオト-",
+    "title": "5/29 -Your Sound-",
     "artist": "DECO*27",
     "artistString": "DECO*27",
     "coverArt": "",
@@ -82660,9 +82703,9 @@
       "DECO*27"
     ],
     "acceptedTitles": [
+      "5/29 -Your Sound-",
       "5/29 -キミノオト-",
-      "5/29 -Kimi no Oto-",
-      "5/29 -Your Sound-"
+      "5/29 -Kimi no Oto-"
     ],
     "vocadbPools": [],
     "sourceTags": [],
@@ -82672,9 +82715,9 @@
   },
   {
     "vocadbId": 8480,
-    "title": "愛 think so,",
+    "title": "Ai think so,",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://nicovideo.jp/watch/sm8607021",
     "coverArts": [
       "https://nicovideo.jp/watch/sm8607021",
@@ -82688,19 +82731,21 @@
     ],
     "publishDate": "2009-10-24",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
-      "愛 think so,",
-      "Ai think so,"
+      "Ai think so,",
+      "愛 think so,"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "sourceTags": [
-      "nnd-100k",
-      "yt-100k"
+      "yt-100k",
+      "nnd-100k"
     ],
     "nndOriginalId": "sm8607021",
     "ytOriginalId": "DbNIk9DHhgQ",
@@ -82708,9 +82753,9 @@
   },
   {
     "vocadbId": 5862,
-    "title": "隠恋慕",
+    "title": "Hidden Love -Hide and Seek-",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://i.ytimg.com/vi/39PZ_NkyWBQ/hqdefault.jpg",
     "coverArts": [
       "https://i.ytimg.com/vi/39PZ_NkyWBQ/hqdefault.jpg",
@@ -82718,16 +82763,16 @@
     ],
     "publishDate": "2009-09-06",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "Hidden Love -Hide and Seek-",
       "隠恋慕 -カクレンボ-",
       "隠恋慕",
       "Kakurenbo",
-      "Hidden Love -Hide and Seek-",
       "Love & Seek"
     ],
     "vocadbPools": [],
@@ -82740,9 +82785,9 @@
   },
   {
     "vocadbId": 18581,
-    "title": "レインボーダー",
+    "title": "Rainboarder",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://nicovideo.jp/watch/sm5338703",
     "coverArts": [
       "https://nicovideo.jp/watch/sm5338703",
@@ -82750,22 +82795,24 @@
     ],
     "publishDate": "2008-11-23",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
-      "レインボーダー",
       "Rainboarder",
+      "レインボーダー",
       "Rain Boarder",
       "Rainbowder",
       "레인보더"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "sourceTags": [
-      "nnd-100k",
-      "yt-100k"
+      "yt-100k",
+      "nnd-100k"
     ],
     "nndOriginalId": "sm5338703",
     "ytOriginalId": "qIUwSs-atKU",
@@ -82775,12 +82822,12 @@
     "vocadbId": 10742,
     "title": "Re:[repaint]",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "",
     "coverArts": [],
     "publishDate": "2009-12-30",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
@@ -82796,9 +82843,9 @@
   },
   {
     "vocadbId": 10743,
-    "title": "ラヴゲイザー",
+    "title": "Lovegazer",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://nicovideo.jp/watch/sm8956763",
     "coverArts": [
       "https://nicovideo.jp/watch/sm8956763",
@@ -82808,19 +82855,21 @@
     ],
     "publishDate": "2009-11-29",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
-      "ラヴゲイザー",
-      "Lovegazer"
+      "Lovegazer",
+      "ラヴゲイザー"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "sourceTags": [
-      "nnd-100k",
-      "yt-100k"
+      "yt-100k",
+      "nnd-100k"
     ],
     "nndOriginalId": "sm8956763",
     "ytOriginalId": "oXUWdwAc-D4",
@@ -82828,9 +82877,9 @@
   },
   {
     "vocadbId": 708480,
-    "title": "アイペース",
-    "artist": "稲葉曇",
-    "artistString": "稲葉曇 feat. 歌愛ユキ",
+    "title": "Ipace",
+    "artist": "inabakumori",
+    "artistString": "inabakumori feat. Kaai Yuki",
     "coverArt": "https://i.ytimg.com/vi/9x7t1s4xMw4/hqdefault.jpg",
     "coverArts": [
       "https://i.ytimg.com/vi/9x7t1s4xMw4/hqdefault.jpg",
@@ -82840,18 +82889,21 @@
     ],
     "publishDate": "2024-12-03",
     "singerNames": [
-      "歌愛ユキ"
+      "Kaai Yuki"
     ],
     "producerNames": [
-      "稲葉曇"
+      "inabakumori"
     ],
     "acceptedTitles": [
-      "アイペース",
-      "Ipace"
+      "Ipace",
+      "アイペース"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
     "sourceTags": [
-      "nnd-1m",
+      "nnd-100k",
       "yt-1m"
     ],
     "nndOriginalId": "sm44388570",
@@ -82860,9 +82912,9 @@
   },
   {
     "vocadbId": 3273,
-    "title": "キミ以上、ボク未満。",
+    "title": "More Than You, Less Than Me.",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://nicovideo.jp/watch/sm8298201",
     "coverArts": [
       "https://nicovideo.jp/watch/sm8298201",
@@ -82874,20 +82926,21 @@
     ],
     "publishDate": "2009-09-21",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "More Than You, Less Than Me.",
       "キミ以上、ボク未満。",
-      "Kimi Ijou, Boku Miman.",
-      "More Than You, Less Than Me."
+      "Kimi Ijou, Boku Miman."
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
     "sourceTags": [
-      "nnd-1m",
-      "yt-1m"
+      "nnd-1m"
     ],
     "nndOriginalId": "sm8298201",
     "ytOriginalId": "t26kLl5H7OY",
@@ -82895,9 +82948,9 @@
   },
   {
     "vocadbId": 40409,
-    "title": "恋距離遠愛",
+    "title": "Love Distance Long Affair",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://nicovideo.jp/watch/sm6121029",
     "coverArts": [
       "https://nicovideo.jp/watch/sm6121029",
@@ -82906,21 +82959,23 @@
     ],
     "publishDate": "2009-02-11",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "Love Distance Long Affair",
       "恋距離遠愛",
       "Renkyori En'ai",
-      "Love Distance Long Affair",
       "연거리 원애"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "sourceTags": [
-      "nnd-100k",
-      "yt-100k"
+      "yt-100k",
+      "nnd-100k"
     ],
     "nndOriginalId": "sm6121029",
     "ytOriginalId": "JeEZ-qBDAw4",
@@ -82928,21 +82983,21 @@
   },
   {
     "vocadbId": 11240,
-    "title": "ん←ゅちぷか",
+    "title": "N ← Yuchipuka",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "",
     "coverArts": [],
     "publishDate": "2009-05-17",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
-      "ん←ゅちぷか",
-      "N ← Yuchipuka"
+      "N ← Yuchipuka",
+      "ん←ゅちぷか"
     ],
     "vocadbPools": [],
     "sourceTags": [],
@@ -82952,24 +83007,24 @@
   },
   {
     "vocadbId": 11239,
-    "title": "愛+K=aKi",
+    "title": "Ai+K=aKi",
     "artist": "DECO*27",
     "artistString": "DECO*27, 40mP feat. various",
     "coverArt": "",
     "coverArts": [],
     "publishDate": "2009-05-17",
     "singerNames": [
-      "初音ミク",
-      "巡音ルカ",
-      "鏡音リン"
+      "Hatsune Miku",
+      "Megurine Luka",
+      "Kagamine Rin"
     ],
     "producerNames": [
       "DECO*27",
       "40mP"
     ],
     "acceptedTitles": [
-      "愛+K=aKi",
-      "Ai+K=aKi"
+      "Ai+K=aKi",
+      "愛+K=aKi"
     ],
     "vocadbPools": [],
     "sourceTags": [],
@@ -82979,9 +83034,9 @@
   },
   {
     "vocadbId": 11238,
-    "title": "三つ葉のクローバー",
+    "title": "Three-Leaf Clover",
     "artist": "DECO*27",
-    "artistString": "DECO*27 feat. 初音ミク",
+    "artistString": "DECO*27 feat. Hatsune Miku",
     "coverArt": "https://nicovideo.jp/watch/sm7085873",
     "coverArts": [
       "https://nicovideo.jp/watch/sm7085873",
@@ -82990,21 +83045,23 @@
     ],
     "publishDate": "2009-05-17",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "DECO*27"
     ],
     "acceptedTitles": [
+      "Three-Leaf Clover",
       "三つ葉のクローバー",
       "Mitsuba no Clover",
-      "Three-Leaf Clover",
       "세잎클로버"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "sourceTags": [
-      "nnd-100k",
-      "yt-100k"
+      "yt-100k",
+      "nnd-100k"
     ],
     "nndOriginalId": "sm7085873",
     "ytOriginalId": "Adb92maOD_k",
@@ -83014,14 +83071,14 @@
     "vocadbId": 1000923,
     "title": "Larping the Rooms",
     "artist": "The Larping Tombstone",
-    "artistString": "The Larping Tombstone feat. 初音ミク",
+    "artistString": "The Larping Tombstone feat. Hatsune Miku",
     "coverArt": "https://i.ytimg.com/vi/S6_pO9xj4iM/hqdefault.jpg",
     "coverArts": [
       "https://i.ytimg.com/vi/S6_pO9xj4iM/hqdefault.jpg"
     ],
     "publishDate": "2026-07-11",
     "singerNames": [
-      "初音ミク"
+      "Hatsune Miku"
     ],
     "producerNames": [
       "The Larping Tombstone"
@@ -83029,7 +83086,9 @@
     "acceptedTitles": [
       "Larping the Rooms"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
     "sourceTags": [
       "yt-1m"
     ],

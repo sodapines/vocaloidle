@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-04",
+  "updated": "2026-07-17",
   "images": {
     "164": "https://static.vocadb.net/img/Artist/mainThumb/41.jpg?v=30",
     "630": "https://static.vocadb.net/img/Artist/mainThumb/11605.png?v=6",
@@ -556,7 +556,7 @@
     "suzie": "https://static.vocadb.net/img/Artist/mainThumb/72821.jpg?v=26",
     "nihosika": "https://static.vocadb.net/img/Artist/mainThumb/145014.jpg?v=15",
     "SmilyBruh": "https://static.vocadb.net/img/Artist/mainThumb/156082.png?v=7",
-    "Boyfriend": "",
+    "Boyfriend": "https://static.vocadb.net/img/Artist/mainThumb/165949.jpg?v=2",
     "Sig": "https://static.vocadb.net/img/Artist/mainThumb/94671.jpg?v=5",
     "Avaraya": "https://static.vocadb.net/img/Artist/mainThumb/105192.jpg?v=12",
     "Mai": "https://static.vocadb.net/img/Artist/mainThumb/110703.png?v=18",
@@ -597,7 +597,7 @@
     "SEVENTHLINKS": "https://static.vocadb.net/img/Artist/mainThumb/57873.png?v=11",
     "Chissochan": "https://static.vocadb.net/img/Artist/mainThumb/102568.jpg?v=6",
     "Mashima Yuro": "https://static.vocadb.net/img/Artist/mainThumb/63927.png?v=16",
-    "EFFY": "",
+    "EFFY": "https://static.vocadb.net/img/Artist/mainThumb/192049.jpg?v=13",
     "thquib": "https://static.vocadb.net/img/Artist/mainThumb/84271.jpg?v=5",
     "Fukase": "https://static.vocadb.net/img/Artist/mainThumb/40866.png?v=32",
     "Atoi": "https://static.vocadb.net/img/Artist/mainThumb/78880.jpg?v=28",
@@ -1008,6 +1008,11 @@
     "60秒足矣": "",
     "UNI Synthesizer V": "https://static.vocadb.net/img/Artist/mainThumb/156534.png?v=17",
     "Namine Ritsu (VOX Factory)": "https://static.vocadb.net/img/Artist/mainThumb/174821.png?v=10",
-    "Defoko": "https://static.vocadb.net/img/Artist/mainThumb/803.png?v=51"
+    "Defoko": "https://static.vocadb.net/img/Artist/mainThumb/803.png?v=51",
+    "Asahina Mafuyu": "https://static.vocadb.net/img/Artist/mainThumb/83862.png?v=10",
+    "Yoisaki Kanade": "https://static.vocadb.net/img/Artist/mainThumb/83653.png?v=15",
+    "Shinonome Ena": "https://static.vocadb.net/img/Artist/mainThumb/83863.png?v=9",
+    "Akiyama Mizuki": "https://static.vocadb.net/img/Artist/mainThumb/83864.png?v=14",
+    "The Larping Tombstone": "https://static.vocadb.net/img/Artist/mainThumb/192036.png?v=5"
   }
 }

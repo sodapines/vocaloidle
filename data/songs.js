@@ -3039,11 +3039,11 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "vocadbPools": [
       "(NND) More than 1M views",
-      "(YT) More than 10M views"
+      "(YT) More than 100M views"
     ],
     "sourceTags": [
       "nnd-1m",
-      "yt-10m"
+      "yt-100m"
     ],
     "nndOriginal": true,
     "nndOriginalId": "sm42682989",
@@ -43019,9 +43019,11 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community",
+      "nnd-100k",
       "yt-10m"
     ],
     "vocadbPools": [
+      "(NND) More than 100K views",
       "(YT) More than 10M views"
     ],
     "nndOriginal": true,
@@ -50879,11 +50881,11 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "vocadbPools": [
       "(NND) More than 1M views",
-      "(YT) More than 10M views"
+      "(YT) More than 100M views"
     ],
     "sourceTags": [
       "nnd-1m",
-      "yt-10m"
+      "yt-100m"
     ],
     "nndOriginal": true,
     "nndOriginalId": "sm37198038",
@@ -55915,9 +55917,12 @@ window.VOCALOID_HEARDLE_SONGS = [
       "Hatsune Miku V4X"
     ],
     "sourceTags": [
-      "community"
+      "community",
+      "nnd-100k"
     ],
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm46296464",
     "ytOriginalId": "adE8jVLoLPo"
@@ -58822,11 +58827,11 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community",
-      "nnd-100k",
+      "nnd-1m",
       "yt-10m"
     ],
     "vocadbPools": [
-      "(NND) More than 100K views",
+      "(NND) More than 1M views",
       "(YT) More than 10M views"
     ],
     "nndOriginal": true,
@@ -65811,11 +65816,14 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "nnd-100k"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm43340135",
     "ytOriginalId": "zP7ux8WsYYI"
@@ -66183,11 +66191,16 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "nnd-100k",
+      "yt-10m"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 10M views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm46354721",
     "ytOriginalId": "T24rF_x0TmQ"
@@ -67183,11 +67196,14 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "nnd-100k"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm46278358",
     "ytOriginalId": "hbGFPAF9-_Q"
@@ -67342,11 +67358,14 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "yt-1m"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm46267757",
     "ytOriginalId": "YSBZFVSvqL0"
@@ -69494,11 +69513,14 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "nnd-100k"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm45871877",
     "ytOriginalId": "RD-g6a56XKU"
@@ -70239,11 +70261,13 @@ window.VOCALOID_HEARDLE_SONGS = [
     "sourceTags": [
       "community",
       "new",
+      "nnd-100k",
       "yt-1m"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
     "vocadbPools": [
+      "(NND) More than 100K views",
       "(YT) More than 1M views"
     ],
     "nndOriginal": true,
@@ -79006,11 +79030,14 @@ window.VOCALOID_HEARDLE_SONGS = [
     ],
     "sourceTags": [
       "community",
-      "new"
+      "new",
+      "nnd-100k"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
-    "vocadbPools": [],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
     "nndOriginal": true,
     "nndOriginalId": "sm42515726",
     "ytOriginalId": "lp-dv1Tb1KI"
@@ -81719,11 +81746,13 @@ window.VOCALOID_HEARDLE_SONGS = [
     "sourceTags": [
       "community",
       "new",
+      "nnd-100k",
       "yt-1m"
     ],
     "addedBatch": "batch-2026-06-09",
     "addedAt": "2026-06-09",
     "vocadbPools": [
+      "(NND) More than 100K views",
       "(YT) More than 1M views"
     ],
     "nndOriginal": true,
@@ -82105,5 +82134,966 @@ window.VOCALOID_HEARDLE_SONGS = [
     "nndOriginal": true,
     "nndOriginalId": "sm38271953",
     "ytOriginalId": "_ZKSftirY3A"
+  },
+  {
+    "vocadbId": 5858,
+    "title": "I Was Born Tomorrow, You Were Born Today",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "",
+    "coverArts": [],
+    "publishDate": "2009-09-06",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "I Was Born Tomorrow, You Were Born Today",
+      "今日生まれる君　明日生まれる僕",
+      "Kyou Umareru Kimi Ashita Umareru Boku"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 10746,
+    "title": "Heart's Homing Instinct",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://i.ytimg.com/vi/BI1jUG8uW7A/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/BI1jUG8uW7A/hqdefault.jpg",
+      "https://i.ytimg.com/vi/hZ7uSFCBCSw/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/hearts-homing-instinct-feat"
+    ],
+    "publishDate": "2009-12-30",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Heart's Homing Instinct",
+      "帰想本能",
+      "Kisou Honnou"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [
+      "yt-10k"
+    ],
+    "nndOriginalId": "",
+    "ytOriginalId": "hZ7uSFCBCSw",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 1081,
+    "title": "ANIMALIA",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "",
+    "coverArts": [],
+    "publishDate": "2010-03-24",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "ANIMALIA"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 8481,
+    "title": "Alone By Myself",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://i.ytimg.com/vi/h3DxLK-oUh0/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/h3DxLK-oUh0/hqdefault.jpg",
+      "https://nicovideo.jp/watch/sm9127445",
+      "https://i.ytimg.com/vi/x91g8_oBFOU/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/hitori-bocchi-de-futari-kiri"
+    ],
+    "publishDate": "2009-12-18",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Alone By Myself",
+      "一人ぼっちで二人きり",
+      "Hitoribocchi de Futarikiri"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "yt-100k",
+      "nnd-100k"
+    ],
+    "nndOriginalId": "sm9127445",
+    "ytOriginalId": "x91g8_oBFOU",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 10744,
+    "title": "What Is It?",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "",
+    "coverArts": [],
+    "publishDate": "2009-12-30",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "What Is It?",
+      "なんでしょ?",
+      "Nandesho?"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 8474,
+    "title": "Heartbreak Summit",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://nicovideo.jp/watch/sm7767386",
+    "coverArts": [
+      "https://nicovideo.jp/watch/sm7767386",
+      "https://i.ytimg.com/vi/rfDY1mOm_mE/hqdefault.jpg",
+      "https://i.ytimg.com/vi/QssHc_SqCZc/hqdefault.jpg",
+      "https://i.ytimg.com/vi/V1oRpdHhrzU/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/shin-kai-summit",
+      "http://soundcloud.com/deco27official/shin-kai-summit-feat-miku"
+    ],
+    "publishDate": "2009-07-28",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Heartbreak Summit",
+      "心壊サミット",
+      "Shinkai Summit",
+      "Heartbeat Summit"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
+    ],
+    "nndOriginalId": "sm7767386",
+    "ytOriginalId": "QssHc_SqCZc",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 11237,
+    "title": "ing",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "",
+    "coverArts": [],
+    "publishDate": "2009-05-17",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "ing",
+      "愛NG"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 11242,
+    "title": "Round and Round Goes the Meat ♪",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Megurine Luka",
+    "coverArt": "",
+    "coverArts": [],
+    "publishDate": "2009-02-22",
+    "singerNames": [
+      "Megurine Luka"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Round and Round Goes the Meat ♪",
+      "くるくるおにく♪",
+      "Kurukuru Oniku ♪"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 5863,
+    "title": "No You, No Me",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://nicovideo.jp/watch/sm8117266",
+    "coverArts": [
+      "https://nicovideo.jp/watch/sm8117266",
+      "https://i.ytimg.com/vi/cln0yLgRThg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/zJFvsipsr5s/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/no-you-no-me-feat-miku-hatsune",
+      "https://i.ytimg.com/vi/OAC0WuR7PJg/hqdefault.jpg"
+    ],
+    "publishDate": "2009-09-02",
+    "singerNames": [
+      "Hatsune Miku",
+      "Topi"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "No You, No Me"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "yt-100k",
+      "nnd-100k"
+    ],
+    "nndOriginalId": "sm8117266",
+    "ytOriginalId": "cln0yLgRThg",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 5861,
+    "title": "Auto Copy",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://i.ytimg.com/vi/xIxPAE9H7TU/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/xIxPAE9H7TU/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/autoscopy"
+    ],
+    "publishDate": "2009-09-06",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Auto Copy",
+      "オートスコピー",
+      "Autoscopy"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [
+      "yt-10k"
+    ],
+    "nndOriginalId": "",
+    "ytOriginalId": "xIxPAE9H7TU",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 11244,
+    "title": "6ui",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://i.ytimg.com/vi/5MqieBbj_FA/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/5MqieBbj_FA/hqdefault.jpg"
+    ],
+    "publishDate": "2009-05-17",
+    "singerNames": [
+      "Hatsune Miku",
+      "Topi"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "6ui",
+      "Lock You 愛"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "5MqieBbj_FA",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 8476,
+    "title": "You Who Resemble Me, I Who Resemble You",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://i.ytimg.com/vi/-vfo7XsGdKE/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/-vfo7XsGdKE/hqdefault.jpg",
+      "https://nicovideo.jp/watch/nm4862028",
+      "https://i.ytimg.com/vi/MJWVfqNtbg4/hqdefault.jpg",
+      "https://i.ytimg.com/vi/6dbQ2ZqKC0M/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/boku-mitaina-kimi-kimi-mitaina",
+      "http://soundcloud.com/deco27official/boku-mitaina-kimi-kimi-1"
+    ],
+    "publishDate": "2008-10-07",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "You Who Resemble Me, I Who Resemble You",
+      "僕みたいな君、君みたいな僕。",
+      "Boku Mitai na Kimi, Kimi Mitai na Boku",
+      "나 같은 너, 너 같은 나."
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
+    ],
+    "nndOriginalId": "nm4862028",
+    "ytOriginalId": "MJWVfqNtbg4",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 10747,
+    "title": "5/29 -My Sound-",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "",
+    "coverArts": [],
+    "publishDate": "2009-12-30",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "5/29 -My Sound-",
+      "5/29 -ボクノオト-",
+      "5/29 -Boku no Oto-"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 5857,
+    "title": "Past Life",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "",
+    "coverArts": [],
+    "publishDate": "2009-09-06",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Past Life",
+      "過去世",
+      "Kako Se"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 40408,
+    "title": "Sandglass",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://nicovideo.jp/watch/sm5589101",
+    "coverArts": [
+      "https://nicovideo.jp/watch/sm5589101",
+      "https://i.ytimg.com/vi/TNM4iYMcTk0/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/sandglass-feat-miku-hatsune"
+    ],
+    "publishDate": "2008-12-18",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Sandglass",
+      "砂時計",
+      "Sunadokei",
+      "Hourglass",
+      "모래시계"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "yt-100k",
+      "nnd-100k"
+    ],
+    "nndOriginalId": "sm5589101",
+    "ytOriginalId": "TNM4iYMcTk0",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 8471,
+    "title": "A Theory of Loving Each Other",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://nicovideo.jp/watch/sm6743291",
+    "coverArts": [
+      "https://nicovideo.jp/watch/sm6743291",
+      "https://i.ytimg.com/vi/qXUdP2yPnug/hqdefault.jpg",
+      "https://i.ytimg.com/vi/bHy7-rVH4e8/hqdefault.jpg",
+      "https://i.ytimg.com/vi/1goxnDxYCIc/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/sou-ai-sei-ri-ron",
+      "http://soundcloud.com/deco27official/sou-ai-sei-ri-ron-feat-miku"
+    ],
+    "publishDate": "2009-04-13",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "A Theory of Loving Each Other",
+      "相愛性理論",
+      "Sou Ai Sei Ri Ron",
+      "Souaisei Riron",
+      "The Theory of Loving Each Other",
+      "Theory of Mutual Love Relativity",
+      "상애성이론"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "nnd-100k"
+    ],
+    "nndOriginalId": "sm6743291",
+    "ytOriginalId": "qXUdP2yPnug",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 10745,
+    "title": "Dummy Dummy",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://nicovideo.jp/watch/sm8712009",
+    "coverArts": [
+      "https://nicovideo.jp/watch/sm8712009",
+      "https://i.ytimg.com/vi/t9CyWGjdTDk/hqdefault.jpg",
+      "https://i.ytimg.com/vi/nSXFvnHz1YY/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/dummy-dummy-feat-miku-hatsune",
+      "https://i.ytimg.com/vi/VActVRb2SIo/hqdefault.jpg"
+    ],
+    "publishDate": "2009-11-04",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Dummy Dummy",
+      "ダミーダミー"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "yt-100k",
+      "nnd-100k"
+    ],
+    "nndOriginalId": "sm8712009",
+    "ytOriginalId": "t9CyWGjdTDk",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 413064,
+    "title": "bug",
+    "artist": "Kairiki bear",
+    "artistString": "Kairiki bear feat. various",
+    "coverArt": "https://i.ytimg.com/vi/2Ii7UBMxWVw/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/2Ii7UBMxWVw/hqdefault.jpg",
+      "https://nicovideo.jp/watch/so40968868",
+      "https://i.ytimg.com/vi/zhD47cx10ts/hqdefault.jpg",
+      "https://www.bilibili.com/video/av113966269339450"
+    ],
+    "publishDate": "2022-06-10",
+    "singerNames": [
+      "Asahina Mafuyu",
+      "Kagamine Len",
+      "Yoisaki Kanade",
+      "Shinonome Ena",
+      "Akiyama Mizuki"
+    ],
+    "producerNames": [
+      "Kairiki bear"
+    ],
+    "acceptedTitles": [
+      "bug",
+      "バグ",
+      "버그"
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views",
+      "(YT) More than 10M views"
+    ],
+    "sourceTags": [
+      "nnd-1m",
+      "yt-10m"
+    ],
+    "nndOriginalId": "so40968868",
+    "ytOriginalId": "2Ii7UBMxWVw",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 10741,
+    "title": "5/29 -Your Sound-",
+    "artist": "DECO*27",
+    "artistString": "DECO*27",
+    "coverArt": "",
+    "coverArts": [],
+    "publishDate": "2009-12-30",
+    "singerNames": [],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "5/29 -Your Sound-",
+      "5/29 -キミノオト-",
+      "5/29 -Kimi no Oto-"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 8480,
+    "title": "Ai think so,",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://nicovideo.jp/watch/sm8607021",
+    "coverArts": [
+      "https://nicovideo.jp/watch/sm8607021",
+      "https://i.ytimg.com/vi/dwBOcEl1WWo/hqdefault.jpg",
+      "https://i.ytimg.com/vi/_daGhUnt7wA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/DbNIk9DHhgQ/hqdefault.jpg",
+      "https://i.ytimg.com/vi/ajPzJkWHQPg/hqdefault.jpg",
+      "https://i.ytimg.com/vi/49MhWLQgWvo/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/ai-think-so",
+      "http://soundcloud.com/deco27official/ai-think-so-feat-miku-hatsune"
+    ],
+    "publishDate": "2009-10-24",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Ai think so,",
+      "愛 think so,"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "yt-100k",
+      "nnd-100k"
+    ],
+    "nndOriginalId": "sm8607021",
+    "ytOriginalId": "DbNIk9DHhgQ",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 5862,
+    "title": "Hidden Love -Hide and Seek-",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://i.ytimg.com/vi/39PZ_NkyWBQ/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/39PZ_NkyWBQ/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/love-seek"
+    ],
+    "publishDate": "2009-09-06",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Hidden Love -Hide and Seek-",
+      "隠恋慕 -カクレンボ-",
+      "隠恋慕",
+      "Kakurenbo",
+      "Love & Seek"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [
+      "yt-10k"
+    ],
+    "nndOriginalId": "",
+    "ytOriginalId": "39PZ_NkyWBQ",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 18581,
+    "title": "Rainboarder",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://nicovideo.jp/watch/sm5338703",
+    "coverArts": [
+      "https://nicovideo.jp/watch/sm5338703",
+      "https://i.ytimg.com/vi/qIUwSs-atKU/hqdefault.jpg"
+    ],
+    "publishDate": "2008-11-23",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Rainboarder",
+      "レインボーダー",
+      "Rain Boarder",
+      "Rainbowder",
+      "레인보더"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "yt-100k",
+      "nnd-100k"
+    ],
+    "nndOriginalId": "sm5338703",
+    "ytOriginalId": "qIUwSs-atKU",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 10742,
+    "title": "Re:[repaint]",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "",
+    "coverArts": [],
+    "publishDate": "2009-12-30",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Re:[repaint]"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 10743,
+    "title": "Lovegazer",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://nicovideo.jp/watch/sm8956763",
+    "coverArts": [
+      "https://nicovideo.jp/watch/sm8956763",
+      "https://i.ytimg.com/vi/0hvfa270RdA/hqdefault.jpg",
+      "https://i.ytimg.com/vi/oXUWdwAc-D4/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/lovegazer"
+    ],
+    "publishDate": "2009-11-29",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Lovegazer",
+      "ラヴゲイザー"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "yt-100k",
+      "nnd-100k"
+    ],
+    "nndOriginalId": "sm8956763",
+    "ytOriginalId": "oXUWdwAc-D4",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 708480,
+    "title": "Ipace",
+    "artist": "inabakumori",
+    "artistString": "inabakumori feat. Kaai Yuki",
+    "coverArt": "https://i.ytimg.com/vi/9x7t1s4xMw4/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/9x7t1s4xMw4/hqdefault.jpg",
+      "https://nicovideo.jp/watch/sm44388570",
+      "https://www.bilibili.com/video/av113589570509480",
+      "https://i.ytimg.com/vi/l6Lkqq3m57c/hqdefault.jpg"
+    ],
+    "publishDate": "2024-12-03",
+    "singerNames": [
+      "Kaai Yuki"
+    ],
+    "producerNames": [
+      "inabakumori"
+    ],
+    "acceptedTitles": [
+      "Ipace",
+      "アイペース"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views",
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "nndOriginalId": "sm44388570",
+    "ytOriginalId": "9x7t1s4xMw4",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 3273,
+    "title": "More Than You, Less Than Me.",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://nicovideo.jp/watch/sm8298201",
+    "coverArts": [
+      "https://nicovideo.jp/watch/sm8298201",
+      "https://i.ytimg.com/vi/z_foo_GA-2k/hqdefault.jpg",
+      "https://i.ytimg.com/vi/t26kLl5H7OY/hqdefault.jpg",
+      "https://i.ytimg.com/vi/-R0MUkKh4N8/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/kimi-ijou-boku-miman",
+      "http://soundcloud.com/deco27official/kimi-ijou-boku-miman-feat-miku"
+    ],
+    "publishDate": "2009-09-21",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "More Than You, Less Than Me.",
+      "キミ以上、ボク未満。",
+      "Kimi Ijou, Boku Miman."
+    ],
+    "vocadbPools": [
+      "(NND) More than 1M views"
+    ],
+    "sourceTags": [
+      "nnd-1m"
+    ],
+    "nndOriginalId": "sm8298201",
+    "ytOriginalId": "t26kLl5H7OY",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 40409,
+    "title": "Love Distance Long Affair",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://nicovideo.jp/watch/sm6121029",
+    "coverArts": [
+      "https://nicovideo.jp/watch/sm6121029",
+      "https://i.ytimg.com/vi/JeEZ-qBDAw4/hqdefault.jpg",
+      "http://soundcloud.com/deco27official/love-distance-long-affair-2"
+    ],
+    "publishDate": "2009-02-11",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Love Distance Long Affair",
+      "恋距離遠愛",
+      "Renkyori En'ai",
+      "연거리 원애"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "yt-100k",
+      "nnd-100k"
+    ],
+    "nndOriginalId": "sm6121029",
+    "ytOriginalId": "JeEZ-qBDAw4",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 11240,
+    "title": "N ← Yuchipuka",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "",
+    "coverArts": [],
+    "publishDate": "2009-05-17",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "N ← Yuchipuka",
+      "ん←ゅちぷか"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 11239,
+    "title": "Ai+K=aKi",
+    "artist": "DECO*27",
+    "artistString": "DECO*27, 40mP feat. various",
+    "coverArt": "",
+    "coverArts": [],
+    "publishDate": "2009-05-17",
+    "singerNames": [
+      "Hatsune Miku",
+      "Megurine Luka",
+      "Kagamine Rin"
+    ],
+    "producerNames": [
+      "DECO*27",
+      "40mP"
+    ],
+    "acceptedTitles": [
+      "Ai+K=aKi",
+      "愛+K=aKi"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "nndOriginalId": "",
+    "ytOriginalId": "",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 11238,
+    "title": "Three-Leaf Clover",
+    "artist": "DECO*27",
+    "artistString": "DECO*27 feat. Hatsune Miku",
+    "coverArt": "https://nicovideo.jp/watch/sm7085873",
+    "coverArts": [
+      "https://nicovideo.jp/watch/sm7085873",
+      "https://i.ytimg.com/vi/Adb92maOD_k/hqdefault.jpg",
+      "https://i.ytimg.com/vi/UO11fkYeY2s/hqdefault.jpg"
+    ],
+    "publishDate": "2009-05-17",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "DECO*27"
+    ],
+    "acceptedTitles": [
+      "Three-Leaf Clover",
+      "三つ葉のクローバー",
+      "Mitsuba no Clover",
+      "세잎클로버"
+    ],
+    "vocadbPools": [
+      "(NND) More than 100K views"
+    ],
+    "sourceTags": [
+      "yt-100k",
+      "nnd-100k"
+    ],
+    "nndOriginalId": "sm7085873",
+    "ytOriginalId": "Adb92maOD_k",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 1000923,
+    "title": "Larping the Rooms",
+    "artist": "The Larping Tombstone",
+    "artistString": "The Larping Tombstone feat. Hatsune Miku",
+    "coverArt": "https://i.ytimg.com/vi/S6_pO9xj4iM/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/S6_pO9xj4iM/hqdefault.jpg"
+    ],
+    "publishDate": "2026-07-11",
+    "singerNames": [
+      "Hatsune Miku"
+    ],
+    "producerNames": [
+      "The Larping Tombstone"
+    ],
+    "acceptedTitles": [
+      "Larping the Rooms"
+    ],
+    "vocadbPools": [
+      "(YT) More than 1M views"
+    ],
+    "sourceTags": [
+      "yt-1m"
+    ],
+    "nndOriginalId": "",
+    "ytOriginalId": "S6_pO9xj4iM",
+    "audioClip": ""
   }
 ];
