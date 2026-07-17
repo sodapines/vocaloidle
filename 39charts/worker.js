@@ -69,9 +69,15 @@ export default {
         if (!body.song?.vocadbId || !body.song?.title)
           return json({ error: "Missing required song fields (vocadbId, title)" }, 400);
 
-        // Reject duplicate IDs already in the queue
+        // Reject duplicate IDs already in the queue (fast index first, then a
+        // full queue scan as belt-and-braces — catches entries that predate
+        // the index or whose index key was lost).
         const existing = await env.CHARTS_DB.get(`song_id:${body.song.vocadbId}`);
         if (existing) return json({ error: "A submission for this song ID already exists", duplicate: true }, 409);
+        const { keys: subKeys } = await env.CHARTS_DB.list({ prefix: "sub:" });
+        const subs = await Promise.all(subKeys.map(k => env.CHARTS_DB.get(k.name).then(v => (v ? JSON.parse(v) : null))));
+        const dupe = subs.find(e => e && e.song && String(e.song.vocadbId) === String(body.song.vocadbId) && e.status !== "rejected");
+        if (dupe) return json({ error: "A submission for this song ID already exists", duplicate: true }, 409);
 
         const id = crypto.randomUUID();
         const entry = {
