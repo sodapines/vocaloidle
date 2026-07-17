@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOCALOID Timeline 年表 — put the songs in release order</title>
+<meta property="og:site_name" content="VOCALOID Timeline">
+<meta property="og:title" content="VOCALOID Timeline — put the songs in release order">
+<meta property="og:description" content="Five songs, one timeline. Arrange them by release date. A new puzzle every day.">
+<meta property="og:type" content="website">
+<meta name="description" content="Five songs, one timeline. Arrange them by release date. A new puzzle every day.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
+<script>try{if(localStorage.getItem("tl_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
+<style>
+:root {
+  --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
+  --text: #111; --muted: #555; --faint: #999;
+  --line: #c8c4bc; --ls: #b8b4ac;
+  --red: #cc0000; --red-dark: #990000; --link: #0066cc; --gold: #c8980a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  min-height: 100%; overflow-x: hidden; max-width: 100vw;
+  font-family: "MS PGothic","Hiragino Kaku Gothic Pro","Meiryo",Arial,sans-serif;
+  font-size: 12px; color: var(--text); background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,240,0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.18) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
+  line-height: 1.4;
+}
+body { min-height: 100vh; display: flex; flex-direction: column; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--red); }
+button { font: inherit; cursor: pointer; }
+
+/* ── chrome (shared retro look) ── */
+.nnd-topbar {
+  width: 100%; background: #111; border-bottom: 1px solid #000;
+  height: 24px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 10px; font-size: 11px; color: #777;
+}
+.nnd-mainbar {
+  width: 100%; background: #fff; border-bottom: 2px solid var(--red);
+  padding: 6px 10px; display: flex; align-items: center; gap: 16px;
+}
+.nnd-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text); }
+.nnd-logo:hover { text-decoration: none; }
+.nnd-logo-mark {
+  display: inline-flex; align-items: center; justify-content: center; flex-direction: column; gap: 2px;
+  width: 28px; height: 28px; background: var(--red);
+  border: 1px solid var(--red-dark); flex-shrink: 0;
+}
+.nnd-logo-mark i { width: 16px; height: 3px; background: #fff; display: block; }
+.nnd-logo-mark i:nth-child(2) { width: 11px; opacity: 0.75; }
+.nnd-logo-mark i:nth-child(3) { width: 6px; opacity: 0.5; }
+.nnd-logo-text { font-size: 15px; font-weight: 900; letter-spacing: -0.02em; line-height: 1; }
+.nnd-logo-sub { display: block; font-size: 10px; font-weight: 400; color: var(--muted); }
+.language-switcher { display: flex; align-items: center; gap: 3px; }
+.language-button {
+  width: 24px; height: 16px; min-height: unset; padding: 0;
+  border: 1px solid var(--ls); border-radius: 2px;
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.2);
+  opacity: 0.55; overflow: hidden; position: relative;
+}
+.language-button:hover { opacity: 0.85; }
+.language-button.is-active { opacity: 1; box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 0 0 1px var(--red); }
+.language-button .fi { width: 100%; height: 100%; background-size: cover; background-position: center; border-radius: 1px; }
+html.dark-mode .language-button { border-color: #444; background: linear-gradient(to bottom, #303030, #1d1d1d); }
+.nnd-header-links { display: flex; align-items: center; gap: 6px; font-size: 12px; margin-left: auto; }
+.nnd-header-links a { color: var(--link); padding: 2px 8px; border: 1px solid transparent; }
+.nnd-header-links a:hover {
+  text-decoration: none; color: var(--red);
+  background: #f6f4ee; border-color: #fff #9a968e #9a968e #fff;
+}
+.nnd-header-links a.nnd-kofi {
+  background: var(--red); color: #fff; padding: 3px 9px;
+  border: 1px solid var(--red-dark); font-weight: 700;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
+}
+.nnd-header-links a.nnd-kofi:hover { background: #b30000; color: #fff; }
+.nnd-mobile-nav { display: none; width: 100%; background: #fff; border-bottom: 1px solid var(--line); padding: 5px 10px; align-items: center; gap: 8px; font-size: 12px; }
+.nnd-mobile-nav a { color: var(--link); }
+.nnd-mobile-nav a.nnd-kofi { margin-left: auto; background: var(--red); color: #fff; padding: 3px 9px; border: 1px solid var(--red-dark); font-weight: 700; }
+html.dark-mode .nnd-mobile-nav { background: #161616; border-bottom-color: #2c2c2c; }
+.nnd-marquee-bar {
+  width: 100%;
+  background:
+    repeating-linear-gradient(0deg, rgba(204,153,0,0.08) 0, rgba(204,153,0,0.08) 1px, transparent 1px, transparent 4px),
+    #fffde8;
+  border-bottom: 1px solid #d0c878;
+  height: 20px; display: flex; align-items: center; overflow: hidden; font-size: 11px;
+}
+.nnd-marquee-label {
+  flex-shrink: 0; padding: 0 7px; background: #cc9900; color: #fff;
+  font-weight: 700; font-size: 10px; height: 100%; display: flex; align-items: center;
+  border-right: 1px solid #aa7700;
+}
+.nnd-marquee-wrap { flex: 1; overflow: hidden; height: 100%; display: flex; align-items: center; }
+.nnd-marquee-inner { white-space: nowrap; color: #555500; animation: mq 32s linear infinite; padding-left: 100%; }
+@keyframes mq { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) { .nnd-marquee-inner { animation: none; padding-left: 0; } }
+
+.nnd-body {
+  flex: 1 0 auto; width: 100%; max-width: 900px; margin: 0 auto; padding: 8px 10px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.tl-cols { display: flex; gap: 6px; align-items: flex-start; }
+.tl-left { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.tl-right { width: 240px; min-width: 240px; display: flex; flex-direction: column; gap: 6px; }
+
+.panel {
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.panel-header {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 10px; min-height: 26px;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+}
+.panel-note { font-size: 10px; font-weight: 400; color: var(--faint); font-style: italic; text-transform: none; letter-spacing: 0; }
+
+/* ── mode bar ── */
+.game-mode-bar {
+  display: flex; align-items: stretch; gap: 8px;
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #fbfaf6, #e6e3dc);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.85);
+  padding: 3px 5px 0;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+}
+.game-mode-tabs { display: flex; align-items: flex-end; gap: 3px; }
+.game-mode-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px 6px; border: 2px solid; border-bottom: 0;
+  border-color: #fff var(--ls) var(--ls) #fff; margin-bottom: -2px;
+  background: linear-gradient(to bottom, #f3f1ea, #dcd8cf); color: var(--muted);
+  font-family: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase; white-space: nowrap;
+}
+.game-mode-btn:hover { color: var(--red); }
+.game-mode-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  color: #fff; padding-bottom: 8px; z-index: 2;
+  border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
+}
+.mode-tools { margin-left: auto; display: flex; align-items: center; gap: 4px; padding-bottom: 3px; flex-wrap: wrap; }
+.mode-tools[hidden] { display: none; }
+.era-btn, .tool-btn {
+  min-height: 22px; padding: 0 9px;
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  border: 1px solid var(--ls);
+  font-family: inherit; letter-spacing: 0.04em;
+}
+.era-btn:hover, .tool-btn:hover { color: var(--red); }
+.era-btn.is-active {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+}
+
+/* ── status strip ── */
+.status-strip {
+  display: flex; flex-wrap: wrap; align-items: stretch;
+  background: linear-gradient(to bottom, #f3f1ea, #e2dfd6);
+  border-bottom: 2px solid var(--ls);
+}
+.st-cell {
+  padding: 7px 14px; border-right: 1px solid var(--line);
+  display: flex; flex-direction: column; justify-content: center; min-width: 76px;
+}
+.st-k { font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.05em; }
+.st-v { font-family: Consolas, "MS PGothic", monospace; font-size: 15px; font-weight: 900; line-height: 1.2; }
+.st-v.is-red { color: var(--red); }
+html.dark-mode .status-strip { background: linear-gradient(to bottom, #242424, #1a1a1a); border-bottom-color: #3b3b3b; }
+html.dark-mode .st-cell { border-right-color: #3b3b3b; }
+
+/* ── timeline cards ── */
+.tl-list { padding: 12px; display: flex; flex-direction: column; gap: 7px; }
+.tl-hint { padding: 0 12px 10px; font-size: 10px; color: var(--faint); font-style: italic; }
+.tl-card {
+  display: flex; align-items: stretch; gap: 0;
+  background: var(--surface); border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.1);
+  overflow: hidden; position: relative;
+}
+.tl-card.dragging { opacity: 0.45; }
+.tl-card.drop-above { box-shadow: 0 -3px 0 var(--red); }
+.tl-card.drop-below { box-shadow: 0 3px 0 var(--red); }
+.tl-slot {
+  flex-shrink: 0; width: 34px; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(to bottom, #f3f1ea, #ddd9d0); border-right: 1px solid var(--ls);
+  font-family: Consolas, monospace; font-size: 14px; font-weight: 900; color: var(--muted);
+}
+.tl-thumb { flex-shrink: 0; width: 104px; position: relative; background: #111; overflow: hidden; }
+.tl-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tl-info { flex: 1; min-width: 0; padding: 7px 10px; display: flex; flex-direction: column; justify-content: center; cursor: grab; }
+.tl-title { font-size: 12px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tl-artist { font-size: 10px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tl-date {
+  margin-top: 2px; font-size: 10px; font-weight: 700; font-family: Consolas, monospace;
+  color: var(--red); visibility: hidden;
+}
+.tl-card.revealed .tl-date { visibility: visible; }
+.tl-move { flex-shrink: 0; display: flex; flex-direction: column; border-left: 1px solid var(--line); }
+.tl-move button {
+  flex: 1; width: 32px; border: none; background: linear-gradient(to bottom, #fff, #e8e8e8);
+  color: var(--muted); font-size: 11px;
+}
+.tl-move button:first-child { border-bottom: 1px solid var(--line); }
+.tl-move button:hover { color: var(--red); background: #fff0f0; }
+.tl-move button:disabled { opacity: 0.3; cursor: default; }
+.tl-card.revealed.right .tl-slot { background: linear-gradient(to bottom, #2faf57, #1a7d3c); color: #fff; }
+.tl-card.revealed.close .tl-slot { background: linear-gradient(to bottom, #d8ae2e, #a87c0a); color: #fff; }
+.tl-card.revealed.wrong .tl-slot { background: linear-gradient(to bottom, #dd2222, #aa0000); color: #fff; }
+.tl-actions { padding: 0 12px 12px; display: flex; gap: 6px; }
+.lock-btn, .share-btn, .new-btn {
+  min-height: 28px; padding: 0 16px;
+  font-size: 11px; font-weight: 700; color: #fff;
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  border: 1px solid var(--red-dark);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.lock-btn:hover, .share-btn:hover, .new-btn:hover { background: linear-gradient(to bottom, #ee2a2a, #bb0000); }
+.new-btn { background: linear-gradient(to bottom, #8a8a8a, #6a6a6a); border-color: #555; }
+.new-btn:hover { background: linear-gradient(to bottom, #9a9a9a, #7a7a7a); }
+.result-line { padding: 0 12px 10px; font-size: 12px; }
+.result-line b { color: var(--red); font-size: 15px; font-family: Consolas, monospace; }
+.tl-39link { font-size: 10px; }
+
+/* ── sidebar ── */
+.side-list { padding: 6px 0; }
+.side-row { display: flex; gap: 8px; padding: 4px 10px; font-size: 11px; align-items: baseline; }
+.side-row .sr-num {
+  flex-shrink: 0; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(to bottom, #dd2222, #aa0000); color: #fff;
+  font-size: 10px; font-weight: 900;
+}
+.stats-table { width: 100%; border-collapse: collapse; }
+.stats-table tr { border-bottom: 1px solid var(--line); }
+.stats-table tr:last-child { border-bottom: none; }
+.stats-table tr:nth-child(even) { background: #f6f5f0; }
+.stats-table td { padding: 3px 10px; font-size: 10px; height: 21px; color: var(--muted); }
+.stats-table td:last-child {
+  font-weight: 900; text-align: right; color: var(--red); font-size: 11px;
+  font-family: Consolas, "MS PGothic", monospace;
+}
+.loading-state { padding: 40px; text-align: center; color: var(--faint); font-style: italic; }
+.site-footer {
+  flex-shrink: 0; width: 100%;
+  background: linear-gradient(to bottom, #ececea, #dcdad4);
+  border-top: 2px solid var(--red);
+  padding: 6px 10px; font-size: 11px; color: var(--faint); text-align: center;
+}
+
+/* ── modals ── */
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; }
+.settings-modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 101; width: min(100vw - 32px, 340px);
+  background: var(--surface); border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35); padding: 14px;
+}
+.settings-title {
+  margin: -14px -14px 12px; padding: 5px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  background: linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+}
+.settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
+.settings-toggle {
+  flex-shrink: 0; height: 24px; min-width: 46px; padding: 0 10px;
+  font-size: 11px; font-weight: 700; color: var(--faint);
+  background: linear-gradient(to bottom, #fff, #e0e0e0); border: 1px solid var(--ls);
+}
+.settings-toggle.is-on { background: linear-gradient(to bottom, #dd2222, #aa0000); color: #fff; border-color: var(--red-dark); }
+.modal-close {
+  width: 20px; height: 20px; padding: 0; line-height: 1;
+  background: linear-gradient(to bottom, #fff, #ddd); border: 1px solid var(--ls);
+  color: var(--muted); font-size: 10px; font-weight: 700;
+}
+.modal-close:hover { color: var(--red); }
+
+/* ── dark mode ── */
+html.dark-mode {
+  --bg: #121212; --surface: #1a1a1a; --sf: #161616;
+  --text: #e1e1e1; --muted: #a6a39c; --faint: #7c7c7c;
+  --line: #2c2c2c; --ls: #3b3b3b; --red: #dd2222; --link: #5aa0e0;
+}
+html.dark-mode body {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+}
+html.dark-mode .nnd-mainbar { background: #161616; }
+html.dark-mode .nnd-header-links a:hover { background: #241f1a; border-color: #3b3b3b; }
+html.dark-mode .nnd-marquee-bar { background: #211d09; border-color: #5a4a16; }
+html.dark-mode .nnd-marquee-inner { color: #d6c266; }
+html.dark-mode .nnd-marquee-label { background: #6e5a10; border-right-color: #4a3c0a; }
+html.dark-mode .panel { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35); }
+html.dark-mode .panel-header, html.dark-mode .settings-title, html.dark-mode .tl-slot {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c); border-color: #3b3b3b; box-shadow: none; color: #ccc;
+}
+html.dark-mode .game-mode-bar { background: linear-gradient(to bottom, #232323, #181818); border-color: #3b3b3b; border-top-color: var(--red); box-shadow: none; }
+html.dark-mode .game-mode-btn { background: linear-gradient(to bottom, #2a2a2a, #1d1d1d); color: #888; border-color: #4a4a4a #111 #111 #4a4a4a; }
+html.dark-mode .game-mode-btn.is-active { background: linear-gradient(to bottom, var(--red), #8f0000); color: #fff; border-color: var(--red) #8f0000 #8f0000 var(--red); }
+html.dark-mode .era-btn, html.dark-mode .tool-btn, html.dark-mode .settings-toggle, html.dark-mode .modal-close {
+  background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted);
+}
+html.dark-mode .era-btn.is-active, html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; border-color: #5a0505; }
+html.dark-mode .tl-card { box-shadow: none; }
+html.dark-mode .tl-move button { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); color: var(--muted); }
+html.dark-mode .tl-move button:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .stats-table tr:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); }
+html.dark-mode .new-btn { background: linear-gradient(to bottom, #3a3a3a, #2a2a2a); border-color: #222; }
+
+@media (max-width: 760px) {
+  .tl-cols { flex-direction: column; align-items: stretch; }
+  .tl-left, .tl-right { width: 100%; min-width: 0; }
+  .nnd-header-links { display: none; }
+  .nnd-mobile-nav { display: flex; }
+  .tl-thumb { width: 76px; }
+  .tl-title { font-size: 11px; white-space: normal; }
+  .nnd-body { padding: 6px; }
+}
+</style>
+</head>
+<body>
+
+<div class="nnd-topbar">
+  <span>VOCALOIDLE &rsaquo; Timeline</span>
+  <span style="color:#666">put the songs in release order</span>
+</div>
+
+<div class="nnd-mainbar">
+  <a class="nnd-logo" href="../" title="Back to VOCALOIDLE home">
+    <span class="nnd-logo-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="nnd-logo-text">Timeline<span class="nnd-logo-sub" id="logo-sub">年表 · oldest to newest, five songs a day</span></span>
+  </a>
+  <div class="language-switcher" aria-label="Language">
+    <button class="language-button" type="button" data-lang="en" title="English"><span class="fi fi-us"></span></button>
+    <button class="language-button" type="button" data-lang="es" title="Espa&ntilde;ol"><span class="fi fi-es"></span></button>
+    <button class="language-button" type="button" data-lang="ja" title="日本語"><span class="fi fi-jp"></span></button>
+    <button class="language-button" type="button" data-lang="ko" title="한국어"><span class="fi fi-kr"></span></button>
+  </div>
+  <nav class="nnd-header-links">
+    <a href="#" id="settings-open">Settings</a>
+    <span style="color:var(--line)">|</span>
+    <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
+  </nav>
+</div>
+
+<nav class="nnd-mobile-nav" aria-label="Mobile navigation">
+  <a href="#" data-proxy="settings-open" id="m-settings">Settings</a>
+  <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Ko-fi</a>
+</nav>
+
+<div class="nnd-marquee-bar">
+  <span class="nnd-marquee-label">[INFO]</span>
+  <div class="nnd-marquee-wrap">
+    <div class="nnd-marquee-inner" id="marquee-text">★ VOCALOID Timeline 年表 ・ Five songs, one timeline ・ Drag them into release order, oldest first ・ A new puzzle every day at local midnight ・ Song data from VocaDB ★</div>
+  </div>
+</div>
+
+<div class="nnd-body">
+
+  <div class="game-mode-bar">
+    <div class="game-mode-tabs">
+      <button class="game-mode-btn is-active" data-mode="daily">Daily</button>
+      <button class="game-mode-btn" data-mode="unlimited">Unlimited</button>
+    </div>
+    <div class="mode-tools" id="mode-tools" hidden>
+      <button class="era-btn is-active" data-era="all">All years</button>
+      <button class="era-btn" data-era="2007-2012">2007–2012</button>
+      <button class="era-btn" data-era="2013-2018">2013–2018</button>
+      <button class="era-btn" data-era="2019-2026">2019+</button>
+      <button class="era-btn" data-era="hard">★ Hard</button>
+      <button class="tool-btn" id="new-grid-btn">↻ New puzzle</button>
+    </div>
+  </div>
+
+  <div class="tl-cols">
+    <div class="tl-left">
+
+      <div class="panel">
+        <div class="status-strip" id="status-strip"></div>
+        <div id="game-box">
+          <div class="loading-state">Loading song data…</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="tl-right">
+
+      <div class="panel" id="how-panel">
+        <div class="panel-header" id="hdr-how">[ How to Play ]</div>
+        <div class="side-list">
+          <div class="side-row"><span class="sr-num">1</span><span id="how-1">Five songs appear in a random order.</span></div>
+          <div class="side-row"><span class="sr-num">2</span><span id="how-2">Arrange them by <b>release date</b> — oldest at the top. Drag cards or use the arrows.</span></div>
+          <div class="side-row"><span class="sr-num">3</span><span id="how-3">Lock in your answer. Green = right spot, gold = one off, red = wrong.</span></div>
+          <div class="side-row"><span class="sr-num">4</span><span id="how-4">One shared puzzle a day — share your result and keep the streak.</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header" id="hdr-records">[ Records ]</div>
+        <table class="stats-table">
+          <tr><td id="rec-l-played">Dailies played</td><td id="rec-played">0</td></tr>
+          <tr><td id="rec-l-perfect">Perfect days</td><td id="rec-perfect">0</td></tr>
+          <tr><td id="rec-l-streak">Current streak</td><td id="rec-streak">0</td></tr>
+          <tr><td id="rec-l-avg">Average score</td><td id="rec-avg">—</td></tr>
+        </table>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  VOCALOID Timeline 年表 — a fan-made puzzle &nbsp;·&nbsp; song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a> &nbsp;·&nbsp; not affiliated with any rights holder
+</footer>
+
+<div class="modal-backdrop" id="settings-backdrop" hidden></div>
+<div class="settings-modal" id="settings-modal" hidden>
+  <div class="settings-title"><span id="set-title">[ Settings ]</span> <button type="button" class="modal-close" id="settings-close">✕</button></div>
+  <div class="settings-row">
+    <div><b id="set-dark-label">Dark Mode</b><div style="font-size:10px;color:var(--faint)" id="set-dark-desc">Dark page and panels, like the other games.</div></div>
+    <button type="button" class="settings-toggle" id="opt-dark">OFF</button>
+  </div>
+</div>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const escHtml = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+function seedFromString(str) {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+}
+const todayKey = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+};
+
+/* ── i18n ── */
+const LANGS = ["en","ja","es","ko"];
+const STR = {
+en: {
+  daily: "Daily", unlimited: "Unlimited", score: "Score", streakLbl: "Streak", puzzle: "Puzzle",
+  lockIn: "Lock in", share: "Copy share text", copied: "Copied!", newPuzzle: "↻ New puzzle",
+  hint: "Oldest song at the top — drag the cards or use the arrows, then lock in.",
+  result: (n, total) => `<b>${n}</b> / ${total} in the right spot`,
+  perfect: " — perfect timeline!",
+  confirmLeave: "Leave this unfinished puzzle?",
+  hdrHow: "[ How to Play ]", hdrRecords: "[ Records ]",
+  how1: "Five songs appear in a random order.",
+  how2: "Arrange them by <b>release date</b> — oldest at the top. Drag cards or use the arrows.",
+  how3: "Lock in your answer. Green = right spot, gold = one off, red = wrong.",
+  how4: "One shared puzzle a day — share your result and keep the streak.",
+  recPlayed: "Dailies played", recPerfect: "Perfect days", recStreak: "Current streak", recAvg: "Average score",
+  navSettings: "Settings", setTitle: "[ Settings ]",
+  settingsDark: "Dark Mode", settingsDarkDesc: "Dark page and panels, like the other games.",
+  view39: "view on 39charts →", logoSub: "年表 · oldest to newest, five songs a day",
+  eraAll: "All years", eraHard: "★ Hard",
+},
+ja: {
+  daily: "デイリー", unlimited: "無制限", score: "スコア", streakLbl: "連続", puzzle: "パズル",
+  lockIn: "決定", share: "結果をコピー", copied: "コピーしました！", newPuzzle: "↻ 新しいパズル",
+  hint: "一番古い曲を上に — カードをドラッグするか矢印で並べ替えて決定。",
+  result: (n, total) => `<b>${n}</b> / ${total} 正解`,
+  perfect: " — パーフェクト！",
+  confirmLeave: "このパズルを離れますか？",
+  hdrHow: "[ 遊び方 ]", hdrRecords: "[ 記録 ]",
+  how1: "5曲がランダムな順番で表示されます。",
+  how2: "<b>投稿日</b>順に並べ替え — 一番古い曲を上に。ドラッグか矢印で。",
+  how3: "決定すると答え合わせ。緑=正解、金=1つずれ、赤=不正解。",
+  how4: "パズルは1日1問、全員共通。結果をシェアして連続記録を伸ばそう。",
+  recPlayed: "プレイ日数", recPerfect: "パーフェクト", recStreak: "連続日数", recAvg: "平均スコア",
+  navSettings: "設定", setTitle: "[ 設定 ]",
+  settingsDark: "ダークモード", settingsDarkDesc: "他のゲームと同じダーク配色。",
+  view39: "39chartsで見る →", logoSub: "年表 · 古い順に、毎日5曲",
+  eraAll: "全期間", eraHard: "★ ハード",
+},
+es: {
+  daily: "Diario", unlimited: "Ilimitado", score: "Puntos", streakLbl: "Racha", puzzle: "Puzle",
+  lockIn: "Confirmar", share: "Copiar resultado", copied: "¡Copiado!", newPuzzle: "↻ Nuevo puzle",
+  hint: "La canción más antigua arriba — arrastra las tarjetas o usa las flechas y confirma.",
+  result: (n, total) => `<b>${n}</b> / ${total} en su lugar`,
+  perfect: " — ¡línea de tiempo perfecta!",
+  confirmLeave: "¿Salir de este puzle sin terminar?",
+  hdrHow: "[ Cómo jugar ]", hdrRecords: "[ Récords ]",
+  how1: "Aparecen cinco canciones en orden aleatorio.",
+  how2: "Ordénalas por <b>fecha de publicación</b> — la más antigua arriba.",
+  how3: "Confirma tu respuesta. Verde = correcto, dorado = una posición de error, rojo = incorrecto.",
+  how4: "Un puzle compartido al día — comparte tu resultado y mantén la racha.",
+  recPlayed: "Diarios jugados", recPerfect: "Días perfectos", recStreak: "Racha actual", recAvg: "Puntuación media",
+  navSettings: "Ajustes", setTitle: "[ Ajustes ]",
+  settingsDark: "Modo oscuro", settingsDarkDesc: "Colores oscuros, como los otros juegos.",
+  view39: "ver en 39charts →", logoSub: "年表 · de antigua a nueva, cinco al día",
+  eraAll: "Todos los años", eraHard: "★ Difícil",
+},
+ko: {
+  daily: "데일리", unlimited: "무제한", score: "점수", streakLbl: "연속", puzzle: "퍼즐",
+  lockIn: "확정", share: "결과 복사", copied: "복사됨!", newPuzzle: "↻ 새 퍼즐",
+  hint: "가장 오래된 곡을 맨 위로 — 카드를 드래그하거나 화살표로 정렬 후 확정.",
+  result: (n, total) => `<b>${n}</b> / ${total} 정답`,
+  perfect: " — 완벽한 타임라인!",
+  confirmLeave: "이 퍼즐을 떠날까요?",
+  hdrHow: "[ 게임 방법 ]", hdrRecords: "[ 기록 ]",
+  how1: "다섯 곡이 무작위 순서로 나타납니다.",
+  how2: "<b>발표일</b> 순으로 정렬 — 가장 오래된 곡이 맨 위.",
+  how3: "확정하면 채점. 초록=정답, 금색=한 칸 차이, 빨강=오답.",
+  how4: "하루에 하나, 모두 같은 퍼즐. 결과를 공유하고 연속 기록을 이어가세요.",
+  recPlayed: "플레이한 데일리", recPerfect: "퍼펙트", recStreak: "연속 기록", recAvg: "평균 점수",
+  navSettings: "설정", setTitle: "[ 설정 ]",
+  settingsDark: "다크 모드", settingsDarkDesc: "다른 게임과 같은 어두운 배색.",
+  view39: "39charts에서 보기 →", logoSub: "年表 · 오래된 순서로, 매일 5곡",
+  eraAll: "전체 연도", eraHard: "★ 하드",
+},
+};
+let LANG = LANGS.includes(localStorage.getItem("tl_lang")) ? localStorage.getItem("tl_lang") : "en";
+function t(key, ...args) {
+  const v = (STR[LANG] && STR[LANG][key]) != null ? STR[LANG][key] : STR.en[key];
+  return typeof v === "function" ? v(...args) : v;
+}
+function applyStatic() {
+  document.querySelectorAll(".language-button").forEach(b => b.classList.toggle("is-active", b.dataset.lang === LANG));
+  $("hdr-how").textContent = t("hdrHow");
+  $("hdr-records").textContent = t("hdrRecords");
+  ["how-1","how-2","how-3","how-4"].forEach((id, i) => { $(id).innerHTML = t("how" + (i + 1)); });
+  $("rec-l-played").textContent = t("recPlayed");
+  $("rec-l-perfect").textContent = t("recPerfect");
+  $("rec-l-streak").textContent = t("recStreak");
+  $("rec-l-avg").textContent = t("recAvg");
+  $("settings-open").textContent = t("navSettings");
+  $("m-settings").textContent = t("navSettings");
+  $("set-title").textContent = t("setTitle");
+  $("set-dark-label").textContent = t("settingsDark");
+  $("set-dark-desc").textContent = t("settingsDarkDesc");
+  $("logo-sub").textContent = t("logoSub");
+  document.querySelector('[data-mode="daily"]').textContent = t("daily");
+  document.querySelector('[data-mode="unlimited"]').textContent = t("unlimited");
+  document.querySelector('[data-era="all"]').textContent = t("eraAll");
+  document.querySelector('[data-era="hard"]').textContent = t("eraHard");
+  $("new-grid-btn").textContent = t("newPuzzle");
+}
+
+/* ── data ── */
+const CACHE_TTL_MS = 10 * 60 * 1000;
+function cacheGet(key) {
+  try {
+    const o = JSON.parse(sessionStorage.getItem(key));
+    if (!o || typeof o.t !== "number" || Date.now() - o.t > CACHE_TTL_MS) return null;
+    return o.v;
+  } catch (e) { return null; }
+}
+function cachePut(key, v) { try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), v })); } catch (e) {} }
+function loadJson(file, key) {
+  { const c = cacheGet(key); if (c) return Promise.resolve(c); }
+  return fetch(file).then(r => r.ok ? r.json() : null)
+    .then(d => { if (d) cachePut(key, d); return d; }).catch(() => null);
+}
+
+let SONGS = [], VIEWS = {}, YT = {}, BILI = {}, POOL = [];
+const combined = s => {
+  const id = String(s.vocadbId);
+  const n = VIEWS[id], y = YT[id] && YT[id].views, b = BILI[id] && BILI[id].views;
+  if (typeof n !== "number" && typeof y !== "number" && typeof b !== "number") return null;
+  return (n || 0) + (y || 0) + (b || 0);
+};
+function thumbUrl(song) {
+  if (song.ytOriginalId) return `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`;
+  if (song.coverArt) return song.coverArt;
+  const m = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/) : null;
+  if (m) return `https://nicovideo.cdn.nimg.jp/thumbnails/${m[1]}/${m[1]}`;
+  return null;
+}
+
+/* Pool: well-known songs only (top 600 by combined views) with solid dates. */
+function buildPool() {
+  POOL = SONGS
+    .filter(s => s.publishDate && thumbUrl(s) && combined(s) != null)
+    .sort((a, b) => combined(b) - combined(a))
+    .slice(0, 600);
+}
+
+/* ── puzzle generation ── */
+const PUZZLE_N = 5;
+function yearOf(s) { return new Date(s.publishDate).getFullYear(); }
+
+function generatePuzzle(rnd, era) {
+  let pool = POOL;
+  if (era && era !== "all" && era !== "hard") {
+    const [a, b] = era.split("-").map(Number);
+    pool = POOL.filter(s => yearOf(s) >= a && yearOf(s) <= b);
+  }
+  for (let attempt = 0; attempt < 300; attempt++) {
+    const picks = [];
+    const used = new Set(), years = new Set();
+    if (era === "hard") {
+      // hard: five songs within a 4-year window, distinct dates
+      const anchor = pool[Math.floor(rnd() * pool.length)];
+      const lo = yearOf(anchor) - 2, hi = yearOf(anchor) + 2;
+      const windowPool = pool.filter(s => yearOf(s) >= lo && yearOf(s) <= hi);
+      if (windowPool.length < PUZZLE_N) continue;
+      const dates = new Set();
+      while (picks.length < PUZZLE_N) {
+        const s = windowPool[Math.floor(rnd() * windowPool.length)];
+        if (used.has(s.vocadbId) || dates.has(s.publishDate)) { if (used.size > windowPool.length) break; used.add(s.vocadbId); continue; }
+        used.add(s.vocadbId); dates.add(s.publishDate); picks.push(s);
+      }
+    } else {
+      // normal: five songs from five distinct years
+      let guard = 0;
+      while (picks.length < PUZZLE_N && guard++ < 200) {
+        const s = pool[Math.floor(rnd() * pool.length)];
+        if (used.has(s.vocadbId) || years.has(yearOf(s))) continue;
+        used.add(s.vocadbId); years.add(yearOf(s)); picks.push(s);
+      }
+    }
+    if (picks.length === PUZZLE_N) {
+      const solution = [...picks].sort((a, b) => a.publishDate.localeCompare(b.publishDate));
+      // shuffled presentation order (never accidentally pre-solved)
+      let order = [...picks];
+      do { order.sort(() => rnd() - 0.5); }
+      while (order.every((s, i) => s === solution[i]));
+      return { songs: order, solution };
+    }
+  }
+  return null;
+}
+
+/* ── state ── */
+const EPOCH = "2026-07-18";
+const state = {
+  mode: "daily", era: "all",
+  puzzle: null,          // { songs (current arrangement), solution }
+  done: false,
+  result: null,          // per-slot: "right" | "close" | "wrong"
+  dateKey: null,
+};
+
+function dailySaveKey() { return `tl_daily_${state.dateKey}`; }
+function saveDaily() {
+  if (state.mode !== "daily") return;
+  try {
+    localStorage.setItem(dailySaveKey(), JSON.stringify({
+      order: state.puzzle.songs.map(s => String(s.vocadbId)),
+      done: state.done,
+    }));
+  } catch (e) {}
+}
+function loadStats() {
+  try { return JSON.parse(localStorage.getItem("tl_stats")) || { played: 0, perfect: 0, streak: 0, total: 0, lastDay: null }; }
+  catch (e) { return { played: 0, perfect: 0, streak: 0, total: 0, lastDay: null }; }
+}
+function saveStats(st) { try { localStorage.setItem("tl_stats", JSON.stringify(st)); } catch (e) {} }
+function renderRecords() {
+  const st = loadStats();
+  $("rec-played").textContent = st.played;
+  $("rec-perfect").textContent = st.perfect;
+  $("rec-streak").textContent = st.streak;
+  $("rec-avg").textContent = st.played ? (st.total / st.played).toFixed(1) + "/5" : "—";
+}
+
+/* ── game flow ── */
+function startGame() {
+  state.done = false; state.result = null;
+  $("mode-tools").hidden = state.mode !== "unlimited";
+  if (state.mode === "daily") {
+    state.dateKey = todayKey();
+    const rnd = mulberry32(seedFromString(`tl-daily-${state.dateKey}`));
+    state.puzzle = generatePuzzle(rnd, "all");
+    // restore saved arrangement / completion
+    try {
+      const saved = JSON.parse(localStorage.getItem(dailySaveKey()));
+      if (saved && state.puzzle) {
+        const byId = new Map(state.puzzle.songs.map(s => [String(s.vocadbId), s]));
+        const order = (saved.order || []).map(id => byId.get(id)).filter(Boolean);
+        if (order.length === PUZZLE_N) state.puzzle.songs = order;
+        if (saved.done) { state.done = true; scoreCurrent(); }
+      }
+    } catch (e) {}
+  } else {
+    const rnd = mulberry32(seedFromString(`tl-free-${Date.now()}-${Math.random()}`));
+    state.puzzle = generatePuzzle(rnd, state.era);
+  }
+  render();
+}
+
+function scoreCurrent() {
+  const { songs, solution } = state.puzzle;
+  state.result = songs.map((s, i) => {
+    const truth = solution.indexOf(s);
+    return truth === i ? "right" : Math.abs(truth - i) === 1 ? "close" : "wrong";
+  });
+}
+
+function lockIn() {
+  if (state.done) return;
+  state.done = true;
+  scoreCurrent();
+  if (state.mode === "daily") {
+    const st = loadStats();
+    if (st.lastDay !== state.dateKey) {
+      const rightN = state.result.filter(r => r === "right").length;
+      st.played++;
+      st.total += rightN;
+      if (rightN === PUZZLE_N) st.perfect++;
+      const y = new Date(Date.now() - 864e5);
+      const yKey = `${y.getFullYear()}-${String(y.getMonth()+1).padStart(2,"0")}-${String(y.getDate()).padStart(2,"0")}`;
+      st.streak = st.lastDay === yKey ? st.streak + 1 : 1;
+      st.lastDay = state.dateKey;
+      saveStats(st);
+      renderRecords();
+    }
+  }
+  saveDaily();
+  render();
+}
+
+function moveCard(i, dir) {
+  if (state.done) return;
+  const j = i + dir;
+  if (j < 0 || j >= state.puzzle.songs.length) return;
+  const arr = state.puzzle.songs;
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+  saveDaily();
+  render();
+}
+
+/* ── render ── */
+function fmtDate(iso) {
+  const d = new Date(iso);
+  return `${d.getUTCFullYear()}/${String(d.getUTCMonth()+1).padStart(2,"0")}/${String(d.getUTCDate()).padStart(2,"0")}`;
+}
+
+function renderStatus() {
+  const st = loadStats();
+  const rightN = state.result ? state.result.filter(r => r === "right").length : null;
+  $("status-strip").innerHTML = `
+    <div class="st-cell"><span class="st-k">${state.mode === "daily" ? t("daily") + " · " + state.dateKey : t("unlimited")}</span><span class="st-v">${t("puzzle")}</span></div>
+    <div class="st-cell"><span class="st-k">${t("score")}</span><span class="st-v is-red">${rightN != null ? rightN + " / " + PUZZLE_N : "—"}</span></div>
+    ${state.mode === "daily" ? `<div class="st-cell"><span class="st-k">${t("streakLbl")}</span><span class="st-v">${st.streak}</span></div>` : ""}
+  `;
+}
+
+function render() {
+  if (!state.puzzle) { $("game-box").innerHTML = `<div class="loading-state">Could not build a puzzle.</div>`; return; }
+  renderStatus();
+  const { songs, solution } = state.puzzle;
+  let html = `<div class="tl-list">`;
+  songs.forEach((s, i) => {
+    const res = state.done && state.result ? state.result[i] : null;
+    const truth = solution.indexOf(s);
+    html += `
+    <div class="tl-card${state.done ? " revealed " + res : ""}" draggable="${!state.done}" data-i="${i}">
+      <span class="tl-slot">${state.done ? truth + 1 : i + 1}</span>
+      <span class="tl-thumb"><img src="${escHtml(thumbUrl(s) || "")}" alt="" referrerpolicy="no-referrer" loading="lazy" onerror="this.remove()"></span>
+      <span class="tl-info">
+        <span class="tl-title">${escHtml(s.title)}</span>
+        <span class="tl-artist">${escHtml(s.artist || s.artistString || "")}</span>
+        <span class="tl-date">${fmtDate(s.publishDate)} · <a class="tl-39link" href="../39charts/song.html?id=${encodeURIComponent(s.vocadbId)}" target="_blank" rel="noopener">${t("view39")}</a></span>
+      </span>
+      ${!state.done ? `
+      <span class="tl-move">
+        <button type="button" data-up="${i}" ${i === 0 ? "disabled" : ""} aria-label="Move up">▲</button>
+        <button type="button" data-down="${i}" ${i === songs.length - 1 ? "disabled" : ""} aria-label="Move down">▼</button>
+      </span>` : ""}
+    </div>`;
+  });
+  html += `</div>`;
+  if (!state.done) {
+    html += `<div class="tl-hint">${t("hint")}</div>
+      <div class="tl-actions"><button type="button" class="lock-btn" id="lock-btn">${t("lockIn")}</button></div>`;
+  } else {
+    const rightN = state.result.filter(r => r === "right").length;
+    html += `<div class="result-line">${t("result", rightN, PUZZLE_N)}${rightN === PUZZLE_N ? t("perfect") : ""}</div>
+      <div class="tl-actions">
+        <button type="button" class="share-btn" id="share-btn">${t("share")}</button>
+        ${state.mode === "unlimited" ? `<button type="button" class="new-btn" id="new-btn">${t("newPuzzle")}</button>` : ""}
+      </div>`;
+  }
+  $("game-box").innerHTML = html;
+
+  if (!state.done) {
+    $("lock-btn").addEventListener("click", lockIn);
+    $("game-box").querySelectorAll("[data-up]").forEach(b => b.addEventListener("click", () => moveCard(+b.dataset.up, -1)));
+    $("game-box").querySelectorAll("[data-down]").forEach(b => b.addEventListener("click", () => moveCard(+b.dataset.down, 1)));
+    wireDrag();
+  } else {
+    $("share-btn").addEventListener("click", () => {
+      navigator.clipboard.writeText(shareText()).then(
+        () => { $("share-btn").textContent = t("copied"); setTimeout(() => { const b = $("share-btn"); if (b) b.textContent = t("share"); }, 1500); },
+        () => prompt("Copy:", shareText()));
+    });
+    const nb = $("new-btn");
+    if (nb) nb.addEventListener("click", startGame);
+  }
+}
+
+/* drag & drop (desktop) */
+let dragIdx = null;
+function wireDrag() {
+  $("game-box").querySelectorAll(".tl-card").forEach(card => {
+    card.addEventListener("dragstart", e => {
+      dragIdx = +card.dataset.i;
+      card.classList.add("dragging");
+      e.dataTransfer.effectAllowed = "move";
+    });
+    card.addEventListener("dragend", () => { dragIdx = null; render(); });
+    card.addEventListener("dragover", e => {
+      e.preventDefault();
+      const over = +card.dataset.i;
+      card.classList.toggle("drop-above", dragIdx != null && over < dragIdx);
+      card.classList.toggle("drop-below", dragIdx != null && over > dragIdx);
+    });
+    card.addEventListener("dragleave", () => card.classList.remove("drop-above", "drop-below"));
+    card.addEventListener("drop", e => {
+      e.preventDefault();
+      const target = +card.dataset.i;
+      if (dragIdx == null || target === dragIdx) return;
+      const arr = state.puzzle.songs;
+      const [moved] = arr.splice(dragIdx, 1);
+      arr.splice(target, 0, moved);
+      dragIdx = null;
+      saveDaily();
+      render();
+    });
+  });
+}
+
+/* ── share ── */
+function shareText() {
+  const dayNum = Math.max(1, Math.floor((new Date(todayKey()) - new Date(EPOCH)) / 864e5) + 1);
+  const art = state.result.map(r => r === "right" ? "🟩" : r === "close" ? "🟨" : "⬛").join("");
+  const rightN = state.result.filter(r => r === "right").length;
+  const head = state.mode === "daily" ? `VOCALOID Timeline #${dayNum}` : "VOCALOID Timeline (unlimited)";
+  return `${head} · ${rightN}/${PUZZLE_N}\n${art}\nhttps://vocaloidle.sodapines.dev/timeline/`;
+}
+
+/* ── events ── */
+document.querySelectorAll("[data-mode]").forEach(btn => btn.addEventListener("click", () => {
+  if (btn.dataset.mode === state.mode) return;
+  if (state.mode === "unlimited" && !state.done && !confirm(t("confirmLeave"))) return;
+  state.mode = btn.dataset.mode;
+  document.querySelectorAll("[data-mode]").forEach(b => b.classList.toggle("is-active", b === btn));
+  startGame();
+}));
+document.querySelectorAll("[data-era]").forEach(btn => btn.addEventListener("click", () => {
+  state.era = btn.dataset.era;
+  document.querySelectorAll("[data-era]").forEach(b => b.classList.toggle("is-active", b === btn));
+  startGame();
+}));
+$("new-grid-btn").addEventListener("click", () => {
+  if (!state.done && !confirm(t("confirmLeave"))) return;
+  startGame();
+});
+document.querySelectorAll(".language-button").forEach(btn => btn.addEventListener("click", () => {
+  if (btn.dataset.lang === LANG) return;
+  LANG = btn.dataset.lang;
+  try { localStorage.setItem("tl_lang", LANG); } catch (e) {}
+  applyStatic();
+  if (state.puzzle) render();
+}));
+document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(a =>
+  a.addEventListener("click", e => { e.preventDefault(); const el = $(a.dataset.proxy); if (el) el.click(); }));
+
+(function () {
+  const sync = () => {
+    const on = document.documentElement.classList.contains("dark-mode");
+    $("opt-dark").classList.toggle("is-on", on);
+    $("opt-dark").textContent = on ? "ON" : "OFF";
+  };
+  const close = () => { $("settings-modal").hidden = true; $("settings-backdrop").hidden = true; };
+  $("settings-open").addEventListener("click", e => { e.preventDefault(); $("settings-modal").hidden = false; $("settings-backdrop").hidden = false; sync(); });
+  $("settings-close").addEventListener("click", close);
+  $("settings-backdrop").addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+  $("opt-dark").addEventListener("click", () => {
+    const on = document.documentElement.classList.toggle("dark-mode");
+    try { localStorage.setItem("tl_dark", on ? "1" : "0"); } catch (e) {}
+    sync();
+  });
+})();
+
+/* ── boot ── */
+Promise.all([
+  loadJson("../data/songs.json", "39c_songs_v2"),
+  loadJson("../data/views.json", "39c_views_v2"),
+  loadJson("../data/ytviews.json", "39c_ytviews_v2"),
+  loadJson("../data/biliviews.json", "39c_biliviews_v3"),
+]).then(([songs, views, yt, bili]) => {
+  if (!songs) throw new Error("songs.json failed to load");
+  SONGS = songs;
+  if (views && views.views) VIEWS = views.views;
+  if (yt && yt.stats) YT = yt.stats;
+  if (bili && bili.stats) BILI = bili.stats;
+  buildPool();
+  applyStatic();
+  renderRecords();
+  startGame();
+}).catch(err => {
+  $("game-box").innerHTML = `<div class="loading-state">Could not load data — ${escHtml(err.message)}. Open via a local server rather than file://</div>`;
+});
+</script>
+</body>
+</html>
