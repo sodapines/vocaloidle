@@ -81,11 +81,16 @@ html.dark-mode .language-button { border-color: #444; background: linear-gradien
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
 }
 .nnd-header-links a.nnd-kofi:hover { background: #b30000; color: #fff; }
-.nnd-mobile-nav { display: none; width: 100%; background: #fff; border-bottom: 1px solid var(--line); padding: 5px 10px; align-items: center; gap: 8px; font-size: 12px; }
-.nnd-mobile-nav a { color: var(--link); white-space: nowrap; }
-.nnd-mobile-nav a:hover { color: var(--red); text-decoration: none; }
-.nnd-mobile-nav a.nnd-kofi { margin-left: auto; background: var(--red); color: #fff; padding: 3px 9px; border: 1px solid var(--red-dark); font-weight: 700; }
-html.dark-mode .nnd-mobile-nav { background: #161616; border-bottom-color: #2c2c2c; }
+/* mobile nav: identical to Heardle's .nnd-mobile-settings — bordered gray
+   buttons that wrap below the logo inside the mainbar */
+.nnd-mobile-settings { display: none; align-items: center; flex-wrap: wrap; gap: 4px; margin-left: auto; }
+.nnd-mobile-settings a {
+  color: var(--link); font-size: 12px; text-decoration: none;
+  padding: 4px 8px; border: 1px solid var(--line); background: var(--sf); white-space: nowrap;
+}
+.nnd-mobile-settings a:hover { color: var(--red); text-decoration: none; }
+.nnd-mobile-settings a.nnd-kofi { border-color: var(--red); background: var(--red); color: #fff; font-weight: 700; padding: 4px 10px; }
+html.dark-mode .nnd-mobile-settings a { background: #1d1d1d; border-color: #2c2c2c; }
 .nnd-marquee-bar {
   width: 100%;
   background:
@@ -330,6 +335,34 @@ html.dark-mode .stats-table tr:hover { background: #2a1414; }
 .news-more:hover { color: var(--red); background: #fff0f0; text-decoration: none; }
 html.dark-mode .news-more:hover { background: #2a1414; }
 
+/* song detail modal */
+.sd-cover { position: relative; aspect-ratio: 16 / 9; background: #111; margin: 0 -14px 10px; overflow: hidden; border-bottom: 2px solid var(--ls); }
+.sd-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sd-cover::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.07) 2px 3px); }
+.sd-title { font-size: 14px; font-weight: 900; line-height: 1.25; }
+.sd-artist { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.sd-table { width: 100%; border-collapse: collapse; margin-bottom: 4px; }
+.sd-table tr { border-bottom: 1px dotted var(--line); }
+.sd-table tr:last-child { border-bottom: none; }
+.sd-table td { padding: 3px 2px; font-size: 11px; color: var(--muted); }
+.sd-table td:last-child { text-align: right; font-family: Consolas, monospace; font-weight: 700; color: var(--text); }
+.sd-table td:last-child.is-red { color: var(--red); }
+.sd-links { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 10px; }
+.sd-btn {
+  flex: 1 1 auto; min-height: 24px; padding: 0 10px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: var(--text); text-decoration: none;
+  border: 1px solid var(--ls); background: linear-gradient(to bottom, #fff, #e8e8e8);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.sd-btn:hover { color: var(--red); border-color: var(--red); text-decoration: none; }
+.sd-btn.vocadb { background: linear-gradient(to bottom, #3a78e0, #2457c5); border-color: #1a3f97; color: #fff; }
+.sd-btn.vocadb:hover { background: linear-gradient(to bottom, #4a86ec, #2f66d6); color: #fff; border-color: #1a3f97; }
+html.dark-mode .sd-btn { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted); box-shadow: none; }
+html.dark-mode .sd-btn:hover { color: var(--red); border-color: var(--red); }
+.tl-card.revealed { cursor: pointer; }
+.tl-card.revealed:hover { border-color: var(--link); }
+
 .loading-state { padding: 40px; text-align: center; color: var(--faint); font-style: italic; }
 .site-footer {
   flex-shrink: 0; width: 100%;
@@ -342,10 +375,15 @@ html.dark-mode .news-more:hover { background: #2a1414; }
 .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; }
 .settings-modal {
   position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  z-index: 101; width: min(100vw - 32px, 360px);
+  z-index: 101; width: min(100% - 32px, 440px);
+  max-height: min(86vh, 540px); overflow: auto;
   background: var(--surface); border: 2px solid var(--ls); border-top: 3px solid var(--red);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.35); padding: 14px;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6), 0 4px 20px rgba(0,0,0,0.35);
+  padding: 14px;
+  scrollbar-width: thin; scrollbar-color: var(--ls) transparent;
 }
+.settings-modal::-webkit-scrollbar { width: 6px; }
+.settings-modal::-webkit-scrollbar-thumb { background: var(--ls); }
 .settings-title {
   margin: -14px -14px 12px; padding: 5px 10px;
   display: flex; align-items: center; justify-content: space-between; gap: 8px;
@@ -372,18 +410,29 @@ html.dark-mode .news-more:hover { background: #2a1414; }
 .modal-scroll { max-height: 55vh; overflow-y: auto; margin: 0 -14px -14px; scrollbar-width: thin; scrollbar-color: var(--ls) transparent; }
 .modal-scroll::-webkit-scrollbar { width: 6px; }
 .modal-scroll::-webkit-scrollbar-thumb { background: var(--ls); }
-.ach-row { display: flex; gap: 8px; padding: 5px 12px; border-bottom: 1px solid var(--line); align-items: center; }
-.ach-row:last-child { border-bottom: none; }
-.ach-row.locked { opacity: 0.42; }
-.ach-ico {
-  flex-shrink: 0; width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center;
-  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
-  color: #fff; font-size: 10px; font-weight: 900;
+/* achievements list — same construction as Heardle's achievement cards */
+.achievements-list { display: grid; gap: 0; border: 1px solid var(--line); border-bottom: 0; }
+.achievement-card {
+  display: grid; gap: 3px; padding: 6px 8px;
+  background: #ffffff; border: 0; border-bottom: 1px solid var(--line);
+  border-left: 3px solid transparent;
 }
-.ach-row.locked .ach-ico { background: linear-gradient(to bottom, #9a9a9a, #7a7a7a); border-color: #666; }
-.ach-name { font-size: 10px; font-weight: 700; }
-.ach-desc { display: block; font-size: 9px; color: var(--faint); font-weight: 400; }
-html.dark-mode .ach-row.locked .ach-ico { background: linear-gradient(to bottom, #3a3a3a, #2a2a2a); border-color: #222; }
+.achievement-card:nth-child(even) { background: #f6f6f6; }
+.achievement-card.is-unlocked { border-left-color: var(--red); }
+.achievement-card.is-locked { color: var(--faint); }
+.achievement-card.is-hidden { border-left-style: dotted; }
+.achievement-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.achievement-card-head strong { min-width: 0; color: var(--text); font-size: 12px; font-weight: 700; }
+.achievement-card-head span {
+  flex-shrink: 0; color: var(--red); font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.achievement-card.is-locked .achievement-card-head strong { color: var(--muted); }
+.achievement-card.is-locked .achievement-card-head span { color: var(--faint); }
+.achievement-card p { margin: 0; font-size: 11px; color: var(--muted); line-height: 1.4; }
+html.dark-mode .achievement-card { background: #1a1a1a; border-color: #2c2c2c; }
+html.dark-mode .achievement-card:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .achievements-list { border-color: #2c2c2c; }
 .updates-list { list-style: none; }
 .updates-list li { padding: 7px 12px; border-bottom: 1px dotted var(--line); font-size: 11px; color: var(--muted); line-height: 1.55; }
 .updates-list li:last-child { border-bottom: none; }
@@ -394,16 +443,22 @@ html.dark-mode .ach-row.locked .ach-ico { background: linear-gradient(to bottom,
   font-family: "MS Gothic","Courier New",monospace;
 }
 .updates-list strong { color: var(--text); }
-.ms-toast {
-  position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
-  z-index: 200; padding: 8px 14px; max-width: min(90vw, 360px);
-  background: linear-gradient(to bottom, #2a2a2a, #161616); color: #fff;
-  border: 1px solid #000; border-top: 3px solid var(--red);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.4); font-size: 11px;
-  opacity: 1; transition: opacity 0.3s ease;
+.nnd-toast {
+  position: fixed; top: 50px; right: 18px; z-index: 1000;
+  display: flex; align-items: stretch; width: min(92vw, 360px);
+  background: #fffde8; border: 1px solid #d0c35a; color: #555500;
+  font-size: 11px; line-height: 1.35;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.18);
+  opacity: 1; transition: opacity 0.5s ease;
 }
-.ms-toast.hide { opacity: 0; }
-.ms-toast b { color: #ffd24a; }
+.nnd-toast.nnd-toast-fade { opacity: 0; }
+.nnd-toast .nnd-toast-label {
+  background: #cc0000; color: #fff; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  min-width: 42px; padding: 0 10px; font-size: 15px; line-height: 1;
+}
+.nnd-toast .nnd-toast-msg { padding: 6px 12px; display: flex; flex-direction: column; justify-content: center; }
+.nnd-toast .nnd-toast-msg b { color: #333300; }
 
 /* ── dark mode ── */
 html.dark-mode {
@@ -444,7 +499,8 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
   .tl-cols { flex-direction: column; align-items: stretch; }
   .tl-left, .tl-right { width: 100%; min-width: 0; }
   .nnd-header-links { display: none; }
-  .nnd-mobile-nav { display: flex; overflow-x: auto; }
+  .nnd-mainbar { flex-wrap: wrap; gap: 8px; }
+  .nnd-mobile-settings { display: flex; }
   .nnd-body { padding: 6px; }
   /* mode bar: tabs on top, era tools become their own scrollable row */
   .game-mode-bar { flex-wrap: wrap; gap: 0; padding: 3px 5px 0; }
@@ -458,7 +514,11 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
   .mode-tools::-webkit-scrollbar { display: none; }
   .tl-thumb { width: 68px; }
   .tl-slot { width: 26px; font-size: 12px; }
-  .tl-title { font-size: 11px; white-space: normal; line-height: 1.25; }
+  .tl-card { min-height: 58px; }
+  .tl-title {
+    font-size: 11px; white-space: normal; line-height: 1.25;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
   .tl-artist { font-size: 9px; }
   .tl-info { padding: 4px 7px; }
   .tl-move button { width: 34px; }
@@ -477,7 +537,7 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
 <div class="nnd-mainbar">
   <a class="nnd-logo" href="../" title="Back to VOCALOIDLE home">
     <span class="nnd-logo-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-    <span class="nnd-logo-text">Timeline<span class="nnd-logo-sub" id="logo-sub">年表 · oldest to newest, five songs a day</span></span>
+    <span class="nnd-logo-text">Timeline<span class="nnd-logo-sub" id="logo-sub">oldest to newest</span></span>
   </a>
   <div class="language-switcher" aria-label="Language">
     <button class="language-button" type="button" data-lang="en" title="English"><span class="fi fi-us"></span></button>
@@ -490,20 +550,20 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
     <span style="color:var(--line)">|</span>
     <a href="#" id="ach-open">Achievements</a>
     <span style="color:var(--line)">|</span>
+    <a href="#" id="stats-open">Stats</a>
+    <span style="color:var(--line)">|</span>
     <a href="#" id="settings-open">Settings</a>
     <span style="color:var(--line)">|</span>
     <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
   </nav>
+  <nav class="nnd-mobile-settings" aria-label="Mobile utilities">
+    <a href="#" data-proxy="updates-open" id="m-updates">Updates</a>
+    <a href="#" data-proxy="ach-open" id="m-ach">Achievements</a>
+    <a href="#" data-proxy="stats-open" id="m-stats">Stats</a>
+    <a href="#" data-proxy="settings-open" id="m-settings">Settings</a>
+    <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Ko-fi</a>
+  </nav>
 </div>
-
-<nav class="nnd-mobile-nav" aria-label="Mobile navigation">
-  <a href="#" data-proxy="updates-open" id="m-updates">Updates</a>
-  <span style="color:var(--line)">|</span>
-  <a href="#" data-proxy="ach-open" id="m-ach">Achievements</a>
-  <span style="color:var(--line)">|</span>
-  <a href="#" data-proxy="settings-open" id="m-settings">Settings</a>
-  <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Ko-fi</a>
-</nav>
 
 <div class="nnd-marquee-bar">
   <span class="nnd-marquee-label">[INFO]</span>
@@ -589,7 +649,19 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
 <div class="modal-backdrop" id="ach-backdrop" hidden></div>
 <div class="settings-modal" id="ach-modal" hidden>
   <div class="settings-title"><span id="ach-title">[ Achievements ]</span> <span class="panel-note" id="ach-count"></span> <button type="button" class="modal-close" id="ach-close">✕</button></div>
-  <div class="modal-scroll" id="ach-list"></div>
+  <div id="ach-list" style="margin: 0 -14px -14px"></div>
+</div>
+
+<div class="modal-backdrop" id="stats-backdrop" hidden></div>
+<div class="settings-modal" id="stats-modal" hidden>
+  <div class="settings-title"><span id="stats-title">[ Stats ]</span> <button type="button" class="modal-close" id="stats-close">✕</button></div>
+  <div id="stats-body"></div>
+</div>
+
+<div class="modal-backdrop" id="detail-backdrop" hidden></div>
+<div class="settings-modal" id="detail-modal" hidden>
+  <div class="settings-title"><span id="detail-title-bar">[ Song ]</span> <button type="button" class="modal-close" id="detail-close">✕</button></div>
+  <div id="detail-body"></div>
 </div>
 
 <div class="modal-backdrop" id="updates-backdrop" hidden></div>
@@ -640,10 +712,14 @@ en: {
   navUpdates: "Updates", navAch: "Achievements", navSettings: "Settings", newsMore: "Full updates →",
   setTitle: "[ Settings ]", achTitle: "[ Achievements ]", updTitle: "[ Updates ]",
   settingsDark: "Dark Mode", settingsDarkDesc: "Dark page and panels, like the other games.",
-  view39: "view on 39charts →", logoSub: "年表 · oldest to newest, five songs a day",
+  view39: "view on 39charts →", logoSub: "oldest to newest",
   eraAll: "All years", eraHard: "★ Hard",
   archDone: "done", archNone: e => `No past dailies yet — the archive grows one puzzle per day, starting ${e}.`,
   achUnlocked: "Achievement unlocked!",
+  achTagUnlocked: "Unlocked", achTagLocked: "Locked", achSecret: "Secret achievement",
+  navStats: "Stats", statsTitle: "[ Stats ]",
+  stPlays: "Plays", stPerfect: "Perfect", stAvgRight: "Avg correct", stDaysDone: "Days completed", stEraFiltered: "Era filters",
+  sdSong: "Song", sdReleased: "Released", sdCombined: "Combined views",
 },
 ja: {
   daily: "デイリー", unlimited: "無制限", archive: "アーカイブ", score: "スコア", streakLbl: "連続", puzzle: "パズル",
@@ -662,10 +738,14 @@ ja: {
   navUpdates: "更新情報", navAch: "実績", navSettings: "設定", newsMore: "更新履歴をすべて見る →",
   setTitle: "[ 設定 ]", achTitle: "[ 実績 ]", updTitle: "[ 更新情報 ]",
   settingsDark: "ダークモード", settingsDarkDesc: "他のゲームと同じダーク配色。",
-  view39: "39chartsで見る →", logoSub: "年表 · 古い順に、毎日5曲",
+  view39: "39chartsで見る →", logoSub: "古い順に並べよう",
   eraAll: "全期間", eraHard: "★ ハード",
   archDone: "クリア", archNone: e => `まだ過去のデイリーがありません — ${e}から毎日1問ずつ増えます。`,
   achUnlocked: "実績を解除しました！",
+  achTagUnlocked: "解除済", achTagLocked: "未解除", achSecret: "シークレット実績",
+  navStats: "統計", statsTitle: "[ 統計 ]",
+  stPlays: "プレイ数", stPerfect: "パーフェクト", stAvgRight: "平均正解率", stDaysDone: "クリア日数", stEraFiltered: "期間フィルター",
+  sdSong: "楽曲", sdReleased: "投稿日", sdCombined: "合計再生数",
 },
 es: {
   daily: "Diario", unlimited: "Ilimitado", archive: "Archivo", score: "Puntos", streakLbl: "Racha", puzzle: "Puzle",
@@ -684,10 +764,14 @@ es: {
   navUpdates: "Novedades", navAch: "Logros", navSettings: "Ajustes", newsMore: "Ver todas las novedades →",
   setTitle: "[ Ajustes ]", achTitle: "[ Logros ]", updTitle: "[ Novedades ]",
   settingsDark: "Modo oscuro", settingsDarkDesc: "Colores oscuros, como los otros juegos.",
-  view39: "ver en 39charts →", logoSub: "年表 · de antigua a nueva, cinco al día",
+  view39: "ver en 39charts →", logoSub: "de antigua a nueva",
   eraAll: "Todos los años", eraHard: "★ Difícil",
   archDone: "completado", archNone: e => `Aún no hay diarios pasados — el archivo crece un puzle al día desde ${e}.`,
   achUnlocked: "¡Logro desbloqueado!",
+  achTagUnlocked: "Desbloqueado", achTagLocked: "Bloqueado", achSecret: "Logro secreto",
+  navStats: "Stats", statsTitle: "[ Stats ]",
+  stPlays: "Partidas", stPerfect: "Perfectas", stAvgRight: "Media de aciertos", stDaysDone: "Días completados", stEraFiltered: "Filtros de época",
+  sdSong: "Canción", sdReleased: "Publicada", sdCombined: "Vistas combinadas",
 },
 ko: {
   daily: "데일리", unlimited: "무제한", archive: "아카이브", score: "점수", streakLbl: "연속", puzzle: "퍼즐",
@@ -706,10 +790,14 @@ ko: {
   navUpdates: "업데이트", navAch: "업적", navSettings: "설정", newsMore: "전체 업데이트 보기 →",
   setTitle: "[ 설정 ]", achTitle: "[ 업적 ]", updTitle: "[ 업데이트 ]",
   settingsDark: "다크 모드", settingsDarkDesc: "다른 게임과 같은 어두운 배색.",
-  view39: "39charts에서 보기 →", logoSub: "年表 · 오래된 순서로, 매일 5곡",
+  view39: "39charts에서 보기 →", logoSub: "오래된 순서로",
   eraAll: "전체 연도", eraHard: "★ 하드",
   archDone: "완료", archNone: e => `아직 지난 데일리가 없습니다 — ${e}부터 하루에 하나씩 쌓입니다.`,
   achUnlocked: "업적 달성!",
+  achTagUnlocked: "달성", achTagLocked: "미달성", achSecret: "비밀 업적",
+  navStats: "통계", statsTitle: "[ 통계 ]",
+  stPlays: "플레이", stPerfect: "퍼펙트", stAvgRight: "평균 정답률", stDaysDone: "완료한 날", stEraFiltered: "연도 필터",
+  sdSong: "곡", sdReleased: "발표일", sdCombined: "합산 조회수",
 },
 };
 let LANG = LANGS.includes(localStorage.getItem("tl_lang")) ? localStorage.getItem("tl_lang") : "en";
@@ -730,6 +818,8 @@ function applyStatic() {
   ["updates-open","m-updates"].forEach(id => $(id).textContent = t("navUpdates"));
   ["ach-open","m-ach"].forEach(id => $(id).textContent = t("navAch"));
   ["settings-open","m-settings"].forEach(id => $(id).textContent = t("navSettings"));
+  ["stats-open","m-stats"].forEach(id => $(id).textContent = t("navStats"));
+  $("stats-title").textContent = t("statsTitle");
   $("set-title").textContent = t("setTitle");
   $("ach-title").textContent = t("achTitle");
   $("upd-title").textContent = t("updTitle");
@@ -779,14 +869,14 @@ const ACH = [
 function loadAch() { try { return JSON.parse(localStorage.getItem("tl_ach")) || {}; } catch (e) { return {}; } }
 function saveAch(a) { try { localStorage.setItem("tl_ach", JSON.stringify(a)); } catch (e) {} }
 let toastTimer = null;
-function toast(html) {
-  document.querySelectorAll(".ms-toast").forEach(el => el.remove());
+function toast(html, symbol) {
+  document.querySelectorAll(".nnd-toast").forEach(el => el.remove());
   const el = document.createElement("div");
-  el.className = "ms-toast";
-  el.innerHTML = html;
+  el.className = "nnd-toast";
+  el.innerHTML = `<span class="nnd-toast-label">${symbol || "\u2605"}</span><span class="nnd-toast-msg">${html}</span>`;
   document.body.appendChild(el);
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => { el.classList.add("hide"); setTimeout(() => el.remove(), 400); }, 3200);
+  toastTimer = setTimeout(() => { el.classList.add("nnd-toast-fade"); setTimeout(() => el.remove(), 500); }, 3000);
 }
 function unlockAch(id) {
   const a = loadAch();
@@ -795,21 +885,26 @@ function unlockAch(id) {
   saveAch(a);
   const def = ACH.find(x => x.id === id);
   const [name] = def[LANG] || def.en;
-  toast(`🏆 <b>${escHtml(name)}</b> — ${escHtml(t("achUnlocked"))}`);
+  toast(`<b>${escHtml(name)}</b><span>${escHtml(t("achUnlocked"))}</span>`, "🏆");
   renderAchievements();
 }
 function renderAchievements() {
   const a = loadAch();
   const n = ACH.filter(x => a[x.id]).length;
   $("ach-count").textContent = `${n} / ${ACH.length}`;
-  $("ach-list").innerHTML = ACH.map(x => {
-    if (x.secret && !a[x.id]) return `<div class="ach-row locked"><span class="ach-ico">?</span><span><span class="ach-name">???</span><span class="ach-desc">Secret</span></span></div>`;
+  $("ach-list").innerHTML = `<div class="achievements-list">` + ACH.map(x => {
+    const unlocked = !!a[x.id];
+    if (x.secret && !unlocked) {
+      return `<div class="achievement-card is-locked is-hidden">
+        <div class="achievement-card-head"><strong>???</strong><span>${escHtml(t("achTagLocked"))}</span></div>
+        <p>${escHtml(t("achSecret"))}</p></div>`;
+    }
     const [name, desc] = x[LANG] || x.en;
-    return `<div class="ach-row${a[x.id] ? "" : " locked"}">
-      <span class="ach-ico">${escHtml(x.ico)}</span>
-      <span><span class="ach-name">${escHtml(name)}</span><span class="ach-desc">${escHtml(desc)}</span></span>
+    return `<div class="achievement-card ${unlocked ? "is-unlocked" : "is-locked"}">
+      <div class="achievement-card-head"><strong>${escHtml(name)}</strong><span>${escHtml(unlocked ? t("achTagUnlocked") : t("achTagLocked"))}</span></div>
+      <p>${escHtml(desc)}</p>
     </div>`;
-  }).join("");
+  }).join("") + `</div>`;
 }
 
 /* ── data ── */
@@ -883,7 +978,9 @@ function buildPool() {
 const PUZZLE_N = 5;
 function yearOf(s) { return new Date(s.publishDate).getFullYear(); }
 
+const HARD_N = 10;
 function generatePuzzle(rnd, era) {
+  const N = era === "hard" ? HARD_N : PUZZLE_N;
   let pool = POOL;
   if (era && era !== "all" && era !== "hard") {
     const [a, b] = era.split("-").map(Number);
@@ -893,26 +990,27 @@ function generatePuzzle(rnd, era) {
     const picks = [];
     const used = new Set(), years = new Set();
     if (era === "hard") {
+      // ten songs inside a 7-year window, all distinct dates: genuinely HARD
       const anchor = pool[Math.floor(rnd() * pool.length)];
-      const lo = yearOf(anchor) - 2, hi = yearOf(anchor) + 2;
+      const lo = yearOf(anchor) - 3, hi = yearOf(anchor) + 3;
       const windowPool = pool.filter(s => yearOf(s) >= lo && yearOf(s) <= hi);
-      if (windowPool.length < PUZZLE_N) continue;
+      if (windowPool.length < N) continue;
       const dates = new Set();
       let guard = 0;
-      while (picks.length < PUZZLE_N && guard++ < 300) {
+      while (picks.length < N && guard++ < 500) {
         const s = windowPool[Math.floor(rnd() * windowPool.length)];
         if (used.has(s.vocadbId) || dates.has(s.publishDate)) continue;
         used.add(s.vocadbId); dates.add(s.publishDate); picks.push(s);
       }
     } else {
       let guard = 0;
-      while (picks.length < PUZZLE_N && guard++ < 200) {
+      while (picks.length < N && guard++ < 200) {
         const s = pool[Math.floor(rnd() * pool.length)];
         if (used.has(s.vocadbId) || years.has(yearOf(s))) continue;
         used.add(s.vocadbId); years.add(yearOf(s)); picks.push(s);
       }
     }
-    if (picks.length === PUZZLE_N) {
+    if (picks.length === N) {
       const solution = [...picks].sort((a, b) => a.publishDate.localeCompare(b.publishDate));
       let order = [...picks];
       do { order.sort(() => rnd() - 0.5); }
@@ -1045,7 +1143,7 @@ function startGame() {
       if (saved && state.puzzle) {
         const byId = new Map(state.puzzle.songs.map(s => [String(s.vocadbId), s]));
         const order = (saved.order || []).map(id => byId.get(id)).filter(Boolean);
-        if (order.length === PUZZLE_N) state.puzzle.songs = order;
+        if (order.length === state.puzzle.songs.length) state.puzzle.songs = order;
         if (saved.done) { state.done = true; scoreCurrent(); }
       }
     } catch (e) {}
@@ -1066,19 +1164,31 @@ function lockIn() {
   state.done = true;
   scoreCurrent();
   const rightN = state.result.filter(r => r === "right").length;
+  const totalN = state.puzzle.songs.length;
   unlockAch("first_lock");
-  if (rightN === PUZZLE_N) {
+  if (rightN === totalN) {
     unlockAch("perfect_day");
     if (state.mode === "unlimited" && state.era === "hard") unlockAch("hard_perfect");
     if (state.mode === "unlimited" && /^\d{4}-\d{4}$/.test(state.era)) unlockAch("era_ace");
   }
   if (rightN === 0 && state.result.every(r => r === "wrong")) unlockAch("all_wrong");
+  if (state.mode === "unlimited") {
+    // per-filter unlimited stats for the Stats modal
+    let u = {};
+    try { u = JSON.parse(localStorage.getItem("tl_ustats")) || {}; } catch (e) {}
+    const bucket = state.era === "hard" ? "hard" : (state.era === "all" ? "all" : "era");
+    const b = u[bucket] || { p: 0, perf: 0, right: 0, slots: 0 };
+    b.p++; b.right += rightN; b.slots += totalN;
+    if (rightN === totalN) b.perf++;
+    u[bucket] = b;
+    try { localStorage.setItem("tl_ustats", JSON.stringify(u)); } catch (e) {}
+  }
   if (state.mode === "daily") {
     const st = loadStats();
     if (st.lastDay !== state.dateKey) {
       st.played++;
       st.total += rightN;
-      if (rightN === PUZZLE_N) st.perfect++;
+      if (rightN === totalN) st.perfect++;
       const y = new Date(Date.now() - 864e5);
       const yKey = `${y.getFullYear()}-${String(y.getMonth()+1).padStart(2,"0")}-${String(y.getDate()).padStart(2,"0")}`;
       st.streak = st.lastDay === yKey ? st.streak + 1 : 1;
@@ -1118,12 +1228,13 @@ function fmtDate(iso) {
 
 function renderStatus() {
   const st = loadStats();
+  const totalN = state.puzzle ? state.puzzle.songs.length : PUZZLE_N;
   const rightN = state.result ? state.result.filter(r => r === "right").length : null;
   const modeLabel = state.mode === "unlimited" ? t("unlimited")
     : (state.mode === "archive" ? t("archive") + " · " : t("daily") + " · ") + state.dateKey;
   $("status-strip").innerHTML = `
     <div class="st-cell"><span class="st-k">${modeLabel}</span><span class="st-v">${t("puzzle")}</span></div>
-    <div class="st-cell"><span class="st-k">${t("score")}</span><span class="st-v is-red">${rightN != null ? rightN + " / " + PUZZLE_N : "—"}</span></div>
+    <div class="st-cell"><span class="st-k">${t("score")}</span><span class="st-v is-red">${rightN != null ? rightN + " / " + totalN : "—"}</span></div>
     ${state.mode === "daily" ? `<div class="st-cell"><span class="st-k">${t("streakLbl")}</span><span class="st-v">${st.streak}</span></div>` : ""}
   `;
 }
@@ -1137,7 +1248,7 @@ function render() {
     const res = state.done && state.result ? state.result[i] : null;
     const truth = solution.indexOf(s);
     html += `
-    <div class="tl-card${state.done ? " revealed " + res : ""}" draggable="${!state.done}" data-i="${i}">
+    <div class="tl-card${state.done ? " revealed " + res : ""}" draggable="${!state.done}" data-i="${i}" data-sid="${escHtml(String(s.vocadbId))}">
       <span class="tl-slot">${state.done ? truth + 1 : i + 1}</span>
       <span class="tl-thumb">${thumbImgHtml(s)}</span>
       <span class="tl-info">
@@ -1158,7 +1269,8 @@ function render() {
       <div class="tl-actions"><button type="button" class="lock-btn" id="lock-btn">${t("lockIn")}</button></div>`;
   } else {
     const rightN = state.result.filter(r => r === "right").length;
-    html += `<div class="result-line">${t("result", rightN, PUZZLE_N)}${rightN === PUZZLE_N ? t("perfect") : ""}</div>
+    const totalN = songs.length;
+    html += `<div class="result-line">${t("result", rightN, totalN)}${rightN === totalN ? t("perfect") : ""}</div>
       <div class="tl-actions">
         <button type="button" class="share-btn" id="share-btn">${t("share")}</button>
         ${state.mode === "unlimited" ? `<button type="button" class="new-btn" id="new-btn">${t("newPuzzle")}</button>` : ""}
@@ -1182,8 +1294,83 @@ function render() {
     if (nb) nb.addEventListener("click", startGame);
     const bb = $("back-btn");
     if (bb) bb.addEventListener("click", () => { state.dateKey = null; startGame(); });
+    $("game-box").querySelectorAll(".tl-card.revealed").forEach(card =>
+      card.addEventListener("click", e => {
+        if (e.target.closest("a")) return; // in-card links keep working
+        openDetail(card.dataset.sid);
+      }));
   }
 }
+
+/* stats modal: per-mode breakdown */
+function renderStatsModal() {
+  const st = loadStats();
+  let u = {};
+  try { u = JSON.parse(localStorage.getItem("tl_ustats")) || {}; } catch (e) {}
+  let archDone = 0;
+  for (const day of archiveDates()) {
+    try { const sv = JSON.parse(localStorage.getItem(`tl_daily_${day}`)); if (sv && sv.done) archDone++; } catch (e) {}
+  }
+  const sect = (title, rows) => `
+    <div style="font-family:'MS Gothic','Courier New',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin:10px 0 3px">${title}</div>
+    <table class="stats-table" style="border:1px solid var(--line)">${rows}</table>`;
+  const row = (k, v) => `<tr><td>${k}</td><td>${v}</td></tr>`;
+  const bucketRows = (b) => b
+    ? row(t("stPlays"), b.p) + row(t("stPerfect"), b.perf) + row(t("stAvgRight"), b.slots ? Math.round(b.right / b.slots * 100) + "%" : "\u2014")
+    : row(t("stPlays"), 0);
+  $("stats-body").innerHTML =
+    sect(t("daily"),
+      row(t("recPlayed"), st.played) + row(t("recPerfect"), st.perfect) +
+      row(t("recStreak"), st.streak) + row(t("recAvg"), st.played ? (st.total / st.played).toFixed(1) + "/5" : "\u2014")) +
+    sect(t("unlimited") + " \u00b7 " + t("eraAll"), bucketRows(u.all)) +
+    sect(t("unlimited") + " \u00b7 " + t("stEraFiltered"), bucketRows(u.era)) +
+    sect(t("unlimited") + " \u00b7 " + t("eraHard"), bucketRows(u.hard)) +
+    sect(t("archive"), row(t("stDaysDone"), archDone + " / " + archiveDates().length));
+}
+
+/* song detail (revealed cards) */
+function compactNum(n) {
+  if (n == null) return EM;
+  return new Intl.NumberFormat("en", { notation: "compact", maximumFractionDigits: 1 }).format(n);
+}
+const EM = "\u2014";
+function openDetail(id) {
+  const song = SONGS.find(x => String(x.vocadbId) === String(id));
+  if (!song) return;
+  const sid = String(song.vocadbId);
+  const n = VIEWS[sid], y = YT[sid] || {}, b = BILI[sid] || {};
+  const total = combined(song);
+  const chain = coverChain(song);
+  const vocadbUrl = song.vocadbUrl || `https://vocadb.net/S/${sid}`;
+  const biliCode = b.id ? (/^BV/i.test(String(b.id)) ? String(b.id) : `av${b.id}`) : null;
+  $("detail-title-bar").textContent = `[ ${t("sdSong")} ]`;
+  $("detail-body").innerHTML = `
+    ${chain.length ? `<div class="sd-cover">${thumbImgHtml(song)}</div>` : ""}
+    <div class="sd-title">${escHtml(song.title)}</div>
+    <div class="sd-artist">${escHtml(song.artist || song.artistString || "")}</div>
+    <table class="sd-table">
+      <tr><td>${t("sdReleased")}</td><td>${song.publishDate ? fmtDate(song.publishDate) : EM}</td></tr>
+      <tr><td>${t("sdCombined")}</td><td class="is-red">${total != null ? total.toLocaleString() : EM}</td></tr>
+      ${typeof n === "number" ? `<tr><td>NicoNico</td><td>${compactNum(n)}</td></tr>` : ""}
+      ${typeof y.views === "number" ? `<tr><td>YouTube</td><td>${compactNum(y.views)}</td></tr>` : ""}
+      ${typeof b.views === "number" ? `<tr><td>bilibili</td><td>${compactNum(b.views)}</td></tr>` : ""}
+    </table>
+    <div class="sd-links">
+      ${song.ytOriginalId ? `<a class="sd-btn" href="https://www.youtube.com/watch?v=${encodeURIComponent(song.ytOriginalId)}" target="_blank" rel="noopener">YouTube \u2197</a>` : ""}
+      ${song.nndOriginalId ? `<a class="sd-btn" href="https://www.nicovideo.jp/watch/${encodeURIComponent(song.nndOriginalId)}" target="_blank" rel="noopener">NicoNico \u2197</a>` : ""}
+      ${biliCode ? `<a class="sd-btn" href="https://www.bilibili.com/video/${encodeURIComponent(biliCode)}" target="_blank" rel="noopener">bilibili \u2197</a>` : ""}
+      <a class="sd-btn" href="../39charts/song.html?id=${encodeURIComponent(sid)}" target="_blank" rel="noopener">39charts \u2197</a>
+      <a class="sd-btn vocadb" href="${escHtml(vocadbUrl)}" target="_blank" rel="noopener">VocaDB \u2197</a>
+    </div>`;
+  $("detail-modal").hidden = false;
+  $("detail-backdrop").hidden = false;
+}
+(function () {
+  const close = () => { $("detail-modal").hidden = true; $("detail-backdrop").hidden = true; };
+  $("detail-close").addEventListener("click", close);
+  $("detail-backdrop").addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+})();
 
 /* drag & drop (desktop) */
 let dragIdx = null;
@@ -1221,10 +1408,11 @@ function shareText() {
   const dayNum = Math.max(1, Math.floor((new Date(todayKey()) - new Date(EPOCH)) / 864e5) + 1);
   const art = state.result.map(r => r === "right" ? "🟩" : r === "close" ? "🟨" : "⬛").join("");
   const rightN = state.result.filter(r => r === "right").length;
+  const totalN = state.result.length;
   const head = state.mode === "daily" ? `VOCALOID Timeline #${dayNum}`
     : state.mode === "archive" ? `VOCALOID Timeline ${state.dateKey} (archive)`
     : "VOCALOID Timeline (unlimited)";
-  return `${head} · ${rightN}/${PUZZLE_N}\n${art}\nhttps://vocaloidle.sodapines.dev/timeline/`;
+  return `${head} · ${rightN}/${totalN}\n${art}\nhttps://vocaloidle.sodapines.dev/timeline/`;
 }
 
 /* ── events ── */
@@ -1254,7 +1442,7 @@ document.querySelectorAll(".language-button").forEach(btn => btn.addEventListene
   if (state.mode === "archive" && !state.dateKey) renderArchiveCalendar();
   else if (state.puzzle) render();
 }));
-document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(a =>
+document.querySelectorAll(".nnd-mobile-settings a[data-proxy]").forEach(a =>
   a.addEventListener("click", e => { e.preventDefault(); const el = $(a.dataset.proxy); if (el) el.click(); }));
 
 function wireModal(openId, modalId, backdropId, closeId, onOpen) {
@@ -1271,6 +1459,7 @@ wireModal("settings-open", "settings-modal", "settings-backdrop", "settings-clos
 });
 wireModal("ach-open", "ach-modal", "ach-backdrop", "ach-close", renderAchievements);
 wireModal("updates-open", "updates-modal", "updates-backdrop", "updates-close", renderNews);
+wireModal("stats-open", "stats-modal", "stats-backdrop", "stats-close", renderStatsModal);
 $("news-more").addEventListener("click", e => { e.preventDefault(); $("updates-open").click(); });
 $("opt-dark").addEventListener("click", () => {
   const on = document.documentElement.classList.toggle("dark-mode");
