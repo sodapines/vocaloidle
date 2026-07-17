@@ -890,7 +890,8 @@ function buildSongEntry(data, tiers) {
   const producers = artists.filter(a=>/producer/i.test(a.categories||"")&&a.artist);
   const vocalists = artists.filter(a=>/vocalist/i.test(a.categories||"")&&a.artist);
   const pvs = (data.pvs||[]).filter(p=>p.pvType==="Original"||p.pvType==="Reprint");
-  const coverArts = buildCoverArts(pvs);
+  const allPvs = (data.pvs||[]).filter(p=>!p.disabled);
+  const coverArts = buildCoverArts(pvs.length ? pvs : allPvs); // fall back to "Other" PVs for artwork only
   const bestPv = svc => pvs.find(p=>p.service===svc&&p.pvType==="Original") || pvs.find(p=>p.service===svc);
   const nndPv = bestPv("NicoNicoDouga"), ytPv = bestPv("Youtube");
   let sourceTags = mapSourceTags(data.tags||[]);
@@ -957,7 +958,7 @@ async function doFetch() {
     const singerNames = artists.filter(a=>/vocalist/i.test(a.categories||"")&&a.artist).map(a=>a.artist.name);
     const vocals = normalizeVocalists(singerNames);
     const pvs = (data.pvs||[]).filter(p=>p.pvType==="Original"||p.pvType==="Reprint");
-    const coverArts = buildCoverArts(pvs);
+    const coverArts = buildCoverArts(pvs.length ? pvs : (data.pvs||[]).filter(p=>!p.disabled));
     const services = new Set(pvs.map(p => p.service));
     const hasNnd = services.has("NicoNicoDouga"), hasYt = services.has("Youtube"), hasBili = services.has("Bilibili");
     data._platforms = { nnd: hasNnd, yt: hasYt, bili: hasBili };
