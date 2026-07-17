@@ -852,6 +852,26 @@ function parseId(raw) {
 
 function ytThumb(pvId) { return `https://i.ytimg.com/vi/${pvId}/hqdefault.jpg`; }
 
+/* Thumbnail chain with dead-YouTube detection: YT serves a gray 120x90
+   placeholder with HTTP 200 for removed videos, so onload catches it and
+   falls through to the next source (reprint / NND). */
+function advanceThumb(img, skipYt) {
+  let rest = JSON.parse(img.dataset.srcs || "[]");
+  if (skipYt) rest = rest.filter(u => !u.includes("ytimg.com"));
+  if (rest.length) { img.src = rest[0]; img.dataset.srcs = JSON.stringify(rest.slice(1)); }
+  else img.style.display = "none";
+}
+function tryNextThumb(img) { advanceThumb(img, false); }
+function thumbLoaded(img) {
+  if (img.naturalWidth && img.naturalWidth <= 120 && img.naturalHeight <= 90
+      && /ytimg\.com/.test(img.currentSrc || img.src)) advanceThumb(img, true);
+}
+function chainImg(arts) {
+  const chain = [...new Set(arts || [])].filter(Boolean);
+  if (!chain.length) return "";
+  return `<img src="${escHtml(chain[0])}" alt="" referrerpolicy="no-referrer" data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}" onload="thumbLoaded(this)" onerror="tryNextThumb(this)">`;
+}
+
 function buildCoverArts(pvs) {
   const arts = [];
   pvs.forEach(pv => {
@@ -982,9 +1002,8 @@ async function doFetch() {
           : "★ Song found — confirm details and submit"}</div>
         <div class="preview-body">
           <div class="preview-thumb">
-            ${coverArts[0]
-              ? `<img src="${escHtml(coverArts[0])}" alt="" onerror="this.style.display='none'">`
-              : `<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#555;font-size:22px;opacity:0.3">♪</div>`}
+            ${chainImg(coverArts)
+              || `<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#555;font-size:22px;opacity:0.3">♪</div>`}
           </div>
           <div class="preview-meta">
             <div class="preview-title">${escHtml(data.defaultName||"")}</div>
@@ -1121,7 +1140,7 @@ function renderQueue(items, token) {
     return `
       <li class="sub-item" data-id="${escHtml(item.id)}">
         <div class="sub-thumb">
-          ${s.coverArt ? `<img src="${escHtml(s.coverArt)}" alt="" onerror="this.style.display='none'">` : ""}
+          ${chainImg([s.coverArt, ...(s.coverArts || [])])}
         </div>
         <div class="sub-info">
           <div class="sub-title">${escHtml(s.title)}</div>
