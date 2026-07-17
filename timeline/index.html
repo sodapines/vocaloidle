@@ -594,13 +594,43 @@ const combined = s => {
   if (typeof n !== "number" && typeof y !== "number" && typeof b !== "number") return null;
   return (n || 0) + (y || 0) + (b || 0);
 };
-function thumbUrl(song) {
-  if (song.ytOriginalId) return `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`;
-  if (song.coverArt) return song.coverArt;
+/* Cover-art fallback chain (same as 39charts): original YT, reprint uploads
+   from coverArts, NicoNico, bilibili. YouTube serves a fake gray 120x90
+   placeholder with HTTP 200 for dead videos, so onload detects it and skips
+   the rest of the YT chain. */
+function coverChain(song) {
+  const all = [...(song.coverArts || [])];
+  if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
+  const ytHq = song.ytOriginalId ? `https://i.ytimg.com/vi/${song.ytOriginalId}/hqdefault.jpg` : null;
+  if (ytHq) all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`);
   const m = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/) : null;
-  if (m) return `https://nicovideo.cdn.nimg.jp/thumbnails/${m[1]}/${m[1]}`;
-  return null;
+  if (m) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${m[1]}/${m[1]}`);
+  const bp = BILI[String(song.vocadbId)];
+  if (bp && bp.pic) all.push(String(bp.pic).replace(/^http:/, "https:"));
+  const pr = u => (ytHq && u === ytHq) ? -1
+    : u.includes("ytimg.com") && u.includes("hqdefault") ? 0
+    : u.includes("ytimg.com") && u.includes("mqdefault") ? 1
+    : u.includes("ytimg.com") ? 2
+    : u.includes("sndcdn.com") ? 3 : 4;
+  return [...new Set(all)].sort((a, b) => pr(a) - pr(b));
 }
+function advanceThumb(img, skipYt) {
+  let rest = JSON.parse(img.dataset.srcs || "[]");
+  if (skipYt) rest = rest.filter(u => !u.includes("ytimg.com"));
+  if (rest.length) { img.src = rest[0]; img.dataset.srcs = JSON.stringify(rest.slice(1)); }
+  else img.remove();
+}
+function tryNextThumb(img) { advanceThumb(img, false); }
+function thumbLoaded(img) {
+  if (img.naturalWidth && img.naturalWidth <= 120 && img.naturalHeight <= 90
+      && /ytimg\.com/.test(img.currentSrc || img.src)) advanceThumb(img, true);
+}
+function thumbImgHtml(song, cls) {
+  const chain = coverChain(song);
+  if (!chain.length) return "";
+  return `<img${cls ? ` class="${cls}"` : ""} src="${escHtml(chain[0])}" alt="" referrerpolicy="no-referrer" loading="lazy" data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}" onload="thumbLoaded(this)" onerror="tryNextThumb(this)">`;
+}
+function thumbUrl(song) { return coverChain(song)[0] || null; }
 
 /* Pool: well-known songs only (top 600 by combined views) with solid dates. */
 function buildPool() {
@@ -782,7 +812,7 @@ function render() {
     html += `
     <div class="tl-card${state.done ? " revealed " + res : ""}" draggable="${!state.done}" data-i="${i}">
       <span class="tl-slot">${state.done ? truth + 1 : i + 1}</span>
-      <span class="tl-thumb"><img src="${escHtml(thumbUrl(s) || "")}" alt="" referrerpolicy="no-referrer" loading="lazy" onerror="this.remove()"></span>
+      <span class="tl-thumb">${thumbImgHtml(s)}</span>
       <span class="tl-info">
         <span class="tl-title">${escHtml(s.title)}</span>
         <span class="tl-artist">${escHtml(s.artist || s.artistString || "")}</span>
