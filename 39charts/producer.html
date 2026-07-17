@@ -344,6 +344,24 @@ tr.is-top3 .rt-rank { color: var(--red); }
   padding: 6px 10px; font-size: 11px; color: var(--faint); text-align: center;
 }
 
+
+/* views-over-time panel */
+.hist-body { padding: 10px 12px 8px; }
+.hist-body.hist-empty { font-size: 11px; color: var(--faint); font-style: italic; }
+.hist-chart { display: flex; gap: 6px; align-items: stretch; }
+.hist-y {
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: 2px 0 2px; text-align: right; flex-shrink: 0; min-width: 34px;
+  font-size: 9px; color: var(--faint); font-family: Consolas, "MS PGothic", monospace;
+}
+.hist-plot { flex: 1; min-width: 0; }
+.hist-svg { display: block; width: 100%; height: 150px; }
+.hist-axis {
+  display: flex; justify-content: space-between; margin: 4px 0 0 40px;
+  font-size: 9px; color: var(--faint); font-family: Consolas, "MS PGothic", monospace;
+}
+html.dark-mode .hist-svg line { stroke: rgba(255,255,255,0.14); }
+
 /* ── DARK MODE ── */
 html.dark-mode {
   --bg: #121212; --surface: #1a1a1a; --sf: #161616;
@@ -830,6 +848,76 @@ function renderGrid() {
   syncDiscControls();
 }
 
+
+/* ── Views over time (aggregated across this page's songs, from viewhistory) ── */
+let HISTORY = null;
+
+function historyPanelHtml(pageSongs) {
+  const collecting = `
+    <div class="panel">
+      <div class="panel-header">[ Views Over Time ] <span class="panel-note">daily tracking</span></div>
+      <div class="hist-body hist-empty">Collecting daily snapshots — the graph appears once at least two days of data exist.</div>
+    </div>`;
+  if (!HISTORY || !HISTORY.dates) return collecting;
+  const dates = HISTORY.dates;
+  const totals = dates.map((_, i) => {
+    let sum = 0, has = false;
+    for (const s of pageSongs) {
+      const e = HISTORY.songs[String(s.vocadbId)];
+      if (!e) continue;
+      const parts = [e.n, e.y, e.b].map(x => x && x[i] != null ? x[i] : null);
+      if (parts.every(v => v == null)) continue;
+      sum += parts.reduce((a, v) => a + (v || 0), 0);
+      has = true;
+    }
+    return has ? sum : null;
+  });
+  const idx = totals.map((v, i) => v != null ? i : -1).filter(i => i >= 0);
+  if (idx.length < 2) return collecting;
+
+  const W = 600, H = 150, PT = 8, PB = 8;
+  const vals = idx.map(i => totals[i]);
+  const min = Math.min(...vals), max = Math.max(...vals);
+  const span = Math.max(1, max - min);
+  const xs = k => (W * (k / (idx.length - 1)));
+  const ys = v => PT + (H - PT - PB) * (1 - (v - min) / span);
+  const pts = vals.map((v, k) => `${xs(k).toFixed(1)},${ys(v).toFixed(1)}`);
+  const area = `M${xs(0).toFixed(1)},${H - PB} L${pts.join(" L")} L${xs(vals.length - 1).toFixed(1)},${H - PB} Z`;
+  const dots = vals.map((v, k) =>
+    `<circle cx="${xs(k).toFixed(1)}" cy="${ys(v).toFixed(1)}" r="3" fill="#cc0000"><title>${dates[idx[k]]}: ${v.toLocaleString()} views</title></circle>`).join("");
+  // horizontal gridlines at min / mid / max, labelled in the HTML column
+  const gridVals = [max, min + span / 2, min];
+  const grid = gridVals.map(v =>
+    `<line x1="0" x2="${W}" y1="${ys(v).toFixed(1)}" y2="${ys(v).toFixed(1)}" stroke="rgba(0,0,0,0.12)" stroke-width="1" stroke-dasharray="3 3"></line>`).join("");
+  const yLabels = gridVals.map(v =>
+    `<span title="${Math.round(v).toLocaleString()}">${formatViews(Math.round(v))}</span>`).join("");
+  // date ticks: first / middle / last snapshot
+  const tickIdx = [...new Set([0, Math.floor((idx.length - 1) / 2), idx.length - 1])];
+  const xLabels = tickIdx.map(k => `<span>${dates[idx[k]]}</span>`).join("");
+  const gained = vals[vals.length - 1] - vals[0];
+  const gainedTxt = gained === 0 ? "±0" : `${gained > 0 ? "+" : "−"}${Math.abs(gained).toLocaleString()}`;
+  return `
+    <div class="panel">
+      <div class="panel-header">[ Views Over Time ]
+        <span class="panel-note">combined views · ${gainedTxt} since ${dates[idx[0]]}</span>
+      </div>
+      <div class="hist-body">
+        <div class="hist-chart">
+          <div class="hist-y">${yLabels}</div>
+          <div class="hist-plot">
+            <svg class="hist-svg" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="Combined views over time">
+              ${grid}
+              <path d="${area}" fill="rgba(204,0,0,0.07)"></path>
+              <polyline points="${pts.join(" ")}" fill="none" stroke="#cc0000" stroke-width="2" vector-effect="non-scaling-stroke"></polyline>
+              ${dots}
+            </svg>
+          </div>
+        </div>
+        <div class="hist-axis">${xLabels}</div>
+      </div>
+    </div>`;
+}
+
 function buildPage(producerName, songs) {
   document.title = `39charts — ${producerName}`;
   document.getElementById("topbar-crumb").textContent = `39charts › Producers › ${producerName}`;
@@ -921,6 +1009,8 @@ function buildPage(producerName, songs) {
           </div>
         </div>
 
+${historyPanelHtml(songs)}
+
         <div class="panel">
           <div class="panel-header">
             <span class="ph-title">[ Discography ]</span>
@@ -990,8 +1080,10 @@ if (!producerName) {
     loadJsonCached("../data/artists.json", "39c_artists_v3"),
     loadJsonCached("../data/songdetails.json", "39c_details_v2"),
     loadJsonCached("../data/biliviews.json", "39c_biliviews_v3"),
+    loadJsonCached("../data/viewhistory.json", "39c_viewhist_v2"),
   ])
-    .then(([data, views, ytviews, artists, details, biliviews]) => {
+    .then(([data, views, ytviews, artists, details, biliviews, history]) => {
+      if (history && history.dates && history.songs) { HISTORY = history; }
       if (details && details.songs) { DETAILS = details.songs; }
       if (biliviews && biliviews.stats) { BILI_STATS = biliviews.stats; }
       if (views && views.views) { VIEWS = views.views; VIEWS_UPDATED = views.updated || null; }

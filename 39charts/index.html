@@ -835,6 +835,37 @@ html.dark-mode .cal-day { background: #1d1d1d; border-color: #2c2c2c; }
 html.dark-mode .cal-day.has-data { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); color: var(--text); }
 html.dark-mode .cal-nav, html.dark-mode .cal-live-btn { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted); }
 
+
+/* rank-change chips */
+.rk-delta {
+  display: block; font-size: 8px; font-weight: 700; line-height: 1.1;
+  font-family: Consolas, "MS PGothic", monospace; letter-spacing: 0;
+}
+.rk-delta.up { color: #2ecc40; }
+.rk-delta.down { color: #ff851b; }
+.rk-delta.same { color: rgba(255,255,255,0.45); }
+.rt-rank .rk-delta.same { color: var(--faint); }
+.rt-rank .rk-delta.up { color: #1a7a1a; }
+.rt-rank .rk-delta.down { color: #b05010; }
+html.dark-mode .rt-rank .rk-delta.up { color: #6adf6a; }
+html.dark-mode .rt-rank .rk-delta.down { color: #ffa050; }
+
+/* milestone feed */
+.ms-row { display: flex; align-items: center; gap: 6px; padding: 4px 8px; border-bottom: 1px dotted var(--line); }
+.ms-row:last-child { border-bottom: none; }
+.ms-badge {
+  flex-shrink: 0; padding: 0 5px;
+  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  color: #fff; font-size: 9px; font-weight: 900; line-height: 15px;
+  font-family: "MS Gothic","Courier New",monospace;
+}
+.ms-title { flex: 1; min-width: 0; font-size: 10px; }
+.ms-title a { display: block; color: var(--text); font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ms-title a:hover { color: var(--red); text-decoration: none; }
+.ms-sub { display: block; font-size: 9px; color: var(--faint); font-weight: 400; }
+.ms-note { padding: 3px 8px 5px; font-size: 9px; color: var(--faint); font-style: italic; }
+html.dark-mode .ms-badge { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #5a0505; }
+
 /* placeholder + cover internals (logic untouched) */
 .thumb-placeholder {
   position: absolute;
@@ -1412,6 +1443,12 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
       </div>
     </div>
 
+    <div class="sidebar-panel" id="milestones-panel" hidden>
+      <div class="sidebar-header">[ Milestones ]</div>
+      <div id="milestones-list"></div>
+      <div class="ms-note" id="milestones-note"></div>
+    </div>
+
   </aside>
 
   <main class="nnd-main">
@@ -1757,6 +1794,103 @@ function growthOf(song) {
   }
   GROWTH_CACHE.set(id, gain);
   return gain;
+}
+
+
+/* ── Rank-change vs ~a week ago + milestone crossings ── */
+let RANK_DELTA = null;
+
+function computeRankDeltas() {
+  if (!HISTORY || HISTORY.dates.length < 2) return;
+  const dates = HISTORY.dates;
+  const lastD = new Date(dates[dates.length - 1]);
+  let past = -1;
+  for (let i = 0; i < dates.length - 1; i++) {
+    if ((lastD - new Date(dates[i])) / 864e5 >= 6) past = i;
+  }
+  if (past < 0) past = dates.length - 2;
+  const liveList = [], pastList = [];
+  for (const s of ALL_SONGS) {
+    const id = String(s.vocadbId);
+    const n = VIEWS[id], y = YT_STATS[id] && YT_STATS[id].views, b = BILI_STATS[id] && BILI_STATS[id].views;
+    if (typeof n === "number" || typeof y === "number" || typeof b === "number") {
+      liveList.push([id, (n || 0) + (y || 0) + (b || 0)]);
+    }
+    const e = HISTORY.songs[id];
+    if (e) {
+      const parts = [e.n, e.y, e.b].map(x => x && x[past] != null ? x[past] : null);
+      if (!parts.every(v => v == null)) pastList.push([id, parts.reduce((a, v) => a + (v || 0), 0)]);
+    }
+  }
+  const rankMap = list => { list.sort((a, b) => b[1] - a[1]); const m = new Map(); list.forEach(([id], i) => m.set(id, i + 1)); return m; };
+  const cur = rankMap(liveList), old = rankMap(pastList);
+  RANK_DELTA = { since: dates[past], map: new Map() };
+  for (const [id, r] of cur) {
+    const o = old.get(id);
+    if (o != null) RANK_DELTA.map.set(id, o - r);
+  }
+}
+
+/* Chip shown next to rank numbers on the default all-time view only —
+   filtered/searched/rewound lists have their own rank space. */
+function rankDeltaHtml(song) {
+  if (!RANK_DELTA || activeSort !== "views" || sortDir !== "desc" || activePlatform !== "both"
+      || asOfIdx != null || searchQuery || filtersActive() || activeVocalists.length) return "";
+  const d = RANK_DELTA.map.get(String(song.vocadbId));
+  if (d == null) return "";
+  if (d === 0) return `<span class="rk-delta same" title="No rank change since ${RANK_DELTA.since}">=</span>`;
+  return d > 0
+    ? `<span class="rk-delta up" title="Up ${d} place${d !== 1 ? "s" : ""} since ${RANK_DELTA.since}">▲${d}</span>`
+    : `<span class="rk-delta down" title="Down ${-d} place${d !== -1 ? "s" : ""} since ${RANK_DELTA.since}">▼${-d}</span>`;
+}
+
+const MS_THRESHOLDS = [
+  { min: 1e8, label: "100M" }, { min: 5e7, label: "50M" }, { min: 1e7, label: "10M" },
+  { min: 5e6, label: "5M" }, { min: 1e6, label: "1M" }, { min: 5e5, label: "500K" }, { min: 1e5, label: "100K" },
+];
+
+function renderMilestones() {
+  const panel = document.getElementById("milestones-panel");
+  const list = document.getElementById("milestones-list");
+  if (!panel || !list || !HISTORY || HISTORY.dates.length < 2) return;
+  const dates = HISTORY.dates;
+  const byId = new Map(ALL_SONGS.map(s => [String(s.vocadbId), s]));
+  const crossed = [];
+  for (const [id, e] of Object.entries(HISTORY.songs)) {
+    const song = byId.get(id);
+    if (!song) continue;
+    const at = i => {
+      const parts = [e.n, e.y, e.b].map(x => x && x[i] != null ? x[i] : null);
+      return parts.every(v => v == null) ? null : parts.reduce((a, v) => a + (v || 0), 0);
+    };
+    // Which platforms report on a given day — a "crossing" only counts if the
+    // platform coverage is identical on both ends, otherwise the jump is just
+    // a new platform being counted for the first time, not real growth.
+    const platKey = i => ["n", "y", "b"].map(k => e[k] && e[k][i] != null ? "1" : "0").join("");
+    const idx = dates.map((_, i) => at(i) != null ? i : -1).filter(i => i >= 0);
+    for (let k = 1; k < idx.length; k++) {
+      if (platKey(idx[k - 1]) !== platKey(idx[k])) continue;
+      const a = at(idx[k - 1]), b = at(idx[k]);
+      if (b <= a) continue;
+      const t = MS_THRESHOLDS.find(t => a < t.min && b >= t.min);
+      if (!t) continue;
+      const gapDays = (new Date(dates[idx[k]]) - new Date(dates[idx[k - 1]])) / 864e5;
+      crossed.push({ song, t, date: dates[idx[k]], approx: gapDays > 1.5 });
+    }
+  }
+  if (!crossed.length) return;
+  crossed.sort((x, y) => y.date.localeCompare(x.date) || y.t.min - x.t.min);
+  list.innerHTML = crossed.slice(0, 8).map(({ song, t, date, approx }) => `
+    <div class="ms-row">
+      <span class="ms-badge">${t.label}+</span>
+      <span class="ms-title">
+        <a href="song.html?id=${encodeURIComponent(song.vocadbId)}" title="${escHtml(displayTitle(song))}">${escHtml(displayTitle(song))}</a>
+        <span class="ms-sub">${approx ? "by" : "on"} ${date}</span>
+      </span>
+    </div>`).join("");
+  document.getElementById("milestones-note").textContent =
+    `combined-view milestones from daily snapshots${crossed.length > 8 ? ` · +${crossed.length - 8} more` : ""}`;
+  panel.hidden = false;
 }
 
 function nndViews(song) {
@@ -2219,7 +2353,7 @@ function rowHtml(song, globalRank) {
     : `<td class="rt-views is-tier">${tier.label || "—"}</td>`;
   return `
     <tr class="${globalRank < 10 ? "is-top10" : ""}">
-      <td class="rt-rank">${globalRank + 1}</td>
+      <td class="rt-rank">${globalRank + 1}${rankDeltaHtml(song)}</td>
       <td class="rt-thumb-cell">
         <div class="row-thumb">
           ${thumbInnerHtml(song)}
@@ -2282,7 +2416,7 @@ function cardHtml(song, globalRank) {
     <div class="song-card">
       <div class="card-thumb">
         ${thumbInnerHtml(song)}
-        <div class="card-rank${globalRank < 3 ? " rk-top" : ""}">${globalRank + 1}</div>
+        <div class="card-rank${globalRank < 3 ? " rk-top" : ""}">${globalRank + 1}${rankDeltaHtml(song)}</div>
         ${pvHtml}
         ${viewsHtml}
         <a class="thumb-link" href="${link}" aria-label="${title}" tabindex="-1"></a>
@@ -2847,6 +2981,8 @@ Promise.all([loadSongs(), loadViews(), loadYtViews(), loadDetails(), loadBiliVie
     renderAllChips();
     refreshAllDropdowns();
 
+    computeRankDeltas();
+    renderMilestones();
     updateMarquee();
     render();
   })
@@ -3032,7 +3168,10 @@ document.getElementById("pagination-bar").addEventListener("click", e => {
 (function () {
   var mq = window.matchMedia("(max-width: 860px)");
   var panels = document.querySelectorAll(".nnd-sidebar .sidebar-panel");
-  if (mq.matches) panels.forEach(function (p) { p.classList.add("is-collapsed"); });
+  function collapseAll() { panels.forEach(function (p) { p.classList.add("is-collapsed"); }); }
+  if (mq.matches) collapseAll();
+  // also collapse when the viewport becomes mobile after load (rotation, devtools emulation)
+  if (mq.addEventListener) mq.addEventListener("change", function (e) { if (e.matches) collapseAll(); });
   panels.forEach(function (p) {
     var h = p.querySelector(".sidebar-header");
     if (h) h.addEventListener("click", function () {

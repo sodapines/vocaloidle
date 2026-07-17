@@ -1099,7 +1099,9 @@ document.getElementById("search-input").addEventListener("input", e => {
 (function () {
   var mq = window.matchMedia("(max-width: 860px)");
   var panels = document.querySelectorAll(".nnd-sidebar .sidebar-panel");
-  if (mq.matches) panels.forEach(function (p) { p.classList.add("is-collapsed"); });
+  function collapseAll() { panels.forEach(function (p) { p.classList.add("is-collapsed"); }); }
+  if (mq.matches) collapseAll();
+  if (mq.addEventListener) mq.addEventListener("change", function (e) { if (e.matches) collapseAll(); });
   panels.forEach(function (p) {
     var h = p.querySelector(".sidebar-header");
     if (h) h.addEventListener("click", function () {
