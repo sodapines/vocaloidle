@@ -1330,7 +1330,7 @@ function buildPage(song, rank, yearRank) {
 
         <div class="cta-row">
           <a class="cta-btn compare-cta" href="compare.html?ids=${encodeURIComponent(song.vocadbId)}"><span class="cc-ico">⚖</span> Compare song</a>
-          ${song.vocadbUrl ? `<a class="cta-btn vocadb-cta" href="${escHtml(song.vocadbUrl)}" target="_blank" rel="noopener"><span class="cc-vdb" aria-hidden="true">DB</span> VocaDB ↗</a>` : ""}
+          ${(song.vocadbUrl || song.vocadbId) ? `<a class="cta-btn vocadb-cta" href="${escHtml(song.vocadbUrl || `https://vocadb.net/S/${song.vocadbId}`)}" target="_blank" rel="noopener"><span class="cc-vdb" aria-hidden="true">DB</span> VocaDB ↗</a>` : ""}
         </div>
 
       </div>

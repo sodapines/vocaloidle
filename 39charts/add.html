@@ -913,6 +913,7 @@ function buildSongEntry(data, tiers) {
     acceptedTitles:(data.names||[]).map(n=>n.value).filter(Boolean),
     vocadbPools:   [],
     sourceTags,
+    vocadbUrl:     `https://vocadb.net/S/${data.id}`,
     nndOriginalId: (nndPv && nndPv.pvId) || "",
     ytOriginalId:  (ytPv && ytPv.pvId) || "",
     audioClip:     "",
