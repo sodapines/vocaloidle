@@ -902,7 +902,7 @@ function buildSongEntry(data, tiers) {
   if (tierTags.length) sourceTags = [...tierTags, ...sourceTags.filter(t=>!/^(nnd|yt)-/.test(t))];
   return {
     vocadbId:      data.id,
-    title:         data.defaultName||data.name||"",
+    title:         data.name||data.defaultName||"", // lang=English -> localized name first
     artist:        producers[0]?.artist?.name || data.artistString||"",
     artistString:  data.artistString||"",
     coverArt:      coverArts[0]||"",

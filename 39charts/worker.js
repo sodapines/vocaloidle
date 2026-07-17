@@ -54,7 +54,7 @@ export default {
       const vocaMatch = path.match(/^\/vocadb\/(\d+)$/);
       if (method === "GET" && vocaMatch) {
         const res = await fetch(
-          `https://vocadb.net/api/songs/${vocaMatch[1]}?fields=Names,PVs,Artists,Tags&lang=Default`,
+          `https://vocadb.net/api/songs/${vocaMatch[1]}?fields=Names,PVs,Artists,Tags&lang=English`,
           { headers: { Accept: "application/json" } }
         );
         if (!res.ok) return json({ error: `VocaDB returned ${res.status}` }, res.status);
