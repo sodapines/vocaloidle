@@ -504,8 +504,18 @@ html.dark-mode .stats-table tr:nth-child(even) { background: #1e1e1e; }
 html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); }
 html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a2a2a); border-color: #222; }
 
+.nnd-mobile-nav { display: none; width: 100%; background: #fff; border-bottom: 1px solid var(--line); padding: 5px 10px; align-items: center; gap: 8px; font-size: 12px; }
+.nnd-mobile-nav a { color: var(--link); }
+.nnd-mobile-nav a:hover { color: var(--red); text-decoration: none; }
+.nnd-mobile-nav a.nnd-kofi { margin-left: auto; background: var(--red); color: #fff; padding: 3px 9px; border: 1px solid var(--red-dark); font-weight: 700; box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25); }
+html.dark-mode .nnd-mobile-nav { background: #161616; border-bottom-color: #2c2c2c; }
+.ach-modal-list { max-height: 55vh; overflow-y: auto; margin: 0 -14px -14px; scrollbar-width: thin; scrollbar-color: var(--ls) transparent; }
+.ach-modal-list::-webkit-scrollbar { width: 6px; }
+.ach-modal-list::-webkit-scrollbar-thumb { background: var(--ls); }
+
 @media (max-width: 820px) {
   .ms-cols { flex-direction: column; align-items: stretch; }
+  .nnd-mobile-nav { display: flex; }
   .ms-left, .ms-right { width: 100%; min-width: 0; }
   .nnd-header-links { display: none; }
   .nnd-body { padding: 6px; }
@@ -543,11 +553,20 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
     <button class="language-button" type="button" data-lang="ko" title="한국어"><span class="fi fi-kr"></span></button>
   </div>
   <nav class="nnd-header-links">
+    <a href="#" id="ach-open">Achievements</a>
+    <span style="color:var(--line)">|</span>
     <a href="#" id="settings-open">Settings</a>
     <span style="color:var(--line)">|</span>
     <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
   </nav>
 </div>
+
+<nav class="nnd-mobile-nav" aria-label="Mobile navigation">
+  <a href="#" data-proxy="ach-open" id="m-ach">Achievements</a>
+  <span style="color:var(--line)">|</span>
+  <a href="#" data-proxy="settings-open" id="m-settings">Settings</a>
+  <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Ko-fi</a>
+</nav>
 
 <div class="nnd-marquee-bar">
   <span class="nnd-marquee-label">[INFO]</span>
@@ -613,10 +632,6 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
         <div class="rec-spark" id="rec-spark" hidden></div>
       </div>
 
-      <div class="panel">
-        <div class="panel-header" id="hdr-ach">[ Achievements ] <span class="panel-note" id="ach-count"></span></div>
-        <div id="ach-list"></div>
-      </div>
 
     </div>
   </div>
@@ -643,6 +658,12 @@ html.dark-mode .reveal-btn { background: linear-gradient(to bottom, #3a3a3a, #2a
   <div class="settings-title"><span id="tut-title">[ Welcome to Masume ]</span> <button type="button" class="guess-close" id="tut-close">✕</button></div>
   <div id="tut-body" style="font-size:11px;line-height:1.7"></div>
   <button type="button" class="share-btn" id="tut-ok" style="width:100%">OK, let's play!</button>
+</div>
+
+<div class="modal-backdrop" id="ach-backdrop" hidden></div>
+<div class="settings-modal" id="ach-modal" hidden>
+  <div class="settings-title"><span id="hdr-ach">[ Achievements ]</span> <span class="panel-note" id="ach-count"></span> <button type="button" class="guess-close" id="ach-close">✕</button></div>
+  <div class="ach-modal-list" id="ach-list"></div>
 </div>
 
 <div class="modal-backdrop" id="settings-backdrop" hidden></div>
@@ -729,6 +750,7 @@ en: {
   settingsDark: "Dark Mode", settingsDarkDesc: "Dark page and panels, like the other games.",
   settingsLang: "Language", settingsLangDesc: "Interface language.",
   settingsTut: "Tutorial", settingsTutDesc: "Show the intro again.", settingsTutBtn: "SHOW",
+  navAch: "Achievements", navSettings: "Settings",
 },
 ja: {
   daily: "デイリー", unlimited: "無制限", archive: "アーカイブ", challenge: "チャレンジ",
@@ -770,6 +792,7 @@ ja: {
   settingsDark: "ダークモード", settingsDarkDesc: "他のゲームと同じダーク配色。",
   settingsLang: "言語", settingsLangDesc: "表示言語。",
   settingsTut: "チュートリアル", settingsTutDesc: "説明をもう一度表示。", settingsTutBtn: "表示",
+  navAch: "実績", navSettings: "設定",
 },
 es: {
   daily: "Diario", unlimited: "Ilimitado", archive: "Archivo", challenge: "Desafío",
@@ -811,6 +834,7 @@ es: {
   settingsDark: "Modo oscuro", settingsDarkDesc: "Colores oscuros, como los otros juegos.",
   settingsLang: "Idioma", settingsLangDesc: "Idioma de la interfaz.",
   settingsTut: "Tutorial", settingsTutDesc: "Mostrar la introducción otra vez.", settingsTutBtn: "VER",
+  navAch: "Logros", navSettings: "Ajustes",
 },
 ko: {
   daily: "데일리", unlimited: "무제한", archive: "아카이브", challenge: "챌린지",
@@ -852,6 +876,7 @@ ko: {
   settingsDark: "다크 모드", settingsDarkDesc: "다른 게임과 같은 어두운 배색.",
   settingsLang: "언어", settingsLangDesc: "인터페이스 언어.",
   settingsTut: "튜토리얼", settingsTutDesc: "소개를 다시 봅니다.", settingsTutBtn: "보기",
+  navAch: "업적", navSettings: "설정",
 },
 };
 let LANG = LANGS.includes(localStorage.getItem("masume_lang")) ? localStorage.getItem("masume_lang") : "en";
@@ -861,7 +886,11 @@ function t(key, ...args) {
 }
 function applyStatic() {
   $("hdr-records").textContent = t("hdrRecords");
-  $("hdr-ach").firstChild.textContent = t("hdrAch") + " ";
+  $("hdr-ach").textContent = t("hdrAch");
+  $("ach-open").textContent = t("navAch");
+  $("m-ach").textContent = t("navAch");
+  $("settings-open").textContent = t("navSettings");
+  $("m-settings").textContent = t("navSettings");
   document.querySelector("#how-panel .panel-header").textContent = t("hdrHow");
   ["how1","how2","how3","how4"].forEach((k, i) => {
     const el = document.querySelectorAll("#how-panel .side-row span:last-child")[i];
@@ -1410,7 +1439,7 @@ function syncCursor() {
 }
 document.addEventListener("keydown", e => {
   if (!state.grid || state.done) return;
-  if (!$("guess-modal").hidden || !$("settings-modal").hidden || !$("tut-modal").hidden) return;
+  if (!$("guess-modal").hidden || !$("settings-modal").hidden || !$("tut-modal").hidden || !$("ach-modal").hidden) return;
   if (document.activeElement && /INPUT|TEXTAREA/.test(document.activeElement.tagName)) return;
   const n = state.grid.cols.length, m = state.grid.rows.length;
   let [r, c] = state.cursor, moved = false;
@@ -1757,6 +1786,16 @@ document.querySelectorAll(".language-button").forEach(btn => btn.addEventListene
     else renderAll();
   }
 }));
+
+(function () {
+  const close = () => { $("ach-modal").hidden = true; $("ach-backdrop").hidden = true; };
+  $("ach-open").addEventListener("click", e => { e.preventDefault(); renderAchievements(); $("ach-modal").hidden = false; $("ach-backdrop").hidden = false; });
+  $("ach-close").addEventListener("click", close);
+  $("ach-backdrop").addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+})();
+document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(a =>
+  a.addEventListener("click", e => { e.preventDefault(); const el = $(a.dataset.proxy); if (el) el.click(); }));
 
 $("tut-ok").addEventListener("click", closeTutorial);
 $("tut-close").addEventListener("click", closeTutorial);
