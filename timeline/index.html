@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOCALOID Timeline 年表 — put the songs in release order</title>
+<meta property="og:site_name" content="VOCALOID Timeline">
+<meta property="og:title" content="VOCALOID Timeline — put the songs in release order">
+<meta property="og:description" content="Five songs, one timeline. Arrange them by release date. A new puzzle every day.">
+<meta property="og:type" content="website">
+<meta name="description" content="Five songs, one timeline. Arrange them by release date. A new puzzle every day.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
+<script>try{if(localStorage.getItem("tl_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
+<style>
+:root {
+  --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
+  --text: #111; --muted: #555; --faint: #999;
+  --line: #c8c4bc; --ls: #b8b4ac;
+  --red: #cc0000; --red-dark: #990000; --link: #0066cc; --gold: #c8980a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  min-height: 100%; overflow-x: hidden; max-width: 100vw;
+  font-family: "MS PGothic","Hiragino Kaku Gothic Pro","Meiryo",Arial,sans-serif;
+  font-size: 12px; color: var(--text); background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,240,0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.18) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
+  line-height: 1.4;
+}
+body { min-height: 100vh; display: flex; flex-direction: column; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--red); }
+button { font: inherit; cursor: pointer; }
+
+/* ── chrome ── */
+.nnd-topbar {
+  width: 100%; background: #111; border-bottom: 1px solid #000;
+  height: 24px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 10px; font-size: 11px; color: #777;
+}
+.nnd-mainbar {
+  width: 100%; background: #fff; border-bottom: 2px solid var(--red);
+  padding: 6px 10px; display: flex; align-items: center; gap: 12px;
+}
+.nnd-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text); }
+.nnd-logo:hover { text-decoration: none; }
+.nnd-logo-mark {
+  display: inline-flex; align-items: center; justify-content: center; flex-direction: column; gap: 2px;
+  width: 28px; height: 28px; background: var(--red);
+  border: 1px solid var(--red-dark); flex-shrink: 0;
+}
+.nnd-logo-mark i { width: 16px; height: 3px; background: #fff; display: block; }
+.nnd-logo-mark i:nth-child(2) { width: 11px; opacity: 0.75; }
+.nnd-logo-mark i:nth-child(3) { width: 6px; opacity: 0.5; }
+.nnd-logo-text { font-size: 15px; font-weight: 900; letter-spacing: -0.02em; line-height: 1; }
+.nnd-logo-sub { display: block; font-size: 10px; font-weight: 400; color: var(--muted); }
+.language-switcher { display: flex; align-items: center; gap: 3px; }
+.language-button {
+  width: 24px; height: 16px; min-height: unset; padding: 0;
+  border: 1px solid var(--ls); border-radius: 2px;
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.2);
+  opacity: 0.55; overflow: hidden; position: relative;
+}
+.language-button:hover { opacity: 0.85; }
+.language-button.is-active { opacity: 1; box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 0 0 1px var(--red); }
+.language-button .fi { width: 100%; height: 100%; background-size: cover; background-position: center; border-radius: 1px; }
+html.dark-mode .language-button { border-color: #444; background: linear-gradient(to bottom, #303030, #1d1d1d); }
+.nnd-header-links { display: flex; align-items: center; gap: 6px; font-size: 12px; margin-left: auto; }
+.nnd-header-links a { color: var(--link); padding: 2px 8px; border: 1px solid transparent; white-space: nowrap; }
+.nnd-header-links a:hover {
+  text-decoration: none; color: var(--red);
+  background: #f6f4ee; border-color: #fff #9a968e #9a968e #fff;
+}
+.nnd-header-links a.nnd-kofi {
+  background: var(--red); color: #fff; padding: 3px 9px;
+  border: 1px solid var(--red-dark); font-weight: 700;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
+}
+.nnd-header-links a.nnd-kofi:hover { background: #b30000; color: #fff; }
+/* mobile nav: identical to Heardle's .nnd-mobile-settings — bordered gray
+   buttons that wrap below the logo inside the mainbar */
+.nnd-mobile-settings { display: none; align-items: center; flex-wrap: wrap; gap: 4px; margin-left: auto; }
+.nnd-mobile-settings a {
+  color: var(--link); font-size: 12px; text-decoration: none;
+  padding: 4px 8px; border: 1px solid var(--line); background: var(--sf); white-space: nowrap;
+}
+.nnd-mobile-settings a:hover { color: var(--red); text-decoration: none; }
+.nnd-mobile-settings a.nnd-kofi { border-color: var(--red); background: var(--red); color: #fff; font-weight: 700; padding: 4px 10px; }
+html.dark-mode .nnd-mobile-settings a { background: #1d1d1d; border-color: #2c2c2c; }
+.nnd-marquee-bar {
+  width: 100%;
+  background:
+    repeating-linear-gradient(0deg, rgba(204,153,0,0.08) 0, rgba(204,153,0,0.08) 1px, transparent 1px, transparent 4px),
+    #fffde8;
+  border-bottom: 1px solid #d0c878;
+  height: 20px; display: flex; align-items: center; overflow: hidden; font-size: 11px;
+}
+.nnd-marquee-label {
+  flex-shrink: 0; padding: 0 7px; background: #cc9900; color: #fff;
+  font-weight: 700; font-size: 10px; height: 100%; display: flex; align-items: center;
+  border-right: 1px solid #aa7700;
+}
+.nnd-marquee-wrap { flex: 1; overflow: hidden; height: 100%; display: flex; align-items: center; }
+.nnd-marquee-inner { white-space: nowrap; color: #555500; animation: mq 32s linear infinite; padding-left: 100%; }
+@keyframes mq { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) { .nnd-marquee-inner { animation: none; padding-left: 0; } }
+
+.nnd-body {
+  flex: 1 0 auto; width: 100%; max-width: 900px; margin: 0 auto; padding: 8px 10px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.tl-cols { display: flex; gap: 6px; align-items: flex-start; }
+.tl-left { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.tl-right { width: 236px; min-width: 236px; display: flex; flex-direction: column; gap: 6px; }
+
+.panel {
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.panel-header {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 10px; min-height: 26px;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+}
+.panel-note { font-size: 10px; font-weight: 400; color: var(--faint); font-style: italic; text-transform: none; letter-spacing: 0; margin-left: auto; }
+
+/* ── mode bar ── */
+.game-mode-bar {
+  display: flex; align-items: stretch; gap: 8px;
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #fbfaf6, #e6e3dc);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.85);
+  padding: 3px 5px 0;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+}
+.game-mode-tabs { display: flex; align-items: flex-end; gap: 3px; }
+.game-mode-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px 6px; border: 2px solid; border-bottom: 0;
+  border-color: #fff var(--ls) var(--ls) #fff; margin-bottom: -2px;
+  background: linear-gradient(to bottom, #f3f1ea, #dcd8cf); color: var(--muted);
+  font-family: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase; white-space: nowrap;
+}
+.game-mode-btn:hover { color: var(--red); }
+.game-mode-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  color: #fff; padding-bottom: 8px; z-index: 2;
+  border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
+}
+.mode-tools {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: -8px; /* tuck under the mode bar */
+  border: 2px solid var(--ls); border-top: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.7);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f6f4ee, #e9e6dd);
+  padding: 5px 8px;
+}
+.mode-tools[hidden] { display: none; }
+.tools-label {
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--faint);
+}
+.era-group { display: flex; align-items: center; }
+.era-group .era-btn + .era-btn { margin-left: -1px; }
+.era-hard { margin-left: 4px; }
+.tool-btn { margin-left: auto; }
+html.dark-mode .mode-tools { background: repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0 3px, transparent 3px 7px), linear-gradient(to bottom, #202020, #181818); border-color: #3b3b3b; }
+html.dark-mode .tools-label { color: #666; }
+html.dark-mode .mode-tools { box-shadow: none; }
+html.dark-mode .era-btn, html.dark-mode .tool-btn { box-shadow: none; }
+html.dark-mode .era-btn:hover, html.dark-mode .tool-btn:hover { background: #2b2020; }
+html.dark-mode .era-btn.is-active { box-shadow: inset 0 -1px 0 rgba(0,0,0,0.3); }
+.era-btn, .tool-btn {
+  min-height: 24px; padding: 0 10px;
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 2px, transparent 2px 5px),
+    linear-gradient(to bottom, #ffffff, #e4e1d8);
+  border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 0 rgba(0,0,0,0.08);
+  letter-spacing: 0.04em; white-space: nowrap;
+}
+.era-btn:hover, .tool-btn:hover {
+  color: var(--red); border-color: var(--red);
+  background: linear-gradient(to bottom, #fff5f5, #ffe2e2);
+  position: relative; /* keep the red border above joined neighbors */
+}
+.era-btn:active, .tool-btn:active { box-shadow: inset 0 2px 3px rgba(0,0,0,0.15); }
+.era-btn.is-active {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; text-shadow: 0 1px 0 rgba(90,0,0,0.5);
+  border-color: var(--red-dark);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2);
+  position: relative;
+}
+.era-hard { border-style: dashed; }
+.era-hard.is-active { border-style: solid; }
+.tool-btn { padding-left: 12px; padding-right: 12px; }
+
+/* ── status strip ── */
+.status-strip {
+  display: flex; flex-wrap: wrap; align-items: stretch;
+  background: linear-gradient(to bottom, #f3f1ea, #e2dfd6);
+  border-bottom: 2px solid var(--ls);
+}
+.st-cell {
+  padding: 6px 12px; border-right: 1px solid var(--line);
+  display: flex; flex-direction: column; justify-content: center; min-width: 70px;
+}
+.st-k { font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.05em; }
+.st-v { font-family: Consolas, "MS PGothic", monospace; font-size: 14px; font-weight: 900; line-height: 1.2; }
+.st-v.is-red { color: var(--red); }
+html.dark-mode .status-strip { background: linear-gradient(to bottom, #242424, #1a1a1a); border-bottom-color: #3b3b3b; }
+html.dark-mode .st-cell { border-right-color: #3b3b3b; }
+
+/* ── timeline cards (retro-dense) ── */
+.tl-list { padding: 8px; display: flex; flex-direction: column; gap: 5px; }
+.tl-axis {
+  display: flex; align-items: center; gap: 6px; padding: 6px 8px 0;
+  font-family: "MS Gothic","Courier New",monospace; font-size: 9px;
+  color: var(--faint); text-transform: uppercase; letter-spacing: 0.1em;
+}
+.tl-axis::before, .tl-axis::after { content: ""; flex: 1; border-top: 1px dotted var(--ls); }
+.tl-card {
+  display: flex; align-items: stretch;
+  background: var(--surface); border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.1);
+  overflow: hidden; position: relative;
+}
+.tl-card:nth-child(even) { background: #f6f5f0; }
+.tl-card.dragging { opacity: 0.45; }
+.tl-card.drop-above { box-shadow: 0 -3px 0 var(--red); }
+.tl-card.drop-below { box-shadow: 0 3px 0 var(--red); }
+.tl-slot {
+  flex-shrink: 0; width: 30px; display: flex; align-items: center; justify-content: center;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-right: 1px solid var(--ls);
+  font-family: Consolas, monospace; font-size: 13px; font-weight: 900; color: var(--muted);
+}
+.tl-thumb { flex-shrink: 0; width: 88px; position: relative; background: #111; overflow: hidden; border-right: 1px solid var(--ls); }
+html.dark-mode .tl-thumb { border-right-color: #2c2c2c; }
+.tl-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tl-thumb img.crop43 { top: -16.7%; height: 133.4%; }
+.tl-thumb::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.07) 2px 3px);
+}
+.tl-info { flex: 1; min-width: 0; padding: 5px 9px; display: flex; flex-direction: column; justify-content: center; cursor: grab; }
+.tl-title { font-size: 12px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tl-artist { font-size: 10px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tl-date {
+  flex-shrink: 0; font-size: 10px; font-weight: 700; font-family: Consolas, monospace;
+  color: var(--red); display: none; white-space: nowrap;
+}
+.tl-card.revealed .tl-date { display: inline; }
+/* credits sub-row: artist · vocalist chip · views, all on the left */
+.tl-subrow { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.tl-subrow .tl-artist { flex-shrink: 1; }
+.tl-views {
+  flex-shrink: 0; font-family: Consolas, "MS PGothic", monospace; font-size: 10px; font-weight: 900;
+  color: var(--red); white-space: nowrap;
+}
+.tl-views .tv-cap { font-size: 8px; font-weight: 400; color: var(--faint); text-transform: uppercase; letter-spacing: 0.05em; margin-left: 2px; }
+
+/* thumbnail-color wash: a subtle tint sampled from each song's artwork,
+   fading in from the right under a retro hatch pattern */
+.tl-tint {
+  position: absolute; top: 0; bottom: 0; right: 0; width: 38%;
+  pointer-events: none; z-index: 0;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.045) 0 2px, transparent 2px 6px),
+    linear-gradient(to right, transparent, var(--tint, transparent));
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 80%);
+  mask-image: linear-gradient(to right, transparent, #000 80%);
+  opacity: 0.55;
+}
+html.dark-mode .tl-tint { opacity: 0.4; }
+/* revealed: the wash takes the verdict color instead of the artwork color */
+.tl-card.revealed.right .tl-tint { background: repeating-linear-gradient(45deg, rgba(0,0,0,0.045) 0 2px, transparent 2px 6px), linear-gradient(to right, transparent, hsla(140, 28%, 52%, 0.32)); }
+.tl-card.revealed.close .tl-tint { background: repeating-linear-gradient(45deg, rgba(0,0,0,0.045) 0 2px, transparent 2px 6px), linear-gradient(to right, transparent, hsla(45, 38%, 52%, 0.32)); }
+.tl-card.revealed.wrong .tl-tint { background: repeating-linear-gradient(45deg, rgba(0,0,0,0.045) 0 2px, transparent 2px 6px), linear-gradient(to right, transparent, hsla(0, 30%, 52%, 0.28)); }
+.tl-card > *:not(.tl-tint):not(.tl-year-ghost) { position: relative; z-index: 1; }
+.tl-year-ghost { z-index: 1; }
+
+/* right flank, playing: a hatched drag-grip strip (grab me!) */
+.tl-grip {
+  flex-shrink: 0; width: 26px; align-self: stretch;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #e6e3da);
+  border-left: 1px solid var(--line);
+  cursor: grab;
+}
+.tl-grip i { width: 12px; height: 2px; background: var(--ls); display: block; }
+.tl-card:hover .tl-grip i { background: var(--red); }
+html.dark-mode .tl-grip { background: linear-gradient(to bottom, #242424, #1c1c1c); border-left-color: #2c2c2c; }
+html.dark-mode .tl-grip i { background: #4a4a4a; }
+
+/* right flank, revealed: big ghost year watermark */
+.tl-year-ghost {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  font-family: Consolas, "MS Gothic", monospace; font-size: 30px; font-weight: 900;
+  letter-spacing: 0.02em; color: rgba(0,0,0,0.08); pointer-events: none; user-select: none;
+}
+.tl-card.revealed.right .tl-year-ghost { color: rgba(26,125,60,0.16); }
+.tl-card.revealed.close .tl-year-ghost { color: rgba(168,124,10,0.18); }
+.tl-card.revealed.wrong .tl-year-ghost { color: rgba(170,0,0,0.13); }
+html.dark-mode .tl-year-ghost { color: rgba(255,255,255,0.06); }
+html.dark-mode .tl-card.revealed.right .tl-year-ghost { color: rgba(80,220,120,0.13); }
+html.dark-mode .tl-card.revealed.close .tl-year-ghost { color: rgba(230,190,80,0.14); }
+html.dark-mode .tl-card.revealed.wrong .tl-year-ghost { color: rgba(255,90,90,0.12); }
+.tl-move { flex-shrink: 0; display: flex; flex-direction: column; border-left: 1px solid var(--line); }
+.tl-move button {
+  flex: 1; width: 30px; border: none; background: linear-gradient(to bottom, #fff, #e8e8e8);
+  color: var(--muted); font-size: 10px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.tl-move button:first-child { border-bottom: 1px solid var(--line); }
+.tl-move button:hover { color: var(--red); background: #fff0f0; }
+.tl-move button:disabled { color: #ccc; background: #f4f3f0; box-shadow: none; cursor: default; }
+.tl-card.revealed.right .tl-slot { background: linear-gradient(to bottom, #2faf57, #1a7d3c); color: #fff; }
+.tl-card.revealed.close .tl-slot { background: linear-gradient(to bottom, #d8ae2e, #a87c0a); color: #fff; }
+.tl-card.revealed.wrong .tl-slot { background: linear-gradient(to bottom, #dd2222, #aa0000); color: #fff; }
+.tl-hint { padding: 5px 9px 0; font-size: 10px; color: var(--faint); font-style: italic; }
+.tl-actions { padding: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
+.lock-btn, .share-btn, .new-btn, .back-btn {
+  min-height: 26px; padding: 0 14px;
+  font-size: 11px; font-weight: 700; color: #fff;
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  border: 1px solid var(--red-dark);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.lock-btn:hover, .share-btn:hover, .new-btn:hover, .back-btn:hover { background: linear-gradient(to bottom, #ee2a2a, #bb0000); }
+.new-btn, .back-btn { background: linear-gradient(to bottom, #8a8a8a, #6a6a6a); border-color: #555; }
+.new-btn:hover, .back-btn:hover { background: linear-gradient(to bottom, #9a9a9a, #7a7a7a); }
+.result-line { padding: 8px 9px 0; font-size: 12px; }
+.result-line b { color: var(--red); font-size: 15px; font-family: Consolas, monospace; }
+
+/* ── archive calendar ── */
+.mcal { max-width: 420px; margin: 0 auto; padding: 12px 8px; }
+.mcal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.mcal-head strong { font-size: 13px; font-family: "MS Gothic","Courier New",monospace; letter-spacing: 0.04em; }
+.mcal-nav {
+  min-width: 26px; height: 24px; padding: 0 8px;
+  background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+  border: 1px solid var(--ls); color: var(--muted); font-size: 10px; font-weight: 700;
+}
+.mcal-nav:disabled { opacity: 0.35; cursor: default; }
+.mcal-nav:not(:disabled):hover { color: var(--red); }
+.mcal-dows { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; margin-bottom: 3px; }
+.mcal-dows span { text-align: center; font-size: 9px; color: var(--faint); text-transform: uppercase; }
+.mcal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 3px; }
+.mcal-day {
+  aspect-ratio: 1; min-height: 34px; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  font-size: 12px; font-family: Consolas, "MS PGothic", monospace;
+  border: 1px solid transparent; color: var(--faint); background: transparent; padding: 0;
+}
+.mcal-day.off { background: var(--sf); border-color: var(--line); opacity: 0.55; cursor: default; }
+.mcal-day.playable {
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  border-color: var(--ls); color: var(--text); font-weight: 700; cursor: pointer;
+}
+.mcal-day.playable:hover { border-color: var(--red); color: var(--red); }
+.mcal-day.playable.done { background: linear-gradient(to bottom, #dd2222, #aa0000); border-color: var(--red-dark); color: #fff; }
+.mcal-day.playable.done .mcal-score { font-size: 8px; opacity: 0.85; }
+.mcal-legend { display: flex; gap: 14px; justify-content: center; margin-top: 8px; font-size: 9px; color: var(--faint); }
+.mcal-legend span { display: inline-flex; align-items: center; gap: 4px; }
+.mcal-key { width: 10px; height: 10px; display: inline-block; border: 1px solid var(--ls); background: linear-gradient(to bottom, #fff, #e8e8e8); }
+.mcal-key.done { background: linear-gradient(to bottom, #dd2222, #aa0000); border-color: var(--red-dark); }
+html.dark-mode .mcal-day.playable { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; }
+html.dark-mode .mcal-day.off { background: #191919; border-color: #242424; }
+html.dark-mode .mcal-nav, html.dark-mode .mcal-key { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; }
+html.dark-mode .mcal-key.done { background: linear-gradient(to bottom, #b01111, #7a0808); }
+
+/* ── sidebar ── */
+.side-list { padding: 4px 0; }
+.side-row { display: flex; gap: 8px; padding: 4px 10px; font-size: 11px; align-items: baseline; border-bottom: 1px dotted var(--line); }
+.side-row:last-child { border-bottom: none; }
+.side-row .sr-num {
+  flex-shrink: 0; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(to bottom, #dd2222, #aa0000); color: #fff;
+  font-size: 10px; font-weight: 900;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+.stats-table { width: 100%; border-collapse: collapse; }
+.stats-table tr { border-bottom: 1px solid var(--line); }
+.stats-table tr:last-child { border-bottom: none; }
+.stats-table tr:nth-child(even) { background: #f6f5f0; }
+.stats-table tr:hover { background: #fff0f0; }
+.stats-table td { padding: 3px 10px; font-size: 10px; height: 21px; color: var(--muted); }
+.stats-table td:last-child {
+  font-weight: 900; text-align: right; color: var(--red); font-size: 11px;
+  font-family: Consolas, "MS PGothic", monospace;
+}
+html.dark-mode .stats-table tr:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .stats-table tr:hover { background: #2a1414; }
+.news-list { list-style: none; }
+.news-list li { display: flex; gap: 6px; padding: 4px 10px; border-bottom: 1px solid var(--line); font-size: 10px; align-items: baseline; }
+.news-list li:last-child { border-bottom: none; }
+.news-ver {
+  flex-shrink: 0; padding: 0 4px;
+  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  color: #fff; font-weight: 900; font-size: 9px; line-height: 14px;
+  font-family: "MS Gothic","Courier New",monospace;
+}
+.news-text { color: var(--muted); line-height: 1.4; }
+.news-more { display: block; padding: 4px 10px; font-size: 10px; color: var(--link); border-top: 1px solid var(--line); }
+.news-more:hover { color: var(--red); background: #fff0f0; text-decoration: none; }
+html.dark-mode .news-more:hover { background: #2a1414; }
+
+/* song detail modal */
+.sd-cover { position: relative; aspect-ratio: 16 / 9; background: #111; margin: -12px -14px 10px; overflow: hidden; border-bottom: 2px solid var(--ls); }
+.sd-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sd-cover::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.07) 2px 3px); }
+.sd-title { font-size: 14px; font-weight: 900; line-height: 1.25; }
+.sd-artist { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+.sd-table { width: 100%; border-collapse: collapse; margin-bottom: 4px; }
+.sd-table tr { border-bottom: 1px dotted var(--line); }
+.sd-table tr:last-child { border-bottom: none; }
+.sd-table td { padding: 3px 2px; font-size: 11px; color: var(--muted); }
+.sd-table td:last-child { text-align: right; font-family: Consolas, monospace; font-weight: 700; color: var(--text); }
+.sd-table td:last-child.is-red { color: var(--red); }
+.sd-links { display: flex; gap: 5px; margin-top: 10px; }
+.sd-links + .sd-links { margin-top: 5px; }
+.sd-btn {
+  flex: 1 1 0; min-width: 0; min-height: 24px; padding: 0 6px;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: var(--text); text-decoration: none;
+  border: 1px solid var(--ls); background: linear-gradient(to bottom, #fff, #e8e8e8);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.sd-btn:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); border-color: var(--red); text-decoration: none; }
+.sd-btn.yt   { border-color: #c00; color: #c00; }
+.sd-btn.nnd  { border-color: #444; color: #333; }
+.sd-btn.bili { border-color: #0f7ca8; color: #0f7ca8; }
+html.dark-mode .sd-btn.nnd { color: var(--muted); }
+.sd-btn.vocadb { background: linear-gradient(to bottom, #3a78e0, #2457c5); border-color: #1a3f97; color: #fff; }
+.sd-btn.vocadb:hover { background: linear-gradient(to bottom, #4a86ec, #2f66d6); color: #fff; border-color: #1a3f97; }
+html.dark-mode .sd-btn { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted); box-shadow: none; }
+html.dark-mode .sd-btn:hover { color: var(--red); border-color: var(--red); }
+.tl-card.revealed { cursor: pointer; }
+.tl-card.revealed:hover { border-color: var(--link); }
+
+.loading-state { padding: 40px; text-align: center; color: var(--faint); font-style: italic; }
+.site-footer {
+  flex-shrink: 0; width: 100%;
+  background: linear-gradient(to bottom, #ececea, #dcdad4);
+  border-top: 2px solid var(--red);
+  padding: 6px 10px; font-size: 11px; color: var(--faint); text-align: center;
+}
+
+/* ── modals ── */
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; }
+.settings-modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 101; width: min(100% - 32px, 440px);
+  max-height: min(86vh, 540px); overflow: auto;
+  background: var(--surface); border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.6), 0 4px 20px rgba(0,0,0,0.35);
+  padding: 14px;
+  scrollbar-width: thin; scrollbar-color: var(--ls) transparent;
+}
+.settings-modal::-webkit-scrollbar { width: 6px; }
+.settings-modal::-webkit-scrollbar-thumb { background: var(--ls); }
+.settings-title {
+  margin: -14px -14px 12px; padding: 5px 10px;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  font-size: 12px; font-weight: 700; text-transform: uppercase;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+}
+.settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
+.settings-toggle {
+  flex-shrink: 0; height: 24px; min-width: 46px; padding: 0 10px;
+  font-size: 11px; font-weight: 700; color: var(--faint);
+  background: linear-gradient(to bottom, #fff, #e0e0e0); border: 1px solid var(--ls);
+}
+.settings-toggle.is-on { background: linear-gradient(to bottom, #dd2222, #aa0000); color: #fff; border-color: var(--red-dark); }
+.modal-close {
+  width: 20px; height: 20px; padding: 0; line-height: 1;
+  background: linear-gradient(to bottom, #fff, #ddd); border: 1px solid var(--ls);
+  color: var(--muted); font-size: 10px; font-weight: 700;
+}
+.modal-close:hover { color: var(--red); }
+.modal-scroll { max-height: 55vh; overflow-y: auto; margin: 0 -14px -14px; scrollbar-width: thin; scrollbar-color: var(--ls) transparent; }
+.modal-scroll::-webkit-scrollbar { width: 6px; }
+.modal-scroll::-webkit-scrollbar-thumb { background: var(--ls); }
+/* achievements list — same construction as Heardle's achievement cards */
+.achievements-list { display: grid; gap: 0; border: 1px solid var(--line); border-bottom: 0; }
+.achievement-card {
+  display: grid; gap: 3px; padding: 6px 8px;
+  background: #ffffff; border: 0; border-bottom: 1px solid var(--line);
+  border-left: 3px solid transparent;
+}
+.achievement-card:nth-child(even) { background: #f6f6f6; }
+.achievement-card.is-unlocked { border-left-color: var(--red); }
+.achievement-card.is-locked { color: var(--faint); }
+.achievement-card.is-hidden { border-left-style: dotted; }
+.achievement-card-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.achievement-card-head strong { min-width: 0; color: var(--text); font-size: 12px; font-weight: 700; }
+.achievement-card-head span {
+  flex-shrink: 0; color: var(--red); font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.achievement-card.is-locked .achievement-card-head strong { color: var(--muted); }
+.achievement-card.is-locked .achievement-card-head span { color: var(--faint); }
+.achievement-card p { margin: 0; font-size: 11px; color: var(--muted); line-height: 1.4; }
+html.dark-mode .achievement-card { background: #1a1a1a; border-color: #2c2c2c; }
+html.dark-mode .achievement-card:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .achievements-list { border-color: #2c2c2c; }
+.updates-list { list-style: none; }
+#updates-modal .modal-scroll { margin-top: -12px; }
+.updates-list li { padding: 7px 12px; border-bottom: 1px dotted var(--line); font-size: 11px; color: var(--muted); line-height: 1.55; }
+.updates-list li:last-child { border-bottom: none; }
+.updates-ver {
+  display: inline-block; padding: 0 5px; margin-right: 6px;
+  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  color: #fff; font-weight: 900; font-size: 9px; line-height: 15px;
+  font-family: "MS Gothic","Courier New",monospace;
+}
+.updates-list strong { color: var(--text); }
+/* result toast — Heardle's top-center [OK]/[!] toast */
+#tl-result-toast {
+  position: fixed; top: 50px; left: 50%; transform: translateX(-50%);
+  z-index: 999; display: flex; align-items: stretch; white-space: nowrap;
+  background: #fffde8; border: 1px solid #e0d890; border-top: none;
+  font-size: 11px; color: #555500;
+  opacity: 1; transition: opacity 0.5s ease;
+}
+#tl-result-toast.nnd-toast-fade { opacity: 0; }
+#tl-result-toast .nnd-toast-label {
+  background: #cc0000; color: #fff; font-size: 10px; font-weight: 700;
+  padding: 0 8px; display: flex; align-items: center;
+}
+#tl-result-toast.is-perfect .nnd-toast-label { background: #1a7d3c; }
+#tl-result-toast .nnd-toast-msg { padding: 4px 12px; display: flex; align-items: center; }
+
+/* lock-in reveal wave: slots flip in one by one, cards pop subtly */
+@keyframes tlRevealPop {
+  0% { transform: scale(0.97); filter: brightness(1.35); }
+  60% { transform: scale(1.01); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+.tl-card.revealed.wave { animation: tlRevealPop 0.4s ease both; }
+.tl-card.revealed.wave .tl-slot { animation: tlRevealPop 0.4s ease both; }
+@media (prefers-reduced-motion: reduce) {
+  .tl-card.revealed.wave, .tl-card.revealed.wave .tl-slot { animation: none; }
+}
+
+.nnd-toast {
+  position: fixed; top: 50px; right: 18px; z-index: 1000;
+  display: flex; align-items: stretch; width: min(92vw, 360px);
+  background: #fffde8; border: 1px solid #d0c35a; color: #555500;
+  font-size: 11px; line-height: 1.35;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.18);
+  opacity: 1; transition: opacity 0.5s ease;
+}
+.nnd-toast.nnd-toast-fade { opacity: 0; }
+.nnd-toast .nnd-toast-label {
+  background: #cc0000; color: #fff; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  min-width: 42px; padding: 0 10px; font-size: 15px; line-height: 1;
+}
+.nnd-toast .nnd-toast-msg { padding: 6px 12px; display: flex; flex-direction: column; justify-content: center; }
+.nnd-toast .nnd-toast-msg b { color: #333300; }
+
+/* ── dark mode ── */
+html.dark-mode {
+  --bg: #121212; --surface: #1a1a1a; --sf: #161616;
+  --text: #e1e1e1; --muted: #a6a39c; --faint: #7c7c7c;
+  --line: #2c2c2c; --ls: #3b3b3b; --red: #dd2222; --link: #5aa0e0;
+}
+html.dark-mode body {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+}
+html.dark-mode .nnd-mainbar { background: #161616; }
+html.dark-mode .nnd-header-links a:hover { background: #241f1a; border-color: #3b3b3b; }
+html.dark-mode .nnd-marquee-bar { background: #211d09; border-color: #5a4a16; }
+html.dark-mode .nnd-marquee-inner { color: #d6c266; }
+html.dark-mode .nnd-marquee-label { background: #6e5a10; border-right-color: #4a3c0a; }
+html.dark-mode .panel { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35); }
+html.dark-mode .panel-header, html.dark-mode .settings-title, html.dark-mode .tl-slot {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c); border-color: #3b3b3b; box-shadow: none; color: #ccc;
+}
+html.dark-mode .game-mode-bar { background: linear-gradient(to bottom, #232323, #181818); border-color: #3b3b3b; border-top-color: var(--red); box-shadow: none; }
+html.dark-mode .game-mode-btn { background: linear-gradient(to bottom, #2a2a2a, #1d1d1d); color: #888; border-color: #4a4a4a #111 #111 #4a4a4a; }
+html.dark-mode .game-mode-btn.is-active { background: linear-gradient(to bottom, var(--red), #8f0000); color: #fff; border-color: var(--red) #8f0000 #8f0000 var(--red); }
+html.dark-mode .era-btn, html.dark-mode .tool-btn, html.dark-mode .settings-toggle, html.dark-mode .modal-close {
+  background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted);
+}
+html.dark-mode .era-btn.is-active, html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; border-color: #5a0505; }
+html.dark-mode .tl-card { box-shadow: none; }
+html.dark-mode .tl-card:nth-child(even) { background: #1e1e1e; }
+html.dark-mode .tl-move button { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); color: var(--muted); box-shadow: none; }
+html.dark-mode .tl-move button:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .tl-move button:disabled { background: #1c1c1c; color: #3a3a3a; }
+html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); }
+html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(to bottom, #3a3a3a, #2a2a2a); border-color: #222; }
+
+/* ── mobile ── */
+@media (max-width: 760px) {
+  .tl-cols { flex-direction: column; align-items: stretch; }
+  .tl-left, .tl-right { width: 100%; min-width: 0; }
+  .nnd-header-links { display: none; }
+  .nnd-mainbar { flex-wrap: wrap; gap: 8px; }
+  .nnd-mobile-settings { display: flex; }
+  .nnd-body { padding: 6px; }
+  /* mode bar: tabs on top, era tools become their own scrollable row */
+  .game-mode-bar { flex-wrap: wrap; gap: 0; padding: 3px 5px 0; }
+  .game-mode-tabs { width: 100%; }
+  .mode-tools {
+    gap: 6px; padding: 5px 6px;
+    overflow-x: auto; flex-wrap: nowrap;
+    scrollbar-width: none;
+  }
+  .mode-tools::-webkit-scrollbar { display: none; }
+  .tools-label { display: none; }
+  .tool-btn { margin-left: 6px; }
+  .tl-thumb { width: 68px; }
+  .tl-slot { width: 26px; font-size: 12px; }
+  .tl-card { min-height: 58px; }
+  .tl-title {
+    font-size: 11px; white-space: normal; line-height: 1.25;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .tl-artist { font-size: 9px; }
+  .tl-info { padding: 4px 7px; }
+  .tl-move button { width: 34px; }
+  .tl-grip { display: none; }
+  .tl-views { font-size: 9px; }
+  .tl-date { font-size: 9px; }
+  .tl-year-ghost { font-size: 20px; right: 6px; }
+  .st-cell { min-width: 0; padding: 5px 10px; }
+  .st-v { font-size: 12px; }
+}
+</style>
+</head>
+<body>
+
+<div class="nnd-topbar">
+  <span>VOCALOIDLE &rsaquo; Timeline</span>
+  <span style="color:#666">put the songs in release order</span>
+</div>
+
+<div class="nnd-mainbar">
+  <a class="nnd-logo" href="../" title="Back to VOCALOIDLE home">
+    <span class="nnd-logo-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+    <span class="nnd-logo-text">Timeline<span class="nnd-logo-sub" id="logo-sub">oldest to newest</span></span>
+  </a>
+  <div class="language-switcher" aria-label="Language">
+    <button class="language-button" type="button" data-lang="en" title="English"><span class="fi fi-us"></span></button>
+    <button class="language-button" type="button" data-lang="es" title="Espa&ntilde;ol"><span class="fi fi-es"></span></button>
+    <button class="language-button" type="button" data-lang="ja" title="日本語"><span class="fi fi-jp"></span></button>
+    <button class="language-button" type="button" data-lang="ko" title="한국어"><span class="fi fi-kr"></span></button>
+  </div>
+  <nav class="nnd-header-links">
+    <a href="#" id="updates-open">Updates</a>
+    <span style="color:var(--line)">|</span>
+    <a href="#" id="ach-open">Achievements</a>
+    <span style="color:var(--line)">|</span>
+    <a href="#" id="stats-open">Stats</a>
+    <span style="color:var(--line)">|</span>
+    <a href="#" id="settings-open">Settings</a>
+    <span style="color:var(--line)">|</span>
+    <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
+  </nav>
+  <nav class="nnd-mobile-settings" aria-label="Mobile utilities">
+    <a href="#" data-proxy="updates-open" id="m-updates">Updates</a>
+    <a href="#" data-proxy="ach-open" id="m-ach">Achievements</a>
+    <a href="#" data-proxy="stats-open" id="m-stats">Stats</a>
+    <a href="#" data-proxy="settings-open" id="m-settings">Settings</a>
+    <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Ko-fi</a>
+  </nav>
+</div>
+
+<div class="nnd-marquee-bar">
+  <span class="nnd-marquee-label">[INFO]</span>
+  <div class="nnd-marquee-wrap">
+    <div class="nnd-marquee-inner" id="marquee-text">★ VOCALOID Timeline 年表 ・ Five songs, one timeline ・ Drag them into release order, oldest first ・ A new puzzle every day at local midnight ・ Song data from VocaDB ★</div>
+  </div>
+</div>
+
+<div class="nnd-body">
+
+  <div class="game-mode-bar">
+    <div class="game-mode-tabs">
+      <button class="game-mode-btn is-active" data-mode="daily">Daily</button>
+      <button class="game-mode-btn" data-mode="unlimited">Unlimited</button>
+      <button class="game-mode-btn" data-mode="archive">Archive</button>
+    </div>
+  </div>
+
+  <div class="mode-tools" id="mode-tools" hidden>
+    <span class="tools-label" id="tools-label">Era</span>
+    <span class="era-group">
+      <button class="era-btn is-active" data-era="all">All years</button>
+      <button class="era-btn" data-era="2007-2012">2007–2012</button>
+      <button class="era-btn" data-era="2013-2018">2013–2018</button>
+      <button class="era-btn" data-era="2019-2026">2019+</button>
+    </span>
+    <button class="era-btn era-hard" data-era="hard">★ Hard</button>
+    <button class="tool-btn" id="new-grid-btn">↻ New puzzle</button>
+  </div>
+
+  <div class="tl-cols">
+    <div class="tl-left">
+
+      <div class="panel">
+        <div class="status-strip" id="status-strip"></div>
+        <div id="game-box">
+          <div class="loading-state">Loading song data…</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="tl-right">
+
+      <div class="panel" id="how-panel">
+        <div class="panel-header" id="hdr-how">[ How to Play ]</div>
+        <div class="side-list">
+          <div class="side-row"><span class="sr-num">1</span><span id="how-1">Five songs appear in a random order.</span></div>
+          <div class="side-row"><span class="sr-num">2</span><span id="how-2">Arrange them by <b>release date</b> — oldest at the top. Drag cards or use the arrows.</span></div>
+          <div class="side-row"><span class="sr-num">3</span><span id="how-3">Lock in your answer. Green = right spot, gold = one off, red = wrong.</span></div>
+          <div class="side-row"><span class="sr-num">4</span><span id="how-4">One shared puzzle a day — share your result and keep the streak.</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header" id="hdr-records">[ Records ]</div>
+        <table class="stats-table">
+          <tr><td id="rec-l-played">Dailies played</td><td id="rec-played">0</td></tr>
+          <tr><td id="rec-l-perfect">Perfect days</td><td id="rec-perfect">0</td></tr>
+          <tr><td id="rec-l-streak">Current streak</td><td id="rec-streak">0</td></tr>
+          <tr><td id="rec-l-avg">Average score</td><td id="rec-avg">—</td></tr>
+        </table>
+      </div>
+
+      <div class="panel">
+        <div class="panel-header" id="hdr-news">[ News ]</div>
+        <ul class="news-list" id="news-list"></ul>
+        <a class="news-more" href="#" id="news-more">Full updates →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  VOCALOID Timeline 年表 — a fan-made puzzle &nbsp;·&nbsp; song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a> &nbsp;·&nbsp; not affiliated with any rights holder
+</footer>
+
+<div class="modal-backdrop" id="settings-backdrop" hidden></div>
+<div class="settings-modal" id="settings-modal" hidden>
+  <div class="settings-title"><span id="set-title">[ Settings ]</span> <button type="button" class="modal-close" id="settings-close">✕</button></div>
+  <div class="settings-row">
+    <div><b id="set-dark-label">Dark Mode</b><div style="font-size:10px;color:var(--faint)" id="set-dark-desc">Dark page and panels, like the other games.</div></div>
+    <button type="button" class="settings-toggle" id="opt-dark">OFF</button>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="ach-backdrop" hidden></div>
+<div class="settings-modal" id="ach-modal" hidden>
+  <div class="settings-title"><span id="ach-title">[ Achievements ]</span> <span class="panel-note" id="ach-count"></span> <button type="button" class="modal-close" id="ach-close">✕</button></div>
+  <div id="ach-list" style="margin: -12px -14px -14px"></div>
+</div>
+
+<div class="modal-backdrop" id="stats-backdrop" hidden></div>
+<div class="settings-modal" id="stats-modal" hidden>
+  <div class="settings-title"><span id="stats-title">[ Stats ]</span> <button type="button" class="modal-close" id="stats-close">✕</button></div>
+  <div id="stats-body"></div>
+</div>
+
+<div class="modal-backdrop" id="detail-backdrop" hidden></div>
+<div class="settings-modal" id="detail-modal" hidden>
+  <div class="settings-title"><span id="detail-title-bar">[ Song ]</span> <button type="button" class="modal-close" id="detail-close">✕</button></div>
+  <div id="detail-body"></div>
+</div>
+
+<div class="modal-backdrop" id="updates-backdrop" hidden></div>
+<div class="settings-modal" id="updates-modal" hidden>
+  <div class="settings-title"><span id="upd-title">[ Updates ]</span> <button type="button" class="modal-close" id="updates-close">✕</button></div>
+  <div class="modal-scroll"><ul class="updates-list" id="updates-list"></ul></div>
+</div>
+
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const escHtml = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+function seedFromString(str) {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+}
+const todayKey = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+};
+
+/* ── i18n ── */
+const LANGS = ["en","ja","es","ko"];
+const STR = {
+en: {
+  daily: "Daily", unlimited: "Unlimited", archive: "Archive", score: "Score", streakLbl: "Streak", puzzle: "Puzzle",
+  lockIn: "Lock in", toolsEra: "Era", share: "Copy share text", copied: "Copied!", newPuzzle: "↻ New puzzle", backDays: "◀ All days",
+  hint: "Oldest song at the top — drag the cards or use the arrows, then lock in.",
+  axisOld: "oldest ▲", axisNew: "newest ▼",
+  result: (n, total) => `<b>${n}</b> / ${total} in the right spot`,
+  perfect: " — perfect timeline!",
+  hdrHow: "[ How to Play ]", hdrRecords: "[ Records ]", hdrNews: "[ News ]",
+  how1: "Five songs appear in a random order.",
+  how2: "Arrange them by <b>release date</b> — oldest at the top. Drag cards or use the arrows.",
+  how3: "Lock in your answer. Green = right spot, gold = one off, red = wrong.",
+  how4: "One shared puzzle a day — share your result and keep the streak.",
+  recPlayed: "Dailies played", recPerfect: "Perfect days", recStreak: "Current streak", recAvg: "Average score",
+  navUpdates: "Updates", navAch: "Achievements", navSettings: "Settings", newsMore: "Full updates →",
+  setTitle: "[ Settings ]", achTitle: "[ Achievements ]", updTitle: "[ Updates ]",
+  settingsDark: "Dark Mode", settingsDarkDesc: "Dark page and panels, like the other games.",
+  view39: "view on 39charts →", logoSub: "oldest to newest",
+  eraAll: "All years", eraHard: "★ Hard",
+  archDone: "done", archNone: e => `No past dailies yet — the archive grows one puzzle per day, starting ${e}.`,
+  achUnlocked: "Achievement unlocked!",
+  achTagUnlocked: "Unlocked", achTagLocked: "Locked", achSecret: "Secret achievement",
+  navStats: "Stats", statsTitle: "[ Stats ]",
+  stPlays: "Plays", stPerfect: "Perfect", stAvgRight: "Avg correct", stDaysDone: "Days completed", stEraFiltered: "Era filters",
+  sdSong: "Song", sdReleased: "Released", sdCombined: "Combined views",
+  toastPerfect: "PERFECT TIMELINE! Every song in its place.",
+  toastGood: (n, total) => `Nice ordering \u2014 ${n} of ${total} in the right spot!`,
+  toastBad: (n, total) => `${n} of ${total}\u2026 the eras got scrambled this time.`,
+},
+ja: {
+  daily: "デイリー", unlimited: "無制限", archive: "アーカイブ", score: "スコア", streakLbl: "連続", puzzle: "パズル",
+  lockIn: "決定", toolsEra: "年代", share: "結果をコピー", copied: "コピーしました！", newPuzzle: "↻ 新しいパズル", backDays: "◀ 日付一覧",
+  hint: "一番古い曲を上に — カードをドラッグするか矢印で並べ替えて決定。",
+  axisOld: "古い ▲", axisNew: "新しい ▼",
+  result: (n, total) => `<b>${n}</b> / ${total} 正解`,
+  perfect: " — パーフェクト！",
+  hdrHow: "[ 遊び方 ]", hdrRecords: "[ 記録 ]", hdrNews: "[ お知らせ ]",
+  how1: "5曲がランダムな順番で表示されます。",
+  how2: "<b>投稿日</b>順に並べ替え — 一番古い曲を上に。ドラッグか矢印で。",
+  how3: "決定すると答え合わせ。緑=正解、金=1つずれ、赤=不正解。",
+  how4: "パズルは1日1問、全員共通。結果をシェアして連続記録を伸ばそう。",
+  recPlayed: "プレイ日数", recPerfect: "パーフェクト", recStreak: "連続日数", recAvg: "平均スコア",
+  navUpdates: "更新情報", navAch: "実績", navSettings: "設定", newsMore: "更新履歴をすべて見る →",
+  setTitle: "[ 設定 ]", achTitle: "[ 実績 ]", updTitle: "[ 更新情報 ]",
+  settingsDark: "ダークモード", settingsDarkDesc: "他のゲームと同じダーク配色。",
+  view39: "39chartsで見る →", logoSub: "古い順に並べよう",
+  eraAll: "全期間", eraHard: "★ ハード",
+  archDone: "クリア", archNone: e => `まだ過去のデイリーがありません — ${e}から毎日1問ずつ増えます。`,
+  achUnlocked: "実績を解除しました！",
+  achTagUnlocked: "解除済", achTagLocked: "未解除", achSecret: "シークレット実績",
+  navStats: "統計", statsTitle: "[ 統計 ]",
+  stPlays: "プレイ数", stPerfect: "パーフェクト", stAvgRight: "平均正解率", stDaysDone: "クリア日数", stEraFiltered: "期間フィルター",
+  sdSong: "楽曲", sdReleased: "投稿日", sdCombined: "合計再生数",
+  toastPerfect: "パーフェクト年表！全曲正しい位置です。",
+  toastGood: (n, total) => `いい感じ \u2014 ${n}/${total} 正解！`,
+  toastBad: (n, total) => `${n}/${total}\u2026 時代が混ざってしまいました。`,
+},
+es: {
+  daily: "Diario", unlimited: "Ilimitado", archive: "Archivo", score: "Puntos", streakLbl: "Racha", puzzle: "Puzle",
+  lockIn: "Confirmar", toolsEra: "Época", share: "Copiar resultado", copied: "¡Copiado!", newPuzzle: "↻ Nuevo puzle", backDays: "◀ Todos los días",
+  hint: "La canción más antigua arriba — arrastra las tarjetas o usa las flechas y confirma.",
+  axisOld: "antigua ▲", axisNew: "nueva ▼",
+  result: (n, total) => `<b>${n}</b> / ${total} en su lugar`,
+  perfect: " — ¡línea de tiempo perfecta!",
+  hdrHow: "[ Cómo jugar ]", hdrRecords: "[ Récords ]", hdrNews: "[ Novedades ]",
+  how1: "Aparecen cinco canciones en orden aleatorio.",
+  how2: "Ordénalas por <b>fecha de publicación</b> — la más antigua arriba.",
+  how3: "Confirma tu respuesta. Verde = correcto, dorado = una posición de error, rojo = incorrecto.",
+  how4: "Un puzle compartido al día — comparte tu resultado y mantén la racha.",
+  recPlayed: "Diarios jugados", recPerfect: "Días perfectos", recStreak: "Racha actual", recAvg: "Puntuación media",
+  navUpdates: "Novedades", navAch: "Logros", navSettings: "Ajustes", newsMore: "Ver todas las novedades →",
+  setTitle: "[ Ajustes ]", achTitle: "[ Logros ]", updTitle: "[ Novedades ]",
+  settingsDark: "Modo oscuro", settingsDarkDesc: "Colores oscuros, como los otros juegos.",
+  view39: "ver en 39charts →", logoSub: "de antigua a nueva",
+  eraAll: "Todos los años", eraHard: "★ Difícil",
+  archDone: "completado", archNone: e => `Aún no hay diarios pasados — el archivo crece un puzle al día desde ${e}.`,
+  achUnlocked: "¡Logro desbloqueado!",
+  achTagUnlocked: "Desbloqueado", achTagLocked: "Bloqueado", achSecret: "Logro secreto",
+  navStats: "Stats", statsTitle: "[ Stats ]",
+  stPlays: "Partidas", stPerfect: "Perfectas", stAvgRight: "Media de aciertos", stDaysDone: "Días completados", stEraFiltered: "Filtros de época",
+  sdSong: "Canción", sdReleased: "Publicada", sdCombined: "Vistas combinadas",
+  toastPerfect: "¡LÍNEA DE TIEMPO PERFECTA! Cada canción en su lugar.",
+  toastGood: (n, total) => `Buen orden \u2014 ¡${n} de ${total} en su sitio!`,
+  toastBad: (n, total) => `${n} de ${total}\u2026 las épocas se mezclaron esta vez.`,
+},
+ko: {
+  daily: "데일리", unlimited: "무제한", archive: "아카이브", score: "점수", streakLbl: "연속", puzzle: "퍼즐",
+  lockIn: "확정", toolsEra: "연대", share: "결과 복사", copied: "복사됨!", newPuzzle: "↻ 새 퍼즐", backDays: "◀ 전체 날짜",
+  hint: "가장 오래된 곡을 맨 위로 — 카드를 드래그하거나 화살표로 정렬 후 확정.",
+  axisOld: "오래된 ▲", axisNew: "최신 ▼",
+  result: (n, total) => `<b>${n}</b> / ${total} 정답`,
+  perfect: " — 완벽한 타임라인!",
+  hdrHow: "[ 게임 방법 ]", hdrRecords: "[ 기록 ]", hdrNews: "[ 소식 ]",
+  how1: "다섯 곡이 무작위 순서로 나타납니다.",
+  how2: "<b>발표일</b> 순으로 정렬 — 가장 오래된 곡이 맨 위.",
+  how3: "확정하면 채점. 초록=정답, 금색=한 칸 차이, 빨강=오답.",
+  how4: "하루에 하나, 모두 같은 퍼즐. 결과를 공유하고 연속 기록을 이어가세요.",
+  recPlayed: "플레이한 데일리", recPerfect: "퍼펙트", recStreak: "연속 기록", recAvg: "평균 점수",
+  navUpdates: "업데이트", navAch: "업적", navSettings: "설정", newsMore: "전체 업데이트 보기 →",
+  setTitle: "[ 설정 ]", achTitle: "[ 업적 ]", updTitle: "[ 업데이트 ]",
+  settingsDark: "다크 모드", settingsDarkDesc: "다른 게임과 같은 어두운 배색.",
+  view39: "39charts에서 보기 →", logoSub: "오래된 순서로",
+  eraAll: "전체 연도", eraHard: "★ 하드",
+  archDone: "완료", archNone: e => `아직 지난 데일리가 없습니다 — ${e}부터 하루에 하나씩 쌓입니다.`,
+  achUnlocked: "업적 달성!",
+  achTagUnlocked: "달성", achTagLocked: "미달성", achSecret: "비밀 업적",
+  navStats: "통계", statsTitle: "[ 통계 ]",
+  stPlays: "플레이", stPerfect: "퍼펙트", stAvgRight: "평균 정답률", stDaysDone: "완료한 날", stEraFiltered: "연도 필터",
+  sdSong: "곡", sdReleased: "발표일", sdCombined: "합산 조회수",
+  toastPerfect: "퍼펙트 타임라인! 모든 곡이 제자리입니다.",
+  toastGood: (n, total) => `좋아요 \u2014 ${n}/${total} 정답!`,
+  toastBad: (n, total) => `${n}/${total}\u2026 이번엔 시대가 뒤섞였네요.`,
+},
+};
+let LANG = LANGS.includes(localStorage.getItem("tl_lang")) ? localStorage.getItem("tl_lang") : "en";
+function t(key, ...args) {
+  const v = (STR[LANG] && STR[LANG][key]) != null ? STR[LANG][key] : STR.en[key];
+  return typeof v === "function" ? v(...args) : v;
+}
+function applyStatic() {
+  document.querySelectorAll(".language-button").forEach(b => b.classList.toggle("is-active", b.dataset.lang === LANG));
+  $("hdr-how").textContent = t("hdrHow");
+  $("hdr-records").textContent = t("hdrRecords");
+  $("hdr-news").textContent = t("hdrNews");
+  ["how-1","how-2","how-3","how-4"].forEach((id, i) => { $(id).innerHTML = t("how" + (i + 1)); });
+  $("rec-l-played").textContent = t("recPlayed");
+  $("rec-l-perfect").textContent = t("recPerfect");
+  $("rec-l-streak").textContent = t("recStreak");
+  $("rec-l-avg").textContent = t("recAvg");
+  ["updates-open","m-updates"].forEach(id => $(id).textContent = t("navUpdates"));
+  ["ach-open","m-ach"].forEach(id => $(id).textContent = t("navAch"));
+  ["settings-open","m-settings"].forEach(id => $(id).textContent = t("navSettings"));
+  ["stats-open","m-stats"].forEach(id => $(id).textContent = t("navStats"));
+  $("stats-title").textContent = t("statsTitle");
+  $("set-title").textContent = t("setTitle");
+  $("ach-title").textContent = t("achTitle");
+  $("upd-title").textContent = t("updTitle");
+  $("set-dark-label").textContent = t("settingsDark");
+  $("set-dark-desc").textContent = t("settingsDarkDesc");
+  $("logo-sub").textContent = t("logoSub");
+  $("news-more").textContent = t("newsMore");
+  document.querySelector('[data-mode="daily"]').textContent = t("daily");
+  document.querySelector('[data-mode="unlimited"]').textContent = t("unlimited");
+  document.querySelector('[data-mode="archive"]').textContent = t("archive");
+  document.querySelector('[data-era="all"]').textContent = t("eraAll");
+  document.querySelector('[data-era="hard"]').textContent = t("eraHard");
+  $("new-grid-btn").textContent = t("newPuzzle");
+  $("tools-label").textContent = t("toolsEra");
+  renderNews();
+}
+
+/* ── release notes ── */
+const RELEASES = [
+  {
+    ver: "v1.0", date: "2026",
+    en: ["Launch: a daily release-date ordering puzzle with five well-known songs.", "Unlimited mode with era filters and a ★ Hard window mode.", "Archive calendar, achievements, streaks, and shareable results.", "Full retro look, dark mode, and EN/JA/ES/KO interface."],
+    ja: ["公開：有名曲5曲を投稿日順に並べるデイリーパズル。", "期間フィルターと★ハードモード付きの無制限モード。", "アーカイブカレンダー、実績、連続記録、結果シェア。", "レトロデザイン、ダークモード、4言語対応。"],
+    es: ["Lanzamiento: un puzle diario de ordenar cinco canciones conocidas por fecha.", "Modo ilimitado con filtros de época y modo ★ Difícil.", "Calendario de archivo, logros, rachas y resultados compartibles.", "Estética retro, modo oscuro e interfaz en 4 idiomas."],
+    ko: ["출시: 유명한 다섯 곡을 발표일 순으로 정렬하는 데일리 퍼즐.", "연도 필터와 ★하드 모드가 있는 무제한 모드.", "아카이브 달력, 업적, 연속 기록, 결과 공유.", "레트로 디자인, 다크 모드, 4개 언어 지원."],
+  },
+];
+function renderNews() {
+  const latest = RELEASES[0];
+  const notes = (latest[LANG] || latest.en).slice(0, 3);
+  $("news-list").innerHTML = notes.map(n =>
+    `<li><span class="news-ver">${latest.ver}</span><span class="news-text">${escHtml(n)}</span></li>`).join("");
+  $("updates-list").innerHTML = RELEASES.map(r => `
+    <li><span class="updates-ver">${r.ver}</span><strong>${r.date}</strong><br>${(r[LANG] || r.en).map(escHtml).join("<br>")}</li>`).join("");
+}
+
+/* ── achievements ── */
+const ACH = [
+  { id: "first_lock", ico: "1", en: ["First Timeline", "Lock in your first puzzle."], ja: ["最初の年表", "初めてパズルを決定する。"], es: ["Primera línea", "Confirma tu primer puzle."], ko: ["첫 타임라인", "첫 퍼즐을 확정하세요."] },
+  { id: "perfect_day", ico: "5", en: ["Perfect Order", "Get all five in the right spot."], ja: ["完全な順序", "5曲すべて正解する。"], es: ["Orden perfecto", "Acierta las cinco posiciones."], ko: ["완벽한 순서", "다섯 곡을 모두 맞히세요."] },
+  { id: "streak_7", ico: "7", en: ["One Week", "Keep a 7-day daily streak."], ja: ["一週間", "デイリーを7日連続でプレイする。"], es: ["Una semana", "Mantén una racha de 7 días."], ko: ["일주일", "7일 연속 데일리를 플레이하세요."] },
+  { id: "dailies_30", ico: "30", en: ["Regular", "Play 30 dailies."], ja: ["常連", "デイリーを30回プレイする。"], es: ["Habitual", "Juega 30 diarios."], ko: ["단골", "데일리를 30번 플레이하세요."] },
+  { id: "hard_perfect", ico: "★", en: ["Era Scholar", "Perfect a ★ Hard puzzle (songs within a few years)."], ja: ["時代の学者", "★ハードでパーフェクトを取る。"], es: ["Erudito", "Perfecciona un puzle ★ Difícil."], ko: ["시대 학자", "★하드 퍼즐에서 퍼펙트를 달성하세요."] },
+  { id: "era_ace", ico: "年", en: ["Era Ace", "Perfect an era-filtered Unlimited puzzle."], ja: ["時代のエース", "期間フィルター付き無制限でパーフェクト。"], es: ["As de época", "Perfecciona un puzle con filtro de época."], ko: ["시대 에이스", "연도 필터 무제한 퍼즐에서 퍼펙트."] },
+  { id: "archive_5", ico: "旧", en: ["Historian", "Complete 5 archive days."], ja: ["歴史家", "アーカイブを5日分クリアする。"], es: ["Historiador", "Completa 5 días del archivo."], ko: ["역사가", "아카이브 5일을 완료하세요."] },
+  { id: "all_wrong", ico: "?", secret: true, en: ["Time Traveler, Lost", "Get all five in the wrong spot. Impressive, honestly."], ja: ["迷子のタイムトラベラー", "5曲すべて不正解にする。ある意味すごい。"], es: ["Viajero perdido", "Falla las cinco posiciones. Impresionante, la verdad."], ko: ["길 잃은 시간여행자", "다섯 곡을 모두 틀리세요. 어떤 의미로는 대단해요."] },
+];
+function loadAch() { try { return JSON.parse(localStorage.getItem("tl_ach")) || {}; } catch (e) { return {}; } }
+function saveAch(a) { try { localStorage.setItem("tl_ach", JSON.stringify(a)); } catch (e) {} }
+let resultToastTimer = null;
+function resultToast(message, perfect) {
+  const existing = document.querySelector("#tl-result-toast");
+  if (existing) existing.remove();
+  const el = document.createElement("div");
+  el.id = "tl-result-toast";
+  if (perfect) el.classList.add("is-perfect");
+  el.innerHTML = `<span class="nnd-toast-label">[${perfect ? "\u2713" : "!"}]</span><span class="nnd-toast-msg">${message}</span>`;
+  document.body.appendChild(el);
+  clearTimeout(resultToastTimer);
+  resultToastTimer = setTimeout(() => { el.classList.add("nnd-toast-fade"); setTimeout(() => el.remove(), 600); }, perfect ? 2600 : 2200);
+}
+
+let toastTimer = null;
+function toast(html, symbol) {
+  document.querySelectorAll(".nnd-toast").forEach(el => el.remove());
+  const el = document.createElement("div");
+  el.className = "nnd-toast";
+  el.innerHTML = `<span class="nnd-toast-label">${symbol || "\u2605"}</span><span class="nnd-toast-msg">${html}</span>`;
+  document.body.appendChild(el);
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.classList.add("nnd-toast-fade"); setTimeout(() => el.remove(), 500); }, 3000);
+}
+function unlockAch(id) {
+  const a = loadAch();
+  if (a[id]) return;
+  a[id] = true;
+  saveAch(a);
+  const def = ACH.find(x => x.id === id);
+  const [name] = def[LANG] || def.en;
+  toast(`<b>${escHtml(name)}</b><span>${escHtml(t("achUnlocked"))}</span>`, "🏆");
+  renderAchievements();
+}
+function renderAchievements() {
+  const a = loadAch();
+  const n = ACH.filter(x => a[x.id]).length;
+  $("ach-count").textContent = `${n} / ${ACH.length}`;
+  $("ach-list").innerHTML = `<div class="achievements-list">` + ACH.map(x => {
+    const unlocked = !!a[x.id];
+    if (x.secret && !unlocked) {
+      return `<div class="achievement-card is-locked is-hidden">
+        <div class="achievement-card-head"><strong>???</strong><span>${escHtml(t("achTagLocked"))}</span></div>
+        <p>${escHtml(t("achSecret"))}</p></div>`;
+    }
+    const [name, desc] = x[LANG] || x.en;
+    return `<div class="achievement-card ${unlocked ? "is-unlocked" : "is-locked"}">
+      <div class="achievement-card-head"><strong>${escHtml(name)}</strong><span>${escHtml(unlocked ? t("achTagUnlocked") : t("achTagLocked"))}</span></div>
+      <p>${escHtml(desc)}</p>
+    </div>`;
+  }).join("") + `</div>`;
+}
+
+/* ── data ── */
+const CACHE_TTL_MS = 10 * 60 * 1000;
+function cacheGet(key) {
+  try {
+    const o = JSON.parse(sessionStorage.getItem(key));
+    if (!o || typeof o.t !== "number" || Date.now() - o.t > CACHE_TTL_MS) return null;
+    return o.v;
+  } catch (e) { return null; }
+}
+function cachePut(key, v) { try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), v })); } catch (e) {} }
+function loadJson(file, key) {
+  { const c = cacheGet(key); if (c) return Promise.resolve(c); }
+  return fetch(file).then(r => r.ok ? r.json() : null)
+    .then(d => { if (d) cachePut(key, d); return d; }).catch(() => null);
+}
+
+let SONGS = [], VIEWS = {}, YT = {}, BILI = {}, POOL = [];
+const combined = s => {
+  const id = String(s.vocadbId);
+  const n = VIEWS[id], y = YT[id] && YT[id].views, b = BILI[id] && BILI[id].views;
+  if (typeof n !== "number" && typeof y !== "number" && typeof b !== "number") return null;
+  return (n || 0) + (y || 0) + (b || 0);
+};
+
+/* Cover-art fallback chain (same as 39charts): original YT, reprint uploads
+   from coverArts, NicoNico, bilibili — with dead-YouTube gray detection. */
+function coverChain(song) {
+  const all = [...(song.coverArts || [])];
+  if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
+  const ytHq = song.ytOriginalId ? `https://i.ytimg.com/vi/${song.ytOriginalId}/hqdefault.jpg` : null;
+  if (ytHq) all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`);
+  const m = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/) : null;
+  if (m) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${m[1]}/${m[1]}`);
+  const bp = BILI[String(song.vocadbId)];
+  if (bp && bp.pic) all.push(String(bp.pic).replace(/^http:/, "https:"));
+  const pr = u => (ytHq && u === ytHq) ? -1
+    : u.includes("ytimg.com") && u.includes("hqdefault") ? 0
+    : u.includes("ytimg.com") && u.includes("mqdefault") ? 1
+    : u.includes("ytimg.com") ? 2
+    : u.includes("sndcdn.com") ? 3 : 4;
+  return [...new Set(all)].sort((a, b) => pr(a) - pr(b));
+}
+function advanceThumb(img, skipYt) {
+  let rest = JSON.parse(img.dataset.srcs || "[]");
+  if (skipYt) rest = rest.filter(u => !u.includes("ytimg.com"));
+  if (rest.length) { img.src = rest[0]; img.dataset.srcs = JSON.stringify(rest.slice(1)); }
+  else img.remove();
+}
+function tryNextThumb(img) { advanceThumb(img, false); }
+function thumbLoaded(img) {
+  if (img.naturalWidth && img.naturalWidth <= 120 && img.naturalHeight <= 90
+      && /ytimg\.com/.test(img.currentSrc || img.src)) { advanceThumb(img, true); return; }
+  // YT hq/mqdefault are 4:3 with the 16:9 frame letterboxed inside — zoom past the bars
+  if (img.naturalWidth && Math.abs(img.naturalWidth / img.naturalHeight - 4 / 3) < 0.05)
+    img.classList.add("crop43");
+  else img.classList.remove("crop43");
+}
+function thumbImgHtml(song) {
+  const chain = coverChain(song);
+  if (!chain.length) return "";
+  return `<img src="${escHtml(chain[0])}" alt="" referrerpolicy="no-referrer" loading="lazy" data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}" onload="thumbLoaded(this)" onerror="tryNextThumb(this)">`;
+}
+
+function fmtViews(n) {
+  if (n == null) return "";
+  if (n >= 1e9) return (n / 1e9).toFixed(2).replace(/\.?0+$/, "") + "B";
+  if (n >= 1e6) return (n / 1e6).toFixed(1).replace(/\.0$/, "") + "M";
+  if (n >= 1e3) return Math.round(n / 1e3) + "K";
+  return String(n);
+}
+
+/* Pool: well-known songs only (top 600 by combined views) with solid dates. */
+function buildPool() {
+  POOL = SONGS
+    .filter(s => s.publishDate && coverChain(s).length && combined(s) != null)
+    .sort((a, b) => combined(b) - combined(a))
+    .slice(0, 600);
+}
+
+/* ── puzzle generation ── */
+const PUZZLE_N = 5;
+function yearOf(s) { return new Date(s.publishDate).getFullYear(); }
+
+const HARD_N = 10;
+function generatePuzzle(rnd, era) {
+  const N = era === "hard" ? HARD_N : PUZZLE_N;
+  let pool = POOL;
+  if (era && era !== "all" && era !== "hard") {
+    const [a, b] = era.split("-").map(Number);
+    pool = POOL.filter(s => yearOf(s) >= a && yearOf(s) <= b);
+  }
+  for (let attempt = 0; attempt < 300; attempt++) {
+    const picks = [];
+    const used = new Set(), years = new Set();
+    if (era === "hard") {
+      // ten songs inside a 7-year window, all distinct dates: genuinely HARD
+      const anchor = pool[Math.floor(rnd() * pool.length)];
+      const lo = yearOf(anchor) - 3, hi = yearOf(anchor) + 3;
+      const windowPool = pool.filter(s => yearOf(s) >= lo && yearOf(s) <= hi);
+      if (windowPool.length < N) continue;
+      const dates = new Set();
+      let guard = 0;
+      while (picks.length < N && guard++ < 500) {
+        const s = windowPool[Math.floor(rnd() * windowPool.length)];
+        if (used.has(s.vocadbId) || dates.has(s.publishDate)) continue;
+        used.add(s.vocadbId); dates.add(s.publishDate); picks.push(s);
+      }
+    } else {
+      let guard = 0;
+      while (picks.length < N && guard++ < 200) {
+        const s = pool[Math.floor(rnd() * pool.length)];
+        if (used.has(s.vocadbId) || years.has(yearOf(s))) continue;
+        used.add(s.vocadbId); years.add(yearOf(s)); picks.push(s);
+      }
+    }
+    if (picks.length === N) {
+      const solution = [...picks].sort((a, b) => a.publishDate.localeCompare(b.publishDate));
+      let order = [...picks];
+      do { order.sort(() => rnd() - 0.5); }
+      while (order.every((s, i) => s === solution[i]));
+      return { songs: order, solution };
+    }
+  }
+  return null;
+}
+
+/* ── state ── */
+const EPOCH = "2026-07-18";
+const state = {
+  mode: "daily", era: "all",
+  puzzle: null,
+  done: false,
+  result: null,
+  dateKey: null,
+};
+
+function dailySaveKey() { return `tl_daily_${state.dateKey}`; }
+function saveDaily() {
+  if (state.mode === "unlimited" || !state.dateKey) return;
+  try {
+    localStorage.setItem(dailySaveKey(), JSON.stringify({
+      order: state.puzzle.songs.map(s => String(s.vocadbId)),
+      done: state.done,
+    }));
+  } catch (e) {}
+}
+function loadStats() {
+  try { return JSON.parse(localStorage.getItem("tl_stats")) || { played: 0, perfect: 0, streak: 0, total: 0, lastDay: null }; }
+  catch (e) { return { played: 0, perfect: 0, streak: 0, total: 0, lastDay: null }; }
+}
+function saveStats(st) { try { localStorage.setItem("tl_stats", JSON.stringify(st)); } catch (e) {} }
+function renderRecords() {
+  const st = loadStats();
+  $("rec-played").textContent = st.played;
+  $("rec-perfect").textContent = st.perfect;
+  $("rec-streak").textContent = st.streak;
+  $("rec-avg").textContent = st.played ? (st.total / st.played).toFixed(1) + "/5" : "—";
+}
+
+/* ── archive ── */
+function archiveDates() {
+  const out = [];
+  const today = todayKey();
+  for (let d = new Date(EPOCH); ; d.setDate(d.getDate() + 1)) {
+    const key = `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+    if (key >= today) break;
+    out.push(key);
+  }
+  return out.reverse();
+}
+
+let calYear = null, calMonth = null;
+function renderArchiveCalendar() {
+  const days = archiveDates();
+  const daySet = new Set(days);
+  $("status-strip").innerHTML = `<div class="st-cell"><span class="st-k">${t("archive")}</span><span class="st-v">${days.length}</span></div>`;
+  if (!days.length) {
+    $("game-box").innerHTML = `<div class="loading-state">${t("archNone", EPOCH)}</div>`;
+    return;
+  }
+  const newest = days[0], oldest = days[days.length - 1];
+  const [minY, minM] = oldest.split("-").map(Number);
+  const [maxY, maxM] = newest.split("-").map(Number);
+  if (calYear == null) { calYear = maxY; calMonth = maxM; }
+  const cur = calYear * 12 + calMonth, lo = minY * 12 + minM, hi = maxY * 12 + maxM;
+  const monthName = new Date(calYear, calMonth - 1, 1)
+    .toLocaleDateString(LANG === "ja" ? "ja-JP" : LANG === "ko" ? "ko-KR" : LANG === "es" ? "es-ES" : "en-US", { month: "long", year: "numeric" });
+  const dows = { en: ["Su","Mo","Tu","We","Th","Fr","Sa"], ja: ["日","月","火","水","木","金","土"],
+                 es: ["Do","Lu","Ma","Mi","Ju","Vi","Sá"], ko: ["일","월","화","수","목","금","토"] }[LANG];
+  const firstDow = new Date(calYear, calMonth - 1, 1).getDay();
+  const daysIn = new Date(calYear, calMonth, 0).getDate();
+  let cells = "";
+  for (let i = 0; i < firstDow; i++) cells += `<span class="mcal-day empty"></span>`;
+  for (let d = 1; d <= daysIn; d++) {
+    const iso = `${calYear}-${String(calMonth).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+    if (!daySet.has(iso)) { cells += `<span class="mcal-day off">${d}</span>`; continue; }
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(`tl_daily_${iso}`)); } catch (e) {}
+    const done = saved && saved.done;
+    cells += `<button type="button" class="mcal-day playable${done ? " done" : ""}" data-day="${iso}" title="${iso}">${d}${done ? `<span class="mcal-score">${t("archDone")}</span>` : ""}</button>`;
+  }
+  $("game-box").innerHTML = `
+    <div class="mcal">
+      <div class="mcal-head">
+        <button type="button" class="mcal-nav" id="mcal-prev" ${cur <= lo ? "disabled" : ""}>&#9664;</button>
+        <strong>${monthName}</strong>
+        <button type="button" class="mcal-nav" id="mcal-next" ${cur >= hi ? "disabled" : ""}>&#9654;</button>
+      </div>
+      <div class="mcal-dows">${dows.map(d => `<span>${d}</span>`).join("")}</div>
+      <div class="mcal-grid">${cells}</div>
+      <div class="mcal-legend">
+        <span><i class="mcal-key done"></i>${t("archDone")}</span>
+        <span><i class="mcal-key"></i>—</span>
+      </div>
+    </div>`;
+  const nav = (id, delta) => {
+    const b = $(id);
+    if (b) b.addEventListener("click", () => {
+      calMonth += delta;
+      if (calMonth < 1) { calMonth = 12; calYear--; }
+      if (calMonth > 12) { calMonth = 1; calYear++; }
+      renderArchiveCalendar();
+    });
+  };
+  nav("mcal-prev", -1); nav("mcal-next", 1);
+  $("game-box").querySelectorAll("[data-day]").forEach(b =>
+    b.addEventListener("click", () => { state.dateKey = b.dataset.day; startGame(); }));
+}
+
+/* ── game flow ── */
+function startGame() {
+  state.done = false; state.result = null;
+  $("mode-tools").hidden = state.mode !== "unlimited";
+  if (state.mode === "daily") state.dateKey = todayKey();
+  if (state.mode === "unlimited") state.dateKey = null;
+  if (state.mode === "archive" && !state.dateKey) { calYear = calMonth = null; renderArchiveCalendar(); return; }
+
+  if (state.mode === "unlimited") {
+    const rnd = mulberry32(seedFromString(`tl-free-${Date.now()}-${Math.random()}`));
+    state.puzzle = generatePuzzle(rnd, state.era);
+  } else {
+    const rnd = mulberry32(seedFromString(`tl-daily-${state.dateKey}`));
+    state.puzzle = generatePuzzle(rnd, "all");
+    try {
+      const saved = JSON.parse(localStorage.getItem(dailySaveKey()));
+      if (saved && state.puzzle) {
+        const byId = new Map(state.puzzle.songs.map(s => [String(s.vocadbId), s]));
+        const order = (saved.order || []).map(id => byId.get(id)).filter(Boolean);
+        if (order.length === state.puzzle.songs.length) state.puzzle.songs = order;
+        if (saved.done) { state.done = true; scoreCurrent(); }
+      }
+    } catch (e) {}
+  }
+  render();
+}
+
+function scoreCurrent() {
+  const { songs, solution } = state.puzzle;
+  state.result = songs.map((s, i) => {
+    const truth = solution.indexOf(s);
+    return truth === i ? "right" : Math.abs(truth - i) === 1 ? "close" : "wrong";
+  });
+}
+
+let revealAnimate = false;
+function lockIn() {
+  if (state.done) return;
+  state.done = true;
+  revealAnimate = true;
+  scoreCurrent();
+  const rightN = state.result.filter(r => r === "right").length;
+  const totalN = state.puzzle.songs.length;
+  unlockAch("first_lock");
+  if (rightN === totalN) {
+    unlockAch("perfect_day");
+    if (state.mode === "unlimited" && state.era === "hard") unlockAch("hard_perfect");
+    if (state.mode === "unlimited" && /^\d{4}-\d{4}$/.test(state.era)) unlockAch("era_ace");
+  }
+  if (rightN === 0 && state.result.every(r => r === "wrong")) unlockAch("all_wrong");
+  if (state.mode === "unlimited") {
+    // per-filter unlimited stats for the Stats modal
+    let u = {};
+    try { u = JSON.parse(localStorage.getItem("tl_ustats")) || {}; } catch (e) {}
+    const bucket = state.era === "hard" ? "hard" : (state.era === "all" ? "all" : "era");
+    const b = u[bucket] || { p: 0, perf: 0, right: 0, slots: 0 };
+    b.p++; b.right += rightN; b.slots += totalN;
+    if (rightN === totalN) b.perf++;
+    u[bucket] = b;
+    try { localStorage.setItem("tl_ustats", JSON.stringify(u)); } catch (e) {}
+  }
+  if (state.mode === "daily") {
+    const st = loadStats();
+    if (st.lastDay !== state.dateKey) {
+      st.played++;
+      st.total += rightN;
+      if (rightN === totalN) st.perfect++;
+      const y = new Date(Date.now() - 864e5);
+      const yKey = `${y.getFullYear()}-${String(y.getMonth()+1).padStart(2,"0")}-${String(y.getDate()).padStart(2,"0")}`;
+      st.streak = st.lastDay === yKey ? st.streak + 1 : 1;
+      if (st.streak >= 7) unlockAch("streak_7");
+      if (st.played >= 30) unlockAch("dailies_30");
+      st.lastDay = state.dateKey;
+      saveStats(st);
+      renderRecords();
+    }
+  }
+  if (state.mode === "archive") {
+    let done = 0;
+    for (const day of archiveDates()) {
+      try { const sv = JSON.parse(localStorage.getItem(`tl_daily_${day}`)); if (sv && sv.done) done++; } catch (e) {}
+    }
+    if (done + 1 >= 5) unlockAch("archive_5"); // +1: current save happens below
+  }
+  saveDaily();
+  render();
+}
+
+function moveCard(i, dir) {
+  if (state.done) return;
+  const j = i + dir;
+  if (j < 0 || j >= state.puzzle.songs.length) return;
+  const arr = state.puzzle.songs;
+  [arr[i], arr[j]] = [arr[j], arr[i]];
+  saveDaily();
+  render();
+}
+
+/* ── render ── */
+function fmtDate(iso) {
+  const d = new Date(iso);
+  return `${d.getUTCFullYear()}/${String(d.getUTCMonth()+1).padStart(2,"0")}/${String(d.getUTCDate()).padStart(2,"0")}`;
+}
+
+function eraLabel() {
+  if (state.era === "hard") return t("eraHard");
+  if (state.era === "all") return t("eraAll");
+  return state.era === "2019-2026" ? "2019+" : state.era.replace("-", "\u2013");
+}
+function renderStatus() {
+  const st = loadStats();
+  const totalN = state.puzzle ? state.puzzle.songs.length : PUZZLE_N;
+  const rightN = state.result ? state.result.filter(r => r === "right").length : null;
+  const modeLabel = state.mode === "unlimited" ? t("unlimited")
+    : (state.mode === "archive" ? t("archive") + " · " : t("daily") + " · ") + state.dateKey;
+  $("status-strip").innerHTML = `
+    <div class="st-cell"><span class="st-k">${modeLabel}</span><span class="st-v">${t("puzzle")}</span></div>
+    <div class="st-cell"><span class="st-k">${t("score")}</span><span class="st-v is-red">${rightN != null ? rightN + " / " + totalN : "—"}</span></div>
+    ${state.mode === "daily" ? `<div class="st-cell"><span class="st-k">${t("streakLbl")}</span><span class="st-v">${st.streak}</span></div>` : ""}
+    ${state.mode === "unlimited" ? `<div class="st-cell"><span class="st-k">${t("toolsEra")}</span><span class="st-v">${eraLabel()}</span></div>` : ""}
+  `;
+}
+
+function render() {
+  if (!state.puzzle) { $("game-box").innerHTML = `<div class="loading-state">Could not build a puzzle.</div>`; return; }
+  renderStatus();
+  const { songs, solution } = state.puzzle;
+  let html = `<div class="tl-axis"><span>${t("axisOld")}</span></div><div class="tl-list">`;
+  songs.forEach((s, i) => {
+    const res = state.done && state.result ? state.result[i] : null;
+    const truth = solution.indexOf(s);
+    html += `
+    <div class="tl-card${state.done ? " revealed " + res : ""}" draggable="${!state.done}" data-i="${i}" data-sid="${escHtml(String(s.vocadbId))}">
+      <span class="tl-tint" aria-hidden="true"></span>
+      <span class="tl-slot">${state.done ? truth + 1 : i + 1}</span>
+      <span class="tl-thumb">${thumbImgHtml(s)}</span>
+      <span class="tl-info">
+        <span class="tl-title">${escHtml(s.title)}</span>
+        <span class="tl-subrow">
+          <span class="tl-artist">${escHtml(s.artist || s.artistString || "")}</span>
+          ${combined(s) != null ? `<span class="tl-views" title="${combined(s).toLocaleString()}">${fmtViews(combined(s))}<span class="tv-cap">views</span></span>` : ""}
+          <span class="tl-date">${fmtDate(s.publishDate)}</span>
+        </span>
+      </span>
+      ${state.done ? `<span class="tl-year-ghost">${new Date(s.publishDate).getUTCFullYear()}</span>` : `<span class="tl-grip" aria-hidden="true"><i></i><i></i><i></i></span>`}
+      ${!state.done ? `
+      <span class="tl-move">
+        <button type="button" data-up="${i}" ${i === 0 ? "disabled" : ""} aria-label="Move up">▲</button>
+        <button type="button" data-down="${i}" ${i === songs.length - 1 ? "disabled" : ""} aria-label="Move down">▼</button>
+      </span>` : ""}
+    </div>`;
+  });
+  html += `</div><div class="tl-axis"><span>${t("axisNew")}</span></div>`;
+  if (!state.done) {
+    html += `<div class="tl-hint">${t("hint")}</div>
+      <div class="tl-actions"><button type="button" class="lock-btn" id="lock-btn">${t("lockIn")}</button></div>`;
+  } else {
+    const rightN = state.result.filter(r => r === "right").length;
+    const totalN = songs.length;
+    html += `<div class="result-line">${t("result", rightN, totalN)}${rightN === totalN ? t("perfect") : ""}</div>
+      <div class="tl-actions">
+        <button type="button" class="share-btn" id="share-btn">${t("share")}</button>
+        ${state.mode === "unlimited" ? `<button type="button" class="new-btn" id="new-btn">${t("newPuzzle")}</button>` : ""}
+        ${state.mode === "archive" ? `<button type="button" class="back-btn" id="back-btn">${t("backDays")}</button>` : ""}
+      </div>`;
+  }
+  $("game-box").innerHTML = html;
+  applyTints();
+
+  if (!state.done) {
+    $("lock-btn").addEventListener("click", lockIn);
+    $("game-box").querySelectorAll("[data-up]").forEach(b => b.addEventListener("click", () => moveCard(+b.dataset.up, -1)));
+    $("game-box").querySelectorAll("[data-down]").forEach(b => b.addEventListener("click", () => moveCard(+b.dataset.down, 1)));
+    wireDrag();
+  } else {
+    $("share-btn").addEventListener("click", () => {
+      navigator.clipboard.writeText(shareText()).then(
+        () => { $("share-btn").textContent = t("copied"); setTimeout(() => { const b = $("share-btn"); if (b) b.textContent = t("share"); }, 1500); },
+        () => prompt("Copy:", shareText()));
+    });
+    const nb = $("new-btn");
+    if (nb) nb.addEventListener("click", startGame);
+    const bb = $("back-btn");
+    if (bb) bb.addEventListener("click", () => { state.dateKey = null; startGame(); });
+    $("game-box").querySelectorAll(".tl-card.revealed").forEach(card =>
+      card.addEventListener("click", e => {
+        if (e.target.closest("a")) return; // in-card links keep working
+        openDetail(card.dataset.sid);
+      }));
+    if (revealAnimate) {
+      revealAnimate = false;
+      const cards = [...$("game-box").querySelectorAll(".tl-card.revealed")];
+      const STEP = 130;
+      cards.forEach((card, i) => {
+        card.classList.add("wave");
+        card.style.animationDelay = (i * STEP) + "ms";
+        const slot = card.querySelector(".tl-slot");
+        if (slot) slot.style.animationDelay = (i * STEP) + "ms";
+      });
+      const rightN = state.result.filter(r => r === "right").length;
+      const totalN = state.result.length;
+      setTimeout(() => {
+        if (rightN === totalN) resultToast(t("toastPerfect"), true);
+        else if (rightN >= Math.ceil(totalN * 0.6)) resultToast(t("toastGood", rightN, totalN), false);
+        else resultToast(t("toastBad", rightN, totalN), false);
+      }, cards.length * STEP + 350);
+    }
+  }
+}
+
+/* stats modal: per-mode breakdown */
+function renderStatsModal() {
+  const st = loadStats();
+  let u = {};
+  try { u = JSON.parse(localStorage.getItem("tl_ustats")) || {}; } catch (e) {}
+  let archDone = 0;
+  for (const day of archiveDates()) {
+    try { const sv = JSON.parse(localStorage.getItem(`tl_daily_${day}`)); if (sv && sv.done) archDone++; } catch (e) {}
+  }
+  const sect = (title, rows) => `
+    <div style="font-family:'MS Gothic','Courier New',monospace;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted);margin:10px 0 3px">${title}</div>
+    <table class="stats-table" style="border:1px solid var(--line)">${rows}</table>`;
+  const row = (k, v) => `<tr><td>${k}</td><td>${v}</td></tr>`;
+  const bucketRows = (b) => b
+    ? row(t("stPlays"), b.p) + row(t("stPerfect"), b.perf) + row(t("stAvgRight"), b.slots ? Math.round(b.right / b.slots * 100) + "%" : "\u2014")
+    : row(t("stPlays"), 0);
+  $("stats-body").innerHTML =
+    sect(t("daily"),
+      row(t("recPlayed"), st.played) + row(t("recPerfect"), st.perfect) +
+      row(t("recStreak"), st.streak) + row(t("recAvg"), st.played ? (st.total / st.played).toFixed(1) + "/5" : "\u2014")) +
+    sect(t("unlimited") + " \u00b7 " + t("eraAll"), bucketRows(u.all)) +
+    sect(t("unlimited") + " \u00b7 " + t("stEraFiltered"), bucketRows(u.era)) +
+    sect(t("unlimited") + " \u00b7 " + t("eraHard"), bucketRows(u.hard)) +
+    sect(t("archive"), row(t("stDaysDone"), archDone + " / " + archiveDates().length));
+}
+
+/* song detail (revealed cards) */
+function compactNum(n) {
+  if (n == null) return EM;
+  return new Intl.NumberFormat("en", { notation: "compact", maximumFractionDigits: 1 }).format(n);
+}
+const EM = "\u2014";
+function openDetail(id) {
+  const song = SONGS.find(x => String(x.vocadbId) === String(id));
+  if (!song) return;
+  const sid = String(song.vocadbId);
+  const n = VIEWS[sid], y = YT[sid] || {}, b = BILI[sid] || {};
+  const total = combined(song);
+  const chain = coverChain(song);
+  const vocadbUrl = song.vocadbUrl || `https://vocadb.net/S/${sid}`;
+  const biliCode = b.id ? (/^BV/i.test(String(b.id)) ? String(b.id) : `av${b.id}`) : null;
+  $("detail-title-bar").textContent = `[ ${t("sdSong")} ]`;
+  $("detail-body").innerHTML = `
+    ${chain.length ? `<div class="sd-cover">${thumbImgHtml(song)}</div>` : ""}
+    <div class="sd-title">${escHtml(song.title)}</div>
+    <div class="sd-artist">${escHtml(song.artist || song.artistString || "")}</div>
+    <table class="sd-table">
+      <tr><td>${t("sdReleased")}</td><td>${song.publishDate ? fmtDate(song.publishDate) : EM}</td></tr>
+      <tr><td>${t("sdCombined")}</td><td class="is-red">${total != null ? total.toLocaleString() : EM}</td></tr>
+      ${typeof n === "number" ? `<tr><td>NicoNico</td><td>${compactNum(n)}</td></tr>` : ""}
+      ${typeof y.views === "number" ? `<tr><td>YouTube</td><td>${compactNum(y.views)}</td></tr>` : ""}
+      ${typeof b.views === "number" ? `<tr><td>bilibili</td><td>${compactNum(b.views)}</td></tr>` : ""}
+    </table>
+    <div class="sd-links">
+      ${song.ytOriginalId ? `<a class="sd-btn yt" href="https://www.youtube.com/watch?v=${encodeURIComponent(song.ytOriginalId)}" target="_blank" rel="noopener">YouTube \u2197</a>` : ""}
+      ${song.nndOriginalId ? `<a class="sd-btn nnd" href="https://www.nicovideo.jp/watch/${encodeURIComponent(song.nndOriginalId)}" target="_blank" rel="noopener">NicoNico \u2197</a>` : ""}
+      ${biliCode ? `<a class="sd-btn bili" href="https://www.bilibili.com/video/${encodeURIComponent(biliCode)}" target="_blank" rel="noopener">bilibili \u2197</a>` : ""}
+    </div>
+    <div class="sd-links">
+      <a class="sd-btn" href="../39charts/song.html?id=${encodeURIComponent(sid)}" target="_blank" rel="noopener">39charts \u2197</a>
+      <a class="sd-btn vocadb" href="${escHtml(vocadbUrl)}" target="_blank" rel="noopener">VocaDB \u2197</a>
+    </div>`;
+  $("detail-modal").hidden = false;
+  $("detail-backdrop").hidden = false;
+}
+(function () {
+  const close = () => { $("detail-modal").hidden = true; $("detail-backdrop").hidden = true; };
+  $("detail-close").addEventListener("click", close);
+  $("detail-backdrop").addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+})();
+
+/* per-card tint: average color sampled from the artwork (YouTube's CDN sends
+   CORS headers, so real sampling works; other hosts fall back to a stable
+   hash-derived hue so every card still gets a consistent wash). */
+const TINT_CACHE = new Map();
+function fallbackTint(id) {
+  let h = 0;
+  for (const ch of String(id)) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
+  return `hsla(${h % 360}, 45%, 58%, 0.5)`;
+}
+function applyTints() {
+  document.querySelectorAll(".tl-card[data-sid]").forEach(card => {
+    const id = card.dataset.sid;
+    const set = c => card.style.setProperty("--tint", c);
+    if (TINT_CACHE.has(id)) { set(TINT_CACHE.get(id)); return; }
+    const song = SONGS.find(x => String(x.vocadbId) === id);
+    const src = song ? coverChain(song)[0] : null;
+    const fb = fallbackTint(id);
+    if (!src) { TINT_CACHE.set(id, fb); set(fb); return; }
+    const im = new Image();
+    im.crossOrigin = "anonymous";
+    im.onload = () => {
+      try {
+        const cv = document.createElement("canvas");
+        cv.width = cv.height = 8;
+        const cx = cv.getContext("2d");
+        cx.drawImage(im, 0, 0, 8, 8);
+        const d = cx.getImageData(0, 0, 8, 8).data;
+        let r = 0, g = 0, b = 0;
+        for (let k = 0; k < d.length; k += 4) { r += d[k]; g += d[k+1]; b += d[k+2]; }
+        const n = d.length / 4;
+        r /= n; g /= n; b /= n;
+        // averaging drifts toward grey — convert to HSL and force saturation up
+        const mx = Math.max(r, g, b) / 255, mn = Math.min(r, g, b) / 255;
+        const l = (mx + mn) / 2;
+        let h = 0;
+        const dd = mx - mn;
+        if (dd > 0.001) {
+          const rr = r/255, gg = g/255, bb = b/255;
+          if (mx === rr/1) h = ((gg - bb) / dd + (gg < bb ? 6 : 0)) * 60;
+          else if (mx === gg) h = ((bb - rr) / dd + 2) * 60;
+          else h = ((rr - gg) / dd + 4) * 60;
+        }
+        const sat = dd > 0.02 ? Math.min(58, Math.max(38, dd * 200)) : 0;
+        const c = sat > 0
+          ? `hsla(${Math.round(h)}, ${Math.round(sat)}%, ${Math.round(Math.min(0.62, Math.max(0.45, l)) * 100)}%, 0.55)`
+          : `rgba(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)}, 0.45)`; // truly monochrome art stays grey
+        TINT_CACHE.set(id, c); set(c);
+      } catch (e) { TINT_CACHE.set(id, fb); set(fb); }
+    };
+    im.onerror = () => { TINT_CACHE.set(id, fb); set(fb); };
+    im.src = src;
+  });
+}
+
+/* drag & drop (desktop) */
+let dragIdx = null;
+function wireDrag() {
+  $("game-box").querySelectorAll(".tl-card").forEach(card => {
+    card.addEventListener("dragstart", e => {
+      dragIdx = +card.dataset.i;
+      card.classList.add("dragging");
+      e.dataTransfer.effectAllowed = "move";
+    });
+    card.addEventListener("dragend", () => { dragIdx = null; render(); });
+    card.addEventListener("dragover", e => {
+      e.preventDefault();
+      const over = +card.dataset.i;
+      card.classList.toggle("drop-above", dragIdx != null && over < dragIdx);
+      card.classList.toggle("drop-below", dragIdx != null && over > dragIdx);
+    });
+    card.addEventListener("dragleave", () => card.classList.remove("drop-above", "drop-below"));
+    card.addEventListener("drop", e => {
+      e.preventDefault();
+      const target = +card.dataset.i;
+      if (dragIdx == null || target === dragIdx) return;
+      const arr = state.puzzle.songs;
+      const [moved] = arr.splice(dragIdx, 1);
+      arr.splice(target, 0, moved);
+      dragIdx = null;
+      saveDaily();
+      render();
+    });
+  });
+}
+
+/* ── share ── */
+function shareText() {
+  const dayNum = Math.max(1, Math.floor((new Date(todayKey()) - new Date(EPOCH)) / 864e5) + 1);
+  const art = state.result.map(r => r === "right" ? "🟩" : r === "close" ? "🟨" : "⬛").join("");
+  const rightN = state.result.filter(r => r === "right").length;
+  const totalN = state.result.length;
+  const head = state.mode === "daily" ? `VOCALOID Timeline #${dayNum}`
+    : state.mode === "archive" ? `VOCALOID Timeline ${state.dateKey} (archive)`
+    : "VOCALOID Timeline (unlimited)";
+  return `${head} · ${rightN}/${totalN}\n${art}\nhttps://vocaloidle.sodapines.dev/timeline/`;
+}
+
+/* ── events ── */
+document.querySelectorAll("[data-mode]").forEach(btn => btn.addEventListener("click", () => {
+  if (btn.dataset.mode === state.mode) return;
+  state.mode = btn.dataset.mode;
+  state.dateKey = null;
+  document.querySelectorAll("[data-mode]").forEach(b => b.classList.toggle("is-active", b === btn));
+  startGame();
+}));
+document.querySelectorAll("[data-era]").forEach(btn => btn.addEventListener("click", () => {
+  state.era = btn.dataset.era;
+  document.querySelectorAll("[data-era]").forEach(b => b.classList.toggle("is-active", b === btn));
+  startGame();
+}));
+$("new-grid-btn").addEventListener("click", () => {
+  startGame();
+});
+document.querySelectorAll(".language-button").forEach(btn => btn.addEventListener("click", () => {
+  if (btn.dataset.lang === LANG) return;
+  LANG = btn.dataset.lang;
+  try { localStorage.setItem("tl_lang", LANG); } catch (e) {}
+  applyStatic();
+  renderAchievements();
+  if (state.mode === "archive" && !state.dateKey) renderArchiveCalendar();
+  else if (state.puzzle) render();
+}));
+document.querySelectorAll(".nnd-mobile-settings a[data-proxy]").forEach(a =>
+  a.addEventListener("click", e => { e.preventDefault(); const el = $(a.dataset.proxy); if (el) el.click(); }));
+
+function wireModal(openId, modalId, backdropId, closeId, onOpen) {
+  const close = () => { $(modalId).hidden = true; $(backdropId).hidden = true; };
+  $(openId).addEventListener("click", e => { e.preventDefault(); if (onOpen) onOpen(); $(modalId).hidden = false; $(backdropId).hidden = false; });
+  $(closeId).addEventListener("click", close);
+  $(backdropId).addEventListener("click", close);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+}
+wireModal("settings-open", "settings-modal", "settings-backdrop", "settings-close", () => {
+  const on = document.documentElement.classList.contains("dark-mode");
+  $("opt-dark").classList.toggle("is-on", on);
+  $("opt-dark").textContent = on ? "ON" : "OFF";
+});
+wireModal("ach-open", "ach-modal", "ach-backdrop", "ach-close", renderAchievements);
+wireModal("updates-open", "updates-modal", "updates-backdrop", "updates-close", renderNews);
+wireModal("stats-open", "stats-modal", "stats-backdrop", "stats-close", renderStatsModal);
+$("news-more").addEventListener("click", e => { e.preventDefault(); $("updates-open").click(); });
+$("opt-dark").addEventListener("click", () => {
+  const on = document.documentElement.classList.toggle("dark-mode");
+  try { localStorage.setItem("tl_dark", on ? "1" : "0"); } catch (e) {}
+  $("opt-dark").classList.toggle("is-on", on);
+  $("opt-dark").textContent = on ? "ON" : "OFF";
+});
+
+/* ── boot ── */
+Promise.all([
+  loadJson("../data/songs.json", "39c_songs_v2"),
+  loadJson("../data/views.json", "39c_views_v2"),
+  loadJson("../data/ytviews.json", "39c_ytviews_v2"),
+  loadJson("../data/biliviews.json", "39c_biliviews_v3"),
+]).then(([songs, views, yt, bili]) => {
+  if (!songs) throw new Error("songs.json failed to load");
+  SONGS = songs;
+  if (views && views.views) VIEWS = views.views;
+  if (yt && yt.stats) YT = yt.stats;
+  if (bili && bili.stats) BILI = bili.stats;
+  buildPool();
+  applyStatic();
+  renderRecords();
+  renderAchievements();
+  startGame();
+}).catch(err => {
+  $("game-box").innerHTML = `<div class="loading-state">Could not load data — ${escHtml(err.message)}. Open via a local server rather than file://</div>`;
+});
+</script>
+</body>
+</html>
