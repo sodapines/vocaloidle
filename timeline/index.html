@@ -443,6 +443,34 @@ html.dark-mode .achievements-list { border-color: #2c2c2c; }
   font-family: "MS Gothic","Courier New",monospace;
 }
 .updates-list strong { color: var(--text); }
+/* result toast — Heardle's top-center [OK]/[!] toast */
+#tl-result-toast {
+  position: fixed; top: 50px; left: 50%; transform: translateX(-50%);
+  z-index: 999; display: flex; align-items: stretch; white-space: nowrap;
+  background: #fffde8; border: 1px solid #e0d890; border-top: none;
+  font-size: 11px; color: #555500;
+  opacity: 1; transition: opacity 0.5s ease;
+}
+#tl-result-toast.nnd-toast-fade { opacity: 0; }
+#tl-result-toast .nnd-toast-label {
+  background: #cc0000; color: #fff; font-size: 10px; font-weight: 700;
+  padding: 0 8px; display: flex; align-items: center;
+}
+#tl-result-toast.is-perfect .nnd-toast-label { background: #1a7d3c; }
+#tl-result-toast .nnd-toast-msg { padding: 4px 12px; display: flex; align-items: center; }
+
+/* lock-in reveal wave: slots flip in one by one, cards pop subtly */
+@keyframes tlRevealPop {
+  0% { transform: scale(0.97); filter: brightness(1.35); }
+  60% { transform: scale(1.01); }
+  100% { transform: scale(1); filter: brightness(1); }
+}
+.tl-card.revealed.wave { animation: tlRevealPop 0.4s ease both; }
+.tl-card.revealed.wave .tl-slot { animation: tlRevealPop 0.4s ease both; }
+@media (prefers-reduced-motion: reduce) {
+  .tl-card.revealed.wave, .tl-card.revealed.wave .tl-slot { animation: none; }
+}
+
 .nnd-toast {
   position: fixed; top: 50px; right: 18px; z-index: 1000;
   display: flex; align-items: stretch; width: min(92vw, 360px);
@@ -720,6 +748,9 @@ en: {
   navStats: "Stats", statsTitle: "[ Stats ]",
   stPlays: "Plays", stPerfect: "Perfect", stAvgRight: "Avg correct", stDaysDone: "Days completed", stEraFiltered: "Era filters",
   sdSong: "Song", sdReleased: "Released", sdCombined: "Combined views",
+  toastPerfect: "PERFECT TIMELINE! Every song in its place.",
+  toastGood: (n, total) => `Nice ordering \u2014 ${n} of ${total} in the right spot!`,
+  toastBad: (n, total) => `${n} of ${total}\u2026 the eras got scrambled this time.`,
 },
 ja: {
   daily: "デイリー", unlimited: "無制限", archive: "アーカイブ", score: "スコア", streakLbl: "連続", puzzle: "パズル",
@@ -746,6 +777,9 @@ ja: {
   navStats: "統計", statsTitle: "[ 統計 ]",
   stPlays: "プレイ数", stPerfect: "パーフェクト", stAvgRight: "平均正解率", stDaysDone: "クリア日数", stEraFiltered: "期間フィルター",
   sdSong: "楽曲", sdReleased: "投稿日", sdCombined: "合計再生数",
+  toastPerfect: "パーフェクト年表！全曲正しい位置です。",
+  toastGood: (n, total) => `いい感じ \u2014 ${n}/${total} 正解！`,
+  toastBad: (n, total) => `${n}/${total}\u2026 時代が混ざってしまいました。`,
 },
 es: {
   daily: "Diario", unlimited: "Ilimitado", archive: "Archivo", score: "Puntos", streakLbl: "Racha", puzzle: "Puzle",
@@ -772,6 +806,9 @@ es: {
   navStats: "Stats", statsTitle: "[ Stats ]",
   stPlays: "Partidas", stPerfect: "Perfectas", stAvgRight: "Media de aciertos", stDaysDone: "Días completados", stEraFiltered: "Filtros de época",
   sdSong: "Canción", sdReleased: "Publicada", sdCombined: "Vistas combinadas",
+  toastPerfect: "¡LÍNEA DE TIEMPO PERFECTA! Cada canción en su lugar.",
+  toastGood: (n, total) => `Buen orden \u2014 ¡${n} de ${total} en su sitio!`,
+  toastBad: (n, total) => `${n} de ${total}\u2026 las épocas se mezclaron esta vez.`,
 },
 ko: {
   daily: "데일리", unlimited: "무제한", archive: "아카이브", score: "점수", streakLbl: "연속", puzzle: "퍼즐",
@@ -798,6 +835,9 @@ ko: {
   navStats: "통계", statsTitle: "[ 통계 ]",
   stPlays: "플레이", stPerfect: "퍼펙트", stAvgRight: "평균 정답률", stDaysDone: "완료한 날", stEraFiltered: "연도 필터",
   sdSong: "곡", sdReleased: "발표일", sdCombined: "합산 조회수",
+  toastPerfect: "퍼펙트 타임라인! 모든 곡이 제자리입니다.",
+  toastGood: (n, total) => `좋아요 \u2014 ${n}/${total} 정답!`,
+  toastBad: (n, total) => `${n}/${total}\u2026 이번엔 시대가 뒤섞였네요.`,
 },
 };
 let LANG = LANGS.includes(localStorage.getItem("tl_lang")) ? localStorage.getItem("tl_lang") : "en";
@@ -868,6 +908,19 @@ const ACH = [
 ];
 function loadAch() { try { return JSON.parse(localStorage.getItem("tl_ach")) || {}; } catch (e) { return {}; } }
 function saveAch(a) { try { localStorage.setItem("tl_ach", JSON.stringify(a)); } catch (e) {} }
+let resultToastTimer = null;
+function resultToast(message, perfect) {
+  const existing = document.querySelector("#tl-result-toast");
+  if (existing) existing.remove();
+  const el = document.createElement("div");
+  el.id = "tl-result-toast";
+  if (perfect) el.classList.add("is-perfect");
+  el.innerHTML = `<span class="nnd-toast-label">[${perfect ? "\u2713" : "!"}]</span><span class="nnd-toast-msg">${message}</span>`;
+  document.body.appendChild(el);
+  clearTimeout(resultToastTimer);
+  resultToastTimer = setTimeout(() => { el.classList.add("nnd-toast-fade"); setTimeout(() => el.remove(), 600); }, perfect ? 2600 : 2200);
+}
+
 let toastTimer = null;
 function toast(html, symbol) {
   document.querySelectorAll(".nnd-toast").forEach(el => el.remove());
@@ -1159,9 +1212,11 @@ function scoreCurrent() {
   });
 }
 
+let revealAnimate = false;
 function lockIn() {
   if (state.done) return;
   state.done = true;
+  revealAnimate = true;
   scoreCurrent();
   const rightN = state.result.filter(r => r === "right").length;
   const totalN = state.puzzle.songs.length;
@@ -1299,6 +1354,24 @@ function render() {
         if (e.target.closest("a")) return; // in-card links keep working
         openDetail(card.dataset.sid);
       }));
+    if (revealAnimate) {
+      revealAnimate = false;
+      const cards = [...$("game-box").querySelectorAll(".tl-card.revealed")];
+      const STEP = 130;
+      cards.forEach((card, i) => {
+        card.classList.add("wave");
+        card.style.animationDelay = (i * STEP) + "ms";
+        const slot = card.querySelector(".tl-slot");
+        if (slot) slot.style.animationDelay = (i * STEP) + "ms";
+      });
+      const rightN = state.result.filter(r => r === "right").length;
+      const totalN = state.result.length;
+      setTimeout(() => {
+        if (rightN === totalN) resultToast(t("toastPerfect"), true);
+        else if (rightN >= Math.ceil(totalN * 0.6)) resultToast(t("toastGood", rightN, totalN), false);
+        else resultToast(t("toastBad", rightN, totalN), false);
+      }, cards.length * STEP + 350);
+    }
   }
 }
 
