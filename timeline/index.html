@@ -254,10 +254,10 @@ html.dark-mode .st-cell { border-right-color: #3b3b3b; }
     linear-gradient(to right, transparent, var(--tint, transparent));
   -webkit-mask-image: linear-gradient(to right, transparent, #000 65%);
   mask-image: linear-gradient(to right, transparent, #000 65%);
-  opacity: 0.5;
+  opacity: 0.75;
 }
-html.dark-mode .tl-tint { opacity: 0.4; }
-.tl-card > *:not(.tl-tint) { position: relative; z-index: 1; }
+html.dark-mode .tl-tint { opacity: 0.55; }
+.tl-card > *:not(.tl-tint):not(.tl-year-ghost) { position: relative; z-index: 1; }
 .tl-year-ghost { z-index: 1; }
 
 /* right flank, playing: a hatched drag-grip strip (grab me!) */
@@ -1521,7 +1521,7 @@ const TINT_CACHE = new Map();
 function fallbackTint(id) {
   let h = 0;
   for (const ch of String(id)) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
-  return `hsla(${h % 360}, 45%, 60%, 0.45)`;
+  return `hsla(${h % 360}, 60%, 58%, 0.6)`;
 }
 function applyTints() {
   document.querySelectorAll(".tl-card[data-sid]").forEach(card => {
@@ -1544,7 +1544,22 @@ function applyTints() {
         let r = 0, g = 0, b = 0;
         for (let k = 0; k < d.length; k += 4) { r += d[k]; g += d[k+1]; b += d[k+2]; }
         const n = d.length / 4;
-        const c = `rgba(${Math.round(r/n)}, ${Math.round(g/n)}, ${Math.round(b/n)}, 0.5)`;
+        r /= n; g /= n; b /= n;
+        // averaging drifts toward grey — convert to HSL and force saturation up
+        const mx = Math.max(r, g, b) / 255, mn = Math.min(r, g, b) / 255;
+        const l = (mx + mn) / 2;
+        let h = 0;
+        const dd = mx - mn;
+        if (dd > 0.001) {
+          const rr = r/255, gg = g/255, bb = b/255;
+          if (mx === rr/1) h = ((gg - bb) / dd + (gg < bb ? 6 : 0)) * 60;
+          else if (mx === gg) h = ((bb - rr) / dd + 2) * 60;
+          else h = ((rr - gg) / dd + 4) * 60;
+        }
+        const sat = dd > 0.02 ? Math.min(85, Math.max(55, dd * 260)) : 0;
+        const c = sat > 0
+          ? `hsla(${Math.round(h)}, ${Math.round(sat)}%, ${Math.round(Math.min(0.62, Math.max(0.45, l)) * 100)}%, 0.65)`
+          : `rgba(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)}, 0.45)`; // truly monochrome art stays grey
         TINT_CACHE.set(id, c); set(c);
       } catch (e) { TINT_CACHE.set(id, fb); set(fb); }
     };
