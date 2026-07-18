@@ -532,6 +532,7 @@ html.dark-mode .achievement-card { background: #1a1a1a; border-color: #2c2c2c; }
 html.dark-mode .achievement-card:nth-child(even) { background: #1e1e1e; }
 html.dark-mode .achievements-list { border-color: #2c2c2c; }
 .updates-list { list-style: none; }
+#updates-modal .modal-scroll { margin-top: -12px; }
 .updates-list li { padding: 7px 12px; border-bottom: 1px dotted var(--line); font-size: 11px; color: var(--muted); line-height: 1.55; }
 .updates-list li:last-child { border-bottom: none; }
 .updates-ver {
@@ -785,7 +786,7 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
 <div class="modal-backdrop" id="ach-backdrop" hidden></div>
 <div class="settings-modal" id="ach-modal" hidden>
   <div class="settings-title"><span id="ach-title">[ Achievements ]</span> <span class="panel-note" id="ach-count"></span> <button type="button" class="modal-close" id="ach-close">✕</button></div>
-  <div id="ach-list" style="margin: 0 -14px -14px"></div>
+  <div id="ach-list" style="margin: -12px -14px -14px"></div>
 </div>
 
 <div class="modal-backdrop" id="stats-backdrop" hidden></div>
