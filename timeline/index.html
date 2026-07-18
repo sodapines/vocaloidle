@@ -168,7 +168,9 @@ html.dark-mode .nnd-mobile-settings a { background: #1d1d1d; border-color: #2c2c
   display: flex; align-items: center; gap: 8px;
   margin-top: -8px; /* tuck under the mode bar */
   border: 2px solid var(--ls); border-top: none;
-  background: linear-gradient(to bottom, #f6f4ee, #eceae2);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f6f4ee, #e9e6dd);
   padding: 5px 8px;
 }
 .mode-tools[hidden] { display: none; }
@@ -181,7 +183,7 @@ html.dark-mode .nnd-mobile-settings a { background: #1d1d1d; border-color: #2c2c
 .era-group .era-btn + .era-btn { margin-left: -1px; }
 .era-hard { margin-left: 4px; }
 .tool-btn { margin-left: auto; }
-html.dark-mode .mode-tools { background: linear-gradient(to bottom, #202020, #191919); border-color: #3b3b3b; }
+html.dark-mode .mode-tools { background: repeating-linear-gradient(45deg, rgba(255,255,255,0.015) 0 3px, transparent 3px 7px), linear-gradient(to bottom, #202020, #181818); border-color: #3b3b3b; }
 html.dark-mode .tools-label { color: #666; }
 .era-btn, .tool-btn {
   min-height: 22px; padding: 0 9px;
@@ -241,6 +243,7 @@ html.dark-mode .st-cell { border-right-color: #3b3b3b; }
 .tl-thumb { flex-shrink: 0; width: 88px; position: relative; background: #111; overflow: hidden; border-right: 1px solid var(--ls); }
 html.dark-mode .tl-thumb { border-right-color: #2c2c2c; }
 .tl-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tl-thumb img.crop43 { top: -16.7%; height: 133.4%; }
 .tl-thumb::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.07) 2px 3px);
@@ -1101,7 +1104,11 @@ function advanceThumb(img, skipYt) {
 function tryNextThumb(img) { advanceThumb(img, false); }
 function thumbLoaded(img) {
   if (img.naturalWidth && img.naturalWidth <= 120 && img.naturalHeight <= 90
-      && /ytimg\.com/.test(img.currentSrc || img.src)) advanceThumb(img, true);
+      && /ytimg\.com/.test(img.currentSrc || img.src)) { advanceThumb(img, true); return; }
+  // YT hq/mqdefault are 4:3 with the 16:9 frame letterboxed inside — zoom past the bars
+  if (img.naturalWidth && Math.abs(img.naturalWidth / img.naturalHeight - 4 / 3) < 0.05)
+    img.classList.add("crop43");
+  else img.classList.remove("crop43");
 }
 function thumbImgHtml(song) {
   const chain = coverChain(song);
@@ -1379,6 +1386,11 @@ function fmtDate(iso) {
   return `${d.getUTCFullYear()}/${String(d.getUTCMonth()+1).padStart(2,"0")}/${String(d.getUTCDate()).padStart(2,"0")}`;
 }
 
+function eraLabel() {
+  if (state.era === "hard") return t("eraHard");
+  if (state.era === "all") return t("eraAll");
+  return state.era === "2019-2026" ? "2019+" : state.era.replace("-", "\u2013");
+}
 function renderStatus() {
   const st = loadStats();
   const totalN = state.puzzle ? state.puzzle.songs.length : PUZZLE_N;
@@ -1389,6 +1401,7 @@ function renderStatus() {
     <div class="st-cell"><span class="st-k">${modeLabel}</span><span class="st-v">${t("puzzle")}</span></div>
     <div class="st-cell"><span class="st-k">${t("score")}</span><span class="st-v is-red">${rightN != null ? rightN + " / " + totalN : "—"}</span></div>
     ${state.mode === "daily" ? `<div class="st-cell"><span class="st-k">${t("streakLbl")}</span><span class="st-v">${st.streak}</span></div>` : ""}
+    ${state.mode === "unlimited" ? `<div class="st-cell"><span class="st-k">${t("toolsEra")}</span><span class="st-v">${eraLabel()}</span></div>` : ""}
   `;
 }
 
