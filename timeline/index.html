@@ -838,7 +838,6 @@ en: {
   axisOld: "oldest ▲", axisNew: "newest ▼",
   result: (n, total) => `<b>${n}</b> / ${total} in the right spot`,
   perfect: " — perfect timeline!",
-  confirmLeave: "Leave this unfinished puzzle?",
   hdrHow: "[ How to Play ]", hdrRecords: "[ Records ]", hdrNews: "[ News ]",
   how1: "Five songs appear in a random order.",
   how2: "Arrange them by <b>release date</b> — oldest at the top. Drag cards or use the arrows.",
@@ -867,7 +866,6 @@ ja: {
   axisOld: "古い ▲", axisNew: "新しい ▼",
   result: (n, total) => `<b>${n}</b> / ${total} 正解`,
   perfect: " — パーフェクト！",
-  confirmLeave: "このパズルを離れますか？",
   hdrHow: "[ 遊び方 ]", hdrRecords: "[ 記録 ]", hdrNews: "[ お知らせ ]",
   how1: "5曲がランダムな順番で表示されます。",
   how2: "<b>投稿日</b>順に並べ替え — 一番古い曲を上に。ドラッグか矢印で。",
@@ -896,7 +894,6 @@ es: {
   axisOld: "antigua ▲", axisNew: "nueva ▼",
   result: (n, total) => `<b>${n}</b> / ${total} en su lugar`,
   perfect: " — ¡línea de tiempo perfecta!",
-  confirmLeave: "¿Salir de este puzle sin terminar?",
   hdrHow: "[ Cómo jugar ]", hdrRecords: "[ Récords ]", hdrNews: "[ Novedades ]",
   how1: "Aparecen cinco canciones en orden aleatorio.",
   how2: "Ordénalas por <b>fecha de publicación</b> — la más antigua arriba.",
@@ -925,7 +922,6 @@ ko: {
   axisOld: "오래된 ▲", axisNew: "최신 ▼",
   result: (n, total) => `<b>${n}</b> / ${total} 정답`,
   perfect: " — 완벽한 타임라인!",
-  confirmLeave: "이 퍼즐을 떠날까요?",
   hdrHow: "[ 게임 방법 ]", hdrRecords: "[ 기록 ]", hdrNews: "[ 소식 ]",
   how1: "다섯 곡이 무작위 순서로 나타납니다.",
   how2: "<b>발표일</b> 순으로 정렬 — 가장 오래된 곡이 맨 위.",
@@ -1680,7 +1676,6 @@ function shareText() {
 /* ── events ── */
 document.querySelectorAll("[data-mode]").forEach(btn => btn.addEventListener("click", () => {
   if (btn.dataset.mode === state.mode) return;
-  if (state.mode === "unlimited" && !state.done && !confirm(t("confirmLeave"))) return;
   state.mode = btn.dataset.mode;
   state.dateKey = null;
   document.querySelectorAll("[data-mode]").forEach(b => b.classList.toggle("is-active", b === btn));
@@ -1692,7 +1687,6 @@ document.querySelectorAll("[data-era]").forEach(btn => btn.addEventListener("cli
   startGame();
 }));
 $("new-grid-btn").addEventListener("click", () => {
-  if (!state.done && !confirm(t("confirmLeave"))) return;
   startGame();
 });
 document.querySelectorAll(".language-button").forEach(btn => btn.addEventListener("click", () => {
