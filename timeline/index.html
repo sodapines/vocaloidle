@@ -248,16 +248,20 @@ html.dark-mode .tl-thumb { border-right-color: #2c2c2c; }
 /* thumbnail-color wash: a subtle tint sampled from each song's artwork,
    fading in from the right under a retro hatch pattern */
 .tl-tint {
-  position: absolute; top: 0; bottom: 0; right: 0; width: 52%;
+  position: absolute; top: 0; bottom: 0; right: 0; width: 38%;
   pointer-events: none; z-index: 0;
   background:
     repeating-linear-gradient(45deg, rgba(0,0,0,0.045) 0 2px, transparent 2px 6px),
     linear-gradient(to right, transparent, var(--tint, transparent));
-  -webkit-mask-image: linear-gradient(to right, transparent, #000 65%);
-  mask-image: linear-gradient(to right, transparent, #000 65%);
-  opacity: 0.6;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 80%);
+  mask-image: linear-gradient(to right, transparent, #000 80%);
+  opacity: 0.55;
 }
-html.dark-mode .tl-tint { opacity: 0.45; }
+html.dark-mode .tl-tint { opacity: 0.4; }
+/* revealed: the wash takes the verdict color instead of the artwork color */
+.tl-card.revealed.right .tl-tint { background: repeating-linear-gradient(45deg, rgba(0,0,0,0.045) 0 2px, transparent 2px 6px), linear-gradient(to right, transparent, hsla(140, 28%, 52%, 0.32)); }
+.tl-card.revealed.close .tl-tint { background: repeating-linear-gradient(45deg, rgba(0,0,0,0.045) 0 2px, transparent 2px 6px), linear-gradient(to right, transparent, hsla(45, 38%, 52%, 0.32)); }
+.tl-card.revealed.wrong .tl-tint { background: repeating-linear-gradient(45deg, rgba(0,0,0,0.045) 0 2px, transparent 2px 6px), linear-gradient(to right, transparent, hsla(0, 30%, 52%, 0.28)); }
 .tl-card > *:not(.tl-tint):not(.tl-year-ghost) { position: relative; z-index: 1; }
 .tl-year-ghost { z-index: 1; }
 
