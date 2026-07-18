@@ -232,10 +232,10 @@ html.dark-mode .tl-thumb { border-right-color: #2c2c2c; }
 .tl-title { font-size: 12px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tl-artist { font-size: 10px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tl-date {
-  margin-top: 1px; font-size: 10px; font-weight: 700; font-family: Consolas, monospace;
-  color: var(--red); display: none;
+  flex-shrink: 0; font-size: 10px; font-weight: 700; font-family: Consolas, monospace;
+  color: var(--red); display: none; white-space: nowrap;
 }
-.tl-card.revealed .tl-date { display: block; }
+.tl-card.revealed .tl-date { display: inline; }
 /* credits sub-row: artist · vocalist chip · views, all on the left */
 .tl-subrow { display: flex; align-items: center; gap: 6px; min-width: 0; }
 .tl-subrow .tl-artist { flex-shrink: 1; }
@@ -611,6 +611,7 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
   .tl-move button { width: 34px; }
   .tl-grip { display: none; }
   .tl-views { font-size: 9px; }
+  .tl-date { font-size: 9px; }
   .tl-year-ghost { font-size: 20px; right: 6px; }
   .st-cell { min-width: 0; padding: 5px 10px; }
   .st-v { font-size: 12px; }
@@ -1382,8 +1383,8 @@ function render() {
         <span class="tl-subrow">
           <span class="tl-artist">${escHtml(s.artist || s.artistString || "")}</span>
           ${combined(s) != null ? `<span class="tl-views" title="${combined(s).toLocaleString()}">${fmtViews(combined(s))}<span class="tv-cap">views</span></span>` : ""}
+          <span class="tl-date">${fmtDate(s.publishDate)}</span>
         </span>
-        <span class="tl-date">${fmtDate(s.publishDate)}</span>
       </span>
       ${state.done ? `<span class="tl-year-ghost">${new Date(s.publishDate).getUTCFullYear()}</span>` : `<span class="tl-grip" aria-hidden="true"><i></i><i></i><i></i></span>`}
       ${!state.done ? `
