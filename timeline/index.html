@@ -164,8 +164,25 @@ html.dark-mode .nnd-mobile-settings a { background: #1d1d1d; border-color: #2c2c
   border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
 }
-.mode-tools { margin-left: auto; display: flex; align-items: center; gap: 4px; padding-bottom: 3px; }
+.mode-tools {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: -8px; /* tuck under the mode bar */
+  border: 2px solid var(--ls); border-top: none;
+  background: linear-gradient(to bottom, #f6f4ee, #eceae2);
+  padding: 5px 8px;
+}
 .mode-tools[hidden] { display: none; }
+.tools-label {
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--faint);
+}
+.era-group { display: flex; align-items: center; }
+.era-group .era-btn + .era-btn { margin-left: -1px; }
+.era-hard { margin-left: 4px; }
+.tool-btn { margin-left: auto; }
+html.dark-mode .mode-tools { background: linear-gradient(to bottom, #202020, #191919); border-color: #3b3b3b; }
+html.dark-mode .tools-label { color: #666; }
 .era-btn, .tool-btn {
   min-height: 22px; padding: 0 9px;
   font-size: 10px; font-weight: 700; color: var(--muted);
@@ -597,12 +614,13 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
   .game-mode-bar { flex-wrap: wrap; gap: 0; padding: 3px 5px 0; }
   .game-mode-tabs { width: 100%; }
   .mode-tools {
-    margin-left: 0; width: 100%; padding: 5px 0 4px;
+    gap: 6px; padding: 5px 6px;
     overflow-x: auto; flex-wrap: nowrap;
-    border-top: 2px solid var(--ls); margin-top: 2px;
     scrollbar-width: none;
   }
   .mode-tools::-webkit-scrollbar { display: none; }
+  .tools-label { display: none; }
+  .tool-btn { margin-left: 6px; }
   .tl-thumb { width: 68px; }
   .tl-slot { width: 26px; font-size: 12px; }
   .tl-card { min-height: 58px; }
@@ -675,14 +693,18 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
       <button class="game-mode-btn" data-mode="unlimited">Unlimited</button>
       <button class="game-mode-btn" data-mode="archive">Archive</button>
     </div>
-    <div class="mode-tools" id="mode-tools" hidden>
+  </div>
+
+  <div class="mode-tools" id="mode-tools" hidden>
+    <span class="tools-label" id="tools-label">Era</span>
+    <span class="era-group">
       <button class="era-btn is-active" data-era="all">All years</button>
       <button class="era-btn" data-era="2007-2012">2007–2012</button>
       <button class="era-btn" data-era="2013-2018">2013–2018</button>
       <button class="era-btn" data-era="2019-2026">2019+</button>
-      <button class="era-btn" data-era="hard">★ Hard</button>
-      <button class="tool-btn" id="new-grid-btn">↻ New puzzle</button>
-    </div>
+    </span>
+    <button class="era-btn era-hard" data-era="hard">★ Hard</button>
+    <button class="tool-btn" id="new-grid-btn">↻ New puzzle</button>
   </div>
 
   <div class="tl-cols">
@@ -792,7 +814,7 @@ const LANGS = ["en","ja","es","ko"];
 const STR = {
 en: {
   daily: "Daily", unlimited: "Unlimited", archive: "Archive", score: "Score", streakLbl: "Streak", puzzle: "Puzzle",
-  lockIn: "Lock in", share: "Copy share text", copied: "Copied!", newPuzzle: "↻ New puzzle", backDays: "◀ All days",
+  lockIn: "Lock in", toolsEra: "Era", share: "Copy share text", copied: "Copied!", newPuzzle: "↻ New puzzle", backDays: "◀ All days",
   hint: "Oldest song at the top — drag the cards or use the arrows, then lock in.",
   axisOld: "oldest ▲", axisNew: "newest ▼",
   result: (n, total) => `<b>${n}</b> / ${total} in the right spot`,
@@ -821,7 +843,7 @@ en: {
 },
 ja: {
   daily: "デイリー", unlimited: "無制限", archive: "アーカイブ", score: "スコア", streakLbl: "連続", puzzle: "パズル",
-  lockIn: "決定", share: "結果をコピー", copied: "コピーしました！", newPuzzle: "↻ 新しいパズル", backDays: "◀ 日付一覧",
+  lockIn: "決定", toolsEra: "年代", share: "結果をコピー", copied: "コピーしました！", newPuzzle: "↻ 新しいパズル", backDays: "◀ 日付一覧",
   hint: "一番古い曲を上に — カードをドラッグするか矢印で並べ替えて決定。",
   axisOld: "古い ▲", axisNew: "新しい ▼",
   result: (n, total) => `<b>${n}</b> / ${total} 正解`,
@@ -850,7 +872,7 @@ ja: {
 },
 es: {
   daily: "Diario", unlimited: "Ilimitado", archive: "Archivo", score: "Puntos", streakLbl: "Racha", puzzle: "Puzle",
-  lockIn: "Confirmar", share: "Copiar resultado", copied: "¡Copiado!", newPuzzle: "↻ Nuevo puzle", backDays: "◀ Todos los días",
+  lockIn: "Confirmar", toolsEra: "Época", share: "Copiar resultado", copied: "¡Copiado!", newPuzzle: "↻ Nuevo puzle", backDays: "◀ Todos los días",
   hint: "La canción más antigua arriba — arrastra las tarjetas o usa las flechas y confirma.",
   axisOld: "antigua ▲", axisNew: "nueva ▼",
   result: (n, total) => `<b>${n}</b> / ${total} en su lugar`,
@@ -879,7 +901,7 @@ es: {
 },
 ko: {
   daily: "데일리", unlimited: "무제한", archive: "아카이브", score: "점수", streakLbl: "연속", puzzle: "퍼즐",
-  lockIn: "확정", share: "결과 복사", copied: "복사됨!", newPuzzle: "↻ 새 퍼즐", backDays: "◀ 전체 날짜",
+  lockIn: "확정", toolsEra: "연대", share: "결과 복사", copied: "복사됨!", newPuzzle: "↻ 새 퍼즐", backDays: "◀ 전체 날짜",
   hint: "가장 오래된 곡을 맨 위로 — 카드를 드래그하거나 화살표로 정렬 후 확정.",
   axisOld: "오래된 ▲", axisNew: "최신 ▼",
   result: (n, total) => `<b>${n}</b> / ${total} 정답`,
@@ -940,6 +962,7 @@ function applyStatic() {
   document.querySelector('[data-era="all"]').textContent = t("eraAll");
   document.querySelector('[data-era="hard"]').textContent = t("eraHard");
   $("new-grid-btn").textContent = t("newPuzzle");
+  $("tools-label").textContent = t("toolsEra");
   renderNews();
 }
 
