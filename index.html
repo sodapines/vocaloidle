@@ -169,6 +169,17 @@
     .higher .card-head { background: linear-gradient(#3769c9, #174690); }
     .charts .card-head { background: linear-gradient(#2faf57, #1a7d3c); }
     .masume .card-head { background: linear-gradient(#2aa8a0, #157a73); }
+    .timeline .card-head { background: linear-gradient(#8a5ac9, #5c3396); }
+    .play-card.wide {
+      grid-column: 1 / -1;
+      grid-template-rows: auto 1fr auto;
+      grid-template-columns: 300px minmax(0, 1fr);
+    }
+    .play-card.wide .card-head { grid-column: 1 / -1; }
+    .play-card.wide .card-image {
+      grid-row: 2 / span 2; min-height: 150px;
+      border-right: 1px solid var(--line-dark); border-bottom: none;
+    }
     .lm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
     .lm-grid i { width: 7px; height: 7px; background: #fff; box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25); }
     .lm-grid i:nth-child(3) { background: rgba(255,255,255,0.45); }
@@ -506,6 +517,8 @@
       .topbar { display: none; }
       .mainbar { flex-wrap: wrap; }
       .play-grid { grid-template-columns: 1fr; }
+      .play-card.wide { grid-template-columns: 1fr; grid-template-rows: auto 170px 1fr auto; }
+      .play-card.wide .card-image { grid-row: auto; border-right: none; border-bottom: 1px solid var(--line-dark); }
       .intro p { white-space: normal; }
       .spotlight { grid-template-columns: 1fr; }
       .spotlight-card { grid-template-columns: 1fr; }
@@ -560,7 +573,7 @@
       <div class="intro-copy">
         <div class="intro-label">[ VOCALOIDLE ]</div>
         <h1>Welcome to VOCALOIDLE</h1>
-        <p>This is the home for the VOCALOID projects on the site. There will be more here later, but for now you can play Heardle or Higher / Lower.</p>
+        <p>This is the home for the VOCALOID projects on the site: four daily games and a view-count chart site, all built on the same song pool.</p>
       </div>
     </section>
 
@@ -602,7 +615,45 @@
         </footer>
       </article>
 
-      <article class="play-card charts">
+      <article class="play-card masume">
+        <header class="card-head">
+          <span class="card-icon"><span class="lm-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span>
+          <span class="card-name">Masume マス目</span>
+          <span class="card-tag">NEW</span>
+        </header>
+        <div class="card-image">
+          <img id="masume-preview" src="favicon.jpg" alt="">
+          <span class="image-note">Fill the grid. One song per square.</span>
+        </div>
+        <div class="card-copy">
+          A daily 4×4 knowledge grid: every square needs a song matching its row and column. Six strikes, rarer answers score more, one shared puzzle a day.
+        </div>
+        <footer class="card-foot">
+          <span>New daily grid at local midnight</span>
+          <a class="launch" href="masume/">Play &#9654;</a>
+        </footer>
+      </article>
+
+      <article class="play-card timeline">
+        <header class="card-head">
+          <span class="card-icon">&#8987;</span>
+          <span class="card-name">VOCALOID Timeline</span>
+          <span class="card-tag">NEW</span>
+        </header>
+        <div class="card-image">
+          <img id="timeline-preview" src="favicon.jpg" alt="">
+          <span class="image-note">Oldest to newest &mdash; can you order them?</span>
+        </div>
+        <div class="card-copy">
+          Five well-known songs, one timeline: arrange them by release date from oldest to newest, then lock in. Era filters and a &#9733; Hard mode in Unlimited.
+        </div>
+        <footer class="card-foot">
+          <span>New daily at local midnight</span>
+          <a class="launch" href="timeline/">Play &#9654;</a>
+        </footer>
+      </article>
+
+      <article class="play-card charts wide">
         <header class="card-head">
           <span class="card-icon">39</span>
           <span class="card-name">39charts</span>
@@ -622,24 +673,6 @@
         </footer>
       </article>
 
-      <article class="play-card masume">
-        <header class="card-head">
-          <span class="card-icon"><span class="lm-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span>
-          <span class="card-name">Masume マス目</span>
-          <span class="card-tag">NEW</span>
-        </header>
-        <div class="card-image">
-          <img id="masume-preview" src="favicon.jpg" alt="">
-          <span class="image-note">Fill the grid. One song per square.</span>
-        </div>
-        <div class="card-copy">
-          A daily 4×4 knowledge grid: every square needs a song matching its row and column. Six strikes, rarer answers score more, one shared puzzle a day.
-        </div>
-        <footer class="card-foot">
-          <span>New daily grid at local midnight</span>
-          <a class="launch" href="masume/">Play &#9654;</a>
-        </footer>
-      </article>
     </section>
 
     <div class="section-title">[ RANDOM FEATURED SONG ]</div>
@@ -673,7 +706,7 @@
             <span>songs in pool</span>
           </div>
           <div class="stats-hero-item">
-            <strong>4</strong>
+            <strong>5</strong>
             <span>projects</span>
           </div>
         </div>
@@ -788,6 +821,7 @@
         setCover(document.getElementById("charts-preview"), usable[1]);
         const lostOnes = usable.find(s => String(s.vocadbId) === "19094") || usable[3] || usable[0];
         setCover(document.getElementById("masume-preview"), lostOnes);
+        setCover(document.getElementById("timeline-preview"), usable[4] || usable[0]);
       }
 
       const pool = usable.filter(s => typeof views[String(s.vocadbId)] === "number");
