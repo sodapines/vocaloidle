@@ -235,16 +235,43 @@ html.dark-mode .st-cell { border-right-color: #3b3b3b; }
   color: var(--red); display: none;
 }
 .tl-card.revealed .tl-date { display: block; }
-/* right-side meta: vocalist chip + view count give the empty flank texture */
-.tl-meta {
-  flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; justify-content: center;
-  gap: 3px; padding: 4px 9px; min-width: 86px;
-}
+/* credits sub-row: artist · vocalist chip · views, all on the left */
+.tl-subrow { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.tl-subrow .tl-artist { flex-shrink: 1; }
 .tl-views {
-  font-family: Consolas, "MS PGothic", monospace; font-size: 10px; font-weight: 900;
+  flex-shrink: 0; font-family: Consolas, "MS PGothic", monospace; font-size: 10px; font-weight: 900;
   color: var(--red); white-space: nowrap;
 }
 .tl-views .tv-cap { font-size: 8px; font-weight: 400; color: var(--faint); text-transform: uppercase; letter-spacing: 0.05em; margin-left: 2px; }
+
+/* right flank, playing: a hatched drag-grip strip (grab me!) */
+.tl-grip {
+  flex-shrink: 0; width: 26px; align-self: stretch;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #e6e3da);
+  border-left: 1px solid var(--line);
+  cursor: grab;
+}
+.tl-grip i { width: 12px; height: 2px; background: var(--ls); display: block; }
+.tl-card:hover .tl-grip i { background: var(--red); }
+html.dark-mode .tl-grip { background: linear-gradient(to bottom, #242424, #1c1c1c); border-left-color: #2c2c2c; }
+html.dark-mode .tl-grip i { background: #4a4a4a; }
+
+/* right flank, revealed: big ghost year watermark */
+.tl-year-ghost {
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
+  font-family: Consolas, "MS Gothic", monospace; font-size: 30px; font-weight: 900;
+  letter-spacing: 0.02em; color: rgba(0,0,0,0.08); pointer-events: none; user-select: none;
+}
+.tl-card.revealed.right .tl-year-ghost { color: rgba(26,125,60,0.16); }
+.tl-card.revealed.close .tl-year-ghost { color: rgba(168,124,10,0.18); }
+.tl-card.revealed.wrong .tl-year-ghost { color: rgba(170,0,0,0.13); }
+html.dark-mode .tl-year-ghost { color: rgba(255,255,255,0.06); }
+html.dark-mode .tl-card.revealed.right .tl-year-ghost { color: rgba(80,220,120,0.13); }
+html.dark-mode .tl-card.revealed.close .tl-year-ghost { color: rgba(230,190,80,0.14); }
+html.dark-mode .tl-card.revealed.wrong .tl-year-ghost { color: rgba(255,90,90,0.12); }
 .vtag { display: inline-block; padding: 0 4px; font-size: 9px; line-height: 14px; border: 1px solid; font-weight: 700; white-space: nowrap; }
 .vtag-miku   { background: #e0f4f8; border-color: #39c5bb; color: #007a73; }
 .vtag-rin    { background: #fff4d0; border-color: #f5a623; color: #915800; }
@@ -575,9 +602,10 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
   .tl-artist { font-size: 9px; }
   .tl-info { padding: 4px 7px; }
   .tl-move button { width: 34px; }
-  .tl-meta { min-width: 0; padding: 4px 6px; }
-  .tl-meta .vtag { display: none; }
+  .tl-grip { display: none; }
+  .tl-subrow .vtag { display: none; }
   .tl-views { font-size: 9px; }
+  .tl-year-ghost { font-size: 20px; right: 6px; }
   .st-cell { min-width: 0; padding: 5px 10px; }
   .st-v { font-size: 12px; }
 }
@@ -1367,13 +1395,14 @@ function render() {
       <span class="tl-thumb">${thumbImgHtml(s)}</span>
       <span class="tl-info">
         <span class="tl-title">${escHtml(s.title)}</span>
-        <span class="tl-artist">${escHtml(s.artist || s.artistString || "")}</span>
+        <span class="tl-subrow">
+          <span class="tl-artist">${escHtml(s.artist || s.artistString || "")}</span>
+          ${vocalChip(s)}
+          ${combined(s) != null ? `<span class="tl-views" title="${combined(s).toLocaleString()}">${fmtViews(combined(s))}<span class="tv-cap">views</span></span>` : ""}
+        </span>
         <span class="tl-date">${fmtDate(s.publishDate)} · <a class="tl-39link" href="../39charts/song.html?id=${encodeURIComponent(s.vocadbId)}" target="_blank" rel="noopener">${t("view39")}</a></span>
       </span>
-      <span class="tl-meta">
-        ${vocalChip(s)}
-        ${combined(s) != null ? `<span class="tl-views" title="${combined(s).toLocaleString()}">${fmtViews(combined(s))}<span class="tv-cap">views</span></span>` : ""}
-      </span>
+      ${state.done ? `<span class="tl-year-ghost">${new Date(s.publishDate).getUTCFullYear()}</span>` : `<span class="tl-grip" aria-hidden="true"><i></i><i></i><i></i></span>`}
       ${!state.done ? `
       <span class="tl-move">
         <button type="button" data-up="${i}" ${i === 0 ? "disabled" : ""} aria-label="Move up">▲</button>
