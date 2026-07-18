@@ -221,7 +221,8 @@ html.dark-mode .st-cell { border-right-color: #3b3b3b; }
   border-right: 1px solid var(--ls);
   font-family: Consolas, monospace; font-size: 13px; font-weight: 900; color: var(--muted);
 }
-.tl-thumb { flex-shrink: 0; width: 88px; position: relative; background: #111; overflow: hidden; }
+.tl-thumb { flex-shrink: 0; width: 88px; position: relative; background: #111; overflow: hidden; border-right: 1px solid var(--ls); }
+html.dark-mode .tl-thumb { border-right-color: #2c2c2c; }
 .tl-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .tl-thumb::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
@@ -254,9 +255,9 @@ html.dark-mode .st-cell { border-right-color: #3b3b3b; }
     linear-gradient(to right, transparent, var(--tint, transparent));
   -webkit-mask-image: linear-gradient(to right, transparent, #000 65%);
   mask-image: linear-gradient(to right, transparent, #000 65%);
-  opacity: 0.75;
+  opacity: 0.6;
 }
-html.dark-mode .tl-tint { opacity: 0.55; }
+html.dark-mode .tl-tint { opacity: 0.45; }
 .tl-card > *:not(.tl-tint):not(.tl-year-ghost) { position: relative; z-index: 1; }
 .tl-year-ghost { z-index: 1; }
 
@@ -296,7 +297,7 @@ html.dark-mode .tl-card.revealed.wrong .tl-year-ghost { color: rgba(255,90,90,0.
 }
 .tl-move button:first-child { border-bottom: 1px solid var(--line); }
 .tl-move button:hover { color: var(--red); background: #fff0f0; }
-.tl-move button:disabled { opacity: 0.3; cursor: default; }
+.tl-move button:disabled { color: #ccc; background: #f4f3f0; box-shadow: none; cursor: default; }
 .tl-card.revealed.right .tl-slot { background: linear-gradient(to bottom, #2faf57, #1a7d3c); color: #fff; }
 .tl-card.revealed.close .tl-slot { background: linear-gradient(to bottom, #d8ae2e, #a87c0a); color: #fff; }
 .tl-card.revealed.wrong .tl-slot { background: linear-gradient(to bottom, #dd2222, #aa0000); color: #fff; }
@@ -388,7 +389,7 @@ html.dark-mode .stats-table tr:hover { background: #2a1414; }
 html.dark-mode .news-more:hover { background: #2a1414; }
 
 /* song detail modal */
-.sd-cover { position: relative; aspect-ratio: 16 / 9; background: #111; margin: 0 -14px 10px; overflow: hidden; border-bottom: 2px solid var(--ls); }
+.sd-cover { position: relative; aspect-ratio: 16 / 9; background: #111; margin: -12px -14px 10px; overflow: hidden; border-bottom: 2px solid var(--ls); }
 .sd-cover img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .sd-cover::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(to bottom, transparent 0 2px, rgba(0,0,0,0.07) 2px 3px); }
 .sd-title { font-size: 14px; font-weight: 900; line-height: 1.25; }
@@ -399,15 +400,20 @@ html.dark-mode .news-more:hover { background: #2a1414; }
 .sd-table td { padding: 3px 2px; font-size: 11px; color: var(--muted); }
 .sd-table td:last-child { text-align: right; font-family: Consolas, monospace; font-weight: 700; color: var(--text); }
 .sd-table td:last-child.is-red { color: var(--red); }
-.sd-links { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 10px; }
+.sd-links { display: flex; gap: 5px; margin-top: 10px; }
+.sd-links + .sd-links { margin-top: 5px; }
 .sd-btn {
-  flex: 1 1 auto; min-height: 24px; padding: 0 10px;
+  flex: 1 1 0; min-width: 0; min-height: 24px; padding: 0 6px;
   display: inline-flex; align-items: center; justify-content: center;
   font-size: 11px; font-weight: 700; color: var(--text); text-decoration: none;
   border: 1px solid var(--ls); background: linear-gradient(to bottom, #fff, #e8e8e8);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
 }
-.sd-btn:hover { color: var(--red); border-color: var(--red); text-decoration: none; }
+.sd-btn:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); border-color: var(--red); text-decoration: none; }
+.sd-btn.yt   { border-color: #c00; color: #c00; }
+.sd-btn.nnd  { border-color: #444; color: #333; }
+.sd-btn.bili { border-color: #0f7ca8; color: #0f7ca8; }
+html.dark-mode .sd-btn.nnd { color: var(--muted); }
 .sd-btn.vocadb { background: linear-gradient(to bottom, #3a78e0, #2457c5); border-color: #1a3f97; color: #fff; }
 .sd-btn.vocadb:hover { background: linear-gradient(to bottom, #4a86ec, #2f66d6); color: #fff; border-color: #1a3f97; }
 html.dark-mode .sd-btn { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted); box-shadow: none; }
@@ -571,6 +577,7 @@ html.dark-mode .tl-card { box-shadow: none; }
 html.dark-mode .tl-card:nth-child(even) { background: #1e1e1e; }
 html.dark-mode .tl-move button { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); color: var(--muted); box-shadow: none; }
 html.dark-mode .tl-move button:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .tl-move button:disabled { background: #1c1c1c; color: #3a3a3a; }
 html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); }
 html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(to bottom, #3a3a3a, #2a2a2a); border-color: #222; }
 
@@ -1498,9 +1505,11 @@ function openDetail(id) {
       ${typeof b.views === "number" ? `<tr><td>bilibili</td><td>${compactNum(b.views)}</td></tr>` : ""}
     </table>
     <div class="sd-links">
-      ${song.ytOriginalId ? `<a class="sd-btn" href="https://www.youtube.com/watch?v=${encodeURIComponent(song.ytOriginalId)}" target="_blank" rel="noopener">YouTube \u2197</a>` : ""}
-      ${song.nndOriginalId ? `<a class="sd-btn" href="https://www.nicovideo.jp/watch/${encodeURIComponent(song.nndOriginalId)}" target="_blank" rel="noopener">NicoNico \u2197</a>` : ""}
-      ${biliCode ? `<a class="sd-btn" href="https://www.bilibili.com/video/${encodeURIComponent(biliCode)}" target="_blank" rel="noopener">bilibili \u2197</a>` : ""}
+      ${song.ytOriginalId ? `<a class="sd-btn yt" href="https://www.youtube.com/watch?v=${encodeURIComponent(song.ytOriginalId)}" target="_blank" rel="noopener">YouTube \u2197</a>` : ""}
+      ${song.nndOriginalId ? `<a class="sd-btn nnd" href="https://www.nicovideo.jp/watch/${encodeURIComponent(song.nndOriginalId)}" target="_blank" rel="noopener">NicoNico \u2197</a>` : ""}
+      ${biliCode ? `<a class="sd-btn bili" href="https://www.bilibili.com/video/${encodeURIComponent(biliCode)}" target="_blank" rel="noopener">bilibili \u2197</a>` : ""}
+    </div>
+    <div class="sd-links">
       <a class="sd-btn" href="../39charts/song.html?id=${encodeURIComponent(sid)}" target="_blank" rel="noopener">39charts \u2197</a>
       <a class="sd-btn vocadb" href="${escHtml(vocadbUrl)}" target="_blank" rel="noopener">VocaDB \u2197</a>
     </div>`;
@@ -1521,7 +1530,7 @@ const TINT_CACHE = new Map();
 function fallbackTint(id) {
   let h = 0;
   for (const ch of String(id)) h = (h * 31 + ch.charCodeAt(0)) >>> 0;
-  return `hsla(${h % 360}, 60%, 58%, 0.6)`;
+  return `hsla(${h % 360}, 45%, 58%, 0.5)`;
 }
 function applyTints() {
   document.querySelectorAll(".tl-card[data-sid]").forEach(card => {
@@ -1556,9 +1565,9 @@ function applyTints() {
           else if (mx === gg) h = ((bb - rr) / dd + 2) * 60;
           else h = ((rr - gg) / dd + 4) * 60;
         }
-        const sat = dd > 0.02 ? Math.min(85, Math.max(55, dd * 260)) : 0;
+        const sat = dd > 0.02 ? Math.min(58, Math.max(38, dd * 200)) : 0;
         const c = sat > 0
-          ? `hsla(${Math.round(h)}, ${Math.round(sat)}%, ${Math.round(Math.min(0.62, Math.max(0.45, l)) * 100)}%, 0.65)`
+          ? `hsla(${Math.round(h)}, ${Math.round(sat)}%, ${Math.round(Math.min(0.62, Math.max(0.45, l)) * 100)}%, 0.55)`
           : `rgba(${Math.round(r)}, ${Math.round(g)}, ${Math.round(b)}, 0.45)`; // truly monochrome art stays grey
         TINT_CACHE.set(id, c); set(c);
       } catch (e) { TINT_CACHE.set(id, fb); set(fb); }
