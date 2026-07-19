@@ -1611,7 +1611,7 @@ html.dark-mode .archive-day.is-blank {
   <span class="nnd-marquee-label">[INFO]</span>
   <div class="nnd-marquee-wrap">
     <div class="nnd-marquee-inner">
-      &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Guess which VOCALOID song has more NicoNico views &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Press ↑ Higher or ↓ Lower to make your guess &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Correct answers extend your streak &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; You have 3 lives per game — wrong answers cost one life but the game continues &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; View counts sourced from NicoNico via VocaDB &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Use Settings to change lives or filter by view tier &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Guess which VOCALOID song has more NicoNico views &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Press ↑ Higher or ↓ Lower to make your guess &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Correct answers extend your streak &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; You have 3 lives per game · wrong answers cost one life but the game continues &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; View counts sourced from NicoNico via VocaDB &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Use Settings to change lives or filter by view tier &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp;
     </div>
   </div>
 </div>
@@ -1755,7 +1755,7 @@ const I18N = {
     settings: 'Settings',
     darkMode: 'Dark Mode',
     darkModeDesc: 'Use dark page and panel colors',
-    marquee: '★ Guess which VOCALOID song has more NicoNico views ★ Press ↑ Higher or ↓ Lower to make your guess ★ Correct answers extend your streak ★ You have 3 lives per game — wrong answers cost one life but the game continues ★ View counts sourced from NicoNico via VocaDB ★ Use Settings to change lives or filter by view tier ★',
+    marquee: '★ Guess which VOCALOID song has more NicoNico views ★ Press ↑ Higher or ↓ Lower to make your guess ★ Correct answers extend your streak ★ You have 3 lives per game · wrong answers cost one life but the game continues ★ View counts sourced from NicoNico via VocaDB ★ Use Settings to change lives or filter by view tier ★',
     tags: ['VOCALOID', '音楽ゲーム', '初音ミク', '殿堂入り', 'Legendary', 'Higher or Lower', '再生数', 'Fan-made'],
     tagsLabel: 'Tags:',
     footer: 'VOCALOID Higher or Lower: fan-made guessing game (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from',
@@ -1814,8 +1814,8 @@ const I18N = {
     shareCopied: 'Copied result.',
     shareFailed: 'Could not copy result.',
     shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower\nStreak: ${streak}\nCorrect: ${correct}/${rounds}\nAccuracy: ${winPct}%`,
-    resultCorrect: ({ songB, displayB, relation, songA, displayA }) => `Correct! ${songB} has ${displayB} views — ${relation} than ${songA}'s ${displayA}.`,
-    resultWrong: ({ songB, displayB, relation, songA, displayA }) => `Wrong. ${songB} has ${displayB} views — ${relation} than ${songA}'s ${displayA}.`,
+    resultCorrect: ({ songB, displayB, relation, songA, displayA }) => `Correct! ${songB} has ${displayB} views · ${relation} than ${songA}'s ${displayA}.`,
+    resultWrong: ({ songB, displayB, relation, songA, displayA }) => `Wrong. ${songB} has ${displayB} views · ${relation} than ${songA}'s ${displayA}.`,
     relHigher: 'higher',
     relLower: 'lower',
     asOf: ({ date }) => `as of ${date || '—'}`,
@@ -1877,7 +1877,7 @@ const I18N = {
     archiveTitle: 'Daily Archive',
     archiveNote: "Replay any previous daily set. Today's puzzle lives in Daily Guesses.",
     archiveRandom: 'Random Puzzle',
-    archiveEmpty: 'No archive puzzles yet — check back tomorrow.',
+    archiveEmpty: 'No archive puzzles yet · check back tomorrow.',
     archiveSummarySolved: 'Solved',
     archiveSummaryTotal: 'Total',
     archiveSummaryPerfect: 'Perfect',
@@ -2434,7 +2434,10 @@ function applyStaticTranslations() {
 
   const topbar = document.querySelectorAll('.nnd-topbar span');
   if (topbar[0]) topbar[0].textContent = t('breadcrumb');
-  if (topbar[1]) topbar[1].textContent = t('topLabel');
+  if (topbar[1]) {
+    const locale = lang === 'jp' ? 'ja-JP' : lang === 'ko' ? 'ko-KR' : lang === 'es' ? 'es-ES' : 'en-US';
+    topbar[1].textContent = new Intl.DateTimeFormat(locale, { year: 'numeric', month: 'long', day: 'numeric' }).format(new Date());
+  }
   document.querySelector('.nnd-logo-sub').textContent = t('logoSub');
 
   [
@@ -2709,14 +2712,14 @@ const ACHIEVEMENTS = [
   {
     id: 'youtube_titans',
     title: 'Clash of the Titans',
-    desc: 'Get Mesmerizer vs Young Girl A in a single matchup — the two most-viewed VOCALOID songs on YouTube.',
+    desc: 'Get Mesmerizer vs Young Girl A in a single matchup · the two most-viewed VOCALOID songs on YouTube.',
     icon: 'YT2',
     secret: true
   },
   {
     id: 'flawless_failure',
     title: 'Flawless Failure',
-    desc: 'Get all 10 wrong in a Daily or Archive set — you have to know the answers to miss every one.',
+    desc: 'Get all 10 wrong in a Daily or Archive set · you have to know the answers to miss every one.',
     icon: '0',
     secret: true
   },
@@ -4586,7 +4589,7 @@ const BILIVIEWS_CACHE_KEY = '39c_biliviews_v1';
 
 /* These keys are shared with the 39charts pages, which store a { t, v } wrapper
    (timestamp + value) for TTL expiry. Read/write that same shape so a cache
-   written by either site is understood by the other — otherwise 39charts's
+   written by either site is understood by the other · otherwise 39charts's
    wrapper object was being handed to songs.filter() and crashing the game. */
 const HOL_CACHE_TTL_MS = 10 * 60 * 1000;
 function holCacheGet(key) {
@@ -4926,7 +4929,7 @@ const RELEASES = [
     notesByLang: {
       en: [
         'Added bilibili views: a BILIBILI source in Unlimited, the NND+YT switch is now ALL (NicoNico + YouTube + bilibili combined), BILI tier badges on song cards, and new achievements for streaks on the YouTube, bilibili, and All-platform sources.',
-        'Refreshed the entire interface with a cohesive retro NicoNico look — matching panels, sidebars, the streak bar, the matchup card, the archive calendar, and every dialog, in both light and dark mode.',
+        'Refreshed the entire interface with a cohesive retro NicoNico look · matching panels, sidebars, the streak bar, the matchup card, the archive calendar, and every dialog, in both light and dark mode.',
         'Added Daily Guesses: the same deterministic set of 10 Higher or Lower questions for everyone each day.',
         'New Archive mode: replay any past daily set from a calendar, with solved days color-graded by score, a random-puzzle button, and progress saved per day.',
         'Redesigned the mode bar with a retro, NicoNico-style tab strip for Daily, Unlimited, and Archive.',
@@ -4937,7 +4940,7 @@ const RELEASES = [
       ],
       ja: [
         'bilibili再生数を追加：無制限モードにBILIBILIソース、NND+YTスイッチはALL（ニコニコ＋YouTube＋bilibili合計）に変更、曲カードにBILIバッジ、YouTube／bilibili／全プラットフォームソースでの連勝実績を追加しました。',
-        'インターフェース全体をレトロなニコニコ風デザインに刷新しました——パネル、サイドバー、連勝バー、対戦カード、アーカイブカレンダー、各ダイアログをライト／ダーク両方で統一しました。',
+        'インターフェース全体をレトロなニコニコ風デザインに刷新しました：パネル、サイドバー、連勝バー、対戦カード、アーカイブカレンダー、各ダイアログをライト／ダーク両方で統一しました。',
         '毎日全員共通の10問に挑戦できる「デイリー予想」を追加しました。',
         '新しいアーカイブモードを追加：カレンダーから過去のデイリーを再挑戦でき、クリア済みの日はスコアに応じて色分け、ランダム出題ボタン、日付ごとの記録保存に対応します。',
         'モードバーをレトロなニコニコ風タブ（デイリー／無制限／アーカイブ）に刷新しました。',
@@ -4948,7 +4951,7 @@ const RELEASES = [
       ],
       es: [
         'Se añadieron las vistas de bilibili: fuente BILIBILI en Ilimitado, el interruptor NND+YT ahora es ALL (NicoNico + YouTube + bilibili combinados), insignias BILI en las tarjetas y nuevos logros por rachas en las fuentes de YouTube, bilibili y todas las plataformas.',
-        'Renovamos toda la interfaz con un estilo retro tipo NicoNico — paneles, barras laterales, la barra de racha, la tarjeta de duelo, el calendario del archivo y todos los diálogos, en modo claro y oscuro.',
+        'Renovamos toda la interfaz con un estilo retro tipo NicoNico · paneles, barras laterales, la barra de racha, la tarjeta de duelo, el calendario del archivo y todos los diálogos, en modo claro y oscuro.',
         'Se añadieron los Intentos diarios: una serie fija de 10 preguntas de Higher or Lower para todos cada día.',
         'Nuevo modo Archivo: repite cualquier serie diaria anterior desde un calendario, con los días resueltos coloreados según la puntuación, botón de puzle aleatorio y progreso guardado por día.',
         'Se rediseñó la barra de modos con un estilo retro tipo NicoNico para Diario, Ilimitado y Archivo.',
@@ -4959,7 +4962,7 @@ const RELEASES = [
       ],
       ko: [
         'bilibili 조회수를 추가했습니다: 무제한 모드의 BILIBILI 소스, NND+YT 스위치는 ALL(니코니코 + YouTube + bilibili 합산)로 변경, 곡 카드의 BILI 배지, YouTube/bilibili/전체 플랫폼 소스 연승 업적이 추가되었습니다.',
-        '인터페이스 전체를 레트로 니코니코 스타일로 새롭게 디자인했습니다 — 패널, 사이드바, 연승 바, 대결 카드, 아카이브 달력, 모든 대화상자를 라이트/다크 모드 모두에서 통일했습니다.',
+        '인터페이스 전체를 레트로 니코니코 스타일로 새롭게 디자인했습니다 · 패널, 사이드바, 연승 바, 대결 카드, 아카이브 달력, 모든 대화상자를 라이트/다크 모드 모두에서 통일했습니다.',
         '매일 모든 플레이어가 같은 10문제를 푸는 일일 추측 모드를 추가했습니다.',
         '새 아카이브 모드 추가: 달력에서 지난 일일 세트를 다시 플레이하고, 해결한 날은 점수에 따라 색이 입혀지며, 랜덤 문제 버튼과 날짜별 기록 저장을 지원합니다.',
         '모드 바를 일일/무제한/아카이브용 레트로 니코니코 스타일 탭으로 새롭게 디자인했습니다.',

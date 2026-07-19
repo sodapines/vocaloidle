@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>39charts — Song</title>
+<title>39charts · Song</title>
 <meta property="og:site_name" content="39charts">
-<meta property="og:title" content="39charts — Song detail">
+<meta property="og:title" content="39charts · Song detail">
 <meta property="og:description" content="Per-song view counts, likes and comments across NicoNico, YouTube and bilibili.">
 <meta property="og:type" content="website">
 <meta name="description" content="Per-song view counts, likes and comments across NicoNico, YouTube and bilibili.">
@@ -679,9 +679,7 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
 </div>
 
 <footer class="site-footer">
-  <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
-    <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
-  </p>
+  <p>39charts: fan-made Vocaloid rankings (c) 2026 | Not affiliated with Crypton Future Media, NicoNico or YouTube | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a></p>
 </footer>
 
 <div class="settings-backdrop" id="settings-backdrop" hidden></div>
@@ -899,7 +897,7 @@ function formatDate(iso) {
   return new Date(iso).toLocaleDateString("en-US",{year:"numeric",month:"long",day:"numeric"});
 }
 function formatDateShort(iso) {
-  if (!iso) return "————/——/——";
+  if (!iso) return "----/--/--";
   const d = new Date(iso);
   return `${d.getUTCFullYear()}/${String(d.getUTCMonth()+1).padStart(2,"0")}/${String(d.getUTCDate()).padStart(2,"0")}`;
 }
@@ -1098,11 +1096,11 @@ function buildPage(song, rank, yearRank) {
     else pvTag = { cls: "", text: "No live PV" };
   }
 
-  document.title = `39charts — ${song.title}`;
+  document.title = `39charts · ${song.title}`;
   document.getElementById("topbar-breadcrumb").textContent =
     `39charts › Rankings › ${song.title}`;
   document.getElementById("marquee-text").textContent =
-    `★ ${song.title} — ${getArtistDisplay(song)}  ·  ` +
+    `★ ${song.title} · ${getArtistDisplay(song)}  ·  ` +
     (hasAnyViews ? `★ ${totalViews.toLocaleString()} combined views${pctText ? ` (${pctText})` : ""}  ·  ` : "") +
     (rank != null ? `★ Rank #${rank + 1} all-time  ·  ` : "") +
     (ht ? `★ ${ht.name}  ·  ` : "") + `★ Thank you for using 39charts ♪`;
@@ -1129,7 +1127,7 @@ function buildPage(song, rank, yearRank) {
   const allTags = buildTagList(song);
   const MAX_TAGS = 8;
   const tagPill = t =>
-    `<span class="tag-pill ${t.cls}"${t.locked?` title="Locked tag — from the song credits"`:` title="Community tag from VocaDB"`}>${escHtml(t.text)}${t.locked?` <span class="tag-lock">[L]</span>`:""}</span>`;
+    `<span class="tag-pill ${t.cls}"${t.locked?` title="Locked tag · from the song credits"`:` title="Community tag from VocaDB"`}>${escHtml(t.text)}${t.locked?` <span class="tag-lock">[L]</span>`:""}</span>`;
   const hiddenTags = allTags.slice(MAX_TAGS);
   const tagPillsHtml = allTags.slice(0, MAX_TAGS).map(tagPill).join("")
     + (hiddenTags.length
@@ -1230,7 +1228,7 @@ function buildPage(song, rank, yearRank) {
                 <button type="button" class="vh-tab is-active" data-vh-tab="grid">Grid</button>
                 <button type="button" class="vh-tab" data-vh-tab="chart">Chart</button>
               </span>` : ""}
-              <span class="panel-note">${histPoints ? `${histPoints} snapshot${histPoints !== 1 ? "s" : ""} since ${histStart}` : "daily tracking — collecting data"}</span>
+              <span class="panel-note">${histPoints ? `${histPoints} snapshot${histPoints !== 1 ? "s" : ""} since ${histStart}` : "daily tracking · collecting data"}</span>
             </span>
           </div>
           <div id="vh-grid" class="vh-grid-wrap">${historyGridHtml(hist, histDates, histIdx, histSeries)}</div>
@@ -1492,7 +1490,7 @@ if (!songId) {
     })
     .catch(err=>{
       document.getElementById("page-body").innerHTML =
-        `<div class="loading-state">Could not load songs.json — ${escHtml(err.message)}</div>`;
+        `<div class="loading-state">Could not load songs.json · ${escHtml(err.message)}</div>`;
     });
 }
 </script>
