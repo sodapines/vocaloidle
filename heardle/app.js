@@ -3601,6 +3601,18 @@ const coverFallback = document.querySelector("#cover-fallback");
 const coverPlaceholderMark = document.querySelector("#cover-placeholder-mark");
 const coverCaption = document.querySelector("#cover-caption");
 const sourceTags = document.querySelector("#source-tags");
+
+// VocaDB community tags per song (39charts' songdetails.json — every Heardle
+// song is in 39charts). Shown in the tag row after the answer is revealed.
+let SONG_DETAILS = null;
+fetch("../data/songdetails.json")
+  .then((res) => (res.ok ? res.json() : null))
+  .then((data) => {
+    SONG_DETAILS = (data && data.songs) || null;
+    try { if (state.isComplete) renderSourceTags(); } catch (err) { /* not booted yet */ }
+  })
+  .catch(() => {});
+
 const sourceLink = document.querySelector("#source-link");
 const globalStatsEl = document.querySelector("#global-stats");
 const resultTools = document.querySelector("#result-tools");
@@ -7022,6 +7034,11 @@ function renderSourceTags() {
     ytPoolTag ? { label: t(ytPoolTag), className: "source-tag-pool" } : null,
     hasSourceTag(state.puzzle, "special-test") ? { label: t("tagSpecialTest"), className: "source-tag-special" } : null,
   ].filter(Boolean);
+
+  const details = SONG_DETAILS && state.puzzle ? SONG_DETAILS[String(state.puzzle.vocadbId)] : null;
+  for (const tag of ((details && details.tags) || []).slice(0, 5)) {
+    labels.push({ label: tag, className: "source-tag-detail" });
+  }
 
   if (!state.isComplete || labels.length === 0) {
     sourceTags.hidden = true;

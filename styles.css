@@ -845,6 +845,12 @@ body.no-danmaku .danmaku-comment {
   background: #fff6d8;
   border-color: #d19a25;
 }
+.source-tags span.source-tag-detail {
+  color: #3f268e;
+  background: #f2f0ff;
+  border-color: #aeb5df;
+  font-weight: 400;
+}
 .global-stats {
   font-size: 11px;
   color: var(--muted);
@@ -2954,6 +2960,7 @@ body.dark-mode .caption { color: #cccccc; }
 body.dark-mode .source-tags { border-color: #2a2a2a; }
 body.dark-mode .source-tags span { background: #181818; border-color: #333333; color: #cc4444; }
 body.dark-mode .source-tags span.source-tag-pool { background: #1d1808; border-color: #7a5a16; color: #d4aa38; }
+body.dark-mode .source-tags span.source-tag-detail { background: #161622; border-color: #3c3c5a; color: #9d94d8; }
 body.dark-mode .modal { background: #161616; border-color: #2a2a2a; color: #e0e0e0; }
 body.dark-mode .modal h2 { color: #cccccc; border-color: #2a2a2a; }
 body.dark-mode .modal p { color: #aaaaaa; }
