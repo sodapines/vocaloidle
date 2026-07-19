@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VOCALOID Timeline 年表 — put the songs in release order</title>
+<title>VOCALOID Timeline · put the songs in release order</title>
 <meta property="og:site_name" content="VOCALOID Timeline">
-<meta property="og:title" content="VOCALOID Timeline — put the songs in release order">
+<meta property="og:title" content="VOCALOID Timeline · put the songs in release order">
 <meta property="og:description" content="Five songs, one timeline. Arrange them by release date. A new puzzle every day.">
 <meta property="og:type" content="website">
 <meta name="description" content="Five songs, one timeline. Arrange them by release date. A new puzzle every day.">
@@ -279,6 +279,12 @@ html.dark-mode .tl-thumb { border-right-color: #2c2c2c; }
 /* credits sub-row: artist · vocalist chip · views, all on the left */
 .tl-subrow { display: flex; align-items: center; gap: 6px; min-width: 0; }
 .tl-subrow .tl-artist { flex-shrink: 1; }
+/* separators between artist · views · date */
+.tl-subrow .tl-views::before,
+.tl-subrow .tl-date::before {
+  content: "\00b7"; margin-right: 6px;
+  color: var(--faint); font-family: inherit; font-weight: 400;
+}
 .tl-views {
   flex-shrink: 0; font-family: Consolas, "MS PGothic", monospace; font-size: 10px; font-weight: 900;
   color: var(--red); white-space: nowrap;
@@ -302,8 +308,7 @@ html.dark-mode .tl-tint { opacity: 0.4; }
 .tl-card.revealed.right .tl-tint { background: repeating-linear-gradient(45deg, rgba(0,0,0,0.045) 0 2px, transparent 2px 6px), linear-gradient(to right, transparent, hsla(140, 28%, 52%, 0.32)); }
 .tl-card.revealed.close .tl-tint { background: repeating-linear-gradient(45deg, rgba(0,0,0,0.045) 0 2px, transparent 2px 6px), linear-gradient(to right, transparent, hsla(45, 38%, 52%, 0.32)); }
 .tl-card.revealed.wrong .tl-tint { background: repeating-linear-gradient(45deg, rgba(0,0,0,0.045) 0 2px, transparent 2px 6px), linear-gradient(to right, transparent, hsla(0, 30%, 52%, 0.28)); }
-.tl-card > *:not(.tl-tint):not(.tl-year-ghost) { position: relative; z-index: 1; }
-.tl-year-ghost { z-index: 1; }
+.tl-card > *:not(.tl-tint) { position: relative; z-index: 1; }
 
 /* right flank, playing: a hatched drag-grip strip (grab me!) */
 .tl-grip {
@@ -320,19 +325,40 @@ html.dark-mode .tl-tint { opacity: 0.4; }
 html.dark-mode .tl-grip { background: linear-gradient(to bottom, #242424, #1c1c1c); border-left-color: #2c2c2c; }
 html.dark-mode .tl-grip i { background: #4a4a4a; }
 
-/* right flank, revealed: big ghost year watermark */
-.tl-year-ghost {
-  position: absolute; right: 10px; top: 50%; transform: translateY(-50%);
-  font-family: Consolas, "MS Gothic", monospace; font-size: 30px; font-weight: 900;
-  letter-spacing: 0.02em; color: rgba(0,0,0,0.08); pointer-events: none; user-select: none;
+/* right flank, revealed: beveled year end-cap mirroring the rank slot */
+.tl-year-cap {
+  flex-shrink: 0; align-self: stretch; min-width: 54px; padding: 0 9px;
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+  font-family: Consolas, "MS Gothic", monospace; font-size: 13px; font-weight: 900;
+  letter-spacing: 0.04em; text-shadow: 0 1px 0 rgba(255,255,255,0.7);
+  border-left: 1px solid rgba(0,0,0,0.2);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.55),
+    inset 0 -2px 0 rgba(0,0,0,0.08),
+    inset 1px 0 0 rgba(0,0,0,0.05);
+  user-select: none;
 }
-.tl-card.revealed.right .tl-year-ghost { color: rgba(26,125,60,0.16); }
-.tl-card.revealed.close .tl-year-ghost { color: rgba(168,124,10,0.18); }
-.tl-card.revealed.wrong .tl-year-ghost { color: rgba(170,0,0,0.13); }
-html.dark-mode .tl-year-ghost { color: rgba(255,255,255,0.06); }
-html.dark-mode .tl-card.revealed.right .tl-year-ghost { color: rgba(80,220,120,0.13); }
-html.dark-mode .tl-card.revealed.close .tl-year-ghost { color: rgba(230,190,80,0.14); }
-html.dark-mode .tl-card.revealed.wrong .tl-year-ghost { color: rgba(255,90,90,0.12); }
+.tl-year-cap::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(45deg, rgba(0,0,0,0.03) 0 4px, transparent 4px 9px);
+}
+/* soft verdict-tinted plates: colored text on a pale wash, not a full button */
+.tl-card.revealed.right .tl-year-cap { color: #1a7d3c; background: linear-gradient(to bottom, #ebf6ef 0%, #ddefe4 48%, #d1e8da 52%, #d7ecdf 100%); }
+.tl-card.revealed.close .tl-year-cap { color: #8a6a08; background: linear-gradient(to bottom, #faf3d9 0%, #f4e9c0 48%, #ecdfa9 52%, #f0e4b3 100%); }
+.tl-card.revealed.wrong .tl-year-cap { color: #aa0000; background: linear-gradient(to bottom, #fbe9e9 0%, #f6dcdc 48%, #f0cfcf 52%, #f3d5d5 100%); }
+html.dark-mode .tl-year-cap {
+  text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+  border-left-color: rgba(0,0,0,0.5);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.07),
+    inset 0 -2px 0 rgba(0,0,0,0.3),
+    inset 1px 0 0 rgba(0,0,0,0.25);
+}
+html.dark-mode .tl-year-cap::after { background: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 4px, transparent 4px 9px); }
+html.dark-mode .tl-card.revealed.right .tl-year-cap { color: #63c287; background: linear-gradient(to bottom, #1e2f24 0%, #1a291f 48%, #15221a 52%, #18261c 100%); }
+html.dark-mode .tl-card.revealed.close .tl-year-cap { color: #d4b34a; background: linear-gradient(to bottom, #2e2812 0%, #29230f 48%, #221d0c 52%, #26200e 100%); }
+html.dark-mode .tl-card.revealed.wrong .tl-year-cap { color: #e06060; background: linear-gradient(to bottom, #301717 0%, #2a1414 48%, #231010 52%, #271212 100%); }
 .tl-move { flex-shrink: 0; display: flex; flex-direction: column; border-left: 1px solid var(--line); }
 .tl-move button {
   flex: 1; width: 30px; border: none; background: linear-gradient(to bottom, #fff, #e8e8e8);
@@ -342,9 +368,31 @@ html.dark-mode .tl-card.revealed.wrong .tl-year-ghost { color: rgba(255,90,90,0.
 .tl-move button:first-child { border-bottom: 1px solid var(--line); }
 .tl-move button:hover { color: var(--red); background: #fff0f0; }
 .tl-move button:disabled { color: #ccc; background: #f4f3f0; box-shadow: none; cursor: default; }
-.tl-card.revealed.right .tl-slot { background: linear-gradient(to bottom, #2faf57, #1a7d3c); color: #fff; }
-.tl-card.revealed.close .tl-slot { background: linear-gradient(to bottom, #d8ae2e, #a87c0a); color: #fff; }
-.tl-card.revealed.wrong .tl-slot { background: linear-gradient(to bottom, #dd2222, #aa0000); color: #fff; }
+/* Revealed slots get the Higher/Lower guess-button treatment: seamed
+   gradient, diagonal stripe sheen, and bevelled edges instead of a flat fade. */
+.tl-card.revealed .tl-slot {
+  position: relative;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+  border-right-color: rgba(0,0,0,0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.45),
+    inset 0 -2px 0 rgba(0,0,0,0.22),
+    inset -1px 0 0 rgba(0,0,0,0.12);
+}
+.tl-card.revealed .tl-slot::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,0.07) 0 4px, transparent 4px 9px);
+}
+.tl-card.revealed.right .tl-slot { background: linear-gradient(to bottom, #4cc06e 0%, #2faf57 48%, #1d8a41 52%, #1a7d3c 100%); }
+.tl-card.revealed.close .tl-slot { background: linear-gradient(to bottom, #e6c14a 0%, #d8ae2e 48%, #b58a10 52%, #a87c0a 100%); }
+.tl-card.revealed.wrong .tl-slot { background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #aa0000 100%); }
+html.dark-mode .tl-card.revealed .tl-slot {
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -2px 0 rgba(0,0,0,0.32),
+    inset -1px 0 0 rgba(0,0,0,0.25);
+}
 .tl-hint { padding: 5px 9px 0; font-size: 10px; color: var(--faint); font-style: italic; }
 .tl-actions { padding: 8px; display: flex; gap: 6px; flex-wrap: wrap; }
 .lock-btn, .share-btn, .new-btn, .back-btn {
@@ -658,7 +706,7 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
   .tl-grip { display: none; }
   .tl-views { font-size: 9px; }
   .tl-date { font-size: 9px; }
-  .tl-year-ghost { font-size: 20px; right: 6px; }
+  .tl-year-cap { min-width: 44px; padding: 0 6px; font-size: 12px; }
   .st-cell { min-width: 0; padding: 5px 10px; }
   .st-v { font-size: 12px; }
 }
@@ -667,9 +715,13 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
 <body>
 
 <div class="nnd-topbar">
-  <span>VOCALOIDLE &rsaquo; Timeline</span>
-  <span style="color:#666">put the songs in release order</span>
+  <span>Games &rsaquo; Music &rsaquo; VOCALOID &rsaquo; Timeline</span>
+  <span id="nnd-date" style="color:#666"></span>
 </div>
+<script>
+  document.getElementById("nnd-date").textContent =
+    new Intl.DateTimeFormat(undefined, { year: "numeric", month: "long", day: "numeric" }).format(new Date());
+</script>
 
 <div class="nnd-mainbar">
   <a class="nnd-logo" href="../" title="Back to VOCALOIDLE home">
@@ -705,7 +757,7 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
 <div class="nnd-marquee-bar">
   <span class="nnd-marquee-label">[INFO]</span>
   <div class="nnd-marquee-wrap">
-    <div class="nnd-marquee-inner" id="marquee-text">★ VOCALOID Timeline 年表 ・ Five songs, one timeline ・ Drag them into release order, oldest first ・ A new puzzle every day at local midnight ・ Song data from VocaDB ★</div>
+    <div class="nnd-marquee-inner" id="marquee-text">★ VOCALOID Timeline · Five songs, one timeline · Drag them into release order, oldest first · A new puzzle every day at local midnight · Song data from VocaDB ★</div>
   </div>
 </div>
 
@@ -748,9 +800,9 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
         <div class="panel-header" id="hdr-how">[ How to Play ]</div>
         <div class="side-list">
           <div class="side-row"><span class="sr-num">1</span><span id="how-1">Five songs appear in a random order.</span></div>
-          <div class="side-row"><span class="sr-num">2</span><span id="how-2">Arrange them by <b>release date</b> — oldest at the top. Drag cards or use the arrows.</span></div>
+          <div class="side-row"><span class="sr-num">2</span><span id="how-2">Arrange them by <b>release date</b> · oldest at the top. Drag cards or use the arrows.</span></div>
           <div class="side-row"><span class="sr-num">3</span><span id="how-3">Lock in your answer. Green = right spot, gold = one off, red = wrong.</span></div>
-          <div class="side-row"><span class="sr-num">4</span><span id="how-4">One shared puzzle a day — share your result and keep the streak.</span></div>
+          <div class="side-row"><span class="sr-num">4</span><span id="how-4">One shared puzzle a day · share your result and keep the streak.</span></div>
         </div>
       </div>
 
@@ -775,7 +827,7 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
 </div>
 
 <footer class="site-footer">
-  VOCALOID Timeline 年表 — a fan-made puzzle &nbsp;·&nbsp; song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a> &nbsp;·&nbsp; not affiliated with any rights holder
+  VOCALOID Timeline: fan-made daily ordering puzzle (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
 </footer>
 
 <div class="modal-backdrop" id="settings-backdrop" hidden></div>
@@ -839,22 +891,22 @@ const STR = {
 en: {
   daily: "Daily", unlimited: "Unlimited", archive: "Archive", score: "Score", streakLbl: "Streak", puzzle: "Puzzle",
   lockIn: "Lock in", toolsEra: "Era", share: "Copy share text", copied: "Copied!", newPuzzle: "↻ New puzzle", backDays: "◀ All days",
-  hint: "Oldest song at the top — drag the cards or use the arrows, then lock in.",
+  hint: "Oldest song at the top · drag the cards or use the arrows, then lock in.",
   axisOld: "oldest ▲", axisNew: "newest ▼",
   result: (n, total) => `<b>${n}</b> / ${total} in the right spot`,
-  perfect: " — perfect timeline!",
+  perfect: " · perfect timeline!",
   hdrHow: "[ How to Play ]", hdrRecords: "[ Records ]", hdrNews: "[ News ]",
   how1: "Five songs appear in a random order.",
-  how2: "Arrange them by <b>release date</b> — oldest at the top. Drag cards or use the arrows.",
+  how2: "Arrange them by <b>release date</b> · oldest at the top. Drag cards or use the arrows.",
   how3: "Lock in your answer. Green = right spot, gold = one off, red = wrong.",
-  how4: "One shared puzzle a day — share your result and keep the streak.",
+  how4: "One shared puzzle a day · share your result and keep the streak.",
   recPlayed: "Dailies played", recPerfect: "Perfect days", recStreak: "Current streak", recAvg: "Average score",
   navUpdates: "Updates", navAch: "Achievements", navSettings: "Settings", newsMore: "Full updates →",
   setTitle: "[ Settings ]", achTitle: "[ Achievements ]", updTitle: "[ Updates ]",
   settingsDark: "Dark Mode", settingsDarkDesc: "Dark page and panels, like the other games.",
   view39: "view on 39charts →", logoSub: "oldest to newest",
   eraAll: "All years", eraHard: "★ Hard",
-  archDone: "done", archNone: e => `No past dailies yet — the archive grows one puzzle per day, starting ${e}.`,
+  archDone: "done", archNone: e => `No past dailies yet · the archive grows one puzzle per day, starting ${e}.`,
   achUnlocked: "Achievement unlocked!",
   achTagUnlocked: "Unlocked", achTagLocked: "Locked", achSecret: "Secret achievement",
   navStats: "Stats", statsTitle: "[ Stats ]",
@@ -867,13 +919,13 @@ en: {
 ja: {
   daily: "デイリー", unlimited: "無制限", archive: "アーカイブ", score: "スコア", streakLbl: "連続", puzzle: "パズル",
   lockIn: "決定", toolsEra: "年代", share: "結果をコピー", copied: "コピーしました！", newPuzzle: "↻ 新しいパズル", backDays: "◀ 日付一覧",
-  hint: "一番古い曲を上に — カードをドラッグするか矢印で並べ替えて決定。",
+  hint: "一番古い曲を上に · カードをドラッグするか矢印で並べ替えて決定。",
   axisOld: "古い ▲", axisNew: "新しい ▼",
   result: (n, total) => `<b>${n}</b> / ${total} 正解`,
-  perfect: " — パーフェクト！",
+  perfect: " · パーフェクト！",
   hdrHow: "[ 遊び方 ]", hdrRecords: "[ 記録 ]", hdrNews: "[ お知らせ ]",
   how1: "5曲がランダムな順番で表示されます。",
-  how2: "<b>投稿日</b>順に並べ替え — 一番古い曲を上に。ドラッグか矢印で。",
+  how2: "<b>投稿日</b>順に並べ替え · 一番古い曲を上に。ドラッグか矢印で。",
   how3: "決定すると答え合わせ。緑=正解、金=1つずれ、赤=不正解。",
   how4: "パズルは1日1問、全員共通。結果をシェアして連続記録を伸ばそう。",
   recPlayed: "プレイ日数", recPerfect: "パーフェクト", recStreak: "連続日数", recAvg: "平均スコア",
@@ -882,7 +934,7 @@ ja: {
   settingsDark: "ダークモード", settingsDarkDesc: "他のゲームと同じダーク配色。",
   view39: "39chartsで見る →", logoSub: "古い順に並べよう",
   eraAll: "全期間", eraHard: "★ ハード",
-  archDone: "クリア", archNone: e => `まだ過去のデイリーがありません — ${e}から毎日1問ずつ増えます。`,
+  archDone: "クリア", archNone: e => `まだ過去のデイリーがありません · ${e}から毎日1問ずつ増えます。`,
   achUnlocked: "実績を解除しました！",
   achTagUnlocked: "解除済", achTagLocked: "未解除", achSecret: "シークレット実績",
   navStats: "統計", statsTitle: "[ 統計 ]",
@@ -895,22 +947,22 @@ ja: {
 es: {
   daily: "Diario", unlimited: "Ilimitado", archive: "Archivo", score: "Puntos", streakLbl: "Racha", puzzle: "Puzle",
   lockIn: "Confirmar", toolsEra: "Época", share: "Copiar resultado", copied: "¡Copiado!", newPuzzle: "↻ Nuevo puzle", backDays: "◀ Todos los días",
-  hint: "La canción más antigua arriba — arrastra las tarjetas o usa las flechas y confirma.",
+  hint: "La canción más antigua arriba · arrastra las tarjetas o usa las flechas y confirma.",
   axisOld: "antigua ▲", axisNew: "nueva ▼",
   result: (n, total) => `<b>${n}</b> / ${total} en su lugar`,
-  perfect: " — ¡línea de tiempo perfecta!",
+  perfect: " · ¡línea de tiempo perfecta!",
   hdrHow: "[ Cómo jugar ]", hdrRecords: "[ Récords ]", hdrNews: "[ Novedades ]",
   how1: "Aparecen cinco canciones en orden aleatorio.",
-  how2: "Ordénalas por <b>fecha de publicación</b> — la más antigua arriba.",
+  how2: "Ordénalas por <b>fecha de publicación</b> · la más antigua arriba.",
   how3: "Confirma tu respuesta. Verde = correcto, dorado = una posición de error, rojo = incorrecto.",
-  how4: "Un puzle compartido al día — comparte tu resultado y mantén la racha.",
+  how4: "Un puzle compartido al día · comparte tu resultado y mantén la racha.",
   recPlayed: "Diarios jugados", recPerfect: "Días perfectos", recStreak: "Racha actual", recAvg: "Puntuación media",
   navUpdates: "Novedades", navAch: "Logros", navSettings: "Ajustes", newsMore: "Ver todas las novedades →",
   setTitle: "[ Ajustes ]", achTitle: "[ Logros ]", updTitle: "[ Novedades ]",
   settingsDark: "Modo oscuro", settingsDarkDesc: "Colores oscuros, como los otros juegos.",
   view39: "ver en 39charts →", logoSub: "de antigua a nueva",
   eraAll: "Todos los años", eraHard: "★ Difícil",
-  archDone: "completado", archNone: e => `Aún no hay diarios pasados — el archivo crece un puzle al día desde ${e}.`,
+  archDone: "completado", archNone: e => `Aún no hay diarios pasados · el archivo crece un puzle al día desde ${e}.`,
   achUnlocked: "¡Logro desbloqueado!",
   achTagUnlocked: "Desbloqueado", achTagLocked: "Bloqueado", achSecret: "Logro secreto",
   navStats: "Stats", statsTitle: "[ Stats ]",
@@ -923,13 +975,13 @@ es: {
 ko: {
   daily: "데일리", unlimited: "무제한", archive: "아카이브", score: "점수", streakLbl: "연속", puzzle: "퍼즐",
   lockIn: "확정", toolsEra: "연대", share: "결과 복사", copied: "복사됨!", newPuzzle: "↻ 새 퍼즐", backDays: "◀ 전체 날짜",
-  hint: "가장 오래된 곡을 맨 위로 — 카드를 드래그하거나 화살표로 정렬 후 확정.",
+  hint: "가장 오래된 곡을 맨 위로 · 카드를 드래그하거나 화살표로 정렬 후 확정.",
   axisOld: "오래된 ▲", axisNew: "최신 ▼",
   result: (n, total) => `<b>${n}</b> / ${total} 정답`,
-  perfect: " — 완벽한 타임라인!",
+  perfect: " · 완벽한 타임라인!",
   hdrHow: "[ 게임 방법 ]", hdrRecords: "[ 기록 ]", hdrNews: "[ 소식 ]",
   how1: "다섯 곡이 무작위 순서로 나타납니다.",
-  how2: "<b>발표일</b> 순으로 정렬 — 가장 오래된 곡이 맨 위.",
+  how2: "<b>발표일</b> 순으로 정렬 · 가장 오래된 곡이 맨 위.",
   how3: "확정하면 채점. 초록=정답, 금색=한 칸 차이, 빨강=오답.",
   how4: "하루에 하나, 모두 같은 퍼즐. 결과를 공유하고 연속 기록을 이어가세요.",
   recPlayed: "플레이한 데일리", recPerfect: "퍼펙트", recStreak: "연속 기록", recAvg: "평균 점수",
@@ -938,7 +990,7 @@ ko: {
   settingsDark: "다크 모드", settingsDarkDesc: "다른 게임과 같은 어두운 배색.",
   view39: "39charts에서 보기 →", logoSub: "오래된 순서로",
   eraAll: "전체 연도", eraHard: "★ 하드",
-  archDone: "완료", archNone: e => `아직 지난 데일리가 없습니다 — ${e}부터 하루에 하나씩 쌓입니다.`,
+  archDone: "완료", archNone: e => `아직 지난 데일리가 없습니다 · ${e}부터 하루에 하나씩 쌓입니다.`,
   achUnlocked: "업적 달성!",
   achTagUnlocked: "달성", achTagLocked: "미달성", achSecret: "비밀 업적",
   navStats: "통계", statsTitle: "[ 통계 ]",
@@ -1095,7 +1147,7 @@ const combined = s => {
 };
 
 /* Cover-art fallback chain (same as 39charts): original YT, reprint uploads
-   from coverArts, NicoNico, bilibili — with dead-YouTube gray detection. */
+   from coverArts, NicoNico, bilibili · with dead-YouTube gray detection. */
 function coverChain(song) {
   const all = [...(song.coverArts || [])];
   if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
@@ -1443,7 +1495,7 @@ function render() {
           <span class="tl-date">${fmtDate(s.publishDate)}</span>
         </span>
       </span>
-      ${state.done ? `<span class="tl-year-ghost">${new Date(s.publishDate).getUTCFullYear()}</span>` : `<span class="tl-grip" aria-hidden="true"><i></i><i></i><i></i></span>`}
+      ${state.done ? `<span class="tl-year-cap">${new Date(s.publishDate).getUTCFullYear()}</span>` : `<span class="tl-grip" aria-hidden="true"><i></i><i></i><i></i></span>`}
       ${!state.done ? `
       <span class="tl-move">
         <button type="button" data-up="${i}" ${i === 0 ? "disabled" : ""} aria-label="Move up">▲</button>
@@ -1747,7 +1799,7 @@ Promise.all([
   renderAchievements();
   startGame();
 }).catch(err => {
-  $("game-box").innerHTML = `<div class="loading-state">Could not load data — ${escHtml(err.message)}. Open via a local server rather than file://</div>`;
+  $("game-box").innerHTML = `<div class="loading-state">Could not load data · ${escHtml(err.message)}. Open via a local server rather than file://</div>`;
 });
 </script>
 </body>
