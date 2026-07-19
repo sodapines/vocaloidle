@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Masume マス目 — the VOCALOID grid game</title>
-<meta property="og:site_name" content="Masume">
-<meta property="og:title" content="Masume マス目 — the VOCALOID grid game">
+<title>VOCALOID Grid · fill the grid, one song per square</title>
+<meta property="og:site_name" content="VOCALOID Grid">
+<meta property="og:title" content="VOCALOID Grid · fill the grid, one song per square">
 <meta property="og:description" content="Fill the grid. One song per square. A daily VOCALOID knowledge puzzle.">
 <meta property="og:type" content="website">
 <meta name="description" content="Fill the grid. One song per square. A daily VOCALOID knowledge puzzle.">
@@ -815,14 +815,18 @@ html.dark-mode .release-version { background:linear-gradient(#242424,#1c1c1c); b
 <body>
 
 <div class="nnd-topbar">
-  <span>VOCALOIDLE &rsaquo; Masume</span>
-  <span style="color:#666">the VOCALOID grid game</span>
+  <span>Games &rsaquo; Music &rsaquo; VOCALOID &rsaquo; Grid</span>
+  <span id="nnd-date" style="color:#666"></span>
 </div>
+<script>
+  document.getElementById("nnd-date").textContent =
+    new Intl.DateTimeFormat(undefined, { year: "numeric", month: "long", day: "numeric" }).format(new Date());
+</script>
 
 <div class="nnd-mainbar">
   <a class="nnd-logo" href="../" title="Back to VOCALOIDLE home">
     <span class="nnd-logo-mark" aria-hidden="true"><span class="lm-grid"><i></i><i></i><i></i><i></i></span></span>
-    <span class="nnd-logo-text">Masume<span class="nnd-logo-sub">fill the grid, one song per square</span></span>
+    <span class="nnd-logo-text">VOCALOID Grid<span class="nnd-logo-sub">fill the grid, one song per square</span></span>
   </a>
   <div class="language-switcher" aria-label="Language">
     <button class="language-button" type="button" data-lang="en" title="English"><span class="fi fi-us"></span></button>
@@ -857,7 +861,7 @@ html.dark-mode .release-version { background:linear-gradient(#242424,#1c1c1c); b
 <div class="nnd-marquee-bar">
   <span class="nnd-marquee-label">[INFO]</span>
   <div class="nnd-marquee-wrap">
-    <div class="nnd-marquee-inner" id="marquee-text">Welcome to Masume · Fill every square with a VOCALOID song matching its row and column · Rarer answers score more · A new daily grid drops at local midnight · Song pool from 39charts</div>
+    <div class="nnd-marquee-inner" id="marquee-text">Welcome to VOCALOID Grid · Fill every square with a VOCALOID song matching its row and column · Rarer answers score more · A new daily grid drops at local midnight · Song pool from 39charts</div>
   </div>
 </div>
 
@@ -901,7 +905,7 @@ html.dark-mode .release-version { background:linear-gradient(#242424,#1c1c1c); b
         <div class="side-list">
           <div class="side-row"><span class="sr-num">1</span><span>Each square needs a song matching <b>both</b> its row and column.</span></div>
           <div class="side-row"><span class="sr-num">2</span><span>Tap a square, type a song title, pick it from the list.</span></div>
-          <div class="side-row"><span class="sr-num">3</span><span>Wrong answers cost a strike — you have <b>6</b>. No song can be used twice.</span></div>
+          <div class="side-row"><span class="sr-num">3</span><span>Wrong answers cost a strike · you have <b>6</b>. No song can be used twice.</span></div>
           <div class="side-row"><span class="sr-num">4</span><span>Rarer answers score more. Obvious picks score 0, deep cuts score up to 100 per square.</span></div>
         </div>
       </div>
@@ -909,7 +913,7 @@ html.dark-mode .release-version { background:linear-gradient(#242424,#1c1c1c); b
       <div class="panel" id="pool-panel">
         <div class="panel-header" id="hdr-pool">[ Song Pool ]</div>
         <div class="pool-note">
-          <div id="pool-disclaimer"><b>Dataset notice:</b> Masume only uses songs included in the curated 39charts pool, not the complete VocaDB catalog.</div>
+          <div id="pool-disclaimer"><b>Dataset notice:</b> VOCALOID Grid only uses songs included in the curated 39charts pool, not the complete VocaDB catalog.</div>
           <div class="pool-facts">
             <div class="pool-fact"><span id="pool-loaded-label">Playable songs</span><strong id="pool-song-count">—</strong></div>
             <div class="pool-fact"><span id="pool-source-label">Primary source</span><strong>39charts</strong></div>
@@ -946,7 +950,7 @@ html.dark-mode .release-version { background:linear-gradient(#242424,#1c1c1c); b
 </div>
 
 <footer class="site-footer">
-  Masume マス目 — a fan-made VOCALOID puzzle &nbsp;·&nbsp; playable song pool limited to <a href="../39charts/">39charts</a> &nbsp;·&nbsp; metadata from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a> &nbsp;·&nbsp; not affiliated with any rights holder
+  VOCALOID Grid: fan-made daily grid puzzle (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
 </footer>
 
 <div class="modal-backdrop" id="guess-backdrop" hidden></div>
@@ -963,7 +967,7 @@ html.dark-mode .release-version { background:linear-gradient(#242424,#1c1c1c); b
 
 <div class="modal-backdrop" id="tut-backdrop" hidden></div>
 <div class="settings-modal" id="tut-modal" hidden>
-  <div class="settings-title"><span id="tut-title">[ Welcome to Masume ]</span> <button type="button" class="guess-close" id="tut-close">✕</button></div>
+  <div class="settings-title"><span id="tut-title">[ Welcome to VOCALOID Grid ]</span> <button type="button" class="guess-close" id="tut-close">✕</button></div>
   <div id="tut-body" style="font-size:11px;line-height:1.7"></div>
   <button type="button" class="share-btn" id="tut-ok" style="width:100%">OK, let's play!</button>
 </div>
@@ -1048,14 +1052,14 @@ en: {
   confirmLeave: "Leave this unfinished grid?",
   needs: (a, ak, b, bk) => `Needs: <b>${a}</b> <span style="color:var(--faint)">(${ak})</span> × <b>${b}</b> <span style="color:var(--faint)">(${bk})</span>`,
   poolFit: n => `${n} song${n !== 1 ? "s" : ""} fit this square`,
-  alreadyUsed: "Already used in another square — every song can only be used once.",
-  strikeMsg: (t, why, n, m) => `✕ ${t} ${why} — strike ${n} of ${m}.`,
+  alreadyUsed: "Already used in another square · every song can only be used once.",
+  strikeMsg: (t, why, n, m) => `✕ ${t} ${why} · strike ${n} of ${m}.`,
   fitsButNot: (a, b) => `fits “${a}” but not “${b}”`, fitsNeither: "fits neither criterion",
   squaresFilled: (f, t, st) => `${f} of ${t} squares filled · ${st} strike${st !== 1 ? "s" : ""} used`,
   flawless: " · flawless!", maxScoreLabel: (m, p) => `/ ${m} max score (${p}%)`,
   copyShare: "Copy share text", copied: "Copied!", revealPools: "Reveal answer pools",
-  bestSolution: "Show best solution", bestFill: t => `Best possible fill — ${t} points:`,
-  newGrid: "Refresh", challengeLink: "Challenge link", challengeCopied: "Challenge link copied — send it to a friend!",
+  bestSolution: "Show best solution", bestFill: t => `Best possible fill · ${t} points:`,
+  newGrid: "Refresh", challengeLink: "Challenge link", challengeCopied: "Challenge link copied · send it to a friend!",
   scrollHint: "Scroll horizontally to see the full board",
   you: "You", popular: "Popular", rarest: "Rarest", unanswered: "unanswered", songsN: n => `${n} songs`,
   hint: "Hint: reveal the popular answer's producer (this square then scores 0)",
@@ -1066,17 +1070,17 @@ en: {
   hdrHow: "[ How to Play ]", hdrRecords: "[ Records ]", hdrAch: "[ Achievements ]", hdrResult: "[ Result ]",
   how1: "Each square needs a song matching <b>both</b> its row and column.",
   how2: "Tap a square, type a song title, pick it from the list.",
-  how3: "Wrong answers cost a strike — you have <b>6</b>. No song can be used twice.",
+  how3: "Wrong answers cost a strike · you have <b>6</b>. No song can be used twice.",
   how4: "Rarer answers score more. Obvious picks score 0, deep cuts score up to 100 per square.",
-  tutTitle: "[ Welcome to Masume ]",
-  tutBody: `<p><b>Masume マス目</b> is a daily VOCALOID knowledge grid.</p>
-    <p style="margin-top:6px">▸ Every square needs a song matching <b>both</b> its row and column criteria — tap one to answer.</p>
+  tutTitle: "[ Welcome to VOCALOID Grid ]",
+  tutBody: `<p><b>VOCALOID Grid</b> is a daily VOCALOID knowledge grid.</p>
+    <p style="margin-top:6px">▸ Every square needs a song matching <b>both</b> its row and column criteria · tap one to answer.</p>
     <p style="margin-top:6px">▸ Wrong guesses cost a <b>strike</b> (you have 6), and no song can be used twice.</p>
-    <p style="margin-top:6px">▸ Every square accepts many songs — the <b>rarer</b> your pick, the more it scores. Obvious hits score 0.</p>
+    <p style="margin-top:6px">▸ Every square accepts many songs · the <b>rarer</b> your pick, the more it scores. Obvious hits score 0.</p>
     <p style="margin-top:6px">▸ One shared grid per day. Come back at midnight for the next one!</p>`,
   tutOk: "OK, let's play!",
   archDone: "done", archProg: "in progress", archNew: "unplayed",
-  archNone: e => `No past dailies yet — the archive fills up one grid per day, starting ${e}.`,
+  archNone: e => `No past dailies yet · the archive fills up one grid per day, starting ${e}.`,
   resultNote: (m, d) => m === "unlimited" ? "unlimited round" : `${m} · ${d}`,
   achUnlocked: "Achievement unlocked!",
   settingsDark: "Dark Mode", settingsDarkDesc: "Dark page and panels, like the other games.",
@@ -1084,7 +1088,7 @@ en: {
   settingsTut: "Tutorial", settingsTutDesc: "Show the intro again.", settingsTutBtn: "SHOW",
   navAch: "Achievements", navSettings: "Settings",
   hdrToday: "[ Today's Grid ]", hdrHistory: "[ Guess History ]", hdrSong: "[ Song Details ]",
-  hdrPool: "[ Song Pool ]", poolDisclaimer: "<b>Dataset notice:</b> Masume only uses songs included in the curated 39charts pool, not the complete VocaDB catalog.",
+  hdrPool: "[ Song Pool ]", poolDisclaimer: "<b>Dataset notice:</b> VOCALOID Grid only uses songs included in the curated 39charts pool, not the complete VocaDB catalog.",
   poolLoaded: "Playable songs", poolSource: "Primary source",
   noGuesses: "No guesses yet.", filledLabel: "Filled", remainingLabel: "Remaining strikes",
   bestAnswerLabel: "Best answer", favoritesLabel: "Favorites", nextDaily: "Next daily",
@@ -1099,13 +1103,13 @@ ja: {
   confirmLeave: "このグリッドを離れますか？",
   needs: (a, ak, b, bk) => `条件: <b>${a}</b> <span style="color:var(--faint)">(${ak})</span> × <b>${b}</b> <span style="color:var(--faint)">(${bk})</span>`,
   poolFit: n => `このマスに合う曲: ${n}曲`,
-  alreadyUsed: "他のマスで使用済みです — 同じ曲は一度しか使えません。",
-  strikeMsg: (t, why, n, m) => `✕ ${t} は${why} — ストライク ${n}/${m}`,
+  alreadyUsed: "他のマスで使用済みです · 同じ曲は一度しか使えません。",
+  strikeMsg: (t, why, n, m) => `✕ ${t} は${why} · ストライク ${n}/${m}`,
   fitsButNot: (a, b) => `「${a}」には合いますが「${b}」には合いません`, fitsNeither: "どちらの条件にも合いません",
   squaresFilled: (f, t, st) => `${f}/${t} マス正解 · ストライク ${st}`,
   flawless: " · パーフェクト！", maxScoreLabel: (m, p) => `/ 最大 ${m} (${p}%)`,
   copyShare: "結果をコピー", copied: "コピーしました！", revealPools: "答え一覧を見る",
-  bestSolution: "最適解を見る", bestFill: t => `理論上の最高記録 — ${t}点:`,
+  bestSolution: "最適解を見る", bestFill: t => `理論上の最高記録 · ${t}点:`,
   newGrid: "更新", challengeLink: "チャレンジリンク", challengeCopied: "チャレンジリンクをコピーしました！",
   you: "あなた", popular: "人気", rarest: "最レア", unanswered: "未回答", songsN: n => `${n}曲`,
   hint: "ヒント: 人気曲のプロデューサーを表示（このマスは0点になります）",
@@ -1118,15 +1122,15 @@ ja: {
   how2: "マスをタップして曲名を入力し、リストから選択。",
   how3: "間違えるとストライク（<b>6回</b>まで）。同じ曲は一度だけ。",
   how4: "レアな曲ほど高得点。有名曲は0点、深堀りは最大100点。",
-  tutTitle: "[ Masumeへようこそ ]",
-  tutBody: `<p><b>Masume マス目</b>は毎日のVOCALOID知識グリッドです。</p>
+  tutTitle: "[ VOCALOID Gridへようこそ ]",
+  tutBody: `<p><b>VOCALOID Grid</b>は毎日のVOCALOID知識グリッドです。</p>
     <p style="margin-top:6px">▸ 各マスには行と列<b>両方</b>の条件に合う曲を入れます。</p>
     <p style="margin-top:6px">▸ 間違えると<b>ストライク</b>（6回まで）。同じ曲は一度だけ。</p>
     <p style="margin-top:6px">▸ <b>レア</b>な曲ほど高得点。有名曲は0点です。</p>
     <p style="margin-top:6px">▸ グリッドは1日1問、全員共通。毎日0時に更新！</p>`,
   tutOk: "プレイする！",
   archDone: "クリア", archProg: "プレイ中", archNew: "未プレイ",
-  archNone: e => `まだ過去のデイリーがありません — ${e}から毎日1問ずつ増えます。`,
+  archNone: e => `まだ過去のデイリーがありません · ${e}から毎日1問ずつ増えます。`,
   resultNote: (m, d) => m === "unlimited" ? "無制限モード" : `${m === "archive" ? "アーカイブ" : "デイリー"} · ${d}`,
   achUnlocked: "実績を解除しました！",
   settingsDark: "ダークモード", settingsDarkDesc: "他のゲームと同じダーク配色。",
@@ -1141,14 +1145,14 @@ es: {
   confirmLeave: "¿Salir de esta cuadrícula sin terminar?",
   needs: (a, ak, b, bk) => `Necesita: <b>${a}</b> <span style="color:var(--faint)">(${ak})</span> × <b>${b}</b> <span style="color:var(--faint)">(${bk})</span>`,
   poolFit: n => `${n} canciones encajan aquí`,
-  alreadyUsed: "Ya usada en otra casilla — cada canción solo puede usarse una vez.",
-  strikeMsg: (t, why, n, m) => `✕ ${t} ${why} — fallo ${n} de ${m}.`,
+  alreadyUsed: "Ya usada en otra casilla · cada canción solo puede usarse una vez.",
+  strikeMsg: (t, why, n, m) => `✕ ${t} ${why} · fallo ${n} de ${m}.`,
   fitsButNot: (a, b) => `encaja con “${a}” pero no con “${b}”`, fitsNeither: "no encaja con ninguno",
   squaresFilled: (f, t, st) => `${f} de ${t} casillas · ${st} fallo${st !== 1 ? "s" : ""}`,
   flawless: " · ¡impecable!", maxScoreLabel: (m, p) => `/ ${m} máximo (${p}%)`,
   copyShare: "Copiar resultado", copied: "¡Copiado!", revealPools: "Revelar respuestas",
-  bestSolution: "Ver la mejor solución", bestFill: t => `Mejor llenado posible — ${t} puntos:`,
-  newGrid: "Actualizar", challengeLink: "Enlace de desafío", challengeCopied: "¡Enlace copiado — envíalo a un amigo!",
+  bestSolution: "Ver la mejor solución", bestFill: t => `Mejor llenado posible · ${t} puntos:`,
+  newGrid: "Actualizar", challengeLink: "Enlace de desafío", challengeCopied: "¡Enlace copiado · envíalo a un amigo!",
   you: "Tú", popular: "Popular", rarest: "Más rara", unanswered: "sin responder", songsN: n => `${n} canciones`,
   hint: "Pista: revela el productor de la respuesta popular (la casilla puntúa 0)",
   hintUsed: "Pista ya usada", hintOut: p => `Pista: la respuesta más popular aquí es de <b>${p}</b>. Esta casilla ahora puntúa 0.`,
@@ -1158,17 +1162,17 @@ es: {
   hdrHow: "[ Cómo jugar ]", hdrRecords: "[ Récords ]", hdrAch: "[ Logros ]", hdrResult: "[ Resultado ]",
   how1: "Cada casilla necesita una canción que cumpla <b>ambos</b> criterios.",
   how2: "Toca una casilla, escribe un título y elígelo de la lista.",
-  how3: "Los errores cuestan fallos — tienes <b>6</b>. Ninguna canción se repite.",
+  how3: "Los errores cuestan fallos · tienes <b>6</b>. Ninguna canción se repite.",
   how4: "Las respuestas raras puntúan más: lo obvio 0, lo profundo hasta 100.",
-  tutTitle: "[ Bienvenido a Masume ]",
-  tutBody: `<p><b>Masume マス目</b> es una cuadrícula diaria de conocimiento VOCALOID.</p>
+  tutTitle: "[ Bienvenido a VOCALOID Grid ]",
+  tutBody: `<p><b>VOCALOID Grid</b> es una cuadrícula diaria de conocimiento VOCALOID.</p>
     <p style="margin-top:6px">▸ Cada casilla necesita una canción que cumpla <b>ambos</b> criterios.</p>
     <p style="margin-top:6px">▸ Los errores cuestan <b>fallos</b> (tienes 6). Ninguna canción se repite.</p>
     <p style="margin-top:6px">▸ Cuanto más <b>rara</b> tu elección, más puntúa. Lo obvio vale 0.</p>
     <p style="margin-top:6px">▸ Una cuadrícula compartida al día. ¡Vuelve a medianoche!</p>`,
   tutOk: "¡A jugar!",
   archDone: "completado", archProg: "en curso", archNew: "sin jugar",
-  archNone: e => `Aún no hay diarios pasados — el archivo crece un día a la vez desde ${e}.`,
+  archNone: e => `Aún no hay diarios pasados · el archivo crece un día a la vez desde ${e}.`,
   resultNote: (m, d) => m === "unlimited" ? "ronda ilimitada" : `${m === "archive" ? "archivo" : "diario"} · ${d}`,
   achUnlocked: "¡Logro desbloqueado!",
   settingsDark: "Modo oscuro", settingsDarkDesc: "Colores oscuros, como los otros juegos.",
@@ -1183,14 +1187,14 @@ ko: {
   confirmLeave: "이 그리드를 떠날까요?",
   needs: (a, ak, b, bk) => `조건: <b>${a}</b> <span style="color:var(--faint)">(${ak})</span> × <b>${b}</b> <span style="color:var(--faint)">(${bk})</span>`,
   poolFit: n => `이 칸에 맞는 곡: ${n}곡`,
-  alreadyUsed: "다른 칸에서 이미 사용했습니다 — 같은 곡은 한 번만 쓸 수 있어요.",
-  strikeMsg: (t, why, n, m) => `✕ ${t}은(는) ${why} — 스트라이크 ${n}/${m}`,
+  alreadyUsed: "다른 칸에서 이미 사용했습니다 · 같은 곡은 한 번만 쓸 수 있어요.",
+  strikeMsg: (t, why, n, m) => `✕ ${t}은(는) ${why} · 스트라이크 ${n}/${m}`,
   fitsButNot: (a, b) => `“${a}”에는 맞지만 “${b}”에는 맞지 않습니다`, fitsNeither: "두 조건 모두 맞지 않습니다",
   squaresFilled: (f, t, st) => `${f}/${t}칸 정답 · 스트라이크 ${st}`,
   flawless: " · 완벽!", maxScoreLabel: (m, p) => `/ 최대 ${m} (${p}%)`,
   copyShare: "결과 복사", copied: "복사됨!", revealPools: "정답 풀 보기",
-  bestSolution: "최적 해 보기", bestFill: t => `이론상 최고 기록 — ${t}점:`,
-  newGrid: "새로고침", challengeLink: "챌린지 링크", challengeCopied: "챌린지 링크 복사됨 — 친구에게 보내세요!",
+  bestSolution: "최적 해 보기", bestFill: t => `이론상 최고 기록 · ${t}점:`,
+  newGrid: "새로고침", challengeLink: "챌린지 링크", challengeCopied: "챌린지 링크 복사됨 · 친구에게 보내세요!",
   you: "나", popular: "인기", rarest: "최고 레어", unanswered: "미응답", songsN: n => `${n}곡`,
   hint: "힌트: 인기 답변의 프로듀서 공개 (이 칸은 0점이 됩니다)",
   hintUsed: "힌트를 이미 사용했습니다", hintOut: p => `힌트: 이 칸의 인기곡 프로듀서는 <b>${p}</b>입니다. 이 칸은 0점이 됩니다.`,
@@ -1200,17 +1204,17 @@ ko: {
   hdrHow: "[ 게임 방법 ]", hdrRecords: "[ 기록 ]", hdrAch: "[ 업적 ]", hdrResult: "[ 결과 ]",
   how1: "각 칸에는 행과 열 <b>양쪽</b> 조건에 맞는 곡을 넣습니다.",
   how2: "칸을 탭하고 곡명을 입력해 목록에서 선택하세요.",
-  how3: "오답은 스트라이크 — <b>6번</b>까지. 같은 곡은 한 번만.",
+  how3: "오답은 스트라이크 · <b>6번</b>까지. 같은 곡은 한 번만.",
   how4: "레어한 답일수록 고득점. 유명곡은 0점, 딥컷은 최대 100점.",
-  tutTitle: "[ Masume에 오신 것을 환영합니다 ]",
-  tutBody: `<p><b>Masume マス目</b>는 매일의 VOCALOID 지식 그리드입니다.</p>
+  tutTitle: "[ VOCALOID Grid에 오신 것을 환영합니다 ]",
+  tutBody: `<p><b>VOCALOID Grid</b>는 매일의 VOCALOID 지식 그리드입니다.</p>
     <p style="margin-top:6px">▸ 각 칸에는 행과 열 <b>양쪽</b> 조건에 맞는 곡을 넣습니다.</p>
     <p style="margin-top:6px">▸ 오답은 <b>스트라이크</b> (6번까지). 같은 곡은 한 번만.</p>
     <p style="margin-top:6px">▸ <b>레어</b>한 선택일수록 높은 점수. 유명곡은 0점.</p>
     <p style="margin-top:6px">▸ 하루에 하나, 모두 같은 그리드. 자정에 갱신!</p>`,
   tutOk: "플레이!",
   archDone: "완료", archProg: "진행 중", archNew: "미플레이",
-  archNone: e => `아직 지난 데일리가 없습니다 — ${e}부터 하루에 하나씩 쌓입니다.`,
+  archNone: e => `아직 지난 데일리가 없습니다 · ${e}부터 하루에 하나씩 쌓입니다.`,
   resultNote: (m, d) => m === "unlimited" ? "무제한 라운드" : `${m === "archive" ? "아카이브" : "데일리"} · ${d}`,
   achUnlocked: "업적 달성!",
   settingsDark: "다크 모드", settingsDarkDesc: "다른 게임과 같은 어두운 배색.",
@@ -1329,11 +1333,18 @@ const CHAR_MAP = [
   ["Sekai", /^sekai$|星界/i],
 ];
 const CHAR_CACHE = new Map();
+/* Vocalist credits: songs.json singerNames unioned with songdetails.json —
+   "Various artists" entries have empty singerNames and only the details file
+   carries their real credits (e.g. Ego Renegade Boy → Kagamine Len). */
+function songVocalistNames(s) {
+  const d = DETAILS[String(s.vocadbId)];
+  return [...(s.singerNames || []), ...((d && d.vocalists) || [])];
+}
 function songCharacters(s) {
   const id = String(s.vocadbId);
   if (CHAR_CACHE.has(id)) return CHAR_CACHE.get(id);
   const out = new Set();
-  for (const name of (s.singerNames || [])) {
+  for (const name of songVocalistNames(s)) {
     if (!name || /^various/i.test(name)) continue;
     const hit = CHAR_MAP.find(([, re]) => re.test(name));
     out.add(hit ? hit[0] : name);
@@ -1341,11 +1352,24 @@ function songCharacters(s) {
   CHAR_CACHE.set(id, out);
   return out;
 }
+const PROD_CACHE = new Map();
+/* Same union for producers — "Various artists" songs only credit real
+   producers in the details file. */
+function songProducers(s) {
+  const id = String(s.vocadbId);
+  if (PROD_CACHE.has(id)) return PROD_CACHE.get(id);
+  const out = new Set();
+  for (const p of (s.producerNames || [])) if (p && !/^various/i.test(p)) out.add(p);
+  const d = DETAILS[id];
+  for (const p of ((d && d.producers) || [])) if (p && p.name) out.add(p.name);
+  PROD_CACHE.set(id, out);
+  return out;
+}
 
 function buildCriteria() {
   const prodCount = {}, vocCount = {}, tagCount = {};
   for (const s of SONGS) {
-    for (const p of (s.producerNames || [])) prodCount[p] = (prodCount[p] || 0) + 1;
+    for (const p of songProducers(s)) prodCount[p] = (prodCount[p] || 0) + 1;
     for (const ch of songCharacters(s)) vocCount[ch] = (vocCount[ch] || 0) + 1;
     const d = DETAILS[String(s.vocadbId)];
     for (const t of ((d && d.tags) || [])) if (TAG_WHITELIST.has(t)) tagCount[t] = (tagCount[t] || 0) + 1;
@@ -1354,7 +1378,7 @@ function buildCriteria() {
   const langOf = s => { const d = DETAILS[String(s.vocadbId)]; return (d && d.langs) || []; };
   const defs = [];
   for (const [p, c] of Object.entries(prodCount)) if (c >= 8 && !/^various/i.test(p))
-    defs.push({ name: p, kind: "producer", f: s => (s.producerNames || []).includes(p) });
+    defs.push({ name: p, kind: "producer", f: s => songProducers(s).has(p) });
   for (const [v, c] of Object.entries(vocCount)) if (c >= 15 && !/^various/i.test(v))
     defs.push({ name: v, kind: "vocalist", f: s => songCharacters(s).has(v) });
   for (const [a, b] of [[2007,2010],[2011,2013],[2014,2016],[2017,2019],[2020,2022],[2023,2026]])
@@ -1362,8 +1386,8 @@ function buildCriteria() {
   defs.push({ name: "10M+ views", kind: "views", f: s => (combined(s) || 0) >= 1e7 });
   defs.push({ name: "1M–10M views", kind: "views", f: s => { const v = combined(s); return v != null && v >= 1e6 && v < 1e7; } });
   defs.push({ name: "Under 1M views", kind: "views", f: s => { const v = combined(s); return v != null && v < 1e6; } });
-  defs.push({ name: "2+ vocalists", kind: "credits", f: s => (s.singerNames || []).filter(x => !/various/i.test(x)).length >= 2 });
-  defs.push({ name: "Collab (2+ producers)", kind: "credits", f: s => (s.producerNames || []).length >= 2 });
+  defs.push({ name: "2+ vocalists", kind: "credits", f: s => songCharacters(s).size >= 2 });
+  defs.push({ name: "Collab (2+ producers)", kind: "credits", f: s => songProducers(s).size >= 2 });
   defs.push({ name: "English lyrics", kind: "language", f: s => langOf(s).some(l => String(l).toLowerCase().startsWith("en")) });
   defs.push({ name: "Chinese lyrics", kind: "language", f: s => langOf(s).some(l => { const v = String(l).toLowerCase(); return v === "cmn" || v.startsWith("zh"); }) });
   for (const [t, c] of Object.entries(tagCount)) if (c >= 40)
@@ -1541,7 +1565,7 @@ function unlockAch(id) {
   saveAch(a);
   const def = ACH.find(x => x.id === id);
   const [name] = def[LANG] || def.en;
-  toast(`<b>${escHtml(name)}</b><span>${escHtml(t("achUnlocked"))}</span>`, "🏆");
+  toast(`<b>${escHtml(name)}</b><span>${escHtml(t("achUnlocked"))}</span>`, "★");
   renderAchievements();
 }
 let achCategory = "all", achQuery = "";
@@ -1589,7 +1613,7 @@ function pushHist(entry) {
   try { localStorage.setItem("masume_hist", JSON.stringify(h.slice(-90))); } catch (e) {}
 }
 function bumpProducer(song) {
-  const p = (song.producerNames || [])[0] || song.artist;
+  const p = [...songProducers(song)][0] || song.artist;
   if (!p) return;
   let m = {};
   try { m = JSON.parse(localStorage.getItem("masume_prods")) || {}; } catch (e) {}
@@ -1737,7 +1761,7 @@ function startGame(keepSeed) {
     : `masume-daily-${state.dateKey}`;
   const rnd = mulberry32(seedFromString(seedStr));
   state.grid = generateGrid(size, rnd);
-  if (!state.grid) { $("grid-wrap").innerHTML = `<div class="loading-state">Could not generate a grid — data problem?</div>`; return; }
+  if (!state.grid) { $("grid-wrap").innerHTML = `<div class="loading-state">Could not generate a grid · data problem?</div>`; return; }
 
   if (state.mode !== "unlimited") {
     const saved = loadDaily();
@@ -1836,7 +1860,7 @@ function openSongDetail(id) {
   $("song-detail").innerHTML = `<div class="song-detail">
     <div class="song-hero">${cover ? `<img src="${escHtml(cover)}" alt="" referrerpolicy="no-referrer">` : ""}<div class="song-hero-shade"><h2>${escHtml(song.title)}</h2><p>${escHtml(song.displayArtist || song.artistString || song.artist || "")}</p></div></div>
     <div class="song-platforms"><div class="song-platform"><span>Combined</span><b>${compactNumber(combined(song))}</b></div><div class="song-platform"><span>YouTube</span><b>${compactNumber(yt.views)}</b></div><div class="song-platform"><span>Niconico</span><b>${compactNumber(VIEWS[sid])}</b></div><div class="song-platform"><span>Bilibili</span><b>${compactNumber(bili.views)}</b></div></div>
-    <div class="song-info-grid"><div class="song-meta-row"><b>${t("producerLabel")}</b><span>${escHtml((song.producerNames || []).join(", ") || song.artist || "—")}</span></div><div class="song-meta-row"><b>${t("vocalistLabel")}</b><span>${escHtml((song.singerNames || []).join(", ") || "—")}</span></div><div class="song-meta-row"><b>${t("publishedLabel")}</b><span>${escHtml(date)}</span></div><div class="song-meta-row"><b>Song type</b><span>${escHtml(det.type || "Original")}</span></div></div>
+    <div class="song-info-grid"><div class="song-meta-row"><b>${t("producerLabel")}</b><span>${escHtml([...songProducers(song)].join(", ") || song.artist || "—")}</span></div><div class="song-meta-row"><b>${t("vocalistLabel")}</b><span>${escHtml([...new Set(songVocalistNames(song).filter(n => n && !/^various/i.test(n)))].join(", ") || "—")}</span></div><div class="song-meta-row"><b>${t("publishedLabel")}</b><span>${escHtml(date)}</span></div><div class="song-meta-row"><b>Song type</b><span>${escHtml(det.type || "Original")}</span></div></div>
     <div class="song-tags-wrap"><div class="song-section-head"><b>[ Tags ]</b><span>VocaDB #${escHtml(sid)}</span></div><div class="song-tags">${tags.length ? tags.map(tag => `<span class="song-tag">${escHtml(tag)}</span>`).join("") : `<span style="color:var(--faint);font-size:9px">No tags available</span>`}</div></div>
     <div class="song-actions"><div class="song-action-group"><div class="song-action-label">[ Library ]</div><div class="song-action-buttons"><button type="button" class="fav-btn${fav ? " is-fav" : ""}" id="song-fav">${fav ? t("favorited") : t("favorite")}</button><a class="song-link platform-vocadb" href="${escHtml(vocadbUrl)}" target="_blank" rel="noopener noreferrer">VocaDB</a></div></div><div class="song-action-group"><div class="song-action-label">[ Watch / Listen ]</div><div class="song-action-buttons">${songLinks(song)}</div></div></div></div>`;
   $("song-backdrop").hidden = false; $("song-modal").hidden = false;
@@ -1858,7 +1882,7 @@ function renderToday() {
   const bestKey = Object.keys(state.rarity).sort((a,b) => state.rarity[b] - state.rarity[a])[0];
   const best = bestKey ? `${SONG_BY_ID.get(state.answers[bestKey]).title} (${state.rarity[bestKey]})` : "—";
   const favN = Object.keys(loadFavorites()).length;
-  $("today-body").innerHTML = `<div class="today-line"><span>${state.mode === "daily" ? `Masume #${dailyNumber()}` : t(state.mode)}</span><b>${filled}/${total}</b></div>
+  $("today-body").innerHTML = `<div class="today-line"><span>${state.mode === "daily" ? `Grid #${dailyNumber()}` : t(state.mode)}</span><b>${filled}/${total}</b></div>
     <div class="today-progress"><i style="width:${total ? filled / total * 100 : 0}%"></i></div>
     <div class="today-line"><span>${t("remainingLabel")}</span><b>${MAX_STRIKES - state.strikes}</b></div>
     <div class="today-line"><span>${t("bestAnswerLabel")}</span><b>${escHtml(best)}</b></div>
@@ -1922,7 +1946,7 @@ function renderGrid() {
         const song = SONG_BY_ID.get(id);
         const t = thumbUrl(song);
         const rar = state.rarity[key];
-        html += `<div class="masu-cell correct" data-r="${ri}" data-c="${ci}" data-song-id="${escHtml(id)}" role="button" tabindex="0" aria-label="${escHtml(song.title)}" title="${escHtml(song.title)} — rarity ${rar}">
+        html += `<div class="masu-cell correct" data-r="${ri}" data-c="${ci}" data-song-id="${escHtml(id)}" role="button" tabindex="0" aria-label="${escHtml(song.title)}" title="${escHtml(song.title)} · rarity ${rar}">
           <div class="cell-fill">
             <div class="cell-thumb">${thumbImgHtml(song)}</div>
             <span class="cell-rarity${rar >= 70 ? " r-hi" : ""}">${rar}</span>
@@ -2135,9 +2159,9 @@ function shareText() {
     art += "\n";
   });
   const filled = Object.keys(state.answers).length;
-  const head = state.mode === "daily" ? `VOCALOID Masume #${Math.max(1, dayNum)}`
-    : state.mode === "archive" ? `VOCALOID Masume ${state.dateKey} (archive)`
-    : `VOCALOID Masume challenge ${state.chSeed}`;
+  const head = state.mode === "daily" ? `VOCALOID Grid #${Math.max(1, dayNum)}`
+    : state.mode === "archive" ? `VOCALOID Grid ${state.dateKey} (archive)`
+    : `VOCALOID Grid challenge ${state.chSeed}`;
   return `${head} · ${filled}/${n * n} · score ${currentScore()}/${maxScore(state.grid)}\n${art}`.trimEnd();
 }
 
@@ -2280,7 +2304,7 @@ $("hint-btn").addEventListener("click", () => {
   const key = `${ri},${ci}`;
   const pool = cellPool(state.grid.rows[ri], state.grid.cols[ci]);
   const top = SONG_BY_ID.get(pool[0]);
-  const prod = (top.producerNames || [])[0] || top.artist || "?";
+  const prod = [...songProducers(top)][0] || top.artist || "?";
   state.hintUsed = true;
   unlockAch("hint_user");
   state.hinted[key] = true;
@@ -2382,7 +2406,7 @@ $("ach-search-input").addEventListener("input", () => { achQuery = $("ach-search
   const releases = {
     "1.2": { date:"2026-07-16", intro:"Song discovery and progress update", items:["Added Song Library favorites and personal answer history.","Added expanded achievements, search, categories, and progress.","Added score breakdowns and archive completion indicators.","Redesigned song details and result presentation."] },
     "1.1": { date:"2026-07-16", intro:"Daily-play improvements", items:["Added guess history, near-miss feedback, hints, and the Today panel.","Added best-solution reveals after giving up.","Added song-pool disclosure and interface polish."] },
-    "1.0": { date:"2026-07-15", intro:"Initial Masume release", items:["Daily, Unlimited, Archive, challenge links, scoring, records, and sharing."] },
+    "1.0": { date:"2026-07-15", intro:"Initial release", items:["Daily, Unlimited, Archive, challenge links, scoring, records, and sharing."] },
   };
   let activeRelease = "1.2";
   const renderRelease = () => {
@@ -2444,7 +2468,7 @@ Promise.all([
   if (!localStorage.getItem("masume_tut")) openTutorial();
   setInterval(() => { const el = $("daily-countdown"); if (el) el.textContent = nextDailyText(); }, 1000);
 }).catch(err => {
-  $("grid-wrap").innerHTML = `<div class="loading-state">Could not load data — ${escHtml(err.message)}. Open via a local server rather than file://</div>`;
+  $("grid-wrap").innerHTML = `<div class="loading-state">Could not load data · ${escHtml(err.message)}. Open via a local server rather than file://</div>`;
 });
 </script>
 </body>
