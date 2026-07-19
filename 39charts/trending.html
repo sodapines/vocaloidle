@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>39charts — Trending</title>
+<title>39charts · Trending</title>
 <meta property="og:site_name" content="39charts">
-<meta property="og:title" content="39charts — Trending Vocaloid songs">
+<meta property="og:title" content="39charts · Trending Vocaloid songs">
 <meta property="og:description" content="Vocaloid songs gaining views fastest right now, scored on daily view growth and engagement.">
 <meta property="og:type" content="website">
 <meta name="description" content="Vocaloid songs gaining views fastest right now, scored on daily view growth and engagement.">
@@ -382,8 +382,8 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
     <div class="panel-header">[ How trending works ]</div>
     <div style="padding:10px 12px;font-size:11px;line-height:1.7;color:var(--muted)">
       Each song's score starts from its <strong>combined views gained per day</strong> (NicoNico + YouTube + bilibili,
-      over the most recent week of nightly snapshots). That gain is boosted by <strong>momentum</strong> — smaller songs
-      growing fast relative to their size rank above giants inching along — and nudged by <strong>engagement</strong>
+      over the most recent week of nightly snapshots). That gain is boosted by <strong>momentum</strong> · smaller songs
+      growing fast relative to their size rank above giants inching along · and nudged by <strong>engagement</strong>
       (likes and comments per 1,000 views). Songs need at least two daily snapshots to qualify, so the list sharpens
       as more history is collected.
     </div>
@@ -392,9 +392,7 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
 </div>
 
 <footer class="site-footer">
-  <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
-    <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
-  </p>
+  <p>39charts: fan-made Vocaloid rankings (c) 2026 | Not affiliated with Crypton Future Media, NicoNico or YouTube | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a></p>
 </footer>
 
 <div class="settings-backdrop" id="settings-backdrop" hidden></div>
@@ -578,9 +576,9 @@ Promise.all([
 
   const listEl = document.getElementById("trend-list");
   if (!scored.length) {
-    listEl.innerHTML = `<div class="loading-state">No trending data yet — trending needs at least two daily snapshots showing view growth. The nightly refresh is collecting them now, so check back soon.</div>`;
+    listEl.innerHTML = `<div class="loading-state">No trending data yet · trending needs at least two daily snapshots showing view growth. The nightly refresh is collecting them now, so check back soon.</div>`;
     document.getElementById("marquee-text").textContent =
-      "★ Trending charts are warming up — daily view snapshots are still being collected  ·  ★ Thank you for using 39charts ♪";
+      "★ Trending charts are warming up · daily view snapshots are still being collected  ·  ★ Thank you for using 39charts ♪";
     return;
   }
 
@@ -605,7 +603,7 @@ Promise.all([
     `★ Thank you for using 39charts ♪`;
 }).catch(err => {
   document.getElementById("trend-list").innerHTML =
-    `<div class="loading-state">Could not load data — ${escHtml(err.message)}</div>`;
+    `<div class="loading-state">Could not load data · ${escHtml(err.message)}</div>`;
 });
 </script>
 </body>

@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>39charts — Vocaloid Song Rankings</title>
+<title>39charts · Vocaloid Song Rankings</title>
 <meta property="og:site_name" content="39charts">
-<meta property="og:title" content="39charts — Vocaloid song rankings">
+<meta property="og:title" content="39charts · Vocaloid song rankings">
 <meta property="og:description" content="Vocaloid, SynthV and UTAU songs ranked by real NicoNico, YouTube and bilibili view counts. Filter by vocalist, producer, year and more.">
 <meta property="og:type" content="website">
 <meta name="description" content="Vocaloid, SynthV and UTAU songs ranked by real NicoNico, YouTube and bilibili view counts. Filter by vocalist, producer, year and more.">
@@ -1219,8 +1219,12 @@ html.dark-mode .view-src-label { }
 
 <div class="nnd-topbar">
   <span>Charts &gt; Music &gt; VOCALOID &gt; 39charts</span>
-  <span class="nnd-topbar-right">Vocaloid Song Rankings</span>
+  <span class="nnd-topbar-right" id="nnd-date"></span>
 </div>
+<script>
+  document.getElementById("nnd-date").textContent =
+    new Intl.DateTimeFormat(undefined, { year: "numeric", month: "long", day: "numeric" }).format(new Date());
+</script>
 
 <div class="nnd-mainbar">
   <a class="nnd-logo" href="../" title="Back to VOCALOIDLE home">
@@ -1630,10 +1634,16 @@ const SYNTH_PATTERNS = [
   /sachiko/i, /arsloid/i, /unity-chan/i, /^uni$/i, /ruby/i, /^solaria$/i,
   /^asterian$/i, /gahata meiji/i, /matsudappoiyo/i, /kasuka(ne)? ako/i,
   /^po-?uta$/i, /synthesizer v/i, /momone momo continuous/i,
+  /mo qingxian/i, /zhiyu moke/i, /hai yi/i, /cangqiong/i, /xingchen/i,
 ];
 
+const EXTRA_SYNTHS = new Set(); // ground-truth synth names carried on newer song entries (synthNames from VocaDB artistType)
+function registerSynthNames(songs) {
+  for (const s of songs || []) for (const n of s.synthNames || []) EXTRA_SYNTHS.add(String(n).toLowerCase());
+}
 function isSynthName(name) {
-  return VOCALIST_MAP.some(v => v.match.test(name)) ||
+  return EXTRA_SYNTHS.has(String(name).toLowerCase()) ||
+    VOCALIST_MAP.some(v => v.match.test(name)) ||
     SYNTH_PATTERNS.some(r => r.test(name));
 }
 
@@ -1774,12 +1784,23 @@ function combinedHistSeries(id) {
   });
 }
 
-/* Combined views gained over the most recent ~7-day window of snapshots. */
+/* History series for the currently selected platform; combined when "both". */
+function platformHistSeries(id) {
+  const key = activePlatform === "nnd" ? "n" : activePlatform === "yt" ? "y" : activePlatform === "bili" ? "b" : null;
+  if (!key) return combinedHistSeries(id);
+  const e = HISTORY && HISTORY.songs && HISTORY.songs[String(id)];
+  const s = e && e[key];
+  if (!s) return null;
+  return HISTORY.dates.map((_, i) => (s[i] != null ? s[i] : null));
+}
+
+/* Views gained over the most recent ~7-day window of snapshots, counted on
+   the platform selected in [RANKED BY] (combined when "ALL"). */
 function growthOf(song) {
-  const id = String(song.vocadbId);
+  const id = activePlatform + ":" + String(song.vocadbId);
   if (GROWTH_CACHE.has(id)) return GROWTH_CACHE.get(id);
   let gain = null;
-  const comb = combinedHistSeries(id);
+  const comb = platformHistSeries(String(song.vocadbId));
   if (comb) {
     const idx = comb.map((v, i) => v != null ? i : -1).filter(i => i >= 0);
     if (idx.length >= 2) {
@@ -1970,7 +1991,7 @@ function coverArtChain(song) {
     if (u.includes("ytimg.com") && u.includes("mqdefault")) return 1;
     if (u.includes("ytimg.com"))                            return 2;
     if (u.includes("sndcdn.com"))                           return 3;
-    return 4; /* NicoNico last — lowest resolution */
+    return 4; /* NicoNico last · lowest resolution */
   };
 
   return [...new Set(all)].sort((a, b) => priority(a) - priority(b));
@@ -2800,10 +2821,10 @@ function cachePut(key, v) {
 
 function loadSongs() {
   const KEY = "39c_songs_v2";
-  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
+  { const c = cacheGet(KEY); if (c) { registerSynthNames(c); return Promise.resolve(c); } }
   return fetch("../data/songs.json")
     .then(r => { if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-    .then(data => { cachePut(KEY, data); return data; });
+    .then(data => { cachePut(KEY, data); registerSynthNames(data); return data; });
 }
 
 function loadViews() {
@@ -2875,7 +2896,7 @@ function renderCalendar() {
   const box = document.getElementById("asof-cal");
   const avail = asofDates();
   if (!avail.length) {
-    box.innerHTML = `<p style="color:var(--faint);font-size:11px">No daily snapshots yet — history is collected by the nightly refresh starting July 2026.</p>`;
+    box.innerHTML = `<p style="color:var(--faint);font-size:11px">No daily snapshots yet · history is collected by the nightly refresh starting July 2026.</p>`;
     return;
   }
   const availSet = new Set(avail);
@@ -2991,7 +3012,7 @@ Promise.all([loadSongs(), loadViews(), loadYtViews(), loadDetails(), loadBiliVie
     document.getElementById("card-grid").innerHTML = `
       <div class="state-message">
         <strong>Could not load songs.json</strong>
-        ${escHtml(err.message)} — open via a local server (e.g. <code>npx serve</code>) rather than file://
+        ${escHtml(err.message)} · open via a local server (e.g. <code>npx serve</code>) rather than file://
       </div>`;
     document.getElementById("result-count").textContent = "error";
   });

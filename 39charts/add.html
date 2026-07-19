@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>39charts — Add Song</title>
+<title>39charts · Add Song</title>
 <meta property="og:site_name" content="39charts">
-<meta property="og:title" content="39charts — Add a song">
-<meta property="og:description" content="Suggest a Vocaloid song for the 39charts rankings — song info is fetched from VocaDB automatically.">
+<meta property="og:title" content="39charts · Add a song">
+<meta property="og:description" content="Suggest a Vocaloid song for the 39charts rankings · song info is fetched from VocaDB automatically.">
 <meta property="og:type" content="website">
-<meta name="description" content="Suggest a Vocaloid song for the 39charts rankings — song info is fetched from VocaDB automatically.">
+<meta name="description" content="Suggest a Vocaloid song for the 39charts rankings · song info is fetched from VocaDB automatically.">
 <script>try{if(localStorage.getItem("39c_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
 <style>
 :root {
@@ -673,7 +673,7 @@ html.dark-mode .msg-err { background: #2a1414; border-color: #5a2a2a; border-top
       <div class="sidebar-body">
         <ol class="htp-list">
           <li data-n="1">Find the song on <strong>VocaDB</strong> and copy its URL or ID.</li>
-          <li data-n="2">Paste it below and press <strong>Fetch</strong> — the details fill in automatically.</li>
+          <li data-n="2">Paste it below and press <strong>Fetch</strong> · the details fill in automatically.</li>
           <li data-n="3">Confirm the tier, add an optional note, and <strong>submit for review</strong>.</li>
           <li data-n="4">The maintainer approves it, and the song joins the rankings.</li>
         </ol>
@@ -720,7 +720,7 @@ html.dark-mode .msg-err { background: #2a1414; border-color: #5a2a2a; border-top
     <!-- Admin panel -->
     <div class="admin-panel">
       <div class="admin-header">
-        <span>[ Admin — Review Queue ]</span>
+        <span>[ Admin · Review Queue ]</span>
         <div class="admin-token-row">
           <input type="password" class="admin-token-input" id="admin-token" placeholder="Admin token…">
           <button class="admin-load-btn" id="admin-load-btn">Load Queue</button>
@@ -731,7 +731,7 @@ html.dark-mode .msg-err { background: #2a1414; border-color: #5a2a2a; border-top
         <div class="sub-empty">Enter admin token to view the review queue.</div>
       </div>
       <div style="padding:4px 10px 6px;font-size:9px;color:var(--faint);font-style:italic;border-top:1px solid var(--line)">
-        Brand-new submissions can take up to a minute to appear (storage propagation) — reload the queue if one seems missing.
+        Brand-new submissions can take up to a minute to appear (storage propagation) · reload the queue if one seems missing.
       </div>
     </div>
 
@@ -883,7 +883,7 @@ function buildCoverArts(pvs) {
 }
 
 const TIER_OPTIONS = `
-  <option value="none">— unknown</option>
+  <option value="none">· unknown</option>
   <option value="100m">100M+</option>
   <option value="10m">10M+</option>
   <option value="1m">1M+</option>
@@ -908,6 +908,11 @@ function normalizeVocalists(names) {
   });
   return found;
 }
+
+/* VocaDB artistTypes that are vocal synths — anything else credited as a
+   vocalist is a human guest singer. Stored on the song as synthNames so the
+   site can classify new voicebanks without a hardcoded pattern list. */
+const SYNTH_ARTIST_TYPES = /^(Vocaloid|UTAU|CeVIO|SynthesizerV|NEUTRINO|VoiSona|NewType|Voiceroid|AIVoice|OtherVoiceSynthesizer)$/i;
 
 function buildSongEntry(data, tiers) {
   const artists = data.artists||[];
@@ -934,6 +939,7 @@ function buildSongEntry(data, tiers) {
     coverArts,
     publishDate:   data.publishDate ? data.publishDate.slice(0,10) : "",
     singerNames:   vocalists.map(a=>a.artist.name),
+    synthNames:    vocalists.filter(a=>SYNTH_ARTIST_TYPES.test(a.artist.artistType||"")).map(a=>a.artist.name),
     producerNames: producers.map(a=>a.artist.name),
     acceptedTitles:(data.names||[]).map(n=>n.value).filter(Boolean),
     vocadbPools:   [],
@@ -998,8 +1004,8 @@ async function doFetch() {
     statusArea.innerHTML = `
       <div class="preview-wrap${inDb ? " is-dupe" : ""}">
         <div class="preview-head${inDb ? " is-dupe" : ""}">${inDb
-          ? "&#9888; Already in the database — no need to submit"
-          : "★ Song found — confirm details and submit"}</div>
+          ? "&#9888; Already in the database · no need to submit"
+          : "★ Song found · confirm details and submit"}</div>
         <div class="preview-body">
           <div class="preview-thumb">
             ${chainImg(coverArts)
@@ -1032,15 +1038,15 @@ async function doFetch() {
         </div>` : `
         <div class="preview-foot">
           ${(data._platforms && data._platforms.nnd) || !(data._platforms && (data._platforms.yt || data._platforms.bili)) ? `
-          <span style="font-size:10px;color:var(--muted);font-weight:700" title="This song&#39;s NicoNico view milestone — a rough guess is fine">NND tier</span>
+          <span style="font-size:10px;color:var(--muted);font-weight:700" title="This song&#39;s NicoNico view milestone · a rough guess is fine">NND tier</span>
           <select class="tier-select" id="tier-nnd">${TIER_OPTIONS}</select>` : ""}
           ${data._platforms && data._platforms.yt ? `
-          <span style="font-size:10px;color:var(--muted);font-weight:700" title="This song&#39;s YouTube view milestone — a rough guess is fine">YT tier</span>
+          <span style="font-size:10px;color:var(--muted);font-weight:700" title="This song&#39;s YouTube view milestone · a rough guess is fine">YT tier</span>
           <select class="tier-select" id="tier-yt">${TIER_OPTIONS}</select>` : ""}
           <input type="text" class="note-input" id="note-input" placeholder="Optional note…" maxlength="300">
           <button class="submit-btn" id="submit-btn">Submit for Review</button>
         </div>
-        <div class="preview-hint">Tiers are per platform — a song can be 1M+ on NicoNico but 100K+ on YouTube. Real view counts are fetched automatically after approval, so rough guesses are fine.</div>`}
+        <div class="preview-hint">Tiers are per platform · a song can be 1M+ on NicoNico but 100K+ on YouTube. Real view counts are fetched automatically after approval, so rough guesses are fine.</div>`}
       </div>`;
 
     if (!inDb) {
@@ -1126,7 +1132,7 @@ async function loadQueue() {
 function renderQueue(items, token) {
   const body = document.getElementById("admin-body");
   if (!items.length) {
-    body.innerHTML = `<div class="sub-empty">Queue is empty — no pending submissions.</div>`;
+    body.innerHTML = `<div class="sub-empty">Queue is empty · no pending submissions.</div>`;
     return;
   }
   body.innerHTML = `<ul class="sub-list">${items.map(item => {

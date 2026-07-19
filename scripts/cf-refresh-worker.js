@@ -299,8 +299,61 @@ async function publishApproved(env) {
   }
   if (added) {
     await ghPutJson("data/songs.json", songs, songsFile.sha, token, `feat(data): publish ${added} approved submission(s)`);
+    // Image lookups must never block the publish itself.
+    try { await updateArtistImages(entries.map(e => e.song), token); }
+    catch (e) { console.log(`updateArtistImages failed: ${e.message}`); }
   }
   return added;
+}
+
+/* Resolve VocaDB artist pictures for names the site hasn't seen yet, so new
+   producer/vocalist pages get real avatars instead of letter placeholders.
+   Mirrors scripts/fetch-artist-images.js: first relevance-ranked search hit
+   that actually has a picture, trying Exact then Auto name matching. */
+async function updateArtistImages(newSongs, token) {
+  const names = new Set();
+  for (const s of newSongs || []) {
+    if (!s) continue;
+    for (const n of s.producerNames || []) if (n) names.add(n);
+    for (const n of s.singerNames || []) if (n && !/various/i.test(n)) names.add(n);
+  }
+  if (!names.size) return 0;
+
+  const file = await ghGetJson("data/artists.json", token);
+  const out = file.data || { updated: null, images: {} };
+  if (!out.images) out.images = {};
+
+  const picUrl = (i) => {
+    const p = i && i.mainPicture;
+    return p ? (p.urlThumb || p.urlSmallThumb || p.urlOriginal || null) : null;
+  };
+
+  let looked = 0;
+  for (const name of names) {
+    if (out.images[name]) continue; // already have a picture; retry only empties
+    let url = null;
+    for (const mode of ["Exact", "Auto"]) {
+      try {
+        const res = await fetch(
+          `https://vocadb.net/api/artists?query=${encodeURIComponent(name)}` +
+          `&maxResults=5&nameMatchMode=${mode}&fields=MainPicture,AdditionalNames&lang=English`,
+          { headers: { "User-Agent": UA } }
+        );
+        if (!res.ok) continue;
+        const items = (await res.json()).items || [];
+        const withPic = items.find((i) => picUrl(i));
+        if (withPic) { url = picUrl(withPic); break; }
+      } catch { /* try next mode */ }
+    }
+    if (url || out.images[name] === undefined) { out.images[name] = url || ""; looked++; }
+    await new Promise((r) => setTimeout(r, 200));
+  }
+
+  if (looked) {
+    out.updated = new Date().toISOString().slice(0, 10);
+    await ghPutJson("data/artists.json", out, file.sha, token, `feat(data): artist images for ${looked} new name(s)`);
+  }
+  return looked;
 }
 
 /* ───────────────────────── Entry points ───────────────────────── */

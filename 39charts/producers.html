@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>39charts — Producers</title>
+<title>39charts · Producers</title>
 <meta property="og:site_name" content="39charts">
-<meta property="og:title" content="39charts — Producer index">
+<meta property="og:title" content="39charts · Producer index">
 <meta property="og:description" content="Every producer on 39charts, ranked by total views across their songs.">
 <meta property="og:type" content="website">
 <meta name="description" content="Every producer on 39charts, ranked by total views across their songs.">
@@ -343,7 +343,7 @@ button, input { font: inherit; cursor: pointer; }
   flex-shrink: 0;
 }
 /* Now that views moved onto the picture, the chip row owns the whole footer
-   width — no more clipped chips or a cut-off "+N". One non-wrapping row also
+   width · no more clipped chips or a cut-off "+N". One non-wrapping row also
    keeps every card the same height (no stretched-card discolouration). */
 .producer-tags {
   display: flex; align-items: center; gap: 4px;
@@ -856,9 +856,15 @@ const SYNTH_PATTERNS = [
   /sachiko/i, /arsloid/i, /unity-chan/i, /^uni$/i, /ruby/i, /^solaria$/i,
   /^asterian$/i, /gahata meiji/i, /matsudappoiyo/i, /kasuka(ne)? ako/i,
   /^po-?uta$/i, /synthesizer v/i,
+  /mo qingxian/i, /zhiyu moke/i, /hai yi/i, /cangqiong/i, /xingchen/i,
 ];
+const EXTRA_SYNTHS = new Set(); // ground-truth synth names carried on newer song entries (synthNames from VocaDB artistType)
+function registerSynthNames(songs) {
+  for (const s of songs || []) for (const n of s.synthNames || []) EXTRA_SYNTHS.add(String(n).toLowerCase());
+}
 function isSynthName(name) {
-  return VOCALIST_MAP.some(v => v.match.test(name)) ||
+  return EXTRA_SYNTHS.has(String(name).toLowerCase()) ||
+    VOCALIST_MAP.some(v => v.match.test(name)) ||
     SYNTH_PATTERNS.some(r => r.test(name));
 }
 
@@ -986,10 +992,10 @@ function cachePut(key, v) {
 
 function loadSongs() {
   const KEY = "39c_songs_v2";
-  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
+  { const c = cacheGet(KEY); if (c) { registerSynthNames(c); return Promise.resolve(c); } }
   return fetch("../data/songs.json")
     .then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-    .then(data=>{ cachePut(KEY, data); return data; });
+    .then(data=>{ cachePut(KEY, data); registerSynthNames(data); return data; });
 }
 
 /* ── Build producer index from song data ── */

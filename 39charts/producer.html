@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>39charts — Producer</title>
+<title>39charts · Producer</title>
 <meta property="og:site_name" content="39charts">
-<meta property="og:title" content="39charts — Producer detail">
+<meta property="og:title" content="39charts · Producer detail">
 <meta property="og:description" content="Producer discography with real view counts and platform breakdown.">
 <meta property="og:type" content="website">
 <meta name="description" content="Producer discography with real view counts and platform breakdown.">
@@ -521,9 +521,7 @@ html.dark-mode .settings-toggle.is-on {
 </div>
 
 <footer class="site-footer">
-  <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
-    <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
-  </p>
+  <p>39charts: fan-made Vocaloid rankings (c) 2026 | Not affiliated with Crypton Future Media, NicoNico or YouTube | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a></p>
 </footer>
 
 <div class="settings-backdrop" id="settings-backdrop" hidden></div>
@@ -579,10 +577,10 @@ function cachePut(key, v) {
 
 function loadSongs() {
   const KEY = "39c_songs_v2";
-  { const c = cacheGet(KEY); if (c) return Promise.resolve(c); }
+  { const c = cacheGet(KEY); if (c) { registerSynthNames(c); return Promise.resolve(c); } }
   return fetch("../data/songs.json")
     .then(r=>{ if(!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
-    .then(data=>{ cachePut(KEY, data); return data; });
+    .then(data=>{ cachePut(KEY, data); registerSynthNames(data); return data; });
 }
 function loadJsonCached(file, key) {
   { const c = cacheGet(key); if (c) return Promise.resolve(c); }
@@ -718,9 +716,15 @@ const SYNTH_PATTERNS = [
   /sachiko/i, /arsloid/i, /unity-chan/i, /^uni$/i, /ruby/i, /^solaria$/i,
   /^asterian$/i, /gahata meiji/i, /matsudappoiyo/i, /kasuka(ne)? ako/i,
   /^po-?uta$/i, /synthesizer v/i,
+  /mo qingxian/i, /zhiyu moke/i, /hai yi/i, /cangqiong/i, /xingchen/i,
 ];
+const EXTRA_SYNTHS = new Set(); // ground-truth synth names carried on newer song entries (synthNames from VocaDB artistType)
+function registerSynthNames(songs) {
+  for (const s of songs || []) for (const n of s.synthNames || []) EXTRA_SYNTHS.add(String(n).toLowerCase());
+}
 function isSynthName(name) {
-  return VOCALIST_MAP.some(v => v.match.test(name)) ||
+  return EXTRA_SYNTHS.has(String(name).toLowerCase()) ||
+    VOCALIST_MAP.some(v => v.match.test(name)) ||
     SYNTH_PATTERNS.some(r => r.test(name));
 }
 
@@ -856,7 +860,7 @@ function historyPanelHtml(pageSongs) {
   const collecting = `
     <div class="panel">
       <div class="panel-header">[ Views Over Time ] <span class="panel-note">daily tracking</span></div>
-      <div class="hist-body hist-empty">Collecting daily snapshots — the graph appears once at least two days of data exist.</div>
+      <div class="hist-body hist-empty">Collecting daily snapshots · the graph appears once at least two days of data exist.</div>
     </div>`;
   if (!HISTORY || !HISTORY.dates) return collecting;
   const dates = HISTORY.dates;
@@ -919,7 +923,7 @@ function historyPanelHtml(pageSongs) {
 }
 
 function buildPage(producerName, songs) {
-  document.title = `39charts — ${producerName}`;
+  document.title = `39charts · ${producerName}`;
   document.getElementById("topbar-crumb").textContent = `39charts › Producers › ${producerName}`;
 
   ALL_SONGS = songs;

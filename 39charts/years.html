@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>39charts — Years</title>
+<title>39charts · Years</title>
 <meta property="og:site_name" content="39charts">
-<meta property="og:title" content="39charts — Vocaloid charts by year">
+<meta property="og:title" content="39charts · Vocaloid charts by year">
 <meta property="og:description" content="The biggest Vocaloid songs of every year, ranked by real NicoNico + YouTube + bilibili view counts.">
 <meta property="og:type" content="website">
 <meta name="description" content="The biggest Vocaloid songs of every year, ranked by real view counts.">
@@ -383,9 +383,7 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
 </div>
 
 <footer class="site-footer">
-  <p>39charts — fan-made Vocaloid rankings &nbsp;·&nbsp; data from
-    <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
-  </p>
+  <p>39charts: fan-made Vocaloid rankings (c) 2026 | Not affiliated with Crypton Future Media, NicoNico or YouTube | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a></p>
 </footer>
 
 <div class="settings-backdrop" id="settings-backdrop" hidden></div>
@@ -561,7 +559,7 @@ Promise.all([
     `★ Thank you for using 39charts ♪`;
 }).catch(err => {
   document.getElementById("years-list").innerHTML =
-    `<div class="loading-state">Could not load data — ${escHtml(err.message)}</div>`;
+    `<div class="loading-state">Could not load data · ${escHtml(err.message)}</div>`;
 });
 </script>
 </body>
