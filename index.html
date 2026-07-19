@@ -143,86 +143,75 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
-    .play-grid {
+    .proj-list {
       margin-top: 6px;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
     }
-    .play-card {
-      min-width: 0;
+    .proj {
+      min-height: 78px;
       display: grid;
-      grid-template-rows: auto 170px 1fr auto;
+      grid-template-columns: 46px 138px minmax(0, 1fr) 150px 100px;
+      align-items: stretch;
+      color: var(--text);
       background: linear-gradient(to bottom, var(--surface), var(--sf));
       border: 2px solid var(--ls);
       box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.12);
     }
-    .card-head {
-      min-height: 34px;
-      display: flex;
-      align-items: center;
+    .proj:hover { color: var(--text); text-decoration: none; border-color: var(--red); }
+    .proj-icon {
+      display: grid;
+      place-items: center;
       color: #fff;
-      border-bottom: 1px solid rgba(0,0,0,0.45);
+      border-right: 1px solid rgba(0,0,0,0.35);
+      font-size: 15px;
+      font-weight: 900;
       text-shadow: 0 1px rgba(0,0,0,0.45);
     }
-    .heardle .card-head { background: linear-gradient(#e52b2b, #aa0000); }
-    .higher .card-head { background: linear-gradient(#3769c9, #174690); }
-    .charts .card-head { background: linear-gradient(#2faf57, #1a7d3c); }
-    .masume .card-head { background: linear-gradient(#2aa8a0, #157a73); }
-    .timeline .card-head { background: linear-gradient(#8a5ac9, #5c3396); }
-    .play-card.wide {
-      grid-column: 1 / -1;
-      grid-template-rows: auto 1fr auto;
-      grid-template-columns: 300px minmax(0, 1fr);
-    }
-    .play-card.wide .card-head { grid-column: 1 / -1; }
-    .play-card.wide .card-image {
-      grid-row: 2 / span 2; min-height: 150px;
-      border-right: 1px solid var(--line-dark); border-bottom: none;
-    }
+    .heardle .proj-icon { background: linear-gradient(#e52b2b, #aa0000); }
+    .higher .proj-icon { background: linear-gradient(#3769c9, #174690); }
+    .charts .proj-icon { background: linear-gradient(#2faf57, #1a7d3c); font-size: 13px; letter-spacing: -0.02em; }
+    .masume .proj-icon { background: linear-gradient(#2aa8a0, #157a73); }
+    .timeline .proj-icon { background: linear-gradient(#8a5ac9, #5c3396); }
+    .tl-mark { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+    .tl-mark i { width: 16px; height: 3px; background: #fff; display: block; }
+    .tl-mark i:nth-child(2) { width: 11px; opacity: 0.75; }
+    .tl-mark i:nth-child(3) { width: 6px; opacity: 0.5; }
     .lm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
     .lm-grid i { width: 7px; height: 7px; background: #fff; box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25); }
     .lm-grid i:nth-child(3) { background: rgba(255,255,255,0.45); }
-    .charts .card-icon { font-size: 13px; letter-spacing: -0.02em; }
-    .card-icon {
-      align-self: stretch;
-      min-width: 42px;
-      display: grid;
-      place-items: center;
-      border-right: 1px solid rgba(0,0,0,0.3);
-      font-size: 15px;
-      font-weight: 900;
-    }
-    .card-name { padding: 0 10px; font-size: 15px; font-weight: 900; }
-    .card-image {
+    .proj-thumb {
       position: relative;
       overflow: hidden;
       background: #111;
-      border-bottom: 1px solid var(--line-dark);
+      border-right: 1px solid var(--line-dark);
     }
-    .card-image img { width: 100%; height: 100%; display: block; object-fit: cover; opacity: 0.88; }
-    .card-image::after {
+    .proj-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.88; display: block; }
+    .proj-thumb::after {
       content: "";
       position: absolute;
       inset: 0;
       background: repeating-linear-gradient(0deg, rgba(0,0,0,0.08) 0, rgba(0,0,0,0.08) 1px, transparent 1px, transparent 3px);
       pointer-events: none;
     }
-    .image-note {
-      position: absolute;
-      z-index: 1;
-      left: 9px;
-      bottom: 8px;
-      padding: 3px 7px;
-      color: #fff;
-      background: rgba(0,0,0,0.76);
-      border: 1px solid rgba(255,255,255,0.65);
-      font-weight: 700;
+    .proj-body {
+      min-width: 0;
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
     }
-    .card-copy { min-height: 70px; padding: 12px; color: var(--muted); line-height: 1.65; }
+    .proj-name {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .proj-desc { color: var(--muted); line-height: 1.55; }
     .card-tag {
-      margin-left: auto;
-      margin-right: 10px;
       padding: 1px 6px;
       color: #665d16;
       background: #fffde5;
@@ -230,37 +219,25 @@
       font-size: 9px;
       font-weight: 700;
       letter-spacing: 0.06em;
-      text-shadow: none;
-    }
-    .image-wip {
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding: 3px 8px;
-      color: #fff8d8;
-      background: rgba(20,16,0,0.82);
-      border-bottom: 1px solid #c9b43a;
-      font-size: 9px;
-      line-height: 1.45;
     }
     html.dark-mode .card-tag {
       color: #d6c266;
       background: #211d09;
       border-color: #5a4a16;
     }
-    .card-foot {
-      min-height: 38px;
-      display: grid;
-      grid-template-columns: 1fr 116px;
-      align-items: center;
+    .proj-meta {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+      padding: 6px 10px;
+      color: var(--faint);
       background: var(--soft);
-      border-top: 1px solid var(--line);
+      border-left: 1px solid var(--line);
+      font-size: 10px;
+      line-height: 1.4;
     }
-    .card-foot span { padding: 0 10px; color: var(--faint); font-size: 10px; }
     .launch {
-      align-self: stretch;
       display: grid;
       place-items: center;
       color: #fff;
@@ -268,14 +245,7 @@
       border-left: 1px solid var(--red-dark);
       font-weight: 700;
     }
-    .launch:hover { color: #fff; text-decoration: none; background: linear-gradient(#ee2222, #bb0000); }
-    .launch.is-disabled {
-      background: linear-gradient(#8a8a8a, #6a6a6a);
-      border-left-color: #555;
-      cursor: default;
-      font-size: 11px;
-    }
-    .launch.is-disabled:hover { background: linear-gradient(#8a8a8a, #6a6a6a); }
+    .proj:hover .launch { background: linear-gradient(#ee2222, #bb0000); }
     .shuffle-btn {
       position: absolute;
       top: 8px;
@@ -295,19 +265,18 @@
     .shuffle-btn:active { background: linear-gradient(#aa0000, #990000); box-shadow: inset 0 1px 2px rgba(0,0,0,0.3); }
     .spotlight {
       margin-top: 6px;
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) 220px;
-      gap: 8px;
-      align-items: stretch;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
     }
     .spotlight-card {
       position: relative;
       min-width: 0;
       display: grid;
-      /* 284 × 160 ≈ 16:9, so the image box matches a 1280×720 thumbnail and
-         object-fit: cover zooms non-16:9 art to fill instead of side-cropping. */
-      grid-template-columns: 284px minmax(0, 1fr);
-      min-height: 160px;
+      /* 3:2-ish box + slight zoom so letterboxed/pillarboxed source thumbnails
+         get their baked-in black bars cropped away by object-fit: cover. */
+      grid-template-columns: 208px minmax(0, 1fr);
+      min-height: 138px;
       background: linear-gradient(to bottom, var(--surface), var(--sf));
       border: 2px solid var(--ls);
       box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.12);
@@ -320,6 +289,9 @@
       min-height: 100%;
     }
     .spot-image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; display: block; }
+    /* 4:3 source thumbnails carry baked-in black bars around the 16:9 art —
+       zoom just enough (1 / 0.75) to crop them; true 16:9 art stays untouched. */
+    .spot-image img.bars, .proj-thumb img.bars { transform: scale(1.34); }
     .spot-image::after {
       content: "";
       position: absolute;
@@ -339,61 +311,57 @@
       font-weight: 700;
       line-height: 16px;
     }
-    .spot-info { padding: 10px 12px; display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .spot-info { padding: 8px 12px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
     .spot-label { color: var(--red); font-size: 10px; font-weight: 700; }
     .spot-title { font-size: 16px; font-weight: 900; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; padding-right: 120px; }
     .spot-artist { color: var(--muted); font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
     .spot-meta { color: var(--faint); font-size: 10px; margin-top: 1px; }
-    .spot-views { margin-top: 7px; }
-    .spot-views-num { font-size: 21px; font-weight: 900; color: var(--text); font-family: Consolas, "MS PGothic", monospace; }
+    .spot-views { margin-top: 5px; }
+    .spot-views-num { font-size: 18px; font-weight: 900; color: var(--text); font-family: Consolas, "MS PGothic", monospace; }
     .spot-views-cap { margin-left: 4px; font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.05em; }
     .spot-plat { margin-top: 2px; font-size: 10px; color: var(--faint); font-family: Consolas, "MS PGothic", monospace; }
     .spot-plat b { color: var(--muted); font-weight: 700; }
     .spot-links { margin-top: auto; padding-top: 8px; display: flex; gap: 14px; flex-wrap: wrap; }
     .spot-link { font-size: 11px; }
     .site-stats {
-      display: flex;
-      flex-direction: column;
       background: linear-gradient(to bottom, var(--surface), var(--sf));
       border: 2px solid var(--ls);
-      border-top: 3px solid var(--red);
       box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.12);
       overflow: hidden;
     }
+    .stats-top {
+      display: flex;
+      align-items: stretch;
+      min-height: 30px;
+      border-bottom: 1px solid var(--line);
+    }
     .stats-head {
-      flex-shrink: 0;
-      padding: 5px 10px;
+      display: flex;
+      align-items: center;
+      padding: 4px 10px;
       background:
         repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
         linear-gradient(to bottom, #f3f1ea, #ddd9d0);
-      border-bottom: 1px solid var(--ls);
+      border-right: 1px solid var(--ls);
       box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
       font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-    }
-    .stats-hero {
-      flex: 1;
-      display: grid;
-      grid-template-columns: 3fr 2fr;
-      align-items: stretch;
-      border-bottom: 1px solid var(--line);
+      white-space: nowrap;
     }
     .stats-hero-item {
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      gap: 2px;
-      padding: 12px 6px;
-      text-align: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-right: 1px solid var(--line);
+      white-space: nowrap;
     }
-    .stats-hero-item + .stats-hero-item { border-left: 1px solid var(--line); }
     .stats-hero-item strong {
       color: var(--red);
-      font-size: 22px;
+      font-size: 15px;
       font-weight: 900;
       line-height: 1;
       font-family: Consolas, "MS PGothic", monospace;
@@ -405,18 +373,34 @@
       text-transform: uppercase;
       letter-spacing: 0.07em;
     }
-    .stats-vers { display: flex; flex-direction: column; }
+    .stats-foot {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      padding: 4px 10px;
+      color: var(--faint);
+      background: var(--soft);
+      border-left: 1px solid var(--line);
+      font-size: 10px;
+      white-space: nowrap;
+    }
+    .stats-foot strong { color: var(--muted); font-weight: 700; margin-left: 4px; }
+    .stats-vers {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
     .stats-ver {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 8px;
-      padding: 5px 10px;
-      border-bottom: 1px solid var(--line);
+      justify-content: center;
+      gap: 6px;
+      padding: 6px 4px;
+      border-right: 1px solid var(--line);
       font-size: 11px;
       color: var(--muted);
+      white-space: nowrap;
     }
-    .stats-ver:nth-child(even) { background: var(--sf); }
+    .stats-ver:last-child { border-right: none; }
     .stats-ver strong {
       padding: 0 5px;
       color: #fff;
@@ -425,15 +409,7 @@
       font-size: 10px;
       font-weight: 700;
       line-height: 15px;
-      white-space: nowrap;
     }
-    .stats-foot {
-      padding: 6px 10px;
-      color: var(--faint);
-      background: var(--soft);
-      font-size: 10px;
-    }
-    .stats-foot strong { color: var(--muted); font-weight: 700; }
     .footer {
       margin-top: auto;
       padding: 6px 10px;
@@ -507,7 +483,7 @@
     html.dark-mode .intro {
       box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35);
     }
-    html.dark-mode .play-card,
+    html.dark-mode .proj,
     html.dark-mode .spotlight-card,
     html.dark-mode .site-stats {
       box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 2px 4px rgba(0,0,0,0.35);
@@ -516,14 +492,23 @@
     @media (max-width: 700px) {
       .topbar { display: none; }
       .mainbar { flex-wrap: wrap; }
-      .play-grid { grid-template-columns: 1fr; }
-      .play-card.wide { grid-template-columns: 1fr; grid-template-rows: auto 170px 1fr auto; }
-      .play-card.wide .card-image { grid-row: auto; border-right: none; border-bottom: 1px solid var(--line-dark); }
+      .proj { grid-template-columns: 40px minmax(0, 1fr) 84px; min-height: 68px; }
+      .proj-thumb, .proj-meta { display: none; }
       .intro p { white-space: normal; }
-      .spotlight { grid-template-columns: 1fr; }
       .spotlight-card { grid-template-columns: 1fr; }
+      .stats-top { flex-wrap: wrap; }
+      .stats-head { width: 100%; border-right: none; border-bottom: 1px solid var(--ls); }
+      .stats-foot { width: 100%; margin-left: 0; border-left: none; border-top: 1px solid var(--line); }
+      .stats-vers { grid-template-columns: repeat(2, 1fr); }
+      .stats-ver { border-bottom: 1px solid var(--line); }
+      .stats-ver:nth-child(even) { border-right: none; }
+      .stats-ver:last-child { border-bottom: none; }
       .spot-image { aspect-ratio: 16 / 9; min-height: 0; border-right: none; border-bottom: 1px solid var(--line-dark); }
       .spot-title { padding-right: 0; }
+      .spot-info { padding: 7px 10px; gap: 1px; }
+      .spot-views { margin-top: 3px; }
+      .spot-views-num { font-size: 16px; }
+      .spot-links { padding-top: 5px; gap: 10px; }
     }
   </style>
   <script>
@@ -578,101 +563,61 @@
     </section>
 
     <div class="section-title">[AVAILABLE PROJECTS]</div>
-    <section class="play-grid" aria-label="Playable projects">
-      <article class="play-card heardle">
-        <header class="card-head">
-          <span class="card-icon">&#9835;</span>
-          <span class="card-name">VOCALOID Heardle</span>
-        </header>
-        <div class="card-image">
-          <img id="heardle-preview" src="favicon.jpg" alt="">
-          <span class="image-note">Can you guess the song?</span>
-        </div>
-        <div class="card-copy">
-          Listen to the opening, type the song title, and try to get it before the sixth clip.
-        </div>
-        <footer class="card-foot">
-          <span>New daily at local midnight</span>
-          <a class="launch" href="heardle/">Play &#9654;</a>
-        </footer>
-      </article>
+    <section class="proj-list" aria-label="Available projects">
+      <a class="proj heardle" href="heardle/">
+        <span class="proj-icon" aria-hidden="true">&#9835;</span>
+        <span class="proj-thumb" aria-hidden="true"><img id="heardle-preview" src="favicon.jpg" alt=""></span>
+        <span class="proj-body">
+          <span class="proj-name">VOCALOID Heardle</span>
+          <span class="proj-desc">Listen to the opening, type the song title, and try to get it before the sixth clip.</span>
+        </span>
+        <span class="proj-meta">New daily at local midnight</span>
+        <span class="launch">Play &#9654;</span>
+      </a>
 
-      <article class="play-card higher">
-        <header class="card-head">
-          <span class="card-icon">&#8593;&#8595;</span>
-          <span class="card-name">VOCALOID Higher / Lower</span>
-        </header>
-        <div class="card-image">
-          <img id="higher-preview" src="favicon.jpg" alt="">
-          <span class="image-note">Which song has more views?</span>
-        </div>
-        <div class="card-copy">
-          Pick higher or lower based on each song's NicoNico views. You get five lives, and every correct answer keeps the streak going.
-        </div>
-        <footer class="card-foot">
-          <span>View counts update separately</span>
-          <a class="launch" href="higher-or-lower/">Play &#9654;</a>
-        </footer>
-      </article>
+      <a class="proj higher" href="higher-or-lower/">
+        <span class="proj-icon" aria-hidden="true">&#8593;&#8595;</span>
+        <span class="proj-thumb" aria-hidden="true"><img id="higher-preview" src="favicon.jpg" alt=""></span>
+        <span class="proj-body">
+          <span class="proj-name">VOCALOID Higher / Lower</span>
+          <span class="proj-desc">Which song has more NicoNico views? Five lives, and every correct answer keeps the streak going.</span>
+        </span>
+        <span class="proj-meta">Endless &middot; streak-based</span>
+        <span class="launch">Play &#9654;</span>
+      </a>
 
-      <article class="play-card masume">
-        <header class="card-head">
-          <span class="card-icon"><span class="lm-grid" aria-hidden="true"><i></i><i></i><i></i><i></i></span></span>
-          <span class="card-name">Masume マス目</span>
-          <span class="card-tag">NEW</span>
-        </header>
-        <div class="card-image">
-          <img id="masume-preview" src="favicon.jpg" alt="">
-          <span class="image-note">Fill the grid. One song per square.</span>
-        </div>
-        <div class="card-copy">
-          A daily 4×4 knowledge grid: every square needs a song matching its row and column. Six strikes, rarer answers score more, one shared puzzle a day.
-        </div>
-        <footer class="card-foot">
-          <span>New daily grid at local midnight</span>
-          <a class="launch" href="masume/">Play &#9654;</a>
-        </footer>
-      </article>
+      <a class="proj masume" href="masume/">
+        <span class="proj-icon" aria-hidden="true"><span class="lm-grid"><i></i><i></i><i></i><i></i></span></span>
+        <span class="proj-thumb" aria-hidden="true"><img id="masume-preview" src="favicon.jpg" alt=""></span>
+        <span class="proj-body">
+          <span class="proj-name">VOCALOID Grid <span class="card-tag">NEW</span></span>
+          <span class="proj-desc">A daily 4×4 knowledge grid: every square needs a song matching its row and column. Six strikes, rarer answers score more.</span>
+        </span>
+        <span class="proj-meta">New daily grid at local midnight</span>
+        <span class="launch">Play &#9654;</span>
+      </a>
 
-      <article class="play-card timeline">
-        <header class="card-head">
-          <span class="card-icon">&#8987;</span>
-          <span class="card-name">VOCALOID Timeline</span>
-          <span class="card-tag">NEW</span>
-        </header>
-        <div class="card-image">
-          <img id="timeline-preview" src="favicon.jpg" alt="">
-          <span class="image-note">Oldest to newest &mdash; can you order them?</span>
-        </div>
-        <div class="card-copy">
-          Five well-known songs, one timeline: arrange them by release date from oldest to newest, then lock in. Era filters and a &#9733; Hard mode in Unlimited.
-        </div>
-        <footer class="card-foot">
-          <span>New daily at local midnight</span>
-          <a class="launch" href="timeline/">Play &#9654;</a>
-        </footer>
-      </article>
+      <a class="proj timeline" href="timeline/">
+        <span class="proj-icon" aria-hidden="true"><span class="tl-mark"><i></i><i></i><i></i></span></span>
+        <span class="proj-thumb" aria-hidden="true"><img id="timeline-preview" src="favicon.jpg" alt=""></span>
+        <span class="proj-body">
+          <span class="proj-name">VOCALOID Timeline <span class="card-tag">NEW</span></span>
+          <span class="proj-desc">Arrange five well-known songs by release date from oldest to newest, then lock in. Era filters and &#9733; Hard mode in Unlimited.</span>
+        </span>
+        <span class="proj-meta">New daily at local midnight</span>
+        <span class="launch">Play &#9654;</span>
+      </a>
 
-      <article class="play-card charts wide">
-        <header class="card-head">
-          <span class="card-icon">39</span>
-          <span class="card-name">39charts</span>
-          <span class="card-tag">WIP</span>
-        </header>
-        <div class="card-image">
-          <img id="charts-preview" src="favicon.jpg" alt="">
-          <span class="image-wip">&#9888; Work in progress &middot; view history and trending are still collecting daily data</span>
-          <span class="image-note">Who has the most views?</span>
-        </div>
-        <div class="card-copy">
-          Browse NicoNico, YouTube and bilibili view rankings for VOCALOID songs, producers and vocalists. Views refresh nightly, with trending charts and view history.
-        </div>
-        <footer class="card-foot">
-          <span>Views refresh nightly</span>
-          <a class="launch" href="39charts/">Open &#9654;</a>
-        </footer>
-      </article>
-
+      <a class="proj charts" href="39charts/">
+        <span class="proj-icon" aria-hidden="true">39</span>
+        <span class="proj-thumb" aria-hidden="true"><img id="charts-preview" src="favicon.jpg" alt=""></span>
+        <span class="proj-body">
+          <span class="proj-name">39charts <span class="card-tag">WIP</span></span>
+          <span class="proj-desc">NicoNico, YouTube and bilibili view rankings for VOCALOID songs, producers and vocalists, with trending charts and view history.</span>
+        </span>
+        <span class="proj-meta">Views refresh nightly<br>Trending still collecting data</span>
+        <span class="launch">Open &#9654;</span>
+      </a>
     </section>
 
     <div class="section-title">[ RANDOM FEATURED SONG ]</div>
@@ -699,8 +644,8 @@
         </div>
       </article>
       <aside class="site-stats" aria-label="Site stats">
-        <div class="stats-head">[ Site Stats ]</div>
-        <div class="stats-hero">
+        <div class="stats-top">
+          <div class="stats-head">[ Site Stats ]</div>
           <div class="stats-hero-item">
             <strong id="stat-songs">&mdash;</strong>
             <span>songs in pool</span>
@@ -709,22 +654,22 @@
             <strong>5</strong>
             <span>projects</span>
           </div>
+          <div class="stats-foot">View data updated <strong id="stat-updated">&mdash;</strong></div>
         </div>
         <div class="stats-vers">
           <div class="stats-ver"><span>Heardle</span><strong>v1.6</strong></div>
           <div class="stats-ver"><span>Higher / Lower</span><strong>v1.1</strong></div>
           <div class="stats-ver"><span>39charts</span><strong>v1.5</strong></div>
-          <div class="stats-ver"><span>Masume</span><strong>v1.0</strong></div>
+          <div class="stats-ver"><span>Grid</span><strong>v1.0</strong></div>
           <div class="stats-ver"><span>Timeline</span><strong>v1.0</strong></div>
         </div>
-        <div class="stats-foot">View data updated <strong id="stat-updated">&mdash;</strong></div>
       </aside>
     </section>
 
   </main>
 
   <footer class="footer">
-    VOCALOIDLE &copy; 2026 &middot; fan-made &middot; song data from VocaDB and NicoNico
+    VOCALOIDLE: fan-made VOCALOID projects (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
   </footer>
 
   <script>
@@ -800,7 +745,9 @@
         // YouTube serves a 120×90 grey "no thumbnail" placeholder for missing
         // sizes — detect it and drop the rest of the YT chain.
         if (img.naturalWidth && img.naturalWidth <= 120 && img.naturalHeight <= 90 &&
-            /ytimg\.com/.test(img.currentSrc || img.src)) advanceCover(img, true);
+            /ytimg\.com/.test(img.currentSrc || img.src)) { advanceCover(img, true); return; }
+        const ratio = img.naturalHeight ? img.naturalWidth / img.naturalHeight : 0;
+        img.classList.toggle("bars", ratio > 0 && ratio < 1.45 && !/favicon\.jpg$/.test(img.currentSrc || img.src));
       };
       img.src = chain[0];
     }
