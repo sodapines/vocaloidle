@@ -143,6 +143,50 @@
       text-transform: uppercase;
       letter-spacing: 0.06em;
     }
+    .today-strip {
+      margin-top: 6px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: stretch;
+      min-height: 34px;
+      background: linear-gradient(to bottom, var(--surface), var(--sf));
+      border: 2px solid var(--ls);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.12);
+      overflow: hidden;
+    }
+    .tp-cell {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      color: var(--text);
+      border-right: 1px solid var(--line);
+      border-left: 3px solid transparent;
+    }
+    .tp-cell:hover { text-decoration: none; background: var(--soft); }
+    .tp-cell.heardle { border-left-color: #c11; }
+    .tp-cell.higher { border-left-color: #3769c9; }
+    .tp-cell.masume { border-left-color: #2aa8a0; }
+    .tp-cell.timeline { border-left-color: #8a5ac9; }
+    .tp-name { font-weight: 900; font-size: 12px; }
+    .tp-state { font-size: 10px; font-weight: 700; color: var(--red); white-space: nowrap; }
+    .tp-state.is-done { color: #1a7d3c; }
+    html.dark-mode .tp-state.is-done { color: #63c287; }
+    .tp-foot {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      padding: 5px 10px;
+      color: var(--faint);
+      background: var(--soft);
+      border-left: 1px solid var(--line);
+      font-size: 10px;
+      white-space: nowrap;
+    }
+    @media (max-width: 700px) {
+      .tp-foot { display: none; }
+      .tp-cell { flex: 1; justify-content: space-between; padding: 5px 8px; }
+    }
     .proj-list {
       margin-top: 6px;
       display: flex;
@@ -562,6 +606,27 @@
       </div>
     </section>
 
+    <div class="section-title">[ TODAY'S PUZZLES ]</div>
+    <section class="today-strip" aria-label="Today's puzzles">
+      <a class="tp-cell heardle" href="heardle/">
+        <span class="tp-name">Heardle</span>
+        <span class="tp-state" id="tp-heardle">Play &#9654;</span>
+      </a>
+      <a class="tp-cell higher" href="higher-or-lower/">
+        <span class="tp-name">Higher / Lower</span>
+        <span class="tp-state" id="tp-higher">Play &#9654;</span>
+      </a>
+      <a class="tp-cell masume" href="masume/">
+        <span class="tp-name">Grid</span>
+        <span class="tp-state" id="tp-grid">Play &#9654;</span>
+      </a>
+      <a class="tp-cell timeline" href="timeline/">
+        <span class="tp-name">Timeline</span>
+        <span class="tp-state" id="tp-timeline">Play &#9654;</span>
+      </a>
+      <span class="tp-foot">Daily puzzles reset at local midnight</span>
+    </section>
+
     <div class="section-title">[AVAILABLE PROJECTS]</div>
     <section class="proj-list" aria-label="Available projects">
       <a class="proj heardle" href="heardle/">
@@ -691,6 +756,33 @@
         try { localStorage.setItem("vl-home-theme", dark ? "dark" : "light"); } catch (e) {}
         sync();
       });
+    })();
+
+    // Today's puzzles: read each game's daily-completion state from its own
+    // localStorage keys (same origin, so the hub can peek without loading them).
+    (function () {
+      var d = new Date();
+      var key = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+      function setState(id, done) {
+        var el = document.getElementById(id);
+        if (el && done) { el.textContent = "✓ Done"; el.classList.add("is-done"); }
+      }
+      try {
+        var hs = JSON.parse(localStorage.getItem("vocaloid-heardle-stats") || "{}");
+        setState("tp-heardle", !!(hs.results && hs.results[key]));
+      } catch (e) {}
+      try {
+        var hl = JSON.parse(localStorage.getItem("soda_hol_daily_state") || "{}");
+        setState("tp-higher", !!(hl.date === key && hl.completed));
+      } catch (e) {}
+      try {
+        var gs = JSON.parse(localStorage.getItem("masume_daily_" + key) || "null");
+        setState("tp-grid", !!(gs && gs.done));
+      } catch (e) {}
+      try {
+        var ts = JSON.parse(localStorage.getItem("tl_daily_" + key) || "null");
+        setState("tp-timeline", !!(ts && ts.done));
+      } catch (e) {}
     })();
 
     function tierLabel(v) {

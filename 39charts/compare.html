@@ -286,12 +286,17 @@ html.dark-mode .pick-chip .pc-x { background: #1d1d1d; border-left-color: #2c2c2
 .contender-metric {
   margin-top: 5px; padding-top: 5px; width: 100%;
   border-top: 1px dotted var(--line);
-  display: flex; align-items: baseline; gap: 5px;
+  display: flex; align-items: baseline; gap: 5px; flex-wrap: wrap; min-width: 0;
 }
 .contender-views {
   font-family: Consolas, "MS PGothic", monospace;
   font-size: 17px; font-weight: 700; color: var(--red); line-height: 1;
+  min-width: 0; overflow-wrap: anywhere;
 }
+/* big catalogs (artists) and 3-up layouts produce 10+ digit numbers — shrink
+   instead of clipping against the card edge */
+.cmp-contenders.n3 .contender-views { font-size: 13px; }
+@media (max-width: 760px) { .contender-views { font-size: 14px; } }
 .contender.is-champ .contender-views { color: #a87c0a; }
 .contender-views-cap { font-size: 8px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.07em; }
 /* category-win tally, folded into the card instead of a separate scoreboard */
@@ -467,6 +472,30 @@ html.dark-mode .settings-toggle, html.dark-mode .settings-close {
 html.dark-mode .settings-close:hover { background: #2b2020; color: var(--red); }
 html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; border-color: #5a0505; }
 
+/* songs / artists mode toggle in the pick panel */
+.mode-toggle { display: inline-flex; gap: 3px; margin-right: auto; }
+.mt-btn {
+  padding: 2px 10px 3px;
+  background: linear-gradient(to bottom, #f3f1ea, #dcd8cf);
+  border: 2px solid; border-color: #ffffff var(--ls) var(--ls) #ffffff;
+  color: var(--muted); font-size: 10px; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase; font-family: inherit;
+}
+.mt-btn:hover, .mt-btn.is-active {
+  color: #fff;
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
+}
+html.dark-mode .mt-btn { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; }
+html.dark-mode .mt-btn:hover, html.dark-mode .mt-btn.is-active { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #b01111 #5a0505 #5a0505 #b01111; }
+.contender-kind {
+  display: inline-block; padding: 0 5px; margin-left: 5px;
+  font-size: 9px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase;
+  color: #3f268e; background: #f2f0ff; border: 1px solid #aeb5df;
+}
+html.dark-mode .contender-kind { background: #161622; border-color: #3c3c5a; color: #9d94d8; }
+
 @media (max-width: 560px) {
   .nnd-header-links { display: none; }
   .yr-artist { display: none; }
@@ -534,6 +563,7 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
     <div class="game-mode-tabs">
       <a class="game-mode-btn" href="./">Songs</a>
         <a class="game-mode-btn" href="trending.html">Trending</a>
+        <a class="game-mode-btn" href="milestones.html">Milestones</a>
       <a class="game-mode-btn" href="years.html">Years</a>
       <a class="game-mode-btn" href="producers.html">Producers</a>
       <a class="game-mode-btn" href="vocalists.html">Vocalists</a>
@@ -544,7 +574,14 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
   </div>
 
   <div class="panel" style="overflow:visible">
-    <div class="panel-header">[ Pick Songs ] <span class="panel-note">up to 3 · type to search</span></div>
+    <div class="panel-header">
+      <span id="pick-title">[ Pick Songs ]</span>
+      <span class="mode-toggle" id="mode-toggle">
+        <button type="button" class="mt-btn is-active" data-mode="songs">Songs</button>
+        <button type="button" class="mt-btn" data-mode="artists">Artists</button>
+      </span>
+      <span class="panel-note">up to 3 · type to search</span>
+    </div>
     <div class="pick-body">
       <div class="pick-slots" id="pick-slots"></div>
       <div class="pick-search-wrap">
@@ -678,6 +715,9 @@ function combinedViews(song) {
 let SONGS = [], NND_STATS = {};
 let picked = [];
 const MAX_PICK = 3;
+let mode = "songs";              // "songs" | "artists"
+let pickedArtists = [];
+let ARTISTS = new Map(), DETAILS = {}, ART_IMGS = {};
 
 function stat(map, id, key) {
   const st = map[String(id)];
@@ -705,12 +745,37 @@ function allComments(song) {
 }
 
 function syncUrl() {
+  if (mode === "artists") {
+    history.replaceState(null, "", pickedArtists.length
+      ? "?mode=artists&names=" + pickedArtists.map(a => encodeURIComponent(a.name)).join(",")
+      : "?mode=artists");
+    return;
+  }
   history.replaceState(null, "",
     picked.length ? "?ids=" + picked.map(x => x.vocadbId).join(",") : location.pathname);
 }
 
+function artistAvatarImg(a) {
+  const url = ART_IMGS[a.name];
+  if (url) return `<img src="${escHtml(url)}" alt="" referrerpolicy="no-referrer" loading="lazy">`;
+  const top = [...a.songs].sort((x, y) => (combined(y) || 0) - (combined(x) || 0))[0];
+  return top ? thumbImg(top) : "";
+}
+
 function renderSlots() {
-  document.getElementById("pick-slots").innerHTML = picked.map((x, i) => `
+  const slots = document.getElementById("pick-slots");
+  if (mode === "artists") {
+    slots.innerHTML = pickedArtists.map((a, i) => `
+      <span class="pick-chip">
+        <span class="pc-thumb">${artistAvatarImg(a)}</span>
+        <span class="cmp-dot c${i} pc-dot"></span>
+        <span class="pc-title">${escHtml(a.name)}</span>
+        <button type="button" class="pc-x" data-i="${i}" aria-label="Remove">✕</button>
+      </span>`).join("") ||
+      `<span style="color:var(--faint);font-size:11px;align-self:center">No artists picked yet</span>`;
+    return;
+  }
+  slots.innerHTML = picked.map((x, i) => `
     <span class="pick-chip">
       <span class="pc-thumb">${thumbImg(x)}</span>
       <span class="cmp-dot c${i} pc-dot"></span>
@@ -859,6 +924,150 @@ function renderCompare() {
   }));
 }
 
+/* ── Artist head-to-head ── */
+function buildArtists() {
+  const add = (name, kind, s) => {
+    let a = ARTISTS.get(name);
+    if (!a) { a = { name, kinds: { producer: 0, vocalist: 0 }, songs: [] }; ARTISTS.set(name, a); }
+    a.kinds[kind]++;
+    if (!a.songs.includes(s)) a.songs.push(s);
+  };
+  for (const s of SONGS) {
+    const d = DETAILS[String(s.vocadbId)];
+    const prods = new Set((s.producerNames || []).filter(p => p && !/^various/i.test(p)));
+    for (const p of ((d && d.producers) || [])) if (p && p.name) prods.add(p.name);
+    const vocs = new Set((s.singerNames || []).filter(v => v && !/^various/i.test(v)));
+    for (const v of ((d && d.vocalists) || [])) if (v) vocs.add(v);
+    for (const n of prods) add(n, "producer", s);
+    for (const n of vocs) add(n, "vocalist", s);
+  }
+  for (const a of ARTISTS.values()) a.kind = a.kinds.producer >= a.kinds.vocalist ? "producer" : "vocalist";
+}
+
+function aggViews(a, fn) {
+  let any = false, sum = 0;
+  for (const s of a.songs) { const v = fn(s); if (v != null) { any = true; sum += v; } }
+  return any ? sum : null;
+}
+const ARTIST_STATS = [
+  { label: "Combined views", get: a => aggViews(a, combined) },
+  { label: "NicoNico views", get: a => aggViews(a, nnd) },
+  { label: "YouTube views",  get: a => aggViews(a, s => yt(s, "views")) },
+  { label: "bilibili views", get: a => aggViews(a, s => bili(s, "views")) },
+  { label: "Songs indexed",  get: a => a.songs.length },
+  { label: "Average / song", get: a => {
+      const t = aggViews(a, combined);
+      const c = a.songs.filter(s => combined(s) != null).length;
+      return (t != null && c) ? t / c : null;
+    }, fmt: v => formatViews(Math.round(v)) },
+  { label: "Top song views", get: a => {
+      let m = null;
+      for (const s of a.songs) { const v = combined(s); if (v != null && (m == null || v > m)) m = v; }
+      return m;
+    } },
+  { label: "1M+ songs",      get: a => a.songs.filter(s => (combined(s) || 0) >= 1e6).length },
+];
+
+function artistTally() {
+  const tally = pickedArtists.map(() => 0);
+  ARTIST_STATS.forEach(s => {
+    const vals = pickedArtists.map(a => s.get(a));
+    const max = Math.max(...vals.map(v => v == null ? -Infinity : v));
+    const winners = vals.filter(v => v != null && v === max).length;
+    if (max > 0 && winners === 1) tally[vals.findIndex(v => v === max)]++;
+  });
+  return tally;
+}
+
+function artistHref(a) {
+  return (a.kind === "producer" ? "producer.html" : "vocalist.html") + "?name=" + encodeURIComponent(a.name);
+}
+
+function renderArtistCompare() {
+  syncUrl();
+  renderSlots();
+  const area = document.getElementById("compare-area");
+  if (pickedArtists.length < 2) {
+    area.innerHTML = `<div class="loading-state">Pick at least two producers or vocalists to compare.</div>`;
+    return;
+  }
+  const tally = artistTally();
+  const maxWins = Math.max(...tally);
+  const leaders = tally.filter(t => t === maxWins).length;
+  const winnerIdx = (maxWins > 0 && leaders === 1) ? tally.indexOf(maxWins) : -1;
+
+  const contenders = `
+  <div class="cmp-contenders n${pickedArtists.length}">
+    ${pickedArtists.map((a, i) => {
+      const total = aggViews(a, combined);
+      const top = [...a.songs].sort((x, y) => (combined(y) || 0) - (combined(x) || 0))[0];
+      return `
+    <a class="contender${i === winnerIdx ? " is-champ" : ""}" href="${artistHref(a)}">
+      <span class="contender-thumb">
+        ${artistAvatarImg(a)}
+        ${i === winnerIdx ? `<span class="champ-tab">Overall Winner</span>` : ""}
+        <span class="contender-dot cmp-dot c${i}"></span>
+      </span>
+      <span class="contender-body">
+        <span class="contender-title">${escHtml(a.name)}<span class="contender-kind">${a.kind}</span></span>
+        <span class="contender-sub">${a.songs.length} song${a.songs.length !== 1 ? "s" : ""}${top ? " · top: " + escHtml(top.title) : ""}</span>
+        <span class="contender-metric">
+          <span class="contender-views">${total != null ? total.toLocaleString() : "—"}</span>
+          <span class="contender-views-cap">combined views</span>
+        </span>
+        <span class="contender-wins">
+          <b>${tally[i]}</b><span class="contender-wins-cap">category win${tally[i] === 1 ? "" : "s"}</span>
+        </span>
+      </span>
+    </a>`;
+    }).join("")}
+  </div>`;
+
+  const statsHtml = ARTIST_STATS.map(s => {
+    const vals = pickedArtists.map(a => s.get(a));
+    const max = Math.max(...vals.map(v => v == null ? -Infinity : v));
+    const winners = vals.filter(v => v != null && v === max).length;
+    const rows = pickedArtists.map((a, i) => {
+      const v = vals[i];
+      const isWin = v != null && v === max && max > 0 && winners === 1;
+      const text = v == null ? "—" : (s.fmt ? s.fmt(v) : v.toLocaleString());
+      const w = (v != null && max > 0) ? Math.max(v / max * 100, 2) : 0;
+      const c = DOT_COLORS[i] || "#888";
+      return `<div class="hh-row${isWin ? " is-win" : ""}${v == null ? " is-null" : ""}" style="--rowc:${c}">
+        <span class="hh-bar" style="width:${w.toFixed(1)}%"></span>
+        <span class="hh-dot cmp-dot c${i}"></span>
+        <span class="hh-name">${escHtml(a.name)}</span>
+        <span class="hh-val">${text}</span>
+      </div>`;
+    }).join("");
+    return `<div class="hh-stat"><div class="hh-stat-label">${escHtml(s.label)}</div><div class="hh-rows">${rows}</div></div>`;
+  }).join("");
+
+  area.innerHTML = `
+  ${contenders}
+  <div class="panel" style="margin-top:6px">
+    <div class="panel-header">[ Head-to-Head ]
+      <span class="panel-note">across each artist's full catalog · red = category winner</span>
+    </div>
+    <div class="hh-body">${statsHtml}</div>
+  </div>`;
+}
+
+function renderAll() { if (mode === "artists") renderArtistCompare(); else renderCompare(); }
+
+function setMode(next) {
+  if (mode === next) return;
+  mode = next;
+  document.querySelectorAll("#mode-toggle .mt-btn").forEach(b =>
+    b.classList.toggle("is-active", b.dataset.mode === mode));
+  document.getElementById("pick-title").textContent = mode === "artists" ? "[ Pick Artists ]" : "[ Pick Songs ]";
+  const input = document.getElementById("pick-input");
+  input.value = "";
+  input.placeholder = mode === "artists" ? "Search a producer or vocalist…" : "Search a song or producer…";
+  document.getElementById("pick-auto").hidden = true;
+  renderAll();
+}
+
 function attachPicker() {
   const input = document.getElementById("pick-input");
   const auto = document.getElementById("pick-auto");
@@ -867,6 +1076,22 @@ function attachPicker() {
   input.addEventListener("input", () => {
     const q = input.value.trim().toLowerCase();
     if (!q) { close(); return; }
+    if (mode === "artists") {
+      items = [...ARTISTS.values()].filter(a =>
+        !pickedArtists.some(p => p.name === a.name) && a.name.toLowerCase().includes(q))
+        .sort((a, b) => (aggViews(b, combined) || 0) - (aggViews(a, combined) || 0))
+        .slice(0, 10);
+      auto.innerHTML = items.map((a, i) => {
+        const total = aggViews(a, combined);
+        return `
+        <button type="button" class="pa-item" data-i="${i}">
+          <span class="pa-title">${escHtml(a.name)}</span>
+          <span class="pa-sub">${a.kind} · ${a.songs.length} song${a.songs.length !== 1 ? "s" : ""}${total != null ? " · " + formatViews(total) + " views" : ""}</span>
+        </button>`;
+      }).join("");
+      auto.hidden = items.length === 0;
+      return;
+    }
     items = SONGS.filter(x =>
       !picked.some(p => p.vocadbId === x.vocadbId) && (
         x.title.toLowerCase().includes(q) ||
@@ -885,20 +1110,30 @@ function attachPicker() {
   auto.addEventListener("click", e => {
     const btn = e.target.closest(".pa-item");
     if (!btn) return;
-    const song = items[parseInt(btn.dataset.i, 10)];
-    if (song && picked.length < MAX_PICK) picked.push(song);
-    input.value = ""; close(); renderCompare();
-    input.placeholder = picked.length >= MAX_PICK ? "Remove a song to add another" : "Search a song or producer…";
+    const item = items[parseInt(btn.dataset.i, 10)];
+    if (item) {
+      if (mode === "artists") { if (pickedArtists.length < MAX_PICK) pickedArtists.push(item); }
+      else if (picked.length < MAX_PICK) picked.push(item);
+    }
+    input.value = ""; close(); renderAll();
+    const full = mode === "artists" ? pickedArtists.length >= MAX_PICK : picked.length >= MAX_PICK;
+    input.placeholder = full
+      ? `Remove ${mode === "artists" ? "an artist" : "a song"} to add another`
+      : (mode === "artists" ? "Search a producer or vocalist…" : "Search a song or producer…");
     input.focus();
   });
   document.addEventListener("click", e => { if (!e.target.closest(".pick-search-wrap")) close(); });
   document.getElementById("pick-slots").addEventListener("click", e => {
     const x = e.target.closest(".pc-x");
     if (!x) return;
-    picked.splice(parseInt(x.dataset.i, 10), 1);
-    document.getElementById("pick-input").placeholder = "Search a song or producer…";
-    renderCompare();
+    if (mode === "artists") pickedArtists.splice(parseInt(x.dataset.i, 10), 1);
+    else picked.splice(parseInt(x.dataset.i, 10), 1);
+    document.getElementById("pick-input").placeholder =
+      mode === "artists" ? "Search a producer or vocalist…" : "Search a song or producer…";
+    renderAll();
   });
+  document.querySelectorAll("#mode-toggle .mt-btn").forEach(b =>
+    b.addEventListener("click", () => setMode(b.dataset.mode)));
 }
 
 Promise.all([
@@ -907,20 +1142,34 @@ Promise.all([
   loadJsonCached("../data/ytviews.json", "39c_ytviews_v2"),
   loadJsonCached("../data/biliviews.json", "39c_biliviews_v3"),
   loadJsonCached("../data/nndstats.json", "39c_nndstats_v2"),
-]).then(([songs, views, ytD, biliD, nndstats]) => {
+  loadJsonCached("../data/songdetails.json", "39c_details_v2"),
+  loadJsonCached("../data/artists.json", "39c_artists_v3"),
+]).then(([songs, views, ytD, biliD, nndstats, details, artists]) => {
   if (!songs) throw new Error("songs.json failed to load");
   SONGS = songs;
   if (views && views.views) VIEWS = views.views;
   if (ytD && ytD.stats) YT_STATS = ytD.stats;
   if (biliD && biliD.stats) BILI_STATS = biliD.stats;
   if (nndstats && nndstats.stats) NND_STATS = nndstats.stats;
+  if (details && details.songs) DETAILS = details.songs;
+  if (artists && artists.images) ART_IMGS = artists.images;
+  buildArtists();
   attachPicker();
-  const ids = (new URLSearchParams(location.search).get("ids") || "").split(",").filter(Boolean);
-  for (const id of ids.slice(0, MAX_PICK)) {
-    const song = SONGS.find(x => String(x.vocadbId) === id);
-    if (song) picked.push(song);
+  const params = new URLSearchParams(location.search);
+  if (params.get("mode") === "artists") {
+    setMode("artists");
+    for (const raw of (params.get("names") || "").split(",").filter(Boolean).slice(0, MAX_PICK)) {
+      const a = ARTISTS.get(decodeURIComponent(raw));
+      if (a && !pickedArtists.includes(a)) pickedArtists.push(a);
+    }
+  } else {
+    const ids = (params.get("ids") || "").split(",").filter(Boolean);
+    for (const id of ids.slice(0, MAX_PICK)) {
+      const song = SONGS.find(x => String(x.vocadbId) === id);
+      if (song) picked.push(song);
+    }
   }
-  renderCompare();
+  renderAll();
 }).catch(err => {
   document.getElementById("compare-area").innerHTML =
     `<div class="loading-state">Could not load data · ${escHtml(err.message)}</div>`;

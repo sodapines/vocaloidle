@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>39charts · Years</title>
+<title>39charts · Milestones</title>
 <meta property="og:site_name" content="39charts">
-<meta property="og:title" content="39charts · Vocaloid charts by year">
-<meta property="og:description" content="The biggest Vocaloid songs of every year, ranked by real NicoNico + YouTube + bilibili view counts.">
+<meta property="og:title" content="39charts · View milestones">
+<meta property="og:description" content="Every 100K, 1M, 10M and 100M view crossing in the Vocaloid song pool, tracked from daily snapshots.">
 <meta property="og:type" content="website">
-<meta name="description" content="The biggest Vocaloid songs of every year, ranked by real view counts.">
+<meta name="description" content="Vocaloid songs crossing view milestones, tracked daily.">
 <script>try{if(localStorage.getItem("39c_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
 <style>
 :root {
@@ -31,7 +31,7 @@ html, body {
 body { min-height: 100vh; display: flex; flex-direction: column; }
 a { color: var(--link); text-decoration: none; }
 a:hover { text-decoration: underline; color: var(--red); }
-button { font: inherit; cursor: pointer; }
+button, input { font: inherit; cursor: pointer; }
 
 /* ── chrome (same as the other pages) ── */
 .nnd-topbar {
@@ -120,12 +120,6 @@ button { font: inherit; cursor: pointer; }
   border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
 }
-.game-mode-hint {
-  margin-left: auto; align-self: center; display: flex; align-items: center; gap: 6px;
-  padding: 4px 10px; color: var(--muted); font-family: inherit;
-  font-size: 10px; letter-spacing: 0.04em;
-}
-.game-mode-hint::before { content: "\25B6"; color: var(--red); font-size: 8px; }
 
 /* panels */
 .panel {
@@ -147,14 +141,10 @@ button { font: inherit; cursor: pointer; }
   display: flex; align-items: center; justify-content: space-between; gap: 6px;
 }
 .panel-note { font-size: 10px; font-weight: 400; color: var(--faint); font-style: italic; text-transform: none; letter-spacing: 0; }
-.panel-header a.year-full-link {
-  font-size: 10px; font-weight: 700; text-transform: none; letter-spacing: 0;
-  font-family: "MS PGothic", sans-serif;
-}
 
-/* year jump chips */
-.year-jump { display: flex; flex-wrap: wrap; gap: 3px; padding: 7px 9px; }
-.year-chip {
+/* filter row */
+.ms-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; padding: 7px 9px; }
+.tier-chip {
   display: inline-block; padding: 3px 10px 4px;
   background: linear-gradient(to bottom, #f3f1ea, #dcd8cf);
   border: 2px solid; border-color: #ffffff var(--ls) var(--ls) #ffffff;
@@ -162,42 +152,63 @@ button { font: inherit; cursor: pointer; }
   letter-spacing: 0.07em;
   font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
 }
-.year-chip:hover, .year-chip:focus {
+.tier-chip:hover, .tier-chip.is-active {
   color: #fff; text-decoration: none;
   background: linear-gradient(to bottom, var(--red), var(--red-dark));
   border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
 }
-html.dark-mode .year-chip { background: linear-gradient(to bottom, #262626, #1c1c1c); border-color: #333 #111 #111 #333; }
-html.dark-mode .year-chip:hover { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #b01111 #5a0505 #5a0505 #b01111; }
+.ms-search {
+  margin-left: auto; height: 26px; width: min(220px, 100%); padding: 0 7px;
+  font-size: 11px; cursor: text;
+  color: var(--text); background: #fff; border: 1px solid var(--ls); border-radius: 0;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
+}
+.ms-search:focus {
+  outline: none; border-color: var(--link);
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.08), 0 0 0 2px rgba(0,102,204,0.18);
+}
 
-/* year song rows */
-.year-rows { display: flex; flex-direction: column; }
-.year-row {
+/* milestone rows */
+.ms-rows { display: flex; flex-direction: column; }
+.ms-row {
   display: flex; align-items: center; gap: 8px; padding: 4px 8px;
   border-bottom: 1px dotted var(--line); color: inherit; text-decoration: none;
 }
-.year-row:last-child { border-bottom: none; }
-.year-row:hover { background: #fff0f0; text-decoration: none; }
-.year-row:hover .yr-title { color: var(--red); }
-.yr-rank {
-  min-width: 26px; text-align: center;
-  font-family: Consolas, "MS PGothic", monospace; font-size: 13px; font-weight: 900; color: var(--red);
+.ms-row:last-child { border-bottom: none; }
+.ms-row:hover { background: #fff0f0; text-decoration: none; }
+.ms-row:hover .mr-title { color: var(--red); }
+.mr-date {
+  flex-shrink: 0; width: 78px;
+  font-family: Consolas, "MS PGothic", monospace; font-size: 11px; color: var(--faint);
 }
-.yr-rank.is-gold { color: var(--gold); }
-.yr-thumb {
+.mr-badge {
+  flex-shrink: 0; min-width: 52px; text-align: center;
+  padding: 1px 6px; color: #fff; font-size: 11px; font-weight: 900;
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  border: 1px solid var(--red-dark);
+  font-family: Consolas, "MS PGothic", monospace;
+}
+.mr-badge.tier-big { background: linear-gradient(to bottom, #d8ae2e, #a87c0a); border-color: #8a6a08; }
+.mr-thumb {
   width: 62px; height: 35px; flex-shrink: 0; position: relative; overflow: hidden;
   background: #222; border: 1px solid rgba(0,0,0,0.25);
 }
-.yr-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.yr-main { flex: 1; min-width: 0; }
-.yr-title { font-size: 12px; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.yr-artist { font-size: 10px; color: var(--faint); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.yr-views {
+.mr-thumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.mr-main { flex: 1; min-width: 0; }
+.mr-title { font-size: 12px; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mr-artist { font-size: 10px; color: var(--faint); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mr-views {
   flex-shrink: 0; text-align: right;
   font-family: Consolas, "MS PGothic", monospace; font-size: 12px; font-weight: 900; color: var(--red);
 }
-.yr-views .yv-cap { display: block; font-size: 8px; font-weight: 400; color: var(--faint); text-transform: uppercase; letter-spacing: 0.06em; }
+.mr-views .mv-cap { display: block; font-size: 8px; font-weight: 400; color: var(--faint); text-transform: uppercase; letter-spacing: 0.06em; }
+.ms-more {
+  display: block; width: 100%; padding: 6px; text-align: center;
+  background: var(--sf); border: none; border-top: 1px solid var(--line);
+  color: var(--link); font-size: 11px; font-weight: 700;
+}
+.ms-more:hover { color: var(--red); background: #fff0f0; }
 
 .loading-state {
   padding: 40px; text-align: center;
@@ -283,9 +294,13 @@ html.dark-mode .panel-header {
   background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
   border-color: #3b3b3b; box-shadow: none; color: #cccccc;
 }
-html.dark-mode .year-row:hover { background: #2a1414; }
-html.dark-mode .year-chip { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; box-shadow: none; }
-html.dark-mode .year-chip:hover { background: #2b2020; }
+html.dark-mode .ms-row:hover { background: #2a1414; }
+html.dark-mode .ms-more:hover { background: #2a1414; }
+html.dark-mode .tier-chip { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; box-shadow: none; }
+html.dark-mode .tier-chip:hover, html.dark-mode .tier-chip.is-active { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #b01111 #5a0505 #5a0505 #b01111; }
+html.dark-mode .ms-search { background: #111; border-color: #3b3b3b; color: var(--text); }
+html.dark-mode .mr-badge { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #5a0505; }
+html.dark-mode .mr-badge.tier-big { background: linear-gradient(to bottom, #a8841c, #6e5510); border-color: #4a3c0a; }
 html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); box-shadow: none; }
 html.dark-mode .settings-title { background: linear-gradient(to bottom, #2a2a2a, #1c1c1c); border-color: #3b3b3b; color: #cccccc; }
 html.dark-mode .settings-toggle, html.dark-mode .settings-close {
@@ -297,24 +312,41 @@ html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #
 
 @media (max-width: 560px) {
   .nnd-header-links { display: none; }
-  .yr-artist { display: none; }
+  .ms-search { margin-left: 0; width: 100%; }
+  /* stacked mobile row: thumb spans two rows; title+badge on top, date+views below */
+  .ms-row {
+    display: grid;
+    grid-template-columns: 62px minmax(0, 1fr) auto;
+    grid-template-rows: auto auto;
+    column-gap: 8px; row-gap: 1px;
+    align-items: center;
+  }
+  .mr-thumb { grid-column: 1; grid-row: 1 / span 2; }
+  .mr-main { grid-column: 2; grid-row: 1; }
+  .mr-artist { display: none; }
+  .mr-date { grid-column: 2; grid-row: 2; width: auto; font-size: 10px; }
+  .mr-badge { grid-column: 3; grid-row: 1; justify-self: end; min-width: 44px; font-size: 10px; }
+  .mr-views { grid-column: 3; grid-row: 2; font-size: 11px; }
+  .mr-views .mv-cap { font-size: 7px; }
 }
-/* mode tabs wrap only on small screens, matching the other pages */
 @media (max-width: 620px) {
   .game-mode-bar { padding: 3px 5px; }
   .game-mode-tabs { flex-wrap: wrap; align-items: stretch; gap: 3px; }
   .game-mode-btn { margin-bottom: 0; border-bottom: 2px solid var(--ls); padding-bottom: 5px; }
   .game-mode-btn.is-active { padding-bottom: 5px; border-bottom-color: var(--red-dark); }
-  .game-mode-hint { display: none; }
 }
 </style>
 </head>
 <body>
 
 <div class="nnd-topbar">
-  <span>39charts &rsaquo; Years</span>
-  <span style="color:#666;font-size:11px">Charts by Year</span>
+  <span>39charts &rsaquo; Milestones</span>
+  <span id="nnd-date" style="color:#666;font-size:11px"></span>
 </div>
+<script>
+  document.getElementById("nnd-date").textContent =
+    new Intl.DateTimeFormat(undefined, { year: "numeric", month: "long", day: "numeric" }).format(new Date());
+</script>
 
 <div class="nnd-mainbar">
   <a class="nnd-logo" href="./">
@@ -330,29 +362,10 @@ html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #
   </nav>
 </div>
 
-<style>
-.nnd-mobile-nav { display: none; width: 100%; background: #fff; border-bottom: 1px solid var(--line); padding: 5px 10px; align-items: center; gap: 8px; font-size: 12px; }
-.nnd-mobile-nav a { color: var(--link); }
-.nnd-mobile-nav a:hover { color: var(--red); text-decoration: none; }
-.nnd-mobile-nav .nnd-divider { color: var(--line); }
-.nnd-mobile-nav a.nnd-kofi { margin-left: auto; background: var(--red); color: #fff; padding: 3px 9px; border: 1px solid var(--red-dark); font-weight: 700; box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25); }
-.nnd-mobile-nav a.nnd-kofi:hover { background: #b30000; color: #fff; }
-html.dark-mode .nnd-mobile-nav { background: #161616; border-bottom-color: #2c2c2c; }
-@media (max-width: 560px) { .nnd-header-links { display: none; } .nnd-mobile-nav { display: flex; } }
-</style>
-<nav class="nnd-mobile-nav" aria-label="Mobile navigation">
-  <a href="./">&#9664; Rankings</a>
-  <span class="nnd-divider">|</span>
-  <a href="#" data-proxy="settings-open">Settings</a>
-  <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
-</nav>
-<script>
-document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();var t=document.getElementById(a.dataset.proxy);if(t)t.click();});});
-</script>
 <div class="nnd-marquee-bar">
   <span class="nnd-marquee-label">[INFO]</span>
   <div class="nnd-marquee-wrap">
-    <div class="nnd-marquee-inner" id="marquee-text">Loading year data… &nbsp;·&nbsp; ★ Thank you for using 39charts ♪</div>
+    <div class="nnd-marquee-inner" id="marquee-text">Loading milestone data… &nbsp;·&nbsp; ★ Thank you for using 39charts ♪</div>
   </div>
 </div>
 
@@ -361,9 +374,9 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
   <div class="game-mode-bar">
     <div class="game-mode-tabs">
       <a class="game-mode-btn" href="./">Songs</a>
-        <a class="game-mode-btn" href="trending.html">Trending</a>
-        <a class="game-mode-btn" href="milestones.html">Milestones</a>
-      <a class="game-mode-btn is-active" href="years.html">Years</a>
+      <a class="game-mode-btn" href="trending.html">Trending</a>
+      <a class="game-mode-btn is-active" href="milestones.html">Milestones</a>
+      <a class="game-mode-btn" href="years.html">Years</a>
       <a class="game-mode-btn" href="producers.html">Producers</a>
       <a class="game-mode-btn" href="vocalists.html">Vocalists</a>
       <a class="game-mode-btn" href="compare.html">Compare</a>
@@ -373,12 +386,24 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
   </div>
 
   <div class="panel">
-    <div class="panel-header">[ Jump to Year ]</div>
-    <div class="year-jump" id="year-jump"></div>
+    <div class="panel-header">
+      <span>[ Filters ]</span>
+      <span class="panel-note" id="filter-note"></span>
+    </div>
+    <div class="ms-filters" id="tier-filters">
+      <button type="button" class="tier-chip is-active" data-tier="all">All</button>
+      <input type="search" class="ms-search" id="ms-search" placeholder="Filter by song or producer…">
+    </div>
   </div>
 
-  <div id="years-list">
-    <div class="loading-state">Loading year data…</div>
+  <div class="panel">
+    <div class="panel-header">
+      <span>[ Milestone Crossings ]</span>
+      <span class="panel-note" id="ms-count"></span>
+    </div>
+    <div class="ms-rows" id="ms-rows">
+      <div class="loading-state" style="border:none">Loading milestone data…</div>
+    </div>
   </div>
 
 </div>
@@ -424,7 +449,6 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
 </script>
 
 <script>
-/* sessionStorage cache with a short TTL so refreshed data JSON is picked up quickly. */
 const CACHE_TTL_MS = 10 * 60 * 1000;
 function cacheGet(key) {
   try {
@@ -448,14 +472,14 @@ function escHtml(s) {
   return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
-/* cover art fallback chain — prefers hi-res YT thumb, steps down on failure */
+let VIEWS = {}, YT_STATS = {}, BILI_STATS = {};
+
+/* cover art fallback chain · prefers hi-res YT thumb, steps down on failure */
 function coverArtChain(song) {
   const all = [...(song.coverArts || [])];
   if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
   const ytHq = song.ytOriginalId ? `https://i.ytimg.com/vi/${song.ytOriginalId}/hqdefault.jpg` : null;
   if (ytHq) { all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`); }
-  const nndNum = song.nndOriginalId ? String(song.nndOriginalId).match(/(d+)/)?.[1] : null;
-  if (nndNum) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${nndNum}/${nndNum}`);
   const bp = BILI_STATS[String(song.vocadbId)];
   if (bp && bp.pic) all.push(String(bp.pic).replace(/^http:/, "https:"));
   const p = u => (ytHq && u === ytHq) ? -1
@@ -482,85 +506,133 @@ function thumbImg(song) {
     : "";
 }
 
-function formatViews(n) {
-  if (n >= 1e9) return (n / 1e9).toFixed(n >= 1e10 ? 1 : 2).replace(/\.?0+$/, "") + "B";
-  if (n >= 1e6) return (n / 1e6).toFixed(n >= 1e7 ? 1 : 2).replace(/\.?0+$/, "") + "M";
-  if (n >= 1e3) return Math.round(n / 1e3) + "K";
-  return String(n);
+const MS_THRESHOLDS = [
+  { min: 1e8, label: "100M" }, { min: 5e7, label: "50M" }, { min: 1e7, label: "10M" },
+  { min: 5e6, label: "5M" }, { min: 1e6, label: "1M" }, { min: 5e5, label: "500K" }, { min: 1e5, label: "100K" },
+];
+
+let ALL_CROSSINGS = [];   // { song, t, date, approx, at }
+let activeTier = "all";
+let query = "";
+let shown = 50;
+
+function computeCrossings(songs, hist) {
+  const dates = hist.dates || [];
+  const byId = new Map(songs.map(s => [String(s.vocadbId), s]));
+  const out = [];
+  for (const [id, e] of Object.entries(hist.songs || {})) {
+    const song = byId.get(id);
+    if (!song) continue;
+    const at = i => {
+      const parts = [e.n, e.y, e.b].map(x => x && x[i] != null ? x[i] : null);
+      return parts.every(v => v == null) ? null : parts.reduce((a, v) => a + (v || 0), 0);
+    };
+    // a crossing only counts when platform coverage matches on both ends;
+    // otherwise the jump is a platform being counted for the first time.
+    const platKey = i => ["n", "y", "b"].map(k => e[k] && e[k][i] != null ? "1" : "0").join("");
+    const idx = dates.map((_, i) => at(i) != null ? i : -1).filter(i => i >= 0);
+    for (let k = 1; k < idx.length; k++) {
+      if (platKey(idx[k - 1]) !== platKey(idx[k])) continue;
+      const a = at(idx[k - 1]), b = at(idx[k]);
+      if (b <= a) continue;
+      for (const t of MS_THRESHOLDS) {
+        if (a < t.min && b >= t.min) {
+          const gapDays = (new Date(dates[idx[k]]) - new Date(dates[idx[k - 1]])) / 864e5;
+          out.push({ song, t, date: dates[idx[k]], approx: gapDays > 1.5, at: b });
+        }
+      }
+    }
+  }
+  out.sort((x, y) => y.date.localeCompare(x.date) || y.t.min - x.t.min);
+  return out;
 }
 
-let VIEWS = {}, YT_STATS = {}, BILI_STATS = {};
-function combinedViews(song) {
-  const id = String(song.vocadbId);
-  const n = typeof VIEWS[id] === "number" ? VIEWS[id] : null;
-  const y = YT_STATS[id] && typeof YT_STATS[id].views === "number" ? YT_STATS[id].views : null;
-  const b = BILI_STATS[id] && typeof BILI_STATS[id].views === "number" ? BILI_STATS[id].views : null;
-  return (n == null && y == null && b == null) ? null : (n || 0) + (y || 0) + (b || 0);
+function matches(c) {
+  if (activeTier !== "all" && c.t.label !== activeTier) return false;
+  if (query) {
+    const q = query.toLowerCase();
+    const hay = (c.song.title + " " + (c.song.artist || "") + " " + (c.song.artistString || "")).toLowerCase();
+    if (!hay.includes(q)) return false;
+  }
+  return true;
 }
 
-const TOP_N = 5;
+function render() {
+  const rows = document.getElementById("ms-rows");
+  const list = ALL_CROSSINGS.filter(matches);
+  document.getElementById("ms-count").textContent =
+    `${list.length.toLocaleString()} crossing${list.length !== 1 ? "s" : ""}`;
+  if (!list.length) {
+    rows.innerHTML = `<div class="loading-state" style="border:none">No milestone crossings match.</div>`;
+    return;
+  }
+  const slice = list.slice(0, shown);
+  rows.innerHTML = slice.map(c => `
+    <a class="ms-row" href="song.html?id=${encodeURIComponent(c.song.vocadbId)}">
+      <span class="mr-date"${c.approx ? ` title="crossed during a multi-day snapshot gap ending ${c.date}"` : ""}>${c.date}</span>
+      <span class="mr-badge${c.t.min >= 1e7 ? " tier-big" : ""}">${c.t.label}+</span>
+      <span class="mr-thumb">${thumbImg(c.song)}</span>
+      <span class="mr-main">
+        <span class="mr-title">${escHtml(c.song.title)}</span>
+        <span class="mr-artist">${escHtml(c.song.artist || c.song.artistString || "")}</span>
+      </span>
+      <span class="mr-views">${c.at.toLocaleString()}<span class="mv-cap">combined at crossing</span></span>
+    </a>`).join("") +
+    (list.length > shown
+      ? `<button type="button" class="ms-more" id="ms-more">Show ${Math.min(50, list.length - shown)} more (${list.length - shown} remaining)</button>`
+      : "");
+  const more = document.getElementById("ms-more");
+  if (more) more.addEventListener("click", () => { shown += 50; render(); });
+}
 
 Promise.all([
   loadJsonCached("../data/songs.json", "39c_songs_v2"),
+  loadJsonCached("../data/viewhistory.json", "39c_hist_v1"),
   loadJsonCached("../data/views.json", "39c_views_v2"),
   loadJsonCached("../data/ytviews.json", "39c_ytviews_v2"),
   loadJsonCached("../data/biliviews.json", "39c_biliviews_v3"),
-]).then(([songs, views, yt, bili]) => {
+]).then(([songs, hist, views, yt, bili]) => {
   if (!songs) throw new Error("songs.json failed to load");
   if (views && views.views) VIEWS = views.views;
   if (yt && yt.stats) YT_STATS = yt.stats;
   if (bili && bili.stats) BILI_STATS = bili.stats;
-
-  const byYear = new Map();
-  for (const s of songs) {
-    if (!s.publishDate) continue;
-    const y = new Date(s.publishDate).getUTCFullYear();
-    if (y < 2000) continue;
-    if (!byYear.has(y)) byYear.set(y, []);
-    byYear.get(y).push(s);
+  if (!hist || !hist.dates || hist.dates.length < 2) {
+    document.getElementById("ms-rows").innerHTML =
+      `<div class="loading-state" style="border:none">No daily snapshots yet · milestone history is collected by the nightly refresh.</div>`;
+    return;
   }
-  const years = [...byYear.keys()].sort((a, b) => b - a);
+  ALL_CROSSINGS = computeCrossings(songs, hist);
 
-  document.getElementById("year-jump").innerHTML = years.map(y =>
-    `<a class="year-chip" href="#y${y}">${y}</a>`).join("");
+  // tier chips: only offer tiers that actually occur
+  const present = [...new Set(ALL_CROSSINGS.map(c => c.t.label))];
+  const filters = document.getElementById("tier-filters");
+  const search = document.getElementById("ms-search");
+  MS_THRESHOLDS.filter(t => present.includes(t.label)).forEach(t => {
+    const b = document.createElement("button");
+    b.type = "button"; b.className = "tier-chip"; b.dataset.tier = t.label; b.textContent = t.label + "+";
+    filters.insertBefore(b, search);
+  });
+  filters.addEventListener("click", e => {
+    const chip = e.target.closest(".tier-chip");
+    if (!chip) return;
+    activeTier = chip.dataset.tier;
+    shown = 50;
+    filters.querySelectorAll(".tier-chip").forEach(c => c.classList.toggle("is-active", c === chip));
+    render();
+  });
+  search.addEventListener("input", () => { query = search.value.trim(); shown = 50; render(); });
 
-  document.getElementById("years-list").innerHTML = years.map(y => {
-    const list = byYear.get(y)
-      .map(s => ({ s, v: combinedViews(s) }))
-      .sort((a, b) => (b.v || 0) - (a.v || 0));
-    const total = list.reduce((sum, x) => sum + (x.v || 0), 0);
-    const rows = list.slice(0, TOP_N).map((x, i) => {
-      return `
-      <a class="year-row" href="song.html?id=${encodeURIComponent(x.s.vocadbId)}">
-        <span class="yr-rank${i === 0 ? " is-gold" : ""}">${i + 1}</span>
-        <span class="yr-thumb">${thumbImg(x.s)}</span>
-        <span class="yr-main">
-          <span class="yr-title">${escHtml(x.s.title)}</span>
-          <span class="yr-artist">${escHtml(x.s.artist || x.s.artistString || "")}</span>
-        </span>
-        <span class="yr-views">${x.v != null ? x.v.toLocaleString() : "—"}<span class="yv-cap">views</span></span>
-      </a>`;
-    }).join("");
-    return `
-    <div class="panel" id="y${y}" style="margin-bottom:6px">
-      <div class="panel-header">
-        <span>[ ${y} ]</span>
-        <span class="panel-note">${list.length} song${list.length !== 1 ? "s" : ""} · ${formatViews(total)} combined views</span>
-        <a class="year-full-link" href="./?year=${y}">Full ${y} chart &rarr;</a>
-      </div>
-      <div class="year-rows">${rows || `<div style="padding:10px;color:var(--faint);font-size:11px">No songs</div>`}</div>
-    </div>`;
-  }).join("");
-
-  const topYear = years.map(y => ({ y, t: byYear.get(y).reduce((s, x) => s + (combinedViews(x) || 0), 0) }))
-    .sort((a, b) => b.t - a.t)[0];
+  document.getElementById("filter-note").textContent =
+    `snapshots ${hist.dates[0]} → ${hist.dates[hist.dates.length - 1]}`;
+  const big = ALL_CROSSINGS.find(c => c.t.min >= 1e7);
   document.getElementById("marquee-text").textContent =
-    `★ ${years.length} years of Vocaloid charted  ·  ` +
-    (topYear ? `★ Biggest year: ${topYear.y} (${formatViews(topYear.t)} combined views)  ·  ` : "") +
+    `★ ${ALL_CROSSINGS.length.toLocaleString()} milestone crossings tracked  ·  ` +
+    (big ? `★ Latest big one: ${big.song.title} passed ${big.t.label} on ${big.date}  ·  ` : "") +
     `★ Thank you for using 39charts ♪`;
+  render();
 }).catch(err => {
-  document.getElementById("years-list").innerHTML =
-    `<div class="loading-state">Could not load data · ${escHtml(err.message)}</div>`;
+  document.getElementById("ms-rows").innerHTML =
+    `<div class="loading-state" style="border:none">Could not load data · ${escHtml(err.message)}</div>`;
 });
 </script>
 </body>

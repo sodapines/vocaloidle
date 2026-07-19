@@ -562,7 +562,7 @@ html.dark-mode .ach-row:nth-child(even) { background: rgba(255,255,255,0.018); }
 
 /* records sparkline */
 .rec-spark { padding: 6px 10px 8px; border-top: 1px solid var(--line); }
-.rec-spark svg { display: block; width: 100%; height: 34px; }
+.rec-spark svg { display: block; width: 100%; height: 72px; }
 .rec-spark-cap { font-size: 9px; color: var(--faint); margin-top: 2px; }
 
 /* hint button */
@@ -1066,7 +1066,8 @@ en: {
   hintUsed: "Hint already used this grid", hintOut: p => `Hint: the most popular answer here is by <b>${p}</b>. This square now scores 0.`,
   recPlayed: "Dailies played", recPerfect: "Perfect grids", recStreak: "Current streak",
   recBest: "Best score", recAvg: "Avg fill", recFav: "Most answered",
-  sparkCap: "daily scores · % of max",
+  sparkCap: n => `last ${n} dailies · dot height = your score as % of that day's max`,
+  sparkLast: (s, m, p) => `latest daily: ${s} / ${m} pts (${p}%)`,
   hdrHow: "[ How to Play ]", hdrRecords: "[ Records ]", hdrAch: "[ Achievements ]", hdrResult: "[ Result ]",
   how1: "Each square needs a song matching <b>both</b> its row and column.",
   how2: "Tap a square, type a song title, pick it from the list.",
@@ -1116,7 +1117,8 @@ ja: {
   hintUsed: "ヒントは使用済みです", hintOut: p => `ヒント: このマスの人気曲のプロデューサーは <b>${p}</b> です。このマスは0点になります。`,
   recPlayed: "プレイ日数", recPerfect: "全マス正解", recStreak: "連続日数",
   recBest: "最高スコア", recAvg: "平均達成率", recFav: "最多回答",
-  sparkCap: "デイリースコア · 最大比%",
+  sparkCap: n => `直近${n}回のデイリー · 点の高さ=その日の最大スコア比`,
+  sparkLast: (s, m, p) => `最新デイリー: ${s} / ${m}点（${p}%）`,
   hdrHow: "[ 遊び方 ]", hdrRecords: "[ 記録 ]", hdrAch: "[ 実績 ]", hdrResult: "[ 結果 ]",
   how1: "各マスには行と列の<b>両方</b>の条件に合う曲を入れます。",
   how2: "マスをタップして曲名を入力し、リストから選択。",
@@ -1158,7 +1160,8 @@ es: {
   hintUsed: "Pista ya usada", hintOut: p => `Pista: la respuesta más popular aquí es de <b>${p}</b>. Esta casilla ahora puntúa 0.`,
   recPlayed: "Diarios jugados", recPerfect: "Cuadrículas perfectas", recStreak: "Racha actual",
   recBest: "Mejor puntuación", recAvg: "Llenado medio", recFav: "Más respondido",
-  sparkCap: "puntuaciones diarias · % del máximo",
+  sparkCap: n => `últimas ${n} diarias · altura = % del máximo de ese día`,
+  sparkLast: (s, m, p) => `última diaria: ${s} / ${m} pts (${p}%)`,
   hdrHow: "[ Cómo jugar ]", hdrRecords: "[ Récords ]", hdrAch: "[ Logros ]", hdrResult: "[ Resultado ]",
   how1: "Cada casilla necesita una canción que cumpla <b>ambos</b> criterios.",
   how2: "Toca una casilla, escribe un título y elígelo de la lista.",
@@ -1200,7 +1203,8 @@ ko: {
   hintUsed: "힌트를 이미 사용했습니다", hintOut: p => `힌트: 이 칸의 인기곡 프로듀서는 <b>${p}</b>입니다. 이 칸은 0점이 됩니다.`,
   recPlayed: "플레이한 데일리", recPerfect: "퍼펙트 그리드", recStreak: "연속 기록",
   recBest: "최고 점수", recAvg: "평균 달성률", recFav: "최다 응답",
-  sparkCap: "데일리 점수 · 최대 대비 %",
+  sparkCap: n => `최근 ${n}일 데일리 · 점 높이 = 그날 최대 점수 대비 %`,
+  sparkLast: (s, m, p) => `최근 데일리: ${s} / ${m}점 (${p}%)`,
   hdrHow: "[ 게임 방법 ]", hdrRecords: "[ 기록 ]", hdrAch: "[ 업적 ]", hdrResult: "[ 결과 ]",
   how1: "각 칸에는 행과 열 <b>양쪽</b> 조건에 맞는 곡을 넣습니다.",
   how2: "칸을 탭하고 곡명을 입력해 목록에서 선택하세요.",
@@ -1303,6 +1307,8 @@ const combined = s => {
 const TAG_WHITELIST = new Set([
   "rock", "sad", "ProSeka", "cute", "love", "dark", "EDM", "piano",
   "uplifting", "funny", "ballad", "creepy", "fast tempo", "metal", "English subtitles",
+  "alternative rock", "electropop", "digital rock", "J-pop", "pop", "chiptune",
+  "dance-pop", "technopop", "drum and bass", "experimental",
 ]);
 let CRITS = [];        // { name, kind, kindLabel, set:Set<vocadbId> }
 let MATRIX = null;     // MATRIX[i][j] = intersection size
@@ -1388,12 +1394,15 @@ function buildCriteria() {
   defs.push({ name: "Under 1M views", kind: "views", f: s => { const v = combined(s); return v != null && v < 1e6; } });
   defs.push({ name: "2+ vocalists", kind: "credits", f: s => songCharacters(s).size >= 2 });
   defs.push({ name: "Collab (2+ producers)", kind: "credits", f: s => songProducers(s).size >= 2 });
+  const normTitle = s => (s.title || "").normalize("NFKC").trim();
+  defs.push({ name: "Number in the title", kind: "title", f: s => /\d/.test(normTitle(s)) });
+  defs.push({ name: "One-word title", kind: "title", f: s => { const t = normTitle(s); return !!t && !/\s/.test(t); } });
   defs.push({ name: "English lyrics", kind: "language", f: s => langOf(s).some(l => String(l).toLowerCase().startsWith("en")) });
   defs.push({ name: "Chinese lyrics", kind: "language", f: s => langOf(s).some(l => { const v = String(l).toLowerCase(); return v === "cmn" || v.startsWith("zh"); }) });
   for (const [t, c] of Object.entries(tagCount)) if (c >= 40)
     defs.push({ name: t, kind: "tag", f: s => { const d = DETAILS[String(s.vocadbId)]; return !!(d && d.tags && d.tags.includes(t)); } });
 
-  const KIND_LABEL = { producer: "producer", vocalist: "vocalist", year: "upload year", views: "views", credits: "credits", platform: "platform", language: "language", tag: "tag" };
+  const KIND_LABEL = { producer: "producer", vocalist: "vocalist", year: "upload year", views: "views", credits: "credits", platform: "platform", language: "language", tag: "tag", title: "song title" };
   CRITS = defs.map(d => ({
     name: d.name, kind: d.kind, kindLabel: KIND_LABEL[d.kind],
     set: new Set(SONGS.filter(d.f).map(s => String(s.vocadbId))),
@@ -1651,15 +1660,25 @@ function renderSpark() {
   const box = $("rec-spark");
   if (h.length < 2) { box.hidden = true; return; }
   box.hidden = false;
-  const W = 200, H = 30;
-  const pts = h.slice(-14).map((e, i, arr) => {
-    const x = arr.length === 1 ? W / 2 : i * (W / (arr.length - 1));
+  const recent = h.slice(-14);
+  const W = 200, H = 74;
+  const pts = recent.map((e, i, arr) => {
+    const x = 5 + (arr.length === 1 ? (W - 10) / 2 : i * ((W - 10) / (arr.length - 1)));
     const pct = e.m ? Math.min(1, e.s / e.m) : 0;
-    return `${x.toFixed(1)},${(H - 2 - pct * (H - 4)).toFixed(1)}`;
+    return { x, y: H - 10 - pct * (H - 20), e, pct };
   });
-  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
-    <polyline points="${pts.join(" ")}" fill="none" stroke="#cc0000" stroke-width="1.5" vector-effect="non-scaling-stroke"></polyline>
-  </svg><div class="rec-spark-cap">${escHtml(t("sparkCap"))}</div>`;
+  const last = recent[recent.length - 1];
+  const lastPct = last.m ? Math.round(last.s / last.m * 100) : 0;
+  box.innerHTML = `<svg viewBox="0 0 ${W} ${H}">
+    <line x1="0" y1="10" x2="${W}" y2="10" stroke="currentColor" opacity="0.18" stroke-width="1" stroke-dasharray="3 3"></line>
+    <line x1="0" y1="${H - 10}" x2="${W}" y2="${H - 10}" stroke="currentColor" opacity="0.28" stroke-width="1"></line>
+    <text x="1" y="8" font-size="8" fill="currentColor" opacity="0.5">100%</text>
+    <text x="1" y="${H - 1}" font-size="8" fill="currentColor" opacity="0.5">0%</text>
+    <polyline points="${pts.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ")}" fill="none" stroke="#cc0000" stroke-width="1.5"></polyline>
+    ${pts.map(p => `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="2.2" fill="#cc0000"><title>${escHtml(p.e.d)}: ${p.e.s}/${p.e.m} (${Math.round(p.pct * 100)}%)</title></circle>`).join("")}
+  </svg>
+  <div class="rec-spark-cap">${escHtml(t("sparkCap", recent.length))}</div>
+  <div class="rec-spark-cap">${escHtml(t("sparkLast", last.s, last.m, lastPct))}</div>`;
 }
 
 /* ═══════════════ grid setup ═══════════════ */

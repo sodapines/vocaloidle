@@ -1453,6 +1453,12 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
       <div class="ms-note" id="milestones-note"></div>
     </div>
 
+    <div class="sidebar-panel" id="onthisday-panel" hidden>
+      <div class="sidebar-header">[ On This Day ]</div>
+      <div id="onthisday-list"></div>
+      <div class="ms-note" id="onthisday-note"></div>
+    </div>
+
   </aside>
 
   <main class="nnd-main">
@@ -1461,6 +1467,7 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
       <div class="game-mode-tabs">
         <a class="game-mode-btn is-active" href="./">Songs</a>
         <a class="game-mode-btn" href="trending.html">Trending</a>
+        <a class="game-mode-btn" href="milestones.html">Milestones</a>
         <a class="game-mode-btn" href="years.html">Years</a>
         <a class="game-mode-btn" href="producers.html">Producers</a>
         <a class="game-mode-btn" href="vocalists.html">Vocalists</a>
@@ -1910,8 +1917,44 @@ function renderMilestones() {
         <span class="ms-sub">${approx ? "by" : "on"} ${date}</span>
       </span>
     </div>`).join("");
-  document.getElementById("milestones-note").textContent =
-    `combined-view milestones from daily snapshots${crossed.length > 8 ? ` · +${crossed.length - 8} more` : ""}`;
+  document.getElementById("milestones-note").innerHTML =
+    `combined-view milestones from daily snapshots${crossed.length > 8 ? ` · +${crossed.length - 8} more` : ""}` +
+    ` · <a href="milestones.html">all milestones →</a>`;
+  panel.hidden = false;
+}
+
+/* ── "On this day" upload anniversaries ── */
+function renderOnThisDay() {
+  const panel = document.getElementById("onthisday-panel");
+  const list = document.getElementById("onthisday-list");
+  if (!panel || !list) return;
+  const now = new Date();
+  const mmdd = String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+  const combinedOf = s => {
+    const id = String(s.vocadbId);
+    const n = VIEWS[id], y = YT_STATS[id] && YT_STATS[id].views, b = BILI_STATS[id] && BILI_STATS[id].views;
+    if (typeof n !== "number" && typeof y !== "number" && typeof b !== "number") return null;
+    return (n || 0) + (y || 0) + (b || 0);
+  };
+  const hits = ALL_SONGS
+    .filter(s => s.publishDate && s.publishDate.slice(5, 10) === mmdd &&
+      +s.publishDate.slice(0, 4) < now.getFullYear())
+    .map(s => ({ s, v: combinedOf(s), year: +s.publishDate.slice(0, 4) }))
+    .sort((a, b) => (b.v || 0) - (a.v || 0));
+  if (!hits.length) return;
+  list.innerHTML = hits.slice(0, 6).map(({ s, year }) => {
+    const age = now.getFullYear() - year;
+    return `
+    <div class="ms-row">
+      <span class="ms-badge">${year}</span>
+      <span class="ms-title">
+        <a href="song.html?id=${encodeURIComponent(s.vocadbId)}" title="${escHtml(displayTitle(s))}">${escHtml(displayTitle(s))}</a>
+        <span class="ms-sub">uploaded ${age} year${age !== 1 ? "s" : ""} ago today</span>
+      </span>
+    </div>`;
+  }).join("");
+  document.getElementById("onthisday-note").textContent =
+    hits.length > 6 ? `+${hits.length - 6} more anniversaries today` : "upload anniversaries from the song pool";
   panel.hidden = false;
 }
 
@@ -3005,6 +3048,7 @@ Promise.all([loadSongs(), loadViews(), loadYtViews(), loadDetails(), loadBiliVie
 
     computeRankDeltas();
     renderMilestones();
+    renderOnThisDay();
     updateMarquee();
     render();
   })
