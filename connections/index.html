@@ -1,0 +1,1688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOCALOID Connections · find the four groups</title>
+<meta property="og:site_name" content="VOCALOID Connections">
+<meta property="og:title" content="VOCALOID Connections · find the four groups">
+<meta property="og:description" content="Sixteen VOCALOID songs, four hidden groups. Sort them by producer, vocalist, era and more. A new puzzle every day.">
+<meta property="og:type" content="website">
+<meta name="description" content="Sixteen VOCALOID songs, four hidden groups. A new puzzle every day.">
+<link rel="icon" type="image/jpeg" href="../favicon.jpg">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css">
+<script>try{const r=document.documentElement;if(localStorage.getItem("vc_dark")==="1")r.classList.add("dark-mode");if(localStorage.getItem("vc_colorblind")==="1")r.classList.add("colorblind-mode");if(localStorage.getItem("vc_reduce_motion")==="1")r.classList.add("reduce-motion");if(localStorage.getItem("vc_large_text")==="1")r.classList.add("large-text-mode");if(localStorage.getItem("vc_contrast")==="1")r.classList.add("high-contrast-mode");r.lang=localStorage.getItem("vc_lang")||"en"}catch(e){}</script>
+<style>
+:root {
+  --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
+  --text: #111; --muted: #555; --faint: #999;
+  --line: #c8c4bc; --ls: #b8b4ac;
+  --red: #cc0000; --red-dark: #990000; --link: #0066cc;
+  --g-yellow: #d8ae2e; --g-yellow-d: #a87c0a;
+  --g-green: #2faf57; --g-green-d: #1a7d3c;
+  --g-blue: #3769c9; --g-blue-d: #174690;
+  --g-purple: #8a5ac9; --g-purple-d: #5c3396;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  min-height: 100%;
+  font-family: "MS PGothic", "Hiragino Kaku Gothic Pro", "Meiryo", Arial, sans-serif;
+  font-size: 12px; color: var(--text); background-color: var(--bg);
+  background-image:
+    linear-gradient(rgba(255,255,240,0.22) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,240,0.18) 1px, transparent 1px);
+  background-size: 28px 28px, 28px 28px;
+  line-height: 1.4;
+}
+body { min-height: 100vh; display: flex; flex-direction: column; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--red); }
+button { font: inherit; cursor: pointer; }
+
+/* ── chrome ── */
+.nnd-topbar {
+  width: 100%; background: #111; border-bottom: 1px solid #000;
+  height: 24px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 10px; font-size: 11px; color: #777;
+}
+.nnd-mainbar {
+  width: 100%; background: #fff; border-bottom: 2px solid var(--red);
+  padding: 6px 10px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+}
+.nnd-logo { display: flex; align-items: center; gap: 6px; text-decoration: none; color: var(--text); }
+.nnd-logo:hover { text-decoration: none; }
+.nnd-logo-mark {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 28px; height: 28px; background: linear-gradient(#5c5c5c, #3a3a3a);
+  border: 1px solid #2c2c2c; flex-shrink: 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.16);
+}
+.cn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+.cn-grid i { width: 8px; height: 8px; display: block; box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25); }
+.cn-grid i:nth-child(1) { background: #f4d874; }
+.cn-grid i:nth-child(2) { background: #9fdcb2; }
+.cn-grid i:nth-child(3) { background: #a9c4f0; }
+.cn-grid i:nth-child(4) { background: #cdb2ef; }
+.nnd-logo-text { font-size: 15px; font-weight: 900; letter-spacing: -0.02em; line-height: 1; }
+.nnd-logo-sub { display: block; font-size: 10px; font-weight: 400; color: var(--muted); }
+.language-switcher { display: flex; align-items: center; gap: 3px; }
+.language-button {
+  width: 24px; height: 16px; min-height: unset; padding: 0;
+  border: 1px solid var(--ls); border-radius: 2px;
+  background: linear-gradient(to bottom, #ffffff, #dddddd);
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 1px 2px rgba(0,0,0,0.2);
+  opacity: 0.55; overflow: hidden; position: relative;
+}
+.language-button:hover { opacity: 0.85; }
+.language-button.is-active { opacity: 1; box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), 0 0 0 1px var(--red); }
+.language-button .fi { width: 100%; height: 100%; background-size: cover; background-position: center; border-radius: 1px; }
+.language-button::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; border-radius: 1px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.45) 0%, rgba(255,255,255,0.1) 50%, rgba(0,0,0,0.05) 100%);
+}
+.nnd-header-links { display: flex; align-items: center; gap: 6px; font-size: 12px; margin-left: auto; }
+.nnd-header-links a { color: var(--link); display: inline-block; padding: 2px 8px; border: 1px solid transparent; }
+.nnd-header-links a:hover {
+  text-decoration: none; color: var(--red);
+  background: #f6f4ee; border-color: #fff #9a968e #9a968e #fff;
+}
+.nnd-header-links a.nnd-kofi {
+  background: var(--red); color: #fff; padding: 3px 9px;
+  border: 1px solid var(--red-dark); font-weight: 700;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
+}
+.nnd-header-links a.nnd-kofi:hover { background: #b30000; color: #fff; text-decoration: none; }
+.nnd-divider { color: var(--line); }
+.nnd-mobile-settings { display: none; }
+.nnd-marquee-bar {
+  width: 100%;
+  background:
+    repeating-linear-gradient(0deg, rgba(204,153,0,0.08) 0, rgba(204,153,0,0.08) 1px, transparent 1px, transparent 4px),
+    #fffde8;
+  border-bottom: 1px solid #d0c878;
+  height: 20px; display: flex; align-items: center; overflow: hidden; font-size: 11px;
+}
+.nnd-marquee-label {
+  flex-shrink: 0; padding: 0 7px; background: #cc9900; color: #fff;
+  font-weight: 700; font-size: 10px; height: 100%;
+  display: flex; align-items: center; border-right: 1px solid #aa7700;
+}
+.nnd-marquee-wrap { flex: 1; overflow: hidden; height: 100%; display: flex; align-items: center; }
+.nnd-marquee-inner { white-space: nowrap; color: #555500; animation: mq 32s linear infinite; padding-left: 100%; }
+@keyframes mq { 0% { transform: translateX(0); } 100% { transform: translateX(-100%); } }
+@media (prefers-reduced-motion: reduce) { .nnd-marquee-inner { animation: none; padding-left: 0; } }
+
+.nnd-body {
+  flex: 1 0 auto; width: 100%; max-width: 900px; margin: 0 auto; padding: 8px 10px;
+  display: flex; gap: 6px; align-items: flex-start;
+}
+.nnd-side { width: 200px; min-width: 200px; display: flex; flex-direction: column; gap: 5px; }
+.nnd-main { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 5px; }
+
+.panel {
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), inset -1px -1px 0 rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.07);
+  overflow: hidden;
+}
+.panel-header {
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  padding: 4px 8px; font-size: 11px; font-weight: 700;
+  font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
+  display: flex; align-items: center; justify-content: space-between; gap: 6px;
+}
+.panel-note { font-size: 10px; font-weight: 400; color: var(--faint); font-style: italic; text-transform: none; letter-spacing: 0; }
+
+/* mode tabs */
+.mode-bar {
+  display: flex; align-items: stretch; gap: 4px;
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.02) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #fbfaf6, #e6e3dc);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.85), inset -1px -1px 0 rgba(0,0,0,0.10);
+  padding: 3px 5px 0;
+  font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
+}
+.mode-tabs { display: flex; align-items: flex-end; gap: 3px; }
+.mode-btn {
+  padding: 5px 14px 6px; border: 2px solid; border-bottom: 0;
+  border-color: #fff var(--ls) var(--ls) #fff; margin-bottom: -2px;
+  background: linear-gradient(to bottom, #f3f1ea, #dcd8cf); color: var(--muted);
+  font-family: inherit; font-size: 11px; font-weight: 700;
+  letter-spacing: 0.07em; text-transform: uppercase; white-space: nowrap;
+}
+.mode-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff6f6, #f1dcdc); }
+.mode-btn.is-active {
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
+  color: #fff; padding-bottom: 8px; z-index: 2;
+  border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
+  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
+}
+.mode-note { margin-left: auto; align-self: center; padding: 4px 10px; color: var(--muted); font-family: inherit; font-size: 10px; }
+
+/* status strip */
+.status-strip { display: flex; align-items: stretch; }
+.st-cell.timer-cell[hidden] { display:none; }
+.st-cell {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 1px;
+  padding: 5px 4px; border-right: 1px solid var(--line); text-align: center;
+}
+.st-cell:last-child { border-right: none; }
+.st-k { font-size: 9px; font-weight: 700; color: var(--faint); text-transform: uppercase; letter-spacing: 0.06em; }
+.st-v { font-size: 13px; font-weight: 900; font-family: Consolas, "MS PGothic", monospace; color: var(--red); }
+.mist-dots { display: inline-flex; gap: 3px; align-items: center; height: 15px; }
+.mist-dots i { width: 8px; height: 8px; background: var(--red); border: 1px solid var(--red-dark); }
+.mist-dots i.used { background: transparent; border-color: var(--ls); }
+
+/* solved group banners */
+.solved-list { display: flex; flex-direction: column; gap: 5px; }
+.solved-row {
+  border: 2px solid; color: #fff; padding: 6px 10px;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), inset 0 -2px 0 rgba(0,0,0,0.18);
+  position: relative;
+}
+.solved-row::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,0.06) 0 4px, transparent 4px 9px);
+}
+.solved-row.g0 { background: linear-gradient(to bottom, #e2bc44, var(--g-yellow-d)); border-color: var(--g-yellow-d); }
+.solved-row.g1 { background: linear-gradient(to bottom, #3fbd66, var(--g-green-d)); border-color: var(--g-green-d); }
+.solved-row.g2 { background: linear-gradient(to bottom, #4778d4, var(--g-blue-d)); border-color: var(--g-blue-d); }
+.solved-row.g3 { background: linear-gradient(to bottom, #9a6cd6, var(--g-purple-d)); border-color: var(--g-purple-d); }
+.solved-row.revealed { opacity: 0.82; }
+.sg-label { font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.04em; }
+.sg-songs { font-size: 11px; margin-top: 1px; }
+.sg-explain { margin-top:4px; padding-top:4px; border-top:1px solid rgba(255,255,255,.35); font-size:9px; line-height:1.35; opacity:.95; }
+
+/* board */
+.board { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 5px; padding: 8px; }
+.tile {
+  min-height: 82px; padding: 0;
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  background: linear-gradient(to bottom, #fff, #eceae4);
+  border: 2px solid; border-color: #fff var(--ls) var(--ls) #fff;
+  color: var(--text); font-weight: 700; font-size: 11px; line-height: 1.25;
+  word-break: break-word; overflow-wrap: anywhere;
+  user-select: none; position: relative; overflow: hidden;
+}
+.tile-thumb { position: absolute; inset: 0; background: #333; }
+.tile-thumb img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.58); display: block; }
+.tile-title {
+  position: relative; z-index: 2; width: 100%; margin-top: auto; padding: 12px 5px 5px;
+  background: linear-gradient(to top, rgba(0,0,0,0.88), rgba(0,0,0,0.34) 72%, transparent);
+  color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+}
+.tile.long { font-size: 9.5px; }
+.tile:hover { border-color: var(--red); }
+.tile.sel {
+  background: linear-gradient(to bottom, #6a6a6a, #4a4a4a);
+  color: #fff; border-color: var(--red);
+  text-shadow: 0 1px 0 rgba(0,0,0,0.4);
+  box-shadow: inset 0 0 0 2px #fff;
+}
+.tile.sel .tile-thumb img { filter: brightness(0.38) saturate(0.65); }
+.tile.sel .tile-title::before { content: "\2713"; margin-right: 4px; color: #fff; }
+.tile:disabled { cursor: default; }
+.tile.shake { animation: shake 0.35s; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  75% { transform: translateX(4px); }
+}
+@media (prefers-reduced-motion: reduce) { .tile.shake { animation: none; } }
+
+/* action bar */
+.actions { display: flex; gap: 6px; flex-wrap: wrap; padding: 0 8px 8px; }
+.actions[hidden], .board[hidden], .archive-view[hidden], .result-line[hidden] { display: none !important; }
+.act-btn {
+  min-height: 27px; padding: 0 14px;
+  font-size: 11px; font-weight: 700; color: #fff;
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  border: 1px solid var(--red-dark);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.act-btn:hover { background: linear-gradient(to bottom, #ee2a2a, #bb0000); }
+.act-btn:disabled { background: linear-gradient(to bottom, #9a9a9a, #7a7a7a); border-color: #666; cursor: default; }
+.act-btn.gray { background: linear-gradient(to bottom, #8a8a8a, #6a6a6a); border-color: #555; }
+.act-btn.gray:hover { background: linear-gradient(to bottom, #9a9a9a, #7a7a7a); }
+
+.result-line { padding: 6px 9px 8px; font-size: 12px; }
+.result-line b { color: var(--red); }
+.end-card { display:grid; grid-template-columns:auto 1fr; gap:8px 12px; align-items:center; padding:8px 10px; border:1px solid var(--line); background:linear-gradient(to bottom,#fff,#f0eee8); }
+.end-rank { min-width:72px; padding:7px 9px; background:var(--red); color:#fff; text-align:center; font-size:12px; font-weight:900; text-transform:uppercase; }
+.end-copy strong { display:block; color:var(--red); font-size:13px; }
+.end-copy span { display:block; margin-top:2px; color:var(--muted); font-size:10px; }
+.end-metrics { grid-column:1 / -1; display:grid; grid-template-columns:repeat(auto-fit,minmax(110px,1fr)); border:1px solid var(--ls); }
+.end-metrics div { padding:5px 4px; border-right:1px solid var(--ls); text-align:center; }
+.end-metrics div:last-child { border-right:0; }
+.end-metrics b { display:block; font-size:13px; }
+.end-metrics small { display:block; color:var(--faint); font-size:8px; text-transform:uppercase; }
+
+.guess-history { padding:6px 8px 8px; display:grid; gap:3px; }
+.guess-history[hidden] { display:none !important; }
+.guess-row { display:grid; grid-template-columns:64px 1fr auto; align-items:center; gap:7px; padding:3px 5px; border-bottom:1px dotted var(--line); font-size:9px; }
+.guess-row:last-child { border-bottom:0; }
+.guess-label { color:var(--faint); text-transform:uppercase; }
+.guess-picks { min-width:0; overflow:hidden; color:var(--text); white-space:nowrap; text-overflow:ellipsis; }
+.guess-verdict { color:var(--muted); white-space:nowrap; }
+
+/* sidebar */
+.side-body { padding: 7px 9px; font-size: 11px; color: var(--muted); }
+.records-body { padding-top:0; padding-bottom:0; }
+.side-row { display: flex; gap: 6px; margin-bottom: 6px; align-items: flex-start; }
+.sr-num {
+  flex-shrink: 0; width: 15px; height: 15px; display: grid; place-items: center;
+  background: var(--red); color: #fff; font-size: 9px; font-weight: 700;
+  border: 1px solid var(--red-dark);
+}
+.stats-table { width: 100%; border-collapse: collapse; }
+.stats-table td { padding: 3px 0; border-bottom: 1px dotted var(--line); font-size: 11px; color: var(--muted); }
+.stats-table tr:last-child td { border-bottom: none; }
+.stats-table td:last-child { text-align: right; font-weight: 900; color: var(--red); font-family: Consolas, monospace; }
+.countdown-line { padding: 5px 9px; font-size: 10px; color: var(--faint); border-top: 1px solid var(--line); }
+.countdown-line b { color: var(--red); font-family: Consolas, monospace; }
+.links-list { display: flex; flex-direction: column; }
+.links-list a { display:block; padding: 4px 7px; color: var(--link); border-bottom: 1px solid var(--line); font-size: 10px; line-height:1.4; }
+.links-list a:last-child { border-bottom: 0; }
+.links-list a::before { content: "\25B8"; color: var(--red); margin-right: 5px; }
+.links-list a:hover { color:var(--red); background:#fff0f0; text-decoration:none; }
+
+/* archive calendar */
+.archive-view { width:min(100%,640px); margin:0 auto; padding: 10px 12px 12px; }
+.mcal-head { display: grid; grid-template-columns: 34px 1fr 34px; align-items: center; gap: 8px; margin-bottom: 10px; }
+.mcal-head strong { text-align: center; font-size: 13px; }
+.mcal-nav { height: 28px; border: 1px solid var(--ls); background: linear-gradient(to bottom,#fff,#e2e2e2); color: var(--muted); }
+.mcal-nav:disabled { opacity: .35; }
+.mcal-dows,.mcal-grid { display: grid; grid-template-columns: repeat(7,1fr); gap: 2px; }
+.mcal-dows span { padding: 3px 0; text-align: center; font-size: 9px; color: var(--faint); text-transform: uppercase; }
+.mcal-day { min-height: 46px; border: 1px solid var(--line); background: var(--sf); color: var(--faint); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; font-size:10px; font-weight: 700; }
+.mcal-day.off { visibility: hidden; }
+.mcal-day.playable { color: var(--text); background: linear-gradient(to bottom,#fff,#eceae4); border-color: var(--ls); }
+.mcal-day.playable:hover { border-color: var(--red); color: var(--red); }
+.mcal-day.done { color: #fff; background: linear-gradient(to bottom,#dd2222,#aa0000); border-color: var(--red-dark); }
+.mcal-score { font-size: 8px; font-weight: 400; }
+.mcal-legend { display: flex; justify-content: center; gap: 18px; margin-top: 10px; font-size: 9px; color: var(--faint); }
+.mcal-key { display: inline-block; width: 10px; height: 10px; margin-right: 4px; vertical-align: -1px; border: 1px solid var(--ls); background: var(--sf); }
+.mcal-key.done { background: var(--red); border-color: var(--red-dark); }
+
+/* toast */
+.nnd-toast {
+  position: fixed; left: 50%; bottom: 26px; transform: translateX(-50%);
+  z-index: 200; display: flex; align-items: stretch; max-width: min(92vw, 380px);
+  background: #fffde5; border: 1px solid #c9b43a;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+  font-size: 11px; color: #665d16;
+  transition: opacity 0.5s;
+}
+.nnd-toast.nnd-toast-fade { opacity: 0; }
+.nnd-toast .nnd-toast-label {
+  display: grid; place-items: center; padding: 0 10px;
+  background: #b39200; color: #fff; font-size: 13px; border-right: 1px solid #8b7200;
+}
+.nnd-toast .nnd-toast-msg { padding: 6px 12px; display: flex; flex-direction: column; justify-content: center; }
+.nnd-toast .nnd-toast-msg b { color: #333300; }
+
+/* modals */
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.55); z-index: 100; }
+.modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%,-50%);
+  z-index: 101; width: min(100vw - 32px, 380px); max-height: min(86vh, 560px); overflow: auto;
+  background: var(--surface);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  padding: 14px;
+}
+.modal-title {
+  margin: -14px -14px 12px; padding: 5px 10px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: "MS Gothic","Osaka-Mono","Courier New",monospace;
+  font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  background:
+    repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+    linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border-bottom: 1px solid var(--ls);
+  position: sticky; top: -14px;
+}
+.modal-close {
+  width: 20px; height: 20px; padding: 0; line-height: 1;
+  background: linear-gradient(to bottom, #fff, #ddd);
+  border: 1px solid var(--ls); color: var(--muted); font-size: 10px; font-weight: 700;
+}
+.modal-close:hover { background: linear-gradient(to bottom, #fff5f5, #fcc); color: var(--red); }
+.modal p { margin-bottom: 8px; font-size: 12px; color: var(--muted); }
+.modal p b { color: var(--text); }
+.settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
+.settings-row .s-label { font-size: 12px; font-weight: 700; }
+.settings-row .s-desc { font-size: 10px; color: var(--faint); }
+.settings-toggle {
+  flex-shrink: 0; height: 24px; min-width: 46px; padding: 0 10px;
+  font-size: 11px; font-weight: 700; color: var(--faint);
+  background: linear-gradient(to bottom, #fff, #e0e0e0);
+  border: 1px solid var(--ls);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
+}
+.settings-toggle.is-on {
+  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  color: #fff; border-color: var(--red-dark);
+}
+.settings-row + .settings-row { border-top:1px dotted var(--line); }
+.settings-actions { display:flex; gap:6px; }
+.settings-actions .settings-toggle { min-width:74px; }
+.backup-panel { border-top:1px dotted var(--line); padding-top:8px; }
+.backup-panel textarea { box-sizing:border-box; width:100%; min-height:90px; resize:vertical; border:1px solid var(--ls); background:var(--surface); color:var(--text); font:10px var(--mono); padding:7px; }
+
+html.colorblind-mode .solved-row.g0 { background:repeating-linear-gradient(45deg,#b68e00 0 5px,#d0aa20 5px 10px); }
+html.colorblind-mode .solved-row.g1 { background:repeating-linear-gradient(90deg,#16835c 0 5px,#34a57c 5px 10px); }
+html.colorblind-mode .solved-row.g2 { background:repeating-linear-gradient(135deg,#3269a8 0 4px,#5a91cf 4px 8px); }
+html.colorblind-mode .solved-row.g3 { background:repeating-linear-gradient(0deg,#744c9e 0 4px,#9a70c4 4px 8px); }
+html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; scroll-behavior:auto !important; }
+html.large-text-mode body { font-size:15px; }
+html.large-text-mode .tile { font-size:12px; }
+html.large-text-mode .tile.long { font-size:10.5px; }
+html.high-contrast-mode .tile-thumb img { filter:brightness(.76) contrast(1.18); }
+html.high-contrast-mode .tile-title { background:linear-gradient(to top,rgba(0,0,0,.96),rgba(0,0,0,.52) 75%,transparent); }
+button:focus-visible,a:focus-visible,input:focus-visible { outline:2px solid var(--red); outline-offset:2px; }
+.demo-colors { display: flex; gap: 4px; margin: 4px 0 8px; }
+.demo-colors i { flex: 1; height: 12px; border: 1px solid rgba(0,0,0,0.25); }
+.demo-colors i:nth-child(1) { background: var(--g-yellow); }
+.demo-colors i:nth-child(2) { background: var(--g-green); }
+.demo-colors i:nth-child(3) { background: var(--g-blue); }
+.demo-colors i:nth-child(4) { background: var(--g-purple); }
+.wide-modal { width: min(100vw - 32px, 780px); }
+.modal-toolbar { display: flex; gap: 6px; margin-bottom: 10px; }
+.modal-search { flex: 1; min-width: 0; padding: 7px 9px; border: 1px solid var(--ls); background: var(--sf); color: var(--text); font: inherit; }
+.modal-tabs { display: grid; grid-template-columns: repeat(4,1fr); border: 1px solid var(--ls); margin-bottom: 10px; }
+.modal-tab { padding: 7px 4px; border: 0; border-right: 1px solid var(--ls); background: linear-gradient(to bottom,#fff,#e2e2e2); color: var(--muted); font: inherit; }
+.modal-tab:last-child { border-right: 0; }
+.modal-tab.is-active { background: var(--red); color: #fff; }
+.progress-box { border: 1px solid var(--ls); padding: 9px; margin-bottom: 10px; }
+.progress-label { display: flex; justify-content: space-between; margin-bottom: 5px; font-size: 11px; }
+.progress-track { height: 8px; background: #ddd; border: 1px solid #ccc; }
+.progress-fill { height: 100%; background: var(--red); }
+.achievement-list { max-height: 48vh; overflow: auto; border: 1px solid var(--ls); }
+.achievement-card { padding: 9px 12px; border-bottom: 1px dotted var(--line); border-left: 4px solid var(--ls); }
+.achievement-card:last-child { border-bottom: 0; }
+.achievement-card.unlocked { border-left-color: var(--red); background: rgba(207,0,0,.035); }
+.achievement-name { display: flex; justify-content: space-between; gap: 8px; font-weight: 700; font-size: 12px; }
+.achievement-cat { flex: 0 0 auto; padding: 1px 5px; background: #aaa; color: #fff; font-size: 8px; text-transform: uppercase; }
+.achievement-card.unlocked .achievement-cat { background: var(--red); }
+.achievement-desc,.achievement-date { margin-top: 3px; color: var(--muted); font-size: 10px; }
+.release-tabs { display:flex; width:fit-content; margin:10px 0 8px; border:1px solid var(--ls); }
+.release-tab { min-width:58px; height:24px; min-height:24px; padding:0 10px; border:0; border-right:1px solid var(--ls); background:linear-gradient(to bottom,#fff,#e8e8e8); color:var(--muted); font-size:11px; font-weight:700; }
+.release-tab:last-child { border-right: 0; }
+.release-tab.is-active { background: var(--red); color: #fff; }
+.release-version { margin:0 0 8px !important; color:var(--red) !important; font-weight:700; letter-spacing:.02em; }
+.release-intro { color:var(--text) !important; }
+.release-list { display:grid; gap:0; margin:8px 0 0; padding:0; list-style:none; }
+.release-list li { position:relative; padding:4px 2px 5px 14px; border-bottom:1px dotted var(--line); color:var(--text); font-size:11px; line-height:1.45; }
+.release-list li:last-child { border-bottom:0; }
+.release-list li::before { content:"\25AA"; position:absolute; left:2px; color:var(--red); }
+#updates-modal { width:min(100vw - 32px,660px); }
+#stats-modal { width:min(100vw - 32px,560px); }
+.support-modal { width:min(100vw - 32px,620px); }
+.support-copy { padding:4px 8px 2px; }
+.support-copy p { color:var(--text); line-height:1.6; }
+.support-kofi-line { margin-top:10px !important; padding-top:8px; border-top:1px dotted var(--line); }
+
+/* Heardle stats structure, adapted to Connections modes and strikes. */
+.stats-mode-switch { display:flex; width:100%; margin:0; border:1px solid var(--ls); border-bottom:0; }
+.stats-mode-button { flex:1; min-height:24px; height:24px; padding:0 12px; color:var(--muted); background:linear-gradient(to bottom,#fff,#e8e8e8); border:0; border-right:1px solid var(--ls); font-size:11px; }
+.stats-mode-button:last-child { border-right:0; }
+.stats-mode-button.is-active { background:var(--red); color:#fff; font-weight:700; }
+.stats-section { border:1px solid var(--ls); border-bottom:0; }
+.stats-section:last-of-type { border-bottom:1px solid var(--ls); }
+.stats-section-header { display:flex; align-items:center; min-height:20px; padding:2px 7px; background:linear-gradient(to bottom,#eee,#dcdcdc); border-bottom:1px solid var(--ls); color:#333; font-size:10px; font-weight:700; letter-spacing:.04em; }
+.stats-sbracket { margin-right:3px; color:var(--red); font-size:11px; font-weight:900; }
+.stats-sbracket:last-child { margin:0 0 0 3px; }
+.stats-section-body { padding:6px 8px; }
+.guess-scale { display:grid; grid-template-columns:repeat(5,1fr); margin:0; border:1px solid var(--ls); }
+.guess-scale div { display:grid; grid-template-rows:18px 44px 16px; align-items:center; text-align:center; border-right:1px solid var(--ls); }
+.guess-scale div:last-child { border-right:0; }
+.guess-scale span { display:flex; align-items:center; justify-content:center; height:18px; background:linear-gradient(to bottom,#f0f0f0,#e4e4e4); border-bottom:1px solid var(--ls); color:var(--muted); font-size:10px; font-weight:700; }
+.guess-bar { display:flex; width:100%; min-height:3px; align-self:end; background:#ffcccc; border-top:1px solid #ffaaaa; }
+.guess-scale strong { display:flex; align-items:center; justify-content:center; height:16px; border-top:1px solid var(--ls); background:#fafafa; color:var(--text); font-size:10px; }
+.stats-grid { display:flex; border:1px solid var(--ls); border-top:0; }
+.stats-grid div { flex:1; min-width:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; padding:7px 3px 6px; border-right:1px solid var(--ls); }
+.stats-grid div:last-child { border-right:0; }
+.stats-grid strong { color:var(--red); font-size:16px; font-weight:900; line-height:1; white-space:nowrap; }
+.stats-grid span { color:var(--faint); font-size:8px; text-align:center; text-transform:uppercase; letter-spacing:.04em; white-space:nowrap; }
+.stats-detail-list { margin:0; }
+.stats-detail-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; padding:5px 10px; border-bottom:1px dotted var(--ls); background:var(--surface); font-size:10px; }
+.stats-detail-row:last-child { border-bottom:0; }
+.stats-detail-row span { color:var(--text); font-weight:700; }
+.stats-detail-row strong { color:var(--muted); font-weight:400; text-align:right; }
+.stats-copy-profile { width:100%; min-height:27px; margin-top:8px; padding:4px 10px; border:1px solid var(--red-dark); background:linear-gradient(to bottom,#dd2222,#aa0000); color:#fff; font-weight:700; }
+
+.site-footer {
+  flex-shrink: 0; width: 100%;
+  background: linear-gradient(to bottom, #ececea, #dcdad4);
+  border-top: 2px solid var(--red);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+  padding: 6px 10px; font-size: 11px; color: var(--faint); text-align: center;
+}
+
+/* dark mode */
+html.dark-mode {
+  --bg: #121212; --surface: #1a1a1a; --sf: #161616;
+  --text: #e1e1e1; --muted: #a6a39c; --faint: #7c7c7c;
+  --line: #2c2c2c; --ls: #3b3b3b;
+  --red: #dd2222; --link: #5aa0e0;
+}
+html.dark-mode body {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+}
+html.dark-mode .nnd-mainbar { background: #161616; }
+html.dark-mode .nnd-header-links a:hover { background: #241f1a; border-color: #3b3b3b; }
+html.dark-mode .nnd-marquee-bar { background: #211d09; border-color: #5a4a16; }
+html.dark-mode .nnd-marquee-inner { color: #d6c266; }
+html.dark-mode .nnd-marquee-label { background: #6e5a10; border-right-color: #4a3c0a; }
+html.dark-mode .panel { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35); }
+html.dark-mode .panel-header, html.dark-mode .modal-title {
+  background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
+  border-color: #3b3b3b; box-shadow: none; color: #ccc;
+}
+html.dark-mode .mode-bar { background: linear-gradient(to bottom, #202020, #181818); box-shadow: none; }
+html.dark-mode .mode-btn { background: linear-gradient(to bottom, #262626, #1c1c1c); border-color: #333 #111 #111 #333; }
+html.dark-mode .mode-btn.is-active { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #b01111 #5a0505 #5a0505 #b01111; }
+html.dark-mode .tile { background: linear-gradient(to bottom, #262626, #1c1c1c); border-color: #333 #111 #111 #333; }
+html.dark-mode .tile.sel { background: linear-gradient(to bottom, #555, #3a3a3a); border-color: var(--red); color: #fff; }
+html.dark-mode .settings-toggle, html.dark-mode .modal-close {
+  background: linear-gradient(to bottom, #2e2e2e, #1e1e1e);
+  border-color: #3b3b3b; color: var(--muted); box-shadow: none;
+}
+html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; border-color: #5a0505; }
+html.dark-mode .modal-close:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); box-shadow: none; }
+html.dark-mode .nnd-toast { background: #211d09; color: #d6c266; border-color: #5a4a16; }
+html.dark-mode .nnd-toast .nnd-toast-label { background: #6e5a10; border-right-color: #4a3c0a; }
+html.dark-mode .nnd-toast .nnd-toast-msg b { color: #f0e0a0; }
+html.dark-mode .solved-row { box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -2px 0 rgba(0,0,0,0.3); }
+html.dark-mode .mcal-nav,html.dark-mode .mcal-day.playable,html.dark-mode .modal-tab,html.dark-mode .release-tab { background: linear-gradient(to bottom,#2e2e2e,#1e1e1e); color: var(--muted); }
+html.dark-mode .modal-tab.is-active,html.dark-mode .release-tab.is-active,html.dark-mode .mcal-day.done { background: linear-gradient(to bottom,#b01111,#7a0808); color:#fff; }
+html.dark-mode .release-copy h3 { background: linear-gradient(to bottom,#2a2a2a,#1c1c1c); }
+html.dark-mode .progress-track { background:#333; border-color:#444; }
+html.dark-mode .links-list a:hover { background:#2a1010; }
+html.dark-mode .stats-mode-button { background:linear-gradient(to bottom,#303030,#202020); color:var(--muted); }
+html.dark-mode .stats-mode-button.is-active { background:linear-gradient(to bottom,#b01111,#7a0808); color:#fff; }
+html.dark-mode .stats-section,html.dark-mode .stats-mode-switch,html.dark-mode .guess-scale,html.dark-mode .guess-scale div,html.dark-mode .stats-grid { border-color:#333; }
+html.dark-mode .stats-section-header,html.dark-mode .guess-scale span { background:linear-gradient(to bottom,#262626,#1c1c1c); border-color:#333; color:#aaa; }
+html.dark-mode .guess-scale strong { background:#111; border-color:#333; color:#ccc; }
+html.dark-mode .guess-bar { background:#3a1111; border-color:#441111; }
+html.dark-mode .stats-detail-row { background:#161616; border-color:#333; }
+html.dark-mode .language-button { border-color: #444; background: linear-gradient(to bottom, #303030, #1d1d1d); }
+html.dark-mode .end-card { background:linear-gradient(to bottom,#222,#181818); border-color:#333; }
+
+@media (max-width: 700px) {
+  .nnd-body { flex-direction: column; }
+  .nnd-side { width: 100%; min-width: 0; order: 2; }
+  .nnd-main { width: 100%; order: 1; }
+  .mode-bar { display:grid; grid-template-columns:minmax(0,1fr); gap:0; padding:3px 5px 0; }
+  .mode-tabs { width:100%; min-width:0; }
+  .mode-btn { flex:1 1 0; min-width:0; padding-left:5px; padding-right:5px; text-align:center; }
+  .mode-note {
+    width:100%; min-width:0; margin:0; padding:5px 3px 4px;
+    border-top:1px solid var(--line); text-align:center;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+  }
+  .nnd-header-links { display: none; }
+  .nnd-mobile-settings {
+    display: flex; width: 100%; margin: 0; padding: 3px 10px; gap: 7px;
+    align-items: center; flex-wrap: nowrap; overflow-x: auto;
+    background: var(--sf); border-bottom: 1px solid var(--line);
+    scrollbar-width: thin; font-size: 11px; line-height: 15px;
+  }
+  .nnd-mobile-settings .nnd-divider { flex: 0 0 auto; color: var(--line); }
+  .nnd-mobile-settings a { flex: 0 0 auto; color: var(--link); text-decoration: none; white-space: nowrap; }
+  .nnd-mobile-settings a:hover { color: var(--red); }
+  .nnd-mobile-settings .nnd-kofi { color: #fff; background: var(--red); border: 1px solid var(--red-dark); padding: 2px 7px; font-weight: 700; }
+  html.dark-mode .nnd-mobile-settings { background: #171717; border-color: var(--ls); }
+  .tile { min-height: 68px; font-size: 10px; }
+  /* YouTube hqdefault is 4:3 with a letterboxed 16:9 frame inside. */
+  .tile-thumb img.crop43 { position:absolute; left:0; top:-16.7%; height:133.4%; }
+  .tile.long { font-size: 9px; }
+  .language-switcher { margin-left:auto; }
+  .guess-row { grid-template-columns:52px 1fr; }
+  .guess-verdict { grid-column:2; }
+  .end-metrics { grid-template-columns:repeat(2,1fr); }
+  .stats-overview { grid-template-columns: repeat(2,1fr); }
+  .modal-tabs { grid-template-columns: repeat(2,1fr); }
+  .stats-grid { display:grid; grid-template-columns:repeat(3,1fr); }
+  .stats-grid div { border-bottom:1px solid var(--ls); }
+  .stats-grid div:nth-child(3n) { border-right:0; }
+  .stats-grid div:nth-last-child(-n+3) { border-bottom:0; }
+}
+</style>
+</head>
+<body>
+
+<div class="nnd-topbar">
+  <span>Games &rsaquo; Music &rsaquo; VOCALOID &rsaquo; Connections</span>
+  <span id="nnd-date" style="color:#666"></span>
+</div>
+<script>
+  document.getElementById("nnd-date").textContent =
+    new Intl.DateTimeFormat(undefined, { year: "numeric", month: "long", day: "numeric" }).format(new Date());
+</script>
+
+<div class="nnd-mainbar">
+  <a class="nnd-logo" href="../" title="Back to VOCALOIDLE home">
+    <span class="nnd-logo-mark" aria-hidden="true"><span class="cn-grid"><i></i><i></i><i></i><i></i></span></span>
+    <span class="nnd-logo-text">VOCALOID Connections<span class="nnd-logo-sub" id="logo-sub">find the four groups</span></span>
+  </a>
+  <div class="language-switcher" aria-label="Language">
+    <button type="button" class="language-button is-active" data-lang="en" title="English" aria-label="English"><span class="fi fi-us"></span></button>
+    <button type="button" class="language-button" data-lang="es" title="Espa&ntilde;ol" aria-label="Espa&ntilde;ol"><span class="fi fi-es"></span></button>
+    <button type="button" class="language-button" data-lang="ja" title="日本語" aria-label="日本語"><span class="fi fi-jp"></span></button>
+    <button type="button" class="language-button" data-lang="ko" title="한국어" aria-label="한국어"><span class="fi fi-kr"></span></button>
+  </div>
+  <nav class="nnd-header-links">
+    <a href="#" id="how-open">How to Play</a>
+    <span class="nnd-divider">|</span>
+    <a href="#" id="ach-open">Achievements</a>
+    <span class="nnd-divider">|</span>
+    <a href="#" id="updates-open">Updates</a>
+    <span class="nnd-divider">|</span>
+    <a href="#" id="stats-open">Stats</a>
+    <span class="nnd-divider">|</span>
+    <a href="#" id="settings-open">Settings</a>
+    <a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener noreferrer">Support on Ko-fi</a>
+  </nav>
+</div>
+<nav class="nnd-mobile-settings" aria-label="Mobile utilities">
+  <a href="#" data-proxy="how-open">How to Play</a>
+  <span class="nnd-divider">|</span>
+  <a href="#" data-proxy="ach-open">Achievements</a>
+  <span class="nnd-divider">|</span>
+  <a href="#" data-proxy="updates-open">Updates</a>
+  <span class="nnd-divider">|</span>
+  <a href="#" data-proxy="stats-open">Stats</a>
+  <span class="nnd-divider">|</span>
+  <a href="#" data-proxy="settings-open">Settings</a>
+</nav>
+
+<div class="nnd-marquee-bar">
+  <span class="nnd-marquee-label">[INFO]</span>
+  <div class="nnd-marquee-wrap">
+    <div class="nnd-marquee-inner" id="marquee-text">★ VOCALOID Connections · Sixteen songs, four hidden groups · Group them by producer, vocalist, era and more · A new puzzle every day at local midnight · Song data from VocaDB ★</div>
+  </div>
+</div>
+
+<div class="nnd-body">
+
+  <aside class="nnd-side">
+    <div class="panel">
+      <div class="panel-header" id="hdr-how">[ How to Play ]</div>
+      <div class="side-body">
+        <div class="side-row"><span class="sr-num">1</span><span id="how-1">Sixteen songs hide <b>four groups of four</b>: same producer, vocalist, era, genre and more.</span></div>
+        <div class="side-row"><span class="sr-num">2</span><span id="how-2">Select four songs and lock them in. Wrong combos cost a strike; four strikes and the puzzle reveals itself.</span></div>
+        <div class="side-row"><span class="sr-num">3</span><span id="how-3">Colors show difficulty:</span></div>
+        <div class="demo-colors" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        <div class="side-row"><span class="sr-num">4</span><span id="how-4">One shared puzzle a day. Share your result and keep the streak.</span></div>
+      </div>
+    </div>
+    <div class="panel">
+      <div class="panel-header" id="hdr-records">[ Records ]</div>
+      <div class="side-body records-body">
+        <table class="stats-table">
+          <tr><td id="rec-label-played">Dailies played</td><td id="rec-played">0</td></tr>
+          <tr><td id="rec-label-solved">Solved</td><td id="rec-solved">0</td></tr>
+          <tr><td id="rec-label-perfect">Perfect</td><td id="rec-perfect">0</td></tr>
+          <tr><td id="rec-label-streak">Current streak</td><td id="rec-streak">0</td></tr>
+          <tr><td id="rec-label-best">Best streak</td><td id="rec-best">0</td></tr>
+        </table>
+      </div>
+      <div class="countdown-line"><span id="next-daily-label">Next daily in</span> <b id="daily-countdown">--</b></div>
+    </div>
+    <div class="panel">
+      <div class="panel-header" id="hdr-links">[ Links ]</div>
+      <div class="links-list">
+        <a href="https://vocadb.net" target="_blank" rel="noopener noreferrer">VocaDB &#8599;</a>
+        <a href="https://www.nicovideo.jp" target="_blank" rel="noopener noreferrer">NicoNico &#8599;</a>
+        <a href="../39charts/add.html" id="suggest-link">Suggest a Song</a>
+        <a href="#" id="links-support-open">Contact / Support</a>
+      </div>
+    </div>
+  </aside>
+
+  <main class="nnd-main">
+    <div class="mode-bar">
+      <div class="mode-tabs">
+        <button type="button" class="mode-btn is-active" data-mode="daily" id="mode-daily">Daily</button>
+        <button type="button" class="mode-btn" data-mode="unlimited" id="mode-unlimited">Unlimited</button>
+        <button type="button" class="mode-btn" data-mode="archive" id="mode-archive">Archive</button>
+      </div>
+      <span class="mode-note" id="mode-note"></span>
+    </div>
+
+    <div class="panel">
+      <div class="status-strip">
+        <div class="st-cell"><span class="st-k" id="st-label-puzzle">Puzzle</span><span class="st-v" id="st-puzzle">--</span></div>
+        <div class="st-cell"><span class="st-k" id="st-label-found">Groups found</span><span class="st-v" id="st-found">0 / 4</span></div>
+        <div class="st-cell"><span class="st-k" id="st-label-strikes">Strikes</span><span class="mist-dots" id="st-strikes"><i></i><i></i><i></i><i></i></span></div>
+        <div class="st-cell timer-cell" id="timer-cell" hidden><span class="st-k" id="st-label-time">Time</span><span class="st-v" id="st-time">0:00</span></div>
+      </div>
+    </div>
+
+    <div class="solved-list" id="solved-list"></div>
+
+    <div class="panel">
+      <div class="panel-header"><span id="hdr-board">[ The Board ]</span> <span class="panel-note" id="board-note">select four songs, then lock in</span></div>
+      <div class="archive-view" id="archive-view" hidden></div>
+      <div class="board" id="board"></div>
+      <div class="actions" id="actions">
+        <button type="button" class="act-btn" id="btn-submit" disabled>Lock In</button>
+        <button type="button" class="act-btn gray" id="btn-shuffle">&#8635; Shuffle</button>
+        <button type="button" class="act-btn gray" id="btn-clear" disabled>Deselect</button>
+        <button type="button" class="act-btn gray" id="btn-archive-back" hidden>All Days</button>
+      </div>
+      <div class="result-line" id="result-line" hidden></div>
+      <div class="actions" id="end-actions" hidden>
+        <button type="button" class="act-btn" id="btn-share">Share Result</button>
+        <button type="button" class="act-btn gray" id="btn-new" hidden>New Puzzle</button>
+        <button type="button" class="act-btn gray" id="btn-end-archive-back" hidden>All Days</button>
+      </div>
+    </div>
+    <div class="panel" id="guess-history-panel" hidden>
+      <div class="panel-header" id="hdr-guess-history">[ Guess History ]</div>
+      <div class="guess-history" id="guess-history" aria-live="polite"></div>
+    </div>
+  </main>
+
+</div>
+
+<footer class="site-footer">
+  VOCALOID Connections: fan-made daily grouping puzzle (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
+</footer>
+
+<div class="modal-backdrop" id="ach-backdrop" hidden></div>
+<div class="modal wide-modal" id="ach-modal" hidden>
+  <div class="modal-title"><span id="ach-title">[ Achievements ]</span> <button type="button" class="modal-close" id="ach-close">&#10005;</button></div>
+  <div id="ach-content"></div>
+</div>
+
+<div class="modal-backdrop" id="updates-backdrop" hidden></div>
+<div class="modal wide-modal" id="updates-modal" hidden>
+  <div class="modal-title"><span id="updates-title">[ Update ] Release Notes</span> <button type="button" class="modal-close" id="updates-close">&#10005;</button></div>
+  <div id="updates-content"></div>
+</div>
+
+<div class="modal-backdrop" id="stats-backdrop" hidden></div>
+<div class="modal wide-modal" id="stats-modal" hidden>
+  <div class="modal-title"><span id="stats-title">[ Stats ]</span> <button type="button" class="modal-close" id="stats-close">&#10005;</button></div>
+  <div id="stats-content"></div>
+</div>
+
+<div class="modal-backdrop" id="support-backdrop" hidden></div>
+<div class="modal support-modal" id="support-modal" hidden>
+  <div class="modal-title"><span id="support-title">Support</span> <button type="button" class="modal-close" id="support-close">&#10005;</button></div>
+  <div class="support-copy">
+    <p id="support-p1">VOCALOID Connections is maintained by sodapines as a small fan-made music puzzle project.</p>
+    <p><span id="support-p2">For bugs, song corrections, or suggestions, email</span> <a href="mailto:kzen@sodapines.dev">kzen@sodapines.dev</a>.</p>
+    <p class="support-kofi-line" id="support-p3">Hosting costs a bit each month to keep running. If you have enjoyed the game and want to chip in, even a one-time tip helps cover those costs.</p>
+  </div>
+</div>
+
+<div class="modal-backdrop" id="settings-backdrop" hidden></div>
+<div class="modal" id="settings-modal" hidden>
+  <div class="modal-title"><span id="settings-title">[ Settings ]</span> <button type="button" class="modal-close" id="settings-close">✕</button></div>
+  <div class="settings-row">
+    <div>
+      <div class="s-label" id="set-dark-label">Dark Mode</div>
+      <div class="s-desc" id="set-dark-desc">Dark page and panel colors, like the other games.</div>
+    </div>
+    <button type="button" class="settings-toggle" id="opt-dark">OFF</button>
+  </div>
+  <div class="settings-row"><div><div class="s-label" id="set-color-label">Colorblind Patterns</div><div class="s-desc" id="set-color-desc">Add distinct patterns and group numbers to every color.</div></div><button type="button" class="settings-toggle" id="opt-colorblind">OFF</button></div>
+  <div class="settings-row"><div><div class="s-label" id="set-motion-label">Reduced Motion</div><div class="s-desc" id="set-motion-desc">Stop the marquee, shaking, and decorative movement.</div></div><button type="button" class="settings-toggle" id="opt-motion">OFF</button></div>
+  <div class="settings-row"><div><div class="s-label" id="set-text-label">Larger Text</div><div class="s-desc" id="set-text-desc">Increase board and interface text size.</div></div><button type="button" class="settings-toggle" id="opt-large-text">OFF</button></div>
+  <div class="settings-row"><div><div class="s-label" id="set-contrast-label">Thumbnail Contrast</div><div class="s-desc" id="set-contrast-desc">Brighten artwork and strengthen title contrast.</div></div><button type="button" class="settings-toggle" id="opt-contrast">OFF</button></div>
+  <div class="settings-row"><div><div class="s-label" id="set-timer-label">Timer</div><div class="s-desc" id="set-timer-desc">Show elapsed time and record timed solves.</div></div><button type="button" class="settings-toggle" id="opt-timer">OFF</button></div>
+  <div class="settings-row"><div><div class="s-label" id="set-challenge-label">Challenge Mode</div><div class="s-desc" id="set-challenge-desc">Three strikes and no shuffle.</div></div><button type="button" class="settings-toggle" id="opt-challenge">OFF</button></div>
+  <div class="settings-row"><div><div class="s-label" id="set-backup-label">Progress Backup</div><div class="s-desc" id="set-backup-desc">Move Connections progress between devices.</div></div><div class="settings-actions"><button type="button" class="settings-toggle" id="backup-export">Export</button><button type="button" class="settings-toggle" id="backup-import-open">Import</button></div></div>
+  <div class="backup-panel" id="backup-panel" hidden><textarea id="backup-text" spellcheck="false" aria-label="Connections backup data"></textarea><div class="settings-actions"><button type="button" class="settings-toggle" id="backup-import-confirm">Import Backup</button><button type="button" class="settings-toggle" id="backup-cancel">Cancel</button></div></div>
+</div>
+
+<div class="modal-backdrop" id="tut-backdrop" hidden></div>
+<div class="modal" id="tut-modal" hidden>
+  <div class="modal-title"><span id="tut-title">[ Welcome to Connections ]</span> <button type="button" class="modal-close" id="tut-close">✕</button></div>
+  <div id="tut-body"></div>
+  <div class="demo-colors" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+</div>
+
+<script src="core.js"></script>
+<script>
+"use strict";
+const $ = id => document.getElementById(id);
+const escHtml = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+let LANG = (() => { try { return localStorage.getItem("vc_lang") || "en"; } catch (e) { return "en"; } })();
+const I18N = {
+  en: {
+    logoSub:"find the four groups", howPlay:"How to Play", achievements:"Achievements", updates:"Updates", stats:"Stats", settings:"Settings", kofi:"Support on Ko-fi",
+    marquee:"★ VOCALOID Connections · Sixteen songs, four hidden groups · Group them by producer, vocalist, era and more · A new puzzle every day at local midnight · Song data from VocaDB ★",
+    hdrHow:"[ How to Play ]", how1:"Sixteen songs hide <b>four groups of four</b>: same producer, vocalist, era, genre and more.", how2:"Select four songs and lock them in. Wrong combos cost a strike; four strikes reveal the puzzle.", how3:"Group colors rank expected difficulty: <b>yellow</b> is easiest, then <b>green</b>, <b>blue</b>, and <b>purple</b>. Categories vary between vocalists, eras, producers, views, tags, and title patterns.", how4:"One shared puzzle a day. Share your result and keep the streak.",
+    records:"[ Records ]", dailies:"Dailies played", solved:"Solved", perfectNo:"Perfect", currentStreak:"Current streak", bestStreak:"Best streak", nextDaily:"Next daily in", links:"[ Links ]", suggest:"Suggest a Song", contact:"Contact / Support",
+    daily:"Daily", unlimited:"Unlimited", archive:"Archive", puzzle:"Puzzle", groupsFound:"Groups found", strikes:"Strikes", board:"[ The Board ]", boardNote:"select four songs, then lock in", lock:"Lock In", shuffle:"↻ Shuffle", deselect:"Deselect", allDays:"All Days", share:"Share Result", newPuzzle:"New Puzzle", guessHistory:"[ Guess History ]",
+    settingsTitle:"[ Settings ]", dark:"Dark Mode", darkDesc:"Dark page and panel colors, like the other games.", colorblind:"Colorblind Patterns", colorblindDesc:"Add distinct patterns and group numbers to every color.", motion:"Reduced Motion", motionDesc:"Stop the marquee, shaking, and decorative movement.", largeText:"Larger Text", largeTextDesc:"Increase board and interface text size.", contrast:"Thumbnail Contrast", contrastDesc:"Brighten artwork and strengthen title contrast.", on:"ON", off:"OFF",
+    tutTitle:"[ Welcome to Connections ]", tutHtml:"<p><b>VOCALOID Connections</b> is a daily sorting puzzle built on the 39charts song pool.</p><p>The board shows <b>sixteen songs</b>. They form <b>four hidden groups of four</b>. Select four and press <b>Lock In</b>. Wrong guesses cost one of four strikes; a three-song match is marked <b>one away</b>.</p><p>Group colors run from easiest to trickiest. Every generated board is checked for clean, unique groups before play.</p>",
+    practice:"practice · tracked separately", archiveSolved:"{0} / {1} solved", chooseDay:"choose a previous daily puzzle", completed:"completed", available:"available", attempt:"Attempt {0}", groupFound:"Group found", oneAway:"One away", incorrect:"Incorrect", revealed:"revealed",
+    sungBy:"Sung by {0}", uploaded:"Uploaded {0}-{1}", producedBy:"Produced by {0}", viewsCombined100:"100M+ combined views", viewsNico10:"10M+ NicoNico views", tagged:"Tagged “{0}”", oneWord:"One-word titles",
+    explainVocalist:"All four songs use {0} as a main vocalist. Support vocals are excluded.", explainYear:"All four songs were first published from {0} through {1}.", explainProducer:"All four songs credit {0} as a producer.", explainCombined100:"Every song has at least 100 million combined tracked views.", explainNico10:"Every song has at least 10 million tracked views on NicoNico.", explainTag:"Every song carries the VocaDB tag “{0}”.", explainTitle:"Every song has a one-word title.",
+    endPerfect:"Perfect", endSolved:"Solved", endLost:"Revealed", perfectCopy:"A flawless board with no strikes.", solvedCopy:"You found all four groups with {0} strike(s).", lostCopy:"The remaining connections were revealed.", attempts:"Attempts", groups:"Groups", earned:"Unlocked",
+    supportTitle:"Support", supportP1:"VOCALOID Connections is maintained by sodapines as a small fan-made music puzzle project.", supportP2:"For bugs, song corrections, or suggestions, email", supportP3:"Hosting costs a bit each month to keep running. If you have enjoyed the game and want to chip in, even a one-time tip helps cover those costs.",
+    achTitle:"[ Achievements ]", updateTitle:"[ Update ] Release Notes", statsTitle:"[ Stats ]", random:"Random", buildError:"Could not build a puzzle from the song pool. Try again later.", loadError:"Could not load song data", resultCopied:"Result copied!", pasteAnywhere:"Paste it anywhere.", groupToast:"Group found!", oneAwayToast:"One away!", oneAwayCopy:"Three of those belong together.", wrongToast:"Not a group.", strikesLeft:"{0} strike(s) left."
+  },
+  es: {
+    logoSub:"encuentra los cuatro grupos", howPlay:"Cómo jugar", achievements:"Logros", updates:"Novedades", stats:"Estadísticas", settings:"Ajustes", kofi:"Apoyar en Ko-fi",
+    marquee:"★ VOCALOID Connections · Dieciséis canciones, cuatro grupos ocultos · Ordénalas por productor, voz, época y más · Nuevo reto cada medianoche local ★",
+    hdrHow:"[ Cómo jugar ]", how1:"Dieciséis canciones esconden <b>cuatro grupos de cuatro</b>.", how2:"Elige cuatro canciones y confirma. Los errores cuestan un intento; cuatro errores revelan el tablero.", how3:"Los colores ordenan la dificultad esperada: <b>amarillo</b>, <b>verde</b>, <b>azul</b> y <b>morado</b>. Las categorías varían entre voces, épocas, productores, visitas, etiquetas y patrones de títulos.", how4:"Un reto compartido al día. Comparte el resultado y mantén tu racha.",
+    records:"[ Récords ]", dailies:"Diarios jugados", solved:"Resueltos", perfectNo:"Perfectos", currentStreak:"Racha actual", bestStreak:"Mejor racha", nextDaily:"Siguiente diario en", links:"[ Enlaces ]", suggest:"Sugerir una canción", contact:"Contacto / Ayuda",
+    daily:"Diario", unlimited:"Ilimitado", archive:"Archivo", puzzle:"Reto", groupsFound:"Grupos encontrados", strikes:"Errores", board:"[ El tablero ]", boardNote:"elige cuatro canciones y confirma", lock:"Confirmar", shuffle:"↻ Mezclar", deselect:"Quitar selección", allDays:"Todos los días", share:"Compartir resultado", newPuzzle:"Nuevo reto", guessHistory:"[ Historial de intentos ]",
+    settingsTitle:"[ Ajustes ]", dark:"Modo oscuro", darkDesc:"Colores oscuros para la página y los paneles.", colorblind:"Patrones de color", colorblindDesc:"Añade patrones y números distintos a cada grupo.", motion:"Movimiento reducido", motionDesc:"Detiene el rótulo, los temblores y otros movimientos.", largeText:"Texto grande", largeTextDesc:"Aumenta el texto del tablero y la interfaz.", contrast:"Contraste de miniaturas", contrastDesc:"Aclara el arte y refuerza el contraste del título.", on:"SÍ", off:"NO",
+    tutTitle:"[ Bienvenido a Connections ]", tutHtml:"<p><b>VOCALOID Connections</b> es un reto diario con canciones de 39charts.</p><p>Las <b>dieciséis canciones</b> forman <b>cuatro grupos de cuatro</b>. Elige cuatro y pulsa <b>Confirmar</b>. Tienes cuatro errores; una coincidencia de tres se marca como <b>a una</b>.</p><p>Cada tablero generado se comprueba para asegurar grupos claros y únicos.</p>",
+    practice:"práctica · registro separado", archiveSolved:"{0} / {1} resueltos", chooseDay:"elige un reto diario anterior", completed:"completado", available:"disponible", attempt:"Intento {0}", groupFound:"Grupo encontrado", oneAway:"A una", incorrect:"Incorrecto", revealed:"revelado",
+    sungBy:"Cantadas por {0}", uploaded:"Publicadas {0}-{1}", producedBy:"Producidas por {0}", viewsCombined100:"100 M+ de vistas combinadas", viewsNico10:"10 M+ de vistas en NicoNico", tagged:"Etiqueta “{0}”", oneWord:"Títulos de una palabra",
+    explainVocalist:"Las cuatro canciones usan a {0} como voz principal. Las voces de apoyo no cuentan.", explainYear:"Las cuatro canciones se publicaron entre {0} y {1}.", explainProducer:"Las cuatro canciones acreditan a {0} como productor.", explainCombined100:"Todas tienen al menos 100 millones de vistas combinadas.", explainNico10:"Todas tienen al menos 10 millones de vistas en NicoNico.", explainTag:"Todas llevan la etiqueta “{0}” en VocaDB.", explainTitle:"Todas tienen un título de una sola palabra.",
+    endPerfect:"Perfecto", endSolved:"Resuelto", endLost:"Revelado", perfectCopy:"Tablero impecable, sin errores.", solvedCopy:"Encontraste los cuatro grupos con {0} error(es).", lostCopy:"Se revelaron las conexiones restantes.", attempts:"Intentos", groups:"Grupos", earned:"Desbloqueados", supportTitle:"Ayuda", supportP1:"VOCALOID Connections es un pequeño proyecto musical hecho por fans y mantenido por sodapines.", supportP2:"Para errores, correcciones o sugerencias, escribe a", supportP3:"El alojamiento cuesta un poco cada mes. Cualquier aporte ayuda a cubrir esos gastos.",
+    achTitle:"[ Logros ]", updateTitle:"[ Novedades ] Notas de versión", statsTitle:"[ Estadísticas ]", random:"Aleatorio", buildError:"No se pudo crear un reto con las canciones disponibles. Inténtalo más tarde.", loadError:"No se pudieron cargar las canciones", resultCopied:"¡Resultado copiado!", pasteAnywhere:"Pégalo donde quieras.", groupToast:"¡Grupo encontrado!", oneAwayToast:"¡A una!", oneAwayCopy:"Tres de esas canciones van juntas.", wrongToast:"No es un grupo.", strikesLeft:"Quedan {0} intento(s)."
+  },
+  ja: {
+    logoSub:"4つのグループを見つけよう", howPlay:"遊び方", achievements:"実績", updates:"更新", stats:"統計", settings:"設定", kofi:"Ko-fiで支援",
+    marquee:"★ VOCALOID Connections · 16曲に隠れた4グループ · プロデューサー、歌声、年代などで分類 · 毎日0時に更新 ★",
+    hdrHow:"[ 遊び方 ]", how1:"16曲は<b>4曲ずつの4グループ</b>に分かれています。", how2:"4曲を選んで確定します。間違いは1ミス、4ミスで答えが表示されます。", how3:"色は予想難易度の順です。<b>黄</b>が最も簡単で、<b>緑</b>、<b>青</b>、<b>紫</b>の順に難しくなります。カテゴリはボーカル、年代、プロデューサー、再生数、タグ、タイトル形式から変化します。", how4:"毎日共通の問題です。結果を共有して連続記録を伸ばしましょう。",
+    records:"[ 記録 ]", dailies:"デイリー回数", solved:"クリア", perfectNo:"ノーミス", currentStreak:"現在の連続", bestStreak:"最高連続", nextDaily:"次の更新まで", links:"[ リンク ]", suggest:"曲を提案", contact:"連絡 / サポート",
+    daily:"デイリー", unlimited:"無制限", archive:"アーカイブ", puzzle:"問題", groupsFound:"発見グループ", strikes:"ミス", board:"[ ボード ]", boardNote:"4曲を選んで確定", lock:"確定", shuffle:"↻ シャッフル", deselect:"選択解除", allDays:"日付一覧", share:"結果を共有", newPuzzle:"新しい問題", guessHistory:"[ 推測履歴 ]",
+    settingsTitle:"[ 設定 ]", dark:"ダークモード", darkDesc:"画面とパネルを暗い配色にします。", colorblind:"色覚サポート", colorblindDesc:"各グループに模様と番号を追加します。", motion:"動きを減らす", motionDesc:"スクロール表示や揺れなどを止めます。", largeText:"文字を大きく", largeTextDesc:"ボードと画面の文字を大きくします。", contrast:"画像コントラスト", contrastDesc:"画像を明るくし、タイトルを読みやすくします。", on:"ON", off:"OFF",
+    tutTitle:"[ Connectionsへようこそ ]", tutHtml:"<p><b>VOCALOID Connections</b>は39chartsの曲を使った毎日の分類パズルです。</p><p><b>16曲</b>を<b>4曲ずつ4グループ</b>に分けます。4曲を選び<b>確定</b>してください。ミスは4回まで、3曲一致なら<b>あと1曲</b>と表示されます。</p><p>生成されたボードは、明確で一意なグループになるよう検証されます。</p>",
+    practice:"練習 · 別記録", archiveSolved:"{0} / {1} クリア", chooseDay:"過去のデイリーを選択", completed:"完了", available:"挑戦可能", attempt:"推測 {0}", groupFound:"グループ発見", oneAway:"あと1曲", incorrect:"不正解", revealed:"公開",
+    sungBy:"メインボーカル：{0}", uploaded:"公開年：{0}-{1}", producedBy:"プロデューサー：{0}", viewsCombined100:"合計1億再生以上", viewsNico10:"ニコニコ動画1000万再生以上", tagged:"タグ「{0}」", oneWord:"1語のタイトル",
+    explainVocalist:"4曲すべてで{0}がメインボーカルです。サポート歌唱は含みません。", explainYear:"4曲すべてが{0}年から{1}年に公開されました。", explainProducer:"4曲すべてで{0}がプロデューサーとしてクレジットされています。", explainCombined100:"すべて合計1億再生以上です。", explainNico10:"すべてニコニコ動画で1000万再生以上です。", explainTag:"すべてVocaDBの「{0}」タグがあります。", explainTitle:"すべて1語のタイトルです。",
+    endPerfect:"パーフェクト", endSolved:"クリア", endLost:"答え表示", perfectCopy:"ノーミスで完全クリア！", solvedCopy:"{0}ミスで4グループを発見しました。", lostCopy:"残りのつながりを表示しました。", attempts:"推測", groups:"グループ", earned:"実績", supportTitle:"サポート", supportP1:"VOCALOID Connectionsはsodapinesが運営する小さなファンメイド企画です。", supportP2:"不具合、曲情報の修正、提案はメールへ：", supportP3:"運営には毎月費用がかかります。支援は運営費の助けになります。",
+    achTitle:"[ 実績 ]", updateTitle:"[ 更新 ] リリースノート", statsTitle:"[ 統計 ]", random:"ランダム", buildError:"曲データから問題を作成できませんでした。後でもう一度お試しください。", loadError:"曲データを読み込めませんでした", resultCopied:"結果をコピーしました！", pasteAnywhere:"好きな場所に貼り付けてください。", groupToast:"グループ発見！", oneAwayToast:"あと1曲！", oneAwayCopy:"そのうち3曲は同じグループです。", wrongToast:"グループではありません。", strikesLeft:"残り{0}ミス。"
+  },
+  ko: {
+    logoSub:"네 개의 그룹을 찾으세요", howPlay:"게임 방법", achievements:"업적", updates:"업데이트", stats:"통계", settings:"설정", kofi:"Ko-fi 후원",
+    marquee:"★ VOCALOID Connections · 16곡 속 네 그룹 · 프로듀서, 보컬, 시대 등으로 분류 · 매일 자정 새 퍼즐 ★",
+    hdrHow:"[ 게임 방법 ]", how1:"16곡은 <b>4곡씩 네 그룹</b>으로 나뉩니다.", how2:"4곡을 선택하고 확정하세요. 오답은 실수 1회이며 4회면 답이 공개됩니다.", how3:"색은 예상 난이도 순서입니다. <b>노랑</b>이 가장 쉽고 <b>초록</b>, <b>파랑</b>, <b>보라</b> 순으로 어려워집니다. 분류는 보컬, 연도, 프로듀서, 조회수, 태그, 제목 형태 중에서 달라집니다.", how4:"매일 모두 같은 퍼즐을 풉니다. 결과를 공유하고 연속 기록을 이어가세요.",
+    records:"[ 기록 ]", dailies:"데일리 플레이", solved:"해결", perfectNo:"노미스", currentStreak:"현재 연속", bestStreak:"최고 연속", nextDaily:"다음 퍼즐까지", links:"[ 링크 ]", suggest:"곡 제안", contact:"문의 / 지원",
+    daily:"데일리", unlimited:"무제한", archive:"아카이브", puzzle:"퍼즐", groupsFound:"찾은 그룹", strikes:"실수", board:"[ 보드 ]", boardNote:"4곡을 선택한 뒤 확정", lock:"확정", shuffle:"↻ 섞기", deselect:"선택 해제", allDays:"날짜 목록", share:"결과 공유", newPuzzle:"새 퍼즐", guessHistory:"[ 추측 기록 ]",
+    settingsTitle:"[ 설정 ]", dark:"다크 모드", darkDesc:"페이지와 패널을 어두운 색으로 표시합니다.", colorblind:"색각 패턴", colorblindDesc:"각 색에 서로 다른 패턴과 번호를 추가합니다.", motion:"움직임 줄이기", motionDesc:"전광판, 흔들림, 장식 애니메이션을 멈춥니다.", largeText:"큰 글자", largeTextDesc:"보드와 인터페이스 글자를 키웁니다.", contrast:"썸네일 대비", contrastDesc:"그림을 밝게 하고 제목 대비를 높입니다.", on:"ON", off:"OFF",
+    tutTitle:"[ Connections에 오신 것을 환영합니다 ]", tutHtml:"<p><b>VOCALOID Connections</b>는 39charts 곡을 사용하는 일일 분류 퍼즐입니다.</p><p><b>16곡</b>을 <b>4곡씩 네 그룹</b>으로 나누세요. 4곡을 고르고 <b>확정</b>을 누릅니다. 실수는 4번까지이며 3곡이 맞으면 <b>하나 부족</b>으로 표시됩니다.</p><p>생성된 보드는 명확하고 유일한 그룹인지 검증됩니다.</p>",
+    practice:"연습 · 별도 기록", archiveSolved:"{0} / {1} 해결", chooseDay:"지난 데일리 퍼즐 선택", completed:"완료", available:"플레이 가능", attempt:"시도 {0}", groupFound:"그룹 발견", oneAway:"하나 부족", incorrect:"오답", revealed:"공개",
+    sungBy:"메인 보컬: {0}", uploaded:"공개 연도: {0}-{1}", producedBy:"프로듀서: {0}", viewsCombined100:"합산 1억 조회 이상", viewsNico10:"니코니코 1천만 조회 이상", tagged:"태그 “{0}”", oneWord:"한 단어 제목",
+    explainVocalist:"네 곡 모두 {0}가 메인 보컬입니다. 서포트 보컬은 제외됩니다.", explainYear:"네 곡 모두 {0}년부터 {1}년 사이에 공개되었습니다.", explainProducer:"네 곡 모두 {0}가 프로듀서로 표기됩니다.", explainCombined100:"모두 합산 조회수 1억 이상입니다.", explainNico10:"모두 니코니코 조회수 1천만 이상입니다.", explainTag:"모두 VocaDB의 “{0}” 태그가 있습니다.", explainTitle:"모두 한 단어 제목입니다.",
+    endPerfect:"퍼펙트", endSolved:"해결", endLost:"답 공개", perfectCopy:"실수 없이 완벽하게 해결했습니다.", solvedCopy:"실수 {0}회로 네 그룹을 찾았습니다.", lostCopy:"남은 연결을 공개했습니다.", attempts:"시도", groups:"그룹", earned:"업적", supportTitle:"지원", supportP1:"VOCALOID Connections는 sodapines가 운영하는 작은 팬 프로젝트입니다.", supportP2:"버그, 곡 정보 수정, 제안은 이메일로 보내 주세요:", supportP3:"운영에는 매달 비용이 듭니다. 후원은 운영비에 도움이 됩니다.",
+    achTitle:"[ 업적 ]", updateTitle:"[ 업데이트 ] 릴리스 노트", statsTitle:"[ 통계 ]", random:"무작위", buildError:"곡 목록에서 퍼즐을 만들 수 없습니다. 나중에 다시 시도하세요.", loadError:"곡 데이터를 불러올 수 없습니다", resultCopied:"결과를 복사했습니다!", pasteAnywhere:"원하는 곳에 붙여 넣으세요.", groupToast:"그룹 발견!", oneAwayToast:"하나 부족!", oneAwayCopy:"그중 세 곡은 같은 그룹입니다.", wrongToast:"그룹이 아닙니다.", strikesLeft:"실수 {0}회 남음."
+  }
+};
+Object.assign(I18N.en,{time:"Time",timer:"Timer",timerDesc:"Show elapsed time and record timed solves.",challengeMode:"Challenge Mode",challengeDesc:"Three strikes and no shuffle.",backup:"Progress Backup",backupDesc:"Move Connections progress between devices.",export:"Export",import:"Import",importBackup:"Import Backup",cancel:"Cancel",backupData:"Connections backup data",backupCopied:"Backup copied",backupReady:"Paste this on the other device.",backupImported:"Backup imported",backupInvalid:"That backup is not valid.",achievementUnlocked:"Achievement unlocked",unlocked:"unlocked",locked:"Locked",unlockedOn:"Unlocked {0}",searchAchievements:"Search by name, description, or category",noAchievements:"No matching achievements.",all:"All",general:"General",knowledge:"Knowledge",challenge:"Challenge",secret:"Secret",played:"Played",winRate:"Win rate",avgStrikes:"Avg strikes",bestTime:"Fastest solve",avgTime:"Average time",avgGuesses:"Avg guesses",oneAways:"One-away guesses",totalGuesses:"Total guesses",challengeRecord:"Challenge record",strikeDistribution:"Strike Distribution",overview:"Overview",detail:"Detail",totalStrikes:"Total strikes",lastDaily:"Last daily",perfectRate:"Perfect rate",progress:"Progress",archivePuzzles:"Archive puzzles",recordScope:"Record scope",copyProfile:"Copy Profile",profileCopied:"Profile copied!",dailyOnly:"Daily only",unlimitedOnly:"Unlimited only",archiveOnly:"Archive only",availableCount:"Available",strongestGroup:"Most-solved group",groupVocalist:"Vocalist",groupProducer:"Producer",groupYear:"Era",groupViews:"Views",groupTag:"Tag",groupTitle:"Title",untimed:"Untimed"});
+Object.assign(I18N.es,{time:"Tiempo",timer:"Temporizador",timerDesc:"Muestra el tiempo y registra partidas cronometradas.",challengeMode:"Modo desafío",challengeDesc:"Tres errores y sin mezclar.",backup:"Copia de progreso",backupDesc:"Mueve el progreso de Connections entre dispositivos.",export:"Exportar",import:"Importar",importBackup:"Importar copia",cancel:"Cancelar",backupData:"Datos de copia de Connections",backupCopied:"Copia copiada",backupReady:"Pégala en el otro dispositivo.",backupImported:"Copia importada",backupInvalid:"La copia no es válida.",achievementUnlocked:"Logro desbloqueado",unlocked:"desbloqueados",locked:"Bloqueado",unlockedOn:"Desbloqueado el {0}",searchAchievements:"Buscar por nombre, descripción o categoría",noAchievements:"No hay logros coincidentes.",all:"Todos",general:"General",knowledge:"Conocimiento",challenge:"Desafío",secret:"Secreto",played:"Jugados",winRate:"Porcentaje de victoria",avgStrikes:"Media de errores",bestTime:"Mejor tiempo",avgTime:"Tiempo medio",avgGuesses:"Media de intentos",oneAways:"Intentos a una",totalGuesses:"Intentos totales",challengeRecord:"Récord en desafío",strikeDistribution:"Distribución de errores",overview:"Resumen",detail:"Detalle",totalStrikes:"Errores totales",lastDaily:"Último diario",perfectRate:"Porcentaje perfecto",progress:"Progreso",archivePuzzles:"Retos del archivo",recordScope:"Ámbito",copyProfile:"Copiar perfil",profileCopied:"Perfil copiado",dailyOnly:"Solo diario",unlimitedOnly:"Solo ilimitado",archiveOnly:"Solo archivo",availableCount:"Disponibles",strongestGroup:"Grupo más resuelto",groupVocalist:"Vocalista",groupProducer:"Productor",groupYear:"Época",groupViews:"Visitas",groupTag:"Etiqueta",groupTitle:"Título",untimed:"Sin tiempo"});
+Object.assign(I18N.ja,{time:"タイム",timer:"タイマー",timerDesc:"経過時間を表示し、タイムを記録します。",challengeMode:"チャレンジモード",challengeDesc:"ミス3回、シャッフルなし。",backup:"進行状況のバックアップ",backupDesc:"Connectionsの進行状況を別の端末へ移します。",export:"書き出し",import:"読み込み",importBackup:"バックアップを読み込む",cancel:"キャンセル",backupData:"Connectionsバックアップデータ",backupCopied:"バックアップをコピーしました",backupReady:"別の端末に貼り付けてください。",backupImported:"バックアップを読み込みました",backupInvalid:"無効なバックアップです。",achievementUnlocked:"実績を解除",unlocked:"解除",locked:"未解除",unlockedOn:"{0}に解除",searchAchievements:"名前、説明、カテゴリで検索",noAchievements:"該当する実績はありません。",all:"すべて",general:"一般",knowledge:"知識",challenge:"チャレンジ",secret:"シークレット",played:"プレイ",winRate:"勝率",avgStrikes:"平均ミス",bestTime:"最速タイム",avgTime:"平均タイム",avgGuesses:"平均推測",oneAways:"あと1つ",totalGuesses:"推測合計",challengeRecord:"チャレンジ成績",strikeDistribution:"ミス分布",overview:"概要",detail:"詳細",totalStrikes:"ミス合計",lastDaily:"前回のデイリー",perfectRate:"パーフェクト率",progress:"進捗",archivePuzzles:"アーカイブ数",recordScope:"集計範囲",copyProfile:"プロフィールをコピー",profileCopied:"プロフィールをコピーしました",dailyOnly:"デイリーのみ",unlimitedOnly:"無制限のみ",archiveOnly:"アーカイブのみ",availableCount:"プレイ可能",strongestGroup:"最も解いたグループ",groupVocalist:"ボーカル",groupProducer:"プロデューサー",groupYear:"年代",groupViews:"再生数",groupTag:"タグ",groupTitle:"タイトル",untimed:"計測なし"});
+Object.assign(I18N.ko,{time:"시간",timer:"타이머",timerDesc:"경과 시간을 표시하고 기록합니다.",challengeMode:"도전 모드",challengeDesc:"실수 3회, 셔플 없음.",backup:"진행 상황 백업",backupDesc:"Connections 진행 상황을 다른 기기로 옮깁니다.",export:"내보내기",import:"가져오기",importBackup:"백업 가져오기",cancel:"취소",backupData:"Connections 백업 데이터",backupCopied:"백업을 복사했습니다",backupReady:"다른 기기에 붙여 넣으세요.",backupImported:"백업을 가져왔습니다",backupInvalid:"올바른 백업이 아닙니다.",achievementUnlocked:"업적 달성",unlocked:"달성",locked:"잠김",unlockedOn:"{0} 달성",searchAchievements:"이름, 설명, 분류로 검색",noAchievements:"일치하는 업적이 없습니다.",all:"전체",general:"일반",knowledge:"지식",challenge:"도전",secret:"비밀",played:"플레이",winRate:"승률",avgStrikes:"평균 실수",bestTime:"최단 시간",avgTime:"평균 시간",avgGuesses:"평균 추측",oneAways:"하나 부족",totalGuesses:"총 추측",challengeRecord:"도전 기록",strikeDistribution:"실수 분포",overview:"개요",detail:"상세",totalStrikes:"총 실수",lastDaily:"최근 데일리",perfectRate:"퍼펙트 비율",progress:"진행률",archivePuzzles:"아카이브 퍼즐",recordScope:"기록 범위",copyProfile:"프로필 복사",profileCopied:"프로필을 복사했습니다",dailyOnly:"데일리만",unlimitedOnly:"무제한만",archiveOnly:"아카이브만",availableCount:"플레이 가능",strongestGroup:"가장 많이 푼 그룹",groupVocalist:"보컬",groupProducer:"프로듀서",groupYear:"연도",groupViews:"조회수",groupTag:"태그",groupTitle:"제목",untimed:"시간 없음"});
+Object.assign(I18N.en,{achName_first_group:"First Connection",achDesc_first_group:"Find your first group of four.",achName_first_clear:"First Clear",achDesc_first_clear:"Solve a Connections puzzle.",achName_perfect:"Perfect Board",achDesc_perfect:"Solve without taking a strike.",achName_daily_clear:"Daily Ritual",achDesc_daily_clear:"Solve the daily puzzle.",achName_streak_7:"Connected Week",achDesc_streak_7:"Build a 7-day solve streak.",achName_unlimited_clear:"Practice Makes Perfect",achDesc_unlimited_clear:"Solve an Unlimited puzzle.",achName_archive_clear:"Back Connection",achDesc_archive_clear:"Solve an Archive puzzle.",achName_archive_5:"Archive Diver",achDesc_archive_5:"Solve five archived puzzles.",achName_one_away:"One Away",achDesc_one_away:"Guess three connected songs.",achName_last_strike:"Last Chance",achDesc_last_strike:"Solve on the last standard strike."});
+Object.assign(I18N.es,{achName_first_group:"Primera conexión",achDesc_first_group:"Encuentra tu primer grupo de cuatro.",achName_first_clear:"Primera victoria",achDesc_first_clear:"Resuelve un reto de Connections.",achName_perfect:"Tablero perfecto",achDesc_perfect:"Resuelve sin cometer errores.",achName_daily_clear:"Ritual diario",achDesc_daily_clear:"Resuelve el reto diario.",achName_streak_7:"Semana conectada",achDesc_streak_7:"Consigue una racha de 7 días.",achName_unlimited_clear:"La práctica hace al maestro",achDesc_unlimited_clear:"Resuelve un reto ilimitado.",achName_archive_clear:"Conexión pasada",achDesc_archive_clear:"Resuelve un reto del archivo.",achName_archive_5:"Buceador del archivo",achDesc_archive_5:"Resuelve cinco retos archivados.",achName_one_away:"A una",achDesc_one_away:"Adivina tres canciones conectadas.",achName_last_strike:"Última oportunidad",achDesc_last_strike:"Resuelve con el último error estándar."});
+Object.assign(I18N.ja,{achName_first_group:"最初のつながり",achDesc_first_group:"最初の4曲グループを見つける。",achName_first_clear:"初クリア",achDesc_first_clear:"Connectionsをクリアする。",achName_perfect:"パーフェクトボード",achDesc_perfect:"ミスなしでクリアする。",achName_daily_clear:"毎日の習慣",achDesc_daily_clear:"デイリーをクリアする。",achName_streak_7:"つながる一週間",achDesc_streak_7:"7日連続でクリアする。",achName_unlimited_clear:"練習の成果",achDesc_unlimited_clear:"無制限をクリアする。",achName_archive_clear:"過去のつながり",achDesc_archive_clear:"アーカイブをクリアする。",achName_archive_5:"アーカイブ探検家",achDesc_archive_5:"アーカイブを5問クリアする。",achName_one_away:"あと1つ",achDesc_one_away:"つながる3曲を推測する。",achName_last_strike:"最後のチャンス",achDesc_last_strike:"通常の最後のミスでクリアする。"});
+Object.assign(I18N.ko,{achName_first_group:"첫 연결",achDesc_first_group:"첫 4곡 그룹을 찾으세요.",achName_first_clear:"첫 클리어",achDesc_first_clear:"Connections 퍼즐을 푸세요.",achName_perfect:"퍼펙트 보드",achDesc_perfect:"실수 없이 푸세요.",achName_daily_clear:"데일리 습관",achDesc_daily_clear:"데일리 퍼즐을 푸세요.",achName_streak_7:"이어진 일주일",achDesc_streak_7:"7일 연속으로 푸세요.",achName_unlimited_clear:"연습의 결실",achDesc_unlimited_clear:"무제한 퍼즐을 푸세요.",achName_archive_clear:"과거의 연결",achDesc_archive_clear:"아카이브 퍼즐을 푸세요.",achName_archive_5:"아카이브 탐험가",achDesc_archive_5:"아카이브 퍼즐 5개를 푸세요.",achName_one_away:"하나 부족",achDesc_one_away:"연결된 3곡을 추측하세요.",achName_last_strike:"마지막 기회",achDesc_last_strike:"일반 모드의 마지막 실수에서 푸세요."});
+function t(key, ...args) {
+  let value = (I18N[LANG] && I18N[LANG][key]) || I18N.en[key] || key;
+  args.forEach((arg,i) => { value = value.replaceAll(`{${i}}`, arg); });
+  return value;
+}
+function setText(id, key) { const el=$(id); if(el) el.textContent=t(key); }
+function applyStatic() {
+  document.documentElement.lang = LANG;
+  const map = {
+    "logo-sub":"logoSub","how-open":"howPlay","ach-open":"achievements","updates-open":"updates","stats-open":"stats","settings-open":"settings",
+    "marquee-text":"marquee","hdr-how":"hdrHow","hdr-records":"records","rec-label-played":"dailies","rec-label-solved":"solved","rec-label-perfect":"perfectNo","rec-label-streak":"currentStreak","rec-label-best":"bestStreak","next-daily-label":"nextDaily","hdr-links":"links","suggest-link":"suggest","links-support-open":"contact",
+    "mode-daily":"daily","mode-unlimited":"unlimited","mode-archive":"archive","st-label-puzzle":"puzzle","st-label-found":"groupsFound","st-label-strikes":"strikes","hdr-board":"board","btn-submit":"lock","btn-shuffle":"shuffle","btn-clear":"deselect","btn-archive-back":"allDays","btn-share":"share","btn-new":"newPuzzle","btn-end-archive-back":"allDays","hdr-guess-history":"guessHistory",
+    "settings-title":"settingsTitle","set-dark-label":"dark","set-dark-desc":"darkDesc","set-color-label":"colorblind","set-color-desc":"colorblindDesc","set-motion-label":"motion","set-motion-desc":"motionDesc","set-text-label":"largeText","set-text-desc":"largeTextDesc","set-contrast-label":"contrast","set-contrast-desc":"contrastDesc","set-timer-label":"timer","set-timer-desc":"timerDesc","set-challenge-label":"challengeMode","set-challenge-desc":"challengeDesc","set-backup-label":"backup","set-backup-desc":"backupDesc","backup-export":"export","backup-import-open":"import","backup-import-confirm":"importBackup","backup-cancel":"cancel","st-label-time":"time","tut-title":"tutTitle",
+    "ach-title":"achTitle","updates-title":"updateTitle","stats-title":"statsTitle","support-title":"supportTitle","support-p1":"supportP1","support-p2":"supportP2","support-p3":"supportP3"
+  };
+  for (const [id,key] of Object.entries(map)) setText(id,key);
+  $("how-1").innerHTML=t("how1"); $("how-2").innerHTML=t("how2"); $("how-3").innerHTML=t("how3"); $("how-4").innerHTML=t("how4");
+  $("tut-body").innerHTML=t("tutHtml");
+  const proxyLabels={"how-open":"howPlay","ach-open":"achievements","updates-open":"updates","stats-open":"stats","settings-open":"settings"};
+  document.querySelectorAll("[data-proxy]").forEach(a=>{const key=proxyLabels[a.dataset.proxy];if(key)a.textContent=t(key);});
+  document.querySelectorAll(".language-button").forEach(b=>b.classList.toggle("is-active",b.dataset.lang===LANG));
+  $("backup-text").setAttribute("aria-label",t("backupData"));
+  syncAccessibilityButtons();
+}
+const ACCESS_OPTIONS = [
+  ["opt-dark", "dark-mode", "vc_dark"],
+  ["opt-colorblind", "colorblind-mode", "vc_colorblind"],
+  ["opt-motion", "reduce-motion", "vc_reduce_motion"],
+  ["opt-large-text", "large-text-mode", "vc_large_text"],
+  ["opt-contrast", "high-contrast-mode", "vc_contrast"],
+];
+function syncAccessibilityButtons() {
+  for (const [id,className] of ACCESS_OPTIONS) {
+    const button=$(id);
+    if (!button) continue;
+    const on=document.documentElement.classList.contains(className);
+    button.classList.toggle("is-on",on);
+    button.textContent=t(on?"on":"off");
+    button.setAttribute("aria-pressed",String(on));
+  }
+  for (const [id,key] of [["opt-timer","vc_timer"],["opt-challenge","vc_challenge"]]) {
+    const button=$(id), on=localStorage.getItem(key)==="1";
+    button.classList.toggle("is-on",on); button.textContent=t(on?"on":"off"); button.setAttribute("aria-pressed",String(on));
+  }
+}
+function refreshLocalizedGame() {
+  renderRecords();
+  if (!state.groups) return;
+  if (state.mode==="archive" && !state.dateKey) renderArchiveCalendar();
+  else {
+    $("board-note").textContent=t("boardNote");
+    $("mode-note").textContent=state.mode==="daily"?state.dateKey:state.mode==="archive"?`${state.dateKey} · ${t("archive")}`:t("practice");
+    renderBoard();
+    renderEnd();
+  }
+  if (!$("ach-modal").hidden) renderAchievements();
+  if (!$("stats-modal").hidden) renderStatsModal();
+}
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = a + 0x6D2B79F5 | 0;
+    let t = Math.imul(a ^ a >>> 15, 1 | a);
+    t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t;
+    return ((t ^ t >>> 14) >>> 0) / 4294967296;
+  };
+}
+function seedFromString(str) {
+  let h = 2166136261;
+  for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+}
+const todayKey = () => {
+  const d = new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+};
+const EPOCH = "2026-07-19"; // Connections #1
+function dailyNumber(dateKey) {
+  const [ey, em, ed] = EPOCH.split("-").map(Number);
+  const [y, m, d] = dateKey.split("-").map(Number);
+  return Math.round((Date.UTC(y, m - 1, d) - Date.UTC(ey, em - 1, ed)) / 864e5) + 1;
+}
+
+/* ═══════════════ data ═══════════════ */
+let SONGS = [], DETAILS = {}, VIEWS = {}, YT = {}, BILI = {}, MAIN_VOCALISTS = {}, MANIFESTS = {};
+function combined(s) {
+  const id = String(s.vocadbId);
+  const n = VIEWS[id], y = YT[id] && YT[id].views, b = BILI[id] && BILI[id].views;
+  if (typeof n !== "number" && typeof y !== "number" && typeof b !== "number") return null;
+  return (n || 0) + (y || 0) + (b || 0);
+}
+function niconicoViews(s) {
+  const value=VIEWS[String(s.vocadbId)];
+  return typeof value==="number"?value:null;
+}
+
+/* Cover-art fallback chain shared with VOCALOID Grid. */
+function coverChain(song) {
+  const all = [...(song.coverArts || [])];
+  if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
+  const ytHq = song.ytOriginalId ? `https://i.ytimg.com/vi/${song.ytOriginalId}/hqdefault.jpg` : null;
+  if (ytHq) all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`);
+  const m = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/) : null;
+  if (m) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${m[1]}/${m[1]}`);
+  const bp = BILI[String(song.vocadbId)];
+  if (bp && bp.pic) all.push(String(bp.pic).replace(/^http:/, "https:"));
+  const pr = u => (ytHq && u === ytHq) ? -1
+    : u.includes("ytimg.com") && u.includes("hqdefault") ? 0
+    : u.includes("ytimg.com") && u.includes("mqdefault") ? 1
+    : u.includes("ytimg.com") ? 2
+    : u.includes("sndcdn.com") ? 3 : 4;
+  return [...new Set(all)].sort((a, b) => pr(a) - pr(b));
+}
+function advanceThumb(img, skipYt) {
+  let rest = JSON.parse(img.dataset.srcs || "[]");
+  if (skipYt) rest = rest.filter(u => !u.includes("ytimg.com"));
+  if (rest.length) { img.src = rest[0]; img.dataset.srcs = JSON.stringify(rest.slice(1)); }
+  else img.remove();
+}
+function tryNextThumb(img) { advanceThumb(img, false); }
+function thumbLoaded(img) {
+  if (img.naturalWidth && img.naturalWidth <= 120 && img.naturalHeight <= 90
+      && /ytimg\.com/.test(img.currentSrc || img.src)) { advanceThumb(img, true); return; }
+  if (img.naturalWidth && Math.abs(img.naturalWidth / img.naturalHeight - 4 / 3) < 0.05)
+    img.classList.add("crop43");
+  else img.classList.remove("crop43");
+}
+function thumbImgHtml(song) {
+  const chain = coverChain(song);
+  if (!chain.length) return "";
+  return `<img src="${escHtml(chain[0])}" alt="" referrerpolicy="no-referrer" loading="lazy" data-srcs="${escHtml(JSON.stringify(chain.slice(1)))}" onload="thumbLoaded(this)" onerror="tryNextThumb(this)">`;
+}
+
+/* ═══════════════ criteria (mirrors VOCALOID Grid) ═══════════════ */
+const TAG_WHITELIST = new Set([
+  "rock", "sad", "ProSeka", "cute", "love", "dark", "EDM", "piano",
+  "uplifting", "funny", "ballad", "creepy", "fast tempo", "metal", "English subtitles",
+  "alternative rock", "electropop", "digital rock", "J-pop", "pop", "chiptune",
+  "dance-pop", "technopop", "drum and bass", "experimental",
+]);
+const CHAR_MAP = [
+  ["Hatsune Miku", /hatsune miku/i],
+  ["Kagamine Rin", /kagamine rin/i],
+  ["Kagamine Len", /kagamine len/i],
+  ["Megurine Luka", /megurine luka/i],
+  ["GUMI", /\bgumi\b|megpoid/i],
+  ["KAITO", /\bkaito\b/i],
+  ["MEIKO", /\bmeiko\b/i],
+  ["Kasane Teto", /kasane teto/i],
+  ["IA", /^ia$|^ia \(|^ia :/i],
+  ["flower", /\bflower\b/i],
+  ["KAFU", /\bkafu\b/i],
+  ["Otomachi Una", /otomachi una/i],
+  ["Kaai Yuki", /kaai yuki/i],
+  ["Adachi Rei", /adachi rei/i],
+  ["Camui Gackpo", /gackpo|gakupo/i],
+  ["Yuzuki Yukari", /yuzuki yukari/i],
+  ["Luo Tianyi", /luo tianyi/i],
+  ["Fukase", /\bfukase\b/i],
+  ["Sekai", /^sekai$|星界/i],
+];
+function songVocalistNames(s) {
+  const id = String(s.vocadbId);
+  // Connections has its own VocaDB-derived map filtered by the per-credit
+  // isSupport flag. Keep this separate from shared song metadata so no other
+  // game or chart changes its vocalist behavior.
+  if (Object.prototype.hasOwnProperty.call(MAIN_VOCALISTS, id)) return MAIN_VOCALISTS[id];
+  return s.singerNames || [];
+}
+const CHAR_CACHE = new Map();
+function songCharacters(s) {
+  const id = String(s.vocadbId);
+  if (CHAR_CACHE.has(id)) return CHAR_CACHE.get(id);
+  const out = new Set();
+  for (const name of songVocalistNames(s)) {
+    if (!name || /^various/i.test(name)) continue;
+    const hit = CHAR_MAP.find(([, re]) => re.test(name));
+    out.add(hit ? hit[0] : name);
+  }
+  CHAR_CACHE.set(id, out);
+  return out;
+}
+const PROD_CACHE = new Map();
+function songProducers(s) {
+  const id = String(s.vocadbId);
+  if (PROD_CACHE.has(id)) return PROD_CACHE.get(id);
+  const out = new Set();
+  for (const p of (s.producerNames || [])) if (p && !/^various/i.test(p)) out.add(p);
+  const d = DETAILS[id];
+  for (const p of ((d && d.producers) || [])) if (p && p.name) out.add(p.name);
+  PROD_CACHE.set(id, out);
+  return out;
+}
+
+let CRITS = []; // { label, kind, rank, f }
+function buildCriteria() {
+  const prodCount = {}, vocCount = {}, tagCount = {};
+  for (const s of SONGS) {
+    for (const p of songProducers(s)) prodCount[p] = (prodCount[p] || 0) + 1;
+    for (const ch of songCharacters(s)) vocCount[ch] = (vocCount[ch] || 0) + 1;
+    const d = DETAILS[String(s.vocadbId)];
+    for (const t of ((d && d.tags) || [])) if (TAG_WHITELIST.has(t)) tagCount[t] = (tagCount[t] || 0) + 1;
+  }
+  const yr = s => s.publishDate ? new Date(s.publishDate).getFullYear() : 0;
+  const defs = [];
+  // rank drives the difficulty color: 0 easiest (yellow) → 3 hardest (purple)
+  for (const [v, c] of Object.entries(vocCount)) if (c >= 15 && !/^various/i.test(v))
+    defs.push({ label: `Sung by ${v}`, kind: "vocalist", value:v, rank: 0, f: s => songCharacters(s).has(v) });
+  for (const [a, b] of [[2007,2010],[2011,2013],[2014,2016],[2017,2019],[2020,2022],[2023,2026]])
+    defs.push({ label: `Uploaded ${a}-${b}`, kind: "year", from:a, to:b, rank: 1, f: s => yr(s) >= a && yr(s) <= b });
+  for (const [p, c] of Object.entries(prodCount)) if (c >= 8 && !/^various/i.test(p))
+    defs.push({ label: `Produced by ${p}`, kind: "producer", value:p, rank: 2, f: s => songProducers(s).has(p) });
+  defs.push({ label:"100M+ combined views", kind:"views", viewType:"combined100", rank:3, f:s=>(combined(s)||0)>=1e8 });
+  defs.push({ label:"10M+ NicoNico views", kind:"views", viewType:"nico10", rank:3, f:s=>(niconicoViews(s)||0)>=1e7 });
+  for (const [t, c] of Object.entries(tagCount)) if (c >= 40)
+    defs.push({ label: `Tagged “${t}”`, kind: "tag", value:t, rank: 3, f: s => { const d = DETAILS[String(s.vocadbId)]; return !!(d && d.tags && d.tags.includes(t)); } });
+  const normTitle = s => (s.title || "").normalize("NFKC").trim();
+  defs.push({ label: "One-word titles", kind: "title", rank: 3, f: s => { const t = normTitle(s); return !!t && !/\s/.test(t); } });
+  CRITS = defs;
+}
+
+function idsKey(songs) { return songs.map(s=>String(s.vocadbId)).sort().join("|"); }
+function validatePuzzleQuality(chosen) {
+  if (!Array.isArray(chosen) || chosen.length!==4 || chosen.some(g=>g.songs.length!==4)) return {ok:false,reason:"shape"};
+  const all16=chosen.flatMap(g=>g.songs);
+  if (new Set(all16.map(s=>String(s.vocadbId))).size!==16) return {ok:false,reason:"duplicate"};
+  const targetSets=new Set(chosen.map(g=>idsKey(g.songs)));
+  for (const g of chosen) {
+    const matches=all16.filter(g.crit.f);
+    if (matches.length!==4 || idsKey(matches)!==idsKey(g.songs)) return {ok:false,reason:"selected-overlap"};
+  }
+  for (const crit of CRITS) {
+    const matches=all16.filter(crit.f);
+    if (matches.length===4 && !targetSets.has(idsKey(matches))) return {ok:false,reason:"alternate-group"};
+  }
+  return {ok:true,reason:"clean-unique"};
+}
+
+/* ═══════════════ puzzle generation ═══════════════ */
+/* Pick four different category kinds and four songs for each. Kinds are chosen
+   before individual criteria so the much larger producer list cannot dominate
+   every board. The quality validator still rejects overlaps and extra groups. */
+function generatePuzzle(seedStr) {
+  const rnd = mulberry32(seedFromString("vconn-" + seedStr));
+  const pool = SONGS.filter(s => (combined(s) || 0) >= 200000 && s.title);
+  const shuffled = arr => { const a = [...arr]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+  const critSongs = CRITS.map(c => pool.filter(c.f));
+  const usable = CRITS.map((c, i) => ({ c, songs: critSongs[i], i })).filter(x => x.songs.length >= 6);
+  const byKind = new Map();
+  for (const entry of usable) {
+    if (!byKind.has(entry.c.kind)) byKind.set(entry.c.kind, []);
+    byKind.get(entry.c.kind).push(entry);
+  }
+  const usableKinds = [...byKind.keys()];
+
+  for (let attempt = 0; attempt < 1600; attempt++) {
+    const kindPlan = ConnectionsCore.chooseDistinctKinds(usableKinds,rnd,4);
+    if (kindPlan.length < 4) return null;
+    const groups = kindPlan.map(kind => shuffled(byKind.get(kind))[0]);
+
+    // assign songs: prefer well-known ones (top of each set by views, shuffled)
+    const used = new Set();
+    const chosen = [];
+    let ok = true;
+    for (const g of groups) {
+      const candidates = shuffled(
+        [...g.songs].sort((a, b) => (combined(b) || 0) - (combined(a) || 0)).slice(0, 24)
+      ).filter(s => !used.has(String(s.vocadbId)));
+      const picked = [];
+      for (const s of candidates) {
+        if (groups.some(og=>og!==g && og.c.f(s))) continue;
+        picked.push(s);
+        used.add(String(s.vocadbId));
+        if (picked.length === 4) break;
+      }
+      if (picked.length < 4) { ok = false; break; }
+      chosen.push({ crit: g.c, songs: picked });
+    }
+    if (!ok) continue;
+
+    if (!validatePuzzleQuality(chosen).ok) continue;
+
+    chosen.sort((a, b) => a.crit.rank - b.crit.rank);
+    return chosen.map(g=>({label:g.crit.label,kind:g.crit.kind,value:g.crit.value,from:g.crit.from,to:g.crit.to,viewType:g.crit.viewType,rank:g.crit.rank,songs:g.songs}));
+  }
+  return null;
+}
+
+/* ═══════════════ state & persistence ═══════════════ */
+const state = {
+  mode: "daily",           // daily | unlimited | archive
+  dateKey: null,
+  seed: null,
+  groups: null,            // [{label, songs:[song]}] in color order
+  tiles: [],               // shuffled remaining songs
+  selected: new Set(),     // vocadbId strings
+  solved: [],              // group indexes in solve order
+  solvedByPlayer: [],      // groups actually found before any loss reveal
+  guesses: [],             // [[groupIdx of each picked song]] for sharing
+  guessSongIds: [],        // exact picks for spoiler-free visible history
+  strikes: 0,
+  done: false,
+  win: false,
+  newAchievements: [],
+  timerEnabled: false,
+  challenge: false,
+  startedAt: 0,
+  elapsedBefore: 0,
+  elapsedFinal: 0,
+  oneAways: 0,
+};
+function currentElapsedMs() { return state.elapsedFinal || state.elapsedBefore + (state.startedAt && !state.done ? Date.now()-state.startedAt : 0); }
+function updateTimer() { if ($("timer-cell")) { $("timer-cell").hidden=!state.timerEnabled; $("st-time").textContent=ConnectionsCore.formatDuration(currentElapsedMs()); } }
+function puzzleSignature() { return state.groups ? state.groups.map(g=>idsKey(g.songs)).join("/") : null; }
+const dailyKey = () => `vc_daily_${state.dateKey}`;
+function loadStats() {
+  const base = { played:0, solved:0, perfect:0, strikes:0, streak:0, best:0, lastDay:null, totalGuesses:0, oneAways:0, elapsedMs:0, timedGames:0, fastestMs:0, challengePlayed:0, challengeSolved:0, groupKinds:{}, distribution:{0:0,1:0,2:0,3:0,fail:0} };
+  try { const saved = JSON.parse(localStorage.getItem("vc_stats") || "{}"); return { ...base, ...saved, groupKinds:{...base.groupKinds,...(saved.groupKinds||{})}, distribution:{...base.distribution,...(saved.distribution||{})} }; }
+  catch (e) { return base; }
+}
+function saveStats(st) { try { localStorage.setItem("vc_stats", JSON.stringify(st)); } catch (e) {} }
+function loadUnlimitedStats() {
+  const base = { played:0, solved:0, perfect:0, strikes:0, totalGuesses:0, oneAways:0, elapsedMs:0, timedGames:0, fastestMs:0, challengePlayed:0, challengeSolved:0, groupKinds:{}, distribution:{0:0,1:0,2:0,3:0,fail:0} };
+  try { const saved = JSON.parse(localStorage.getItem("vc_unlimited_stats") || "{}"); return { ...base, ...saved, groupKinds:{...base.groupKinds,...(saved.groupKinds||{})}, distribution:{...base.distribution,...(saved.distribution||{})} }; }
+  catch (e) { return base; }
+}
+function saveUnlimitedStats(st) { try { localStorage.setItem("vc_unlimited_stats", JSON.stringify(st)); } catch (e) {} }
+function saveDaily() {
+  if ((state.mode !== "daily" && state.mode !== "archive") || !state.dateKey) return;
+  try {
+    localStorage.setItem(dailyKey(), JSON.stringify({
+      solved: state.solved, guesses: state.guesses, guessSongIds:state.guessSongIds, strikes: state.strikes,
+      done:state.done, win:state.win, signature:puzzleSignature(), elapsedMs:currentElapsedMs(), timerEnabled:state.timerEnabled, challenge:state.challenge, oneAways:state.oneAways,
+    }));
+  } catch (e) {}
+}
+
+const ACHIEVEMENTS = [
+  { id:"first_group", name:"First Connection", desc:"Find your first group of four.", cat:"general" },
+  { id:"first_clear", name:"First Clear", desc:"Solve a Connections puzzle.", cat:"general" },
+  { id:"perfect", name:"Perfect Board", desc:"Solve without taking a strike.", cat:"challenge" },
+  { id:"daily_clear", name:"Daily Ritual", desc:"Solve the daily Connections puzzle.", cat:"daily" },
+  { id:"streak_7", name:"Connected Week", desc:"Build a 7-day daily solve streak.", cat:"daily" },
+  { id:"unlimited_clear", name:"Practice Makes Perfect", desc:"Solve an Unlimited puzzle.", cat:"unlimited" },
+  { id:"archive_clear", name:"Back Connection", desc:"Solve a puzzle from the Archive.", cat:"archive" },
+  { id:"archive_5", name:"Archive Diver", desc:"Solve five archived puzzles.", cat:"archive" },
+  { id:"one_away", name:"One Away", desc:"Submit a guess with three connected songs.", cat:"knowledge" },
+  { id:"last_strike", name:"Last Chance", desc:"Solve with three strikes used.", cat:"secret" },
+];
+function loadAchievements() { try { return JSON.parse(localStorage.getItem("vc_ach") || "{}"); } catch (e) { return {}; } }
+function unlockAchievement(id) {
+  const all = loadAchievements();
+  if (all[id]) return;
+  all[id] = new Date().toISOString();
+  try { localStorage.setItem("vc_ach", JSON.stringify(all)); } catch (e) {}
+  const a = ACHIEVEMENTS.find(x => x.id === id);
+  if (a && state.newAchievements && !state.newAchievements.includes(id)) state.newAchievements.push(id);
+  if (a) toast(`<b>${escHtml(t("achievementUnlocked"))}</b><span>${escHtml(t(`achName_${a.id}`)||a.name)}</span>`, "★");
+}
+function archiveDates() {
+  return ConnectionsCore.archiveDates(todayKey(),EPOCH);
+}
+function archiveProgress() {
+  const dates = archiveDates();
+  let played=0, solved=0, perfect=0, strikes=0, totalGuesses=0, oneAways=0, elapsedMs=0, timedGames=0, fastestMs=0, challengePlayed=0, challengeSolved=0;
+  const groupKinds={};
+  const distribution = {0:0,1:0,2:0,3:0,fail:0};
+  for (const date of dates) {
+    try {
+      const saved = JSON.parse(localStorage.getItem(`vc_daily_${date}`) || "null");
+      if (saved && saved.done) { played++; strikes+=saved.strikes||0; totalGuesses+=(saved.guesses||[]).length; oneAways+=saved.oneAways||0; if(saved.timerEnabled&&saved.elapsedMs){timedGames++;elapsedMs+=saved.elapsedMs;if(saved.win)fastestMs=!fastestMs? saved.elapsedMs:Math.min(fastestMs,saved.elapsedMs);} if(saved.challenge){challengePlayed++;if(saved.win)challengeSolved++;} if(saved.win){solved++;distribution[Math.min(3,saved.strikes||0)]++;}else distribution.fail++;if(saved.win&&!saved.strikes)perfect++; }
+    } catch (e) {}
+  }
+  return {played,solved,perfect,strikes,totalGuesses,oneAways,elapsedMs,timedGames,fastestMs,challengePlayed,challengeSolved,groupKinds,distribution,total:dates.length};
+}
+
+/* ═══════════════ rendering ═══════════════ */
+function formatGroupLabel(g) {
+  if (g.kind==="vocalist") return t("sungBy",g.value);
+  if (g.kind==="year") return t("uploaded",g.from,g.to);
+  if (g.kind==="producer") return t("producedBy",g.value);
+  if (g.kind==="views") return t(g.viewType==="combined100"?"viewsCombined100":"viewsNico10");
+  if (g.kind==="tag") return t("tagged",g.value);
+  if (g.kind==="title") return t("oneWord");
+  return g.label;
+}
+function groupExplanation(g) {
+  if (g.kind==="vocalist") return t("explainVocalist",g.value);
+  if (g.kind==="year") return t("explainYear",g.from,g.to);
+  if (g.kind==="producer") return t("explainProducer",g.value);
+  if (g.kind==="views") return t(g.viewType==="combined100"?"explainCombined100":"explainNico10");
+  if (g.kind==="tag") return t("explainTag",g.value);
+  if (g.kind==="title") return t("explainTitle");
+  return formatGroupLabel(g);
+}
+function renderGuessHistory() {
+  const panel=$("guess-history-panel"), box=$("guess-history");
+  if (!state.guesses.length) { panel.hidden=true; box.innerHTML=""; return; }
+  panel.hidden=false;
+  box.innerHTML=state.guesses.map((gis,i)=>{
+    const counts={}; gis.forEach(gi=>counts[gi]=(counts[gi]||0)+1);
+    const best=Math.max(...Object.values(counts));
+    const verdict=best===4?t("groupFound"):best===3?t("oneAway"):t("incorrect");
+    const ids=state.guessSongIds[i]||[];
+    const titles=ids.map(id=>state.groups.flatMap(g=>g.songs).find(s=>String(s.vocadbId)===String(id))?.title).filter(Boolean);
+    const picks=titles.length?titles.join(" · "):t("attempt",i+1);
+    return `<div class="guess-row"><span class="guess-label">${escHtml(t("attempt",i+1))}</span><span class="guess-picks" title="${escHtml(picks)}">${escHtml(picks)}</span><span class="guess-verdict">${escHtml(verdict)}</span></div>`;
+  }).join("");
+}
+function groupIndexOf(song) {
+  const id = String(song.vocadbId);
+  return state.groups.findIndex(g => g.songs.some(s => String(s.vocadbId) === id));
+}
+function renderStatus() {
+  $("st-puzzle").textContent = state.mode === "daily" ? `#${dailyNumber(state.dateKey)}` : state.mode === "archive" ? (state.dateKey || t("archive")) : t("random");
+  $("st-found").textContent = `${state.solved.length} / 4`;
+  const limit=ConnectionsCore.strikeLimit(state.challenge);
+  [...$("st-strikes").children].forEach((dot,i)=>{dot.hidden=i>=limit;dot.classList.toggle("used",i<state.strikes);});
+  updateTimer();
+}
+function renderSolved() {
+  $("solved-list").innerHTML = state.solved.map(gi => {
+    const g = state.groups[gi];
+    const revealed = state.done && !state.win && !state.solvedByPlayer.includes(gi);
+    return `<div class="solved-row g${gi}${revealed ? " revealed" : ""}">
+      <div class="sg-label">${document.documentElement.classList.contains("colorblind-mode") ? `${gi+1} · ` : ""}${escHtml(formatGroupLabel(g))}${revealed ? ` · ${escHtml(t("revealed"))}` : ""}</div>
+      <div class="sg-songs">${g.songs.map(s => escHtml(s.title)).join(" · ")}</div>
+      <div class="sg-explain">${escHtml(groupExplanation(g))}</div>
+    </div>`;
+  }).join("");
+}
+function renderBoard() {
+  const solvedIds = new Set(state.solved.flatMap(gi => state.groups[gi].songs.map(s => String(s.vocadbId))));
+  const remaining = state.tiles.filter(s => !solvedIds.has(String(s.vocadbId)));
+  $("board").innerHTML = remaining.map(s => {
+    const id = String(s.vocadbId);
+    const long = (s.title || "").length > 26;
+    return `<button type="button" class="tile${state.selected.has(id) ? " sel" : ""}${long ? " long" : ""}"
+      data-id="${escHtml(id)}" ${state.done ? "disabled" : ""} aria-label="${escHtml(s.title)}">
+      <span class="tile-thumb" aria-hidden="true">${thumbImgHtml(s)}</span>
+      <span class="tile-title">${escHtml(s.title)}</span>
+    </button>`;
+  }).join("");
+  $("board").hidden = remaining.length === 0;
+  $("btn-submit").disabled = state.selected.size !== 4 || state.done;
+  $("btn-clear").disabled = state.selected.size === 0 || state.done;
+  $("actions").hidden = state.done;
+  renderStatus();
+  renderSolved();
+  renderGuessHistory();
+}
+function renderEnd() {
+  const line = $("result-line");
+  if (!state.done) { line.hidden = true; $("end-actions").hidden = true; return; }
+  line.hidden = false;
+  const rank=state.win ? (state.strikes===0?t("endPerfect"):t("endSolved")) : t("endLost");
+  const copy=state.win ? (state.strikes===0?t("perfectCopy"):t("solvedCopy",state.strikes)) : t("lostCopy");
+  line.innerHTML=`<div class="end-card"><div class="end-rank">${escHtml(rank)}${state.challenge?` · ${escHtml(t("challenge"))}`:""}</div><div class="end-copy"><strong>${escHtml(rank)}</strong><span>${escHtml(copy)}</span></div><div class="end-metrics"><div><b>${state.guesses.length}</b><small>${escHtml(t("attempts"))}</small></div><div><b>${state.solvedByPlayer.length}/4</b><small>${escHtml(t("groups"))}</small></div>${state.timerEnabled?`<div><b>${ConnectionsCore.formatDuration(currentElapsedMs())}</b><small>${escHtml(t("time"))}</small></div>`:""}<div><b>${state.newAchievements.length}</b><small>${escHtml(t("earned"))}</small></div></div></div>`;
+  $("end-actions").hidden = false;
+  $("btn-new").hidden = state.mode !== "unlimited";
+  $("btn-end-archive-back").hidden = state.mode !== "archive";
+}
+
+let calYear = null, calMonth = null;
+function renderArchiveCalendar() {
+  const dates = archiveDates(), allowed = new Set(dates);
+  const latest = dates.length ? new Date(`${dates[dates.length - 1]}T12:00:00`) : new Date(`${EPOCH}T12:00:00`);
+  if (calYear == null) { calYear = latest.getFullYear(); calMonth = latest.getMonth(); }
+  const first = new Date(calYear, calMonth, 1), days = new Date(calYear, calMonth + 1, 0).getDate();
+  const cells = Array.from({length:first.getDay()}, () => `<button class="mcal-day off" disabled></button>`);
+  for (let day = 1; day <= days; day++) {
+    const iso = `${calYear}-${String(calMonth+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
+    let saved = null;
+    try { saved = JSON.parse(localStorage.getItem(`vc_daily_${iso}`) || "null"); } catch (e) {}
+    const playable = allowed.has(iso), done = playable && saved && saved.done;
+    cells.push(`<button type="button" class="mcal-day${playable ? " playable" : ""}${done ? " done" : ""}" ${playable ? `data-day="${iso}"` : "disabled"}><span>${day}</span>${done ? `<span class="mcal-score">${saved.win ? escHtml(t("solved")) : "X"}</span>` : ""}</button>`);
+  }
+  const min = new Date(`${EPOCH}T12:00:00`), max = latest;
+  const canPrev = calYear > min.getFullYear() || calMonth > min.getMonth();
+  const canNext = calYear < max.getFullYear() || calMonth < max.getMonth();
+  $("archive-view").innerHTML = `<div class="mcal-head"><button class="mcal-nav" id="cal-prev" ${canPrev ? "" : "disabled"}>&#9664;</button><strong>${first.toLocaleDateString(LANG,{month:"long",year:"numeric"})}</strong><button class="mcal-nav" id="cal-next" ${canNext ? "" : "disabled"}>&#9654;</button></div><div class="mcal-dows">${["Su","Mo","Tu","We","Th","Fr","Sa"].map(x=>`<span>${x}</span>`).join("")}</div><div class="mcal-grid">${cells.join("")}</div><div class="mcal-legend"><span><i class="mcal-key done"></i>${escHtml(t("completed"))}</span><span><i class="mcal-key"></i>${escHtml(t("available"))}</span></div>`;
+  $("archive-view").hidden = false;
+  $("board").hidden = true; $("actions").hidden = true; $("end-actions").hidden = true; $("result-line").hidden = true; $("solved-list").innerHTML = ""; $("guess-history-panel").hidden=true;
+  $("board-note").textContent = t("chooseDay");
+  $("mode-note").textContent = t("archiveSolved",archiveProgress().solved,dates.length);
+  $("st-puzzle").textContent = t("archive"); $("st-found").textContent = "--";
+  [...$("st-strikes").children].forEach(dot => dot.classList.add("used"));
+  $("cal-prev")?.addEventListener("click", () => { calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderArchiveCalendar(); });
+  $("cal-next")?.addEventListener("click", () => { calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderArchiveCalendar(); });
+  $("archive-view").querySelectorAll("[data-day]").forEach(btn => btn.addEventListener("click", () => { state.dateKey = btn.dataset.day; startGame(); }));
+}
+
+/* ═══════════════ toast ═══════════════ */
+let toastTimer = null;
+function toast(html, symbol) {
+  document.querySelectorAll(".nnd-toast").forEach(el => el.remove());
+  const el = document.createElement("div");
+  el.className = "nnd-toast";
+  el.innerHTML = `<span class="nnd-toast-label">${symbol || "★"}</span><span class="nnd-toast-msg">${html}</span>`;
+  document.body.appendChild(el);
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.classList.add("nnd-toast-fade"); setTimeout(() => el.remove(), 500); }, 2600);
+}
+
+/* ═══════════════ gameplay ═══════════════ */
+function submitSelection() {
+  if (state.selected.size !== 4 || state.done) return;
+  const picked = [...state.selected];
+  const pickedSongs = picked.map(id => state.tiles.find(s => String(s.vocadbId) === id));
+  const gis = pickedSongs.map(groupIndexOf);
+  state.guesses.push(gis);
+  state.guessSongIds.push(picked);
+
+  const counts = {};
+  for (const gi of gis) counts[gi] = (counts[gi] || 0) + 1;
+  const best = Math.max(...Object.values(counts));
+
+  if (best === 4) {
+    const gi = gis[0];
+    state.solved.push(gi);
+    state.solvedByPlayer.push(gi);
+    state.selected.clear();
+    unlockAchievement("first_group");
+    if (state.solved.length === 4) finish(true);
+    else toast(`<b>${escHtml(formatGroupLabel(state.groups[gi]))}</b><span>${escHtml(t("groupToast"))}</span>`);
+  } else {
+    state.strikes++;
+    document.querySelectorAll(".tile.sel").forEach(el => el.classList.add("shake"));
+    if (best === 3) { state.oneAways++; unlockAchievement("one_away"); }
+    const limit=ConnectionsCore.strikeLimit(state.challenge);
+    if (state.strikes >= limit) {
+      // reveal the rest in color order
+      for (let gi = 0; gi < 4; gi++) if (!state.solved.includes(gi)) state.solved.push(gi);
+      state.selected.clear();
+      finish(false);
+    } else {
+      toast(best === 3 ? `<b>${escHtml(t("oneAwayToast"))}</b><span>${escHtml(t("oneAwayCopy"))}</span>` : `<b>${escHtml(t("wrongToast"))}</b><span>${escHtml(t("strikesLeft",limit-state.strikes))}</span>`, "✕");
+    }
+  }
+  saveDaily();
+  setTimeout(renderBoard, best === 4 || state.done ? 0 : 380);
+  renderEnd();
+}
+
+function finish(win) {
+  state.elapsedFinal=currentElapsedMs(); state.startedAt=0;
+  state.done = true;
+  state.win = win;
+  if (state.mode === "daily") {
+    const st = loadStats();
+    st.played++;
+    st.strikes += state.strikes;
+    st.distribution[win ? Math.min(3,state.strikes) : "fail"]++;
+    addDetailedStats(st,win);
+    if (win) {
+      st.solved++;
+      if (state.strikes === 0) st.perfect++;
+      const yesterday = (() => { const d = new Date(); d.setDate(d.getDate() - 1);
+        return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`; })();
+      st.streak = st.lastDay === yesterday ? st.streak + 1 : 1;
+      st.best = Math.max(st.best, st.streak);
+      st.lastDay = state.dateKey;
+    } else {
+      st.streak = 0;
+      st.lastDay = state.dateKey;
+    }
+    saveStats(st);
+    renderRecords();
+    if (win) unlockAchievement("daily_clear");
+    if (st.streak >= 7) unlockAchievement("streak_7");
+  } else if (state.mode === "unlimited") {
+    const st = loadUnlimitedStats();
+    st.played++;
+    st.strikes += state.strikes;
+    st.distribution[win ? Math.min(3,state.strikes) : "fail"]++;
+    addDetailedStats(st,win);
+    if (win) { st.solved++; if (!state.strikes) st.perfect++; unlockAchievement("unlimited_clear"); }
+    saveUnlimitedStats(st);
+  } else if (state.mode === "archive" && win) {
+    unlockAchievement("archive_clear");
+  }
+  saveDaily();
+  if (win) unlockAchievement("first_clear");
+  if (win && state.strikes === 0) unlockAchievement("perfect");
+  if (win && state.strikes === 3) unlockAchievement("last_strike");
+  if (state.mode === "archive" && archiveProgress().solved >= 5) unlockAchievement("archive_5");
+  toast(win ? "<b>Puzzle solved!</b>" : "<b>Out of strikes.</b>", win ? "★" : "✕");
+}
+
+function addDetailedStats(st,win) {
+  st.totalGuesses=(st.totalGuesses||0)+state.guesses.length;
+  st.oneAways=(st.oneAways||0)+state.oneAways;
+  if(state.timerEnabled&&state.elapsedFinal){st.timedGames=(st.timedGames||0)+1;st.elapsedMs=(st.elapsedMs||0)+state.elapsedFinal;if(win)st.fastestMs=!st.fastestMs?state.elapsedFinal:Math.min(st.fastestMs,state.elapsedFinal);}
+  if(state.challenge){st.challengePlayed=(st.challengePlayed||0)+1;if(win)st.challengeSolved=(st.challengeSolved||0)+1;}
+  if(win){st.groupKinds=st.groupKinds||{};state.groups.forEach(g=>st.groupKinds[g.kind]=(st.groupKinds[g.kind]||0)+1);}
+}
+
+function shareText() {
+  const n = state.mode === "daily" ? `#${dailyNumber(state.dateKey)}` : state.mode === "archive" ? `${state.dateKey} (archive)` : `(random ${state.seed})`;
+  const sq = ["🟨", "🟩", "🟦", "🟪"];
+  const rows = state.guesses.map(gis => gis.map(gi => sq[gi]).join("")).join("\n");
+  const head = `VOCALOID Connections ${n} · ${state.win ? `solved with ${state.strikes} strike${state.strikes !== 1 ? "s" : ""}` : "X"}`;
+  return `${head}\n${rows}`;
+}
+
+/* ═══════════════ game setup ═══════════════ */
+function startGame() {
+  if (state.mode === "archive" && !state.dateKey) { renderArchiveCalendar(); return; }
+  if (state.mode === "daily") state.dateKey = todayKey();
+  state.seed = state.mode === "unlimited" ? Math.random().toString(36).slice(2, 8) : state.dateKey;
+  const manifestEntry=state.mode!=="unlimited"?MANIFESTS[state.dateKey]:null;
+  const frozen=manifestEntry?ConnectionsCore.hydrateManifest(manifestEntry,SONGS):null;
+  if(manifestEntry&&!frozen){$("board").innerHTML=`<div style="grid-column:1/-1;padding:20px;text-align:center;color:var(--faint)">${escHtml(t("buildError"))}</div>`;return;}
+  const puzzle = frozen ? frozen.groups : generatePuzzle(state.mode === "unlimited" ? "u-" + state.seed : "daily-" + state.dateKey);
+  if (!puzzle) {
+    $("board").innerHTML = `<div style="grid-column:1/-1;padding:20px;text-align:center;color:var(--faint)">${escHtml(t("buildError"))}</div>`;
+    return;
+  }
+  state.groups = puzzle;
+  state.selected = new Set();
+  state.solved = [];
+  state.solvedByPlayer = [];
+  state.guesses = [];
+  state.guessSongIds = [];
+  state.strikes = 0;
+  state.done = false;
+  state.win = false;
+  state.newAchievements = [];
+  state.timerEnabled=localStorage.getItem("vc_timer")==="1";
+  state.challenge=localStorage.getItem("vc_challenge")==="1";
+  state.startedAt=Date.now(); state.elapsedBefore=0; state.elapsedFinal=0; state.oneAways=0;
+  $("archive-view").hidden = true;
+  $("board-note").textContent = t("boardNote");
+  $("btn-archive-back").hidden = state.mode !== "archive";
+
+  // deterministic-but-different tile order per puzzle
+  const rnd = mulberry32(seedFromString("tiles-" + state.seed));
+  state.tiles = frozen ? frozen.tiles.slice() : puzzle.flatMap(g => g.songs);
+  if(!frozen) for (let i = state.tiles.length - 1; i > 0; i--) {
+    const j = Math.floor(rnd() * (i + 1));
+    [state.tiles[i], state.tiles[j]] = [state.tiles[j], state.tiles[i]];
+  }
+
+  // restore a daily in progress / finished
+  if (state.mode === "daily" || state.mode === "archive") {
+    try {
+      const saved = JSON.parse(localStorage.getItem(dailyKey()));
+      if (saved && saved.signature===puzzleSignature() && Array.isArray(saved.solved)) {
+        state.solved = saved.solved;
+        state.guesses = saved.guesses || [];
+        state.guessSongIds = saved.guessSongIds || [];
+        state.strikes = saved.strikes || 0;
+        state.done = !!saved.done;
+        state.win = !!saved.win;
+        state.timerEnabled=typeof saved.timerEnabled==="boolean"?saved.timerEnabled:state.timerEnabled;
+        state.challenge=typeof saved.challenge==="boolean"?saved.challenge:state.challenge;
+        state.elapsedBefore=saved.elapsedMs||0;state.elapsedFinal=state.done?state.elapsedBefore:0;state.startedAt=state.done?0:Date.now();state.oneAways=saved.oneAways||0;
+        // player-solved groups are exactly the correct guesses; the rest of
+        // state.solved (on a loss) were auto-revealed
+        state.solvedByPlayer = state.guesses.filter(g => new Set(g).size === 1).map(g => g[0]);
+      }
+    } catch (e) {}
+  }
+
+  $("mode-note").textContent = state.mode === "daily" ? state.dateKey : state.mode === "archive" ? `${state.dateKey} · ${t("archive")}` : t("practice");
+  $("btn-shuffle").disabled=state.challenge||state.done;
+  renderBoard();
+  renderEnd();
+}
+
+/* ═══════════════ records ═══════════════ */
+function renderRecords() {
+  const st = loadStats();
+  $("rec-played").textContent = st.played;
+  $("rec-solved").textContent = st.solved;
+  $("rec-perfect").textContent = st.perfect;
+  $("rec-streak").textContent = st.streak;
+  $("rec-best").textContent = st.best;
+}
+function nextDailyText() {
+  const now = new Date();
+  const next = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+  const ms = next - now;
+  const h = Math.floor(ms / 36e5), m = Math.floor(ms % 36e5 / 6e4), s = Math.floor(ms % 6e4 / 1e3);
+  return `${h}h ${m}m ${s}s`;
+}
+
+/* ═══════════════ events ═══════════════ */
+function renderAchievements(filter = "all", query = "") {
+  const unlocked = loadAchievements(), done = ACHIEVEMENTS.filter(a => unlocked[a.id]).length;
+  const q = query.trim().toLowerCase();
+  const text=a=>({name:t(`achName_${a.id}`)||a.name,desc:t(`achDesc_${a.id}`)||a.desc});
+  const shown = ACHIEVEMENTS.filter(a => {const x=text(a);return (filter === "all" || a.cat === filter) && (!q || `${x.name} ${x.desc} ${t(a.cat)}`.toLowerCase().includes(q));});
+  $("ach-content").innerHTML = `<div class="progress-box"><div class="progress-label"><strong>${done} / ${ACHIEVEMENTS.length} ${escHtml(t("unlocked"))}</strong><span>${Math.round(done / ACHIEVEMENTS.length * 100)}%</span></div><div class="progress-track"><div class="progress-fill" style="width:${done / ACHIEVEMENTS.length * 100}%"></div></div></div><div class="modal-toolbar"><input class="modal-search" id="ach-search" value="${escHtml(query)}" placeholder="${escHtml(t("searchAchievements"))}"></div><div class="modal-tabs">${["all","daily","unlimited","archive","general","knowledge","challenge","secret"].map(id=>`<button class="modal-tab${filter===id?" is-active":""}" data-ach-cat="${id}">${escHtml(t(id))}</button>`).join("")}</div><div class="achievement-list">${shown.length ? shown.map(a=>{const x=text(a);return `<div class="achievement-card${unlocked[a.id]?" unlocked":""}"><div class="achievement-name"><span>${escHtml(x.name)}</span><span class="achievement-cat">${escHtml(t(a.cat))}</span></div><div class="achievement-desc">${escHtml(x.desc)}</div><div class="achievement-date">${unlocked[a.id] ? escHtml(t("unlockedOn",new Date(unlocked[a.id]).toLocaleDateString(LANG))) : escHtml(t("locked"))}</div></div>`;}).join("") : `<div class="achievement-card">${escHtml(t("noAchievements"))}</div>`}</div>`;
+  $("ach-search").addEventListener("input", e => { const value = e.target.value; renderAchievements(filter, value); $("ach-search").focus(); $("ach-search").setSelectionRange(value.length, value.length); });
+  $("ach-content").querySelectorAll("[data-ach-cat]").forEach(btn => btn.addEventListener("click", () => renderAchievements(btn.dataset.achCat, $("ach-search")?.value || "")));
+}
+
+function renderStatsModal(tab = "daily") {
+  const d = loadStats(), u = loadUnlimitedStats(), a = archiveProgress();
+  const s=tab==="daily"?d:tab==="unlimited"?u:a, total=tab==="archive"?a.total:s.played;
+  const kinds=Object.entries(s.groupKinds||{}).sort((x,y)=>y[1]-x[1]);
+  const data={played:s.played,solved:s.solved,perfect:s.perfect,distribution:s.distribution,stats:[[s.played,t("played")],[s.solved,t("solved")],[total?`${Math.round(s.solved/total*100)}%`:"--",tab==="archive"?t("progress"):t("winRate")],[s.perfect,t("perfectNo")],[s.played?(s.strikes/s.played).toFixed(1):"--",t("avgStrikes")],[s.played?(s.totalGuesses/s.played).toFixed(1):"--",t("avgGuesses")]],rows:[[t("totalGuesses"),s.totalGuesses||0],[t("oneAways"),s.oneAways||0],[t("avgTime"),s.timedGames?ConnectionsCore.formatDuration(s.elapsedMs/s.timedGames):t("untimed")],[t("bestTime"),s.fastestMs?ConnectionsCore.formatDuration(s.fastestMs):t("untimed")],[t("challengeRecord"),`${s.challengeSolved||0} / ${s.challengePlayed||0}`],[t("strongestGroup"),kinds.length?`${t("group"+kinds[0][0][0].toUpperCase()+kinds[0][0].slice(1))} (${kinds[0][1]})`:"--"],[t("totalStrikes"),s.strikes||0],[t("recordScope"),t(tab+"Only")]]};
+  if(tab==="daily") data.rows.push([t("bestStreak"),d.best],[t("lastDaily"),d.lastDay||"--"]);
+  if(tab==="archive") data.rows.push([t("archivePuzzles"),a.total],[t("availableCount"),Math.max(0,a.total-a.played)]);
+  const maxDist = Math.max(1,...Object.values(data.distribution));
+  const distHtml = [["0",0],["1",1],["2",2],["3",3],["x","fail"]].map(([label,key])=>`<div><span>${label}</span><i class="guess-bar" style="height:${Math.max(3,Math.round(data.distribution[key]/maxDist*40))}px"></i><strong>${data.distribution[key]}</strong></div>`).join("");
+  $("stats-content").innerHTML = `<div class="stats-mode-switch">${[["daily",t("daily")],["unlimited",t("unlimited")],["archive",t("archive")]].map(([id,label])=>`<button class="stats-mode-button${tab===id?" is-active":""}" data-stats-tab="${id}">${label}</button>`).join("")}</div><div class="stats-section"><div class="stats-section-header"><span class="stats-sbracket">[</span>${escHtml(t("strikeDistribution"))}<span class="stats-sbracket">]</span></div><div class="stats-section-body"><div class="guess-scale">${distHtml}</div></div></div><div class="stats-section"><div class="stats-section-header"><span class="stats-sbracket">[</span>${escHtml(t("overview"))}<span class="stats-sbracket">]</span></div><div class="stats-grid">${data.stats.map(([value,label])=>`<div><strong>${value}</strong><span>${escHtml(label)}</span></div>`).join("")}</div></div><div class="stats-section"><div class="stats-section-header"><span class="stats-sbracket">[</span>${escHtml(t("detail"))}<span class="stats-sbracket">]</span></div><div class="stats-detail-list">${data.rows.map(r=>`<div class="stats-detail-row"><span>${escHtml(r[0])}</span><strong>${escHtml(r[1])}</strong></div>`).join("")}</div></div><button type="button" class="stats-copy-profile" id="stats-copy-profile">${escHtml(t("copyProfile"))}</button>`;
+  $("stats-content").querySelectorAll("[data-stats-tab]").forEach(btn => btn.addEventListener("click", () => renderStatsModal(btn.dataset.statsTab)));
+  $("stats-copy-profile").addEventListener("click", () => { const text=`VOCALOID Connections Stats (${tab})\n${t("played")}: ${data.played}\n${t("solved")}: ${data.solved}\n${t("perfectNo")}: ${data.perfect}`; navigator.clipboard?.writeText(text).then(()=>toast(`<b>${escHtml(t("profileCopied"))}</b>`),()=>prompt("Copy:",text)); });
+}
+
+const RELEASES = {
+  "1.1": { title:"Connections v1.1", intro:"A full progress and navigation update for VOCALOID Connections.", items:["Added a calendar-based Archive mode using the same deterministic daily puzzle system.","Added mode-aware Stats and persistent Connections achievements.","Added the Heardle-inspired Links panel and release notes.","Share results no longer include a website link.","Vocalist groups use main vocals only; support and sub-vocals remain excluded inside Connections."] },
+  "1.0": { title:"Connections v1.0", intro:"Initial release of the four-group VOCALOID sorting game.", items:["Daily and Unlimited puzzles with thumbnails, strikes, sharing, and local records.","Groups based on producers, main vocalists, upload eras, tags, views, and titles."] }
+};
+function renderUpdates(version = "1.1") {
+  const r = RELEASES[version];
+  $("updates-content").innerHTML = `<div class="release-tabs" aria-label="Release versions">${Object.keys(RELEASES).map(v=>`<button type="button" class="release-tab${v===version?" is-active":""}" data-release="${v}">v${v}</button>`).join("")}</div><p class="release-version">Release v${version}</p><p class="release-intro">${escHtml(r.intro)}</p><ul class="release-list">${r.items.map(x=>`<li>${escHtml(x)}</li>`).join("")}</ul>`;
+  $("updates-content").querySelectorAll("[data-release]").forEach(btn => btn.addEventListener("click", () => renderUpdates(btn.dataset.release)));
+}
+
+$("board").addEventListener("click", e => {
+  const tile = e.target.closest(".tile");
+  if (!tile || state.done) return;
+  const id = tile.dataset.id;
+  if (state.selected.has(id)) state.selected.delete(id);
+  else if (state.selected.size < 4) state.selected.add(id);
+  renderBoard();
+});
+$("btn-submit").addEventListener("click", submitSelection);
+$("btn-clear").addEventListener("click", () => { state.selected.clear(); renderBoard(); });
+$("btn-shuffle").addEventListener("click", () => {
+  for (let i = state.tiles.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [state.tiles[i], state.tiles[j]] = [state.tiles[j], state.tiles[i]];
+  }
+  renderBoard();
+});
+$("btn-share").addEventListener("click", () => {
+  const text = shareText();
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(() => toast(`<b>${escHtml(t("resultCopied"))}</b><span>${escHtml(t("pasteAnywhere"))}</span>`), () => prompt("Copy:", text));
+  } else prompt("Copy:", text);
+});
+$("btn-new").addEventListener("click", () => startGame());
+function backToArchive() { saveDaily(); state.dateKey = null; calYear = calMonth = null; renderArchiveCalendar(); }
+$("btn-archive-back").addEventListener("click", backToArchive);
+$("btn-end-archive-back").addEventListener("click", backToArchive);
+document.querySelectorAll(".mode-btn").forEach(b => b.addEventListener("click", () => {
+  if (state.mode === b.dataset.mode) return;
+  state.mode = b.dataset.mode;
+  state.dateKey = null;
+  calYear = calMonth = null;
+  document.querySelectorAll(".mode-btn").forEach(x => x.classList.toggle("is-active", x === b));
+  startGame();
+}));
+
+/* settings + tutorial modals */
+function wireModal(openId, modalId, backdropId, closeId, onOpen) {
+  const open = $(openId), modal = $(modalId), backdrop = $(backdropId), close = $(closeId);
+  const hide = () => { modal.hidden = true; backdrop.hidden = true; };
+  if (open) open.addEventListener("click", e => { e.preventDefault(); if (onOpen) onOpen(); modal.hidden = false; backdrop.hidden = false; });
+  close.addEventListener("click", hide);
+  backdrop.addEventListener("click", hide);
+  document.addEventListener("keydown", e => { if (e.key === "Escape") hide(); });
+  return { show: () => { modal.hidden = false; backdrop.hidden = false; } };
+}
+wireModal("settings-open", "settings-modal", "settings-backdrop", "settings-close");
+const tut = wireModal("how-open", "tut-modal", "tut-backdrop", "tut-close");
+wireModal("ach-open", "ach-modal", "ach-backdrop", "ach-close", () => renderAchievements());
+wireModal("updates-open", "updates-modal", "updates-backdrop", "updates-close", () => renderUpdates());
+wireModal("stats-open", "stats-modal", "stats-backdrop", "stats-close", () => renderStatsModal());
+wireModal("links-support-open", "support-modal", "support-backdrop", "support-close");
+document.querySelectorAll("[data-proxy]").forEach(link => link.addEventListener("click", e => {
+  e.preventDefault();
+  const target = $(link.dataset.proxy);
+  if (target) target.click();
+}));
+for (const [id,className,key] of ACCESS_OPTIONS) {
+  $(id).addEventListener("click", () => {
+    const on=document.documentElement.classList.toggle(className);
+    try { localStorage.setItem(key,on?"1":"0"); } catch (e) {}
+    syncAccessibilityButtons();
+    if (className==="colorblind-mode" && state.groups) { renderSolved(); renderGuessHistory(); }
+  });
+}
+function toggleGameOption(id,key) {
+  $(id).addEventListener("click",()=>{
+    const on=localStorage.getItem(key)!=="1"; localStorage.setItem(key,on?"1":"0");
+    if(!state.guesses.length&&!state.done){if(key==="vc_timer"){state.timerEnabled=on;state.startedAt=on?Date.now():0;state.elapsedBefore=0;}else{state.challenge=on;$("btn-shuffle").disabled=on;}}
+    syncAccessibilityButtons(); renderStatus();
+  });
+}
+toggleGameOption("opt-timer","vc_timer"); toggleGameOption("opt-challenge","vc_challenge");
+function buildProgressBackup() {
+  const dailies={};
+  for(let i=0;i<localStorage.length;i++){const key=localStorage.key(i);if(/^vc_daily_\d{4}-\d{2}-\d{2}$/.test(key)){try{dailies[key.slice(9)]=JSON.parse(localStorage.getItem(key));}catch(e){}}}
+  return {app:ConnectionsCore.APP,version:1,exportedAt:new Date().toISOString(),stats:loadStats(),unlimitedStats:loadUnlimitedStats(),achievements:loadAchievements(),settings:{lang:LANG,dark:localStorage.getItem("vc_dark"),colorblind:localStorage.getItem("vc_colorblind"),motion:localStorage.getItem("vc_reduce_motion"),largeText:localStorage.getItem("vc_large_text"),contrast:localStorage.getItem("vc_contrast"),timer:localStorage.getItem("vc_timer"),challenge:localStorage.getItem("vc_challenge")},dailies};
+}
+$("backup-export").addEventListener("click",()=>{const text=JSON.stringify(buildProgressBackup());$("backup-panel").hidden=false;$("backup-text").value=text;navigator.clipboard?.writeText(text).then(()=>toast(`<b>${escHtml(t("backupCopied"))}</b><span>${escHtml(t("backupReady"))}</span>`),()=>{});});
+$("backup-import-open").addEventListener("click",()=>{$("backup-panel").hidden=false;$("backup-text").value="";$("backup-text").focus();});
+$("backup-cancel").addEventListener("click",()=>{$("backup-panel").hidden=true;});
+$("backup-import-confirm").addEventListener("click",()=>{try{const b=ConnectionsCore.sanitizeBackup(JSON.parse($("backup-text").value));localStorage.setItem("vc_stats",JSON.stringify(b.stats));localStorage.setItem("vc_unlimited_stats",JSON.stringify(b.unlimitedStats));localStorage.setItem("vc_ach",JSON.stringify(b.achievements));for(const [day,value] of Object.entries(b.dailies))localStorage.setItem(`vc_daily_${day}`,JSON.stringify(value));const map={lang:"vc_lang",dark:"vc_dark",colorblind:"vc_colorblind",motion:"vc_reduce_motion",largeText:"vc_large_text",contrast:"vc_contrast",timer:"vc_timer",challenge:"vc_challenge"};for(const [name,key] of Object.entries(map))if(b.settings[name]!=null)localStorage.setItem(key,String(b.settings[name]));toast(`<b>${escHtml(t("backupImported"))}</b>`);setTimeout(()=>location.reload(),500);}catch(e){toast(`<b>${escHtml(t("backupInvalid"))}</b>`,"✕");}});
+document.querySelectorAll(".language-button").forEach(button=>button.addEventListener("click",()=>{
+  if (!I18N[button.dataset.lang] || LANG===button.dataset.lang) return;
+  LANG=button.dataset.lang;
+  try { localStorage.setItem("vc_lang",LANG); } catch (e) {}
+  applyStatic();
+  refreshLocalizedGame();
+}));
+
+/* ═══════════════ boot ═══════════════ */
+function loadJson(file, key) {
+  try {
+    const o = JSON.parse(sessionStorage.getItem(key));
+    if (o && typeof o.t === "number" && Date.now() - o.t < 10 * 60 * 1000) return Promise.resolve(o.v);
+  } catch (e) {}
+  return fetch(file).then(r => r.ok ? r.json() : null).then(v => {
+    if (v) try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), v })); } catch (e) {}
+    return v;
+  }).catch(() => null);
+}
+Promise.all([
+  loadJson("../data/songs.json", "39c_songs_v2"),
+  loadJson("../data/songdetails.json", "39c_details_v2"),
+  loadJson("../data/views.json", "39c_views_v2"),
+  loadJson("../data/ytviews.json", "39c_ytviews_v2"),
+  loadJson("../data/biliviews.json", "39c_biliviews_v3"),
+  loadJson("../data/connections-vocalists.json", "vc_main_vocalists_v1"),
+  loadJson("manifests.json", "vc_manifests_v1"),
+]).then(([songs, details, views, yt, bili, mainVocalists, manifests]) => {
+  if (!songs) throw new Error("songs.json failed to load");
+  SONGS = songs;
+  if (details && details.songs) DETAILS = details.songs;
+  if (views && views.views) VIEWS = views.views;
+  if (yt && yt.stats) YT = yt.stats;
+  if (bili && bili.stats) BILI = bili.stats;
+  if (mainVocalists && mainVocalists.vocalists) MAIN_VOCALISTS = mainVocalists.vocalists;
+  if (manifests) MANIFESTS = manifests;
+  applyStatic();
+  buildCriteria();
+  renderRecords();
+  startGame();
+  if (!localStorage.getItem("vc_tut")) { tut.show(); try { localStorage.setItem("vc_tut", "1"); } catch (e) {} }
+  setInterval(() => { $("daily-countdown").textContent = nextDailyText(); updateTimer(); }, 1000);
+  $("daily-countdown").textContent = nextDailyText();
+}).catch(err => {
+  applyStatic();
+  $("board").innerHTML = `<div style="grid-column:1/-1;padding:20px;text-align:center;color:var(--faint)">${escHtml(t("loadError"))} · ${escHtml(err.message)}</div>`;
+});
+</script>
+</body>
+</html>

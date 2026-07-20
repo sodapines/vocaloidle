@@ -1257,6 +1257,10 @@ html.dark-mode .state-panel {
   background: var(--surface);
 }
 html.dark-mode .archive-summary { background: var(--surface); border-color: #3b3b3b; }
+html.dark-mode .gameover-panel {
+  border-color:#3b3b3b; border-top-color:var(--red);
+  box-shadow:inset 1px 1px 0 rgba(255,255,255,0.05), inset -1px -1px 0 rgba(0,0,0,0.4), 0 1px 2px rgba(0,0,0,0.3);
+}
 html.dark-mode .archive-summary-item { border-color: #2a2a2a; }
 html.dark-mode .archive-summary-item span { background: linear-gradient(to bottom, #262626, #1d1d1d); border-color: #2a2a2a; color: var(--muted); box-shadow: none; }
 html.dark-mode .archive-toolbar { background: linear-gradient(to bottom, #242424, #191919); border-color: #3b3b3b; }
@@ -1581,7 +1585,7 @@ html.dark-mode .archive-day.is-blank {
 <div class="nnd-mainbar">
   <a class="nnd-logo" href="../" title="Vocaloidle home">
     <span class="nnd-logo-mark">↑↓</span>
-    <span class="nnd-logo-text">VOCALOID<span class="nnd-logo-sub">Higher or Lower</span></span>
+    <span class="nnd-logo-text">VOCALOID Higher or Lower<span class="nnd-logo-sub">which song has more views?</span></span>
   </a>
   <div class="language-switcher" aria-label="Language">
     <button class="language-button" type="button" data-lang="en" title="English"><span class="fi fi-us"></span></button>
@@ -1749,7 +1753,7 @@ const I18N = {
     pageTitle: 'VOCALOID Higher or Lower',
     breadcrumb: 'Games > Music > VOCALOID > Higher or Lower',
     topLabel: 'NicoNico Views',
-    logoSub: 'Higher or Lower',
+    logoSub: 'which song has more views?',
     updates: 'Updates',
     achievements: 'Achievements',
     settings: 'Settings',
@@ -1908,7 +1912,7 @@ const I18N = {
     pageTitle: 'VOCALOID Higher or Lower',
     breadcrumb: 'ゲーム > 音楽 > VOCALOID > Higher or Lower',
     topLabel: 'ニコニコ再生数',
-    logoSub: 'Higher or Lower',
+    logoSub: 'どちらの再生数が多い？',
     updates: '更新情報',
     achievements: '実績',
     settings: '設定',
@@ -2067,7 +2071,7 @@ const I18N = {
     pageTitle: 'VOCALOID Higher or Lower',
     breadcrumb: 'Juegos > Música > VOCALOID > Higher or Lower',
     topLabel: 'Vistas de NicoNico',
-    logoSub: 'Higher or Lower',
+    logoSub: '¿qué canción tiene más vistas?',
     updates: 'Novedades',
     achievements: 'Logros',
     settings: 'Ajustes',
@@ -2226,7 +2230,7 @@ const I18N = {
     pageTitle: 'VOCALOID Higher or Lower',
     breadcrumb: '게임 > 음악 > VOCALOID > Higher or Lower',
     topLabel: '니코니코 조회수',
-    logoSub: 'Higher or Lower',
+    logoSub: '어떤 곡의 조회수가 더 높을까요?',
     updates: '업데이트',
     achievements: '업적',
     settings: '설정',

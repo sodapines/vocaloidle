@@ -167,6 +167,7 @@
     .tp-cell.heardle { border-left-color: #c11; }
     .tp-cell.higher { border-left-color: #3769c9; }
     .tp-cell.masume { border-left-color: #2aa8a0; }
+.tp-cell.connections { border-left-color: #888888; }
     .tp-cell.timeline { border-left-color: #8a5ac9; }
     .tp-name { font-weight: 900; font-size: 12px; }
     .tp-state { font-size: 10px; font-weight: 700; color: var(--red); white-space: nowrap; }
@@ -222,6 +223,13 @@
     .tl-mark i { width: 16px; height: 3px; background: #fff; display: block; }
     .tl-mark i:nth-child(2) { width: 11px; opacity: 0.75; }
     .tl-mark i:nth-child(3) { width: 6px; opacity: 0.5; }
+    .connections .proj-icon { background: linear-gradient(#5c5c5c, #3a3a3a); }
+    .cn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .cn-grid i { width: 8px; height: 8px; display: block; box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25); }
+    .cn-grid i:nth-child(1) { background: #f4d874; }
+    .cn-grid i:nth-child(2) { background: #9fdcb2; }
+    .cn-grid i:nth-child(3) { background: #a9c4f0; }
+    .cn-grid i:nth-child(4) { background: #cdb2ef; }
     .lm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
     .lm-grid i { width: 7px; height: 7px; background: #fff; box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25); }
     .lm-grid i:nth-child(3) { background: rgba(255,255,255,0.45); }
@@ -431,7 +439,7 @@
     .stats-foot strong { color: var(--muted); font-weight: 700; margin-left: 4px; }
     .stats-vers {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(6, 1fr);
     }
     .stats-ver {
       display: flex;
@@ -527,6 +535,9 @@
     html.dark-mode .intro {
       box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 1px 2px rgba(0,0,0,0.35);
     }
+    html.dark-mode .today-strip {
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 2px 4px rgba(0,0,0,0.35);
+    }
     html.dark-mode .proj,
     html.dark-mode .spotlight-card,
     html.dark-mode .site-stats {
@@ -602,7 +613,7 @@
       <div class="intro-copy">
         <div class="intro-label">[ VOCALOIDLE ]</div>
         <h1>Welcome to VOCALOIDLE</h1>
-        <p>This is the home for the VOCALOID projects on the site: four daily games and a view-count chart site, all built on the same song pool.</p>
+        <p>This is the home for the VOCALOID projects on the site: five daily games and a view-count chart site, all built on the same song pool.</p>
       </div>
     </section>
 
@@ -623,6 +634,10 @@
       <a class="tp-cell timeline" href="timeline/">
         <span class="tp-name">Timeline</span>
         <span class="tp-state" id="tp-timeline">Play &#9654;</span>
+      </a>
+      <a class="tp-cell connections" href="connections/">
+        <span class="tp-name">Connections</span>
+        <span class="tp-state" id="tp-connections">Play &#9654;</span>
       </a>
       <span class="tp-foot">Daily puzzles reset at local midnight</span>
     </section>
@@ -673,6 +688,17 @@
         <span class="launch">Play &#9654;</span>
       </a>
 
+      <a class="proj connections" href="connections/">
+        <span class="proj-icon" aria-hidden="true"><span class="cn-grid"><i></i><i></i><i></i><i></i></span></span>
+        <span class="proj-thumb" aria-hidden="true"><img id="connections-preview" src="favicon.jpg" alt=""></span>
+        <span class="proj-body">
+          <span class="proj-name">VOCALOID Connections <span class="card-tag">NEW</span></span>
+          <span class="proj-desc">Sixteen songs, four hidden groups of four: sort them by producer, vocalist, era, genre and more before four strikes end the run.</span>
+        </span>
+        <span class="proj-meta">New daily at local midnight</span>
+        <span class="launch">Play &#9654;</span>
+      </a>
+
       <a class="proj charts" href="39charts/">
         <span class="proj-icon" aria-hidden="true">39</span>
         <span class="proj-thumb" aria-hidden="true"><img id="charts-preview" src="favicon.jpg" alt=""></span>
@@ -716,7 +742,7 @@
             <span>songs in pool</span>
           </div>
           <div class="stats-hero-item">
-            <strong>5</strong>
+            <strong>6</strong>
             <span>projects</span>
           </div>
           <div class="stats-foot">View data updated <strong id="stat-updated">&mdash;</strong></div>
@@ -727,6 +753,7 @@
           <div class="stats-ver"><span>39charts</span><strong>v1.5</strong></div>
           <div class="stats-ver"><span>Grid</span><strong>v1.0</strong></div>
           <div class="stats-ver"><span>Timeline</span><strong>v1.0</strong></div>
+          <div class="stats-ver"><span>Connections</span><strong>v1.0</strong></div>
         </div>
       </aside>
     </section>
@@ -782,6 +809,10 @@
       try {
         var ts = JSON.parse(localStorage.getItem("tl_daily_" + key) || "null");
         setState("tp-timeline", !!(ts && ts.done));
+      } catch (e) {}
+      try {
+        var cs = JSON.parse(localStorage.getItem("vc_daily_" + key) || "null");
+        setState("tp-connections", !!(cs && cs.done));
       } catch (e) {}
     })();
 
@@ -861,6 +892,7 @@
         const lostOnes = usable.find(s => String(s.vocadbId) === "19094") || usable[3] || usable[0];
         setCover(document.getElementById("masume-preview"), lostOnes);
         setCover(document.getElementById("timeline-preview"), usable[4] || usable[0]);
+        setCover(document.getElementById("connections-preview"), usable[5] || usable[1]);
       }
 
       const pool = usable.filter(s => typeof views[String(s.vocadbId)] === "number");
