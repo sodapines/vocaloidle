@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-17",
+  "updated": "2026-07-20",
   "images": {
     "164": "https://static.vocadb.net/img/Artist/mainThumb/41.jpg?v=30",
     "630": "https://static.vocadb.net/img/Artist/mainThumb/11605.png?v=6",
@@ -1013,6 +1013,10 @@
     "Yoisaki Kanade": "https://static.vocadb.net/img/Artist/mainThumb/83653.png?v=15",
     "Shinonome Ena": "https://static.vocadb.net/img/Artist/mainThumb/83863.png?v=9",
     "Akiyama Mizuki": "https://static.vocadb.net/img/Artist/mainThumb/83864.png?v=14",
-    "The Larping Tombstone": "https://static.vocadb.net/img/Artist/mainThumb/192036.png?v=5"
+    "The Larping Tombstone": "https://static.vocadb.net/img/Artist/mainThumb/192036.png?v=5",
+    "COP": "https://static.vocadb.net/img/Artist/mainThumb/70092.png?v=5",
+    "Snoi": "https://static.vocadb.net/img/Artist/mainThumb/41239.jpg?v=5",
+    "Yuezheng Ling V5 (Dark)": "https://static.vocadb.net/img/Artist/mainThumb/76293.png?v=14",
+    "Mara": "https://static.vocadb.net/img/Artist/mainThumb/62204.jpg?v=7"
   }
 }
