@@ -83438,5 +83438,70 @@
     "nndOriginalId": "sm37338970",
     "ytOriginalId": "NQ-U3udExnA",
     "audioClip": ""
+  },
+  {
+    "vocadbId": 347466,
+    "title": "My Scarecrow",
+    "artist": "COP",
+    "artistString": "COP feat. Yuezheng Ling V5 (Dark)",
+    "coverArt": "https://www.bilibili.com/video/av762258201",
+    "coverArts": [
+      "https://www.bilibili.com/video/av762258201",
+      "https://i.ytimg.com/vi/EojNl2GoIf8/hqdefault.jpg"
+    ],
+    "publishDate": "2021-08-15",
+    "singerNames": [
+      "Yuezheng Ling V5 (Dark)"
+    ],
+    "producerNames": [
+      "COP",
+      "Snoi"
+    ],
+    "acceptedTitles": [
+      "我的稻草人",
+      "My Scarecrow",
+      "Wǒ de Dàocǎorén"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [],
+    "vocadbUrl": "https://vocadb.net/S/347466",
+    "nndOriginalId": "",
+    "ytOriginalId": "EojNl2GoIf8",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 836045,
+    "title": "Flee ❗️",
+    "artist": "Mara",
+    "artistString": "Mara feat. Yuezheng Ling",
+    "coverArt": "https://www.bilibili.com/video/av115150824672981",
+    "coverArts": [
+      "https://www.bilibili.com/video/av115150824672981",
+      "https://i.ytimg.com/vi/1gk0pzO7_AY/hqdefault.jpg"
+    ],
+    "publishDate": "2025-09-05",
+    "singerNames": [
+      "Yuezheng Ling"
+    ],
+    "producerNames": [
+      "Mara"
+    ],
+    "acceptedTitles": [
+      "跑 ❗️",
+      "Pǎo ❗️",
+      "Flee ❗️",
+      "跑!",
+      "Pǎo!",
+      "Pao!",
+      "Flee!"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [
+      "yt-100k"
+    ],
+    "vocadbUrl": "https://vocadb.net/S/836045",
+    "nndOriginalId": "",
+    "ytOriginalId": "1gk0pzO7_AY",
+    "audioClip": ""
   }
 ]
