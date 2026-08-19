@@ -422,6 +422,25 @@ button, input, select { font: inherit; cursor: pointer; }
   text-decoration: line-through;
 }
 
+/* saved-view preset chips */
+.preset-chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  max-width: 100%; padding: 2px 4px 2px 8px;
+  background: linear-gradient(to bottom, #fff5f5, #fbe2e2);
+  border: 1px solid #d8a0a0; color: var(--red-dark);
+  font-size: 10px; font-weight: 700; font-family: inherit; cursor: pointer;
+}
+.preset-chip:hover { border-color: var(--red); background: #ffd8d8; }
+.preset-chip-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 150px; }
+.preset-chip-x {
+  flex-shrink: 0; width: 14px; height: 14px; display: inline-flex; align-items: center; justify-content: center;
+  color: #b06060; font-weight: 400;
+}
+.preset-chip-x:hover { color: #fff; background: var(--red); }
+html.dark-mode .preset-chip { background: linear-gradient(to bottom, #2a1a1a, #1e1414); border-color: #5a3a3a; color: #ff9090; }
+html.dark-mode .preset-chip:hover { background: #3a1c1c; border-color: var(--red); }
+html.dark-mode .preset-chip-x:hover { background: var(--red); color: #fff; }
+
 /* filter rows */
 .filter-row { margin-bottom: 8px; }
 .filter-row:last-child { margin-bottom: 0; }
@@ -1383,6 +1402,18 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
         </div>
 
         <div class="filter-row">
+          <div class="filter-label">Synth Type</div>
+          <select class="filter-select" id="f-synth">
+            <option value="any">Any</option>
+            <option value="vocaloid">VOCALOID</option>
+            <option value="utau">UTAU</option>
+            <option value="synthv">Synthesizer V</option>
+            <option value="cevio">CeVIO</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="filter-row">
           <div class="filter-label">Published</div>
           <div class="filter-grid-3">
             <select class="filter-select" id="f-year"><option value="any">Year</option></select>
@@ -1435,6 +1466,17 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
     </div>
 
     <div class="sidebar-panel">
+      <div class="sidebar-header">[ Saved Views ]</div>
+      <div class="sidebar-body">
+        <input type="text" class="filter-num" id="preset-name" placeholder="Name this view…" autocomplete="off" maxlength="40">
+        <button type="button" class="filter-reset" id="preset-save">Save Current Filters</button>
+        <button type="button" class="filter-reset" id="preset-copy-link" style="margin-top:4px">Copy Shareable Link</button>
+        <div class="chip-row" id="preset-list"></div>
+        <span class="switch-note" id="preset-empty-note">Save a filter combo to revisit later, or copy a link to share exactly what you're viewing.</span>
+      </div>
+    </div>
+
+    <div class="sidebar-panel">
       <div class="sidebar-header">[ Chart Data ]</div>
       <div class="sidebar-body stats-body">
         <table class="stats-table">
@@ -1467,6 +1509,7 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
       <div class="game-mode-tabs">
         <a class="game-mode-btn is-active" href="./">Songs</a>
         <a class="game-mode-btn" href="trending.html">Trending</a>
+        <a class="game-mode-btn" href="recent.html">Recent</a>
         <a class="game-mode-btn" href="milestones.html">Milestones</a>
         <a class="game-mode-btn" href="years.html">Years</a>
         <a class="game-mode-btn" href="producers.html">Producers</a>
@@ -1656,7 +1699,7 @@ function isSynthName(name) {
 
 /* Chips show the specific credited voicebank ("Hatsune Miku V4X", "Kasane
    Teto SV") while keeping the character's color from the map. */
-function normalizeVocalists(singerNames = [], artistString = "") {
+function normalizeVocalists(singerNames = [], artistString = "", supportSet = null) {
   const seen = new Set();
   const result = [];
   for (const name of singerNames) {
@@ -1664,17 +1707,22 @@ function normalizeVocalists(singerNames = [], artistString = "") {
     const dedupe = name.toLowerCase();
     if (seen.has(dedupe)) continue;
     seen.add(dedupe);
+    const isSupport = !!(supportSet && supportSet.has(dedupe));
     const known = VOCALIST_MAP.find(v => v.match.test(name));
     if (known) {
-      result.push({ key: known.key, label: name, cls: known.cls, title: name });
+      result.push({
+        key: known.key, label: name,
+        cls: isSupport ? "vtag-guest" : known.cls,
+        title: isSupport ? `${name} (support vocalist)` : name,
+      });
       continue;
     }
     const guest = !isSynthName(name);
     result.push({
       key: name,
       label: guest ? name + " ♦" : name,
-      cls: guest ? "vtag-guest" : "vtag-other",
-      title: guest ? "Guest vocalist (human)" : name,
+      cls: (isSupport || guest) ? "vtag-guest" : "vtag-other",
+      title: isSupport ? `${name} (support vocalist)` : (guest ? "Guest vocalist (human)" : name),
     });
   }
   if (result.length === 0 && /various/i.test(artistString))
@@ -1722,6 +1770,26 @@ function songVocalistNames(song) {
   return (d && d.vocalists && d.vocalists.length) ? d.vocalists : (song.singerNames || []);
 }
 
+/* Main vs. support vocalist split — mirrors song.html's splitVocalists so a
+   support credit (e.g. a collab's second voicebank) gets the neutral gray
+   chip everywhere instead of its character color, matching the detail
+   page's "+N support vocalists" grouping. */
+function splitVocalists(song) {
+  const all = songVocalistNames(song).filter(n => n && !/various/i.test(n));
+  const mains = (song.singerNames || []).filter(n => n && !/various/i.test(n));
+  if (!mains.length) return { main: all, support: [] };
+  const isMain = n => mains.some(m => {
+    const a = n.toLowerCase(), b = m.toLowerCase();
+    return a === b || a.includes(b) || b.includes(a);
+  });
+  const main = all.filter(isMain);
+  const support = all.filter(n => !isMain(n));
+  return main.length ? { main, support } : { main: all, support: [] };
+}
+function supportVocalistSet(song) {
+  return new Set(splitVocalists(song).support.map(n => n.toLowerCase()));
+}
+
 function songTypeGroup(song) {
   const t = songDetails(song)?.type;
   if (t === "MusicPV" || t === "DramaPV") return "PV";
@@ -1737,6 +1805,16 @@ function songLangMatch(song, code) {
   });
   if (code === "other") return norm.length > 0 && !norm.some(l => ["ja","en","zh","ko"].includes(l));
   return norm.includes(code);
+}
+
+/* synthEngines carries VocaDB's raw artistType strings ("Vocaloid", "UTAU",
+   "SynthesizerV", "CeVIO", plus rarer engines lumped under "other"). */
+const KNOWN_SYNTH_ENGINES = { vocaloid: "Vocaloid", utau: "UTAU", synthv: "SynthesizerV", cevio: "CeVIO" };
+function songSynthMatch(song, code) {
+  const engines = song.synthEngines || [];
+  if (code === "other") return engines.some(e => !Object.values(KNOWN_SYNTH_ENGINES).includes(e));
+  const want = KNOWN_SYNTH_ENGINES[code];
+  return want ? engines.includes(want) : false;
 }
 
 function hasCJK(t) { return /[　-ヿ㐀-鿿가-힯ｦ-ﾟ]/.test(t); }
@@ -2078,6 +2156,7 @@ const FILTER_DEFAULTS = {
   types: [],          // subset of Original/Remaster/Remix/Cover/Other; empty = all
   vocals: "any",      // any | solo | duet | group
   producers: "any",   // any | solo | collab
+  synth: "any",       // any | vocaloid | utau | synthv | cevio | other
   year: "any", month: "any", day: "any",
   minViews: null, maxViews: null,
   singleUpload: false,
@@ -2102,6 +2181,7 @@ function urlState() {
   if (F.types.length) p.set("types", F.types.join("|"));
   if (F.vocals !== "any") p.set("vocals", F.vocals);
   if (F.producers !== "any") p.set("producers", F.producers);
+  if (F.synth !== "any") p.set("synth", F.synth);
   if (F.year !== "any") p.set("year", F.year);
   if (F.month !== "any") p.set("month", F.month);
   if (F.day !== "any") p.set("day", F.day);
@@ -2130,6 +2210,7 @@ function applyUrlState() {
   if (g("types")) F.types = g("types").split("|").filter(Boolean);
   if (g("vocals")) F.vocals = g("vocals");
   if (g("producers")) F.producers = g("producers");
+  if (g("synth")) F.synth = g("synth");
   if (g("year")) F.year = g("year");
   if (g("month")) F.month = g("month");
   if (g("day")) F.day = g("day");
@@ -2236,6 +2317,11 @@ function getSongs() {
     });
   }
 
+  /* vocal synth engine (VOCALOID / UTAU / Synthesizer V / CeVIO / other) */
+  if (F.synth !== "any") {
+    list = list.filter(s => songSynthMatch(s, F.synth));
+  }
+
   /* publish date parts */
   if (F.year !== "any" || F.month !== "any" || F.day !== "any") {
     list = list.filter(s => {
@@ -2320,7 +2406,7 @@ function getSongs() {
 
 function filtersActive() {
   return F.language !== "any" || F.types.length > 0 ||
-    F.vocals !== "any" || F.producers !== "any" ||
+    F.vocals !== "any" || F.producers !== "any" || F.synth !== "any" ||
     F.year !== "any" || F.month !== "any" || F.day !== "any" ||
     F.minViews != null || F.maxViews != null || F.singleUpload ||
     F.artists.length > 0 || F.excludeArtists.length > 0;
@@ -2347,7 +2433,7 @@ function thumbInnerHtml(song, opts = {}) {
 }
 
 function vocalistTagsHtml(song) {
-  const all = normalizeVocalists(songVocalistNames(song), song.artistString);
+  const all = normalizeVocalists(songVocalistNames(song), song.artistString, supportVocalistSet(song));
   // Cap the chips so big collab songs do not hog the row/card.
   const MAX = 3;
   const shown = all.slice(0, MAX);
@@ -3011,6 +3097,33 @@ function syncViewButtons() {
     b.classList.toggle("is-active", b.dataset.view === viewMode));
 }
 
+/* Restores every filter/sort/search control's on-screen state from the
+   current F/activeVocalists/activeSort/etc. JS state — used both at initial
+   page load (deep links) and when applying a saved/shared preset in-page. */
+function syncControlsFromState() {
+  document.getElementById("search-input").value = searchQuery;
+  document.getElementById("f-language").value = F.language;
+  document.getElementById("f-vocals").value = F.vocals;
+  document.getElementById("f-producers").value = F.producers;
+  document.getElementById("f-synth").value = F.synth;
+  document.getElementById("f-year").value = F.year;
+  document.getElementById("f-month").value = F.month;
+  document.getElementById("f-day").value = F.day;
+  document.getElementById("sort-select").value = activeSort;
+  document.getElementById("f-minviews").value = F.minViews != null ? F.minViews : "";
+  document.getElementById("f-maxviews").value = F.maxViews != null ? F.maxViews : "";
+  syncToggle(document.getElementById("f-single"), F.singleUpload);
+  syncToggle(document.getElementById("f-similar"), F.similar);
+  const modeBtn = document.getElementById("f-artistmode");
+  modeBtn.textContent = F.artistMode.toUpperCase();
+  modeBtn.classList.toggle("is-or", F.artistMode === "or");
+  document.querySelectorAll("#type-grid .type-btn").forEach(b =>
+    b.classList.toggle("is-active", F.types.includes(b.dataset.type)));
+  syncPlatformButtons();
+  renderAllChips();
+  refreshAllDropdowns();
+}
+
 Promise.all([loadSongs(), loadViews(), loadYtViews(), loadDetails(), loadBiliViews(), loadHistory()])
   .then(([data, views, ytviews, details, biliviews, history]) => {
     ALL_SONGS = data;
@@ -3023,33 +3136,16 @@ Promise.all([loadSongs(), loadViews(), loadYtViews(), loadDetails(), loadBiliVie
     applyUrlState();
     if (!Object.keys(YT_STATS).length && activePlatform !== "nnd") activePlatform = "nnd";
     if (!Object.keys(BILI_STATS).length && activePlatform === "bili") activePlatform = "nnd";
-    syncPlatformButtons();
     syncViewButtons();
     buildOptionPools();
     buildDateSelects();
-
-    /* restore UI controls from URL state (deep links) */
-    document.getElementById("search-input").value = searchQuery;
-    document.getElementById("f-language").value = F.language;
-    document.getElementById("f-vocals").value = F.vocals;
-    document.getElementById("f-producers").value = F.producers;
-    document.getElementById("f-year").value = F.year;
-    document.getElementById("f-month").value = F.month;
-    document.getElementById("f-day").value = F.day;
-    document.getElementById("sort-select").value = activeSort;
-    if (F.minViews != null) document.getElementById("f-minviews").value = F.minViews;
-    if (F.maxViews != null) document.getElementById("f-maxviews").value = F.maxViews;
-    const singleBtn = document.getElementById("f-single");
-    if (singleBtn && F.singleUpload) { singleBtn.classList.add("is-on"); singleBtn.textContent = "ON"; }
-    document.querySelectorAll("#type-grid .type-btn").forEach(b =>
-      b.classList.toggle("is-active", F.types.includes(b.dataset.type)));
-    renderAllChips();
-    refreshAllDropdowns();
+    syncControlsFromState();
 
     computeRankDeltas();
     renderMilestones();
     renderOnThisDay();
     updateMarquee();
+    renderPresetList();
     render();
   })
   .catch(err => {
@@ -3135,6 +3231,7 @@ const bindSelect = (id, key) => {
 bindSelect("f-language", "language");
 bindSelect("f-vocals", "vocals");
 bindSelect("f-producers", "producers");
+bindSelect("f-synth", "synth");
 bindSelect("f-year", "year");
 bindSelect("f-month", "month");
 bindSelect("f-day", "day");
@@ -3193,6 +3290,7 @@ document.getElementById("f-reset").addEventListener("click", () => {
   document.querySelectorAll("#type-grid .type-btn").forEach(b => b.classList.remove("is-active"));
   document.getElementById("f-vocals").value = "any";
   document.getElementById("f-producers").value = "any";
+  document.getElementById("f-synth").value = "any";
   document.getElementById("f-year").value = "any";
   document.getElementById("f-month").value = "any";
   document.getElementById("f-day").value = "any";
@@ -3208,8 +3306,96 @@ document.getElementById("f-reset").addEventListener("click", () => {
   currentPage = 1; render();
 });
 
+/* ── Saved / shareable filter presets ──
+   A preset is just the same query string urlState() already builds for deep
+   links, given a name and stashed in localStorage — so "share" and "save"
+   both reduce to the same underlying state serialization. */
+const PRESET_KEY = "39c_filter_presets";
+const PRESET_MAX = 30;
+function loadPresets() {
+  try { const v = JSON.parse(localStorage.getItem(PRESET_KEY)); return Array.isArray(v) ? v : []; }
+  catch (e) { return []; }
+}
+function savePresets(list) {
+  try { localStorage.setItem(PRESET_KEY, JSON.stringify(list.slice(0, PRESET_MAX))); } catch (e) {}
+}
+function renderPresetList() {
+  const el = document.getElementById("preset-list");
+  const note = document.getElementById("preset-empty-note");
+  if (!el) return;
+  const list = loadPresets();
+  el.innerHTML = list.map(p => `
+    <button type="button" class="preset-chip" data-id="${escHtml(p.id)}" title="Click to apply this view">
+      <span class="preset-chip-name">${escHtml(p.name)}</span>
+      <span class="preset-chip-x" data-del="${escHtml(p.id)}" title="Delete">&times;</span>
+    </button>`).join("");
+  if (note) note.hidden = list.length > 0;
+}
+
+/* Resets every piece of page state to its fresh-load default, mirroring
+   what a real navigation to a bare URL would start from — needed before
+   applying a preset in-page so fields the preset doesn't mention don't
+   keep leaking over from whatever was active before. */
+function resetAllState() {
+  F = { ...FILTER_DEFAULTS, artists: [], excludeArtists: [], types: [] };
+  activeVocalists = [];
+  searchQuery = "";
+  activeSort = "views";
+  sortDir = SORT_DEFAULT_DIR.views;
+  activePlatform = "both";
+  currentPage = 1;
+}
+function applyPresetQuery(qs) {
+  resetAllState();
+  history.replaceState(null, "", qs ? "?" + qs : location.pathname);
+  applyUrlState();
+  syncControlsFromState();
+  render();
+  document.getElementById("card-grid").scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+document.getElementById("preset-save").addEventListener("click", () => {
+  const nameInput = document.getElementById("preset-name");
+  const name = (nameInput.value || "").trim().slice(0, 40);
+  if (!name) { nameInput.focus(); return; }
+  const list = loadPresets();
+  const id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  list.unshift({ id, name, query: urlState().toString() });
+  savePresets(list);
+  nameInput.value = "";
+  renderPresetList();
+});
+
+document.getElementById("preset-list").addEventListener("click", e => {
+  const delBtn = e.target.closest("[data-del]");
+  if (delBtn) {
+    savePresets(loadPresets().filter(p => p.id !== delBtn.dataset.del));
+    renderPresetList();
+    return;
+  }
+  const chip = e.target.closest(".preset-chip");
+  if (!chip) return;
+  const preset = loadPresets().find(p => p.id === chip.dataset.id);
+  if (preset) applyPresetQuery(preset.query);
+});
+
+document.getElementById("preset-copy-link").addEventListener("click", async e => {
+  const btn = e.currentTarget;
+  const qs = urlState().toString();
+  const url = location.origin + location.pathname + (qs ? "?" + qs : "");
+  try {
+    await navigator.clipboard.writeText(url);
+  } catch (err) {
+    window.prompt("Copy this link:", url);
+    return;
+  }
+  const original = btn.textContent;
+  btn.textContent = "Copied!";
+  setTimeout(() => { btn.textContent = original; }, 1200);
+});
+
 /* enhance all native selects into retro dropdowns */
-["f-titlelang", "f-language", "f-vocals", "f-producers",
+["f-titlelang", "f-language", "f-vocals", "f-producers", "f-synth",
  "f-year", "f-month", "f-day", "sort-select", "pagesize-select"].forEach(enhanceSelect);
 
 document.getElementById("pagination-bar").addEventListener("click", e => {

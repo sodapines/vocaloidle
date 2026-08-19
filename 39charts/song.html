@@ -398,12 +398,22 @@ a.credit-row:hover .credit-name { color: var(--red); }
   position: relative; overflow: hidden;
 }
 .credit-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center; }
-.credit-name { font-size: 11px; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
+.credit-main { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; gap: 1px; }
+.credit-name { font-size: 11px; font-weight: 700; color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.credit-engine {
+  font-size: 8.5px; font-weight: 400; font-style: italic; color: var(--faint);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
 .credit-role { font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.04em; flex-shrink: 0; }
-/* muted "+N support vocalists" summary row */
+/* muted "+N support vocalists" summary row — click/Enter to expand */
+.credit-more { cursor: pointer; }
 .credit-more .credit-av { background: var(--sf); color: var(--muted); font-size: 10px; font-weight: 700; }
 .credit-more .credit-name { font-weight: 400; color: var(--muted); }
+.credit-more:hover { background: #fff0f0; }
+.credit-more:hover .credit-name { color: var(--red); }
 html.dark-mode .credit-more .credit-av { background: #222; }
+html.dark-mode .credit-more:hover { background: #2a1414; }
 
 /* vocalist chips */
 .vtag { display: inline-block; padding: 0 4px; font-size: 9px; line-height: 14px; border: 1px solid; font-weight: 700; }
@@ -486,6 +496,44 @@ html.dark-mode .vh-delta.up { color: #6adf6a; }
 html.dark-mode .vh-delta.down { color: #ff7a7a; }
 html.dark-mode .vh-table td.vh-views { color: #ff6666; }
 html.dark-mode .vh-table td.vh-combined { color: #ff8888; }
+.vh-pager {
+  display: flex; align-items: center; justify-content: center; gap: 3px; flex-wrap: wrap;
+  padding: 5px 8px; background: var(--sf); border-top: 1px solid var(--line);
+}
+.vh-page-btn {
+  min-width: 24px; height: 20px; padding: 0 6px;
+  background: linear-gradient(to bottom, #fff, #e8e8e8);
+  border: 1px solid var(--ls); color: var(--text); font-size: 10px;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9); cursor: pointer; font: inherit;
+}
+.vh-page-btn:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); border-color: var(--red); }
+.vh-page-btn[disabled] { opacity: 0.38; cursor: default; pointer-events: none; }
+.vh-page-info { color: var(--faint); font-size: 9.5px; margin-left: 4px; white-space: nowrap; }
+html.dark-mode .vh-pager { border-color: #2c2c2c; }
+html.dark-mode .vh-page-btn { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted); box-shadow: none; }
+html.dark-mode .vh-page-btn:hover { background: #2b2020; color: var(--red); }
+/* Custom growth-chart tooltip, in place of Chart.js's default bubble */
+.growth-tooltip {
+  position: absolute; z-index: 50; pointer-events: none;
+  transform: translateY(-12px);
+  background: linear-gradient(to bottom, var(--surface), var(--sf));
+  border: 1px solid var(--ls); border-top: 2px solid var(--red);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  padding: 6px 8px; min-width: 128px;
+  font-family: "MS PGothic", Arial, sans-serif; font-size: 10px;
+  opacity: 0; transition: opacity 0.08s ease;
+}
+.gt-date { font-weight: 700; color: var(--text); margin-bottom: 3px; padding-bottom: 3px; border-bottom: 1px dotted var(--line); }
+.gt-row { display: flex; align-items: center; gap: 5px; padding: 1px 0; white-space: nowrap; }
+.gt-dot { width: 7px; height: 7px; flex-shrink: 0; display: inline-block; }
+.gt-label { flex: 1; color: var(--muted); }
+.gt-val { font-family: Consolas, "MS PGothic", monospace; font-weight: 700; }
+.gt-val.up { color: #1a7a1a; }
+.gt-val.down { color: #b02020; }
+.gt-total { display: flex; justify-content: space-between; gap: 10px; margin-top: 3px; padding-top: 3px; border-top: 1px solid var(--line); font-weight: 700; color: var(--text); }
+html.dark-mode .growth-tooltip { box-shadow: 0 3px 8px rgba(0,0,0,0.5); }
+html.dark-mode .gt-val.up { color: #6adf6a; }
+html.dark-mode .gt-val.down { color: #ff7a7a; }
 
 /* chart */
 .chart-body { position: relative; padding: 10px; height: 200px; }
@@ -957,14 +1005,31 @@ function hallTier(song) {
   return { name: map[t.label] || t.label, ms: t.label };
 }
 
-function creditRow(name, role, key, imgUrl, href) {
+// VocaDB artistType -> a friendly engine label for the vocalist rows.
+const ENGINE_LABELS = {
+  Vocaloid: "VOCALOID", UTAU: "UTAU", SynthesizerV: "Synthesizer V", CeVIO: "CeVIO",
+  NEUTRINO: "NEUTRINO", VoiSona: "VoiSona", NewType: "NewType",
+  Voiceroid: "VOICEROID", AIVoice: "A.I.VOICE", AIVOICE: "A.I.VOICE",
+  OtherVoiceSynthesizer: "Voice Synth",
+};
+function vocalistEngineLabel(song, name) {
+  const d = songDetails(song);
+  const raw = d && d.vocalistEngines && d.vocalistEngines[name];
+  return raw ? (ENGINE_LABELS[raw] || raw) : null;
+}
+
+function creditRow(name, role, key, imgUrl, href, engine) {
   const c = (key && THUMB_COLORS[key]) ? THUMB_COLORS[key] : DEFAULT_COLORS;
   const initial = escHtml((String(name||"?").trim().charAt(0) || "?").toUpperCase());
   const img = imgUrl ? `<img class="credit-img" src="${escHtml(imgUrl)}" alt="" loading="lazy" onerror="this.remove()">` : "";
   const tag = href ? "a" : "div";
+  const engineHtml = engine ? `<span class="credit-engine">${escHtml(engine)}</span>` : "";
   return `<${tag} class="credit-row"${href ? ` href="${href}"` : ""}>
     <span class="credit-av" style="background:${c.bg};color:${c.fg}">${initial}${img}</span>
-    <span class="credit-name">${escHtml(name)}</span>
+    <span class="credit-main">
+      <span class="credit-name">${escHtml(name)}</span>
+      ${engineHtml}
+    </span>
     <span class="credit-role">${escHtml(role)}</span>
   </${tag}>`;
 }
@@ -1004,6 +1069,9 @@ const VH_COLS = [
   { k: "bl", group: "bilibili", cls: "vh-p-bili", label: "点赞" },
   { k: "bc", group: "bilibili", cls: "vh-p-bili", label: "评论" },
 ];
+// Shared cap for the grid's rows-per-page and the chart/growth tabs' point count,
+// so a song tracked since launch doesn't drown the view in months of snapshots.
+const HIST_CAP = 14;
 
 function historyGridHtml(hist, dates, idx, combined) {
   if (!idx.length) return "";
@@ -1021,14 +1089,15 @@ function historyGridHtml(hist, dates, idx, combined) {
     if (d === 0) return `<span class="vh-delta">±0</span>`;
     return `<span class="vh-delta ${d > 0 ? "up" : "down"}">${d > 0 ? "+" : "−"}${Math.abs(d).toLocaleString()}</span>`;
   };
-  // newest first; each row's delta compares against the previous snapshot
+  // newest first; each row's delta compares against the previous snapshot;
+  // rows are tagged with their page (0 = most recent) for client-side paging
   const rows = [...idx].reverse().map((i, r, arr) => {
     const prev = arr[r + 1] != null ? arr[r + 1] : null;
     const cells = cols.map(c => {
       const s = hist[c.k];
       return `<td class="${c.cls}${c.views ? " vh-views" : ""}">${fmt(s[i])}${delta(s, i, prev)}</td>`;
     }).join("");
-    return `<tr>
+    return `<tr data-page="${Math.floor(r / HIST_CAP)}"${r >= HIST_CAP ? " hidden" : ""}>
       <td class="vh-date">${dates[i]}</td>
       ${cells}
       <td class="vh-combined">${fmt(combined[i])}${delta(combined, i, prev)}</td>
@@ -1043,12 +1112,11 @@ function historyGridHtml(hist, dates, idx, combined) {
   </table>`;
 }
 
-function creditMoreRow(count, label, names) {
-  return `<div class="credit-row credit-more" title="${escHtml(names.join(", "))}">
+function creditMoreRow(count, label, names, id, rowsHtml) {
+  return `<div class="credit-row credit-more" id="${id}" role="button" tabindex="0" title="Click to show: ${escHtml(names.join(", "))}">
     <span class="credit-av">+${count}</span>
-    <span class="credit-name">${count} ${escHtml(label)}${count === 1 ? "" : "s"}</span>
-    <span class="credit-role">VocaDB</span>
-  </div>`;
+    <span class="credit-main"><span class="credit-name">${count} ${escHtml(label)}${count === 1 ? "" : "s"}</span></span>
+  </div><div id="${id}-rest" hidden>${rowsHtml}</div>`;
 }
 
 function buildPage(song, rank, yearRank) {
@@ -1155,12 +1223,15 @@ function buildPage(song, rank, yearRank) {
   const MAX_VOC = 8;
   const shownVocs = mainVocs.slice(0, MAX_VOC);
   const overflowMain = mainVocs.slice(MAX_VOC);
-  const vocalRows = shownVocs.map(n => {
+  const vocalRow = (n, role) => {
     const v = VOCALIST_MAP.find(v => v.match.test(n));
-    return creditRow(n, "Vocalist", v ? v.key : null, artistImg(n), `vocalist.html?name=${encodeURIComponent(n)}`);
-  }).join("")
-    + (overflowMain.length ? creditMoreRow(overflowMain.length, "more vocalist", overflowMain) : "")
-    + (supportVocs.length ? creditMoreRow(supportVocs.length, "support vocalist", supportVocs) : "");
+    return creditRow(n, role, v ? v.key : null, artistImg(n), `vocalist.html?name=${encodeURIComponent(n)}`, vocalistEngineLabel(song, n));
+  };
+  const vocalRows = shownVocs.map(n => vocalRow(n, "Vocalist")).join("")
+    + (overflowMain.length ? creditMoreRow(overflowMain.length, "more vocalist", overflowMain,
+        "credits-more-main", overflowMain.map(n => vocalRow(n, "Vocalist")).join("")) : "")
+    + (supportVocs.length ? creditMoreRow(supportVocs.length, "support vocalist", supportVocs,
+        "credits-more-support", supportVocs.map(n => vocalRow(n, "Support Vocalist")).join("")) : "");
   const producerRows = songProducerNames(song).map(p =>
     creditRow(p, "Producer", null, artistImg(p), `producer.html?name=${encodeURIComponent(p)}`)).join("");
 
@@ -1227,13 +1298,18 @@ function buildPage(song, rank, yearRank) {
               <span class="vh-tabs" role="tablist">
                 <button type="button" class="vh-tab is-active" data-vh-tab="grid">Grid</button>
                 <button type="button" class="vh-tab" data-vh-tab="chart">Chart</button>
+                <button type="button" class="vh-tab" data-vh-tab="growth">Growth</button>
               </span>` : ""}
               <span class="panel-note">${histPoints ? `${histPoints} snapshot${histPoints !== 1 ? "s" : ""} since ${histStart}` : "daily tracking · collecting data"}</span>
             </span>
           </div>
           <div id="vh-grid" class="vh-grid-wrap">${historyGridHtml(hist, histDates, histIdx, histSeries)}</div>
+          <div class="vh-pager" id="vh-pager" hidden></div>
           <div class="chart-body" id="vh-chart" hidden>
             <canvas id="viewChart" style="width:100%;height:100%"></canvas>
+          </div>
+          <div class="chart-body" id="vh-growth" hidden>
+            <canvas id="growthChart" style="width:100%;height:100%"></canvas>
           </div>
           ${histPoints ? "" : `
           <div class="chart-body" style="height:120px">
@@ -1345,6 +1421,15 @@ function buildPage(song, rank, yearRank) {
     moreBtn.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); expand(); } });
   }
 
+  document.querySelectorAll(".credit-more").forEach(row => {
+    const expandCredit = () => {
+      const rest = document.getElementById(row.id + "-rest");
+      if (rest) { row.outerHTML = rest.innerHTML; rest.remove(); }
+    };
+    row.addEventListener("click", expandCredit);
+    row.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); expandCredit(); } });
+  });
+
   const playBtn = document.getElementById("cover-play");
   if (playBtn) playBtn.addEventListener("click", () => {
     const id = playBtn.dataset.yt;
@@ -1353,13 +1438,58 @@ function buildPage(song, rank, yearRank) {
       `<iframe class="cover-embed" src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1&rel=0" title="${escHtml(song.title)}" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
   });
 
-  // Chart tab: per-platform lines + combined, initialised lazily on first open.
+  // Grid tab: paginate rows (HIST_CAP per page, newest first). Rows already
+  // carry a data-page attribute and pages beyond the first start hidden.
+  const gridTotalPages = Math.ceil(histPoints / HIST_CAP);
+  let gridPage = 0;
+  function renderGridPager() {
+    const pager = document.getElementById("vh-pager");
+    if (!pager) return;
+    if (gridTotalPages <= 1) { pager.hidden = true; return; }
+    pager.hidden = false;
+    const from = gridPage * HIST_CAP + 1;
+    const to = Math.min((gridPage + 1) * HIST_CAP, histPoints);
+    pager.innerHTML =
+      `<button type="button" class="vh-page-btn" data-dir="-1" ${gridPage === 0 ? "disabled" : ""}>&#9664; Newer</button>` +
+      `<span class="vh-page-info">Page ${gridPage + 1} / ${gridTotalPages} &middot; ${from}–${to} of ${histPoints}</span>` +
+      `<button type="button" class="vh-page-btn" data-dir="1" ${gridPage === gridTotalPages - 1 ? "disabled" : ""}>Older &#9654;</button>`;
+  }
+  const pagerEl = document.getElementById("vh-pager");
+  if (pagerEl) pagerEl.addEventListener("click", e => {
+    const btn = e.target.closest("[data-dir]");
+    if (!btn || btn.disabled) return;
+    gridPage = Math.max(0, Math.min(gridTotalPages - 1, gridPage + Number(btn.dataset.dir)));
+    document.querySelectorAll("#vh-grid tr[data-page]").forEach(tr => {
+      tr.hidden = Number(tr.dataset.page) !== gridPage;
+    });
+    renderGridPager();
+  });
+  renderGridPager();
+
+  // Shared y-axis helper: pads the visible window's real min/max instead of
+  // always starting at zero, so a handful of recent points aren't squashed
+  // flat by a huge historical range.
+  function axisBounds(seriesList, idxs) {
+    const nums = [];
+    seriesList.forEach(s => { if (s) idxs.forEach(i => { if (s[i] != null) nums.push(s[i]); }); });
+    if (!nums.length) return {};
+    let lo = Math.min(...nums), hi = Math.max(...nums);
+    if (lo === hi) { lo -= 1; hi += 1; }
+    const pad = (hi - lo) * 0.08;
+    return { min: Math.max(0, Math.floor(lo - pad)), max: Math.ceil(hi + pad) };
+  }
+  const tickFont = { family: '"MS PGothic",Arial,sans-serif', size: 10 };
+  const fmtAxis = v => v >= 1e9 ? (v/1e9)+"B" : v >= 1e6 ? (v/1e6)+"M" : v >= 1e3 ? (v/1e3)+"K" : v;
+
+  // Chart tab: per-platform lines + combined, capped to the last HIST_CAP
+  // snapshots and initialised lazily on first open.
   let vhChart = null;
   function initHistoryChart() {
     if (vhChart || !histPoints) return;
-    const labels = histIdx.map(i => histDates[i]);
+    const capIdx = histIdx.slice(-HIST_CAP);
+    const labels = capIdx.map(i => histDates[i]);
     const line = (name, series, color, dashed) => series ? {
-      label: name, data: histIdx.map(i => series[i]),
+      label: name, data: capIdx.map(i => series[i]),
       borderColor: color, backgroundColor: "transparent",
       tension: 0.3, pointRadius: 2.5, pointBackgroundColor: color,
       spanGaps: true, borderDash: dashed ? [4, 3] : undefined, borderWidth: dashed ? 1.5 : 2,
@@ -1370,30 +1500,122 @@ function buildPage(song, rank, yearRank) {
       line("YouTube", hs("y"), "#dd6644", true),
       line("bilibili", hs("b"), "#1a9ace", true),
     ].filter(Boolean);
+    const bounds = axisBounds([histSeries, hs("n"), hs("y"), hs("b")], capIdx);
     vhChart = new Chart(document.getElementById("viewChart").getContext("2d"), {
       type: "line",
       data: { labels, datasets },
       options: {
         responsive:true, maintainAspectRatio:false, animation:false,
         plugins:{
-          legend:{ display:true, labels:{ boxWidth:10, font:{family:'"MS PGothic",Arial,sans-serif',size:10}, color:"#888" } },
+          legend:{ display:true, labels:{ boxWidth:10, font:tickFont, color:"#888" } },
           tooltip:{ callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${Number(ctx.parsed.y).toLocaleString()}` } }
         },
         scales:{
-          x:{ grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:{family:'"MS PGothic",Arial,sans-serif',size:10},color:"#aaa"} },
-          y:{ beginAtZero:false, grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:{family:'"MS PGothic",Arial,sans-serif',size:10},color:"#aaa",
-            callback: v => v >= 1e9 ? (v/1e9)+"B" : v >= 1e6 ? (v/1e6)+"M" : v >= 1e3 ? (v/1e3)+"K" : v } }
+          x:{ grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:tickFont,color:"#aaa"} },
+          y:{ beginAtZero:false, min:bounds.min, max:bounds.max, grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:tickFont,color:"#aaa", callback: fmtAxis } }
         }
       }
     });
   }
+
+  // Growth tab: day-over-day per-platform delta as a stacked bar (each
+  // platform's contribution to that day's growth), capped to the last
+  // HIST_CAP deltas, with a custom retro-styled tooltip instead of
+  // Chart.js's default bubble.
+  // Matches the player statbar's platform colors (.hv-dot.hv-yt/nnd/bili)
+  // instead of the Chart tab's palette, so it doesn't clash with that tab's
+  // red "Combined" line.
+  const GROWTH_PLATFORMS = [
+    { key: "n", label: "NicoNico", color: "#7a766e" },
+    { key: "y", label: "YouTube",  color: "#cc0000" },
+    { key: "b", label: "bilibili", color: "#1a9ace" },
+  ];
+  let growthChart = null;
+  let growthRows = null; // per-bar { n, y, b } deltas, aligned to growthChart's labels
+  function growthTooltipHandler(context) {
+    const { chart, tooltip } = context;
+    let el = document.getElementById("growth-tooltip");
+    if (!el) {
+      el = document.createElement("div");
+      el.id = "growth-tooltip";
+      el.className = "growth-tooltip";
+      document.body.appendChild(el);
+    }
+    if (tooltip.opacity === 0 || !tooltip.dataPoints || !tooltip.dataPoints.length) {
+      el.style.opacity = 0;
+      return;
+    }
+    const idx = tooltip.dataPoints[0].dataIndex;
+    const row = growthRows[idx];
+    const fmtSigned = v => v == null ? "—" : `${v >= 0 ? "+" : "−"}${Math.abs(v).toLocaleString()}`;
+    const signCls = v => v == null ? "" : (v >= 0 ? "up" : "down");
+    const rowsHtml = GROWTH_PLATFORMS.filter(p => row[p.key] !== undefined).map(p =>
+      `<div class="gt-row"><span class="gt-dot" style="background:${p.color}"></span><span class="gt-label">${p.label}</span><span class="gt-val ${signCls(row[p.key])}">${fmtSigned(row[p.key])}</span></div>`
+    ).join("");
+    const total = Object.values(row).reduce((sum, v) => sum + (v || 0), 0);
+    el.innerHTML =
+      `<div class="gt-date">${chart.data.labels[idx]}</div>${rowsHtml}` +
+      `<div class="gt-total"><span>Combined</span><span class="gt-val ${signCls(total)}">${fmtSigned(total)}</span></div>`;
+
+    const rect = chart.canvas.getBoundingClientRect();
+    el.style.opacity = 1;
+    const tw = el.offsetWidth;
+    let left = rect.left + window.scrollX + tooltip.caretX - tw / 2;
+    const margin = 6;
+    left = Math.max(window.scrollX + margin, Math.min(left, window.scrollX + document.documentElement.clientWidth - tw - margin));
+    el.style.left = left + "px";
+    el.style.top = (rect.top + window.scrollY + tooltip.caretY) + "px";
+  }
+  function initGrowthChart() {
+    if (growthChart || !histPoints) return;
+    const capIdx = histIdx.slice(-(HIST_CAP + 1));
+    const platforms = GROWTH_PLATFORMS.map(p => ({ ...p, series: hs(p.key) })).filter(p => p.series);
+    const labels = [];
+    growthRows = [];
+    for (let k = 1; k < capIdx.length; k++) {
+      const prevI = capIdx[k - 1], curI = capIdx[k];
+      if (histSeries[prevI] == null || histSeries[curI] == null) continue;
+      labels.push(histDates[curI]);
+      const row = {};
+      for (const p of platforms) {
+        const pv = p.series[prevI], cv = p.series[curI];
+        row[p.key] = (pv != null && cv != null) ? (cv - pv) : null;
+      }
+      growthRows.push(row);
+    }
+    const datasets = platforms.map(p => ({
+      label: p.label,
+      data: growthRows.map(r => r[p.key]),
+      backgroundColor: p.color,
+      stack: "growth",
+    }));
+    growthChart = new Chart(document.getElementById("growthChart").getContext("2d"), {
+      type: "bar",
+      data: { labels, datasets },
+      options: {
+        responsive:true, maintainAspectRatio:false, animation:false,
+        plugins:{
+          legend:{ display:true, labels:{ boxWidth:10, font:tickFont, color:"#888" } },
+          tooltip:{ enabled:false, external:growthTooltipHandler }
+        },
+        scales:{
+          x:{ stacked:true, grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:tickFont,color:"#aaa"} },
+          y:{ stacked:true, grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:tickFont,color:"#aaa", callback: fmtAxis } }
+        }
+      }
+    });
+  }
+
   document.querySelectorAll(".vh-tab").forEach(btn => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".vh-tab").forEach(b => b.classList.toggle("is-active", b === btn));
-      const showChart = btn.dataset.vhTab === "chart";
-      document.getElementById("vh-grid").hidden = showChart;
-      document.getElementById("vh-chart").hidden = !showChart;
-      if (showChart) { initHistoryChart(); if (vhChart) vhChart.resize(); }
+      const tab = btn.dataset.vhTab;
+      document.getElementById("vh-grid").hidden = tab !== "grid";
+      document.getElementById("vh-pager").hidden = tab !== "grid" || gridTotalPages <= 1;
+      document.getElementById("vh-chart").hidden = tab !== "chart";
+      document.getElementById("vh-growth").hidden = tab !== "growth";
+      if (tab === "chart") { initHistoryChart(); if (vhChart) vhChart.resize(); }
+      if (tab === "growth") { initGrowthChart(); if (growthChart) growthChart.resize(); }
     });
   });
 }

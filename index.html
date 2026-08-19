@@ -164,11 +164,11 @@
       border-left: 3px solid transparent;
     }
     .tp-cell:hover { text-decoration: none; background: var(--soft); }
-    .tp-cell.heardle { border-left-color: #c11; }
-    .tp-cell.higher { border-left-color: #3769c9; }
-    .tp-cell.masume { border-left-color: #2aa8a0; }
-.tp-cell.connections { border-left-color: #888888; }
-    .tp-cell.timeline { border-left-color: #8a5ac9; }
+    .tp-cell.heardle, .tpd-card.heardle { border-left-color: #c11; }
+    .tp-cell.higher, .tpd-card.higher { border-left-color: #3769c9; }
+    .tp-cell.masume, .tpd-card.masume { border-left-color: #2aa8a0; }
+.tp-cell.connections, .tpd-card.connections { border-left-color: #888888; }
+    .tp-cell.timeline, .tpd-card.timeline { border-left-color: #8a5ac9; }
     .tp-name { font-weight: 900; font-size: 12px; }
     .tp-state { font-size: 10px; font-weight: 700; color: var(--red); white-space: nowrap; }
     .tp-state.is-done { color: #1a7d3c; }
@@ -184,9 +184,184 @@
       font-size: 10px;
       white-space: nowrap;
     }
+    .tp-details-btn {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 5px 12px;
+      font-family: inherit;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--muted);
+      cursor: pointer;
+      background: var(--soft);
+      border: none;
+      border-left: 1px solid var(--line);
+    }
+    .tp-details-btn:hover { color: var(--red); background: var(--surface); }
     @media (max-width: 700px) {
       .tp-foot { display: none; }
       .tp-cell { flex: 1; justify-content: space-between; padding: 5px 8px; }
+      .tp-details-btn { flex: 1 1 100%; justify-content: center; border-left: none; border-top: 1px solid var(--line); }
+    }
+
+    /* Today's puzzles detail modal */
+    .tp-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px 14px;
+      overflow-y: auto;
+      background: rgba(10, 8, 6, 0.55);
+    }
+    .tp-modal-backdrop[hidden] { display: none; }
+    .tp-modal {
+      width: min(640px, 100%);
+      background: linear-gradient(to bottom, var(--surface), var(--sf));
+      border: 2px solid var(--ls);
+      border-top: 3px solid var(--red);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    }
+    .tp-modal-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background:
+        repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
+        linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+      border-bottom: 1px solid var(--ls);
+      font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 12px;
+    }
+    .tp-modal-close {
+      font-family: inherit;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      background: var(--soft);
+      border: 1px solid var(--line);
+      font-size: 13px;
+      line-height: 1;
+    }
+    .tp-modal-close:hover { color: var(--red); }
+    .tp-modal-body {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      max-height: 72vh;
+      overflow-y: auto;
+    }
+    .tp-modal-intro {
+      padding: 7px 12px;
+      color: var(--faint);
+      background: var(--soft);
+      border-bottom: 1px solid var(--line);
+      font-size: 10px;
+    }
+    .tpd-card {
+      display: grid;
+      grid-template-columns: 44px minmax(0, 1fr) 116px 78px;
+      grid-template-areas: "icon body meta play";
+      align-items: stretch;
+      background: linear-gradient(to bottom, var(--surface), var(--sf));
+      border: 2px solid var(--ls);
+      border-left: 4px solid var(--red);
+      box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.1);
+    }
+    html.dark-mode .tpd-card { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.04), 0 2px 4px rgba(0,0,0,0.3); }
+    .tpd-icon {
+      grid-area: icon;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(#888, #555);
+      border-right: 1px solid rgba(0,0,0,0.35);
+      font-size: 15px;
+      font-weight: 900;
+      text-shadow: 0 1px rgba(0,0,0,0.45);
+    }
+    .tpd-main {
+      grid-area: body;
+      min-width: 0;
+      padding: 8px 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+    }
+    .tpd-top { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+    .tpd-name { font-size: 13px; font-weight: 900; }
+    .tpd-pill {
+      flex-shrink: 0;
+      padding: 1px 6px;
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--red);
+      background: var(--soft);
+      border: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    .tpd-pill.is-progress { color: var(--muted); }
+    .tpd-pill.is-win { color: #1a7d3c; }
+    html.dark-mode .tpd-pill.is-win { color: #63c287; }
+    .tpd-pill.is-loss { color: var(--faint); }
+    .tpd-desc { color: var(--muted); line-height: 1.5; }
+    .tpd-meta {
+      grid-area: meta;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      padding: 6px 10px;
+      color: var(--faint);
+      background: var(--soft);
+      border-left: 1px solid var(--line);
+      font-size: 9px;
+      line-height: 1.4;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .tpd-meta strong {
+      margin-right: 4px;
+      color: var(--text);
+      font-family: Consolas, "MS PGothic", monospace;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+    .tpd-play {
+      grid-area: play;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      background: linear-gradient(#dd1111, #aa0000);
+      border-left: 1px solid var(--red-dark);
+      font-weight: 700;
+      font-size: 11px;
+    }
+    .tpd-play:hover { color: #fff; text-decoration: none; background: linear-gradient(#ee2222, #bb0000); }
+    @media (max-width: 560px) {
+      .tpd-card {
+        grid-template-columns: 38px minmax(0, 1fr);
+        grid-template-areas:
+          "icon body"
+          "meta meta"
+          "play play";
+      }
+      .tpd-meta { flex-direction: row; flex-wrap: wrap; column-gap: 14px; border-left: none; border-top: 1px solid var(--line); }
+      .tpd-play { padding: 6px; }
     }
     .proj-list {
       margin-top: 6px;
@@ -214,16 +389,16 @@
       font-weight: 900;
       text-shadow: 0 1px rgba(0,0,0,0.45);
     }
-    .heardle .proj-icon { background: linear-gradient(#e52b2b, #aa0000); }
-    .higher .proj-icon { background: linear-gradient(#3769c9, #174690); }
+    .heardle .proj-icon, .heardle .tpd-icon { background: linear-gradient(#e52b2b, #aa0000); }
+    .higher .proj-icon, .higher .tpd-icon { background: linear-gradient(#3769c9, #174690); }
     .charts .proj-icon { background: linear-gradient(#2faf57, #1a7d3c); font-size: 13px; letter-spacing: -0.02em; }
-    .masume .proj-icon { background: linear-gradient(#2aa8a0, #157a73); }
-    .timeline .proj-icon { background: linear-gradient(#8a5ac9, #5c3396); }
+    .masume .proj-icon, .masume .tpd-icon { background: linear-gradient(#2aa8a0, #157a73); }
+    .timeline .proj-icon, .timeline .tpd-icon { background: linear-gradient(#8a5ac9, #5c3396); }
     .tl-mark { display: flex; flex-direction: column; align-items: center; gap: 2px; }
     .tl-mark i { width: 16px; height: 3px; background: #fff; display: block; }
     .tl-mark i:nth-child(2) { width: 11px; opacity: 0.75; }
     .tl-mark i:nth-child(3) { width: 6px; opacity: 0.5; }
-    .connections .proj-icon { background: linear-gradient(#5c5c5c, #3a3a3a); }
+    .connections .proj-icon, .connections .tpd-icon { background: linear-gradient(#5c5c5c, #3a3a3a); }
     .cn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
     .cn-grid i { width: 8px; height: 8px; display: block; box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25); }
     .cn-grid i:nth-child(1) { background: #f4d874; }
@@ -640,7 +815,19 @@
         <span class="tp-state" id="tp-connections">Play &#9654;</span>
       </a>
       <span class="tp-foot">Daily puzzles reset at local midnight</span>
+      <button class="tp-details-btn" id="tp-details-btn" type="button" aria-haspopup="dialog">Details &#9660;</button>
     </section>
+
+    <div class="tp-modal-backdrop" id="tp-modal-backdrop" hidden>
+      <div class="tp-modal" role="dialog" aria-modal="true" aria-labelledby="tp-modal-title">
+        <div class="tp-modal-head">
+          <span id="tp-modal-title">[ TODAY'S PUZZLES ]</span>
+          <button class="tp-modal-close" id="tp-modal-close" type="button" aria-label="Close">&times;</button>
+        </div>
+        <div class="tp-modal-intro">Local progress on this device &middot; puzzles reset at local midnight</div>
+        <div class="tp-modal-body" id="tp-modal-body"></div>
+      </div>
+    </div>
 
     <div class="section-title">[AVAILABLE PROJECTS]</div>
     <section class="proj-list" aria-label="Available projects">
@@ -785,8 +972,9 @@
       });
     })();
 
-    // Today's puzzles: read each game's daily-completion state from its own
-    // localStorage keys (same origin, so the hub can peek without loading them).
+    // Today's puzzles: read each game's daily-completion state (and stats)
+    // from its own localStorage keys (same origin, so the hub can peek
+    // without loading them), for both the strip badges and the detail modal.
     (function () {
       var d = new Date();
       var key = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
@@ -794,26 +982,154 @@
         var el = document.getElementById(id);
         if (el && done) { el.textContent = "✓ Done"; el.classList.add("is-done"); }
       }
+      var body = document.getElementById("tp-modal-body");
+      function renderDetail(cfg) {
+        if (!body) return;
+        var card = document.createElement("div");
+        card.className = "tpd-card " + cfg.cls;
+        var metaHtml = (cfg.stats || []).map(function (s) {
+          return '<div><strong>' + s.val + '</strong>' + s.label + '</div>';
+        }).join("");
+        card.innerHTML =
+          '<div class="tpd-icon" aria-hidden="true">' + cfg.icon + '</div>' +
+          '<div class="tpd-main">' +
+            '<div class="tpd-top"><span class="tpd-name">' + cfg.name + '</span>' +
+            '<span class="tpd-pill is-' + cfg.tier + '">' + cfg.statusText + '</span></div>' +
+            '<p class="tpd-desc">' + cfg.desc + '</p>' +
+          '</div>' +
+          '<div class="tpd-meta">' + metaHtml + '</div>' +
+          '<a class="tpd-play" href="' + cfg.href + '">' + (cfg.tier === "todo" ? "Play" : "Review") + ' ▶</a>';
+        body.appendChild(card);
+      }
+      var lmGridIcon = '<span class="lm-grid"><i></i><i></i><i></i><i></i></span>';
+      var tlMarkIcon = '<span class="tl-mark"><i></i><i></i><i></i></span>';
+      var cnGridIcon = '<span class="cn-grid"><i></i><i></i><i></i><i></i></span>';
+
       try {
         var hs = JSON.parse(localStorage.getItem("vocaloid-heardle-stats") || "{}");
-        setState("tp-heardle", !!(hs.results && hs.results[key]));
-      } catch (e) {}
+        var hToday = hs.results && hs.results[key];
+        var hDone = !!hToday;
+        setState("tp-heardle", hDone);
+        renderDetail({
+          name: "Heardle", cls: "heardle", icon: "&#9835;", href: "heardle/",
+          desc: "Listen to the opening, type the song title, and try to get it before the sixth clip.",
+          tier: !hDone ? "todo" : (hToday.won ? "win" : "loss"),
+          statusText: !hDone ? "Not played yet" : (hToday.won ? "Solved " + hToday.attempts + "/6" : "Not solved today"),
+          stats: [
+            { label: "streak", val: hs.currentStreak || 0 },
+            { label: "best streak", val: hs.maxStreak || 0 },
+            { label: "win rate", val: hs.played ? Math.round(100 * (hs.won || 0) / hs.played) + "%" : "—" }
+          ]
+        });
+      } catch (e) {
+        renderDetail({ name: "Heardle", cls: "heardle", icon: "&#9835;", href: "heardle/", desc: "Listen to the opening, type the song title, and try to get it before the sixth clip.", tier: "todo", statusText: "Not played yet", stats: [] });
+      }
+
       try {
         var hl = JSON.parse(localStorage.getItem("soda_hol_daily_state") || "{}");
-        setState("tp-higher", !!(hl.date === key && hl.completed));
-      } catch (e) {}
+        var hlStats = JSON.parse(localStorage.getItem("soda_hol_daily_stats") || "{}");
+        var hlDone = !!(hl.date === key && hl.completed);
+        setState("tp-higher", hlDone);
+        var hlResults = Array.isArray(hl.results) ? hl.results : null;
+        var hlInProgress = hl.date === key && hlResults && hlResults.length && !hlDone;
+        renderDetail({
+          name: "Higher / Lower", cls: "higher", icon: "&#8593;&#8595;", href: "higher-or-lower/",
+          desc: "Which song has more NicoNico views? Five lives, and every correct answer keeps the streak going.",
+          tier: hlDone ? "win" : (hlInProgress ? "progress" : "todo"),
+          statusText: hlDone
+            ? (hlResults ? hlResults.filter(Boolean).length + "/" + hlResults.length + " correct" : "Completed today")
+            : (hlInProgress ? "In progress" : "Not played yet"),
+          stats: [
+            { label: "best score", val: hlStats.best || 0 },
+            { label: "perfect days", val: hlStats.perfect || 0 },
+            { label: "dailies played", val: hlStats.played || 0 }
+          ]
+        });
+      } catch (e) {
+        renderDetail({ name: "Higher / Lower", cls: "higher", icon: "&#8593;&#8595;", href: "higher-or-lower/", desc: "Which song has more NicoNico views? Five lives, and every correct answer keeps the streak going.", tier: "todo", statusText: "Not played yet", stats: [] });
+      }
+
       try {
         var gs = JSON.parse(localStorage.getItem("masume_daily_" + key) || "null");
-        setState("tp-grid", !!(gs && gs.done));
-      } catch (e) {}
+        var gStats = JSON.parse(localStorage.getItem("masume_stats") || "{}");
+        var gDone = !!(gs && gs.done);
+        setState("tp-grid", gDone);
+        var gFailed = gDone && (gs.gaveUp || (gs.strikes || 0) >= 6);
+        renderDetail({
+          name: "Grid", cls: "masume", icon: lmGridIcon, href: "masume/",
+          desc: "A daily 4×4 knowledge grid: every square needs a song matching its row and column. Six strikes, rarer answers score more.",
+          tier: !gs ? "todo" : (!gDone ? "progress" : (gFailed ? "loss" : "win")),
+          statusText: !gs ? "Not played yet" : (!gDone ? "In progress" : (gFailed ? (gs.gaveUp ? "Gave up — " + (gs.strikes || 0) + "/6 strikes" : "Failed — 6/6 strikes") : (gs.strikes || 0) + "/6 strikes used")),
+          stats: [
+            { label: "streak", val: gStats.streak || 0 },
+            { label: "best streak", val: gStats.best || 0 },
+            { label: "perfect clears", val: gStats.perfect || 0 }
+          ]
+        });
+      } catch (e) {
+        renderDetail({ name: "Grid", cls: "masume", icon: lmGridIcon, href: "masume/", desc: "A daily 4×4 knowledge grid: every square needs a song matching its row and column. Six strikes, rarer answers score more.", tier: "todo", statusText: "Not played yet", stats: [] });
+      }
+
       try {
         var ts = JSON.parse(localStorage.getItem("tl_daily_" + key) || "null");
-        setState("tp-timeline", !!(ts && ts.done));
-      } catch (e) {}
+        var tStats = JSON.parse(localStorage.getItem("tl_stats") || "{}");
+        var tDone = !!(ts && ts.done);
+        setState("tp-timeline", tDone);
+        renderDetail({
+          name: "Timeline", cls: "timeline", icon: tlMarkIcon, href: "timeline/",
+          desc: "Arrange five well-known songs by release date from oldest to newest, then lock in.",
+          tier: !ts ? "todo" : (tDone ? "win" : "progress"),
+          statusText: !ts ? "Not played yet" : (tDone ? "Solved today" : "In progress"),
+          stats: [
+            { label: "streak", val: tStats.streak || 0 },
+            { label: "perfect days", val: tStats.perfect || 0 },
+            { label: "avg score", val: tStats.played ? (tStats.total / tStats.played).toFixed(1) + "/5" : "—" }
+          ]
+        });
+      } catch (e) {
+        renderDetail({ name: "Timeline", cls: "timeline", icon: tlMarkIcon, href: "timeline/", desc: "Arrange five well-known songs by release date from oldest to newest, then lock in.", tier: "todo", statusText: "Not played yet", stats: [] });
+      }
+
       try {
         var cs = JSON.parse(localStorage.getItem("vc_daily_" + key) || "null");
-        setState("tp-connections", !!(cs && cs.done));
-      } catch (e) {}
+        var cStats = JSON.parse(localStorage.getItem("vc_stats") || "{}");
+        var cDone = !!(cs && cs.done);
+        setState("tp-connections", cDone);
+        var cSolved = cs && Array.isArray(cs.solved) ? cs.solved.length : (cs && typeof cs.solved === "number" ? cs.solved : null);
+        renderDetail({
+          name: "Connections", cls: "connections", icon: cnGridIcon, href: "connections/",
+          desc: "Sixteen songs, four hidden groups of four: sort them by producer, vocalist, era, genre and more before four strikes end the run.",
+          tier: !cs ? "todo" : (!cDone ? "progress" : (cs.win ? "win" : "loss")),
+          statusText: !cs ? "Not played yet" : (!cDone ? "In progress" : (cs.win ? "Solved — " + (cs.strikes || 0) + " strikes" : "Lost — " + (cSolved != null ? cSolved : 0) + "/4 groups")),
+          stats: [
+            { label: "streak", val: cStats.streak || 0 },
+            { label: "best streak", val: cStats.best || 0 },
+            { label: "perfect days", val: cStats.perfect || 0 }
+          ]
+        });
+      } catch (e) {
+        renderDetail({ name: "Connections", cls: "connections", icon: cnGridIcon, href: "connections/", desc: "Sixteen songs, four hidden groups of four: sort them by producer, vocalist, era, genre and more before four strikes end the run.", tier: "todo", statusText: "Not played yet", stats: [] });
+      }
+    })();
+
+    // Today's puzzles detail modal open/close
+    (function () {
+      var btn = document.getElementById("tp-details-btn");
+      var backdrop = document.getElementById("tp-modal-backdrop");
+      var closeBtn = document.getElementById("tp-modal-close");
+      if (!btn || !backdrop) return;
+      function open() {
+        backdrop.hidden = false;
+        document.body.style.overflow = "hidden";
+      }
+      function close() {
+        backdrop.hidden = true;
+        document.body.style.overflow = "";
+      }
+      btn.addEventListener("click", open);
+      if (closeBtn) closeBtn.addEventListener("click", close);
+      backdrop.addEventListener("click", function (e) { if (e.target === backdrop) close(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !backdrop.hidden) close(); });
     })();
 
     function tierLabel(v) {

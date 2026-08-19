@@ -43,12 +43,17 @@ async function fetchJson(url) {
   return null;
 }
 
+// VocaDB artistTypes that are vocal synths — anything else credited as a
+// vocalist is a human guest singer. Mirrors add.html's SYNTH_ARTIST_TYPES.
+const SYNTH_ARTIST_TYPES = /^(Vocaloid|UTAU|CeVIO|SynthesizerV|NEUTRINO|VoiSona|NewType|Voiceroid|AIVoice|OtherVoiceSynthesizer)$/i;
+
 // Vocalist credit names carry voicebank suffixes ("Hatsune Miku V3 (Dark)");
 // keep the raw name — the site's normaliser already handles matching.
 function pickDetails(data) {
   if (!data) return null;
   const producers = [];
   const vocalists = [];
+  const vocalistEngines = {};
   for (const a of data.artists || []) {
     const name = String(a.name || "").trim();
     if (!name) continue;
@@ -56,6 +61,8 @@ function pickDetails(data) {
     const roles = String(a.effectiveRoles || a.roles || "").replace(/^Default$/, "");
     if (/Vocalist/i.test(categories)) {
       if (!/Support/i.test(roles)) vocalists.push(name);
+      const type = String((a.artist && a.artist.artistType) || "");
+      if (SYNTH_ARTIST_TYPES.test(type)) vocalistEngines[name] = type;
     } else if (/Producer|Circle|Band/i.test(categories)) {
       producers.push({ name, roles });
     }
@@ -73,6 +80,7 @@ function pickDetails(data) {
     langs: Array.isArray(data.cultureCodes) ? data.cultureCodes : [],
     producers,
     vocalists,
+    vocalistEngines,
     tags,
   };
 }

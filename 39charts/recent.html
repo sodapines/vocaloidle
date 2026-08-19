@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>39charts · Trending</title>
+<title>39charts · Recently Added</title>
 <meta property="og:site_name" content="39charts">
-<meta property="og:title" content="39charts · Trending Vocaloid songs">
-<meta property="og:description" content="Vocaloid songs gaining views fastest right now, scored on daily view growth and engagement.">
+<meta property="og:title" content="39charts · Recently Added Songs">
+<meta property="og:description" content="The newest Vocaloid songs added to 39charts, newest first.">
 <meta property="og:type" content="website">
-<meta name="description" content="Vocaloid songs gaining views fastest right now, scored on daily view growth and engagement.">
+<meta name="description" content="The newest Vocaloid songs added to 39charts, newest first.">
 <script>try{if(localStorage.getItem("39c_dark")==="1")document.documentElement.classList.add("dark-mode")}catch(e){}</script>
 <style>
 :root {
@@ -148,51 +148,21 @@ button { font: inherit; cursor: pointer; }
 }
 .panel-note { font-size: 10px; font-weight: 400; color: var(--faint); font-style: italic; text-transform: none; letter-spacing: 0; }
 
-/* platform switch (segmented bevel, matches the main rankings page) */
-.trend-platforms { display: flex; align-items: center; gap: 8px; }
-.settings-multi { display: flex; border: 1px solid var(--ls); flex-shrink: 0; }
-.settings-choice {
-  min-width: 34px; min-height: 22px; padding: 0 6px;
-  font-family: inherit; font-size: 10px; font-weight: 700; color: var(--muted);
-  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
-  border: none; border-right: 1px solid var(--ls);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
-  white-space: nowrap;
-}
-.settings-choice:last-child { border-right: none; }
-.settings-choice:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); }
-.settings-choice.is-active {
-  background: linear-gradient(to bottom, #dd2222, #aa0000);
-  color: #fff; box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
-}
-html.dark-mode .settings-choice { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted); box-shadow: none; }
-html.dark-mode .settings-choice:hover { background: #2b2020; color: var(--red); }
-html.dark-mode .settings-choice.is-active { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; }
-.panel-header a.year-full-link {
-  font-size: 10px; font-weight: 700; text-transform: none; letter-spacing: 0;
-  font-family: "MS PGothic", sans-serif;
-}
-
-/* year jump chips */
-.year-jump { display: flex; flex-wrap: wrap; gap: 3px; padding: 7px 9px; }
-.year-chip {
-  display: inline-block; padding: 3px 10px 4px;
-  background: linear-gradient(to bottom, #f3f1ea, #dcd8cf);
-  border: 2px solid; border-color: #ffffff var(--ls) var(--ls) #ffffff;
-  color: var(--muted); font-size: 11px; font-weight: 700;
-  letter-spacing: 0.07em;
+/* date-grouped feed */
+.recent-date-head {
+  padding: 4px 8px;
+  background: var(--sf);
+  border-bottom: 1px solid var(--line);
+  border-top: 1px solid var(--line);
   font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
+  font-size: 10px; font-weight: 700; color: var(--muted);
+  letter-spacing: 0.05em; text-transform: uppercase;
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
 }
-.year-chip:hover, .year-chip:focus {
-  color: #fff; text-decoration: none;
-  background: linear-gradient(to bottom, var(--red), var(--red-dark));
-  border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
-  box-shadow: inset 1px 1px 0 rgba(255,255,255,0.35);
-}
-html.dark-mode .year-chip { background: linear-gradient(to bottom, #262626, #1c1c1c); border-color: #333 #111 #111 #333; }
-html.dark-mode .year-chip:hover { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #b01111 #5a0505 #5a0505 #b01111; }
+.recent-date-head:first-child { border-top: none; }
+.recent-date-head .rdh-count { color: var(--faint); font-weight: 400; text-transform: none; letter-spacing: 0; font-family: inherit; font-style: italic; }
 
-/* year song rows */
+/* song rows (mirrors the year/trending list rows) */
 .year-rows { display: flex; flex-direction: column; }
 .year-row {
   display: flex; align-items: center; gap: 8px; padding: 4px 8px;
@@ -201,11 +171,6 @@ html.dark-mode .year-chip:hover { background: linear-gradient(to bottom, #b01111
 .year-row:last-child { border-bottom: none; }
 .year-row:hover { background: #fff0f0; text-decoration: none; }
 .year-row:hover .yr-title { color: var(--red); }
-.yr-rank {
-  min-width: 26px; text-align: center;
-  font-family: Consolas, "MS PGothic", monospace; font-size: 13px; font-weight: 900; color: var(--red);
-}
-.yr-rank.is-gold { color: var(--gold); }
 .yr-thumb {
   width: 62px; height: 35px; flex-shrink: 0; position: relative; overflow: hidden;
   background: #222; border: 1px solid rgba(0,0,0,0.25);
@@ -219,6 +184,7 @@ html.dark-mode .year-chip:hover { background: linear-gradient(to bottom, #b01111
   font-family: Consolas, "MS PGothic", monospace; font-size: 12px; font-weight: 900; color: var(--red);
 }
 .yr-views .yv-cap { display: block; font-size: 8px; font-weight: 400; color: var(--faint); text-transform: uppercase; letter-spacing: 0.06em; }
+.yr-views.no-data { color: var(--faint); font-weight: 400; font-size: 11px; }
 
 .loading-state {
   padding: 40px; text-align: center;
@@ -304,9 +270,8 @@ html.dark-mode .panel-header {
   background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
   border-color: #3b3b3b; box-shadow: none; color: #cccccc;
 }
+html.dark-mode .recent-date-head { background: #1e1e1e; border-color: #2c2c2c; }
 html.dark-mode .year-row:hover { background: #2a1414; }
-html.dark-mode .year-chip { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; box-shadow: none; }
-html.dark-mode .year-chip:hover { background: #2b2020; }
 html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); box-shadow: none; }
 html.dark-mode .settings-title { background: linear-gradient(to bottom, #2a2a2a, #1c1c1c); border-color: #3b3b3b; color: #cccccc; }
 html.dark-mode .settings-toggle, html.dark-mode .settings-close {
@@ -319,7 +284,6 @@ html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #
 @media (max-width: 560px) {
   .nnd-header-links { display: none; }
   .yr-artist { display: none; }
-  .panel-note { display: none; }
 }
 /* mode tabs wrap only on small screens, matching the other pages */
 @media (max-width: 620px) {
@@ -334,8 +298,8 @@ html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #
 <body>
 
 <div class="nnd-topbar">
-  <span>39charts &rsaquo; Trending</span>
-  <span style="color:#666;font-size:11px">Trending Songs</span>
+  <span>39charts &rsaquo; Recently Added</span>
+  <span style="color:#666;font-size:11px">New Songs</span>
 </div>
 
 <div class="nnd-mainbar">
@@ -374,7 +338,7 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
 <div class="nnd-marquee-bar">
   <span class="nnd-marquee-label">[INFO]</span>
   <div class="nnd-marquee-wrap">
-    <div class="nnd-marquee-inner" id="marquee-text">Loading trending data… &nbsp;·&nbsp; ★ Thank you for using 39charts ♪</div>
+    <div class="nnd-marquee-inner" id="marquee-text">Loading recent additions… &nbsp;·&nbsp; ★ Thank you for using 39charts ♪</div>
   </div>
 </div>
 
@@ -383,8 +347,8 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
   <div class="game-mode-bar">
     <div class="game-mode-tabs">
       <a class="game-mode-btn" href="./">Songs</a>
-        <a class="game-mode-btn is-active" href="trending.html">Trending</a>
-        <a class="game-mode-btn" href="recent.html">Recent</a>
+        <a class="game-mode-btn" href="trending.html">Trending</a>
+        <a class="game-mode-btn is-active" href="recent.html">Recent</a>
         <a class="game-mode-btn" href="milestones.html">Milestones</a>
       <a class="game-mode-btn" href="years.html">Years</a>
       <a class="game-mode-btn" href="producers.html">Producers</a>
@@ -396,31 +360,18 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
   </div>
 
   <div class="panel">
-    <div class="panel-header">
-      [ Trending ]
-      <span class="trend-platforms">
-        <span class="panel-note" id="trend-note">views gained per day, boosted by momentum and engagement</span>
-        <span class="settings-multi" id="trend-platform-switch" title="Rank growth by platform">
-          <button class="settings-choice" data-platform="nnd">NND</button>
-          <button class="settings-choice" data-platform="yt">YT</button>
-          <button class="settings-choice" data-platform="bili">BILI</button>
-          <button class="settings-choice is-active" data-platform="both">ALL</button>
-        </span>
-      </span>
-    </div>
-    <div class="year-rows" id="trend-list">
-      <div class="loading-state">Loading trending data…</div>
+    <div class="panel-header">[ Recently Added ] <span class="panel-note" id="recent-note">newest submissions to the song pool</span></div>
+    <div class="year-rows" id="recent-list">
+      <div class="loading-state">Loading recent additions…</div>
     </div>
   </div>
 
   <div class="panel" style="margin-top:6px">
-    <div class="panel-header">[ How trending works ]</div>
+    <div class="panel-header">[ How this works ]</div>
     <div style="padding:10px 12px;font-size:11px;line-height:1.7;color:var(--muted)">
-      Each song's score starts from its <strong>combined views gained per day</strong> (NicoNico + YouTube + bilibili,
-      over the most recent week of nightly snapshots). That gain is boosted by <strong>momentum</strong> · smaller songs
-      growing fast relative to their size rank above giants inching along · and nudged by <strong>engagement</strong>
-      (likes and comments per 1,000 views). Songs need at least two daily snapshots to qualify, so the list sharpens
-      as more history is collected.
+      Every song here came through the <a href="add.html">submission queue</a>: someone pasted a VocaDB link,
+      it was approved, and the nightly refresh published it to the pool. This feed is grouped by the date each
+      batch went live, newest first, so you can see what's new without already knowing to look for it.
     </div>
   </div>
 
@@ -541,139 +492,75 @@ function combinedViews(song) {
   return (n == null && y == null && b == null) ? null : (n || 0) + (y || 0) + (b || 0);
 }
 
-const TREND_N = 50;
-const PLATFORM_KEY = "39c_trend_platform";
-const PLATFORM_META = {
-  both: { views: ["n", "y", "b"], likes: ["yl", "bl"], comments: ["nc", "yc", "bc"], label: "Combined" },
-  nnd:  { views: ["n"], likes: [], comments: ["nc"], label: "NicoNico" },
-  yt:   { views: ["y"], likes: ["yl"], comments: ["yc"], label: "YouTube" },
-  bili: { views: ["b"], likes: ["bl"], comments: ["bc"], label: "bilibili" },
-};
-let activePlatform = "both";
-try {
-  const saved = localStorage.getItem(PLATFORM_KEY);
-  if (saved && PLATFORM_META[saved]) activePlatform = saved;
-} catch (e) {}
-
-let HISTORY = null;
-function platformHistSeries(id, platform) {
-  const e = HISTORY && HISTORY.songs && HISTORY.songs[String(id)];
-  if (!e) return null;
-  const keys = PLATFORM_META[platform].views;
-  return HISTORY.dates.map((_, i) => {
-    const p = keys.map(k => e[k] && e[k][i] != null ? e[k][i] : null);
-    return p.every(v => v == null) ? null : p.reduce((a, v) => a + (v || 0), 0);
-  });
+function fmtDate(d) {
+  try { return new Date(d + "T00:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" }); }
+  catch (e) { return d; }
 }
-
-/* Trending score: views gained per day over the last ~week of snapshots,
-   boosted by relative momentum (gain vs song size) and engagement
-   (likes + comments per 1K views, using only the metrics that platform
-   actually reports — NicoNico has no public like count, for instance). */
-function trendStats(song, platform) {
-  const id = String(song.vocadbId);
-  const series = platformHistSeries(id, platform);
-  if (!series) return null;
-  const idx = series.map((v, i) => v != null ? i : -1).filter(i => i >= 0);
-  if (idx.length < 2) return null;
-  const last = idx[idx.length - 1];
-  const lastDate = new Date(HISTORY.dates[last]);
-  let first = idx[0];
-  for (const i of idx) {
-    if ((lastDate - new Date(HISTORY.dates[i])) / 864e5 <= 7) { first = i; break; }
-  }
-  if (first === last) first = idx[idx.length - 2];
-  const days = Math.max(1, (lastDate - new Date(HISTORY.dates[first])) / 864e5);
-  const gain = series[last] - series[first];
-  const gainPerDay = gain / days;
-
-  const e = HISTORY.songs[id];
-  const meta = PLATFORM_META[platform];
-  const at = (k) => e[k] && e[k][last] != null ? e[k][last] : null;
-  const views = series[last] || 1;
-  const likes = meta.likes.reduce((sum, k) => sum + (at(k) || 0), 0);
-  const comments = meta.comments.reduce((sum, k) => sum + (at(k) || 0), 0);
-  const likesPer1k = likes / views * 1000;
-  const commentsPer1k = comments / views * 1000;
-  const engagement = 1 + (meta.likes.length ? Math.min(0.5, likesPer1k / 40) : 0) + Math.min(0.3, commentsPer1k / 15);
-  const momentum = 1 + Math.min(2, (gain / Math.max(1, series[first])) * 50);
-  return {
-    gain, gainPerDay, days,
-    score: gainPerDay * momentum * engagement,
-    momentum, engagement, views: series[last],
-    since: HISTORY.dates[first], until: HISTORY.dates[last],
-  };
-}
-
-let ALL_SONGS = null;
-function renderTrending() {
-  const scored = ALL_SONGS
-    .map(s => ({ s, t: HISTORY ? trendStats(s, activePlatform) : null }))
-    .filter(x => x.t && x.t.gain > 0)
-    .sort((a, b) => b.t.score - a.t.score)
-    .slice(0, TREND_N);
-
-  const listEl = document.getElementById("trend-list");
-  const platLabel = PLATFORM_META[activePlatform].label;
-  if (!scored.length) {
-    listEl.innerHTML = `<div class="loading-state">No ${escHtml(platLabel)} trending data yet · trending needs at least two daily snapshots showing view growth. The nightly refresh is collecting them now, so check back soon.</div>`;
-    document.getElementById("marquee-text").textContent =
-      "★ Trending charts are warming up · daily view snapshots are still being collected  ·  ★ Thank you for using 39charts ♪";
-    return;
-  }
-
-  const window = scored[0].t;
-  document.getElementById("trend-note").textContent =
-    `top ${scored.length} · ${platLabel} · growth window ${window.since} → ${window.until}`;
-
-  listEl.innerHTML = scored.map((x, i) => `
-    <a class="year-row" href="song.html?id=${encodeURIComponent(x.s.vocadbId)}">
-      <span class="yr-rank${i === 0 ? " is-gold" : ""}">${i + 1}</span>
-      <span class="yr-thumb">${thumbImg(x.s)}</span>
-      <span class="yr-main">
-        <span class="yr-title">${escHtml(x.s.title)}</span>
-        <span class="yr-artist">${escHtml(x.s.artist || x.s.artistString || "")} · ${x.t.views.toLocaleString()} ${escHtml(platLabel)} views</span>
-      </span>
-      <span class="yr-views" title="score ${Math.round(x.t.score).toLocaleString()} · momentum ×${x.t.momentum.toFixed(2)} · engagement ×${x.t.engagement.toFixed(2)}">+${Math.round(x.t.gainPerDay).toLocaleString()}<span class="yv-cap">views/day</span></span>
-    </a>`).join("");
-
-  document.getElementById("marquee-text").textContent =
-    `★ ${scored.length} songs trending on ${platLabel}  ·  ` +
-    `★ Hottest right now: ${scored[0].s.title} (+${Math.round(scored[0].t.gainPerDay).toLocaleString()} views/day)  ·  ` +
-    `★ Thank you for using 39charts ♪`;
-}
-
-function syncPlatformButtons() {
-  document.querySelectorAll("#trend-platform-switch .settings-choice").forEach(b =>
-    b.classList.toggle("is-active", b.dataset.platform === activePlatform));
-}
-document.getElementById("trend-platform-switch").addEventListener("click", e => {
-  const btn = e.target.closest("[data-platform]");
-  if (!btn || !ALL_SONGS) return;
-  activePlatform = btn.dataset.platform;
-  try { localStorage.setItem(PLATFORM_KEY, activePlatform); } catch (err) {}
-  syncPlatformButtons();
-  renderTrending();
-});
 
 Promise.all([
   loadJsonCached("../data/songs.json", "39c_songs_v2"),
   loadJsonCached("../data/views.json", "39c_views_v2"),
   loadJsonCached("../data/ytviews.json", "39c_ytviews_v2"),
   loadJsonCached("../data/biliviews.json", "39c_biliviews_v3"),
-  loadJsonCached("../data/viewhistory.json", "39c_viewhist_v2"),
-]).then(([songs, views, yt, bili, history]) => {
+  loadJsonCached("../data/recentadditions.json", "39c_recentadds_v1"),
+]).then(([songs, views, yt, bili, recent]) => {
   if (!songs) throw new Error("songs.json failed to load");
   if (views && views.views) VIEWS = views.views;
   if (yt && yt.stats) YT_STATS = yt.stats;
   if (bili && bili.stats) BILI_STATS = bili.stats;
-  if (history && history.dates && history.songs) HISTORY = history;
 
-  ALL_SONGS = songs;
-  syncPlatformButtons();
-  renderTrending();
+  const byId = new Map(songs.map(s => [String(s.vocadbId), s]));
+  const additions = (recent && Array.isArray(recent.additions)) ? recent.additions : [];
+  // Drop entries whose song no longer exists in the live pool (rare — a
+  // takedown or dedupe cleanup), then group consecutive same-date entries
+  // into feed sections.
+  const resolved = additions
+    .map(a => ({ date: a.date, song: byId.get(String(a.id)) }))
+    .filter(a => a.song);
+
+  const listEl = document.getElementById("recent-list");
+  if (!resolved.length) {
+    listEl.innerHTML = `<div class="loading-state">No recent-additions data yet · this feed is built from git history and needs at least one publish to show anything.</div>`;
+    document.getElementById("marquee-text").textContent =
+      "★ No recent additions tracked yet ·  ★ Thank you for using 39charts ♪";
+    return;
+  }
+
+  const groups = [];
+  for (const a of resolved) {
+    const g = groups[groups.length - 1];
+    if (g && g.date === a.date) g.items.push(a.song);
+    else groups.push({ date: a.date, items: [a.song] });
+  }
+
+  document.getElementById("recent-note").textContent =
+    `${resolved.length} songs · since ${fmtDate(groups[groups.length - 1].date)}`;
+
+  listEl.innerHTML = groups.map(g => `
+    <div class="recent-date-head">
+      <span>${fmtDate(g.date)}</span>
+      <span class="rdh-count">${g.items.length} song${g.items.length === 1 ? "" : "s"} added</span>
+    </div>
+    ${g.items.map(song => {
+      const v = combinedViews(song);
+      return `
+      <a class="year-row" href="song.html?id=${encodeURIComponent(song.vocadbId)}">
+        <span class="yr-thumb">${thumbImg(song)}</span>
+        <span class="yr-main">
+          <span class="yr-title">${escHtml(song.title)}</span>
+          <span class="yr-artist">${escHtml(song.artist || song.artistString || "")}</span>
+        </span>
+        <span class="yr-views${v == null ? " no-data" : ""}">${v == null ? "collecting…" : formatViews(v) + `<span class="yv-cap">views</span>`}</span>
+      </a>`;
+    }).join("")}
+  `).join("");
+
+  document.getElementById("marquee-text").textContent =
+    `★ ${resolved.length} songs added recently  ·  ` +
+    `★ Newest: ${groups[0].items[0].title} (${fmtDate(groups[0].date)})  ·  ` +
+    `★ Thank you for using 39charts ♪`;
 }).catch(err => {
-  document.getElementById("trend-list").innerHTML =
+  document.getElementById("recent-list").innerHTML =
     `<div class="loading-state">Could not load data · ${escHtml(err.message)}</div>`;
 });
 </script>

@@ -362,6 +362,7 @@ document.querySelectorAll(".nnd-mobile-nav a[data-proxy]").forEach(function(a){a
     <div class="game-mode-tabs">
       <a class="game-mode-btn" href="./">Songs</a>
         <a class="game-mode-btn" href="trending.html">Trending</a>
+        <a class="game-mode-btn" href="recent.html">Recent</a>
         <a class="game-mode-btn" href="milestones.html">Milestones</a>
       <a class="game-mode-btn is-active" href="years.html">Years</a>
       <a class="game-mode-btn" href="producers.html">Producers</a>
@@ -454,7 +455,7 @@ function coverArtChain(song) {
   if (song.coverArt && !all.includes(song.coverArt)) all.unshift(song.coverArt);
   const ytHq = song.ytOriginalId ? `https://i.ytimg.com/vi/${song.ytOriginalId}/hqdefault.jpg` : null;
   if (ytHq) { all.push(ytHq, `https://i.ytimg.com/vi/${song.ytOriginalId}/mqdefault.jpg`); }
-  const nndNum = song.nndOriginalId ? String(song.nndOriginalId).match(/(d+)/)?.[1] : null;
+  const nndNum = song.nndOriginalId ? String(song.nndOriginalId).match(/(\d+)/)?.[1] : null;
   if (nndNum) all.push(`https://nicovideo.cdn.nimg.jp/thumbnails/${nndNum}/${nndNum}`);
   const bp = BILI_STATS[String(song.vocadbId)];
   if (bp && bp.pic) all.push(String(bp.pic).replace(/^http:/, "https:"));
