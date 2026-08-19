@@ -100982,7 +100982,9 @@
     "vocadbUrl": "https://vocadb.net/S/635400",
     "nndOriginalId": "",
     "ytOriginalId": "7SBylxmQWxs",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 1487,
@@ -101013,7 +101015,13 @@
     "vocadbUrl": "https://vocadb.net/S/1487",
     "nndOriginalId": "sm16353783",
     "ytOriginalId": "A3oQOEUeQk4",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 931604,
@@ -101042,7 +101050,13 @@
     "vocadbUrl": "https://vocadb.net/S/931604",
     "nndOriginalId": "sm46049301",
     "ytOriginalId": "MiSRagYgSzM",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 291474,
@@ -101072,7 +101086,13 @@
     "vocadbUrl": "https://vocadb.net/S/291474",
     "nndOriginalId": "",
     "ytOriginalId": "EUkGDfTWZz0",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 889641,
@@ -101104,7 +101124,15 @@
     "vocadbUrl": "https://vocadb.net/S/889641",
     "nndOriginalId": "",
     "ytOriginalId": "JSzY7o-QNpo",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi",
+      "Luo Tianyi AI (X Studio)"
+    ],
+    "synthEngines": [
+      "Vocaloid",
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 11595,
@@ -101137,7 +101165,13 @@
     "vocadbUrl": "https://vocadb.net/S/11595",
     "nndOriginalId": "sm17619510",
     "ytOriginalId": "S1w2UR1OVJE",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 13873,
@@ -101170,7 +101204,13 @@
     "vocadbUrl": "https://vocadb.net/S/13873",
     "nndOriginalId": "sm9759869",
     "ytOriginalId": "08g1PMZgOzI",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 938065,
@@ -101196,7 +101236,13 @@
     "vocadbUrl": "https://vocadb.net/S/938065",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi AI (X Studio)"
+    ],
+    "synthEngines": [
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 3389,
@@ -101228,7 +101274,13 @@
     "vocadbUrl": "https://vocadb.net/S/3389",
     "nndOriginalId": "sm13452778",
     "ytOriginalId": "wsE1FabUeAY",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku Append (Solid)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 489174,
@@ -101264,7 +101316,19 @@
     "vocadbUrl": "https://vocadb.net/S/489174",
     "nndOriginalId": "",
     "ytOriginalId": "Sr1sjU0nsJ8",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity",
+      "Chiyu",
+      "Shian",
+      "Cangqiong",
+      "Haiyi",
+      "Muxin",
+      "Minus"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 792837,
@@ -101295,7 +101359,13 @@
     "vocadbUrl": "https://vocadb.net/S/792837",
     "nndOriginalId": "sm44982489",
     "ytOriginalId": "cPD1Nr25RZE",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 958040,
@@ -101321,7 +101391,13 @@
     "vocadbUrl": "https://vocadb.net/S/958040",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 495946,
@@ -101350,7 +101426,9 @@
     "vocadbUrl": "https://vocadb.net/S/495946",
     "nndOriginalId": "",
     "ytOriginalId": "BdCJxwOs6Mw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 472799,
@@ -101383,7 +101461,15 @@
     "vocadbUrl": "https://vocadb.net/S/472799",
     "nndOriginalId": "",
     "ytOriginalId": "_k_guU7lIgQ",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity",
+      "Chiyu",
+      "Cangqiong"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 215004,
@@ -101416,7 +101502,13 @@
     "vocadbUrl": "https://vocadb.net/S/215004",
     "nndOriginalId": "sm34200478",
     "ytOriginalId": "9kRa_S1G4Ok",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 227988,
@@ -101444,7 +101536,13 @@
     "vocadbUrl": "https://vocadb.net/S/227988",
     "nndOriginalId": "",
     "ytOriginalId": "NWsGk8gIvJw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 938064,
@@ -101470,7 +101568,13 @@
     "vocadbUrl": "https://vocadb.net/S/938064",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi AI (X Studio)"
+    ],
+    "synthEngines": [
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 105104,
@@ -101500,7 +101604,14 @@
     "vocadbUrl": "https://vocadb.net/S/105104",
     "nndOriginalId": "",
     "ytOriginalId": "eYirQx34eVI",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi",
+      "YANHE"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 513889,
@@ -101530,7 +101641,9 @@
     "vocadbUrl": "https://vocadb.net/S/513889",
     "nndOriginalId": "",
     "ytOriginalId": "qt0fWLwl8YI",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 991290,
@@ -101559,7 +101672,9 @@
     "vocadbUrl": "https://vocadb.net/S/991290",
     "nndOriginalId": "",
     "ytOriginalId": "BLgNIDmk8KI",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 293491,
@@ -101594,7 +101709,13 @@
     "vocadbUrl": "https://vocadb.net/S/293491",
     "nndOriginalId": "sm37446192",
     "ytOriginalId": "MDnUVc1rZQk",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 94656,
@@ -101626,7 +101747,13 @@
     "vocadbUrl": "https://vocadb.net/S/94656",
     "nndOriginalId": "sm26725705",
     "ytOriginalId": "p_FAIIuBXl8",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 954115,
@@ -101659,7 +101786,15 @@
     "vocadbUrl": "https://vocadb.net/S/954115",
     "nndOriginalId": "sm46375652",
     "ytOriginalId": "Xl9ygHR9MxM",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku",
+      "Ui"
+    ],
+    "synthEngines": [
+      "Vocaloid",
+      "VoiSona"
+    ]
   },
   {
     "vocadbId": 178119,
@@ -101697,7 +101832,15 @@
     "vocadbUrl": "https://vocadb.net/S/178119",
     "nndOriginalId": "sm32464118",
     "ytOriginalId": "bFZoeJn3G3o",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku",
+      "Female Voice 1 (AquesTalk)"
+    ],
+    "synthEngines": [
+      "Vocaloid",
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 381205,
@@ -101732,7 +101875,15 @@
     "vocadbUrl": "https://vocadb.net/S/381205",
     "nndOriginalId": "sm39948783",
     "ytOriginalId": "pu1gbwsB9Os",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Kagamine Rin V4X (Power)",
+      "Kagamine Len V4X (Power)",
+      "Hatsune Miku V4X (Dark)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 291022,
@@ -101762,7 +101913,13 @@
     "vocadbUrl": "https://vocadb.net/S/291022",
     "nndOriginalId": "",
     "ytOriginalId": "Zg750lodjUw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 776372,
@@ -101794,7 +101951,13 @@
     "vocadbUrl": "https://vocadb.net/S/776372",
     "nndOriginalId": "",
     "ytOriginalId": "v_4PxTktS8U",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi AI (X Studio)"
+    ],
+    "synthEngines": [
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 201282,
@@ -101829,7 +101992,13 @@
     "vocadbUrl": "https://vocadb.net/S/201282",
     "nndOriginalId": "sm33721009",
     "ytOriginalId": "Tg5z_8286ms",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 309123,
@@ -101860,7 +102029,14 @@
     "vocadbUrl": "https://vocadb.net/S/309123",
     "nndOriginalId": "",
     "ytOriginalId": "uBRc7bwoXLQ",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi V5 (Unknown)",
+      "Luo Tianyi V5 (Nature)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 430621,
@@ -101889,7 +102065,13 @@
     "vocadbUrl": "https://vocadb.net/S/430621",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 196282,
@@ -101919,7 +102101,13 @@
     "vocadbUrl": "https://vocadb.net/S/196282",
     "nndOriginalId": "",
     "ytOriginalId": "YLXWw7r41QE",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 818847,
@@ -101945,7 +102133,13 @@
     "vocadbUrl": "https://vocadb.net/S/818847",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 349353,
@@ -101981,7 +102175,15 @@
     "vocadbUrl": "https://vocadb.net/S/349353",
     "nndOriginalId": "sm39426308",
     "ytOriginalId": "n13aqoGxyy0",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku V4X (Solid)",
+      "Otomachi Una Spicy",
+      "Hatsune Miku V4X (Soft)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 937388,
@@ -102011,7 +102213,9 @@
     "vocadbUrl": "https://vocadb.net/S/937388",
     "nndOriginalId": "",
     "ytOriginalId": "cy6VVAX2QX8",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 321984,
@@ -102042,7 +102246,13 @@
     "vocadbUrl": "https://vocadb.net/S/321984",
     "nndOriginalId": "",
     "ytOriginalId": "ZSxv3DTLKLo",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 197685,
@@ -102073,7 +102283,13 @@
     "vocadbUrl": "https://vocadb.net/S/197685",
     "nndOriginalId": "sm33465330",
     "ytOriginalId": "MKrVBS6pX9I",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 835447,
@@ -102101,7 +102317,13 @@
     "vocadbUrl": "https://vocadb.net/S/835447",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Kasane Teto SV"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 675676,
@@ -102135,7 +102357,9 @@
     "vocadbUrl": "https://vocadb.net/S/675676",
     "nndOriginalId": "",
     "ytOriginalId": "fmhOdeLr1OY",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 538028,
@@ -102168,7 +102392,14 @@
     "vocadbUrl": "https://vocadb.net/S/538028",
     "nndOriginalId": "sm43086737",
     "ytOriginalId": "lIoi2r3f5fU",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku V4X (Dark)",
+      "Hatsune Miku V4X (Soft)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 265300,
@@ -102197,7 +102428,13 @@
     "vocadbUrl": "https://vocadb.net/S/265300",
     "nndOriginalId": "",
     "ytOriginalId": "5nMjpmdqW1w",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 601423,
@@ -102227,7 +102464,14 @@
     "vocadbUrl": "https://vocadb.net/S/601423",
     "nndOriginalId": "",
     "ytOriginalId": "6ZLRxRmgKHM",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity",
+      "Yongye Minus"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 684073,
@@ -102259,7 +102503,13 @@
     "vocadbUrl": "https://vocadb.net/S/684073",
     "nndOriginalId": "sm44189070",
     "ytOriginalId": "lXWsJEoBHPU",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Megurine Luka"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 980770,
@@ -102294,7 +102544,14 @@
     "vocadbUrl": "https://vocadb.net/S/980770",
     "nndOriginalId": "sm46378959",
     "ytOriginalId": "ngVPf_NMLkw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Ui",
+      "Tamaki"
+    ],
+    "synthEngines": [
+      "VoiSona"
+    ]
   },
   {
     "vocadbId": 12680,
@@ -102326,7 +102583,13 @@
     "vocadbUrl": "https://vocadb.net/S/12680",
     "nndOriginalId": "sm17954994",
     "ytOriginalId": "NyzFgvKnoqw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 907825,
@@ -102358,7 +102621,9 @@
     "vocadbUrl": "https://vocadb.net/S/907825",
     "nndOriginalId": "",
     "ytOriginalId": "EwpkXjCojC4",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 467630,
@@ -102388,7 +102653,15 @@
     "vocadbUrl": "https://vocadb.net/S/467630",
     "nndOriginalId": "",
     "ytOriginalId": "bS2ULqR4UQc",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku V4X (Dark)",
+      "Female Voice 1 (AquesTalk)"
+    ],
+    "synthEngines": [
+      "Vocaloid",
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 99595,
@@ -102422,7 +102695,15 @@
     "vocadbUrl": "https://vocadb.net/S/99595",
     "nndOriginalId": "sm27017220",
     "ytOriginalId": "FDd3m_Tr0m0",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku",
+      "Female Voice 1 (AquesTalk)"
+    ],
+    "synthEngines": [
+      "Vocaloid",
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 1011066,
@@ -102460,7 +102741,19 @@
     "vocadbUrl": "https://vocadb.net/S/1011066",
     "nndOriginalId": "sm46613085",
     "ytOriginalId": "TzH5BsJj81Y",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Ui",
+      "Google Text to Speech",
+      "Kasane Teto SV",
+      "Hatsune Miku V4X (Original)"
+    ],
+    "synthEngines": [
+      "VoiSona",
+      "OtherVoiceSynthesizer",
+      "SynthesizerV",
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 44378,
@@ -102490,7 +102783,13 @@
     "vocadbUrl": "https://vocadb.net/S/44378",
     "nndOriginalId": "sm20530306",
     "ytOriginalId": "bpqBgy8xdrc",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 249740,
@@ -102525,7 +102824,18 @@
     "vocadbUrl": "https://vocadb.net/S/249740",
     "nndOriginalId": "",
     "ytOriginalId": "WrYYOtp18rc",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Yuezheng Longya (Unknown)",
+      "YANHE",
+      "Yuezheng Ling",
+      "Luo Tianyi",
+      "Zhiyu Moke",
+      "Mo Qingxian"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 141717,
@@ -102556,7 +102866,14 @@
     "vocadbUrl": "https://vocadb.net/S/141717",
     "nndOriginalId": "",
     "ytOriginalId": "uVzuOD00rNI",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi",
+      "YANHE"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 818265,
@@ -102588,7 +102905,9 @@
     "vocadbUrl": "https://vocadb.net/S/818265",
     "nndOriginalId": "",
     "ytOriginalId": "U_7s-8CNais",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 461163,
@@ -102621,7 +102940,14 @@
     "vocadbUrl": "https://vocadb.net/S/461163",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi",
+      "Yuezheng Ling"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 797677,
@@ -102654,7 +102980,9 @@
     "vocadbUrl": "https://vocadb.net/S/797677",
     "nndOriginalId": "",
     "ytOriginalId": "L-MGjl2CsVg",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 818838,
@@ -102681,7 +103009,14 @@
     "vocadbUrl": "https://vocadb.net/S/818838",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity",
+      "Yun Quan"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 111506,
@@ -102709,7 +103044,13 @@
     "vocadbUrl": "https://vocadb.net/S/111506",
     "nndOriginalId": "",
     "ytOriginalId": "rLS17_Io0js",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 288408,
@@ -102737,7 +103078,13 @@
     "vocadbUrl": "https://vocadb.net/S/288408",
     "nndOriginalId": "",
     "ytOriginalId": "sPATM0vnuWw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 670984,
@@ -102768,7 +103115,9 @@
     "vocadbUrl": "https://vocadb.net/S/670984",
     "nndOriginalId": "",
     "ytOriginalId": "Wts0oLoLys0",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 101674,
@@ -102795,7 +103144,13 @@
     "vocadbUrl": "https://vocadb.net/S/101674",
     "nndOriginalId": "sm27253215",
     "ytOriginalId": "FdRljyIlgEo",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 584711,
@@ -102831,7 +103186,14 @@
     "vocadbUrl": "https://vocadb.net/S/584711",
     "nndOriginalId": "",
     "ytOriginalId": "h3yQGDSjc08",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Mo Qingxian",
+      "Zhiyu Moke"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 908341,
@@ -102859,7 +103221,13 @@
     "vocadbUrl": "https://vocadb.net/S/908341",
     "nndOriginalId": "",
     "ytOriginalId": "U-BDKgtUvHE",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Speak Pal"
+    ],
+    "synthEngines": [
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 836134,
@@ -102886,7 +103254,13 @@
     "vocadbUrl": "https://vocadb.net/S/836134",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Haiyi"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 146080,
@@ -102916,7 +103290,13 @@
     "vocadbUrl": "https://vocadb.net/S/146080",
     "nndOriginalId": "",
     "ytOriginalId": "2EgtuW4QCCg",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 933966,
@@ -102944,7 +103324,13 @@
     "vocadbUrl": "https://vocadb.net/S/933966",
     "nndOriginalId": "",
     "ytOriginalId": "_3KwnHLSAd4",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi AI (X Studio)"
+    ],
+    "synthEngines": [
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 791709,
@@ -102976,7 +103362,14 @@
     "vocadbUrl": "https://vocadb.net/S/791709",
     "nndOriginalId": "sm45003995",
     "ytOriginalId": "wewNq2ZHlLY",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Megurine Luka",
+      "Kagamine Len"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 818880,
@@ -103004,7 +103397,13 @@
     "vocadbUrl": "https://vocadb.net/S/818880",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 247775,
@@ -103038,7 +103437,13 @@
     "vocadbUrl": "https://vocadb.net/S/247775",
     "nndOriginalId": "sm35482351",
     "ytOriginalId": "7rUakfZ1jCo",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 698978,
@@ -103068,7 +103473,13 @@
     "vocadbUrl": "https://vocadb.net/S/698978",
     "nndOriginalId": "",
     "ytOriginalId": "A6Jolq4C8kc",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Shian"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 276852,
@@ -103102,7 +103513,14 @@
     "vocadbUrl": "https://vocadb.net/S/276852",
     "nndOriginalId": "",
     "ytOriginalId": "c-ySybwtJxc",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Cangqiong",
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 10492,
@@ -103135,7 +103553,13 @@
     "vocadbUrl": "https://vocadb.net/S/10492",
     "nndOriginalId": "sm6738433",
     "ytOriginalId": "2trNXrUuGrs",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 476884,
@@ -103162,7 +103586,13 @@
     "vocadbUrl": "https://vocadb.net/S/476884",
     "nndOriginalId": "",
     "ytOriginalId": "mbg-IKAO4c4",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 19256,
@@ -103190,7 +103620,13 @@
     "vocadbUrl": "https://vocadb.net/S/19256",
     "nndOriginalId": "sm19660431",
     "ytOriginalId": "mIyFIenBlzg",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku Append (Dark)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 801461,
@@ -103221,7 +103657,13 @@
     "vocadbUrl": "https://vocadb.net/S/801461",
     "nndOriginalId": "",
     "ytOriginalId": "fSMqwKBvDWQ",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Shian"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 817530,
@@ -103251,7 +103693,15 @@
     "vocadbUrl": "https://vocadb.net/S/817530",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "SAROS",
+      "SOLARIA",
+      "ASTERIAN"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 925827,
@@ -103278,7 +103728,13 @@
     "vocadbUrl": "https://vocadb.net/S/925827",
     "nndOriginalId": "",
     "ytOriginalId": "xOk6ppFR1lg",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Yuezheng Ling"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 134459,
@@ -103311,7 +103767,13 @@
     "vocadbUrl": "https://vocadb.net/S/134459",
     "nndOriginalId": "sm29728097",
     "ytOriginalId": "Oyc1zJ4L6UA",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 906950,
@@ -103339,7 +103801,13 @@
     "vocadbUrl": "https://vocadb.net/S/906950",
     "nndOriginalId": "",
     "ytOriginalId": "2FEoZqUoCHs",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 197889,
@@ -103368,7 +103836,13 @@
     "vocadbUrl": "https://vocadb.net/S/197889",
     "nndOriginalId": "",
     "ytOriginalId": "JvjX7hqWzUg",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 98022,
@@ -103398,7 +103872,14 @@
     "vocadbUrl": "https://vocadb.net/S/98022",
     "nndOriginalId": "",
     "ytOriginalId": "PWE_CDA03nM",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi",
+      "YANHE"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 429586,
@@ -103433,7 +103914,14 @@
     "vocadbUrl": "https://vocadb.net/S/429586",
     "nndOriginalId": "sm40870801",
     "ytOriginalId": "8yUDr7BQYEo",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku V4X (Dark)",
+      "Hatsune Miku V4X (Unknown)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 941145,
@@ -103459,7 +103947,9 @@
     "vocadbUrl": "https://vocadb.net/S/941145",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 750377,
@@ -103486,7 +103976,13 @@
     "vocadbUrl": "https://vocadb.net/S/750377",
     "nndOriginalId": "",
     "ytOriginalId": "Wgaum-YXrNA",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 480818,
@@ -103515,7 +104011,13 @@
     "vocadbUrl": "https://vocadb.net/S/480818",
     "nndOriginalId": "",
     "ytOriginalId": "6aHdnDUcmIU",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 16289,
@@ -103547,7 +104049,14 @@
     "vocadbUrl": "https://vocadb.net/S/16289",
     "nndOriginalId": "sm19028880",
     "ytOriginalId": "Wbmaphf-kJ8",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku Append (Dark)",
+      "Kagamine Rin Append (Warm)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 100322,
@@ -103579,7 +104088,14 @@
     "vocadbUrl": "https://vocadb.net/S/100322",
     "nndOriginalId": "",
     "ytOriginalId": "_BQY1Yr8h28",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi",
+      "YANHE"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 700024,
@@ -103612,7 +104128,13 @@
     "vocadbUrl": "https://vocadb.net/S/700024",
     "nndOriginalId": "sm44317516",
     "ytOriginalId": "A1XqqVWyUl4",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku V4X (Dark)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 58537,
@@ -103644,7 +104166,15 @@
     "vocadbUrl": "https://vocadb.net/S/58537",
     "nndOriginalId": "sm24115185",
     "ytOriginalId": "fFZqDmGvlRw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku",
+      "Female Voice 1 (AquesTalk)"
+    ],
+    "synthEngines": [
+      "Vocaloid",
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 816291,
@@ -103671,7 +104201,9 @@
     "vocadbUrl": "https://vocadb.net/S/816291",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 36166,
@@ -103705,7 +104237,14 @@
     "vocadbUrl": "https://vocadb.net/S/36166",
     "nndOriginalId": "sm21645689",
     "ytOriginalId": "e_a7FGe_hxY",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku Append (Soft)",
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 291470,
@@ -103739,7 +104278,13 @@
     "vocadbUrl": "https://vocadb.net/S/291470",
     "nndOriginalId": "sm37347192",
     "ytOriginalId": "UZXPxdJqPBA",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 818873,
@@ -103765,7 +104310,13 @@
     "vocadbUrl": "https://vocadb.net/S/818873",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Minus"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 354073,
@@ -103794,7 +104345,13 @@
     "vocadbUrl": "https://vocadb.net/S/354073",
     "nndOriginalId": "",
     "ytOriginalId": "Pjqq39I44iQ",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi V4 (Power)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 180182,
@@ -103822,7 +104379,13 @@
     "vocadbUrl": "https://vocadb.net/S/180182",
     "nndOriginalId": "",
     "ytOriginalId": "qAmyFRhfjPU",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 681405,
@@ -103853,7 +104416,13 @@
     "vocadbUrl": "https://vocadb.net/S/681405",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku V4 (Chinese)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 104978,
@@ -103883,7 +104452,14 @@
     "vocadbUrl": "https://vocadb.net/S/104978",
     "nndOriginalId": "",
     "ytOriginalId": "ofKFB3cIfvk",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi",
+      "YANHE"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 89921,
@@ -103915,7 +104491,14 @@
     "vocadbUrl": "https://vocadb.net/S/89921",
     "nndOriginalId": "",
     "ytOriginalId": "PgjL8aa8c8E",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "YANHE",
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 920293,
@@ -103948,7 +104531,13 @@
     "vocadbUrl": "https://vocadb.net/S/920293",
     "nndOriginalId": "sm45862979",
     "ytOriginalId": "IgI8y1WPIu8",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 316475,
@@ -103977,7 +104566,13 @@
     "vocadbUrl": "https://vocadb.net/S/316475",
     "nndOriginalId": "",
     "ytOriginalId": "zZ0eeQ1zHik",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Eleanor Forte"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 470243,
@@ -104007,7 +104602,14 @@
     "vocadbUrl": "https://vocadb.net/S/470243",
     "nndOriginalId": "",
     "ytOriginalId": "SAKva1Srwbw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Chiyu",
+      "Stardust Infinity"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 862389,
@@ -104033,7 +104635,9 @@
     "vocadbUrl": "https://vocadb.net/S/862389",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 331163,
@@ -104065,7 +104669,14 @@
     "vocadbUrl": "https://vocadb.net/S/331163",
     "nndOriginalId": "",
     "ytOriginalId": "9bJgfV2cZ68",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Haiyi",
+      "Minus"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 917705,
@@ -104093,7 +104704,13 @@
     "vocadbUrl": "https://vocadb.net/S/917705",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 242985,
@@ -104123,7 +104740,14 @@
     "vocadbUrl": "https://vocadb.net/S/242985",
     "nndOriginalId": "",
     "ytOriginalId": "Qde1c8T1a2o",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi V4 (Power)",
+      "Zhiyu Moke"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 132917,
@@ -104154,7 +104778,13 @@
     "vocadbUrl": "https://vocadb.net/S/132917",
     "nndOriginalId": "",
     "ytOriginalId": "Uz42GvdALyg",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Yuezheng Ling"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 523032,
@@ -104186,7 +104816,13 @@
     "vocadbUrl": "https://vocadb.net/S/523032",
     "nndOriginalId": "sm42639522",
     "ytOriginalId": "khnNHHGR8jw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku V4X (Dark)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 11835,
@@ -104218,7 +104854,13 @@
     "vocadbUrl": "https://vocadb.net/S/11835",
     "nndOriginalId": "sm11526354",
     "ytOriginalId": "U2JdSX9DjD0",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku Append (Solid)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 104989,
@@ -104251,7 +104893,16 @@
     "vocadbUrl": "https://vocadb.net/S/104989",
     "nndOriginalId": "",
     "ytOriginalId": "umyPI0saygY",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "YANHE",
+      "Luo Tianyi",
+      "Hatsune Miku",
+      "KAITO"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 270309,
@@ -104281,7 +104932,13 @@
     "vocadbUrl": "https://vocadb.net/S/270309",
     "nndOriginalId": "",
     "ytOriginalId": "4UyU9hrfn4w",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi V4 (Normal)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 137370,
@@ -104312,7 +104969,13 @@
     "vocadbUrl": "https://vocadb.net/S/137370",
     "nndOriginalId": "sm30093287",
     "ytOriginalId": "3jt_YCPVm24",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 272193,
@@ -104342,7 +105005,13 @@
     "vocadbUrl": "https://vocadb.net/S/272193",
     "nndOriginalId": "",
     "ytOriginalId": "xhxgTEzfz6A",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku V4 (Chinese)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 115518,
@@ -104373,7 +105042,15 @@
     "vocadbUrl": "https://vocadb.net/S/115518",
     "nndOriginalId": "sm28285692",
     "ytOriginalId": "NofO9ubSZ3Q",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku",
+      "Female Voice 1 (AquesTalk)"
+    ],
+    "synthEngines": [
+      "Vocaloid",
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 42969,
@@ -104406,7 +105083,13 @@
     "vocadbUrl": "https://vocadb.net/S/42969",
     "nndOriginalId": "sm30298623",
     "ytOriginalId": "eVDITkiYUy8",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 71293,
@@ -104438,7 +105121,15 @@
     "vocadbUrl": "https://vocadb.net/S/71293",
     "nndOriginalId": "sm24928072",
     "ytOriginalId": "2xHeS9up5rE",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Female Voice 1 (AquesTalk)",
+      "Hatsune Miku Append (Solid)"
+    ],
+    "synthEngines": [
+      "OtherVoiceSynthesizer",
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 235563,
@@ -104467,7 +105158,13 @@
     "vocadbUrl": "https://vocadb.net/S/235563",
     "nndOriginalId": "",
     "ytOriginalId": "QAK7OZBSAxY",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 539495,
@@ -104496,7 +105193,13 @@
     "vocadbUrl": "https://vocadb.net/S/539495",
     "nndOriginalId": "",
     "ytOriginalId": "6iLrRMXbzS0",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 68487,
@@ -104528,7 +105231,13 @@
     "vocadbUrl": "https://vocadb.net/S/68487",
     "nndOriginalId": "sm24639589",
     "ytOriginalId": "A8hnlbtMsUs",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku V3 (Solid)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 9205,
@@ -104562,7 +105271,13 @@
     "vocadbUrl": "https://vocadb.net/S/9205",
     "nndOriginalId": "sm12875726",
     "ytOriginalId": "uAb7d7V7GMw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 961633,
@@ -104588,7 +105303,13 @@
     "vocadbUrl": "https://vocadb.net/S/961633",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 71296,
@@ -104618,7 +105339,13 @@
     "vocadbUrl": "https://vocadb.net/S/71296",
     "nndOriginalId": "sm25535288",
     "ytOriginalId": "a8AIVe6MnBM",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 251545,
@@ -104647,7 +105374,13 @@
     "vocadbUrl": "https://vocadb.net/S/251545",
     "nndOriginalId": "",
     "ytOriginalId": "F-T7hJeH8ps",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 13875,
@@ -104675,7 +105408,14 @@
     "vocadbUrl": "https://vocadb.net/S/13875",
     "nndOriginalId": "sm14341999",
     "ytOriginalId": "ODfip8xt1Aw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku Append (Dark)",
+      "Hatsune Miku Append (Solid)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 109077,
@@ -104707,7 +105447,13 @@
     "vocadbUrl": "https://vocadb.net/S/109077",
     "nndOriginalId": "sm38290149",
     "ytOriginalId": "bwMGqyTmoro",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 219730,
@@ -104740,7 +105486,13 @@
     "vocadbUrl": "https://vocadb.net/S/219730",
     "nndOriginalId": "sm34799315",
     "ytOriginalId": "xy58QqB4NJA",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 325404,
@@ -104769,7 +105521,13 @@
     "vocadbUrl": "https://vocadb.net/S/325404",
     "nndOriginalId": "",
     "ytOriginalId": "TUjPAgqTZD0",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 959066,
@@ -104799,7 +105557,9 @@
     "vocadbUrl": "https://vocadb.net/S/959066",
     "nndOriginalId": "",
     "ytOriginalId": "YM_YU8HVpWM",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 819340,
@@ -104825,7 +105585,9 @@
     "vocadbUrl": "https://vocadb.net/S/819340",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 473785,
@@ -104854,7 +105616,13 @@
     "vocadbUrl": "https://vocadb.net/S/473785",
     "nndOriginalId": "",
     "ytOriginalId": "x9DhqslH2T8",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 315045,
@@ -104886,7 +105654,13 @@
     "vocadbUrl": "https://vocadb.net/S/315045",
     "nndOriginalId": "",
     "ytOriginalId": "Fbl6LLtqrME",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 996513,
@@ -104915,7 +105689,13 @@
     "vocadbUrl": "https://vocadb.net/S/996513",
     "nndOriginalId": "",
     "ytOriginalId": "JC92XgV50Cg",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Kasane Teto SV"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 382296,
@@ -104948,7 +105728,14 @@
     "vocadbUrl": "https://vocadb.net/S/382296",
     "nndOriginalId": "",
     "ytOriginalId": "21b7Rpr2EY0",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Cangqiong",
+      "Cangqiong Synthesizer V Plus"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 606220,
@@ -104979,7 +105766,13 @@
     "vocadbUrl": "https://vocadb.net/S/606220",
     "nndOriginalId": "sm43590624",
     "ytOriginalId": "6Fm-wW_57FY",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "GUMI"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 272925,
@@ -105016,7 +105809,13 @@
     "vocadbUrl": "https://vocadb.net/S/272925",
     "nndOriginalId": "sm36389366",
     "ytOriginalId": "dmR45Ndc3Ns",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 835451,
@@ -105044,7 +105843,13 @@
     "vocadbUrl": "https://vocadb.net/S/835451",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Kasane Teto SV"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 420899,
@@ -105076,7 +105881,9 @@
     "vocadbUrl": "https://vocadb.net/S/420899",
     "nndOriginalId": "",
     "ytOriginalId": "tCHvOSBjbs8",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 406323,
@@ -105107,7 +105914,13 @@
     "vocadbUrl": "https://vocadb.net/S/406323",
     "nndOriginalId": "",
     "ytOriginalId": "fYIajCFAli8",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 910104,
@@ -105138,7 +105951,13 @@
     "vocadbUrl": "https://vocadb.net/S/910104",
     "nndOriginalId": "sm45906405",
     "ytOriginalId": "B3IClmMbH6w",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 247781,
@@ -105172,7 +105991,13 @@
     "vocadbUrl": "https://vocadb.net/S/247781",
     "nndOriginalId": "sm35698902",
     "ytOriginalId": "cm2Xz8WKf-4",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku V4X (Solid)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 1009072,
@@ -105200,7 +106025,13 @@
     "vocadbUrl": "https://vocadb.net/S/1009072",
     "nndOriginalId": "",
     "ytOriginalId": "BA-Q_82U2Io",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Kasane Teto SV"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 933124,
@@ -105226,7 +106057,13 @@
     "vocadbUrl": "https://vocadb.net/S/933124",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 583704,
@@ -105256,7 +106093,9 @@
     "vocadbUrl": "https://vocadb.net/S/583704",
     "nndOriginalId": "",
     "ytOriginalId": "HBD_K0Tb2BE",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 253832,
@@ -105285,7 +106124,13 @@
     "vocadbUrl": "https://vocadb.net/S/253832",
     "nndOriginalId": "",
     "ytOriginalId": "K7zoXp09w3I",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 32994,
@@ -105318,7 +106163,13 @@
     "vocadbUrl": "https://vocadb.net/S/32994",
     "nndOriginalId": "sm21274195",
     "ytOriginalId": "WOJlJd0nAMI",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku Append (Dark)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 5200,
@@ -105351,7 +106202,13 @@
     "vocadbUrl": "https://vocadb.net/S/5200",
     "nndOriginalId": "sm18792060",
     "ytOriginalId": "KXr5X2s8lAc",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku Append (Dark)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 169136,
@@ -105383,7 +106240,14 @@
     "vocadbUrl": "https://vocadb.net/S/169136",
     "nndOriginalId": "",
     "ytOriginalId": "AtuKYfGO-tw",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi",
+      "YANHE"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 2714,
@@ -105414,7 +106278,13 @@
     "vocadbUrl": "https://vocadb.net/S/2714",
     "nndOriginalId": "sm12487852",
     "ytOriginalId": "DBTjK5y68jA",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku Append (Dark)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 993363,
@@ -105444,7 +106314,15 @@
     "vocadbUrl": "https://vocadb.net/S/993363",
     "nndOriginalId": "",
     "ytOriginalId": "tlFnfEWZCtQ",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku V3 (Original)",
+      "MeowSynth"
+    ],
+    "synthEngines": [
+      "Vocaloid",
+      "OtherVoiceSynthesizer"
+    ]
   },
   {
     "vocadbId": 103914,
@@ -105475,7 +106353,14 @@
     "vocadbUrl": "https://vocadb.net/S/103914",
     "nndOriginalId": "",
     "ytOriginalId": "QRXMj0JQelk",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi",
+      "Yuezheng Ling"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 914115,
@@ -105502,7 +106387,13 @@
     "vocadbUrl": "https://vocadb.net/S/914115",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 454917,
@@ -105536,7 +106427,16 @@
     "vocadbUrl": "https://vocadb.net/S/454917",
     "nndOriginalId": "",
     "ytOriginalId": "J-fmmT5bOWM",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Cangqiong",
+      "Chiyu",
+      "Stardust Infinity",
+      "Haiyi"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 41705,
@@ -105567,7 +106467,13 @@
     "vocadbUrl": "https://vocadb.net/S/41705",
     "nndOriginalId": "sm22020109",
     "ytOriginalId": "tPWOd207TA0",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 47298,
@@ -105600,7 +106506,13 @@
     "vocadbUrl": "https://vocadb.net/S/47298",
     "nndOriginalId": "sm22748403",
     "ytOriginalId": "-t3gg6NH_kA",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 917701,
@@ -105628,7 +106540,13 @@
     "vocadbUrl": "https://vocadb.net/S/917701",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 957041,
@@ -105656,7 +106574,13 @@
     "vocadbUrl": "https://vocadb.net/S/957041",
     "nndOriginalId": "so46239386",
     "ytOriginalId": "WSDSWdIt3jY",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 278049,
@@ -105686,7 +106610,13 @@
     "vocadbUrl": "https://vocadb.net/S/278049",
     "nndOriginalId": "",
     "ytOriginalId": "IrTRujpdzW4",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 830686,
@@ -105717,7 +106647,9 @@
     "vocadbUrl": "https://vocadb.net/S/830686",
     "nndOriginalId": "",
     "ytOriginalId": "q4TOyly9bRE",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 90093,
@@ -105746,7 +106678,13 @@
     "vocadbUrl": "https://vocadb.net/S/90093",
     "nndOriginalId": "",
     "ytOriginalId": "aD216rL5ZBQ",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 907341,
@@ -105772,7 +106710,13 @@
     "vocadbUrl": "https://vocadb.net/S/907341",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 347029,
@@ -105804,7 +106748,14 @@
     "vocadbUrl": "https://vocadb.net/S/347029",
     "nndOriginalId": "",
     "ytOriginalId": "do3pVQvuUlA",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Cangqiong",
+      "Chiyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 225055,
@@ -105835,7 +106786,13 @@
     "vocadbUrl": "https://vocadb.net/S/225055",
     "nndOriginalId": "",
     "ytOriginalId": "PEeCnP7rPtI",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Yuezheng Ling"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 379981,
@@ -105865,7 +106822,9 @@
     "vocadbUrl": "https://vocadb.net/S/379981",
     "nndOriginalId": "",
     "ytOriginalId": "aHMR9pJG54E",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 675677,
@@ -105893,7 +106852,13 @@
     "vocadbUrl": "https://vocadb.net/S/675677",
     "nndOriginalId": "",
     "ytOriginalId": "tMhU6cGENKc",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Yuezheng Ling"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 937446,
@@ -105920,7 +106885,13 @@
     "vocadbUrl": "https://vocadb.net/S/937446",
     "nndOriginalId": "",
     "ytOriginalId": "EN0K5Te3qig",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 185728,
@@ -105952,7 +106923,13 @@
     "vocadbUrl": "https://vocadb.net/S/185728",
     "nndOriginalId": "",
     "ytOriginalId": "UPNvyYN_HXA",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "YANHE"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 404746,
@@ -105982,7 +106959,13 @@
     "vocadbUrl": "https://vocadb.net/S/404746",
     "nndOriginalId": "",
     "ytOriginalId": "auTfoO8ts3g",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 613605,
@@ -106022,7 +107005,19 @@
     "vocadbUrl": "https://vocadb.net/S/613605",
     "nndOriginalId": "",
     "ytOriginalId": "gnVQP3_BTMA",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity",
+      "Haiyi",
+      "Cangqiong",
+      "Shian",
+      "Minus",
+      "Chiyu",
+      "Muxin"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 813747,
@@ -106052,7 +107047,13 @@
     "vocadbUrl": "https://vocadb.net/S/813747",
     "nndOriginalId": "",
     "ytOriginalId": "J8vjHOyVxUA",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Kasane Teto SV"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 108826,
@@ -106084,7 +107085,13 @@
     "vocadbUrl": "https://vocadb.net/S/108826",
     "nndOriginalId": "sm27771760",
     "ytOriginalId": "krdYAGZOkho",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 81933,
@@ -106117,7 +107124,13 @@
     "vocadbUrl": "https://vocadb.net/S/81933",
     "nndOriginalId": "sm25698086",
     "ytOriginalId": "D6dwEFGL_KI",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 121437,
@@ -106150,7 +107163,15 @@
     "vocadbUrl": "https://vocadb.net/S/121437",
     "nndOriginalId": "",
     "ytOriginalId": "BWIs4gobiJI",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi",
+      "YANHE",
+      "Yuezheng Ling"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 306833,
@@ -106182,7 +107203,13 @@
     "vocadbUrl": "https://vocadb.net/S/306833",
     "nndOriginalId": "sm37941756",
     "ytOriginalId": "yduFuBC4whg",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 189232,
@@ -106214,7 +107241,14 @@
     "vocadbUrl": "https://vocadb.net/S/189232",
     "nndOriginalId": "",
     "ytOriginalId": "HrNQw1tQo0I",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Luo Tianyi V4 (Power)",
+      "Yuezheng Longya (Normal)"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 11837,
@@ -106245,7 +107279,13 @@
     "vocadbUrl": "https://vocadb.net/S/11837",
     "nndOriginalId": "sm10778087",
     "ytOriginalId": "RQP3M2dlmIc",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "Vocaloid"
+    ]
   },
   {
     "vocadbId": 551439,
@@ -106276,7 +107316,9 @@
     "vocadbUrl": "https://vocadb.net/S/551439",
     "nndOriginalId": "",
     "ytOriginalId": "cxYAFi4kJB8",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 525877,
@@ -106306,7 +107348,9 @@
     "vocadbUrl": "https://vocadb.net/S/525877",
     "nndOriginalId": "",
     "ytOriginalId": "chomLkZjKJ4",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 953141,
@@ -106337,7 +107381,9 @@
     "vocadbUrl": "https://vocadb.net/S/953141",
     "nndOriginalId": "",
     "ytOriginalId": "St9bmLedqVo",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [],
+    "synthEngines": []
   },
   {
     "vocadbId": 818846,
@@ -106364,7 +107410,14 @@
     "vocadbUrl": "https://vocadb.net/S/818846",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Stardust Infinity",
+      "Haiyi"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 836158,
@@ -106391,7 +107444,13 @@
     "vocadbUrl": "https://vocadb.net/S/836158",
     "nndOriginalId": "",
     "ytOriginalId": "",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Shian"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ]
   },
   {
     "vocadbId": 813267,
@@ -106424,6 +107483,14 @@
     "vocadbUrl": "https://vocadb.net/S/813267",
     "nndOriginalId": "sm45623079",
     "ytOriginalId": "NxXIm8IbeVk",
-    "audioClip": ""
+    "audioClip": "",
+    "synthNames": [
+      "Kasane Teto SV",
+      "Hatsune Miku"
+    ],
+    "synthEngines": [
+      "SynthesizerV",
+      "Vocaloid"
+    ]
   }
 ]
