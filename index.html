@@ -975,14 +975,21 @@
     // Today's puzzles: read each game's daily-completion state (and stats)
     // from its own localStorage keys (same origin, so the hub can peek
     // without loading them), for both the strip badges and the detail modal.
-    (function () {
+    // Runs on load AND on pageshow/visibilitychange — this page is commonly
+    // reached by hitting Back after actually playing a game, and bfcache
+    // restores don't re-execute scripts, so without this the strip/modal
+    // would keep showing whatever was true when the page first loaded.
+    function refreshTodaysPuzzles() {
       var d = new Date();
       var key = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
       function setState(id, done) {
         var el = document.getElementById(id);
-        if (el && done) { el.textContent = "✓ Done"; el.classList.add("is-done"); }
+        if (!el) return;
+        el.textContent = done ? "✓ Done" : "Play ▶";
+        el.classList.toggle("is-done", done);
       }
       var body = document.getElementById("tp-modal-body");
+      if (body) body.innerHTML = "";
       function renderDetail(cfg) {
         if (!body) return;
         var card = document.createElement("div");
@@ -1110,7 +1117,12 @@
       } catch (e) {
         renderDetail({ name: "Connections", cls: "connections", icon: cnGridIcon, href: "connections/", desc: "Sixteen songs, four hidden groups of four: sort them by producer, vocalist, era, genre and more before four strikes end the run.", tier: "todo", statusText: "Not played yet", stats: [] });
       }
-    })();
+    }
+    refreshTodaysPuzzles();
+    window.addEventListener("pageshow", refreshTodaysPuzzles);
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState === "visible") refreshTodaysPuzzles();
+    });
 
     // Today's puzzles detail modal open/close
     (function () {
