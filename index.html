@@ -556,20 +556,16 @@
       box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7), 0 2px 4px rgba(0,0,0,0.12);
       overflow: hidden;
     }
-    .stats-top {
-      display: flex;
-      align-items: stretch;
-      min-height: 30px;
-      border-bottom: 1px solid var(--line);
-    }
     .stats-head {
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 10px;
       padding: 4px 10px;
       background:
         repeating-linear-gradient(45deg, rgba(0,0,0,0.025) 0 3px, transparent 3px 7px),
         linear-gradient(to bottom, #f3f1ea, #ddd9d0);
-      border-right: 1px solid var(--ls);
+      border-bottom: 1px solid var(--ls);
       box-shadow: inset 1px 1px 0 rgba(255,255,255,0.8);
       font-family: "MS Gothic", "Osaka-Mono", "Courier New", monospace;
       font-size: 11px;
@@ -578,17 +574,35 @@
       letter-spacing: 0.06em;
       white-space: nowrap;
     }
-    .stats-hero-item {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px 12px;
-      border-right: 1px solid var(--line);
-      white-space: nowrap;
+    .stats-updated {
+      color: var(--faint);
+      font-weight: 400;
+      text-transform: none;
+      letter-spacing: normal;
+      font-family: "MS PGothic", Arial, sans-serif;
+      font-size: 10px;
     }
+    .stats-updated strong { color: var(--muted); font-weight: 700; }
+    .stats-top {
+      display: flex;
+      align-items: stretch;
+      min-height: 44px;
+      border-bottom: 1px solid var(--line);
+    }
+    .stats-hero-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      padding: 6px 10px;
+      border-right: 1px solid var(--line);
+    }
+    .stats-hero-item:last-child { border-right: none; }
     .stats-hero-item strong {
       color: var(--red);
-      font-size: 15px;
+      font-size: 17px;
       font-weight: 900;
       line-height: 1;
       font-family: Consolas, "MS PGothic", monospace;
@@ -600,18 +614,6 @@
       text-transform: uppercase;
       letter-spacing: 0.07em;
     }
-    .stats-foot {
-      display: flex;
-      align-items: center;
-      margin-left: auto;
-      padding: 4px 10px;
-      color: var(--faint);
-      background: var(--soft);
-      border-left: 1px solid var(--line);
-      font-size: 10px;
-      white-space: nowrap;
-    }
-    .stats-foot strong { color: var(--muted); font-weight: 700; margin-left: 4px; }
     .stats-vers {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -623,11 +625,25 @@
       gap: 6px;
       padding: 6px 4px;
       border-right: 1px solid var(--line);
+      border-top: 2px solid var(--sv-color, var(--ls));
       font-size: 11px;
       color: var(--muted);
       white-space: nowrap;
     }
     .stats-ver:last-child { border-right: none; }
+    .sv-dot {
+      width: 6px;
+      height: 6px;
+      flex-shrink: 0;
+      background: var(--sv-color, var(--muted));
+      box-shadow: inset -1px -1px 0 rgba(0,0,0,0.25);
+    }
+    .ver-heardle { --sv-color: #c11; }
+    .ver-higher { --sv-color: #3769c9; }
+    .ver-charts { --sv-color: #2faf57; }
+    .ver-masume { --sv-color: #2aa8a0; }
+    .ver-timeline { --sv-color: #8a5ac9; }
+    .ver-connections { --sv-color: #888888; }
     .stats-ver strong {
       padding: 0 5px;
       color: #fff;
@@ -700,7 +716,8 @@
     }
     html.dark-mode .notice strong { background: #6e5a10; border-right-color: #4a3c0a; color: #fff; }
     html.dark-mode .section-title,
-    html.dark-mode .stats-head {
+    html.dark-mode .stats-head,
+    html.dark-mode .tp-modal-head {
       background: linear-gradient(to bottom, #2a2a2a, #1c1c1c);
       border-color: #3b3b3b;
       box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05);
@@ -726,9 +743,9 @@
       .proj-thumb, .proj-meta { display: none; }
       .intro p { white-space: normal; }
       .spotlight-card { grid-template-columns: 1fr; }
-      .stats-top { flex-wrap: wrap; }
-      .stats-head { width: 100%; border-right: none; border-bottom: 1px solid var(--ls); }
-      .stats-foot { width: 100%; margin-left: 0; border-left: none; border-top: 1px solid var(--line); }
+      .stats-head { flex-wrap: wrap; gap: 3px 10px; }
+      .stats-hero-item { padding: 6px 4px; }
+      .stats-hero-item strong { font-size: 15px; }
       .stats-vers { grid-template-columns: repeat(2, 1fr); }
       .stats-ver { border-bottom: 1px solid var(--line); }
       .stats-ver:nth-child(even) { border-right: none; }
@@ -922,25 +939,31 @@
         </div>
       </article>
       <aside class="site-stats" aria-label="Site stats">
+        <div class="stats-head">
+          <span>[ Site Stats ]</span>
+          <span class="stats-updated">Updated <strong id="stat-updated">&mdash;</strong></span>
+        </div>
         <div class="stats-top">
-          <div class="stats-head">[ Site Stats ]</div>
           <div class="stats-hero-item">
             <strong id="stat-songs">&mdash;</strong>
             <span>songs in pool</span>
           </div>
           <div class="stats-hero-item">
+            <strong id="stat-producers">&mdash;</strong>
+            <span>producers</span>
+          </div>
+          <div class="stats-hero-item">
             <strong>6</strong>
             <span>projects</span>
           </div>
-          <div class="stats-foot">View data updated <strong id="stat-updated">&mdash;</strong></div>
         </div>
         <div class="stats-vers">
-          <div class="stats-ver"><span>Heardle</span><strong>v1.6</strong></div>
-          <div class="stats-ver"><span>Higher / Lower</span><strong>v1.1</strong></div>
-          <div class="stats-ver"><span>39charts</span><strong>v1.5</strong></div>
-          <div class="stats-ver"><span>Grid</span><strong>v1.0</strong></div>
-          <div class="stats-ver"><span>Timeline</span><strong>v1.0</strong></div>
-          <div class="stats-ver"><span>Connections</span><strong>v1.0</strong></div>
+          <div class="stats-ver ver-heardle"><i class="sv-dot"></i><span>Heardle</span><strong>v1.6</strong></div>
+          <div class="stats-ver ver-higher"><i class="sv-dot"></i><span>Higher / Lower</span><strong>v1.1</strong></div>
+          <div class="stats-ver ver-charts"><i class="sv-dot"></i><span>39charts</span><strong>v1.5</strong></div>
+          <div class="stats-ver ver-masume"><i class="sv-dot"></i><span>Grid</span><strong>v1.0</strong></div>
+          <div class="stats-ver ver-timeline"><i class="sv-dot"></i><span>Timeline</span><strong>v1.0</strong></div>
+          <div class="stats-ver ver-connections"><i class="sv-dot"></i><span>Connections</span><strong>v1.0</strong></div>
         </div>
       </aside>
     </section>
@@ -1226,6 +1249,12 @@
       const pool = usable.filter(s => typeof views[String(s.vocadbId)] === "number");
       const statSongs = document.getElementById("stat-songs");
       if (statSongs) statSongs.textContent = (pool.length || usable.length).toLocaleString();
+      const statProducers = document.getElementById("stat-producers");
+      if (statProducers) {
+        const producers = new Set();
+        (songs || []).forEach(s => (s.producerNames || []).forEach(p => producers.add(p)));
+        statProducers.textContent = producers.size.toLocaleString();
+      }
       const statUpdated = document.getElementById("stat-updated");
       if (statUpdated) statUpdated.textContent = viewsData.updated || "—";
 
