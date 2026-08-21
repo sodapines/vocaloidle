@@ -107492,5 +107492,92 @@
       "SynthesizerV",
       "Vocaloid"
     ]
+  },
+  {
+    "vocadbId": 1010332,
+    "title": "wonder",
+    "artist": "r-906",
+    "artistString": "r-906 feat. Hatsune Miku V4X (Dark)",
+    "coverArt": "https://i.ytimg.com/vi/6ObvFPLk8eI/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/6ObvFPLk8eI/hqdefault.jpg",
+      "https://nicovideo.jp/watch/sm46605837",
+      "https://www.bilibili.com/video/av117008616128791",
+      "https://i.ytimg.com/vi/D3gOdoFWCdY/hqdefault.jpg"
+    ],
+    "publishDate": "2026-07-30",
+    "singerNames": [
+      "SEKAI",
+      "COKO",
+      "Hatsune Miku V4X (Dark)"
+    ],
+    "synthNames": [
+      "SEKAI",
+      "COKO",
+      "Hatsune Miku V4X (Dark)"
+    ],
+    "synthEngines": [
+      "CeVIO",
+      "Vocaloid"
+    ],
+    "producerNames": [
+      "r-906"
+    ],
+    "acceptedTitles": [
+      "ワンダー",
+      "wonder"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [
+      "nnd-100k",
+      "yt-1m"
+    ],
+    "vocadbUrl": "https://vocadb.net/S/1010332",
+    "nndOriginalId": "sm46605837",
+    "ytOriginalId": "6ObvFPLk8eI",
+    "audioClip": ""
+  },
+  {
+    "vocadbId": 996699,
+    "title": "Put the finer",
+    "artist": "LonePi",
+    "artistString": "LonePi feat. Kasane Teto SV, Hanakuma Chifuyu",
+    "coverArt": "https://i.ytimg.com/vi/mjOBFxIiudI/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/mjOBFxIiudI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/sNq9GMN8y2I/hqdefault.jpg",
+      "https://nicovideo.jp/watch/sm46527481"
+    ],
+    "publishDate": "2026-07-02",
+    "singerNames": [
+      "Kasane Teto SV",
+      "Hanakuma Chifuyu"
+    ],
+    "synthNames": [
+      "Kasane Teto SV",
+      "Hanakuma Chifuyu"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ],
+    "producerNames": [
+      "LonePi"
+    ],
+    "acceptedTitles": [
+      "このゆびとまれ",
+      "Kono Yubi Tomare",
+      "Put the finer",
+      "Stop This Finger",
+      "Come and Join me"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [
+      "nnd-10k",
+      "yt-100k"
+    ],
+    "vocadbUrl": "https://vocadb.net/S/996699",
+    "nndOriginalId": "sm46527481",
+    "ytOriginalId": "mjOBFxIiudI",
+    "audioClip": ""
   }
 ]
