@@ -107579,5 +107579,42 @@
     "nndOriginalId": "sm46527481",
     "ytOriginalId": "mjOBFxIiudI",
     "audioClip": ""
+  },
+  {
+    "vocadbId": 812862,
+    "title": "KUCHISAKE",
+    "artist": "Utsu-P",
+    "artistString": "Utsu-P feat. Kasane Teto SV",
+    "coverArt": "https://i.ytimg.com/vi/CfsA-It3_Yg/hqdefault.jpg",
+    "coverArts": [
+      "https://i.ytimg.com/vi/CfsA-It3_Yg/hqdefault.jpg",
+      "https://nicovideo.jp/watch/sm45219799",
+      "https://www.bilibili.com/video/av114928912569067",
+      "https://i.ytimg.com/vi/r97t5p9Q_o0/hqdefault.jpg"
+    ],
+    "publishDate": "2025-07-26",
+    "singerNames": [
+      "Kasane Teto SV"
+    ],
+    "synthNames": [
+      "Kasane Teto SV"
+    ],
+    "synthEngines": [
+      "SynthesizerV"
+    ],
+    "producerNames": [
+      "Utsu-P"
+    ],
+    "acceptedTitles": [
+      "KUCHISAKE"
+    ],
+    "vocadbPools": [],
+    "sourceTags": [
+      "yt-100k"
+    ],
+    "vocadbUrl": "https://vocadb.net/S/812862",
+    "nndOriginalId": "sm45219799",
+    "ytOriginalId": "CfsA-It3_Yg",
+    "audioClip": ""
   }
 ]
