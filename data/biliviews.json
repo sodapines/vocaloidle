@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-23",
+ "updated": "2026-09-24",
  "stats": {
   "372": {
    "views": 87283,
@@ -338,9 +338,9 @@
    "pic": "https://i2.hdslb.com/bfs/archive/46c1bfb984e688b0bb67a658e311448a19686119.jpg"
   },
   "18641": {
-   "views": 47580,
-   "likes": 2449,
-   "comments": 203,
+   "views": 48207,
+   "likes": 2458,
+   "comments": 207,
    "id": "868423158",
    "pic": "https://i0.hdslb.com/bfs/archive/8cf3ad2c2a258ded8c3a2230f32708625fb50ce7.jpg"
   },
@@ -478,8 +478,8 @@
    "pic": "https://i0.hdslb.com/bfs/archive/f50060145f6821c45e0c4ce3fde6a41f39eaecbe.jpg"
   },
   "45526": {
-   "views": 12265,
-   "likes": 262,
+   "views": 12409,
+   "likes": 264,
    "comments": 102,
    "id": "113032583709720",
    "pic": "https://i2.hdslb.com/bfs/archive/08c62198b423dff01f1180bb7a7525dab8a60c9e.jpg"
@@ -1192,9 +1192,9 @@
    "pic": "https://i2.hdslb.com/bfs/archive/604dd5b947610dd364369fd97a4629e0b352a569.jpg"
   },
   "166391": {
-   "views": 1590667,
-   "likes": 72626,
-   "comments": 4818,
+   "views": 1604231,
+   "likes": 73054,
+   "comments": 4860,
    "id": "14073302",
    "pic": "https://i0.hdslb.com/bfs/archive/53be3c134deadcfbe34129a645f6bc08a627c4a5.jpg"
   },
@@ -1395,8 +1395,8 @@
    "pic": "https://i2.hdslb.com/bfs/archive/0945363cfe2748940531aece6749f3575e587fcf.jpg"
   },
   "183340": {
-   "views": 536474,
-   "likes": 18751,
+   "views": 536770,
+   "likes": 18755,
    "comments": 1056,
    "id": "19179398",
    "pic": "https://i0.hdslb.com/bfs/archive/82eb4872ded429f31fe455c7250ee2014c7a2f53.jpg"
@@ -1421,6 +1421,13 @@
    "comments": 256019,
    "id": "20204904",
    "pic": "https://i1.hdslb.com/bfs/archive/3b58d21cd52f4e83d32bfec983e8dd9fb1a82b55.jpg"
+  },
+  "185937": {
+   "views": 63316,
+   "likes": 2248,
+   "comments": 426,
+   "id": "20406341",
+   "pic": "https://i0.hdslb.com/bfs/archive/6271f60679e5fe7527a722193ec18330a1fe0d6a.jpg"
   },
   "186227": {
    "views": 1424184,
@@ -1500,9 +1507,9 @@
    "pic": "https://i2.hdslb.com/bfs/archive/a4f903ffcee54a726138043bc55fb4f59dce1ff5.jpg"
   },
   "194549": {
-   "views": 1337340,
-   "likes": 59545,
-   "comments": 816,
+   "views": 1347888,
+   "likes": 59936,
+   "comments": 824,
    "id": "626727620",
    "pic": "https://i1.hdslb.com/bfs/archive/14d73d8504dd1bbe6694ca0fd02b9244db0b04ff.jpg"
   },
@@ -2074,8 +2081,8 @@
    "pic": "https://i1.hdslb.com/bfs/archive/53638e316f6800f83d6cdcc7fa1c162a2f2aa1e6.jpg"
   },
   "260548": {
-   "views": 23665,
-   "likes": 989,
+   "views": 23710,
+   "likes": 990,
    "comments": 119,
    "id": "75176610",
    "pic": "https://i0.hdslb.com/bfs/archive/2152ff94938313dae7e68ed3a61c3d05bd57625b.jpg"
@@ -2100,6 +2107,13 @@
    "comments": 207,
    "id": "80481068",
    "pic": "https://i2.hdslb.com/bfs/archive/f68b382b80ba0dbed6eef23876d00a2000ab5230.jpg"
+  },
+  "261660": {
+   "views": 753482,
+   "likes": 51741,
+   "comments": 2386,
+   "id": "79964311",
+   "pic": "https://i0.hdslb.com/bfs/archive/dd58f044d39a3a63c359d6ea8492c264aa6cdb59.jpg"
   },
   "263129": {
    "views": 392644,
@@ -5014,9 +5028,9 @@
    "pic": "https://i1.hdslb.com/bfs/archive/12b27a3a05793e9daf386b7ed0a03ade45d87a75.jpg"
   },
   "882747": {
-   "views": 26306508,
-   "likes": 2259264,
-   "comments": 116220,
+   "views": 26620271,
+   "likes": 2271765,
+   "comments": 117221,
    "id": "115695731869659",
    "pic": "https://i0.hdslb.com/bfs/archive/04e40ffb1696b9d5f22d846c076647f32e327d96.jpg"
   },
@@ -5161,9 +5175,9 @@
    "pic": "https://i0.hdslb.com/bfs/archive/a46300f7974db5c140ba113259c9bbf2c7fe6d49.jpg"
   },
   "915394": {
-   "views": 4697523,
-   "likes": 473039,
-   "comments": 41720,
+   "views": 4796835,
+   "likes": 476134,
+   "comments": 41886,
    "id": "116069159147428",
    "pic": "https://i2.hdslb.com/bfs/archive/a364d7b182b71a43bef66816ec5e21307d1d24fa.jpg"
   },
@@ -6880,6 +6894,7 @@
   "185364": 1,
   "185594": 0,
   "185728": 1,
+  "185937": 1,
   "186227": 1,
   "186287": 0,
   "186868": 0,
@@ -7115,6 +7130,7 @@
   "260870": 0,
   "261262": 1,
   "261630": 1,
+  "261660": 1,
   "261802": 0,
   "262347": 0,
   "262740": 0,
