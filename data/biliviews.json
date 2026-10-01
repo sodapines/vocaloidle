@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-30",
+ "updated": "2026-10-01",
  "stats": {
   "372": {
    "views": 87283,
@@ -478,8 +478,8 @@
    "pic": "https://i0.hdslb.com/bfs/archive/f50060145f6821c45e0c4ce3fde6a41f39eaecbe.jpg"
   },
   "45526": {
-   "views": 12409,
-   "likes": 264,
+   "views": 12465,
+   "likes": 266,
    "comments": 102,
    "id": "113032583709720",
    "pic": "https://i2.hdslb.com/bfs/archive/08c62198b423dff01f1180bb7a7525dab8a60c9e.jpg"
@@ -863,7 +863,7 @@
    "pic": "https://i2.hdslb.com/bfs/archive/f83ff0c61efc284149e76c0599e351a313631927.jpg"
   },
   "121486": {
-   "views": 1485,
+   "views": 1486,
    "likes": 27,
    "comments": 18,
    "id": "4209390",
@@ -982,9 +982,9 @@
    "pic": "https://i2.hdslb.com/bfs/archive/22637263e2b7d85086de3ea4bed254e55b42d6b1.jpg"
   },
   "137206": {
-   "views": 379172,
-   "likes": 11943,
-   "comments": 497,
+   "views": 380309,
+   "likes": 11953,
+   "comments": 498,
    "id": "17573973",
    "pic": "https://i2.hdslb.com/bfs/archive/226516d6ba04076c18367dfdcc88f5eb725b74e3.jpg"
   },
@@ -1696,9 +1696,9 @@
    "pic": "https://i1.hdslb.com/bfs/archive/3cc7fd6e931bca35aa350ee4c2556bc533b1c6a7.jpg"
   },
   "222749": {
-   "views": 7493472,
-   "likes": 273956,
-   "comments": 14731,
+   "views": 7588839,
+   "likes": 276196,
+   "comments": 14865,
    "id": "40681810",
    "pic": "https://i2.hdslb.com/bfs/archive/cefb0e85d84944feeb2812a1319726563593e36a.jpg"
   },
@@ -1934,9 +1934,9 @@
    "pic": "https://i1.hdslb.com/bfs/archive/bc6ddcd8170a7d450ec4e4d2c08b048d9d8bbc5a.jpg"
   },
   "249416": {
-   "views": 365862,
-   "likes": 13251,
-   "comments": 577,
+   "views": 373009,
+   "likes": 13427,
+   "comments": 575,
    "id": "63708212",
    "pic": "https://i2.hdslb.com/bfs/archive/dc5e986df68e3e0b74af8f9c62fc1cf482fa6fa7.jpg"
   },
@@ -2004,9 +2004,9 @@
    "pic": "https://i0.hdslb.com/bfs/archive/2763cd1fbec1fad28995a9915982eb8876940fe0.jpg"
   },
   "253832": {
-   "views": 4181552,
-   "likes": 199814,
-   "comments": 7240,
+   "views": 4187557,
+   "likes": 199897,
+   "comments": 7241,
    "id": "67647585",
    "pic": "https://i2.hdslb.com/bfs/archive/c4731f5c3fbecdc019124e56516540f3789782a8.jpg"
   },
@@ -2382,8 +2382,8 @@
    "pic": "https://i2.hdslb.com/bfs/archive/81192e9411bc18bba5f00f17736126a804610679.jpg"
   },
   "289980": {
-   "views": 96243,
-   "likes": 15727,
+   "views": 96252,
+   "likes": 15728,
    "comments": 1248,
    "id": "627115451",
    "pic": "https://i2.hdslb.com/bfs/archive/6572c8992336748d4001f9833465bf0dfdc7a8d6.jpg"
@@ -2466,9 +2466,9 @@
    "pic": "https://i1.hdslb.com/bfs/archive/476122c5917a7d02032a0eb20efc3a91b0bd6c45.jpg"
   },
   "295177": {
-   "views": 1304969,
-   "likes": 64301,
-   "comments": 1150,
+   "views": 1308983,
+   "likes": 64413,
+   "comments": 1151,
    "id": "653484867",
    "pic": "https://i0.hdslb.com/bfs/archive/e388fdcceef15f8a8fb6d689691ab111038ac9cf.jpg"
   },
@@ -2562,6 +2562,13 @@
    "comments": 214,
    "id": "415521208",
    "pic": "https://i0.hdslb.com/bfs/archive/da91afb4b0ee00d3cdfc0ce94a08837f5fb5d616.jpg"
+  },
+  "306291": {
+   "views": 65813,
+   "likes": 5663,
+   "comments": 151,
+   "id": "713237388",
+   "pic": "https://i0.hdslb.com/bfs/archive/42bff4551725e3212e1a03d5aaaa739b139e5919.jpg"
   },
   "306833": {
    "views": 354799,
@@ -3292,8 +3299,8 @@
    "pic": "https://i1.hdslb.com/bfs/archive/dc1410eabeef01684eaa59a94660d41b80746ee8.jpg"
   },
   "413061": {
-   "views": 265671,
-   "likes": 11595,
+   "views": 266709,
+   "likes": 11624,
    "comments": 351,
    "id": "257398950",
    "pic": "https://i1.hdslb.com/bfs/archive/955173e9d854cc2c023a89a27af956196b3635fe.jpg"
@@ -4754,6 +4761,13 @@
    "id": "114747835942125",
    "pic": "https://i1.hdslb.com/bfs/archive/bf52f06cae3e58c1e88ebe8a589f830beb4fab8b.jpg"
   },
+  "807206": {
+   "views": 653613,
+   "likes": 100658,
+   "comments": 1770,
+   "id": "114783303041039",
+   "pic": "https://i2.hdslb.com/bfs/archive/1f28aa0245eb0802ceea22711872224ab2af6a88.jpg"
+  },
   "812862": {
    "views": 45636,
    "likes": 5862,
@@ -4845,6 +4859,13 @@
    "id": "113989556110127",
    "pic": "https://i1.hdslb.com/bfs/archive/179873716242a6e28806792805e46e8d4de1126d.jpg"
   },
+  "819740": {
+   "views": 5716,
+   "likes": 458,
+   "comments": 28,
+   "id": "114943793826345",
+   "pic": "https://i1.hdslb.com/bfs/archive/903f8f7d19d6b39d256f173068c27ae1acf39988.jpg"
+  },
   "828921": {
    "views": 660413,
    "likes": 44326,
@@ -4867,9 +4888,9 @@
    "pic": "https://i1.hdslb.com/bfs/archive/de96b7bbae3b4ad2673f4a1421600e17a500f657.jpg"
   },
   "829696": {
-   "views": 3534038,
-   "likes": 288365,
-   "comments": 10009,
+   "views": 3536296,
+   "likes": 288434,
+   "comments": 10015,
    "id": "115083682254959",
    "pic": "https://i2.hdslb.com/bfs/archive/6482b76dc3301bf77724a70c7e9737ebdb6c8453.jpg"
   },
@@ -4916,9 +4937,9 @@
    "pic": "https://i0.hdslb.com/bfs/archive/18e20f809318dfcd0901f29dedc606ee51b2f7ee.jpg"
   },
   "836045": {
-   "views": 4770078,
-   "likes": 310095,
-   "comments": 29696,
+   "views": 4792863,
+   "likes": 310670,
+   "comments": 29636,
    "id": "115150824672981",
    "pic": "https://i0.hdslb.com/bfs/archive/6372beb671d01d34d1e6485d307d0676c64492ea.jpg"
   },
@@ -5343,9 +5364,9 @@
    "pic": "https://i0.hdslb.com/bfs/archive/e42a31dc6625c4dcf2292ac9e5937098d4a0ff59.jpg"
   },
   "937525": {
-   "views": 127748,
-   "likes": 21115,
-   "comments": 610,
+   "views": 131104,
+   "likes": 21273,
+   "comments": 608,
    "id": "116289796311227",
    "pic": "https://i1.hdslb.com/bfs/archive/964e31a952847e2bf2dea2cd659b9ff1dc63c168.jpg"
   },
@@ -5511,9 +5532,9 @@
    "pic": "https://i0.hdslb.com/bfs/archive/25181593a1744378647a6506a2c7862054284a61.jpg"
   },
   "980255": {
-   "views": 14871380,
-   "likes": 722721,
-   "comments": 28062,
+   "views": 15795373,
+   "likes": 749362,
+   "comments": 29911,
    "id": "116662988707761",
    "pic": "https://i1.hdslb.com/bfs/archive/019fb8f06e85bf14e14632b9302d5a200bd9b038.jpg"
   },
@@ -7306,6 +7327,7 @@
   "306267": 0,
   "306270": 1,
   "306287": 0,
+  "306291": 1,
   "306833": 1,
   "307608": 0,
   "307610": 0,
@@ -8158,6 +8180,7 @@
   "806131": 1,
   "806140": 1,
   "806473": 0,
+  "807206": 1,
   "807725": 0,
   "807726": 0,
   "807727": 0,
@@ -8181,6 +8204,7 @@
   "818873": 1,
   "818880": 1,
   "819340": 1,
+  "819740": 1,
   "819741": 0,
   "819926": 0,
   "820162": 0,
