@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-15",
+ "updated": "2026-10-16",
  "stats": {
   "372": {
    "views": 87283,
@@ -758,9 +758,9 @@
    "pic": "https://i0.hdslb.com/bfs/archive/c386c3261814f11df150bd01f258296759ccb529.jpg"
   },
   "100322": {
-   "views": 3997050,
-   "likes": 74817,
-   "comments": 16829,
+   "views": 3998350,
+   "likes": 74847,
+   "comments": 16836,
    "id": "1486033",
    "pic": "https://i1.hdslb.com/bfs/archive/96a09919a31a0240b7644bd4fbd372997c093f78.jpg"
   },
@@ -904,6 +904,13 @@
    "id": "5063208",
    "pic": "https://i2.hdslb.com/bfs/archive/6ae18241fe7f7cc49118e355f5f3c54f281b0a1c.jpg"
   },
+  "124517": {
+   "views": 205188,
+   "likes": 6533,
+   "comments": 836,
+   "id": "4542973",
+   "pic": "https://i2.hdslb.com/bfs/archive/bb769d8b5fb8b8dbc6d7ab7871e01a60b048f421.jpg"
+  },
   "126849": {
    "views": 61954,
    "likes": 1755,
@@ -926,9 +933,9 @@
    "pic": "https://i1.hdslb.com/bfs/archive/c6dd4b74d4cebcd83d3474015c482c578c32e921.jpg"
   },
   "127519": {
-   "views": 1501054,
-   "likes": 89928,
-   "comments": 2431,
+   "views": 1512266,
+   "likes": 90247,
+   "comments": 2436,
    "id": "74840733",
    "pic": "https://i1.hdslb.com/bfs/archive/315738cb4099eefcce1eadb94baf8de3f0e59139.jpg"
   },
@@ -1233,6 +1240,13 @@
    "id": "14911611",
    "pic": "https://i2.hdslb.com/bfs/archive/7e19d7fc9f7872da26a4b91bb1d3ef0892da5932.jpg"
   },
+  "169608": {
+   "views": 1927,
+   "likes": 65,
+   "comments": 36,
+   "id": "15180213",
+   "pic": "https://i1.hdslb.com/bfs/archive/395645e0c0a02c05d0c30b7660e64e9105e3ded4.jpg"
+  },
   "170350": {
    "views": 163475,
    "likes": 7358,
@@ -1276,9 +1290,9 @@
    "pic": "https://i2.hdslb.com/bfs/archive/c238ca54dd970f2725c8ef2eaa26c9f014d0e65b.png"
   },
   "174026": {
-   "views": 239704,
-   "likes": 16609,
-   "comments": 364,
+   "views": 247169,
+   "likes": 16850,
+   "comments": 365,
    "id": "796346691",
    "pic": "https://i2.hdslb.com/bfs/archive/95878e363d97a329f249e9fd858819d1ae24f23d.jpg"
   },
@@ -1297,8 +1311,8 @@
    "pic": "https://i2.hdslb.com/bfs/archive/9d9cdaf8044361c8e6c7fb4d9ef1eb3729e59a3d.jpg"
   },
   "174945": {
-   "views": 184532,
-   "likes": 4427,
+   "views": 186063,
+   "likes": 4459,
    "comments": 771,
    "id": "17269004",
    "pic": "https://i0.hdslb.com/bfs/archive/83ef938d5881db2a861f767a87365d8e55fc8d1d.jpg"
@@ -1822,9 +1836,9 @@
    "pic": "https://i1.hdslb.com/bfs/archive/94d4a699bb9b48864cdfe1b1edbe173bbbc82353.jpg"
   },
   "229552": {
-   "views": 87980,
-   "likes": 10025,
-   "comments": 210,
+   "views": 90457,
+   "likes": 10090,
+   "comments": 212,
    "id": "115190536413161",
    "pic": "https://i2.hdslb.com/bfs/archive/8b668804159cd88dc716bc930b0397b609fd69d9.jpg"
   },
@@ -2179,9 +2193,9 @@
    "pic": "https://i1.hdslb.com/bfs/archive/4709a1516efb9566e1ec06458eb65c50f2d7100d.jpg"
   },
   "265018": {
-   "views": 1013941,
-   "likes": 46852,
-   "comments": 2336,
+   "views": 1015682,
+   "likes": 46902,
+   "comments": 2337,
    "id": "79605633",
    "pic": "https://i2.hdslb.com/bfs/archive/2a9c4e27bf4e7f4e3eb4d0cad16b1e55f7583c58.jpg"
   },
@@ -2613,9 +2627,9 @@
    "pic": "https://i2.hdslb.com/bfs/archive/26cf9d16e5dd90f7f4b244e96b8859028dc6e034.jpg"
   },
   "306058": {
-   "views": 531791,
-   "likes": 45645,
-   "comments": 765,
+   "views": 537111,
+   "likes": 45777,
+   "comments": 766,
    "id": "657578926",
    "pic": "https://i0.hdslb.com/bfs/archive/3f1d2776ce3085968b5ff9f338607752d3e5f555.jpg"
   },
@@ -2893,8 +2907,8 @@
    "pic": "https://i2.hdslb.com/bfs/archive/4f7ed52356fd24d16313b8a9385b419f50d2bf90.jpg"
   },
   "344714": {
-   "views": 392531,
-   "likes": 18929,
+   "views": 394514,
+   "likes": 18999,
    "comments": 340,
    "id": "546769141",
    "pic": "https://i1.hdslb.com/bfs/archive/7a5101b9af7c0bc84bac2b98acff7641f315dcb3.jpg"
@@ -2907,9 +2921,9 @@
    "pic": "https://i2.hdslb.com/bfs/archive/e180548e8aed6a61da362982b79bef941209d862.jpg"
   },
   "345108": {
-   "views": 748065,
-   "likes": 26060,
-   "comments": 973,
+   "views": 753084,
+   "likes": 26180,
+   "comments": 974,
    "id": "589436183",
    "pic": "https://i1.hdslb.com/bfs/archive/19fc00fc7a423cb11a3d2b109bb1f64c1c313df0.jpg"
   },
@@ -2991,9 +3005,9 @@
    "pic": "https://i0.hdslb.com/bfs/archive/d8a8db4a5e9d01d27bb7259a4b15600a716dc37f.jpg"
   },
   "349352": {
-   "views": 351148,
-   "likes": 35874,
-   "comments": 694,
+   "views": 367508,
+   "likes": 36253,
+   "comments": 706,
    "id": "114778303370331",
    "pic": "https://i0.hdslb.com/bfs/archive/3f77268c8b5d4baec3be5885364933ce08d293ce.jpg"
   },
@@ -4587,9 +4601,9 @@
    "pic": "https://i0.hdslb.com/bfs/archive/1768138cc086e7d7f298597c572f14dba83adbf6.jpg"
   },
   "713636": {
-   "views": 2077764,
-   "likes": 268135,
-   "comments": 6208,
+   "views": 2100893,
+   "likes": 268936,
+   "comments": 6115,
    "id": "116214600899972",
    "pic": "https://i1.hdslb.com/bfs/archive/7d1acbe0f293a6309920a26e9e982652a843eb24.jpg"
   },
@@ -4824,6 +4838,13 @@
    "id": "114324664227009",
    "pic": "https://i1.hdslb.com/bfs/archive/a22dd300691f17dcc635815ab07a7206f154feb4.jpg"
   },
+  "776305": {
+   "views": 12072,
+   "likes": 1488,
+   "comments": 65,
+   "id": "114714466059479",
+   "pic": "https://i2.hdslb.com/bfs/archive/0457dbb24e57b2ce0d84e40f4055bfb19d160fde.jpg"
+  },
   "776372": {
    "views": 3950232,
    "likes": 218636,
@@ -4909,9 +4930,9 @@
    "pic": "https://i2.hdslb.com/bfs/archive/f9f490db097ea8bcf6f45c69c213967d562d0dbb.jpg"
   },
   "801461": {
-   "views": 8401936,
-   "likes": 407553,
-   "comments": 14002,
+   "views": 8705309,
+   "likes": 415166,
+   "comments": 14508,
    "id": "114489013903025",
    "pic": "https://i2.hdslb.com/bfs/archive/03e65e7a59676f0ae3b56a90b0b1b0d80c4987ed.jpg"
   },
@@ -5663,6 +5684,13 @@
    "comments": 6773,
    "id": "116424936849429",
    "pic": "https://i2.hdslb.com/bfs/archive/2cac90e12664cb7da91f0f0faa9b4b99479336f4.jpg"
+  },
+  "952137": {
+   "views": 7263,
+   "likes": 1237,
+   "comments": 70,
+   "id": "117035543562483",
+   "pic": "https://i1.hdslb.com/bfs/archive/e1f70a1f12c2e85a5f8759c358d4ec5af4570726.jpg"
   },
   "953141": {
    "views": 3992006,
@@ -6928,6 +6956,7 @@
   "124436": 0,
   "124513": 0,
   "124515": 0,
+  "124517": 1,
   "125064": 0,
   "125194": 0,
   "125196": 0,
@@ -7088,6 +7117,7 @@
   "168886": 0,
   "169136": 1,
   "169269": 0,
+  "169608": 1,
   "170110": 0,
   "170350": 1,
   "170411": 1,
@@ -8379,6 +8409,7 @@
   "775822": 0,
   "776144": 1,
   "776200": 0,
+  "776305": 1,
   "776372": 1,
   "777659": 1,
   "778318": 0,
@@ -8629,6 +8660,7 @@
   "951086": 1,
   "951615": 0,
   "951616": 1,
+  "952137": 1,
   "953141": 1,
   "954115": 1,
   "954837": 0,
