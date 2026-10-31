@@ -11,7 +11,7 @@ static files in `data/tournament/`; only votes go through a Worker.
 4. **Turnstile:** Turnstile → add a widget for `vocaloidle.sodapines.dev`. Keep the site key and secret.
 5. **Worker settings:** add secrets `TURNSTILE_SECRET`, `ADMIN_TOKEN`, `VOTER_SALT` (random strings for the last two) and variable `ALLOWED_ORIGIN` = `https://vocaloidle.sodapines.dev`.
 6. **Create the table:** `curl -X POST -H "Authorization: Bearer <ADMIN_TOKEN>" https://<worker-url>/setup`
-7. **Rate limit:** Security → WAF → rate limiting rule for the Worker's `/vote` path.
+7. **Rate limit:** built into the Worker (10 votes a minute per address).
 8. **Site config:** put the Worker URL and Turnstile site key in `tournament/config.js`.
 9. **GitHub secrets:** `TOURNAMENT_API` (Worker URL) and `TOURNAMENT_ADMIN_TOKEN`.
 10. **Start:** Actions → Weekly song tournament → Run workflow. It creates tournament 1.

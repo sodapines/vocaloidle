@@ -17,6 +17,16 @@ function validBallot(picks, matchCount) {
     entries.every(([match, side]) => /^\d+$/.test(match) && Number(match) < matchCount && (side === 0 || side === 1));
 }
 
+// Per-instance limit: a cheap brake on floods before any Turnstile or database work.
+const recent = new Map();
+function limited(ip, now = Date.now()) {
+  if (recent.size > 5000) recent.clear();
+  const hits = (recent.get(ip) || []).filter(time => now - time < 60000);
+  hits.push(now);
+  recent.set(ip, hits);
+  return hits.length > 10;
+}
+
 async function hash(text) {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
   return [...new Uint8Array(digest)].map(byte => byte.toString(16).padStart(2, "0")).join("");
@@ -57,6 +67,7 @@ export async function handle(request, env, fetcher = fetch) {
 
   if (url.pathname === "/vote" && request.method === "POST") {
     if (request.headers.get("Origin") !== env.ALLOWED_ORIGIN) return json({ error: "forbidden" }, 403);
+    if (limited(request.headers.get("CF-Connecting-IP") || "")) return json({ error: "busy" }, 429);
     let body;
     try { body = await request.json(); } catch { return json({ error: "invalid" }, 400); }
     const round = await openRound(fetcher);
