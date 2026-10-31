@@ -120,3 +120,5 @@ html.dark-mode .tn-dots{background:#2a2a2a;border-color:#555}html.dark-mode .tn-
 .tn-dots button.is-done{background:repeating-linear-gradient(-45deg,#ffffff29 0 5px,transparent 5px 10px),linear-gradient(#e2bc44,#a87c0a);border-right-color:#ffffff40;box-shadow:inset 0 1px #ffffff59}
 .tn-dots button.is-current{box-shadow:inset 0 0 0 1px #fff}
 html.dark-mode .tn-dots{background:#2a2a2a;border-color:#111}
+/* Pin the stripes to the page so they run unbroken across cells. */
+.tn-dots button.is-done{background-attachment:fixed,scroll;border-right-color:transparent;background-clip:border-box}
