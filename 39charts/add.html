@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="../site-theme.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>39charts · Add Song</title>
@@ -235,9 +236,10 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 /* ── FETCH ROW ── */
 .fetch-row { display: flex; gap: 5px; }
 .fetch-input {
-  flex: 1; height: 28px; padding: 0 8px; font-size: 12px;
+  flex: 1; min-height: 58px; padding: 6px 8px; font-size: 12px; resize: vertical;
   background: #fff; border: 1px solid var(--ls);
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
+  cursor: text; line-height: 1.45;
 }
 .fetch-input:focus { outline: none; border-color: var(--link); box-shadow: inset 0 1px 2px rgba(0,0,0,0.08), 0 0 0 2px rgba(0,102,204,0.18); }
 .fetch-btn {
@@ -250,6 +252,23 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 .fetch-btn:hover { background: linear-gradient(to bottom, #ff6666 0%, #ee3333 48%, #cc1111 52%, #dd1111 100%); }
 .fetch-btn:disabled { opacity: 0.5; cursor: default; }
 .fetch-hint { font-size: 10px; color: var(--faint); margin-top: 5px; }
+.batch-toolbar {
+  display: flex; align-items: center; gap: 6px; padding: 6px 8px;
+  background: linear-gradient(to bottom, #f3f1ea, #ddd9d0);
+  border: 2px solid var(--ls); border-top: 3px solid var(--red);
+  color: var(--muted); font-size: 10px;
+}
+.batch-toolbar strong { color: var(--text); margin-right: auto; }
+.batch-action {
+  height: 23px; padding: 0 9px; border: 1px solid var(--ls);
+  background: linear-gradient(to bottom, #fff, #e5e3de); color: var(--muted);
+  font-size: 10px; font-weight: 700;
+}
+.batch-action:hover { color: var(--red); border-color: var(--red); }
+.batch-action.is-primary { background: linear-gradient(to bottom,#2a8a2a,#1a6a1a); border-color:#145014; color:#fff; }
+.batch-action.is-primary:hover { background: linear-gradient(to bottom,#339933,#207020); color:#fff; }
+.batch-action:disabled { opacity: .5; cursor: default; }
+.batch-list { display: flex; flex-direction: column; gap: 5px; }
 
 /* ── VOCALIST TAGS ── */
 .vtag {
@@ -285,6 +304,10 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
   padding: 4px 10px; font-size: 11px; font-weight: 700; color: var(--green);
   display: flex; align-items: center; justify-content: space-between;
 }
+.preview-head-main { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.preview-head-id { color: var(--faint); font-weight: 400; }
+.preview-remove { border: 0; background: transparent; color: inherit; font-weight: 900; padding: 0 2px; }
+.preview-remove:hover { color: var(--red); }
 .preview-head.is-dupe { background: var(--amber-bg); border-bottom-color: var(--amber-line); color: var(--amber); }
 .preview-body { padding: 10px 12px; display: flex; gap: 10px; }
 .preview-thumb {
@@ -381,6 +404,14 @@ button, input, select, textarea { font: inherit; cursor: pointer; }
 }
 .admin-load-btn:hover { background: linear-gradient(to bottom,#5588dd,#004499); }
 .admin-load-btn:disabled { opacity: 0.5; cursor: default; }
+.admin-approve-all-btn {
+  height: 22px; padding: 0 10px;
+  background: linear-gradient(to bottom,#2a9a2a,#1a7a1a);
+  color: #fff; border: 1px solid #145014; font-size: 10px; font-weight: 700;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2);
+}
+.admin-approve-all-btn:hover { background: linear-gradient(to bottom,#33aa33,#208a20); }
+.admin-approve-all-btn:disabled { opacity: 0.45; cursor: default; }
 .admin-export-btn {
   height: 22px; padding: 0 10px;
   background: linear-gradient(to bottom,#fff,#e8e8e8);
@@ -555,6 +586,9 @@ html.dark-mode .plat-chip.pc-bili { background: #10222c; border-color: #2a5a70; 
 html.dark-mode .tier-select,
 html.dark-mode .admin-token-input { background: #111111; color: var(--text); border-color: #3b3b3b; box-shadow: none; }
 html.dark-mode .note-box { background: #221d09; border-color: #4a3c0a; border-left-color: #8a6a10; color: #d6c266; }
+html.dark-mode .batch-toolbar { background: linear-gradient(to bottom,#2a2a2a,#1c1c1c); border-color:#3b3b3b; border-top-color:var(--red); }
+html.dark-mode .batch-action { background:linear-gradient(to bottom,#2e2e2e,#1e1e1e); border-color:#3b3b3b; color:var(--muted); }
+html.dark-mode .batch-action.is-primary { background:linear-gradient(to bottom,#2a8a2a,#1a6a1a); border-color:#145014; color:#fff; }
 html.dark-mode .htp-list li::before { background: linear-gradient(to bottom, #b01111, #7a0808); box-shadow: none; }
 /* dark: admin panel */
 html.dark-mode .admin-panel {
@@ -567,6 +601,7 @@ html.dark-mode .admin-header {
 }
 html.dark-mode .admin-export-btn { background: linear-gradient(to bottom, #232a36, #181e28); color: #7ea6dd; border-color: #2a3a55; box-shadow: none; }
 html.dark-mode .admin-export-btn:hover { background: #1d2634; }
+html.dark-mode .admin-approve-all-btn { background:linear-gradient(to bottom,#287d28,#185d18); border-color:#123f12; }
 html.dark-mode .sub-item:nth-child(even) { background: #1e1e1e; }
 html.dark-mode .sub-item:hover { background: #1a2230; }
 html.dark-mode .reject-btn { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted); }
@@ -646,7 +681,7 @@ html.dark-mode .msg-err { background: #2a1414; border-color: #5a2a2a; border-top
   <span class="nnd-marquee-label">[INFO]</span>
   <div class="nnd-marquee-wrap">
     <div class="nnd-marquee-inner">
-      ★ Know a song that belongs on the charts? Paste its VocaDB link below &nbsp;·&nbsp;
+      ★ Know songs that belong on the charts? Paste their VocaDB IDs below &nbsp;·&nbsp;
       ★ Suggestions go into a review queue before appearing in the rankings &nbsp;·&nbsp;
       ★ Thank you for using 39charts ♪
     </div>
@@ -672,9 +707,9 @@ html.dark-mode .msg-err { background: #2a1414; border-color: #5a2a2a; border-top
       <div class="sidebar-header">[ How It Works ]</div>
       <div class="sidebar-body">
         <ol class="htp-list">
-          <li data-n="1">Find the song on <strong>VocaDB</strong> and copy its URL or ID.</li>
-          <li data-n="2">Paste it below and press <strong>Fetch</strong> · the details fill in automatically.</li>
-          <li data-n="3">Confirm the tier, add an optional note, and <strong>submit for review</strong>.</li>
+          <li data-n="1">Collect one or more song URLs or IDs from <strong>VocaDB</strong>.</li>
+          <li data-n="2">Paste the whole list and press <strong>Fetch IDs</strong> · every song gets its own card.</li>
+          <li data-n="3">Confirm each platform tier, then submit cards separately or <strong>submit all</strong>.</li>
           <li data-n="4">The maintainer approves it, and the song joins the rankings.</li>
         </ol>
       </div>
@@ -703,12 +738,12 @@ html.dark-mode .msg-err { background: #2a1414; border-color: #5a2a2a; border-top
       <div class="panel-header">[ Suggest a Song ]</div>
       <div class="panel-body">
         <div class="fetch-row">
-          <input type="text" class="fetch-input" id="url-input"
-            placeholder="https://vocadb.net/S/12345  or just  12345"
-            autocomplete="off" spellcheck="false">
-          <button class="fetch-btn" id="fetch-btn">Fetch</button>
+          <textarea class="fetch-input" id="url-input"
+            placeholder="Paste VocaDB IDs or URLs — one per line, or separated by spaces/commas"
+            autocomplete="off" spellcheck="false" rows="3"></textarea>
+          <button class="fetch-btn" id="fetch-btn">Fetch IDs</button>
         </div>
-        <div class="fetch-hint">Paste a VocaDB song URL or ID. Song info is fetched automatically.</div>
+        <div class="fetch-hint">Add as many VocaDB song IDs or URLs as you need. Duplicates are removed automatically; you can keep adding more batches below.</div>
       </div>
     </div>
 
@@ -726,6 +761,7 @@ html.dark-mode .msg-err { background: #2a1414; border-color: #5a2a2a; border-top
         <div class="admin-token-row">
           <input type="password" class="admin-token-input" id="admin-token" placeholder="Admin token…">
           <button class="admin-load-btn" id="admin-load-btn">Load Queue</button>
+          <button class="admin-approve-all-btn" id="admin-approve-all-btn" disabled>Approve All</button>
           <button class="admin-export-btn" id="admin-export-btn" disabled>Export Approved</button>
         </div>
       </div>
@@ -841,6 +877,11 @@ const TIER_TAG_MAP = [
   { pattern:/youtube\s*1[,.]?000[,.]?000/i,   tag:"yt-1m"   },
   { pattern:/youtube\s*100[,.]?000/i,          tag:"yt-100k" },
   { pattern:/youtube\s*10[,.]?000/i,           tag:"yt-10k"  },
+  { pattern:/bilibili\s*100[,.]?000[,.]?000/i, tag:"bili-100m" },
+  { pattern:/bilibili\s*10[,.]?000[,.]?000/i,  tag:"bili-10m"  },
+  { pattern:/bilibili\s*1[,.]?000[,.]?000/i,   tag:"bili-1m"   },
+  { pattern:/bilibili\s*100[,.]?000/i,          tag:"bili-100k" },
+  { pattern:/bilibili\s*10[,.]?000/i,           tag:"bili-10k"  },
 ];
 
 function escHtml(s) {
@@ -850,6 +891,10 @@ function escHtml(s) {
 function parseId(raw) {
   const m = raw.trim().match(/\/S\/(\d+)|\/Song\/Details\/(\d+)|^(\d+)$/);
   return m ? parseInt(m[1]||m[2]||m[3]) : null;
+}
+
+function parseIds(raw) {
+  return [...new Set(String(raw||"").split(/[\s,;]+/).map(parseId).filter(Boolean))];
 }
 
 function ytThumb(pvId) { return `https://i.ytimg.com/vi/${pvId}/hqdefault.jpg`; }
@@ -931,7 +976,8 @@ function buildSongEntry(data, tiers) {
   const tierTags = [];
   if (tiers && tiers.nnd && tiers.nnd !== "none") tierTags.push(`nnd-${tiers.nnd}`);
   if (tiers && tiers.yt && tiers.yt !== "none") tierTags.push(`yt-${tiers.yt}`);
-  if (tierTags.length) sourceTags = [...tierTags, ...sourceTags.filter(t=>!/^(nnd|yt)-/.test(t))];
+  if (tiers && tiers.bili && tiers.bili !== "none") tierTags.push(`bili-${tiers.bili}`);
+  if (tierTags.length) sourceTags = [...tierTags, ...sourceTags.filter(t=>!/^(nnd|yt|bili)-/.test(t))];
   return {
     vocadbId:      data.id,
     title:         data.name||data.defaultName||"", // lang=English -> localized name first
@@ -954,8 +1000,9 @@ function buildSongEntry(data, tiers) {
   };
 }
 
-/* ── Fetch & preview ── */
-let pendingData = null;
+/* ── Batch fetch & preview ── */
+const pendingItems = new Map();
+let batchNotices = [];
 
 /* Songs already published on the site (data/songs.json), loaded once. */
 let EXISTING_IDS = null;
@@ -969,141 +1016,170 @@ async function existingIds() {
   return EXISTING_IDS;
 }
 
-async function doFetch() {
-  const raw = document.getElementById("url-input").value;
-  const id = parseId(raw);
-  const statusArea = document.getElementById("status-area");
-  if (!id) {
-    statusArea.innerHTML = `<div class="msg msg-err"><strong>Invalid input</strong>Enter a VocaDB URL or numeric ID.</div>`;
-    return;
-  }
-  const btn = document.getElementById("fetch-btn");
-  btn.disabled = true; btn.textContent = "Fetching…";
-  statusArea.innerHTML = ""; pendingData = null;
-
-  try {
-    const res = await fetch(`${API}/vocadb/${id}`);
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
-
-    pendingData = data;
-    const artists = data.artists||[];
-    const singerNames = artists.filter(a=>/vocalist/i.test(a.categories||"")&&a.artist).map(a=>a.artist.name);
-    const vocals = normalizeVocalists(singerNames);
-    const pvs = (data.pvs||[]).filter(p=>p.pvType==="Original"||p.pvType==="Reprint");
-    const coverArts = buildCoverArts(pvs.length ? pvs : (data.pvs||[]).filter(p=>!p.disabled));
-    const services = new Set(pvs.map(p => p.service));
-    const hasNnd = services.has("NicoNicoDouga"), hasYt = services.has("Youtube"), hasBili = services.has("Bilibili");
-    data._platforms = { nnd: hasNnd, yt: hasYt, bili: hasBili };
-    const platChips = [
-      hasNnd ? `<span class="plat-chip pc-nnd">NicoNico</span>` : "",
-      hasYt ? `<span class="plat-chip pc-yt">YouTube</span>` : "",
-      hasBili ? `<span class="plat-chip pc-bili">bilibili</span>` : "",
-    ].filter(Boolean).join("");
-    const autoTags = mapSourceTags(data.tags||[]);
-    const guessedTier = ["100m","10m","1m","100k","10k"].find(t=>autoTags.some(tag=>tag.includes(t))) || "none";
-    const inDb = (await existingIds()).has(String(data.id));
-
-    statusArea.innerHTML = `
-      <div class="preview-wrap${inDb ? " is-dupe" : ""}">
-        <div class="preview-head${inDb ? " is-dupe" : ""}">${inDb
-          ? "&#9888; Already in the database · no need to submit"
-          : "★ Song found · confirm details and submit"}</div>
-        <div class="preview-body">
-          <div class="preview-thumb">
-            ${chainImg(coverArts)
-              || `<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#555;font-size:22px;opacity:0.3">♪</div>`}
-          </div>
-          <div class="preview-meta">
-            <div class="preview-title">${escHtml(data.defaultName||"")}</div>
-            <div class="preview-artist">${escHtml(data.artistString||"")}</div>
-            <div class="preview-row">
-              <span class="preview-label">Vocalists</span>
-              ${vocals.length
-                ? vocals.map(v=>`<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join("")
-                : `<span style="color:var(--faint);font-size:10px">—</span>`}
-            </div>
-            <div class="preview-row">
-              <span class="preview-label">Platforms</span>
-              ${platChips || `<span style="color:var(--faint);font-size:10px">none detected</span>`}
-              <span style="font-size:10px;color:var(--muted)">&nbsp;${pvs.length} PV${pvs.length!==1?"s":""} &nbsp;·&nbsp; VocaDB #${data.id}</span>
-            </div>
-            ${autoTags.length ? `<div class="preview-row">
-              <span class="preview-label">Auto tier</span>
-              <span style="font-size:10px;color:var(--muted)">${autoTags.map(escHtml).join(", ")}</span>
-            </div>` : ""}
-          </div>
-        </div>
-        ${inDb ? `
-        <div class="preview-foot">
-          <span style="font-size:11px;color:var(--muted)">This song is already on 39charts.</span>
-          <a class="submit-btn" style="text-decoration:none;display:inline-flex;align-items:center" href="song.html?id=${encodeURIComponent(data.id)}">View song page ▶</a>
-        </div>` : `
-        <div class="preview-foot">
-          ${(data._platforms && data._platforms.nnd) || !(data._platforms && (data._platforms.yt || data._platforms.bili)) ? `
-          <span style="font-size:10px;color:var(--muted);font-weight:700" title="This song&#39;s NicoNico view milestone · a rough guess is fine">NND tier</span>
-          <select class="tier-select" id="tier-nnd">${TIER_OPTIONS}</select>` : ""}
-          ${data._platforms && data._platforms.yt ? `
-          <span style="font-size:10px;color:var(--muted);font-weight:700" title="This song&#39;s YouTube view milestone · a rough guess is fine">YT tier</span>
-          <select class="tier-select" id="tier-yt">${TIER_OPTIONS}</select>` : ""}
-          <input type="text" class="note-input" id="note-input" placeholder="Optional note…" maxlength="300">
-          <button class="submit-btn" id="submit-btn">Submit for Review</button>
-        </div>
-        <div class="preview-hint">Tiers are per platform · a song can be 1M+ on NicoNico but 100K+ on YouTube. Real view counts are fetched automatically after approval, so rough guesses are fine.</div>`}
-      </div>`;
-
-    if (!inDb) {
-      const tn = document.getElementById("tier-nnd");
-      const ty = document.getElementById("tier-yt");
-      if (tn) tn.value = guessedTier;
-      if (ty) ty.value = guessedTier;
-      document.getElementById("submit-btn").addEventListener("click", doSubmit);
-    }
-
-  } catch(e) {
-    statusArea.innerHTML = `<div class="msg msg-err"><strong>Fetch failed</strong>${escHtml(e.message)}</div>`;
-  } finally {
-    btn.disabled = false; btn.textContent = "Fetch";
-  }
+function preparePendingData(data) {
+  const pvs = (data.pvs||[]).filter(p=>p.pvType==="Original"||p.pvType==="Reprint");
+  const services = new Set(pvs.map(p=>p.service));
+  data._platforms = {
+    nnd: services.has("NicoNicoDouga"),
+    yt: services.has("Youtube"),
+    bili: services.has("Bilibili"),
+  };
+  const autoTags = mapSourceTags(data.tags||[]);
+  const tierFor = platform => ["100m","10m","1m","100k","10k"].find(t=>autoTags.includes(`${platform}-${t}`)) || "none";
+  return {
+    data,
+    inDb: false,
+    error: "",
+    submitting: false,
+    tiers: { nnd:tierFor("nnd"), yt:tierFor("yt"), bili:tierFor("bili") },
+    note: "",
+  };
 }
 
-async function doSubmit() {
-  if (!pendingData) return;
-  if ((await existingIds()).has(String(pendingData.id))) {
-    document.getElementById("status-area").innerHTML =
-      `<div class="msg msg-err"><strong>Already in the database</strong>"${escHtml(pendingData.defaultName||"")}" is already on 39charts.</div>`;
-    return;
-  }
-  const btn = document.getElementById("submit-btn");
-  btn.disabled = true; btn.textContent = "Submitting…";
-
-  const tierNnd = document.getElementById("tier-nnd") ? document.getElementById("tier-nnd").value : "none";
-  const tierYt  = document.getElementById("tier-yt") ? document.getElementById("tier-yt").value : "none";
-  const note  = document.getElementById("note-input").value.trim();
-  const song  = buildSongEntry(pendingData, { nnd: tierNnd, yt: tierYt });
-
-  try {
-    const res = await fetch(`${API}/submissions`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ song, note }),
+function capturePendingInputs() {
+  pendingItems.forEach((item,id)=>{
+    ["nnd","yt","bili"].forEach(platform=>{
+      const select = document.getElementById(`tier-${platform}-${id}`);
+      if (select) item.tiers[platform] = select.value;
     });
-    const data = await res.json();
-    if (!res.ok) throw new Error(data.error || `HTTP ${res.status}`);
+    const note = document.getElementById(`note-input-${id}`);
+    if (note) item.note = note.value.trim();
+  });
+}
 
-    document.getElementById("status-area").innerHTML =
-      `<div class="msg msg-ok"><strong>Submitted!</strong>"${escHtml(song.title)}" is now in the review queue. Thank you!</div>`;
-    document.getElementById("url-input").value = "";
-    pendingData = null;
+function previewHtml(item) {
+  const data = item.data, id = String(data.id);
+  if (item.error) return `<div class="msg msg-err"><strong>VocaDB #${escHtml(id)} could not be fetched</strong>${escHtml(item.error)} <button class="preview-remove" data-remove-id="${escHtml(id)}" type="button" aria-label="Remove failed item">✕</button></div>`;
+  const artists = data.artists||[];
+  const singerNames = artists.filter(a=>/vocalist/i.test(a.categories||"")&&a.artist).map(a=>a.artist.name);
+  const vocals = normalizeVocalists(singerNames);
+  const pvs = (data.pvs||[]).filter(p=>p.pvType==="Original"||p.pvType==="Reprint");
+  const coverArts = buildCoverArts(pvs.length ? pvs : (data.pvs||[]).filter(p=>!p.disabled));
+  const platforms = data._platforms||{};
+  const platChips = [
+    platforms.nnd ? `<span class="plat-chip pc-nnd">NicoNico</span>` : "",
+    platforms.yt ? `<span class="plat-chip pc-yt">YouTube</span>` : "",
+    platforms.bili ? `<span class="plat-chip pc-bili">bilibili</span>` : "",
+  ].filter(Boolean).join("");
+  const autoTags = mapSourceTags(data.tags||[]);
+  const tierField = (platform,label,title,force=false) => (platforms[platform]||force) ? `
+    <span style="font-size:10px;color:var(--muted);font-weight:700" title="${title}">${label} tier</span>
+    <select class="tier-select" id="tier-${platform}-${id}">${TIER_OPTIONS}</select>` : "";
+  return `<div class="preview-wrap${item.inDb ? " is-dupe" : ""}" data-preview-id="${escHtml(id)}">
+    <div class="preview-head${item.inDb ? " is-dupe" : ""}">
+      <span class="preview-head-main"><span>${item.inDb ? "&#9888; Already in the database" : "★ Ready to submit"}</span><span class="preview-head-id">VocaDB #${escHtml(id)}</span></span>
+      <button class="preview-remove" data-remove-id="${escHtml(id)}" type="button" aria-label="Remove ${escHtml(data.defaultName||"song")}">✕</button>
+    </div>
+    <div class="preview-body">
+      <div class="preview-thumb">${chainImg(coverArts)||`<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#555;font-size:22px;opacity:0.3">♪</div>`}</div>
+      <div class="preview-meta">
+        <div class="preview-title">${escHtml(data.defaultName||"")}</div>
+        <div class="preview-artist">${escHtml(data.artistString||"")}</div>
+        <div class="preview-row"><span class="preview-label">Vocalists</span>${vocals.length?vocals.map(v=>`<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join(""):`<span style="color:var(--faint);font-size:10px">—</span>`}</div>
+        <div class="preview-row"><span class="preview-label">Platforms</span>${platChips||`<span style="color:var(--faint);font-size:10px">none detected</span>`}<span style="font-size:10px;color:var(--muted)">&nbsp;${pvs.length} PV${pvs.length!==1?"s":""}</span></div>
+        ${autoTags.length?`<div class="preview-row"><span class="preview-label">Auto tier</span><span style="font-size:10px;color:var(--muted)">${autoTags.map(escHtml).join(", ")}</span></div>`:""}
+      </div>
+    </div>
+    ${item.inDb?`<div class="preview-foot"><span style="font-size:11px;color:var(--muted)">This song is already on 39charts.</span><a class="submit-btn" style="text-decoration:none;display:inline-flex;align-items:center" href="song.html?id=${encodeURIComponent(id)}">View song page ▶</a></div>`:`
+    <div class="preview-foot">
+      ${tierField("nnd","NND","This song's NicoNico view milestone · a rough guess is fine")}
+      ${tierField("yt","YT","This song's YouTube view milestone · a rough guess is fine")}
+      ${tierField("bili","BILI","This song's bilibili view milestone · a rough guess is fine")}
+      ${(!platforms.nnd&&!platforms.yt&&!platforms.bili)?tierField("nnd","NND","Fallback view milestone",true):""}
+      <input type="text" class="note-input" id="note-input-${escHtml(id)}" placeholder="Optional note…" maxlength="300" value="${escHtml(item.note)}">
+      <button class="submit-btn" data-submit-id="${escHtml(id)}" ${item.submitting?"disabled":""}>${item.submitting?"Submitting…":"Submit for Review"}</button>
+    </div>
+    <div class="preview-hint">Tiers are separate for NicoNico, YouTube, and bilibili. Real counts are refreshed automatically after approval, so rough guesses are fine.</div>`}
+  </div>`;
+}
+
+function renderPending() {
+  const area = document.getElementById("status-area");
+  const items = [...pendingItems.values()];
+  const ready = items.filter(item=>item.data&&!item.inDb&&!item.error);
+  area.innerHTML = `${batchNotices.map(n=>`<div class="msg ${n.ok?"msg-ok":"msg-err"}"><strong>${n.ok?"Submitted":"Submission failed"}</strong>${escHtml(n.text)}</div>`).join("")}
+    ${items.length?`<div class="batch-toolbar"><strong>${items.length} song${items.length===1?"":"s"} in this batch · ${ready.length} ready to submit</strong>${ready.length>1?`<button class="batch-action is-primary" id="submit-all-btn" type="button">Submit All Ready</button>`:""}<button class="batch-action" id="clear-batch-btn" type="button">Clear Batch</button></div><div class="batch-list">${items.map(previewHtml).join("")}</div>`:""}`;
+  pendingItems.forEach((item,id)=>{
+    ["nnd","yt","bili"].forEach(platform=>{const select=document.getElementById(`tier-${platform}-${id}`);if(select)select.value=item.tiers[platform]||"none"});
+  });
+}
+
+async function doFetch() {
+  const input = document.getElementById("url-input");
+  const ids = parseIds(input.value).filter(id=>!pendingItems.has(String(id)));
+  if (!ids.length) {
+    batchNotices = [{ok:false,text:"Enter one or more new VocaDB URLs or numeric IDs."}];
+    renderPending(); return;
+  }
+  capturePendingInputs(); batchNotices = [];
+  const btn = document.getElementById("fetch-btn");
+  btn.disabled = true;
+  const published = await existingIds();
+  let cursor = 0, completed = 0;
+  ids.forEach(id=>pendingItems.set(String(id),{data:{id,defaultName:""},inDb:false,error:"Loading…",submitting:false,tiers:{nnd:"none",yt:"none",bili:"none"},note:""}));
+  async function fetchNext() {
+    while (cursor < ids.length) {
+      const id = ids[cursor++];
+      btn.textContent = `Fetching ${completed}/${ids.length}…`;
+      try {
+        const res = await fetch(`${API}/vocadb/${id}`);
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error||`HTTP ${res.status}`);
+        const item = preparePendingData(data);
+        item.inDb = published.has(String(data.id));
+        pendingItems.set(String(id),item);
+      } catch(e) {
+        pendingItems.set(String(id),{data:{id,defaultName:""},inDb:false,error:e.message,submitting:false,tiers:{nnd:"none",yt:"none",bili:"none"},note:""});
+      }
+      completed++;
+    }
+  }
+  await Promise.all(Array.from({length:Math.min(4,ids.length)},fetchNext));
+  input.value = ""; btn.disabled = false; btn.textContent = "Fetch IDs"; renderPending(); input.focus();
+}
+
+async function doSubmit(id, renderAfter=true) {
+  capturePendingInputs();
+  const item = pendingItems.get(String(id));
+  if (!item||!item.data||item.inDb||item.error) return false;
+  item.submitting = true; if(renderAfter)renderPending();
+  const song = buildSongEntry(item.data,item.tiers);
+  try {
+    const res = await fetch(`${API}/submissions`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({song,note:item.note})});
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error||`HTTP ${res.status}`);
+    pendingItems.delete(String(id));
+    batchNotices.unshift({ok:true,text:`“${song.title}” was added to the review queue.`});
+    if(EXISTING_IDS)EXISTING_IDS.add(String(id));
+    if(renderAfter)renderPending();
+    return true;
   } catch(e) {
-    btn.disabled = false; btn.textContent = "Submit for Review";
-    const area = document.getElementById("status-area");
-    // one error banner at a time — repeated clicks replace it instead of stacking
-    area.querySelectorAll(".msg-err.submit-err").forEach(el => el.remove());
-    area.insertAdjacentHTML("beforeend",
-      `<div class="msg msg-err submit-err" style="margin-top:4px"><strong>Submit failed</strong>${escHtml(e.message)}</div>`);
+    item.submitting = false;
+    batchNotices.unshift({ok:false,text:`“${song.title}”: ${e.message}`});
+    if(renderAfter)renderPending();
+    return false;
   }
 }
+
+async function submitAll() {
+  capturePendingInputs();
+  const ids = [...pendingItems].filter(([,item])=>item.data&&!item.inDb&&!item.error).map(([id])=>id);
+  const button = document.getElementById("submit-all-btn");
+  if(button){button.disabled=true;button.textContent=`Submitting 0/${ids.length}…`}
+  for(let i=0;i<ids.length;i++){
+    if(button)button.textContent=`Submitting ${i+1}/${ids.length}…`;
+    await doSubmit(ids[i],false);
+  }
+  renderPending();
+}
+
+document.getElementById("status-area").addEventListener("click",e=>{
+  const submit=e.target.closest("[data-submit-id]"),remove=e.target.closest("[data-remove-id]");
+  if(submit)doSubmit(submit.dataset.submitId);
+  else if(remove){capturePendingInputs();pendingItems.delete(remove.dataset.removeId);renderPending()}
+  else if(e.target.id==="submit-all-btn")submitAll();
+  else if(e.target.id==="clear-batch-btn"){pendingItems.clear();batchNotices=[];renderPending()}
+});
 
 /* ── Admin queue ── */
 function adminToken() {
@@ -1127,23 +1203,40 @@ async function loadQueue() {
   } catch(e) {
     document.getElementById("admin-body").innerHTML =
       `<div class="sub-empty" style="color:var(--red)">${escHtml(e.message)}</div>`;
+    syncApproveAllButton();
   } finally {
     btn.disabled = false; btn.textContent = "Load Queue";
   }
+}
+
+function syncApproveAllButton() {
+  const button = document.getElementById("admin-approve-all-btn");
+  const count = document.querySelectorAll("#admin-body .sub-item").length;
+  button.disabled = count === 0;
+  button.textContent = count ? `Approve All (${count})` : "Approve All";
+}
+
+async function approveQueueItem(id, token) {
+  const res = await fetch(`${API}/submissions/${id}/approve`, {
+    method: "POST", headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) { const data=await res.json(); throw new Error(data.error||`HTTP ${res.status}`); }
 }
 
 function renderQueue(items, token) {
   const body = document.getElementById("admin-body");
   if (!items.length) {
     body.innerHTML = `<div class="sub-empty">Queue is empty · no pending submissions.</div>`;
+    syncApproveAllButton();
     return;
   }
   body.innerHTML = `<ul class="sub-list">${items.map(item => {
     const s = item.song;
     const TIER_TXT = { "100m":"100M+", "10m":"10M+", "1m":"1M+", "100k":"100K+", "10k":"10K+" };
     const tierChips = (s.sourceTags||[]).map(t => {
-      const m = t.match(/^(nnd|yt)-(100m|10m|1m|100k|10k)$/);
-      return m ? `${m[1]==="nnd"?"NND":"YT"} ${TIER_TXT[m[2]]}` : null;
+      const m = t.match(/^(nnd|yt|bili)-(100m|10m|1m|100k|10k)$/);
+      const platform = m && ({nnd:"NND",yt:"YT",bili:"BILI"})[m[1]];
+      return m ? `${platform} ${TIER_TXT[m[2]]}` : null;
     }).filter(Boolean);
     const date = item.submittedAt ? item.submittedAt.slice(0,10) : "";
     return `
@@ -1164,17 +1257,16 @@ function renderQueue(items, token) {
         </div>
       </li>`;
   }).join("")}</ul>`;
+  syncApproveAllButton();
 
   body.querySelectorAll(".approve-btn").forEach(btn => {
     btn.addEventListener("click", async () => {
       btn.disabled = true; btn.textContent = "…";
       try {
-        const res = await fetch(`${API}/submissions/${btn.dataset.id}/approve`, {
-          method: "POST", headers: { Authorization: `Bearer ${token}` },
-        });
-        if (!res.ok) { const d=await res.json(); throw new Error(d.error); }
-        btn.closest("li").style.opacity = "0.35";
-        btn.textContent = "✓";
+        await approveQueueItem(btn.dataset.id,token);
+        btn.closest("li").remove();
+        if (!body.querySelector("li")) body.innerHTML = `<div class="sub-empty">Queue is empty · all pending songs are approved.</div>`;
+        syncApproveAllButton();
       } catch(e) { btn.disabled=false; btn.textContent="Approve"; alert(e.message); }
     });
   });
@@ -1191,9 +1283,45 @@ function renderQueue(items, token) {
         btn.closest("li").remove();
         if (!document.getElementById("admin-body").querySelector("li"))
           document.getElementById("admin-body").innerHTML = `<div class="sub-empty">Queue is empty.</div>`;
+        syncApproveAllButton();
       } catch(e) { btn.disabled=false; btn.textContent="Reject"; alert(e.message); }
     });
   });
+}
+
+async function approveAll() {
+  const token = adminToken();
+  const body = document.getElementById("admin-body");
+  const rows = [...body.querySelectorAll(".sub-item")];
+  if (!token||!rows.length) return;
+  if (!confirm(`Approve all ${rows.length} pending songs? They will be marked approved and published by the next refresh.`)) return;
+
+  const button = document.getElementById("admin-approve-all-btn");
+  const loadButton = document.getElementById("admin-load-btn");
+  button.disabled = true; loadButton.disabled = true;
+  let cursor = 0, approved = 0;
+  const failures = [];
+  async function approveNext() {
+    while (cursor < rows.length) {
+      const row = rows[cursor++], id = row.dataset.id;
+      try {
+        await approveQueueItem(id,token);
+        approved++; row.remove();
+      } catch(e) {
+        failures.push({id,error:e.message});
+        row.style.background = "#fff0f0";
+        row.title = `Approval failed: ${e.message}`;
+      }
+      button.textContent = `Approving ${approved + failures.length}/${rows.length}…`;
+    }
+  }
+  await Promise.all(Array.from({length:Math.min(4,rows.length)},approveNext));
+  loadButton.disabled = false;
+  const remaining = body.querySelectorAll(".sub-item").length;
+  const summary = `<div class="msg ${failures.length?"msg-err":"msg-ok"}" style="margin:6px"><strong>Approved ${approved} of ${rows.length}</strong>${failures.length?`${failures.length} failed and remain below for retry.`:"The review queue is now empty."}</div>`;
+  if (remaining) body.insertAdjacentHTML("afterbegin",summary);
+  else body.innerHTML = summary;
+  syncApproveAllButton();
 }
 
 document.getElementById("admin-export-btn").addEventListener("click", () => {
@@ -1214,8 +1342,11 @@ document.getElementById("admin-export-btn").addEventListener("click", () => {
 });
 
 document.getElementById("admin-load-btn").addEventListener("click", loadQueue);
+document.getElementById("admin-approve-all-btn").addEventListener("click", approveAll);
 document.getElementById("admin-token").addEventListener("keydown", e => { if(e.key==="Enter") loadQueue(); });
-document.getElementById("url-input").addEventListener("keydown", e => { if(e.key==="Enter") doFetch(); });
+document.getElementById("url-input").addEventListener("keydown", e => {
+  if(e.key==="Enter"&&(e.ctrlKey||e.metaKey)){e.preventDefault();doFetch()}
+});
 document.getElementById("fetch-btn").addEventListener("click", doFetch);
 </script>
 

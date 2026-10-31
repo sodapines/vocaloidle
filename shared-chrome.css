@@ -1,0 +1,17 @@
+/* Shared retro tag strip used below each game's info ticker. */
+.nnd-tag-row{width:100%;padding:2px 8px;display:flex;align-items:center;gap:2px;flex-wrap:wrap;background:var(--sf,#f2f0eb);border-bottom:1px solid var(--line,#c8c4bc);font-size:11px}
+.nnd-tag-label{flex:0 0 auto;color:var(--faint,#999);font-size:11px}
+.nnd-tag{display:inline-block;padding:0 6px;color:#3f268e!important;background:#f2f0ff;border:1px solid #aeb5df;box-shadow:inset 1px 1px 0 rgba(255,255,255,.8);font-size:10px;line-height:15px;text-decoration:none!important}
+.nnd-tag:hover{color:var(--red,#c00)!important;background:#e3e0ff}
+html.dark-mode .nnd-tag-row{background:#171717;border-color:#303030}
+html.dark-mode .nnd-tag{color:#aaa0ea!important;background:#211f32;border-color:#494569;box-shadow:none}
+
+/* Mikudle uses the same moving information strip as the other games. */
+.nnd-marquee-bar{width:100%;height:20px;display:flex;align-items:center;overflow:hidden;color:#555500;background:repeating-linear-gradient(0deg,rgba(204,153,0,.08) 0,rgba(204,153,0,.08) 1px,transparent 1px,transparent 4px),#fffde8;border-top:1px solid #d0c878;border-bottom:1px solid #d0c878;font-size:11px}
+.nnd-marquee-label{flex:0 0 auto;height:100%;padding:0 7px;display:flex;align-items:center;color:#fff;background:#b39200;border-right:1px solid #8b7200;font-size:10px;font-weight:700}
+.nnd-marquee-wrap{flex:1;height:100%;display:flex;align-items:center;overflow:hidden}
+.nnd-marquee-inner{padding-left:100%;white-space:nowrap;animation:vocaloidle-marquee 42s linear infinite}
+@keyframes vocaloidle-marquee{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+@media(prefers-reduced-motion:reduce){.nnd-marquee-inner{padding-left:8px;animation:none}}
+html.dark-mode .nnd-marquee-bar{color:#d6c266;background:#211d09;border-color:#5a4a16}
+html.dark-mode .nnd-marquee-label{background:#6e5a10;border-color:#4a3c0a}

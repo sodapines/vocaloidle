@@ -273,8 +273,58 @@ async function refreshBiliSlice(sliceIndex, env) {
 
 /* ───────────────────── Publish approved submissions ───────────────────── */
 
+const GRID_SYNTH_TYPES = /^(Vocaloid|UTAU|CeVIO|SynthesizerV|NEUTRINO|VoiSona|NewType|Voiceroid|AIVoice|ACEVirtualSinger|VOICEVOX|OtherVoiceSynthesizer)$/i;
+
+function pickGridDetails(data) {
+  if (!data) return null;
+  const producers = [], vocalists = [], vocalistEngines = {};
+  for (const credit of data.artists || []) {
+    const name = String(credit.name || "").trim();
+    if (!name) continue;
+    const categories = String(credit.categories || "");
+    const roles = String(credit.effectiveRoles || credit.roles || "").replace(/^Default$/, "");
+    if (/Vocalist/i.test(categories)) {
+      if (!/Support/i.test(roles)) vocalists.push(name);
+      const type = String((credit.artist && credit.artist.artistType) || "");
+      if (GRID_SYNTH_TYPES.test(type)) vocalistEngines[name] = type;
+    } else if (/Producer|Circle|Band/i.test(categories)) producers.push({ name, roles });
+  }
+  const skipTags = /^(japanese|english|chinese|korean|spanish)$/i;
+  const tags = (data.tags || [])
+    .filter(tag => tag.tag && tag.tag.name && !skipTags.test(tag.tag.name) && tag.tag.categoryName !== "Vocalists" && tag.tag.categoryName !== "Languages")
+    .sort((a, b) => (b.count || 0) - (a.count || 0))
+    .slice(0, 8)
+    .map(tag => tag.tag.name);
+  return {
+    type: data.songType || null,
+    langs: Array.isArray(data.cultureCodes) ? data.cultureCodes : [],
+    producers, vocalists, vocalistEngines, tags,
+  };
+}
+
+async function fetchGridDetails(id) {
+  const res = await fetch(`https://vocadb.net/api/songs/${id}?fields=Artists,CultureCodes,Tags&lang=English`, { headers: { "User-Agent": UA } });
+  if (!res.ok) return null;
+  return pickGridDetails(await res.json());
+}
+
+async function mapConcurrent(items, limit, fn) {
+  const results = new Array(items.length);
+  let cursor = 0;
+  await Promise.all(Array.from({ length: Math.min(limit, items.length) }, async () => {
+    while (cursor < items.length) {
+      const index = cursor++;
+      try { results[index] = await fn(items[index], index); }
+      catch { results[index] = null; }
+    }
+  }));
+  return results;
+}
+
 // Appends approved-but-unpublished queue entries to data/songs.json and marks
-// them published in KV. Needs the CHARTS_DB binding; silently skipped without it.
+// them published in KV. Details are committed first: a song never enters the
+// playable roster before Grid can evaluate its language, tags, and credits.
+// Needs the CHARTS_DB binding; silently skipped without it.
 async function publishApproved(env) {
   if (!env.CHARTS_DB) return 0;
   const token = env.GITHUB_TOKEN;
@@ -287,22 +337,46 @@ async function publishApproved(env) {
   const songsFile = await ghGetLargeJson("data/songs.json", token);
   const songs = songsFile.data || [];
   const have = new Set(songs.map(s => String(s.vocadbId)));
+  const detailsFile = await ghGetJson("data/songdetails.json", token);
+  const detailsDoc = detailsFile.data || { updated: null, songs: {} };
+  if (!detailsDoc.songs) detailsDoc.songs = {};
+
+  const fetched = await mapConcurrent(entries, 6, entry => {
+    const id = String(entry.song.vocadbId);
+    return detailsDoc.songs[id] || fetchGridDetails(id);
+  });
+  const ready = [], deferred = [];
+  let enriched = 0;
+  entries.forEach((entry, index) => {
+    const id = String(entry.song.vocadbId);
+    if (!fetched[index]) { deferred.push(id); return; }
+    if (!detailsDoc.songs[id]) { detailsDoc.songs[id] = fetched[index]; enriched++; }
+    ready.push(entry);
+  });
+  if (enriched) {
+    detailsDoc.updated = new Date().toISOString().slice(0, 10);
+    await ghPutJson("data/songdetails.json", detailsDoc, detailsFile.sha, token, `feat(data): enrich ${enriched} approved submission(s)`);
+  }
+
   let added = 0;
-  for (const e of entries) {
+  for (const e of ready) {
     if (!have.has(String(e.song.vocadbId))) {
       songs.push(e.song);
       have.add(String(e.song.vocadbId));
       added++;
     }
-    e.published = true;
-    await env.CHARTS_DB.put(`sub:${e.id}`, JSON.stringify(e));
   }
   if (added) {
     await ghPutJson("data/songs.json", songs, songsFile.sha, token, `feat(data): publish ${added} approved submission(s)`);
     // Image lookups must never block the publish itself.
-    try { await updateArtistImages(entries.map(e => e.song), token); }
+    try { await updateArtistImages(ready.map(e => e.song), token); }
     catch (e) { console.log(`updateArtistImages failed: ${e.message}`); }
   }
+  for (const e of ready) {
+    e.published = true;
+    await env.CHARTS_DB.put(`sub:${e.id}`, JSON.stringify(e));
+  }
+  if (deferred.length) console.log(`publishApproved deferred ${deferred.length} song(s) missing VocaDB details: ${deferred.join(", ")}`);
   return added;
 }
 

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="../site-theme.js?v=1"></script>
+<script src="../song-fixes.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VOCALOID Connections · find the four groups</title>
@@ -17,7 +19,7 @@
   --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
   --text: #111; --muted: #555; --faint: #999;
   --line: #c8c4bc; --ls: #b8b4ac;
-  --red: #cc0000; --red-dark: #990000; --link: #0066cc;
+  --red: #c77420; --red-dark: #88440b; --link: #0066cc;
   --g-yellow: #d8ae2e; --g-yellow-d: #a87c0a;
   --g-green: #2faf57; --g-green-d: #1a7d3c;
   --g-blue: #3769c9; --g-blue-d: #174690;
@@ -53,8 +55,8 @@ button { font: inherit; cursor: pointer; }
 .nnd-logo:hover { text-decoration: none; }
 .nnd-logo-mark {
   display: inline-flex; align-items: center; justify-content: center;
-  width: 28px; height: 28px; background: linear-gradient(#5c5c5c, #3a3a3a);
-  border: 1px solid #2c2c2c; flex-shrink: 0;
+  width: 28px; height: 28px; background: linear-gradient(var(--red), var(--red-dark));
+  border: 1px solid var(--red-dark); flex-shrink: 0;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.16);
 }
 .cn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
@@ -92,7 +94,7 @@ button { font: inherit; cursor: pointer; }
   border: 1px solid var(--red-dark); font-weight: 700;
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
 }
-.nnd-header-links a.nnd-kofi:hover { background: #b30000; color: #fff; text-decoration: none; }
+.nnd-header-links a.nnd-kofi:hover { background: var(--red-dark); color: #fff; text-decoration: none; }
 .nnd-divider { color: var(--line); }
 .nnd-mobile-settings { display: none; }
 .nnd-marquee-bar {
@@ -245,7 +247,7 @@ button { font: inherit; cursor: pointer; }
 .act-btn {
   min-height: 27px; padding: 0 14px;
   font-size: 11px; font-weight: 700; color: #fff;
-  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
   border: 1px solid var(--red-dark);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
 }
@@ -293,7 +295,7 @@ button { font: inherit; cursor: pointer; }
 .links-list a { display:block; padding: 4px 7px; color: var(--link); border-bottom: 1px solid var(--line); font-size: 10px; line-height:1.4; }
 .links-list a:last-child { border-bottom: 0; }
 .links-list a::before { content: "\25B8"; color: var(--red); margin-right: 5px; }
-.links-list a:hover { color:var(--red); background:#fff0f0; text-decoration:none; }
+.links-list a:hover { color:var(--red); background:#fff4e8; text-decoration:none; }
 
 /* archive calendar */
 .archive-view { width:min(100%,640px); margin:0 auto; padding: 10px 12px 12px; }
@@ -307,7 +309,7 @@ button { font: inherit; cursor: pointer; }
 .mcal-day.off { visibility: hidden; }
 .mcal-day.playable { color: var(--text); background: linear-gradient(to bottom,#fff,#eceae4); border-color: var(--ls); }
 .mcal-day.playable:hover { border-color: var(--red); color: var(--red); }
-.mcal-day.done { color: #fff; background: linear-gradient(to bottom,#dd2222,#aa0000); border-color: var(--red-dark); }
+.mcal-day.done { color: #fff; background: linear-gradient(to bottom,var(--red),var(--red-dark)); border-color: var(--red-dark); }
 .mcal-score { font-size: 8px; font-weight: 400; }
 .mcal-legend { display: flex; justify-content: center; gap: 18px; margin-top: 10px; font-size: 9px; color: var(--faint); }
 .mcal-key { display: inline-block; width: 10px; height: 10px; margin-right: 4px; vertical-align: -1px; border: 1px solid var(--ls); background: var(--sf); }
@@ -356,7 +358,7 @@ button { font: inherit; cursor: pointer; }
   background: linear-gradient(to bottom, #fff, #ddd);
   border: 1px solid var(--ls); color: var(--muted); font-size: 10px; font-weight: 700;
 }
-.modal-close:hover { background: linear-gradient(to bottom, #fff5f5, #fcc); color: var(--red); }
+.modal-close:hover { background: linear-gradient(to bottom, #fff7ed, #fcc); color: var(--red); }
 .modal p { margin-bottom: 8px; font-size: 12px; color: var(--muted); }
 .modal p b { color: var(--text); }
 .settings-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 0; }
@@ -370,7 +372,7 @@ button { font: inherit; cursor: pointer; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
 }
 .settings-toggle.is-on {
-  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
   color: #fff; border-color: var(--red-dark);
 }
 .settings-row + .settings-row { border-top:1px dotted var(--line); }
@@ -459,7 +461,7 @@ button:focus-visible,a:focus-visible,input:focus-visible { outline:2px solid var
 .stats-detail-row:last-child { border-bottom:0; }
 .stats-detail-row span { color:var(--text); font-weight:700; }
 .stats-detail-row strong { color:var(--muted); font-weight:400; text-align:right; }
-.stats-copy-profile { width:100%; min-height:27px; margin-top:8px; padding:4px 10px; border:1px solid var(--red-dark); background:linear-gradient(to bottom,#dd2222,#aa0000); color:#fff; font-weight:700; }
+.stats-copy-profile { width:100%; min-height:27px; margin-top:8px; padding:4px 10px; border:1px solid var(--red-dark); background:linear-gradient(to bottom,var(--red),var(--red-dark)); color:#fff; font-weight:700; }
 
 .site-footer {
   flex-shrink: 0; width: 100%;
@@ -474,7 +476,7 @@ html.dark-mode {
   --bg: #121212; --surface: #1a1a1a; --sf: #161616;
   --text: #e1e1e1; --muted: #a6a39c; --faint: #7c7c7c;
   --line: #2c2c2c; --ls: #3b3b3b;
-  --red: #dd2222; --link: #5aa0e0;
+  --red: #df994e; --link: #5aa0e0;
 }
 html.dark-mode body {
   background-image:
@@ -493,27 +495,27 @@ html.dark-mode .panel-header, html.dark-mode .modal-title {
 }
 html.dark-mode .mode-bar { background: linear-gradient(to bottom, #202020, #181818); box-shadow: none; }
 html.dark-mode .mode-btn { background: linear-gradient(to bottom, #262626, #1c1c1c); border-color: #333 #111 #111 #333; }
-html.dark-mode .mode-btn.is-active { background: linear-gradient(to bottom, #b01111, #7a0808); border-color: #b01111 #5a0505 #5a0505 #b01111; }
+html.dark-mode .mode-btn.is-active { background: linear-gradient(to bottom, var(--red), var(--red-dark)); border-color: #b01111 #5a0505 #5a0505 #b01111; }
 html.dark-mode .tile { background: linear-gradient(to bottom, #262626, #1c1c1c); border-color: #333 #111 #111 #333; }
 html.dark-mode .tile.sel { background: linear-gradient(to bottom, #555, #3a3a3a); border-color: var(--red); color: #fff; }
 html.dark-mode .settings-toggle, html.dark-mode .modal-close {
   background: linear-gradient(to bottom, #2e2e2e, #1e1e1e);
   border-color: #3b3b3b; color: var(--muted); box-shadow: none;
 }
-html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; border-color: #5a0505; }
-html.dark-mode .modal-close:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, var(--red), var(--red-dark)); color: #fff; border-color: #5a0505; }
+html.dark-mode .modal-close:hover { background: #302217; color: var(--red); }
 html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); box-shadow: none; }
 html.dark-mode .nnd-toast { background: #211d09; color: #d6c266; border-color: #5a4a16; }
 html.dark-mode .nnd-toast .nnd-toast-label { background: #6e5a10; border-right-color: #4a3c0a; }
 html.dark-mode .nnd-toast .nnd-toast-msg b { color: #f0e0a0; }
 html.dark-mode .solved-row { box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), inset 0 -2px 0 rgba(0,0,0,0.3); }
 html.dark-mode .mcal-nav,html.dark-mode .mcal-day.playable,html.dark-mode .modal-tab,html.dark-mode .release-tab { background: linear-gradient(to bottom,#2e2e2e,#1e1e1e); color: var(--muted); }
-html.dark-mode .modal-tab.is-active,html.dark-mode .release-tab.is-active,html.dark-mode .mcal-day.done { background: linear-gradient(to bottom,#b01111,#7a0808); color:#fff; }
+html.dark-mode .modal-tab.is-active,html.dark-mode .release-tab.is-active,html.dark-mode .mcal-day.done { background: linear-gradient(to bottom,var(--red),var(--red-dark)); color:#fff; }
 html.dark-mode .release-copy h3 { background: linear-gradient(to bottom,#2a2a2a,#1c1c1c); }
 html.dark-mode .progress-track { background:#333; border-color:#444; }
 html.dark-mode .links-list a:hover { background:#2a1010; }
 html.dark-mode .stats-mode-button { background:linear-gradient(to bottom,#303030,#202020); color:var(--muted); }
-html.dark-mode .stats-mode-button.is-active { background:linear-gradient(to bottom,#b01111,#7a0808); color:#fff; }
+html.dark-mode .stats-mode-button.is-active { background:linear-gradient(to bottom,var(--red),var(--red-dark)); color:#fff; }
 html.dark-mode .stats-section,html.dark-mode .stats-mode-switch,html.dark-mode .guess-scale,html.dark-mode .guess-scale div,html.dark-mode .stats-grid { border-color:#333; }
 html.dark-mode .stats-section-header,html.dark-mode .guess-scale span { background:linear-gradient(to bottom,#262626,#1c1c1c); border-color:#333; color:#aaa; }
 html.dark-mode .guess-scale strong { background:#111; border-color:#333; color:#ccc; }
@@ -561,9 +563,42 @@ html.dark-mode .end-card { background:linear-gradient(to bottom,#222,#181818); b
   .stats-grid div:nth-child(3n) { border-right:0; }
   .stats-grid div:nth-last-child(-n+3) { border-bottom:0; }
 }
+
+/* Compact three-column desktop frame shared with Mikudle. */
+.page-rail {
+  position:absolute; top:160px; width:22px; height:560px; z-index:0;
+  pointer-events:none; color:rgba(199,116,32,.24); font:10px/1 var(--mono);
+  letter-spacing:.16em; text-transform:uppercase;
+}
+.page-rail::before { content:""; position:absolute; top:0; bottom:0; left:10px; border-left:1px solid currentColor; }
+.page-rail span { position:absolute; top:18px; left:7px; padding:7px 0; background:var(--bg); writing-mode:vertical-rl; }
+.page-rail-left { right:calc(50% + 511px); }
+.page-rail-right { left:calc(50% + 511px); }
+.page-rail-right span { transform:rotate(180deg); }
+.nnd-side-left, .nnd-side-right { display:flex; flex-direction:column; gap:5px; }
+@media (min-width:1051px) {
+  .nnd-body {
+    max-width:1160px; display:grid;
+    grid-template-columns:190px minmax(0,580px) 220px;
+    gap:6px; justify-content:center; align-content:start; align-items:start;
+  }
+  .nnd-body > .mode-bar { grid-column:1 / -1; grid-row:1; }
+  .nnd-main { grid-column:2; grid-row:2; display:flex; }
+  .nnd-side { display:contents; }
+  .nnd-side-left { grid-column:1; grid-row:2; }
+  .nnd-side-right { grid-column:3; grid-row:2; }
+}
+@media (max-width:1050px) { .page-rail { display:none; } }
 </style>
+<link rel="stylesheet" href="../archive-shared.css?v=1">
+<link rel="stylesheet" href="../shared-chrome.css?v=1">
+<link rel="stylesheet" href="../game-rails.css?v=1">
+<link rel="stylesheet" href="../shared-mode-icons.css?v=1">
 </head>
 <body>
+
+<div class="page-rail page-rail-left" aria-hidden="true"><span>VOCALOID CONNECTIONS</span></div>
+<div class="page-rail page-rail-right" aria-hidden="true"><span>DAILY · UNLIMITED · ARCHIVE</span></div>
 
 <div class="nnd-topbar">
   <span>Games &rsaquo; Music &rsaquo; VOCALOID &rsaquo; Connections</span>
@@ -617,9 +652,21 @@ html.dark-mode .end-card { background:linear-gradient(to bottom,#222,#181818); b
   </div>
 </div>
 
+<div class="nnd-tag-row"><span class="nnd-tag-label">Tags:</span><span class="nnd-tag">VOCALOID</span><span class="nnd-tag">音楽ゲーム</span><span class="nnd-tag">Connections</span><span class="nnd-tag">Grouping Puzzle</span><span class="nnd-tag">Song Trivia</span><span class="nnd-tag">Daily Puzzle</span><span class="nnd-tag">Fan-made</span></div>
+
 <div class="nnd-body">
 
+  <div class="mode-bar">
+    <div class="mode-tabs">
+      <button type="button" class="mode-btn is-active" data-mode="daily" data-mode-symbol="daily" id="mode-daily">Daily</button>
+      <button type="button" class="mode-btn" data-mode="unlimited" data-mode-symbol="unlimited" id="mode-unlimited">Unlimited</button>
+      <button type="button" class="mode-btn" data-mode="archive" data-mode-symbol="archive" id="mode-archive">Archive</button>
+    </div>
+    <span class="mode-note" id="mode-note"></span>
+  </div>
+
   <aside class="nnd-side">
+    <div class="nnd-side-right">
     <div class="panel">
       <div class="panel-header" id="hdr-how">[ How to Play ]</div>
       <div class="side-body">
@@ -643,6 +690,8 @@ html.dark-mode .end-card { background:linear-gradient(to bottom,#222,#181818); b
       </div>
       <div class="countdown-line"><span id="next-daily-label">Next daily in</span> <b id="daily-countdown">--</b></div>
     </div>
+    </div>
+    <div class="nnd-side-left">
     <div class="panel">
       <div class="panel-header" id="hdr-links">[ Links ]</div>
       <div class="links-list">
@@ -652,19 +701,19 @@ html.dark-mode .end-card { background:linear-gradient(to bottom,#222,#181818); b
         <a href="#" id="links-support-open">Contact / Support</a>
       </div>
     </div>
+    <div class="panel">
+      <div class="panel-header">[ Modes ]</div>
+      <div class="side-body">
+        <div class="side-row"><span class="sr-num">D</span><span><b>Daily</b> uses the same board for everyone.</span></div>
+        <div class="side-row"><span class="sr-num">∞</span><span><b>Unlimited</b> creates fresh practice boards.</span></div>
+        <div class="side-row"><span class="sr-num">A</span><span><b>Archive</b> replays earlier daily boards.</span></div>
+      </div>
+    </div>
+    </div>
   </aside>
 
   <main class="nnd-main">
-    <div class="mode-bar">
-      <div class="mode-tabs">
-        <button type="button" class="mode-btn is-active" data-mode="daily" id="mode-daily">Daily</button>
-        <button type="button" class="mode-btn" data-mode="unlimited" id="mode-unlimited">Unlimited</button>
-        <button type="button" class="mode-btn" data-mode="archive" id="mode-archive">Archive</button>
-      </div>
-      <span class="mode-note" id="mode-note"></span>
-    </div>
-
-    <div class="panel">
+    <div class="panel" id="status-panel">
       <div class="status-strip">
         <div class="st-cell"><span class="st-k" id="st-label-puzzle">Puzzle</span><span class="st-v" id="st-puzzle">--</span></div>
         <div class="st-cell"><span class="st-k" id="st-label-found">Groups found</span><span class="st-v" id="st-found">0 / 4</span></div>
@@ -675,7 +724,7 @@ html.dark-mode .end-card { background:linear-gradient(to bottom,#222,#181818); b
 
     <div class="solved-list" id="solved-list"></div>
 
-    <div class="panel">
+    <div class="panel" id="board-panel">
       <div class="panel-header"><span id="hdr-board">[ The Board ]</span> <span class="panel-note" id="board-note">select four songs, then lock in</span></div>
       <div class="archive-view" id="archive-view" hidden></div>
       <div class="board" id="board"></div>
@@ -703,6 +752,18 @@ html.dark-mode .end-card { background:linear-gradient(to bottom,#222,#181818); b
 <footer class="site-footer">
   VOCALOID Connections: fan-made daily grouping puzzle (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
 </footer>
+
+<div class="modal-backdrop" id="archive-backdrop" hidden></div>
+<div class="modal ha-modal" id="archive-modal" role="dialog" aria-modal="true" aria-labelledby="archive-title" hidden>
+  <div class="modal-title"><span id="archive-title">Daily Archive</span><button type="button" class="modal-close" id="archive-close">✕</button></div>
+  <p class="ha-note">Replay any previous daily board. Archive results do not change your live daily streak.</p>
+  <div class="ha-summary" id="archive-summary"></div>
+  <button class="ha-random" id="archive-random" type="button">Random Archive Puzzle</button>
+  <div class="ha-toolbar"><button class="ha-nav" id="cal-prev" type="button">◀</button><strong id="archive-month"></strong><button class="ha-nav" id="cal-next" type="button">▶</button></div>
+  <div class="ha-weekdays"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+  <div class="ha-grid" id="archive-grid"></div>
+  <div class="ha-legend"><span><i></i>Available</span><span><i style="background:#e0f2e0"></i>Solved</span><span><i style="border:2px solid #cf3b86"></i>In progress</span><span><i style="background:#eee"></i>Not yet</span></div>
+</div>
 
 <div class="modal-backdrop" id="ach-backdrop" hidden></div>
 <div class="modal wide-modal" id="ach-modal" hidden>
@@ -942,7 +1003,7 @@ function coverChain(song) {
     : u.includes("ytimg.com") && u.includes("mqdefault") ? 1
     : u.includes("ytimg.com") ? 2
     : u.includes("sndcdn.com") ? 3 : 4;
-  return [...new Set(all)].sort((a, b) => pr(a) - pr(b));
+  return VocaSongFixes.withoutTopic([...new Set(all)]).sort((a, b) => pr(a) - pr(b));
 }
 function advanceThumb(img, skipYt) {
   let rest = JSON.parse(img.dataset.srcs || "[]");
@@ -1037,7 +1098,7 @@ function buildCriteria() {
   const yr = s => s.publishDate ? new Date(s.publishDate).getFullYear() : 0;
   const defs = [];
   // rank drives the difficulty color: 0 easiest (yellow) → 3 hardest (purple)
-  for (const [v, c] of Object.entries(vocCount)) if (c >= 15 && !/^various/i.test(v))
+  for (const [v, c] of Object.entries(vocCount)) if (c >= 15 && !/^various/i.test(v) && !prodCount[v])
     defs.push({ label: `Sung by ${v}`, kind: "vocalist", value:v, rank: 0, f: s => songCharacters(s).has(v) });
   for (const [a, b] of [[2007,2010],[2011,2013],[2014,2016],[2017,2019],[2020,2022],[2023,2026]])
     defs.push({ label: `Uploaded ${a}-${b}`, kind: "year", from:a, to:b, rank: 1, f: s => yr(s) >= a && yr(s) <= b });
@@ -1301,28 +1362,29 @@ function renderArchiveCalendar() {
   const latest = dates.length ? new Date(`${dates[dates.length - 1]}T12:00:00`) : new Date(`${EPOCH}T12:00:00`);
   if (calYear == null) { calYear = latest.getFullYear(); calMonth = latest.getMonth(); }
   const first = new Date(calYear, calMonth, 1), days = new Date(calYear, calMonth + 1, 0).getDate();
-  const cells = Array.from({length:first.getDay()}, () => `<button class="mcal-day off" disabled></button>`);
+  const cells = Array.from({length:first.getDay()}, () => `<span class="ha-day is-blank"></span>`);
   for (let day = 1; day <= days; day++) {
     const iso = `${calYear}-${String(calMonth+1).padStart(2,"0")}-${String(day).padStart(2,"0")}`;
     let saved = null;
     try { saved = JSON.parse(localStorage.getItem(`vc_daily_${iso}`) || "null"); } catch (e) {}
-    const playable = allowed.has(iso), done = playable && saved && saved.done;
-    cells.push(`<button type="button" class="mcal-day${playable ? " playable" : ""}${done ? " done" : ""}" ${playable ? `data-day="${iso}"` : "disabled"}><span>${day}</span>${done ? `<span class="mcal-score">${saved.win ? escHtml(t("solved")) : "X"}</span>` : ""}</button>`);
+    const playable = allowed.has(iso), done = playable && saved && saved.done, progress=playable&&saved&&!saved.done;
+    cells.push(playable?`<button type="button" class="ha-day${done?" is-solved":progress?" is-progress":""}" data-day="${iso}"><span class="ha-number">${day}</span><span class="ha-note-day">${done?(saved.win?escHtml(t("solved")):"revealed"):progress?"in progress":"play"}</span></button>`:`<span class="ha-day is-locked"><span class="ha-number">${day}</span><span class="ha-note-day">no puzzle</span></span>`);
   }
   const min = new Date(`${EPOCH}T12:00:00`), max = latest;
   const canPrev = calYear > min.getFullYear() || calMonth > min.getMonth();
   const canNext = calYear < max.getFullYear() || calMonth < max.getMonth();
-  $("archive-view").innerHTML = `<div class="mcal-head"><button class="mcal-nav" id="cal-prev" ${canPrev ? "" : "disabled"}>&#9664;</button><strong>${first.toLocaleDateString(LANG,{month:"long",year:"numeric"})}</strong><button class="mcal-nav" id="cal-next" ${canNext ? "" : "disabled"}>&#9654;</button></div><div class="mcal-dows">${["Su","Mo","Tu","We","Th","Fr","Sa"].map(x=>`<span>${x}</span>`).join("")}</div><div class="mcal-grid">${cells.join("")}</div><div class="mcal-legend"><span><i class="mcal-key done"></i>${escHtml(t("completed"))}</span><span><i class="mcal-key"></i>${escHtml(t("available"))}</span></div>`;
-  $("archive-view").hidden = false;
-  $("board").hidden = true; $("actions").hidden = true; $("end-actions").hidden = true; $("result-line").hidden = true; $("solved-list").innerHTML = ""; $("guess-history-panel").hidden=true;
-  $("board-note").textContent = t("chooseDay");
-  $("mode-note").textContent = t("archiveSolved",archiveProgress().solved,dates.length);
-  $("st-puzzle").textContent = t("archive"); $("st-found").textContent = "--";
-  [...$("st-strikes").children].forEach(dot => dot.classList.add("used"));
+  const p=archiveProgress(), inProgress=dates.filter(d=>{try{const s=JSON.parse(localStorage.getItem(`vc_daily_${d}`)||"null");return s&&!s.done}catch(e){return false}}).length;
+  $("archive-summary").innerHTML=[["Played",p.played],["Solved",p.solved],["Progress",inProgress],["Done",dates.length?Math.round(p.solved/dates.length*100)+"%":"0%"]].map(x=>`<span class="ha-summary-item"><strong>${x[1]}</strong><span>${x[0]}</span></span>`).join("");
+  $("archive-month").innerHTML=`<span>${first.toLocaleDateString(LANG,{month:"long",year:"numeric"})}</span><span class="ha-month-sub">${p.solved}/${dates.length} solved · ${dates.length?Math.round(p.solved/dates.length*100):0}%</span>`;
+  $("archive-grid").innerHTML=cells.join("");$("cal-prev").disabled=!canPrev;$("cal-next").disabled=!canNext;
   $("cal-prev")?.addEventListener("click", () => { calMonth--; if (calMonth < 0) { calMonth = 11; calYear--; } renderArchiveCalendar(); });
   $("cal-next")?.addEventListener("click", () => { calMonth++; if (calMonth > 11) { calMonth = 0; calYear++; } renderArchiveCalendar(); });
-  $("archive-view").querySelectorAll("[data-day]").forEach(btn => btn.addEventListener("click", () => { state.dateKey = btn.dataset.day; startGame(); }));
+  $("archive-grid").querySelectorAll("[data-day]").forEach(btn => btn.addEventListener("click", () => selectArchiveDay(btn.dataset.day)));
+  const pool=dates.filter(d=>{try{return !JSON.parse(localStorage.getItem(`vc_daily_${d}`)||"null")}catch(e){return true}});$("archive-random").dataset.pool=JSON.stringify(pool.length?pool:dates);
 }
+function openArchive(){calYear=calMonth=null;renderArchiveCalendar();$("archive-modal").hidden=false;$("archive-backdrop").hidden=false;document.body.style.overflow="hidden";$("archive-close").focus()}
+function closeArchive(){$("archive-modal").hidden=true;$("archive-backdrop").hidden=true;document.body.style.overflow=""}
+function selectArchiveDay(day){closeArchive();state.mode="archive";state.dateKey=day;document.querySelectorAll(".mode-btn").forEach(b=>b.classList.toggle("is-active",b.dataset.mode==="archive"));startGame()}
 
 /* ═══════════════ toast ═══════════════ */
 let toastTimer = null;
@@ -1430,16 +1492,19 @@ function addDetailedStats(st,win) {
 }
 
 function shareText() {
-  const n = state.mode === "daily" ? `#${dailyNumber(state.dateKey)}` : state.mode === "archive" ? `${state.dateKey} (archive)` : `(random ${state.seed})`;
+  const heading = state.mode === "daily" ? `VOCALOID Connections · Daily · ${state.dateKey || todayKey()}`
+    : state.mode === "archive" ? `VOCALOID Connections · Archive · ${state.dateKey}`
+    : `VOCALOID Connections · Unlimited ${state.seed}`;
   const sq = ["🟨", "🟩", "🟦", "🟪"];
   const rows = state.guesses.map(gis => gis.map(gi => sq[gi]).join("")).join("\n");
-  const head = `VOCALOID Connections ${n} · ${state.win ? `solved with ${state.strikes} strike${state.strikes !== 1 ? "s" : ""}` : "X"}`;
-  return `${head}\n${rows}`;
+  const result = state.win ? `Result · Solved · ${state.strikes} strike${state.strikes !== 1 ? "s" : ""}`
+    : `Result · Unsolved · ${state.strikes} strike${state.strikes !== 1 ? "s" : ""}`;
+  return `${heading}\n${result}\n${rows}`;
 }
 
 /* ═══════════════ game setup ═══════════════ */
 function startGame() {
-  if (state.mode === "archive" && !state.dateKey) { renderArchiveCalendar(); return; }
+  if (state.mode === "archive" && !state.dateKey) { openArchive(); return; }
   if (state.mode === "daily") state.dateKey = todayKey();
   state.seed = state.mode === "unlimited" ? Math.random().toString(36).slice(2, 8) : state.dateKey;
   const manifestEntry=state.mode!=="unlimited"?MANIFESTS[state.dateKey]:null;
@@ -1578,10 +1643,11 @@ $("btn-share").addEventListener("click", () => {
   } else prompt("Copy:", text);
 });
 $("btn-new").addEventListener("click", () => startGame());
-function backToArchive() { saveDaily(); state.dateKey = null; calYear = calMonth = null; renderArchiveCalendar(); }
+function backToArchive() { saveDaily(); openArchive(); }
 $("btn-archive-back").addEventListener("click", backToArchive);
 $("btn-end-archive-back").addEventListener("click", backToArchive);
 document.querySelectorAll(".mode-btn").forEach(b => b.addEventListener("click", () => {
+  if (b.dataset.mode === "archive") { openArchive(); return; }
   if (state.mode === b.dataset.mode) return;
   state.mode = b.dataset.mode;
   state.dateKey = null;
@@ -1589,6 +1655,8 @@ document.querySelectorAll(".mode-btn").forEach(b => b.addEventListener("click", 
   document.querySelectorAll(".mode-btn").forEach(x => x.classList.toggle("is-active", x === b));
   startGame();
 }));
+$("archive-close").addEventListener("click",closeArchive);$("archive-backdrop").addEventListener("click",closeArchive);
+$("archive-random").addEventListener("click",function(){let p=[];try{p=JSON.parse(this.dataset.pool||"[]")}catch(e){}if(p.length)selectArchiveDay(p[Math.floor(Math.random()*p.length)])});
 
 /* settings + tutorial modals */
 function wireModal(openId, modalId, backdropId, closeId, onOpen) {
@@ -1662,7 +1730,7 @@ Promise.all([
   loadJson("../data/ytviews.json", "39c_ytviews_v2"),
   loadJson("../data/biliviews.json", "39c_biliviews_v3"),
   loadJson("../data/connections-vocalists.json", "vc_main_vocalists_v1"),
-  loadJson("manifests.json", "vc_manifests_v1"),
+  loadJson("manifests.json?v=2", "vc_manifests_v2"),
 ]).then(([songs, details, views, yt, bili, mainVocalists, manifests]) => {
   if (!songs) throw new Error("songs.json failed to load");
   SONGS = songs;

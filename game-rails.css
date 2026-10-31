@@ -1,0 +1,26 @@
+/* Shared vertical labels and interrupted rules; each game keeps its frame offsets. */
+body .page-rail {
+  top:160px; height:560px; bottom:auto;
+  color:color-mix(in srgb, var(--rail-accent, var(--red)) 28%, transparent);
+  font:10px/1 Consolas, "MS PGothic", monospace;
+  writing-mode:initial;
+}
+html.dark-mode body .page-rail,
+body.dark-mode .page-rail {
+  color:color-mix(in srgb, var(--rail-accent, var(--red)) 45%, transparent);
+}
+body .page-rail::before,
+html.dark-mode body .page-rail::before,
+body.dark-mode .page-rail::before {
+  left:10px; right:auto; width:0;
+  background:none; border-left:1px solid currentColor;
+}
+body .page-rail span {
+  top:18px; left:7px; right:auto; padding:7px 0;
+  background:var(--bg); white-space:nowrap;
+  writing-mode:vertical-rl; transform:none; transform-origin:center;
+}
+body .page-rail-right span { transform:rotate(180deg); }
+html.dark-mode body .page-rail span,
+body.dark-mode .page-rail span { background:var(--rail-dark-bg, var(--bg)); }
+html.beige-bg:not(.dark-mode) body .page-rail span { background:#e8dfcf; }

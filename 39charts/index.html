@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="../site-theme.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>39charts · Vocaloid Song Rankings</title>
+<script src="chip-colors.js?v=4"></script>
 <meta property="og:site_name" content="39charts">
 <meta property="og:title" content="39charts · Vocaloid song rankings">
 <meta property="og:description" content="Vocaloid, SynthV and UTAU songs ranked by real NicoNico, YouTube and bilibili view counts. Filter by vocalist, producer, year and more.">
@@ -2439,7 +2441,7 @@ function vocalistTagsHtml(song) {
   const shown = all.slice(0, MAX);
   const rest = all.slice(MAX);
   return shown
-    .map(v => `<span class="vtag ${v.cls}"${v.title ? ` title="${escHtml(v.title)}"` : ""}>${escHtml(v.label)}</span>`)
+    .map(v => `<span class="vtag ${v.cls}${chipTint(v).cls}"${chipTint(v).attr}${v.title ? ` title="${escHtml(v.title)}"` : ""}>${escHtml(v.label)}</span>`)
     .join("") +
     (rest.length ? `<span class="vtag vtag-other" title="${escHtml(rest.map(v => v.label).join(", "))}">+${rest.length}</span>` : "");
 }
@@ -2626,7 +2628,7 @@ function updateFacts() {
   set("fact-10m", String(over10m));
   const updated = activePlatform === "yt" ? YT_UPDATED : activePlatform === "bili" ? BILI_UPDATED : (VIEWS_UPDATED || YT_UPDATED);
   set("fact-updated", updated || "—");
-  set("platform-note", `Ranking by ${platformLabel()} views.`);
+  set("platform-note", `Ranking by ${platformLabel()} views.${activePlatform === "nnd" || activePlatform === "yt" ? "" : " bilibili counts may be out of date because refreshes are currently limited."}`);
   set("mode-hint", "All-time rankings");
 }
 

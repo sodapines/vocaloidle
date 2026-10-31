@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "test": "node --test tests/connections-core.test.cjs"
+    "test": "node --test tests/*.test.cjs",
+    "audit:grid-data": "node scripts/audit-grid-data.js"
   }
 }

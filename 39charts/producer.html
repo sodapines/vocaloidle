@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="../site-theme.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>39charts · Producer</title>
+<script src="chip-colors.js?v=4"></script>
 <meta property="og:site_name" content="39charts">
 <meta property="og:title" content="39charts · Producer detail">
 <meta property="og:description" content="Producer discography with real view counts and platform breakdown.">
@@ -796,7 +798,7 @@ function rowHtml(song, rank) {
         <div class="row-thumb">${thumbHtml(song)}<a class="thumb-link" href="${link}" tabindex="-1" aria-label="${escHtml(song.title)}"></a></div>
       </td>
       <td class="rt-title"><a href="${link}">${escHtml(song.title)}</a></td>
-      <td class="rt-voc">${vocals.map(v=>`<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join("")}</td>
+      <td class="rt-voc">${vocals.map(v=>`<span class="vtag ${v.cls}${chipTint(v).cls}"${chipTint(v).attr}>${escHtml(v.label)}</span>`).join("")}</td>
       <td class="rt-year">${song.publishDate ? song.publishDate.slice(0,4) : "—"}</td>
       ${viewsCell}
     </tr>`;
@@ -823,7 +825,7 @@ function cardHtml(song, rank) {
         <div class="card-title"><a href="${link}">${escHtml(song.title)}</a></div>
         <div class="card-year">${song.publishDate ? song.publishDate.slice(0,4) : ""}</div>
       </div>
-      ${vocals.length ? `<div class="card-vocals">${vocals.map(v=>`<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join("")}</div>` : ""}
+      ${vocals.length ? `<div class="card-vocals">${vocals.map(v=>`<span class="vtag ${v.cls}${chipTint(v).cls}"${chipTint(v).attr}>${escHtml(v.label)}</span>`).join("")}</div>` : ""}
     </div>`;
 }
 
@@ -945,11 +947,11 @@ function buildPage(producerName, songs) {
 
   const vcounts = vocalistCounts(songs);
   const vocChips = vcounts.slice(0,8).map(({v,n})=>
-    `<span class="vtag ${v.cls}" title="${n} song${n!==1?"s":""}">${escHtml(v.label)} · ${n}</span>`).join("");
+    `<span class="vtag ${v.cls}${chipTint(v).cls}"${chipTint(v).attr} title="${n} song${n!==1?"s":""}">${escHtml(v.label)} · ${n}</span>`).join("");
 
   document.getElementById("marquee-text").textContent =
     `★ ${producerName}  ·  ★ ${songs.length} songs on 39charts  ·  ` +
-    (totalViews ? `★ ${totalViews.toLocaleString()} combined NicoNico + YouTube views  ·  ` : "") +
+    (totalViews ? `★ ${totalViews.toLocaleString()} combined views  ·  ` : "") +
     (topSong ? `★ Top song: ${topSong.title}  ·  ` : "") +
     `★ Active ${yearRange}  ·  ★ Thank you for using 39charts ♪`;
 

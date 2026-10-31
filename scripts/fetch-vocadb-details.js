@@ -45,7 +45,7 @@ async function fetchJson(url) {
 
 // VocaDB artistTypes that are vocal synths — anything else credited as a
 // vocalist is a human guest singer. Mirrors add.html's SYNTH_ARTIST_TYPES.
-const SYNTH_ARTIST_TYPES = /^(Vocaloid|UTAU|CeVIO|SynthesizerV|NEUTRINO|VoiSona|NewType|Voiceroid|AIVoice|OtherVoiceSynthesizer)$/i;
+const SYNTH_ARTIST_TYPES = /^(Vocaloid|UTAU|CeVIO|SynthesizerV|NEUTRINO|VoiSona|NewType|Voiceroid|AIVoice|ACEVirtualSinger|VOICEVOX|OtherVoiceSynthesizer)$/i;
 
 // Vocalist credit names carry voicebank suffixes ("Hatsune Miku V3 (Dark)");
 // keep the raw name — the site's normaliser already handles matching.

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="site-theme.js?v=1"></script>
+<script src="song-fixes.js?v=1"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="VOCALOIDLE: VOCALOID games and other small web projects.">
@@ -146,7 +148,7 @@
     .today-strip {
       margin-top: 6px;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-items: stretch;
       min-height: 34px;
       background: linear-gradient(to bottom, var(--surface), var(--sf));
@@ -157,8 +159,8 @@
     .tp-cell {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 5px 12px;
+      gap: 6px;
+      padding: 5px 9px;
       color: var(--text);
       border-right: 1px solid var(--line);
       border-left: 3px solid transparent;
@@ -166,15 +168,16 @@
     .tp-cell:hover { text-decoration: none; background: var(--soft); }
     .tp-cell.heardle, .tpd-card.heardle { border-left-color: #c11; }
     .tp-cell.higher, .tpd-card.higher { border-left-color: #3769c9; }
-    .tp-cell.masume, .tpd-card.masume { border-left-color: #2aa8a0; }
-.tp-cell.connections, .tpd-card.connections { border-left-color: #888888; }
-    .tp-cell.timeline, .tpd-card.timeline { border-left-color: #8a5ac9; }
+    .tp-cell.masume, .tpd-card.masume { border-left-color: #2a9d8f; }
+    .tp-cell.connections, .tpd-card.connections { border-left-color: #c77420; }
+    .tp-cell.mikudle, .tpd-card.mikudle { border-left-color: #20aed0; }
+    .tp-cell.timeline, .tpd-card.timeline { border-left-color: #8657b5; }
     .tp-name { font-weight: 900; font-size: 12px; }
     .tp-state { font-size: 10px; font-weight: 700; color: var(--red); white-space: nowrap; }
     .tp-state.is-done { color: #1a7d3c; }
     html.dark-mode .tp-state.is-done { color: #63c287; }
     .tp-foot {
-      display: flex;
+      display: none;
       align-items: center;
       margin-left: auto;
       padding: 5px 10px;
@@ -186,6 +189,7 @@
     }
     .tp-details-btn {
       display: flex;
+      margin-left: auto;
       align-items: center;
       gap: 4px;
       padding: 5px 12px;
@@ -202,9 +206,10 @@
     }
     .tp-details-btn:hover { color: var(--red); background: var(--surface); }
     @media (max-width: 700px) {
+      .today-strip { flex-wrap: wrap; }
       .tp-foot { display: none; }
       .tp-cell { flex: 1; justify-content: space-between; padding: 5px 8px; }
-      .tp-details-btn { flex: 1 1 100%; justify-content: center; border-left: none; border-top: 1px solid var(--line); }
+      .tp-details-btn { flex: 1 1 100%; margin-left: 0; justify-content: center; border-left: none; border-top: 1px solid var(--line); }
     }
 
     /* Today's puzzles detail modal */
@@ -227,6 +232,12 @@
       border-top: 3px solid var(--red);
       box-shadow: 0 8px 24px rgba(0,0,0,0.35);
     }
+    .tp-modal { max-height:calc(100dvh - 36px); display:flex; flex-direction:column; }
+    .tp-modal-body { min-height:0; }
+    .tp-modal-actions { padding:10px; border-top:1px solid var(--line); display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .tp-copy-btn { padding:7px 12px; color:#fff; background:linear-gradient(var(--red),#990000); border:1px solid #900; font-family:inherit; font-size:12px; font-weight:700; cursor:pointer; }
+    .tp-copy-status { color:var(--muted); font-size:11px; }
+    .tp-copy-fallback { width:100%; min-height:130px; color:var(--text); background:var(--surface); }
     .tp-modal-head {
       display: flex;
       align-items: center;
@@ -392,13 +403,19 @@
     .heardle .proj-icon, .heardle .tpd-icon { background: linear-gradient(#e52b2b, #aa0000); }
     .higher .proj-icon, .higher .tpd-icon { background: linear-gradient(#3769c9, #174690); }
     .charts .proj-icon { background: linear-gradient(#2faf57, #1a7d3c); font-size: 13px; letter-spacing: -0.02em; }
-    .masume .proj-icon, .masume .tpd-icon { background: linear-gradient(#2aa8a0, #157a73); }
-    .timeline .proj-icon, .timeline .tpd-icon { background: linear-gradient(#8a5ac9, #5c3396); }
+    .masume .proj-icon, .masume .tpd-icon { background: linear-gradient(#2a9d8f, #17645d); }
+    .timeline .proj-icon, .timeline .tpd-icon { background: linear-gradient(#8657b5, #563078); }
     .tl-mark { display: flex; flex-direction: column; align-items: center; gap: 2px; }
     .tl-mark i { width: 16px; height: 3px; background: #fff; display: block; }
     .tl-mark i:nth-child(2) { width: 11px; opacity: 0.75; }
     .tl-mark i:nth-child(3) { width: 6px; opacity: 0.5; }
-    .connections .proj-icon, .connections .tpd-icon { background: linear-gradient(#5c5c5c, #3a3a3a); }
+    .connections .proj-icon, .connections .tpd-icon { background: linear-gradient(#c77420, #88440b); }
+    .mikudle .proj-icon, .mikudle .tpd-icon { background: linear-gradient(#35c4dc, #087394); }
+    .mk-mark { display: flex; align-items: center; justify-content: center; width: 25px; height: 25px; }
+    .mk-mark svg { display: block; width: 100%; height: 100%; }
+    .mk-mark .ladder-line { fill: none; stroke: rgba(255,255,255,0.55); stroke-width: 2; }
+    .mk-mark .ladder-tile { fill: #fff; stroke: rgba(4,73,99,0.55); stroke-width: 1; }
+    .mk-mark .ladder-tile:last-child { fill: #a7e9f2; }
     .cn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
     .cn-grid i { width: 8px; height: 8px; display: block; box-shadow: inset 0 -1px 0 rgba(0,0,0,0.25); }
     .cn-grid i:nth-child(1) { background: #f4d874; }
@@ -616,7 +633,7 @@
     }
     .stats-vers {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(7, 1fr);
     }
     .stats-ver {
       display: flex;
@@ -641,9 +658,14 @@
     .ver-heardle { --sv-color: #c11; }
     .ver-higher { --sv-color: #3769c9; }
     .ver-charts { --sv-color: #2faf57; }
-    .ver-masume { --sv-color: #2aa8a0; }
-    .ver-timeline { --sv-color: #8a5ac9; }
-    .ver-connections { --sv-color: #888888; }
+    .ver-masume { --sv-color: #2a9d8f; }
+    .ver-timeline { --sv-color: #8657b5; }
+    .ver-connections { --sv-color: #c77420; }
+    .ver-cover { --sv-color: #b65383; }
+    .tp-cell.cover, .tpd-card.cover { border-left-color: #b65383; }
+    .cover .proj-icon, .cover .tpd-icon { background:linear-gradient(#cb72a0,#773254); }
+    .today-strip { flex-wrap:wrap; }
+    .ver-mikudle { --sv-color: #20aed0; }
     .stats-ver strong {
       padding: 0 5px;
       color: #fff;
@@ -757,7 +779,18 @@
       .spot-views-num { font-size: 16px; }
       .spot-links { padding-top: 5px; gap: 10px; }
     }
-  </style>
+  
+    /* Eight equal cells keep game statuses and Details inside the strip. */
+    .today-strip{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));overflow:visible}
+    .today-strip .tp-cell{min-width:0;justify-content:space-between;gap:8px;padding:7px 9px;border-bottom:1px solid var(--line)}
+    .today-strip .tp-name{min-width:0;overflow-wrap:anywhere}
+    .today-strip .tp-state{white-space:normal;text-align:right;flex-shrink:0;max-width:55%;overflow-wrap:anywhere}
+    .today-strip .tp-details-btn{margin:0;justify-content:center;min-height:34px;border-top:0;border-bottom:1px solid var(--line)}
+    @media(max-width:600px){.today-strip{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:340px){.today-strip{grid-template-columns:minmax(0,1fr)}}
+
+.stats-vers{grid-template-columns:repeat(4,minmax(0,1fr))}.stats-ver{min-width:0;white-space:normal;justify-content:space-between;padding:7px 10px;border-bottom:1px solid var(--line)}.stats-ver span{flex:1;overflow-wrap:anywhere}.stats-ver strong{flex-shrink:0}.stats-ver:nth-child(4n){border-right:0}@media(max-width:600px){.stats-vers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
   <script>
     // Apply saved theme before paint to avoid a flash.
     try { if (localStorage.getItem("vl-home-theme") === "dark") document.documentElement.classList.add("dark-mode"); } catch (e) {}
@@ -779,7 +812,7 @@
       <div class="logo-name">VOCALOIDLE</div>
       <div class="logo-sub">VOCALOID games and other projects</div>
     </div>
-    <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+    <button class="theme-toggle" id="theme-toggle" type="button" role="switch" aria-checked="false" aria-label="Toggle dark mode for all pages" title="Applies to every page. Each page’s settings can override it.">
       <span class="tt-ico" aria-hidden="true">&#9789;</span><span class="tt-label">Dark</span>
     </button>
   </header>
@@ -805,7 +838,7 @@
       <div class="intro-copy">
         <div class="intro-label">[ VOCALOIDLE ]</div>
         <h1>Welcome to VOCALOIDLE</h1>
-        <p>This is the home for the VOCALOID projects on the site: five daily games and a view-count chart site, all built on the same song pool.</p>
+        <p>This is the home for the VOCALOID projects on the site: seven daily games and a view-count chart site.</p>
       </div>
     </section>
 
@@ -831,6 +864,11 @@
         <span class="tp-name">Connections</span>
         <span class="tp-state" id="tp-connections">Play &#9654;</span>
       </a>
+      <a class="tp-cell cover" href="cover-reveal/"><span class="tp-name">Cover Reveal</span><span class="tp-state" id="tp-cover">Play &#9654;</span></a>
+      <a class="tp-cell mikudle" href="mikudle/">
+        <span class="tp-name">Mikudle</span>
+        <span class="tp-state" id="tp-mikudle">Play &#9654;</span>
+      </a>
       <span class="tp-foot">Daily puzzles reset at local midnight</span>
       <button class="tp-details-btn" id="tp-details-btn" type="button" aria-haspopup="dialog">Details &#9660;</button>
     </section>
@@ -843,6 +881,11 @@
         </div>
         <div class="tp-modal-intro">Local progress on this device &middot; puzzles reset at local midnight</div>
         <div class="tp-modal-body" id="tp-modal-body"></div>
+        <div class="tp-modal-actions">
+          <button class="tp-copy-btn" id="tp-copy-results" type="button">Copy all results</button>
+          <span class="tp-copy-status" id="tp-copy-status" role="status" aria-live="polite"></span>
+          <textarea class="tp-copy-fallback" id="tp-copy-fallback" aria-label="Results to copy manually" readonly hidden></textarea>
+        </div>
       </div>
     </div>
 
@@ -864,7 +907,7 @@
         <span class="proj-thumb" aria-hidden="true"><img id="higher-preview" src="favicon.jpg" alt=""></span>
         <span class="proj-body">
           <span class="proj-name">VOCALOID Higher / Lower</span>
-          <span class="proj-desc">Which song has more NicoNico views? Five lives, and every correct answer keeps the streak going.</span>
+          <span class="proj-desc">Which song has more NicoNico views? Three lives in Unlimited, and every correct answer keeps the streak going.</span>
         </span>
         <span class="proj-meta">Endless &middot; streak-based</span>
         <span class="launch">Play &#9654;</span>
@@ -874,7 +917,7 @@
         <span class="proj-icon" aria-hidden="true"><span class="lm-grid"><i></i><i></i><i></i><i></i></span></span>
         <span class="proj-thumb" aria-hidden="true"><img id="masume-preview" src="favicon.jpg" alt=""></span>
         <span class="proj-body">
-          <span class="proj-name">VOCALOID Grid <span class="card-tag">NEW</span></span>
+          <span class="proj-name">VOCALOID Grid</span>
           <span class="proj-desc">A daily 4×4 knowledge grid: every square needs a song matching its row and column. Six strikes, rarer answers score more.</span>
         </span>
         <span class="proj-meta">New daily grid at local midnight</span>
@@ -885,7 +928,7 @@
         <span class="proj-icon" aria-hidden="true"><span class="tl-mark"><i></i><i></i><i></i></span></span>
         <span class="proj-thumb" aria-hidden="true"><img id="timeline-preview" src="favicon.jpg" alt=""></span>
         <span class="proj-body">
-          <span class="proj-name">VOCALOID Timeline <span class="card-tag">NEW</span></span>
+          <span class="proj-name">VOCALOID Timeline</span>
           <span class="proj-desc">Arrange five well-known songs by release date from oldest to newest, then lock in. Era filters and &#9733; Hard mode in Unlimited.</span>
         </span>
         <span class="proj-meta">New daily at local midnight</span>
@@ -896,12 +939,30 @@
         <span class="proj-icon" aria-hidden="true"><span class="cn-grid"><i></i><i></i><i></i><i></i></span></span>
         <span class="proj-thumb" aria-hidden="true"><img id="connections-preview" src="favicon.jpg" alt=""></span>
         <span class="proj-body">
-          <span class="proj-name">VOCALOID Connections <span class="card-tag">NEW</span></span>
+          <span class="proj-name">VOCALOID Connections</span>
           <span class="proj-desc">Sixteen songs, four hidden groups of four: sort them by producer, vocalist, era, genre and more before four strikes end the run.</span>
         </span>
         <span class="proj-meta">New daily at local midnight</span>
         <span class="launch">Play &#9654;</span>
       </a>
+
+      <a class="proj cover" href="cover-reveal/">
+        <span class="proj-icon" aria-hidden="true"><img src="cover-reveal/logo.svg" width="24" height="24" alt=""></span>
+        <span class="proj-thumb" aria-hidden="true"><img id="cover-preview" src="favicon.jpg" alt=""></span>
+        <span class="proj-body"><span class="proj-name">VOCALOID Cover Reveal <span class="card-tag">NEW</span></span><span class="proj-desc">A small crop, a familiar song. Guess the artwork in six reveals; wrong guesses and skips show more.</span></span>
+        <span class="proj-meta">New daily at local midnight</span><span class="launch">Play &#9654;</span>
+      </a>
+      <a class="proj mikudle" href="mikudle/">
+        <span class="proj-icon" aria-hidden="true"><span class="mk-mark"><svg viewBox="0 0 28 28"><path class="ladder-line" d="M6 6 L11 11 L16 16 L21 21"/><rect class="ladder-tile" x="3" y="3" width="7" height="7"/><rect class="ladder-tile" x="8" y="8" width="7" height="7"/><rect class="ladder-tile" x="13" y="13" width="7" height="7"/><rect class="ladder-tile" x="18" y="18" width="7" height="7"/></svg></span></span>
+        <span class="proj-thumb" aria-hidden="true"><img src="favicon.jpg" alt=""></span>
+        <span class="proj-body">
+          <span class="proj-name">Mikudle <span class="card-tag">NEW</span></span>
+          <span class="proj-desc">Turn a four-letter word into MIKU, changing one letter at a time while every step remains a common English word.</span>
+        </span>
+        <span class="proj-meta">New daily ladder at local midnight</span>
+        <span class="launch">Play &#9654;</span>
+      </a>
+
 
       <a class="proj charts" href="39charts/">
         <span class="proj-icon" aria-hidden="true">39</span>
@@ -953,7 +1014,7 @@
             <span>producers</span>
           </div>
           <div class="stats-hero-item">
-            <strong>6</strong>
+            <strong>8</strong>
             <span>projects</span>
           </div>
         </div>
@@ -964,6 +1025,8 @@
           <div class="stats-ver ver-masume"><i class="sv-dot"></i><span>Grid</span><strong>v1.0</strong></div>
           <div class="stats-ver ver-timeline"><i class="sv-dot"></i><span>Timeline</span><strong>v1.0</strong></div>
           <div class="stats-ver ver-connections"><i class="sv-dot"></i><span>Connections</span><strong>v1.0</strong></div>
+          <div class="stats-ver ver-cover"><i class="sv-dot"></i><span>Cover Reveal</span><strong>v1.0</strong></div>
+          <div class="stats-ver ver-mikudle"><i class="sv-dot"></i><span>Mikudle</span><strong>v0.5</strong></div>
         </div>
       </aside>
     </section>
@@ -974,7 +1037,9 @@
     VOCALOIDLE: fan-made VOCALOID projects (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
   </footer>
 
+  <script src="result-art.js?v=1"></script>
   <script>
+    var homeSongsReady = fetch("data/songs.json").then(r => r.ok ? r.json() : []).catch(() => []);
     // Dark-mode toggle
     (function () {
       var btn = document.getElementById("theme-toggle");
@@ -984,13 +1049,14 @@
       function sync() {
         var dark = document.documentElement.classList.contains("dark-mode");
         btn.setAttribute("aria-checked", String(dark));
-        if (label) label.textContent = dark ? "Light" : "Dark";
+        if (label) label.textContent = dark ? "Light · all pages" : "Dark · all pages";
         if (ico) ico.innerHTML = dark ? "&#9788;" : "&#9789;"; // ☀ / ☽
       }
+      window.addEventListener("vocaloidle-theme",sync);
       sync();
       btn.addEventListener("click", function () {
         var dark = document.documentElement.classList.toggle("dark-mode");
-        try { localStorage.setItem("vl-home-theme", dark ? "dark" : "light"); } catch (e) {}
+        window.SiteTheme.setGlobal(dark);
         sync();
       });
     })();
@@ -1002,9 +1068,13 @@
     // reached by hitting Back after actually playing a game, and bfcache
     // restores don't re-execute scripts, so without this the strip/modal
     // would keep showing whatever was true when the page first loaded.
+    var todaysResults = [];
+    var todaysResultsDate = "";
     function refreshTodaysPuzzles() {
       var d = new Date();
       var key = d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+      todaysResults = [];
+      todaysResultsDate = key;
       function setState(id, done) {
         var el = document.getElementById(id);
         if (!el) return;
@@ -1014,6 +1084,7 @@
       var body = document.getElementById("tp-modal-body");
       if (body) body.innerHTML = "";
       function renderDetail(cfg) {
+        todaysResults.push({ name: cfg.name, status: cfg.statusText, game: cfg.cls });
         if (!body) return;
         var card = document.createElement("div");
         card.className = "tpd-card " + cfg.cls;
@@ -1034,6 +1105,7 @@
       var lmGridIcon = '<span class="lm-grid"><i></i><i></i><i></i><i></i></span>';
       var tlMarkIcon = '<span class="tl-mark"><i></i><i></i><i></i></span>';
       var cnGridIcon = '<span class="cn-grid"><i></i><i></i><i></i><i></i></span>';
+      var mkIcon = '<span class="mk-mark"><svg viewBox="0 0 28 28"><path class="ladder-line" d="M6 6 L11 11 L16 16 L21 21"/><rect class="ladder-tile" x="3" y="3" width="7" height="7"/><rect class="ladder-tile" x="8" y="8" width="7" height="7"/><rect class="ladder-tile" x="13" y="13" width="7" height="7"/><rect class="ladder-tile" x="18" y="18" width="7" height="7"/></svg></span>';
 
       try {
         var hs = JSON.parse(localStorage.getItem("vocaloid-heardle-stats") || "{}");
@@ -1064,10 +1136,10 @@
         var hlInProgress = hl.date === key && hlResults && hlResults.length && !hlDone;
         renderDetail({
           name: "Higher / Lower", cls: "higher", icon: "&#8593;&#8595;", href: "higher-or-lower/",
-          desc: "Which song has more NicoNico views? Five lives, and every correct answer keeps the streak going.",
+          desc: "Which song has more NicoNico views? Three lives in Unlimited, and every correct answer keeps the streak going.",
           tier: hlDone ? "win" : (hlInProgress ? "progress" : "todo"),
           statusText: hlDone
-            ? (hlResults ? hlResults.filter(Boolean).length + "/" + hlResults.length + " correct" : "Completed today")
+            ? (hlResults ? hlResults.filter(function (result) { return result === true || !!(result && result.correct); }).length + "/" + hlResults.length + " correct" : "Completed today")
             : (hlInProgress ? "In progress" : "Not played yet"),
           stats: [
             { label: "best score", val: hlStats.best || 0 },
@@ -1076,7 +1148,7 @@
           ]
         });
       } catch (e) {
-        renderDetail({ name: "Higher / Lower", cls: "higher", icon: "&#8593;&#8595;", href: "higher-or-lower/", desc: "Which song has more NicoNico views? Five lives, and every correct answer keeps the streak going.", tier: "todo", statusText: "Not played yet", stats: [] });
+        renderDetail({ name: "Higher / Lower", cls: "higher", icon: "&#8593;&#8595;", href: "higher-or-lower/", desc: "Which song has more NicoNico views? Three lives in Unlimited, and every correct answer keeps the streak going.", tier: "todo", statusText: "Not played yet", stats: [] });
       }
 
       try {
@@ -1140,6 +1212,38 @@
       } catch (e) {
         renderDetail({ name: "Connections", cls: "connections", icon: cnGridIcon, href: "connections/", desc: "Sixteen songs, four hidden groups of four: sort them by producer, vocalist, era, genre and more before four strikes end the run.", tier: "todo", statusText: "Not played yet", stats: [] });
       }
+
+      var cr = ResultArt.savedFor(localStorage, "cover", key);
+      var crStats = {};
+      try { crStats = JSON.parse(localStorage.getItem("cr_stats") || "{}"); } catch (e) {}
+      setState("tp-cover", !!(cr && cr.done));
+      renderDetail({ name: "Cover Reveal", cls: "cover", icon: '<img src="cover-reveal/logo.svg" width="24" height="24" alt="">', href: "cover-reveal/",
+        desc: "Guess the song from its artwork. Wrong guesses and skips reveal more; six chances total.",
+        tier: !cr || !Array.isArray(cr.guesses) || !cr.guesses.length ? "todo" : cr.done ? (cr.win ? "win" : "loss") : "progress",
+        statusText: cr && cr.done ? (cr.win ? "Solved " + cr.guesses.length + "/6" : "Not solved today") : cr && Array.isArray(cr.guesses) && cr.guesses.length ? "In progress" : "Not played yet",
+        stats: [{ label: "streak", val: crStats.streak || 0 }, { label: "best streak", val: crStats.best || 0 }, { label: "first-try solves", val: crStats.perfect || 0 }]
+      });
+
+      try {
+        var ms = JSON.parse(localStorage.getItem("mk_daily_" + key) || "null");
+        var mStats = JSON.parse(localStorage.getItem("mk_stats") || "{}");
+        var mDone = !!(ms && ms.done);
+        setState("tp-mikudle", mDone);
+        renderDetail({
+          name: "Mikudle", cls: "mikudle", icon: mkIcon, href: "mikudle/",
+          desc: "Turn a four-letter word into MIKU, changing one letter at a time through common English words.",
+          tier: !ms ? "todo" : (mDone ? "win" : "progress"),
+          statusText: !ms ? "Not played yet" : (mDone ? "Solved in " + ((ms.moves || []).length - 1) + " moves" : "In progress"),
+          stats: [
+            { label: "streak", val: mStats.streak || 0 },
+            { label: "best streak", val: mStats.best || 0 },
+            { label: "at or under par", val: mStats.par || 0 }
+          ]
+        });
+      } catch (e) {
+        renderDetail({ name: "Mikudle", cls: "mikudle", icon: mkIcon, href: "mikudle/", desc: "Turn a four-letter word into MIKU, changing one letter at a time through common English words.", tier: "todo", statusText: "Not played yet", stats: [] });
+      }
+
     }
     refreshTodaysPuzzles();
     window.addEventListener("pageshow", refreshTodaysPuzzles);
@@ -1154,6 +1258,9 @@
       var closeBtn = document.getElementById("tp-modal-close");
       if (!btn || !backdrop) return;
       function open() {
+        refreshTodaysPuzzles();
+        document.getElementById("tp-copy-status").textContent = "";
+        document.getElementById("tp-copy-fallback").hidden = true;
         backdrop.hidden = false;
         document.body.style.overflow = "hidden";
       }
@@ -1166,6 +1273,31 @@
       backdrop.addEventListener("click", function (e) { if (e.target === backdrop) close(); });
       document.addEventListener("keydown", function (e) { if (e.key === "Escape" && !backdrop.hidden) close(); });
     })();
+
+    document.getElementById("tp-copy-results").addEventListener("click", async function () {
+      refreshTodaysPuzzles();
+      var snapshot = todaysResults.slice();
+      var date = todaysResultsDate;
+      var songs = await homeSongsReady;
+      var text = "VOCALOIDLE — " + date + "\n\n" + snapshot.map(function (result) {
+        var art = ResultArt.marks(result.game, ResultArt.savedFor(localStorage, result.game, date), songs);
+        var status = result.game === "timeline" && art ? Array.from(art).filter(mark => mark === "🟩").length + "/" + Array.from(art).length + " correct" : result.status;
+        return result.name + ": " + status + (art ? "\n" + art : "");
+      }).join("\n\n");
+      var status = document.getElementById("tp-copy-status");
+      var fallback = document.getElementById("tp-copy-fallback");
+      fallback.hidden = true;
+      try {
+        await navigator.clipboard.writeText(text);
+        status.textContent = "All results copied!";
+      } catch (error) {
+        fallback.value = text;
+        fallback.hidden = false;
+        fallback.focus();
+        fallback.select();
+        status.textContent = "Select and copy the results below.";
+      }
+    });
 
     function tierLabel(v) {
       return v >= 100000000 ? "100M+"
@@ -1200,7 +1332,7 @@
         : u.includes("ytimg.com") && u.includes("sddefault") ? 2
         : u.includes("ytimg.com") ? 5          // default.jpg (tiny) — last resort
         : u.includes("sndcdn.com") ? 4 : 3;
-      return [...new Set(all)].sort((a, b) => p(a) - p(b));
+      return VocaSongFixes.withoutTopic([...new Set(all)]).sort((a, b) => p(a) - p(b));
     }
     function advanceCover(img, skipYt) {
       let rest = [];
@@ -1226,7 +1358,7 @@
       img.src = chain[0];
     }
     Promise.all([
-      fetch("data/songs.json").then(r => r.ok ? r.json() : []).catch(() => []),
+      homeSongsReady,
       fetch("data/views.json").then(r => r.ok ? r.json() : {}).catch(() => ({})),
       fetch("data/ytviews.json").then(r => r.ok ? r.json() : {}).catch(() => ({})),
       fetch("data/biliviews.json").then(r => r.ok ? r.json() : {}).catch(() => ({}))
@@ -1244,6 +1376,7 @@
         setCover(document.getElementById("masume-preview"), lostOnes);
         setCover(document.getElementById("timeline-preview"), usable[4] || usable[0]);
         setCover(document.getElementById("connections-preview"), usable[5] || usable[1]);
+        setCover(document.getElementById("cover-preview"), usable[8] || usable[0]);
       }
 
       const pool = usable.filter(s => typeof views[String(s.vocadbId)] === "number");

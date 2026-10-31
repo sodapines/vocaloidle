@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="../site-theme.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>39charts · Vocalist</title>
@@ -892,7 +893,7 @@ function buildPage(vocalistName, songs, allSongs) {
 
   document.getElementById("marquee-text").textContent =
     `★ ${vocalistName}  ·  ★ ${songs.length} songs on 39charts  ·  ` +
-    (totalViews ? `★ ${totalViews.toLocaleString()} combined NicoNico + YouTube views  ·  ` : "") +
+    (totalViews ? `★ ${totalViews.toLocaleString()} combined views  ·  ` : "") +
     (topSong ? `★ Top song: ${topSong.title}  ·  ` : "") +
     `★ Featured ${yearRange}  ·  ★ Thank you for using 39charts ♪`;
 

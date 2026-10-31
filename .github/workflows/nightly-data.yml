@@ -27,6 +27,18 @@ jobs:
       - name: Refresh bilibili stats
         run: node scripts/fetch-bilibili-views.js --refresh
 
+      # Grid and Connections read full credits from here; "Various artists" songs
+      # have no other source. Only ids missing from the file are fetched.
+      - name: Fill missing song details
+        run: node scripts/fetch-vocadb-details.js
+
+      - name: Rebuild credit and thumbnail fixes
+        run: node scripts/build-song-fixes.js
+
+      - name: Freeze upcoming daily boards
+        continue-on-error: true
+        run: node scripts/freeze-daily-boards.js
+
       # Commit bilibili BEFORE rebuilding history: the history builder reads
       # git commits, so tonight's bilibili numbers must be committed first or
       # they'd always lag one day behind in the grid.
@@ -34,16 +46,18 @@ jobs:
         run: |
           git config user.name "sodapines"
           git config user.email "kzen@sodapines.dev"
-          git add data/biliviews.json
+          git add data/biliviews.json data/songdetails.json data/thumb-checks.json song-fixes.js connections/manifests.json masume/manifests.json
           git diff --cached --quiet && echo "No bilibili changes" || \
             git commit -m "chore(data): nightly bilibili refresh"
 
       - name: Rebuild view history
-        run: node scripts/build-view-history.js HEAD
+        run: |
+          node scripts/build-view-history.js HEAD
+          node scripts/build-recent-additions.js HEAD
 
       - name: Commit and push if changed
         run: |
-          git add data/viewhistory.json
+          git add data/viewhistory.json data/recentadditions.json
           git diff --cached --quiet && echo "No history changes" || \
             git commit -m "chore(data): rebuild view history"
           git push

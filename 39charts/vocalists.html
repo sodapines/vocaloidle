@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="../site-theme.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>39charts · Vocalists</title>
@@ -969,7 +970,7 @@ Promise.all([
     if (mostViews) set("stat-most-views", mostViews.name);
 
     document.getElementById("marquee-text").textContent =
-      `★ ${SPLIT_INDEX.length} voicebanks ranked by combined NicoNico + YouTube views  ·  ` +
+      `★ ${SPLIT_INDEX.length} voicebanks ranked by combined views  ·  ` +
       `★ Most views: ${mostViews ? `${mostViews.name} (${formatViews(mostViews.views)})` : "?"}  ·  ` +
       `★ Most songs: ${mostSongs ? `${mostSongs.name} (${mostSongs.count})` : "?"}  ·  ` +
       `★ Thank you for using 39charts ♪`;

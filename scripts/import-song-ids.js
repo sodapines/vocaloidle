@@ -309,6 +309,9 @@ async function main() {
 
   const fetchedSongs = await mapWithConcurrency(idsToFetch, 6, async (id, index) => {
     const vocadbSong = await fetchSong(id);
+    const usablePvs = (vocadbSong.pvs || []).filter(pv => !pv.disabled && (pv.pvType === "Original" || pv.pvType === "Reprint"));
+    const bestPv = service => usablePvs.find(pv => pv.service === service && pv.pvType === "Original") || usablePvs.find(pv => pv.service === service);
+    const nndPv = bestPv("NicoNicoDouga"), ytPv = bestPv("Youtube");
     const poolMatches = poolMemberships.get(String(id)) || [];
     const vocadbPools = getPoolNames({ pools: poolMatches });
     const coverArts = getCoverArtCandidates(vocadbSong);
@@ -325,6 +328,8 @@ async function main() {
       publishDate: vocadbSong.publishDate || "",
       acceptedTitles: getAcceptedTitles(vocadbSong),
       audioClip: `${audioBaseUrl}/${id}.${audioExtension}`,
+      nndOriginalId: (nndPv && nndPv.pvId) || "",
+      ytOriginalId: (ytPv && ytPv.pvId) || "",
       vocadbPools,
       sourceTags: unique(["community", "new", ...poolMatches.map((pool) => pool.tag)]),
       addedBatch: importBatch,

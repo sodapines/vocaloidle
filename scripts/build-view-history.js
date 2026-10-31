@@ -28,12 +28,12 @@ const OUT = path.join(__dirname, "..", "data", "viewhistory.json");
 const MAX_DAYS = 120; // keep the file from growing unbounded
 
 function git(...args) {
-  return execFileSync("git", args, { cwd: path.join(__dirname, ".."), maxBuffer: 256 * 1024 * 1024 }).toString();
+  return execFileSync("git", args, { cwd: path.join(__dirname, ".."), env: { ...process.env, TZ: "UTC" }, maxBuffer: 256 * 1024 * 1024 }).toString();
 }
 
 // --full-history: without it, git prunes nightly data commits that a later
 // merge overrode, and whole snapshot days disappear from the output.
-const log = git("log", "--full-history", "--format=%H %ad", "--date=short", "--reverse", REF, "--", ...FILES)
+const log = git("log", "--full-history", "--format=%H %ad", "--date=format-local:%Y-%m-%d", "--reverse", REF, "--", ...FILES)
   .trim().split("\n").filter(Boolean)
   .map(l => { const [sha, date] = l.split(" "); return { sha, date }; });
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="../site-theme.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>39charts · Recently Added</title>
@@ -502,7 +503,7 @@ Promise.all([
   loadJsonCached("../data/views.json", "39c_views_v2"),
   loadJsonCached("../data/ytviews.json", "39c_ytviews_v2"),
   loadJsonCached("../data/biliviews.json", "39c_biliviews_v3"),
-  loadJsonCached("../data/recentadditions.json", "39c_recentadds_v1"),
+  loadJsonCached("../data/recentadditions.json", "39c_recentadds_v2"),
 ]).then(([songs, views, yt, bili, recent]) => {
   if (!songs) throw new Error("songs.json failed to load");
   if (views && views.views) VIEWS = views.views;
@@ -556,7 +557,7 @@ Promise.all([
   `).join("");
 
   document.getElementById("marquee-text").textContent =
-    `★ ${resolved.length} songs added recently  ·  ` +
+    `★ ${resolved.length} most recent additions  ·  ` +
     `★ Newest: ${groups[0].items[0].title} (${fmtDate(groups[0].date)})  ·  ` +
     `★ Thank you for using 39charts ♪`;
 }).catch(err => {

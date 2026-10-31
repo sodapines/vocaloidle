@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="../site-theme.js?v=1"></script>
+<script src="../song-fixes.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VOCALOID Higher or Lower</title>
@@ -8,15 +10,19 @@
 <style>
 :root {
   --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
+  --rail-accent: #2459ac;
   --text: #111; --muted: #555; --faint: #999;
   --line: #c8c4bc; --ls: #b8b4ac;
-  --red: #cc0000; --red-dark: #990000; --link: #0066cc;
+  --red: #3266ba; --red-dark: #1b4280;
+  --match-red: #cc0000; --match-red-dark: #990000; --link: #0066cc;
 }
 html.dark-mode {
   --bg: #101010; --surface: #191919; --sf: #202020;
+  --rail-accent: #78a9ee;
   --text: #e1e1e1; --muted: #aaaaaa; --faint: #777777;
   --line: #3b3b3b; --ls: #505050;
-  --red: #dd0000; --red-dark: #8f0000; --link: #78a9ee;
+  --red: #6893da; --red-dark: #294e8c;
+  --match-red: #ee5555; --match-red-dark: #8f0000; --link: #78a9ee;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
@@ -109,7 +115,7 @@ button { font: inherit; cursor: pointer; }
   font-weight: 700; text-decoration: none;
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
 }
-.nnd-kofi:hover { background: #b30000; color: #fff !important; text-decoration: none; }
+.nnd-kofi:hover { background: #003fb3; color: #fff !important; text-decoration: none; }
 
 /* ── SIDE RAILS (decorative watermark) ── */
 .page-rail {
@@ -152,7 +158,7 @@ button { font: inherit; cursor: pointer; }
   cursor: pointer; position: relative; white-space: nowrap;
 }
 .game-mode-btn .gm-ico { width: 12px; height: 12px; opacity: 0.7; flex-shrink: 0; }
-.game-mode-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff6f6, #f1dcdc); }
+.game-mode-btn:hover { color: var(--red); background: linear-gradient(to bottom, #f6f9ff, #dce3f1); }
 .game-mode-btn:hover .gm-ico { opacity: 1; }
 .game-mode-btn.is-active {
   background: linear-gradient(to bottom, var(--red), var(--red-dark));
@@ -187,7 +193,7 @@ button { font: inherit; cursor: pointer; }
   padding: 0 8px;
   color: #fff; font-size: 9px; font-weight: 900;
   letter-spacing: 0.1em; text-transform: uppercase;
-  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  background: linear-gradient(to bottom, #2263dd, #003caa);
   border: 1px solid var(--red-dark);
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
@@ -201,11 +207,11 @@ button { font: inherit; cursor: pointer; }
   border-color: #ffffff var(--ls) var(--ls) #ffffff;
   box-shadow: 0 1px 1px rgba(0,0,0,0.15);
 }
-.view-src-btn:hover { color: var(--red); background: linear-gradient(to bottom, #fff5f5, #f2dcdc); }
+.view-src-btn:hover { color: var(--red); background: linear-gradient(to bottom, #f5f9ff, #dce4f2); }
 .view-src-btn.is-active {
   color: #fff;
-  background: linear-gradient(to bottom, #c41111, var(--red-dark));
-  border-color: var(--red-dark) #e05555 #e05555 var(--red-dark);
+  background: linear-gradient(to bottom, #1150c4, var(--red-dark));
+  border-color: var(--red-dark) #5586e0 #5586e0 var(--red-dark);
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.35);
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
 }
@@ -230,14 +236,14 @@ button { font: inherit; cursor: pointer; }
 }
 .streak-block.is-streak {
   min-width: 78px;
-  background: linear-gradient(to bottom, #fff6f6, #f4e8e8);
-  border-right-color: #d0bcbc;
+  background: linear-gradient(to bottom, #f6f9ff, #e8ecf4);
+  border-right-color: #bcc3d0;
 }
 .streak-val   { font-size: 25px; font-weight: 900; color: var(--red); display: block; line-height: 1; }
 .streak-val.hi { color: var(--red); }
 .streak-num   { font-size: 17px; font-weight: 900; color: var(--text); display: block; line-height: 1; }
 .streak-label { font-size: 8px; color: #9a958c; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 3px; }
-.is-streak .streak-label { color: #b08a8a; }
+.is-streak .streak-label { color: #8a97b0; }
 .streak-mid {
   flex: 1; display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 0 10px;
   border-left: 1px solid #d8d4cc;
@@ -251,13 +257,13 @@ button { font: inherit; cursor: pointer; }
   overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
 }
 .streak-result.correct { background: #e8f5e9; border-color: #81c784; border-left-color: #1a7a1a; color: #1a5a1a; }
-.streak-result.wrong   { background: #fff5f5; border-color: #ffaaaa; border-left-color: var(--red); color: var(--red-dark); }
+.streak-result.wrong   { background: #fff5f5; border-color: #ffaaaa; border-left-color: var(--match-red); color: var(--match-red-dark); }
 .lives-row { display: flex; gap: 3px; align-items: center; }
 .lives-label { font-size: 9px; color: #888888; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 4px; }
 .life {
   display: inline-block; width: 12px; height: 12px;
   background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #cc0000 100%);
-  border: 1px solid var(--red-dark);
+  border: 1px solid var(--match-red-dark);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
 }
 .life.spent {
@@ -386,7 +392,7 @@ button { font: inherit; cursor: pointer; }
   display: flex; gap: 3px;
 }
 .tier-badge {
-  padding: 0 4px; background: var(--red); color: #fff;
+  padding: 0 4px; background: var(--match-red); color: #fff;
   font-size: 9px; font-weight: 700; line-height: 15px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.45);
 }
@@ -396,7 +402,7 @@ button { font: inherit; cursor: pointer; }
 }
 .tier-badge.is-yt {
   background: linear-gradient(to bottom, #dd2222, #aa0000);
-  border: 1px solid var(--red-dark); line-height: 13px;
+  border: 1px solid var(--match-red-dark); line-height: 13px;
 }
 .tier-badge.is-bili {
   background: linear-gradient(to bottom, #35b5e5, #0f7ca8);
@@ -427,7 +433,7 @@ button { font: inherit; cursor: pointer; }
 }
 .meta-val.mystery { color: #bbbbbb; letter-spacing: 4px; }
 .meta-val.correct-reveal { color: #1a7a1a; }
-.meta-val.wrong-reveal   { color: var(--red); }
+.meta-val.wrong-reveal   { color: var(--match-red); }
 .meta-sub { font-size: 8px; color: var(--faint); margin-top: 2px; line-height: 1; }
 .vtag { display: inline-block; padding: 0 4px; font-size: 9px; line-height: 13px; border: 1px solid; font-weight: 700; }
 .vtag-miku   { background: #e0f4f8; border-color: #39c5bb; color: #007a73; }
@@ -437,15 +443,15 @@ button { font: inherit; cursor: pointer; }
 .vtag-gumi   { background: #e8f5e9; border-color: #43a047; color: #1b5e20; }
 .vtag-ia     { background: #f3e5f5; border-color: #9c27b0; color: #6a1b9a; }
 .vtag-kaito  { background: #e8eaf6; border-color: #3949ab; color: #1a237e; }
-.vtag-meiko  { background: #fce8e6; border-color: #e53935; color: #b71c1c; }
-.vtag-teto   { background: #fde8ec; border-color: #d44466; color: #8c1030; }
+.vtag-meiko  { background: #fce6e6; border-color: #e53935; color: #b71c1c; }
+.vtag-teto   { background: #fde8ee; border-color: #d44466; color: #8c1030; }
 .vtag-flower { background: #f0e4f8; border-color: #9040a0; color: #581070; }
 .vtag-kafu   { background: #d8f0f8; border-color: #2096b8; color: #005878; }
 .vtag-una    { background: #fdf0d0; border-color: #e08000; color: #7a4000; }
 .vtag-yuki   { background: #fff8d0; border-color: #b09000; color: #5a4800; }
 .vtag-rei    { background: #fce0f0; border-color: #cc3080; color: #880050; }
 .vtag-defoko { background: #e0e8f0; border-color: #6080a0; color: #304060; }
-.vtag-meika-mikoto { background: #fde3e3; border-color: #d23b3b; color: #9a1414; }
+.vtag-meika-mikoto { background: #e3ecfd; border-color: #3b70d2; color: #14439a; }
 .vtag-meika-hime   { background: #e3eefc; border-color: #3a7bd5; color: #1a3f8f; }
 .vtag-other  { background: var(--sf); border-color: var(--ls); color: var(--muted); }
 .thumb-vtags {
@@ -495,7 +501,7 @@ button { font: inherit; cursor: pointer; }
 }
 .guess-higher {
   background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #cc0000 100%);
-  color: #fff; border-color: var(--red-dark);
+  color: #fff; border-color: var(--match-red-dark);
   box-shadow:
     inset 0 1px 0 rgba(255,255,255,0.45), inset 0 -2px 0 rgba(0,0,0,0.22),
     0 2px 0 #7a0000, 0 3px 4px rgba(0,0,0,0.28);
@@ -569,10 +575,10 @@ button { font: inherit; cursor: pointer; }
 .recent-num { width: 28px; text-align: center; color: var(--faint); }
 .recent-result { width: 48px; text-align: center; font-weight: 900; }
 .recent-result.is-win { color: #1a7a1a; }
-.recent-result.is-lose { color: var(--red); }
+.recent-result.is-lose { color: var(--match-red); }
 .recent-count { width: 82px; text-align: right; font-family: Consolas, "MS PGothic", monospace; }
 .recent-guess { width: 66px; text-align: center; font-weight: 900; }
-.recent-guess.higher { color: var(--red); }
+.recent-guess.higher { color: var(--match-red); }
 .recent-guess.lower { color: #194da6; }
 /* ── SIDEBAR PANELS ── */
 /* Sidebar panels share the retro mode-bar look: red top accent, ridge/bevel
@@ -604,7 +610,7 @@ button { font: inherit; cursor: pointer; }
   position: absolute; left: 0; top: 1px;
   display: inline-flex; align-items: center; justify-content: center;
   width: 12px; height: 12px; color: #fff;
-  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  background: linear-gradient(to bottom, #2263dd, #003caa);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
   font-size: 8px; font-weight: 900; content: attr(data-n);
@@ -615,12 +621,12 @@ button { font: inherit; cursor: pointer; }
 .stats-table { width: 100%; border-collapse: collapse; }
 .stats-table tr { border-bottom: 1px solid var(--line); }
 .stats-table tr:nth-child(even) { background: #f6f5f0; }
-.stats-table tr:hover { background: #fff0f0; }
+.stats-table tr:hover { background: #f0f5ff; }
 .stats-table td { padding: 2px 7px; font-size: 10px; height: 20px; }
 .stats-table td:first-child { color: var(--muted); }
 .stats-table td:last-child { font-weight: 900; text-align: right; color: var(--red); font-size: 11px; white-space: nowrap; }
 .winrate-row { padding: 3px 7px 5px; border-bottom: 1px solid var(--line); }
-.winrate-row:hover { background: #fff0f0; }
+.winrate-row:hover { background: #f0f5ff; }
 .winrate-top { display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: var(--muted); margin-bottom: 3px; }
 .winrate-top strong { font-weight: 900; color: var(--red); font-size: 11px; }
 .winrate-track { width: 100%; height: 5px; background: #e0e0e0; border: 1px solid #ccc; overflow: hidden; }
@@ -632,7 +638,7 @@ button { font: inherit; cursor: pointer; }
 .milestone-top { display: flex; justify-content: space-between; align-items: baseline; font-size: 10px; color: var(--muted); margin-bottom: 3px; }
 .milestone-top strong { font-weight: 900; color: var(--red); font-size: 11px; }
 .milestone-track { width: 100%; height: 5px; background: #e0e0e0; border: 1px solid #ccc; overflow: hidden; }
-.milestone-fill { height: 100%; background: linear-gradient(to right, #aa0000, #dd2222); transition: width 0.3s ease; }
+.milestone-fill { height: 100%; background: linear-gradient(to right, #003caa, #2263dd); transition: width 0.3s ease; }
 .milestone-fill.maxed { background: linear-gradient(to right, #b8860b, #e0b020); }
 
 .milestone-desc { padding: 4px 7px 0; font-size: 9px; color: var(--faint); line-height: 1.4; }
@@ -653,7 +659,7 @@ button { font: inherit; cursor: pointer; }
   flex-shrink: 0; min-width: 38px; text-align: center;
   padding: 1px 3px; font-size: 9px; font-weight: 900; color: #fff;
   border: 1px solid var(--red-dark);
-  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  background: linear-gradient(to bottom, #2263dd, #003caa);
 }
 .tier-legend-row .tl-name { color: var(--muted); flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .tier-note { font-size: 9px; color: var(--faint); padding: 5px 8px; border-top: 1px solid var(--line); }
@@ -664,7 +670,7 @@ button { font: inherit; cursor: pointer; }
 .news-list li:last-child { border-bottom: none; }
 .news-ver {
   flex-shrink: 0; align-self: flex-start; padding: 0 4px; font-size: 9px; font-weight: 900;
-  color: #fff; background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  color: #fff; background: linear-gradient(to bottom, #2263dd, #003caa); border: 1px solid var(--red-dark);
 }
 .news-text { color: var(--muted); line-height: 1.4; }
 .news-more, .links-list a {
@@ -674,7 +680,7 @@ button { font: inherit; cursor: pointer; }
 .links-list { display: flex; flex-direction: column; }
 .links-list a { border-bottom: 1px solid var(--line); }
 .links-list a:last-child { border-bottom: none; }
-.links-list a:hover, .news-more:hover { color: var(--red); background: #fff0f0; text-decoration: none; }
+.links-list a:hover, .news-more:hover { color: var(--red); background: #f0f5ff; text-decoration: none; }
 .links-list a::before { content: "\25B8"; color: var(--red); margin-right: 5px; }
 
 /* ── RECENT GUESSES EMPTY STATE ── */
@@ -691,18 +697,18 @@ button { font: inherit; cursor: pointer; }
 }
 .rc-item:last-child { border-bottom: none; }
 .rc-item.is-win  { border-left-color: #1a7a1a; }
-.rc-item.is-lose { border-left-color: var(--red); }
+.rc-item.is-lose { border-left-color: var(--match-red); }
 .rc-top { display: flex; align-items: center; gap: 8px; margin-bottom: 3px; }
 .rc-num { font-size: 10px; color: var(--faint); font-weight: 700; }
 .rc-result { font-size: 12px; font-weight: 900; }
 .is-win .rc-result  { color: #1a7a1a; }
-.is-lose .rc-result { color: var(--red); }
+.is-lose .rc-result { color: var(--match-red); }
 .rc-stk { margin-left: auto; font-size: 9px; color: var(--faint); text-transform: uppercase; letter-spacing: 0.04em; }
 .rc-row { display: flex; align-items: baseline; gap: 8px; font-size: 11px; }
 .rc-name { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text); }
 .rc-views { flex-shrink: 0; font-family: Consolas, "MS PGothic", monospace; font-weight: 700; color: var(--muted); }
 .rc-guess { font-size: 10px; font-weight: 900; margin: 2px 0; padding-left: 2px; }
-.rc-guess.higher { color: var(--red); }
+.rc-guess.higher { color: var(--match-red); }
 .rc-guess.lower  { color: #194da6; }
 
 /* ── GAME OVER ── */
@@ -714,7 +720,7 @@ button { font: inherit; cursor: pointer; }
 }
 .gameover-title {
   margin: 0 -14px 2px; padding: 8px 10px 7px;
-  background: linear-gradient(to bottom, #d81111, #990000);
+  background: linear-gradient(to bottom, #1157d8, #003699);
   color: #fff; font-size: 17px; font-weight: 900; letter-spacing: 0.12em;
   text-shadow: 0 1px 0 rgba(0,0,0,0.45);
 }
@@ -734,7 +740,7 @@ button { font: inherit; cursor: pointer; }
 }
 .go-stat:first-child { box-shadow: inset -1px 0 0 rgba(0,0,0,0.04); }
 .go-stat:last-child { border-right: none; box-shadow: inset 1px 0 0 rgba(255,255,255,0.7); }
-.go-stat.is-headline { background: linear-gradient(to bottom, #fff4f4, #f3e4e4); }
+.go-stat.is-headline { background: linear-gradient(to bottom, #f4f8ff, #e4e9f3); }
 .go-key {
   font-size: 9px; color: #6a665e; font-weight: 700; letter-spacing: 0.02em;
   margin-top: 3px; text-transform: lowercase; white-space: nowrap;
@@ -747,7 +753,7 @@ button { font: inherit; cursor: pointer; }
 }
 .go-val.is-best { color: #1a7a1a; }
 .go-stat.is-headline .go-val { color: var(--red); }
-.go-stat.is-headline .go-key { color: #a06868; }
+.go-stat.is-headline .go-key { color: #687ca0; }
 .go-newbest-row { text-align: center; margin: -2px 0 2px; }
 .go-newbest {
   display: inline-block;
@@ -773,7 +779,7 @@ button { font: inherit; cursor: pointer; }
   color: #fff; border: 1px solid var(--red-dark); font-size: 12px; font-weight: 900;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.2); cursor: pointer; font-family: inherit;
 }
-.play-again-btn:hover { background: linear-gradient(to bottom,#dd1111,#aa0000); }
+.play-again-btn:hover { background: linear-gradient(to bottom,#1158dd,#003caa); }
 .gameover-actions {
   display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap;
 }
@@ -785,7 +791,7 @@ button { font: inherit; cursor: pointer; }
 }
 .share-result-btn:hover {
   color: var(--red);
-  background: linear-gradient(to bottom, #fff5f5, #ffd0d0);
+  background: linear-gradient(to bottom, #f5f9ff, #d0e0ff);
 }
 .daily-result-grid {
   display: grid; grid-template-columns: repeat(10, minmax(22px, 1fr));
@@ -797,7 +803,7 @@ button { font: inherit; cursor: pointer; }
 }
 .daily-result-cell:last-child { border-right: 0; }
 .daily-result-cell.is-correct { color: #167516; background: #e4f3e4; }
-.daily-result-cell.is-wrong { color: var(--red); background: #f8e2e2; }
+.daily-result-cell.is-wrong { color: var(--match-red); background: #f8e2e2; }
 .daily-result-cell.is-empty { color: #aaa; }
 
 /* ── STATE MESSAGES ── */
@@ -854,7 +860,7 @@ button { font: inherit; cursor: pointer; }
   font-size: 11px; font-weight: 700; font-family: inherit; cursor: pointer;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
 }
-.modal-close-btn:hover { background: linear-gradient(to bottom, #fff5f5, #ffcccc); color: var(--red); }
+.modal-close-btn:hover { background: linear-gradient(to bottom, #f5f9ff, #ccdeff); color: var(--red); }
 .settings-row {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
   padding: 8px 0; border-bottom: 1px dotted var(--line);
@@ -872,9 +878,9 @@ button { font: inherit; cursor: pointer; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
 }
 .settings-choice:last-child { border-right: none; }
-.settings-choice:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); }
+.settings-choice:hover { background: linear-gradient(to bottom, #f5f9ff, #d0e0ff); color: var(--red); }
 .settings-choice.is-active {
-  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  background: linear-gradient(to bottom, #2263dd, #003caa);
   color: #fff; font-weight: 700;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
@@ -887,7 +893,7 @@ button { font: inherit; cursor: pointer; }
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
 }
 .settings-toggle.is-on {
-  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  background: linear-gradient(to bottom, #2263dd, #003caa);
   color: #fff; border-color: var(--red-dark);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
@@ -896,13 +902,13 @@ button { font: inherit; cursor: pointer; }
 .settings-note { font-size: 9px; color: var(--faint); flex: 1; line-height: 1.4; }
 .settings-apply-btn {
   height: 26px; padding: 0 12px; flex-shrink: 0;
-  background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #cc0000 100%);
+  background: linear-gradient(to bottom, #558bee 0%, #2263dd 48%, #0041bb 52%, #0047cc 100%);
   color: #fff; border: 1px solid var(--red-dark); font-size: 11px; font-weight: 700;
   cursor: pointer; font-family: inherit;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.45);
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
 }
-.settings-apply-btn:hover { background: linear-gradient(to bottom, #ff6666 0%, #ee3333 48%, #cc1111 52%, #dd1111 100%); }
+.settings-apply-btn:hover { background: linear-gradient(to bottom, #669cff 0%, #3374ee 48%, #1152cc 52%, #1158dd 100%); }
 
 /* ── RELEASE NOTES MODAL ── */
 .notes-modal {
@@ -953,13 +959,13 @@ button { font: inherit; cursor: pointer; }
   display: block; width: 100%; margin-bottom: 12px; padding: 7px;
   font-family: "MS Gothic","Courier New",monospace; font-size: 11px; font-weight: 700;
   letter-spacing: 0.06em; text-transform: uppercase; color: #fff;
-  background: linear-gradient(to bottom, #ee5555 0%, #dd2222 48%, #bb0000 52%, #cc0000 100%);
+  background: linear-gradient(to bottom, #558bee 0%, #2263dd 48%, #0041bb 52%, #0047cc 100%);
   border: 1px solid var(--red-dark); cursor: pointer;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.4);
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
 }
 .archive-random::before { content: "\25B6\00a0"; }
-.archive-random:hover { background: linear-gradient(to bottom, #ff6666 0%, #ee3333 48%, #cc1111 52%, #dd1111 100%); }
+.archive-random:hover { background: linear-gradient(to bottom, #669cff 0%, #3374ee 48%, #1152cc 52%, #1158dd 100%); }
 .archive-random:disabled { background: #c8c4bc; border-color: var(--ls); color: var(--faint); text-shadow: none; cursor: default; box-shadow: none; }
 
 /* Toolbar: gradient header band with bevel pager buttons */
@@ -980,7 +986,7 @@ button { font: inherit; cursor: pointer; }
   background: linear-gradient(to bottom, #ffffff, #e4e4e4); border: 1px solid var(--ls);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.9); cursor: pointer;
 }
-.archive-nav:hover:not(:disabled) { color: var(--red); background: linear-gradient(to bottom, #fff5f5, #ffd8d8); }
+.archive-nav:hover:not(:disabled) { color: var(--red); background: linear-gradient(to bottom, #f5f9ff, #d8e6ff); }
 .archive-nav:disabled { opacity: 0.35; cursor: default; }
 
 /* Weekday header band */
@@ -995,7 +1001,7 @@ button { font: inherit; cursor: pointer; }
   font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em;
 }
 .archive-weekdays span:last-child { border-right: 0; }
-.archive-weekdays span.wd-sun { color: #cc2222; }
+.archive-weekdays span.wd-sun { color: #225ecc; }
 .archive-weekdays span.wd-sat { color: #2255cc; }
 
 /* Grid: collapsed-border calendar table */
@@ -1008,7 +1014,7 @@ button { font: inherit; cursor: pointer; }
 }
 .archive-day:nth-child(7n) { border-right: 0; }
 .archive-day .ad-day { font-size: 12px; font-weight: 700; line-height: 1; }
-.archive-day.is-sun .ad-day { color: #cc2222; }
+.archive-day.is-sun .ad-day { color: #225ecc; }
 .archive-day.is-sat .ad-day { color: #2255cc; }
 .archive-day.is-blank {
   background: repeating-linear-gradient(45deg, transparent 0 3px, rgba(0,0,0,0.05) 3px 4px) #f4f3ef;
@@ -1018,7 +1024,7 @@ button { font: inherit; cursor: pointer; }
 .archive-day.is-locked .ad-day { color: var(--faint); font-weight: 400; }
 .archive-day.is-locked .ad-note { margin-top: auto; font-size: 8px; color: var(--faint); font-style: italic; opacity: 0.8; }
 .archive-day.is-available { cursor: pointer; }
-.archive-day.is-available:hover { background: #fff0f0; }
+.archive-day.is-available:hover { background: #f0f5ff; }
 .archive-day.is-available .ad-play { margin-top: auto; font-size: 9px; color: var(--faint); font-style: italic; }
 .archive-day.is-available:hover .ad-play { color: var(--red); }
 .archive-day.is-solved { cursor: pointer; }
@@ -1048,9 +1054,9 @@ button { font: inherit; cursor: pointer; }
   font-size: 11px; font-weight: 700;
 }
 .release-tab:last-child { border-right: none; }
-.release-tab:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); }
+.release-tab:hover { background: linear-gradient(to bottom, #f5f9ff, #d0e0ff); color: var(--red); }
 .release-tab.is-active {
-  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  background: linear-gradient(to bottom, #2263dd, #003caa);
   color: #fff;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
   text-shadow: 0 1px 0 rgba(90,0,0,0.5);
@@ -1084,7 +1090,7 @@ button { font: inherit; cursor: pointer; }
 }
 .achievement-meter-fill {
   height: 100%; width: 0;
-  background: repeating-linear-gradient(135deg, var(--red) 0, var(--red) 6px, #e24a4a 6px, #e24a4a 10px);
+  background: repeating-linear-gradient(135deg, var(--red) 0, var(--red) 6px, #4a7fe2 6px, #4a7fe2 10px);
 }
 .achievement-list {
   border: 1px solid var(--line); border-bottom: none;
@@ -1267,15 +1273,15 @@ html.dark-mode .archive-toolbar { background: linear-gradient(to bottom, #242424
 html.dark-mode .archive-nav { background: linear-gradient(to bottom, #2a2a2a, #1d1d1d); border-color: #3b3b3b; }
 html.dark-mode .archive-weekdays { background: linear-gradient(to bottom, #242424, #191919); border-color: #3b3b3b; }
 html.dark-mode .archive-weekdays span { border-color: #2a2a2a; box-shadow: none; color: #888; }
-html.dark-mode .archive-weekdays span.wd-sun { color: #cc5555; }
+html.dark-mode .archive-weekdays span.wd-sun { color: #557fcc; }
 html.dark-mode .archive-weekdays span.wd-sat { color: #6688dd; }
 html.dark-mode .archive-grid { border-color: #3b3b3b; }
 html.dark-mode .archive-day { background: var(--surface); border-color: #2a2a2a; }
-html.dark-mode .archive-day.is-sun .ad-day { color: #cc5555; }
+html.dark-mode .archive-day.is-sun .ad-day { color: #557fcc; }
 html.dark-mode .archive-day.is-sat .ad-day { color: #6688dd; }
 html.dark-mode .archive-day.is-blank { background: repeating-linear-gradient(45deg, transparent 0 3px, rgba(255,255,255,0.04) 3px 4px) #1a1a1a; }
 html.dark-mode .archive-day.is-locked { background: #202020; }
-html.dark-mode .archive-day.is-available:hover { background: #2a1414; }
+html.dark-mode .archive-day.is-available:hover { background: #141c2a; }
 html.dark-mode .archive-legend { border-color: #2a2a2a; }
 html.dark-mode .archive-legend i.lg-solved { background: #182818; border-color: #2a4a2a; }
 html.dark-mode .archive-legend i.lg-locked { background: #202020; }
@@ -1298,10 +1304,10 @@ html.dark-mode .streak-mid {
   border-color: #383838;
 }
 html.dark-mode .streak-block.is-streak {
-  background: #2a2020;
+  background: #20242a;
 }
 html.dark-mode .streak-label { color: #888; }
-html.dark-mode .is-streak .streak-label { color: #b08a8a; }
+html.dark-mode .is-streak .streak-label { color: #8a97b0; }
 html.dark-mode .streak-bar,
 html.dark-mode .streak-mid,
 html.dark-mode .streak-block,
@@ -1349,7 +1355,7 @@ html.dark-mode .game-mode-btn {
   background: linear-gradient(to bottom, #2a2a2a, #1d1d1d);
   border-color: #4a4a4a #111 #111 #4a4a4a;
 }
-html.dark-mode .game-mode-btn:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .game-mode-btn:hover { background: #20242b; color: var(--red); }
 html.dark-mode .game-mode-btn.is-active {
   background: linear-gradient(to bottom, var(--red), var(--red-dark));
   border-color: var(--red) var(--red-dark) var(--red-dark) var(--red);
@@ -1365,10 +1371,10 @@ html.dark-mode .view-src-btn {
   border-color: #4a4a4a #111 #111 #4a4a4a;
   box-shadow: 0 1px 1px rgba(0,0,0,0.4);
 }
-html.dark-mode .view-src-btn:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .view-src-btn:hover { background: #20242b; color: var(--red); }
 html.dark-mode .view-src-btn.is-active {
-  background: linear-gradient(to bottom, #b01111, #7a0808);
-  border-color: #5a0505 #d04444 #d04444 #5a0505;
+  background: linear-gradient(to bottom, #1149b0, #08307a);
+  border-color: #05235a #4475d0 #4475d0 #05235a;
   color: #fff;
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
 }
@@ -1386,9 +1392,9 @@ html.dark-mode .go-stat {
   border-color: #383838;
   box-shadow: none;
 }
-html.dark-mode .go-stat.is-headline { background: #2a2020; }
+html.dark-mode .go-stat.is-headline { background: #20242a; }
 html.dark-mode .go-key { color: #9a958c; }
-html.dark-mode .go-stat.is-headline .go-key { color: #b08a8a; }
+html.dark-mode .go-stat.is-headline .go-key { color: #8a97b0; }
 html.dark-mode .go-val { text-shadow: none; }
 html.dark-mode .gameover-stats {
   background: #1a1a1a;
@@ -1403,7 +1409,7 @@ html.dark-mode .share-result-btn {
 }
 html.dark-mode .share-result-btn:hover {
   color: var(--red);
-  background: linear-gradient(to bottom, #3a2525, #2a1c1c);
+  background: linear-gradient(to bottom, #252c3a, #1c212a);
 }
 html.dark-mode .song-meta-bar,
 html.dark-mode .stats-table tr:nth-child(even),
@@ -1512,7 +1518,7 @@ html.dark-mode .nnd-mobile-nav {
 .achievement-list { border: 2px solid var(--ls); }
 .achievement-row { transition: background 0.08s ease; }
 .achievement-row.is-unlocked { box-shadow: inset 3px 0 0 var(--red); }
-.achievement-row.is-unlocked:hover { background: #fff4f4; }
+.achievement-row.is-unlocked:hover { background: #f4f8ff; }
 .achievement-icon { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.3); }
 .settings-multi, .settings-toggle { box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7); }
 .modal-close-btn { z-index: 2; }
@@ -1523,22 +1529,28 @@ html.dark-mode .achievement-summary {
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05);
 }
 html.dark-mode .achievement-list { border-color: #3b3b3b; }
-html.dark-mode .achievement-row.is-unlocked:hover { background: #2a1414; }
+html.dark-mode .achievement-row.is-unlocked:hover { background: #141c2a; }
 
-/* ── Archive calendar: three visually distinct bands (month header > weekdays > blanks) ── */
+/* ── Archive calendar: Heardle's modal and planner-table design ── */
+.archive-modal { width: min(100vw - 32px, 440px); }
+.archive-random {
+  color: var(--text); text-shadow: none;
+  background: linear-gradient(to bottom, #ffffff, #e8e8e8);
+  border-color: var(--ls); box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.archive-random::before { color: var(--red); }
+.archive-random:hover:not(:disabled) { color: var(--red); background: linear-gradient(to bottom, #f5f9ff, #d8e6ff); }
 .archive-summary, .archive-toolbar, .archive-weekdays { border-color: var(--ls); }
-/* Summary label cells + month header: the strong "title" band (darker, hatched, monospace) */
+/* Summary labels + month header use the same grey bands as Heardle. */
 .archive-summary-item span,
 .archive-toolbar {
-  background:
-    repeating-linear-gradient(45deg, rgba(0,0,0,0.04) 0 3px, transparent 3px 7px),
-    linear-gradient(to bottom, #e9e2d4, #cfc7b5);
+  background: linear-gradient(to bottom, #f0f0f0, #dedede);
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.7);
 }
 .archive-toolbar { border-bottom: 2px solid var(--red); }
 /* Weekday row: a lighter, flat band so it clearly separates from the month header above */
 .archive-weekdays {
-  background: #f6f4ee;
+  background: linear-gradient(to bottom, #fafafa, #e8e8e8);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -1px 0 rgba(0,0,0,0.06);
 }
 .archive-summary-item span,
@@ -1548,9 +1560,9 @@ html.dark-mode .achievement-row.is-unlocked:hover { background: #2a1414; }
   letter-spacing: 0.05em;
 }
 #archive-month-label { font-size: 14px; font-weight: 700; }
-/* Blank (no-puzzle) cells: stronger, clearly "crossed-out" hatch on a greyer base */
+/* Blank cells use Heardle's subtle planner hatching. */
 .archive-day.is-blank {
-  background: repeating-linear-gradient(45deg, transparent 0 4px, rgba(0,0,0,0.10) 4px 5px) #e7e4dc !important;
+  background: repeating-linear-gradient(45deg, transparent 0 3px, rgba(0,0,0,0.05) 3px 4px) #f4f3ef !important;
 }
 html.dark-mode .archive-summary-item span,
 html.dark-mode .archive-toolbar {
@@ -1558,15 +1570,19 @@ html.dark-mode .archive-toolbar {
   border-color: #3b3b3b; color: var(--text);
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05);
 }
+html.dark-mode .archive-random { color: var(--text); background: linear-gradient(to bottom, #282828, #1a1a1a); border-color: #3b3b3b; box-shadow: none; }
+html.dark-mode .archive-random:hover:not(:disabled) { color: #4474cc; background: linear-gradient(to bottom, #111d33, #0a1222); }
 html.dark-mode .archive-toolbar { border-bottom: 2px solid var(--red); }
 html.dark-mode .archive-weekdays {
   background: #232323; border-color: #3b3b3b; color: var(--text);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
 }
 html.dark-mode .archive-day.is-blank {
-  background: repeating-linear-gradient(45deg, transparent 0 4px, rgba(255,255,255,0.05) 4px 5px) #181818 !important;
+  background: repeating-linear-gradient(45deg, transparent 0 3px, rgba(255,255,255,0.04) 3px 4px) #1a1a1a !important;
 }
 </style>
+<link rel="stylesheet" href="../archive-shared.css?v=1">
+<link rel="stylesheet" href="../game-rails.css?v=1">
 </head>
 <body>
 
@@ -1615,7 +1631,7 @@ html.dark-mode .archive-day.is-blank {
   <span class="nnd-marquee-label">[INFO]</span>
   <div class="nnd-marquee-wrap">
     <div class="nnd-marquee-inner">
-      &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Guess which VOCALOID song has more NicoNico views &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Press ↑ Higher or ↓ Lower to make your guess &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Correct answers extend your streak &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; You have 3 lives per game · wrong answers cost one life but the game continues &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; View counts sourced from NicoNico via VocaDB &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Use Settings to change lives or filter by view tier &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Guess which VOCALOID song has more NicoNico views &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Press ↑ Higher or ↓ Lower to make your guess &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Correct answers extend your streak &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Daily sets have 10 comparisons ★ Unlimited gives you 3 lives · wrong answers cost one life but the game continues &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; View counts from NicoNico, YouTube and bilibili &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp; Use Settings to change lives or filter by view tier &nbsp;&nbsp;&nbsp;★&nbsp;&nbsp;&nbsp;
     </div>
   </div>
 </div>
@@ -1675,7 +1691,7 @@ html.dark-mode .archive-day.is-blank {
   <h2 class="modal-title" id="archive-title">Daily Archive</h2>
   <p class="archive-note" id="archive-note">Play any previous daily set.</p>
   <div class="archive-summary" id="archive-summary"></div>
-  <button class="archive-random" id="archive-random" type="button">Random Puzzle</button>
+  <button class="archive-random" id="archive-random" type="button">Random Archive Puzzle</button>
   <div class="archive-toolbar">
     <button class="archive-nav" id="archive-prev" type="button" aria-label="Previous month">&#9664;</button>
     <strong id="archive-month-label">Month</strong>
@@ -1759,7 +1775,7 @@ const I18N = {
     settings: 'Settings',
     darkMode: 'Dark Mode',
     darkModeDesc: 'Use dark page and panel colors',
-    marquee: '★ Guess which VOCALOID song has more NicoNico views ★ Press ↑ Higher or ↓ Lower to make your guess ★ Correct answers extend your streak ★ You have 3 lives per game · wrong answers cost one life but the game continues ★ View counts sourced from NicoNico via VocaDB ★ Use Settings to change lives or filter by view tier ★',
+    marquee: '★ Guess which VOCALOID song has more NicoNico views ★ Press ↑ Higher or ↓ Lower to make your guess ★ Correct answers extend your streak ★ Daily sets have 10 comparisons ★ Unlimited gives you 3 lives · wrong answers cost one life but the game continues ★ View counts from NicoNico, YouTube and bilibili ★ Use Settings to change lives or filter by view tier ★',
     tags: ['VOCALOID', '音楽ゲーム', '初音ミク', '殿堂入り', 'Legendary', 'Higher or Lower', '再生数', 'Fan-made'],
     tagsLabel: 'Tags:',
     footer: 'VOCALOID Higher or Lower: fan-made guessing game (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from',
@@ -1817,7 +1833,7 @@ const I18N = {
     shareResult: 'Share Result',
     shareCopied: 'Copied result.',
     shareFailed: 'Could not copy result.',
-    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower\nStreak: ${streak}\nCorrect: ${correct}/${rounds}\nAccuracy: ${winPct}%`,
+    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower · Unlimited\nResult · ${correct}/${rounds} correct · ${streak} streak · ${winPct}% accuracy`,
     resultCorrect: ({ songB, displayB, relation, songA, displayA }) => `Correct! ${songB} has ${displayB} views · ${relation} than ${songA}'s ${displayA}.`,
     resultWrong: ({ songB, displayB, relation, songA, displayA }) => `Wrong. ${songB} has ${displayB} views · ${relation} than ${songA}'s ${displayA}.`,
     relHigher: 'higher',
@@ -1872,7 +1888,7 @@ const I18N = {
     dailyComplete: 'DAILY GUESSES COMPLETE',
     dailyCompleteMessage: ({ correct }) => `You got ${correct} out of ${DAILY_GUESS_COUNT} correct today.`,
     comeBackTomorrow: 'A new set will be available tomorrow.',
-    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower Daily Guesses\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower · Daily · ${date}\nResult · ${correct}/${DAILY_GUESS_COUNT} correct\n${marks}`,
     dailyHtp3: 'Answer all 10 comparisons to finish today\'s set.',
     dailyHtp4: 'Your answers are saved, so refreshing cannot reroll the set.',
     archiveMode: 'Archive',
@@ -1880,7 +1896,7 @@ const I18N = {
     archiveModeNotePlaying: ({ date }) => `Playing daily · ${date}`,
     archiveTitle: 'Daily Archive',
     archiveNote: "Replay any previous daily set. Today's puzzle lives in Daily Guesses.",
-    archiveRandom: 'Random Puzzle',
+    archiveRandom: 'Random Archive Puzzle',
     archiveEmpty: 'No archive puzzles yet · check back tomorrow.',
     archiveSummarySolved: 'Solved',
     archiveSummaryTotal: 'Total',
@@ -1894,7 +1910,7 @@ const I18N = {
     archiveBestLabel: 'Best for this day',
     archiveCompleteMessage: ({ correct, date }) => `You got ${correct} of ${DAILY_GUESS_COUNT} on the ${date} set.`,
     archiveBack: 'Back to Archive',
-    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower Archive\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower · Archive · ${date}\nResult · ${correct}/${DAILY_GUESS_COUNT} correct\n${marks}`,
     archiveHtp4: 'Scores are saved per day; your best run is kept.',
     archiveStats: '[ Archive Stats ]',
     archiveDateLabel: 'Playing',
@@ -1918,7 +1934,7 @@ const I18N = {
     settings: '設定',
     darkMode: 'ダークモード',
     darkModeDesc: 'ページとパネルを暗い配色にします',
-    marquee: '★ ニコニコ再生数が多いVOCALOID曲を当てよう ★ ↑ Higher / ↓ Lower で回答 ★ 正解すると連勝が伸びます ★ ライフは3つ、ミスすると1つ減ります ★ 再生数はVocaDB経由のニコニコ情報を使用 ★ 設定でライフ数やプールを変更できます ★',
+    marquee: '★ ニコニコ再生数が多いVOCALOID曲を当てよう ★ ↑ Higher / ↓ Lower で回答 ★ 正解すると連勝が伸びます ★ デイリーは全10問 ★ 無制限はライフ3つ、ミスすると1つ減ります ★ 再生数はニコニコ、YouTube、bilibiliのデータを使用 ★ 設定でライフ数やプールを変更できます ★',
     tags: ['VOCALOID', 'ニコニコ', '初音ミク', '殿堂入り', '伝説入り', 'Higher or Lower', '再生数', 'ファンメイド'],
     tagsLabel: 'タグ:',
     footer: 'VOCALOID Higher or Lower：ファンメイドのクイズゲーム (c) 2026 | クリプトン・フューチャー・メディア及びニコニコと無関係 | 楽曲データ：',
@@ -1976,7 +1992,7 @@ const I18N = {
     shareResult: '結果をコピー',
     shareCopied: '結果をコピーしました。',
     shareFailed: 'コピーできませんでした。',
-    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower\n連勝: ${streak}\n正解: ${correct}/${rounds}\n勝率: ${winPct}%`,
+    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower · 無制限\n結果 · ${correct}/${rounds} 正解 · ${streak} 連勝 · 正答率 ${winPct}%`,
     resultCorrect: ({ songB, displayB, relation, songA, displayA }) => `正解! ${songB}は${displayB}再生で、${songA}の${displayA}より${relation}です。`,
     resultWrong: ({ songB, displayB, relation, songA, displayA }) => `不正解。${songB}は${displayB}再生で、${songA}の${displayA}より${relation}です。`,
     relHigher: '多い',
@@ -2031,7 +2047,7 @@ const I18N = {
     dailyComplete: 'デイリー予想 完了',
     dailyCompleteMessage: ({ correct }) => `今日は${DAILY_GUESS_COUNT}問中${correct}問正解でした。`,
     comeBackTomorrow: '新しい出題は明日追加されます。',
-    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower デイリー予想\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower · デイリー · ${date}\n結果 · ${correct}/${DAILY_GUESS_COUNT} 正解\n${marks}`,
     dailyHtp3: '10問すべてに回答すると今日のセットが完了します。',
     dailyHtp4: '回答は保存されるため、リロードしても出題は変わりません。',
     archiveMode: 'アーカイブ',
@@ -2053,7 +2069,7 @@ const I18N = {
     archiveBestLabel: 'この日の最高',
     archiveCompleteMessage: ({ correct, date }) => `${date}のセットで${DAILY_GUESS_COUNT}問中${correct}問正解でした。`,
     archiveBack: 'アーカイブに戻る',
-    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower アーカイブ\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower · アーカイブ · ${date}\n結果 · ${correct}/${DAILY_GUESS_COUNT} 正解\n${marks}`,
     archiveHtp4: 'スコアは日付ごとに保存され、最高記録が残ります。',
     archiveStats: '[ アーカイブ統計 ]',
     archiveDateLabel: '挑戦中',
@@ -2077,7 +2093,7 @@ const I18N = {
     settings: 'Ajustes',
     darkMode: 'Modo oscuro',
     darkModeDesc: 'Usa colores oscuros para la página y los paneles',
-    marquee: '★ Adivina qué canción VOCALOID tiene más vistas en NicoNico ★ Pulsa ↑ Higher o ↓ Lower para responder ★ Las respuestas correctas aumentan tu racha ★ Tienes 3 vidas por partida ★ Vistas obtenidas de NicoNico vía VocaDB ★ Cambia vidas o pool desde Ajustes ★',
+    marquee: '★ Adivina qué canción VOCALOID tiene más vistas en NicoNico ★ Pulsa ↑ Higher o ↓ Lower para responder ★ Las respuestas correctas aumentan tu racha ★ El diario tiene 10 comparaciones ★ Ilimitado te da 3 vidas ★ Vistas de NicoNico, YouTube y bilibili ★ Cambia vidas o pool desde Ajustes ★',
     tags: ['VOCALOID', '音楽ゲーム', '初音ミク', '殿堂入り', 'Legendary', 'Higher or Lower', '再生数', 'Fan-made'],
     tagsLabel: 'Etiquetas:',
     footer: 'VOCALOID Higher or Lower: juego fan-made de adivinar canciones (c) 2026 | No afiliado con Crypton Future Media ni NicoNico | Datos de canciones de',
@@ -2135,7 +2151,7 @@ const I18N = {
     shareResult: 'Copiar resultado',
     shareCopied: 'Resultado copiado.',
     shareFailed: 'No se pudo copiar.',
-    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower\nRacha: ${streak}\nAciertos: ${correct}/${rounds}\nVictoria: ${winPct}%`,
+    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower · Ilimitado\nResultado · ${correct}/${rounds} aciertos · racha ${streak} · ${winPct}% precisión`,
     resultCorrect: ({ songB, displayB, relation, songA, displayA }) => `¡Correcto! ${songB} tiene ${displayB} vistas, ${relation} que las ${displayA} de ${songA}.`,
     resultWrong: ({ songB, displayB, relation, songA, displayA }) => `Incorrecto. ${songB} tiene ${displayB} vistas, ${relation} que las ${displayA} de ${songA}.`,
     relHigher: 'más',
@@ -2190,7 +2206,7 @@ const I18N = {
     dailyComplete: 'INTENTOS DIARIOS COMPLETADOS',
     dailyCompleteMessage: ({ correct }) => `Hoy acertaste ${correct} de ${DAILY_GUESS_COUNT}.`,
     comeBackTomorrow: 'Habrá una nueva serie mañana.',
-    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower - Intentos diarios\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower · Diario · ${date}\nResultado · ${correct}/${DAILY_GUESS_COUNT} aciertos\n${marks}`,
     dailyHtp3: 'Responde las 10 comparaciones para terminar la serie de hoy.',
     dailyHtp4: 'Tus respuestas se guardan; recargar no cambia la serie.',
     archiveMode: 'Archivo',
@@ -2212,7 +2228,7 @@ const I18N = {
     archiveBestLabel: 'Mejor de ese día',
     archiveCompleteMessage: ({ correct, date }) => `Acertaste ${correct} de ${DAILY_GUESS_COUNT} en la serie del ${date}.`,
     archiveBack: 'Volver al archivo',
-    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower - Archivo\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower · Archivo · ${date}\nResultado · ${correct}/${DAILY_GUESS_COUNT} aciertos\n${marks}`,
     archiveHtp4: 'Las puntuaciones se guardan por día; se conserva tu mejor intento.',
     archiveStats: '[ Estadísticas de archivo ]',
     archiveDateLabel: 'Jugando',
@@ -2236,7 +2252,7 @@ const I18N = {
     settings: '설정',
     darkMode: '다크 모드',
     darkModeDesc: '페이지와 패널을 어두운 색으로 표시합니다',
-    marquee: '★ 니코니코 조회수가 더 많은 VOCALOID 곡을 맞혀 보세요 ★ ↑ Higher / ↓ Lower 로 선택 ★ 정답이면 연승이 올라갑니다 ★ 게임마다 라이프 3개, 오답은 라이프 1개 차감 ★ 조회수는 VocaDB를 통한 NicoNico 데이터 사용 ★ 설정에서 라이프와 풀을 바꿀 수 있습니다 ★',
+    marquee: '★ 니코니코 조회수가 더 많은 VOCALOID 곡을 맞혀 보세요 ★ ↑ Higher / ↓ Lower 로 선택 ★ 정답이면 연승이 올라갑니다 ★ 데일리는 10문제 ★ 무제한은 라이프 3개, 오답은 라이프 1개 차감 ★ 조회수는 NicoNico, YouTube, bilibili 데이터 사용 ★ 설정에서 라이프와 풀을 바꿀 수 있습니다 ★',
     tags: ['VOCALOID', '音楽ゲーム', '初音ミク', '殿堂入り', 'Legendary', 'Higher or Lower', '再生数', 'Fan-made'],
     tagsLabel: '태그:',
     footer: 'VOCALOID Higher or Lower: 팬메이드 추측 게임 (c) 2026 | Crypton Future Media 또는 NicoNico와 관련이 없습니다 | 곡 데이터:',
@@ -2294,7 +2310,7 @@ const I18N = {
     shareResult: '결과 복사',
     shareCopied: '결과를 복사했습니다.',
     shareFailed: '복사할 수 없습니다.',
-    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower\n연승: ${streak}\n정답: ${correct}/${rounds}\n승률: ${winPct}%`,
+    shareText: ({ streak, correct, rounds, winPct }) => `VOCALOID Higher or Lower · 무제한\n결과 · ${correct}/${rounds} 정답 · ${streak} 연승 · 정확도 ${winPct}%`,
     resultCorrect: ({ songB, displayB, relation, songA, displayA }) => `정답! ${songB}는 ${displayB}회로 ${songA}의 ${displayA}보다 ${relation}.`,
     resultWrong: ({ songB, displayB, relation, songA, displayA }) => `오답. ${songB}는 ${displayB}회로 ${songA}의 ${displayA}보다 ${relation}.`,
     relHigher: '많습니다',
@@ -2349,7 +2365,7 @@ const I18N = {
     dailyComplete: '일일 추측 완료',
     dailyCompleteMessage: ({ correct }) => `오늘 ${DAILY_GUESS_COUNT}문제 중 ${correct}문제를 맞혔습니다.`,
     comeBackTomorrow: '내일 새로운 문제가 열립니다.',
-    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower 일일 추측\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    dailyShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower · 데일리 · ${date}\n결과 · ${correct}/${DAILY_GUESS_COUNT} 정답\n${marks}`,
     dailyHtp3: '10개의 비교를 모두 답하면 오늘의 세트가 완료됩니다.',
     dailyHtp4: '답변이 저장되므로 새로고침해도 문제가 바뀌지 않습니다.',
     archiveMode: '아카이브',
@@ -2371,7 +2387,7 @@ const I18N = {
     archiveBestLabel: '이 날 최고',
     archiveCompleteMessage: ({ correct, date }) => `${date} 세트에서 ${DAILY_GUESS_COUNT}문제 중 ${correct}문제를 맞혔습니다.`,
     archiveBack: '아카이브로 돌아가기',
-    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower 아카이브\n${correct}/${DAILY_GUESS_COUNT} - ${date}\n${marks}`,
+    archiveShareText: ({ date, correct, marks }) => `VOCALOID Higher or Lower · 아카이브 · ${date}\n결과 · ${correct}/${DAILY_GUESS_COUNT} 정답\n${marks}`,
     archiveHtp4: '점수는 날짜별로 저장되며 최고 기록이 유지됩니다.',
     archiveStats: '[ 아카이브 통계 ]',
     archiveDateLabel: '플레이 중',
@@ -3063,7 +3079,7 @@ function getCoverArt(song) {
   const p = u => u.includes('ytimg.com')&&u.includes('hqdefault')?0
     :u.includes('ytimg.com')&&u.includes('mqdefault')?1
     :u.includes('ytimg.com')?2:u.includes('nimg.jp')?3:u.includes('sndcdn.com')?4:5;
-  return [...new Set(all)].sort((a,b)=>p(a)-p(b));
+  return VocaSongFixes.withoutTopic([...new Set(all)]).sort((a,b)=>p(a)-p(b));
 }
 
 function cleanVoicebankName(name) {
@@ -3463,7 +3479,7 @@ function metaBarHtml(song, mystery) {
           <span class="meta-val">${year}</span>
           <span class="meta-sub">upload</span>
         </div>` : '';
-  const artist = cleanArtistDisplay(song.artistString || song.artist || '');
+  const artist = cleanArtistDisplay(VocaSongFixes.artist(song));
   const srcField = `
         <div class="meta-field">
           <span class="meta-key">[artist]</span>

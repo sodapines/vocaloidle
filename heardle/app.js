@@ -1,6 +1,6 @@
 const clipStages = [1, 2, 4, 7, 11, 16];
 const maxClipLength = clipStages.at(-1);
-const songs = window.VOCALOID_HEARDLE_SONGS || [];
+const songs = (window.VOCALOID_HEARDLE_SONGS || []).map(window.VocaSongFixes.applyCredits);
 const statsKey = "vocaloid-heardle-stats";
 const unlimitedStatsKey = "vocaloid-heardle-unlimited-stats";
 const filteredStatsKey = "vocaloid-heardle-filtered-stats";
@@ -188,7 +188,7 @@ const STRINGS = {
     marquee: "★ A new daily puzzle is available each day ★ Use unlimited mode to practice anytime ★ Guess the VOCALOID song from the opening clip in 6 tries or less ★ Share your score with friends! ★ Songs sourced from VocaDB ★",
     introCopy: "Guess the VOCALOID song!",
     breadcrumb: "Games > Music > VOCALOID > Heardle",
-    footerText: "VOCALOID Heardle: fan-made daily guessing game (c) 2026 | Not affiliated with Crypton Future Media, NicoNico, or VocaDB | Song data from",
+    footerText: "VOCALOID Heardle: fan-made daily guessing game (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from",
     footerPageTop: "Page Top",
     howToPlayStep1: "Press ▶ to hear the opening clip",
     howToPlayStep2: "Type the song title and submit",
@@ -7264,8 +7264,9 @@ function getCoverArts(song) {
   const coverArts = [...(song.coverArts || []), song.coverArt].filter(Boolean);
   const expandedCoverArts = coverArts.flatMap(getExpandedCoverArtUrls);
   const uniqueCoverArts = [...new Set(expandedCoverArts)];
+  const usableCoverArts = window.VocaSongFixes.withoutTopic(uniqueCoverArts);
 
-  return uniqueCoverArts.sort((firstUrl, secondUrl) => getCoverArtScore(secondUrl) - getCoverArtScore(firstUrl));
+  return usableCoverArts.sort((firstUrl, secondUrl) => getCoverArtScore(secondUrl) - getCoverArtScore(firstUrl));
 }
 
 function showCoverArt(index) {
@@ -7730,19 +7731,13 @@ function buildShareText() {
   }
 
   const heading = state.mode === "daily"
-    ? t("heardleDaily")
+    ? `VOCALOID Heardle · Daily · ${getDateKey()}`
     : state.mode === "archive"
-      ? t("heardleArchive")
+      ? `VOCALOID Heardle · Archive · ${state.archiveDate}`
       : state.unlimitedDifficulty === "all"
-        ? t("heardleUnlimited")
-        : t("heardleUnlimitedDifficulty", getDifficultyLabel(state.unlimitedDifficulty));
+        ? "VOCALOID Heardle · Unlimited"
+        : `VOCALOID Heardle · Unlimited · ${getDifficultyLabel(state.unlimitedDifficulty)}`;
   const score = state.lastResult.won ? `${state.lastResult.attempts}/${clipStages.length}` : `X/${clipStages.length}`;
-  const context = state.mode === "daily"
-    ? formatToday()
-    : state.mode === "archive" && state.archiveDate
-      ? formatArchiveDate(state.archiveDate)
-      : getDisplayTitle(state.puzzle);
-
   let gaveUp = false;
   const squares = clipStages
     .map((_, index) => {
@@ -7761,21 +7756,13 @@ function buildShareText() {
       return "\u2B1C";
     })
     .filter((s) => s !== null)
-    .join(" ");
+    .join("");
 
-  // Stats line - only included if we have global data cached from loadGlobalStats.
-  // Race-safe: if the player copies before the fetch resolves (or fetch failed),
-  // we just omit the line rather than showing placeholder text.
   const lines = [
     heading,
-    `${score} - ${context}`,
+    `Result · ${state.lastResult.won ? "Solved" : "Unsolved"} · ${score} guesses`,
+    `\uD83D\uDD0A ${squares}`,
   ];
-  if (lastGlobalStats) {
-    const { rate, avg } = lastGlobalStats;
-    lines.push(t("shareGlobalStats", rate, avg));
-  }
-  lines.push("");
-  lines.push(`\uD83D\uDD0A ${squares}`);
 
   return lines.join("\n");
 }
@@ -8094,6 +8081,7 @@ function getArtistCreditKeys(song) {
   const names = [
     song?.artist,
     ...(song?.producerNames || []),
+    ...((SONG_DETAILS?.[String(song?.vocadbId)]?.producers || []).map((producer) => producer.name)),
     ...(song?.artistSearchNames || []).filter((name) => {
       const normalized = normalizeGuess(name);
       return !singerKeys.has(normalized) && !/\bfeat\b/i.test(String(name));

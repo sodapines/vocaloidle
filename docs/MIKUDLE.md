@@ -1,7 +1,8 @@
 # Mikudle — word-ladder game idea
 
-Status: **idea, not started**. Word-list feasibility checked 2026-08-19; no code
-written in the repo yet.
+Status: **Playable v0.5 as of 2026-08-22**. The build in `mikudle/` now includes
+Daily, Practice, and Archive modes, with a deliberately reviewed word list while
+broader word curation continues.
 
 ## The pitch
 
@@ -91,3 +92,51 @@ Rough sizing: a bare MVP (one daily puzzle, basic input/win state, no
 archive) is about a day's work reusing existing patterns. Full parity with
 the other games (archive mode, stats depth, mobile polish, i18n) is closer
 to what Timeline and Masume actually took — many iterative passes.
+
+## Implemented in the first MVP
+
+- Deterministic daily start word and a separate practice mode.
+- One-letter and common-word validation against a frequency-filtered 1,564-word
+  gameplay dictionary, undo, shortest-path hints, par, and a share result.
+- Saved daily progress plus basic played/streak/under-par statistics.
+- Archive calendar for replaying past dailies without changing the live streak.
+- A Heardle-style archive picker modal with random-puzzle selection.
+- A post-win reveal that computes and displays one mathematically shortest route.
+- Shared project utilities for Updates, sixteen Achievements, deeper Stats, and Settings,
+  with the same desktop/mobile header pattern used by Timeline and Grid.
+- Light/dark themes, mobile layout, a distinct magenta word-ladder identity,
+  homepage tile, daily status, and details.
+- Unit-tested word adjacency, move validation, pathfinding, and daily choice.
+
+Still intentionally deferred: further dictionary review and additional daily
+start-word curation.
+
+## Design-parity audit against Higher / Lower (2026-08-22)
+
+Mikudle now has the shared top bar, utility links, moving info ticker, tag
+strip, compact archive picker, project-colored identity, panels, dark mode,
+mobile utilities, Updates, Achievements, Stats, and Settings. Its logo is a
+symbol-only four-step ladder rather than a second grid mark.
+
+The Higher / Lower parity pass is implemented: four-language switching,
+three-column desktop framing, milestones/news/links side modules, icon-labeled
+mode tabs and descriptors, a five-cell performance strip, recent ladder
+history, accessibility and practice-pool settings, a dedicated About/Support
+view, decorative page rails, sixteen achievements with a completion meter,
+mode-separated statistics and move distribution, visible versioned news, and
+a richer attributed footer. The layout collapses progressively for tablets and
+phones so the added information does not crowd the word ladder.
+
+## Gameplay dictionary methodology
+
+The shipped move list is intentionally narrower than a spell-checking
+dictionary. It starts with lowercase four-letter words present in both the
+frequency-ranked `google-10000-english-usa-no-swears` list and the
+public-domain Webster system dictionary, then removes proper-name-only entries,
+abbreviations, and obvious web artifacts. Two manually reviewed supplements are
+cross-checked against additional frequency data and Webster: a high-frequency
+tier and a broader familiar word-game tier for valid words that frequency lists
+underrate, such as `mope`. WordFind's Scrabble list is used as a third candidate
+source, but only manually approved familiar entries are retained. Additions must
+join the playable component that leads to MIKU. Daily starting words are curated
+separately and every one is tested to have a route.

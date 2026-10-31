@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="../site-theme.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>39charts · Song</title>
+<script src="chip-colors.js?v=4"></script>
 <meta property="og:site_name" content="39charts">
 <meta property="og:title" content="39charts · Song detail">
 <meta property="og:description" content="Per-song view counts, likes and comments across NicoNico, YouTube and bilibili.">
@@ -1185,7 +1187,7 @@ function buildPage(song, rank, yearRank) {
   const histPoints = histIdx.length;
   const histStart = histPoints ? histDates[histIdx[0]] : null;
 
-  const vtagsHtml = vocalists.map(v=>`<span class="vtag ${v.cls}">${escHtml(v.label)}</span>`).join("");
+  const vtagsHtml = vocalists.map(v=>`<span class="vtag ${v.cls}${chipTint(v).cls}"${chipTint(v).attr}>${escHtml(v.label)}</span>`).join("");
 
   const coverImgHtml = chain.length
     ? `<img class="cover-img" src="${escHtml(chain[0])}" alt="" referrerpolicy="no-referrer"
@@ -1360,7 +1362,7 @@ function buildPage(song, rank, yearRank) {
             <tr><td>Comments</td>${num(ytCm)}</tr>
             <tr><td>Likes / 1K views</td>${ratio(ytL, ytCount)}</tr>` : ""}
             ${(hasBiliPv || biliV != null) ? `
-            <tr class="dt-section"><td colspan="2">bilibili</td></tr>
+            <tr class="dt-section"><td colspan="2" title="bilibili counts may be out of date because refreshes are currently limited.">bilibili · may be out of date</td></tr>
             <tr><td>再生 Views</td>${num(biliV, true)}</tr>
             <tr><td>点赞 Likes</td>${num(biliL)}</tr>
             <tr><td>评论 Comments</td>${num(biliCm)}</tr>
@@ -1488,8 +1490,14 @@ function buildPage(song, rank, yearRank) {
     if (vhChart || !histPoints) return;
     const capIdx = histIdx.slice(-HIST_CAP);
     const labels = capIdx.map(i => histDates[i]);
+    // Totals dwarf daily changes, so plot the gain since the first visible snapshot.
+    const gain = series => {
+      if (!series) return null;
+      const first = capIdx.map(i => series[i]).find(v => v != null);
+      return series.map(v => v == null ? null : v - first);
+    };
     const line = (name, series, color, dashed) => series ? {
-      label: name, data: capIdx.map(i => series[i]),
+      label: name, data: capIdx.map(i => gain(series)[i]), totals: capIdx.map(i => series[i]),
       borderColor: color, backgroundColor: "transparent",
       tension: 0.3, pointRadius: 2.5, pointBackgroundColor: color,
       spanGaps: true, borderDash: dashed ? [4, 3] : undefined, borderWidth: dashed ? 1.5 : 2,
@@ -1500,7 +1508,7 @@ function buildPage(song, rank, yearRank) {
       line("YouTube", hs("y"), "#dd6644", true),
       line("bilibili", hs("b"), "#1a9ace", true),
     ].filter(Boolean);
-    const bounds = axisBounds([histSeries, hs("n"), hs("y"), hs("b")], capIdx);
+    const bounds = axisBounds([histSeries, hs("n"), hs("y"), hs("b")].map(gain), capIdx);
     vhChart = new Chart(document.getElementById("viewChart").getContext("2d"), {
       type: "line",
       data: { labels, datasets },
@@ -1508,7 +1516,7 @@ function buildPage(song, rank, yearRank) {
         responsive:true, maintainAspectRatio:false, animation:false,
         plugins:{
           legend:{ display:true, labels:{ boxWidth:10, font:tickFont, color:"#888" } },
-          tooltip:{ callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${Number(ctx.parsed.y).toLocaleString()}` } }
+          tooltip:{ callbacks:{ label: ctx => ` ${ctx.dataset.label}: ${Number(ctx.dataset.totals[ctx.dataIndex]).toLocaleString()} (+${Number(ctx.parsed.y).toLocaleString()})` } }
         },
         scales:{
           x:{ grid:{color:"rgba(0,0,0,0.06)"}, ticks:{font:tickFont,color:"#aaa"} },

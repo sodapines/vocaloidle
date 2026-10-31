@@ -7644,7 +7644,7 @@ body.dark-mode .news-text { color: #cccccc; }
 }
 .nnd-sidebar-milestones .milestone-row {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 31px;
+  grid-template-columns: minmax(0, 1fr) max-content;
   align-items: center;
   column-gap: 3px;
 }
@@ -7654,8 +7654,10 @@ body.dark-mode .news-text { color: #cccccc; }
   letter-spacing: 0.03em;
 }
 .nnd-sidebar-milestones .ms-name {
+  overflow: visible;
+  white-space: normal;
   display: grid;
-  grid-template-columns: 33px minmax(0, 1fr);
+  grid-template-columns: 22px minmax(0, 1fr);
   align-items: baseline;
   gap: 2px;
 }
@@ -7664,6 +7666,9 @@ body.dark-mode .news-text { color: #cccccc; }
   min-width: 0;
 }
 .nnd-sidebar-milestones .ms-label {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.35;
   min-width: 0;
   flex: 0 1 auto;
   overflow: visible;
@@ -7958,3 +7963,6 @@ body.dark-mode .modal h2 {
   border-bottom-color: #3b3b3b !important; color: var(--text) !important;
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.05) !important;
 }
+
+/* Match the dark page behind the decorative rail labels. */
+body.dark-mode { --rail-dark-bg: #0b0b0b; }

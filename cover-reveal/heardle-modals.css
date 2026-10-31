@@ -1,0 +1,28 @@
+/* Native-dialog positioning; Heardle's header bevel, spacing and component layout. */
+#dialog{max-height:min(86vh,540px);box-shadow:inset 1px 1px #ffffff99,0 4px 20px #0006}
+#dialog[data-kind=achievements]{width:min(560px,calc(100vw - 24px))}
+#dialog-body{padding:16px}#dialog>.panel-header{padding:5px 10px;background:repeating-linear-gradient(45deg,#00000006 0 3px,transparent 3px 7px),linear-gradient(#f3f1ea,#ddd9d0);box-shadow:inset 1px 1px #ffffffcc;border-bottom:1px solid var(--ls)}
+#dialog-title{font:700 12px 'MS Gothic','Osaka-Mono','Courier New',monospace;letter-spacing:.06em;text-transform:uppercase}
+#dialog-close{width:22px;height:22px;min-height:22px;background:linear-gradient(#fff,#ddd);box-shadow:inset 0 1px #ffffffe6;font-size:11px}
+html.dark-mode #dialog>.panel-header{background:linear-gradient(#2a2a2a,#1c1c1c);box-shadow:inset 1px 1px #ffffff0d}
+/* Modal contents use the shared classes from styles.css, as in Connections and Masume. */
+#dialog{width:min(calc(100vw - 32px),380px);max-height:min(86vh,560px)}
+#dialog[data-kind=archive]{width:min(calc(100vw - 32px),440px);max-height:min(90vh,650px)}
+#dialog[data-kind=stats]{width:min(calc(100vw - 32px),560px)}
+#dialog[data-kind=support]{width:min(calc(100vw - 32px),620px)}
+#dialog[data-kind=updates]{width:min(calc(100vw - 32px),660px)}
+#dialog[data-kind=achievements]{width:min(calc(100vw - 32px),780px)}
+#dialog-body{padding:14px;font-size:12px}#dialog-body p{margin:0 0 8px;font-size:12px;color:var(--muted)}
+#dialog-body .support-copy p{color:var(--text)}
+#dialog-body ul.release-list{margin:8px 0 0;padding:0}#dialog-body .release-list li{padding:4px 2px 5px 14px}
+#dialog-body .release-intro{color:var(--text)}
+#dialog-close{font-size:10px}#dialog-close:hover{color:var(--red)}
+#dialog .modal-tabs{grid-template-columns:repeat(5,1fr)}
+#dialog .guess-scale{grid-template-columns:repeat(7,1fr)}
+#dialog .backup-panel{border-top:1px dotted var(--line);padding-top:8px}#dialog .backup-panel textarea{display:block;font:10px Consolas,monospace}#backup-status:empty{display:none}
+#dialog .settings-actions .settings-toggle{min-width:74px}
+.ha-day.is-loss{background:#f6dcdc!important;box-shadow:inset 0 0 0 1px #d99}
+html.dark-mode .ha-day.is-loss{background:#351b1b!important}html.dark-mode .ha-day.is-solved{background:#1b301f!important}
+@media(max-width:700px){#dialog .modal-tabs{grid-template-columns:repeat(3,1fr)}}
+#dialog .settings-actions{flex-direction:column;flex:0 0 auto}
+#dialog .settings-actions .settings-toggle{width:100%;white-space:nowrap}

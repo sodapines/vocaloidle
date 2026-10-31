@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="../site-theme.js?v=1"></script>
+<script src="../song-fixes.js?v=1"></script>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VOCALOID Cover Reveal · name the song from its artwork</title>
+<meta name="description" content="A small crop, a familiar song. Guess the VOCALOID artwork in six reveals. Daily puzzles, unlimited play, and an archive.">
+<meta property="og:title" content="VOCALOID Cover Reveal"><meta property="og:description" content="Guess the song from its artwork in six reveals.">
+<link rel="icon" href="../favicon.jpg"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css"><link rel="stylesheet" href="styles.css?v=13"><link rel="stylesheet" href="../shared-chrome.css?v=1"><link rel="stylesheet" href="../archive-shared.css?v=1"><link rel="stylesheet" href="../game-rails.css?v=1">
+<script>try{if(JSON.parse(localStorage.getItem('cr_settings')||'{}').dark)document.documentElement.classList.add('dark-mode')}catch(e){}</script>
+<script src="core.js?v=3" defer></script><script src="app.js?v=8" defer></script>
+<link rel="stylesheet" href="../shared-mode-icons.css?v=1">
+<link rel="stylesheet" href="heardle-modals.css?v=2">
+</head>
+<body>
+<div class="page-rail page-rail-left" aria-hidden="true"><span>VOCALOID COVER REVEAL</span></div><div class="page-rail page-rail-right" aria-hidden="true"><span>DAILY · UNLIMITED · ARCHIVE</span></div>
+<div class="nnd-topbar"><span>Games &gt; Music &gt; VOCALOID &gt; Cover Reveal</span><span id="top-date"></span></div>
+<header class="nnd-mainbar">
+<a class="nnd-logo" href="../" aria-label="VOCALOIDLE home"><span class="nnd-logo-mark cr-mark" aria-hidden="true"><img src="logo.svg" width="22" height="22" alt=""></span><span class="nnd-logo-text">VOCALOID Cover Reveal<span class="nnd-logo-sub" data-t="subtitle">name the song from its artwork</span></span></a>
+<div class="language-switcher" aria-label="Language"><button class="language-button" data-lang="en" aria-label="English"><span class="fi fi-us" aria-hidden="true"></span></button><button class="language-button" data-lang="es" aria-label="Español"><span class="fi fi-es" aria-hidden="true"></span></button><button class="language-button" data-lang="ja" aria-label="日本語"><span class="fi fi-jp" aria-hidden="true"></span></button><button class="language-button" data-lang="ko" aria-label="한국어"><span class="fi fi-kr" aria-hidden="true"></span></button></div>
+<nav class="nnd-header-links"><button data-open="updates" data-t="updates">Updates</button><span class="nnd-divider" aria-hidden="true">|</span><button data-open="achievements" data-t="achievements">Achievements</button><span class="nnd-divider" aria-hidden="true">|</span><button data-open="stats" data-t="stats">Stats</button><span class="nnd-divider" aria-hidden="true">|</span><button data-open="settings" data-t="settings">Settings</button><span class="nnd-divider" aria-hidden="true">|</span><a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener">Support on Ko-fi</a></nav>
+</header>
+<div class="nnd-marquee-bar"><span class="nnd-marquee-label">[INFO]</span><div class="nnd-marquee-wrap"><div class="nnd-marquee-inner" data-t="marquee">★ A small crop, a familiar song · Wrong guesses and skips reveal more artwork · Six chances · New daily at local midnight · Artwork and song metadata from VocaDB ★</div></div></div>
+<div class="nnd-tag-row"><span class="nnd-tag-label">Tags:</span><span class="nnd-tag">VOCALOID</span><span class="nnd-tag">音楽ゲーム</span><span class="nnd-tag">Cover Reveal</span><span class="nnd-tag">Artwork</span><span class="nnd-tag">Daily Puzzle</span><span class="nnd-tag">Fan-made</span></div>
+<main class="nnd-body">
+<div class="mode-bar"><div class="mode-tabs"><button class="mode-btn is-active" data-mode="daily" data-mode-symbol="daily" data-t="daily">Daily</button><button class="mode-btn" data-mode="unlimited" data-mode-symbol="unlimited" data-t="unlimited">Unlimited</button><button class="mode-btn" data-mode="archive" data-mode-symbol="archive" data-t="archive">Archive</button></div><span class="mode-note" id="mode-note"></span></div>
+<div class="nnd-side">
+<aside class="nnd-side-left">
+<section class="panel"><h2 class="panel-header" data-t="news">[ News ]</h2><div class="cr-news-list"><div class="cr-news-row"><b>v1.2</b><span data-t="news12">Video-style page rebuild</span></div><div class="cr-news-row is-old"><b>v1.1</b><span data-t="news11">Zooming viewfinder and true image crops</span></div><div class="cr-news-row is-old"><b>v1.0</b><span data-t="news10">Cover Reveal launch</span></div></div><button class="cr-panel-link" data-open="updates" data-t="fullUpdates">Full updates →</button></section>
+<section class="panel"><h2 class="panel-header" data-t="pool">[ Song Pool ]</h2><div id="pool-count"></div><div class="side-body cr-side-note"><p data-t="poolNote">Songs with 1M+ NicoNico views. A fixed launch pool keeps daily puzzles consistent.</p></div></section>
+<section class="panel"><h2 class="panel-header" data-t="archiveProgress">[ Archive ]</h2><div id="archive-progress"></div><button class="cr-panel-link" data-open="archive" data-t="browseArchive">Browse archive →</button></section>
+<section class="panel"><h2 class="panel-header" data-t="links">[ Links ]</h2><div class="links-list"><a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB ↗</a><a href="../39charts/">39charts ↗</a><button data-open="support" data-t="support">Contact / Support</button></div></section>
+</aside>
+<aside class="nnd-side-right">
+<section class="panel"><h2 class="panel-header" data-t="how">[ How to Play ]</h2><div class="side-body"><div class="side-row"><span class="sr-num">1</span><span data-t="how1">Identify the song from a small crop of its artwork.</span></div><div class="side-row"><span class="sr-num">2</span><span data-t="how2">Search a title or producer, choose a song, then submit.</span></div><div class="side-row"><span class="sr-num">3</span><span data-t="how3">Wrong guesses and skips reveal more. You have six chances.</span></div><div class="side-row"><span class="sr-num">4</span><span data-t="how4">Share the colored squares without revealing the song.</span></div></div></section>
+<section class="panel"><h2 class="panel-header" data-t="dailyStats">[ Daily Stats ]</h2><div id="records"></div><div id="today-marks" class="cr-today-marks"></div><div class="countdown-line"><span data-t="nextDaily">Next daily in</span> <b id="countdown">—</b></div><button class="cr-panel-link" data-open="stats" data-t="fullStats">View full stats →</button></section>
+<section class="panel"><h2 class="panel-header"><span>[ <span data-t="achievements">Achievements</span> ]</span></h2><div id="achievement-count"></div><button class="cr-panel-link" data-open="achievements" data-t="viewAchievements">View achievements →</button></section>
+</aside>
+</div>
+<div class="nnd-main">
+<section class="panel cr-game">
+<div class="cr-player"><div class="cr-player-head"><span><b>[ARTWORK]</b> <span data-t="mystery">Mystery Cover</span></span><span id="crop-caption"></span></div>
+<div class="cr-frame" id="cover-frame"><div class="cr-canvas cr-glow" id="glow-canvas" aria-hidden="true"><img id="glow-image" alt="" referrerpolicy="no-referrer"></div><div class="cr-canvas" id="cover-canvas"><img id="cover-image" alt="Mystery song artwork" referrerpolicy="no-referrer"><span id="crop-marker" class="cr-crop-marker" aria-hidden="true"></span></div><span id="frame-stamp" class="cr-stamp" aria-hidden="true" hidden></span><div id="image-status" class="cr-image-status" role="status"><span data-t="loading">Loading artwork…</span><button id="retry-image" hidden data-t="retry">Retry</button></div></div>
+<div id="art-meta" class="cr-meta"></div><div id="art-tags" class="cr-tags" hidden></div></div>
+<div id="answer-block" class="cr-answer" hidden><p id="answer-title"></p><p id="answer-artist"></p><p id="result-title"></p></div>
+<div class="cr-round-line"><span>[ <span id="puzzle-date">—</span> ]</span><span><span data-t="reveal">Reveal</span> <span id="reveal-count">1 / 6</span></span></div>
+<div class="cr-track-row"><div class="progress-track" aria-hidden="true"><span class="progress-fill" id="track-fill"></span><span id="stages"></span></div><span id="track-size"></span></div>
+<div class="cr-play-body">
+<div id="unlimited-tools" hidden><b id="difficulty-label" data-t="difficulty">Difficulty</b><div id="difficulty" class="cr-difficulty" role="group" aria-labelledby="difficulty-label"><button type="button" data-difficulty="normal" aria-pressed="true" data-t="normal">Normal crop</button><button type="button" data-difficulty="easy" aria-pressed="false" data-t="easy">Larger crop</button></div><span data-t="nextRoundSetting">Applies to the next round.</span></div>
+<p id="feedback" class="cr-feedback" role="status" aria-live="polite"></p>
+<form id="guess-form" autocomplete="off"><label for="guess-input" class="cr-input-label" data-t="songTitle">Song title</label><p id="search-help" class="cr-search-help" data-t="searchHelp">Search, choose a song, then submit your guess.</p><div class="cr-search"><input id="guess-input" aria-describedby="search-help" spellcheck="false" role="combobox" aria-autocomplete="list" aria-controls="suggestions" aria-expanded="false" placeholder="Search a song or producer…" disabled><ul id="suggestions" role="listbox" hidden></ul></div><div id="selected-song" class="cr-selected" role="status" hidden></div><div class="cr-actions"><button class="cr-primary" id="submit-guess" type="submit" data-t="submit" disabled>Submit</button><button class="btn" id="skip-guess" type="button" data-t="skip" disabled>Skip</button></div></form>
+<div id="result" hidden><div id="result-marks" aria-label="Result squares"></div><div class="cr-result-actions"><button class="cr-primary" id="next-round" data-t="next">Next artwork</button><div class="cr-result-secondary"><button class="btn" id="share-result" data-t="copy">Copy result</button></div></div></div>
+<div class="cr-log"><h3>[LOG] <span data-t="pastGuesses">Past Guesses</span></h3><ol id="guess-history" class="cr-history"></ol></div>
+</div>
+</section>
+</div>
+</main>
+<footer class="site-footer">VOCALOID Cover Reveal: fan-made daily artwork puzzle (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a></footer>
+<dialog id="dialog" aria-labelledby="dialog-title"><div class="panel-header"><h2 id="dialog-title"></h2><button id="dialog-close" aria-label="Close">✕</button></div><div id="dialog-body"></div></dialog>
+<noscript>This game needs JavaScript to load puzzles and save progress on your device.</noscript>
+</body></html>

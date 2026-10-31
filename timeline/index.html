@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="../site-theme.js?v=1"></script>
+<script src="../song-fixes.js?v=1"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VOCALOID Timeline · put the songs in release order</title>
@@ -16,7 +18,7 @@
   --bg: #dedad2; --surface: #fafaf7; --sf: #f2f0eb;
   --text: #111; --muted: #555; --faint: #999;
   --line: #c8c4bc; --ls: #b8b4ac;
-  --red: #cc0000; --red-dark: #990000; --link: #0066cc; --gold: #c8980a;
+  --red: #8657b5; --red-dark: #563078; --link: #0066cc; --gold: #c8980a;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
@@ -84,7 +86,7 @@ html.dark-mode .language-button { border-color: #444; background: linear-gradien
   border: 1px solid var(--red-dark); font-weight: 700;
   box-shadow: inset 1px 1px 0 rgba(255,255,255,0.25), 2px 2px 0 rgba(0,0,0,0.16);
 }
-.nnd-header-links a.nnd-kofi:hover { background: #b30000; color: #fff; }
+.nnd-header-links a.nnd-kofi:hover { background: var(--red-dark); color: #fff; }
 /* mobile nav: identical to Heardle's .nnd-mobile-settings — bordered gray
    buttons that wrap below the logo inside the mainbar */
 .nnd-mobile-settings { display: none; align-items: center; flex-wrap: wrap; gap: 4px; margin-left: auto; }
@@ -192,7 +194,7 @@ html.dark-mode .mode-tools { background: repeating-linear-gradient(45deg, rgba(2
 html.dark-mode .tools-label { color: #666; }
 html.dark-mode .mode-tools { box-shadow: none; }
 html.dark-mode .era-btn, html.dark-mode .tool-btn { box-shadow: none; }
-html.dark-mode .era-btn:hover, html.dark-mode .tool-btn:hover { background: #2b2020; }
+html.dark-mode .era-btn:hover, html.dark-mode .tool-btn:hover { background: #251c2f; }
 html.dark-mode .era-btn.is-active { box-shadow: inset 0 -1px 0 rgba(0,0,0,0.3); }
 .era-btn, .tool-btn {
   min-height: 24px; padding: 0 10px;
@@ -207,12 +209,12 @@ html.dark-mode .era-btn.is-active { box-shadow: inset 0 -1px 0 rgba(0,0,0,0.3); 
 }
 .era-btn:hover, .tool-btn:hover {
   color: var(--red); border-color: var(--red);
-  background: linear-gradient(to bottom, #fff5f5, #ffe2e2);
+  background: linear-gradient(to bottom, #f7f1fb, #eadcf4);
   position: relative; /* keep the red border above joined neighbors */
 }
 .era-btn:active, .tool-btn:active { box-shadow: inset 0 2px 3px rgba(0,0,0,0.15); }
 .era-btn.is-active {
-  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
   color: #fff; text-shadow: 0 1px 0 rgba(90,0,0,0.5);
   border-color: var(--red-dark);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -1px 0 rgba(0,0,0,0.2);
@@ -362,7 +364,7 @@ html.dark-mode .tl-year-cap {
 html.dark-mode .tl-year-cap::after { background: repeating-linear-gradient(45deg, rgba(255,255,255,0.03) 0 4px, transparent 4px 9px); }
 html.dark-mode .tl-card.revealed.right .tl-year-cap { color: #63c287; background: linear-gradient(to bottom, #1e2f24 0%, #1a291f 48%, #15221a 52%, #18261c 100%); }
 html.dark-mode .tl-card.revealed.close .tl-year-cap { color: #d4b34a; background: linear-gradient(to bottom, #2e2812 0%, #29230f 48%, #221d0c 52%, #26200e 100%); }
-html.dark-mode .tl-card.revealed.wrong .tl-year-cap { color: #e06060; background: linear-gradient(to bottom, #301717 0%, #2a1414 48%, #231010 52%, #271212 100%); }
+html.dark-mode .tl-card.revealed.wrong .tl-year-cap { color: #e06060; background: linear-gradient(to bottom, #301717 0%, #251c2f 48%, #231010 52%, #271212 100%); }
 .tl-move { flex-shrink: 0; display: flex; flex-direction: column; border-left: 1px solid var(--line); }
 .tl-move button {
   flex: 1; width: 30px; border: none; background: linear-gradient(to bottom, #fff, #e8e8e8);
@@ -370,7 +372,7 @@ html.dark-mode .tl-card.revealed.wrong .tl-year-cap { color: #e06060; background
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);
 }
 .tl-move button:first-child { border-bottom: 1px solid var(--line); }
-.tl-move button:hover { color: var(--red); background: #fff0f0; }
+.tl-move button:hover { color: var(--red); background: #f4eef9; }
 .tl-move button:disabled { color: #ccc; background: #f4f3f0; box-shadow: none; cursor: default; }
 /* Revealed slots get the Higher/Lower guess-button treatment: seamed
    gradient, diagonal stripe sheen, and bevelled edges instead of a flat fade. */
@@ -402,7 +404,7 @@ html.dark-mode .tl-card.revealed .tl-slot {
 .lock-btn, .share-btn, .new-btn, .back-btn {
   min-height: 26px; padding: 0 14px;
   font-size: 11px; font-weight: 700; color: #fff;
-  background: linear-gradient(to bottom, #dd2222, #aa0000);
+  background: linear-gradient(to bottom, var(--red), var(--red-dark));
   border: 1px solid var(--red-dark);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.25);
 }
@@ -437,23 +439,23 @@ html.dark-mode .tl-card.revealed .tl-slot {
   border-color: var(--ls); color: var(--text); font-weight: 700; cursor: pointer;
 }
 .mcal-day.playable:hover { border-color: var(--red); color: var(--red); }
-.mcal-day.playable.done { background: linear-gradient(to bottom, #dd2222, #aa0000); border-color: var(--red-dark); color: #fff; }
+.mcal-day.playable.done { background: linear-gradient(to bottom, var(--red), var(--red-dark)); border-color: var(--red-dark); color: #fff; }
 .mcal-day.playable.done .mcal-score { font-size: 8px; opacity: 0.85; }
 .mcal-legend { display: flex; gap: 14px; justify-content: center; margin-top: 8px; font-size: 9px; color: var(--faint); }
 .mcal-legend span { display: inline-flex; align-items: center; gap: 4px; }
 .mcal-key { width: 10px; height: 10px; display: inline-block; border: 1px solid var(--ls); background: linear-gradient(to bottom, #fff, #e8e8e8); }
-.mcal-key.done { background: linear-gradient(to bottom, #dd2222, #aa0000); border-color: var(--red-dark); }
+.mcal-key.done { background: linear-gradient(to bottom, var(--red), var(--red-dark)); border-color: var(--red-dark); }
 html.dark-mode .mcal-day.playable { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; }
 html.dark-mode .mcal-day.off { background: #191919; border-color: #242424; }
 html.dark-mode .mcal-nav, html.dark-mode .mcal-key { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; }
-html.dark-mode .mcal-key.done { background: linear-gradient(to bottom, #b01111, #7a0808); }
+html.dark-mode .mcal-key.done { background: linear-gradient(to bottom, var(--red), var(--red-dark)); }
 
 /* ── sidebar ── */
 .links-list { display:flex; flex-direction:column; }
 .links-list a { display:block; padding:4px 7px; color:var(--link); border-bottom:1px solid var(--line); font-size:10px; line-height:1.4; }
 .links-list a:last-child { border-bottom:0; }
 .links-list a::before { content:"\25B8"; color:var(--red); margin-right:5px; }
-.links-list a:hover { color:var(--red); background:#fff0f0; text-decoration:none; }
+.links-list a:hover { color:var(--red); background:#f4eef9; text-decoration:none; }
 .support-modal { width:min(100vw - 32px,620px); }
 .support-copy { padding:4px 8px 2px; font-size:11px; line-height:1.65; }
 .support-copy p { margin:0 0 9px; color:var(--text); }
@@ -463,7 +465,7 @@ html.dark-mode .mcal-key.done { background: linear-gradient(to bottom, #b01111, 
 .side-row:last-child { border-bottom: none; }
 .side-row .sr-num {
   flex-shrink: 0; width: 16px; height: 16px; display: inline-flex; align-items: center; justify-content: center;
-  background: linear-gradient(to bottom, #dd2222, #aa0000); color: #fff;
+  background: linear-gradient(to bottom, var(--red), var(--red-dark)); color: #fff;
   font-size: 10px; font-weight: 900;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
 }
@@ -471,27 +473,27 @@ html.dark-mode .mcal-key.done { background: linear-gradient(to bottom, #b01111, 
 .stats-table tr { border-bottom: 1px solid var(--line); }
 .stats-table tr:last-child { border-bottom: none; }
 .stats-table tr:nth-child(even) { background: #f6f5f0; }
-.stats-table tr:hover { background: #fff0f0; }
+.stats-table tr:hover { background: #f4eef9; }
 .stats-table td { padding: 3px 10px; font-size: 10px; height: 21px; color: var(--muted); }
 .stats-table td:last-child {
   font-weight: 900; text-align: right; color: var(--red); font-size: 11px;
   font-family: Consolas, "MS PGothic", monospace;
 }
 html.dark-mode .stats-table tr:nth-child(even) { background: #1e1e1e; }
-html.dark-mode .stats-table tr:hover { background: #2a1414; }
+html.dark-mode .stats-table tr:hover { background: #251c2f; }
 .news-list { list-style: none; }
 .news-list li { display: flex; gap: 6px; padding: 4px 10px; border-bottom: 1px solid var(--line); font-size: 10px; align-items: baseline; }
 .news-list li:last-child { border-bottom: none; }
 .news-ver {
   flex-shrink: 0; padding: 0 4px;
-  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  background: linear-gradient(to bottom, var(--red), var(--red-dark)); border: 1px solid var(--red-dark);
   color: #fff; font-weight: 900; font-size: 9px; line-height: 14px;
   font-family: "MS Gothic","Courier New",monospace;
 }
 .news-text { color: var(--muted); line-height: 1.4; }
 .news-more { display: block; padding: 4px 10px; font-size: 10px; color: var(--link); border-top: 1px solid var(--line); }
-.news-more:hover { color: var(--red); background: #fff0f0; text-decoration: none; }
-html.dark-mode .news-more:hover { background: #2a1414; }
+.news-more:hover { color: var(--red); background: #f4eef9; text-decoration: none; }
+html.dark-mode .news-more:hover { background: #251c2f; }
 
 /* song detail modal */
 .sd-cover { position: relative; aspect-ratio: 16 / 9; background: #111; margin: -12px -14px 10px; overflow: hidden; border-bottom: 2px solid var(--ls); }
@@ -514,7 +516,7 @@ html.dark-mode .news-more:hover { background: #2a1414; }
   border: 1px solid var(--ls); background: linear-gradient(to bottom, #fff, #e8e8e8);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.9);
 }
-.sd-btn:hover { background: linear-gradient(to bottom, #fff5f5, #ffd0d0); color: var(--red); border-color: var(--red); text-decoration: none; }
+.sd-btn:hover { background: linear-gradient(to bottom, #f7f1fb, #dfc9ed); color: var(--red); border-color: var(--red); text-decoration: none; }
 .sd-btn.yt   { border-color: #c00; color: #c00; }
 .sd-btn.nnd  { border-color: #444; color: #333; }
 .sd-btn.bili { border-color: #0f7ca8; color: #0f7ca8; }
@@ -563,7 +565,7 @@ html.dark-mode .sd-btn:hover { color: var(--red); border-color: var(--red); }
   font-size: 11px; font-weight: 700; color: var(--faint);
   background: linear-gradient(to bottom, #fff, #e0e0e0); border: 1px solid var(--ls);
 }
-.settings-toggle.is-on { background: linear-gradient(to bottom, #dd2222, #aa0000); color: #fff; border-color: var(--red-dark); }
+.settings-toggle.is-on { background: linear-gradient(to bottom, var(--red), var(--red-dark)); color: #fff; border-color: var(--red-dark); }
 .modal-close {
   width: 20px; height: 20px; padding: 0; line-height: 1;
   background: linear-gradient(to bottom, #fff, #ddd); border: 1px solid var(--ls);
@@ -602,7 +604,7 @@ html.dark-mode .achievements-list { border-color: #2c2c2c; }
 .updates-list li:last-child { border-bottom: none; }
 .updates-ver {
   display: inline-block; padding: 0 5px; margin-right: 6px;
-  background: linear-gradient(to bottom, #dd2222, #aa0000); border: 1px solid var(--red-dark);
+  background: linear-gradient(to bottom, var(--red), var(--red-dark)); border: 1px solid var(--red-dark);
   color: #fff; font-weight: 900; font-size: 9px; line-height: 15px;
   font-family: "MS Gothic","Courier New",monospace;
 }
@@ -617,7 +619,7 @@ html.dark-mode .achievements-list { border-color: #2c2c2c; }
 }
 #tl-result-toast.nnd-toast-fade { opacity: 0; }
 #tl-result-toast .nnd-toast-label {
-  background: #cc0000; color: #fff; font-size: 10px; font-weight: 700;
+  background: var(--red); color: #fff; font-size: 10px; font-weight: 700;
   padding: 0 8px; display: flex; align-items: center;
 }
 #tl-result-toast.is-perfect .nnd-toast-label { background: #1a7d3c; }
@@ -645,7 +647,7 @@ html.dark-mode .achievements-list { border-color: #2c2c2c; }
 }
 .nnd-toast.nnd-toast-fade { opacity: 0; }
 .nnd-toast .nnd-toast-label {
-  background: #cc0000; color: #fff; font-weight: 700;
+  background: var(--red); color: #fff; font-weight: 700;
   display: flex; align-items: center; justify-content: center;
   min-width: 42px; padding: 0 10px; font-size: 15px; line-height: 1;
 }
@@ -656,7 +658,7 @@ html.dark-mode .achievements-list { border-color: #2c2c2c; }
 html.dark-mode {
   --bg: #121212; --surface: #1a1a1a; --sf: #161616;
   --text: #e1e1e1; --muted: #a6a39c; --faint: #7c7c7c;
-  --line: #2c2c2c; --ls: #3b3b3b; --red: #dd2222; --link: #5aa0e0;
+  --line: #2c2c2c; --ls: #3b3b3b; --red: #a57ad0; --link: #5aa0e0;
 }
 html.dark-mode body {
   background-image:
@@ -679,11 +681,11 @@ html.dark-mode .game-mode-btn.is-active { background: linear-gradient(to bottom,
 html.dark-mode .era-btn, html.dark-mode .tool-btn, html.dark-mode .settings-toggle, html.dark-mode .modal-close {
   background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); border-color: #3b3b3b; color: var(--muted);
 }
-html.dark-mode .era-btn.is-active, html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, #b01111, #7a0808); color: #fff; border-color: #5a0505; }
+html.dark-mode .era-btn.is-active, html.dark-mode .settings-toggle.is-on { background: linear-gradient(to bottom, var(--red), var(--red-dark)); color: #fff; border-color: #5a0505; }
 html.dark-mode .tl-card { box-shadow: none; }
 html.dark-mode .tl-card:nth-child(even) { background: #1e1e1e; }
 html.dark-mode .tl-move button { background: linear-gradient(to bottom, #2e2e2e, #1e1e1e); color: var(--muted); box-shadow: none; }
-html.dark-mode .tl-move button:hover { background: #2b2020; color: var(--red); }
+html.dark-mode .tl-move button:hover { background: #251c2f; color: var(--red); }
 html.dark-mode .tl-move button:disabled { background: #1c1c1c; color: #3a3a3a; }
 html.dark-mode .site-footer { background: linear-gradient(to bottom, #1c1c1c, #141414); }
 html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(to bottom, #3a3a3a, #2a2a2a); border-color: #222; }
@@ -724,9 +726,42 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
   .st-cell { min-width: 0; padding: 5px 10px; }
   .st-v { font-size: 12px; }
 }
+
+/* Compact three-column desktop frame shared with Mikudle. */
+.page-rail {
+  position:absolute; top:160px; width:22px; height:560px; z-index:0;
+  pointer-events:none; color:rgba(134,87,181,.24); font:10px/1 var(--mono);
+  letter-spacing:.16em; text-transform:uppercase;
+}
+.page-rail::before { content:""; position:absolute; top:0; bottom:0; left:10px; border-left:1px solid currentColor; }
+.page-rail span { position:absolute; top:18px; left:7px; padding:7px 0; background:var(--bg); writing-mode:vertical-rl; }
+.page-rail-left { right:calc(50% + 511px); }
+.page-rail-right { left:calc(50% + 511px); }
+.page-rail-right span { transform:rotate(180deg); }
+.tl-side-left, .tl-side-right { display:flex; flex-direction:column; gap:6px; }
+@media (min-width:1051px) {
+  .nnd-body { max-width:1160px; }
+  .game-mode-bar, .mode-tools { width:min(100%,1002px); margin-inline:auto; }
+  .tl-cols {
+    display:grid; grid-template-columns:190px minmax(0,580px) 220px;
+    gap:6px; justify-content:center; align-items:start;
+  }
+  .tl-left { grid-column:2; grid-row:1 / span 5; }
+  .tl-right { display:contents; }
+  .tl-side-left { grid-column:1; grid-row:1; }
+  .tl-side-right { grid-column:3; grid-row:1; }
+}
+@media (max-width:1050px) { .page-rail { display:none; } }
 </style>
+<link rel="stylesheet" href="../archive-shared.css?v=1">
+<link rel="stylesheet" href="../shared-chrome.css?v=1">
+<link rel="stylesheet" href="../game-rails.css?v=1">
+<link rel="stylesheet" href="../shared-mode-icons.css?v=1">
 </head>
 <body>
+
+<div class="page-rail page-rail-left" aria-hidden="true"><span>VOCALOID TIMELINE</span></div>
+<div class="page-rail page-rail-right" aria-hidden="true"><span>DAILY · UNLIMITED · ARCHIVE</span></div>
 
 <div class="nnd-topbar">
   <span>Games &rsaquo; Music &rsaquo; VOCALOID &rsaquo; Timeline</span>
@@ -775,13 +810,15 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
   </div>
 </div>
 
+<div class="nnd-tag-row"><span class="nnd-tag-label">Tags:</span><span class="nnd-tag">VOCALOID</span><span class="nnd-tag">音楽ゲーム</span><span class="nnd-tag">Release Dates</span><span class="nnd-tag">Timeline</span><span class="nnd-tag">Daily Puzzle</span><span class="nnd-tag">VocaDB</span><span class="nnd-tag">Fan-made</span></div>
+
 <div class="nnd-body">
 
   <div class="game-mode-bar">
     <div class="game-mode-tabs">
-      <button class="game-mode-btn is-active" data-mode="daily">Daily</button>
-      <button class="game-mode-btn" data-mode="unlimited">Unlimited</button>
-      <button class="game-mode-btn" data-mode="archive">Archive</button>
+      <button class="game-mode-btn is-active" data-mode="daily" data-mode-symbol="daily">Daily</button>
+      <button class="game-mode-btn" data-mode="unlimited" data-mode-symbol="unlimited">Unlimited</button>
+      <button class="game-mode-btn" data-mode="archive" data-mode-symbol="archive">Archive</button>
     </div>
   </div>
 
@@ -809,43 +846,42 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
 
     </div>
     <div class="tl-right">
-
-      <div class="panel" id="how-panel">
-        <div class="panel-header" id="hdr-how">[ How to Play ]</div>
-        <div class="side-list">
-          <div class="side-row"><span class="sr-num">1</span><span id="how-1">Five songs appear in a random order.</span></div>
-          <div class="side-row"><span class="sr-num">2</span><span id="how-2">Arrange them by <b>release date</b> · oldest at the top. Drag cards or use the arrows.</span></div>
-          <div class="side-row"><span class="sr-num">3</span><span id="how-3">Lock in your answer. Green = right spot, gold = one off, red = wrong.</span></div>
-          <div class="side-row"><span class="sr-num">4</span><span id="how-4">One shared puzzle a day · share your result and keep the streak.</span></div>
+      <div class="tl-side-left">
+        <div class="panel">
+          <div class="panel-header" id="hdr-news">[ News ]</div>
+          <ul class="news-list" id="news-list"></ul>
+          <a class="news-more" href="#" id="news-more">Full updates →</a>
+        </div>
+        <div class="panel">
+          <div class="panel-header">[ Links ]</div>
+          <div class="links-list">
+            <a href="https://vocadb.net" target="_blank" rel="noopener noreferrer">VocaDB &#8599;</a>
+            <a href="https://www.nicovideo.jp" target="_blank" rel="noopener noreferrer">NicoNico &#8599;</a>
+            <a href="../39charts/add.html">Suggest a Song</a>
+            <a href="#" id="links-support-open">Contact / Support</a>
+          </div>
         </div>
       </div>
-
-      <div class="panel">
-        <div class="panel-header" id="hdr-records">[ Records ]</div>
-        <table class="stats-table">
-          <tr><td id="rec-l-played">Dailies played</td><td id="rec-played">0</td></tr>
-          <tr><td id="rec-l-perfect">Perfect days</td><td id="rec-perfect">0</td></tr>
-          <tr><td id="rec-l-streak">Current streak</td><td id="rec-streak">0</td></tr>
-          <tr><td id="rec-l-avg">Average score</td><td id="rec-avg">—</td></tr>
-        </table>
-      </div>
-
-      <div class="panel">
-        <div class="panel-header" id="hdr-news">[ News ]</div>
-        <ul class="news-list" id="news-list"></ul>
-        <a class="news-more" href="#" id="news-more">Full updates →</a>
-      </div>
-
-      <div class="panel">
-        <div class="panel-header">[ Links ]</div>
-        <div class="links-list">
-          <a href="https://vocadb.net" target="_blank" rel="noopener noreferrer">VocaDB &#8599;</a>
-          <a href="https://www.nicovideo.jp" target="_blank" rel="noopener noreferrer">NicoNico &#8599;</a>
-          <a href="../39charts/add.html">Suggest a Song</a>
-          <a href="#" id="links-support-open">Contact / Support</a>
+      <div class="tl-side-right">
+        <div class="panel" id="how-panel">
+          <div class="panel-header" id="hdr-how">[ How to Play ]</div>
+          <div class="side-list">
+            <div class="side-row"><span class="sr-num">1</span><span id="how-1">Five songs appear in a random order.</span></div>
+            <div class="side-row"><span class="sr-num">2</span><span id="how-2">Arrange them by <b>release date</b> · oldest at the top. Drag cards or use the arrows.</span></div>
+            <div class="side-row"><span class="sr-num">3</span><span id="how-3">Lock in your answer. Green = right spot, gold = one off, red = wrong.</span></div>
+            <div class="side-row"><span class="sr-num">4</span><span id="how-4">One shared puzzle a day · share your result and keep the streak.</span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header" id="hdr-records">[ Records ]</div>
+          <table class="stats-table">
+            <tr><td id="rec-l-played">Dailies played</td><td id="rec-played">0</td></tr>
+            <tr><td id="rec-l-perfect">Perfect days</td><td id="rec-perfect">0</td></tr>
+            <tr><td id="rec-l-streak">Current streak</td><td id="rec-streak">0</td></tr>
+            <tr><td id="rec-l-avg">Average score</td><td id="rec-avg">—</td></tr>
+          </table>
         </div>
       </div>
-
     </div>
   </div>
 </div>
@@ -853,6 +889,18 @@ html.dark-mode .new-btn, html.dark-mode .back-btn { background: linear-gradient(
 <footer class="site-footer">
   VOCALOID Timeline: fan-made daily ordering puzzle (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a>
 </footer>
+
+<div class="modal-backdrop" id="archive-backdrop" hidden></div>
+<div class="settings-modal ha-modal" id="archive-modal" role="dialog" aria-modal="true" aria-labelledby="archive-title" hidden>
+  <div class="settings-title"><span id="archive-title">Daily Archive</span><button type="button" class="guess-close" id="archive-close">✕</button></div>
+  <p class="ha-note">Replay any previous daily timeline. Archive results do not change your live daily streak.</p>
+  <div class="ha-summary" id="archive-summary"></div>
+  <button class="ha-random" id="archive-random" type="button">Random Archive Puzzle</button>
+  <div class="ha-toolbar"><button class="ha-nav" id="mcal-prev" type="button">◀</button><strong id="archive-month"></strong><button class="ha-nav" id="mcal-next" type="button">▶</button></div>
+  <div class="ha-weekdays"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div>
+  <div class="ha-grid" id="archive-grid"></div>
+  <div class="ha-legend"><span><i></i>Available</span><span><i style="background:#e0f2e0"></i>Solved</span><span><i style="background:#eee"></i>Not yet</span></div>
+</div>
 
 <div class="modal-backdrop" id="settings-backdrop" hidden></div>
 <div class="settings-modal" id="settings-modal" hidden>
@@ -1196,7 +1244,7 @@ function coverChain(song) {
     : u.includes("ytimg.com") && u.includes("mqdefault") ? 1
     : u.includes("ytimg.com") ? 2
     : u.includes("sndcdn.com") ? 3 : 4;
-  return [...new Set(all)].sort((a, b) => pr(a) - pr(b));
+  return VocaSongFixes.withoutTopic([...new Set(all)]).sort((a, b) => pr(a) - pr(b));
 }
 function advanceThumb(img, skipYt) {
   let rest = JSON.parse(img.dataset.srcs || "[]");
@@ -1298,7 +1346,7 @@ function saveDaily() {
   try {
     localStorage.setItem(dailySaveKey(), JSON.stringify({
       order: state.puzzle.songs.map(s => String(s.vocadbId)),
-      done: state.done,
+      done: state.done, result: state.result,
     }));
   } catch (e) {}
 }
@@ -1331,11 +1379,7 @@ let calYear = null, calMonth = null;
 function renderArchiveCalendar() {
   const days = archiveDates();
   const daySet = new Set(days);
-  $("status-strip").innerHTML = `<div class="st-cell"><span class="st-k">${t("archive")}</span><span class="st-v">${days.length}</span></div>`;
-  if (!days.length) {
-    $("game-box").innerHTML = `<div class="loading-state">${t("archNone", EPOCH)}</div>`;
-    return;
-  }
+  if (!days.length) return;
   const newest = days[0], oldest = days[days.length - 1];
   const [minY, minM] = oldest.split("-").map(Number);
   const [maxY, maxM] = newest.split("-").map(Number);
@@ -1347,30 +1391,21 @@ function renderArchiveCalendar() {
                  es: ["Do","Lu","Ma","Mi","Ju","Vi","Sá"], ko: ["일","월","화","수","목","금","토"] }[LANG];
   const firstDow = new Date(calYear, calMonth - 1, 1).getDay();
   const daysIn = new Date(calYear, calMonth, 0).getDate();
-  let cells = "";
-  for (let i = 0; i < firstDow; i++) cells += `<span class="mcal-day empty"></span>`;
+  let cells = "", played = 0, solved = 0;
+  for (const iso of days) { try { const s=JSON.parse(localStorage.getItem(`tl_daily_${iso}`)); if(s){played++;if(s.done)solved++;} } catch(e){} }
+  $("archive-summary").innerHTML=[["Played",played],["Solved",solved],["Total",days.length],["Done",days.length?Math.round(solved/days.length*100)+"%":"0%"]].map(x=>`<span class="ha-summary-item"><strong>${x[1]}</strong><span>${x[0]}</span></span>`).join("");
+  for (let i = 0; i < firstDow; i++) cells += `<span class="ha-day is-blank"></span>`;
   for (let d = 1; d <= daysIn; d++) {
     const iso = `${calYear}-${String(calMonth).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
-    if (!daySet.has(iso)) { cells += `<span class="mcal-day off">${d}</span>`; continue; }
+    if (!daySet.has(iso)) { cells += `<span class="ha-day is-locked"><span class="ha-number">${d}</span><span class="ha-note-day">no puzzle</span></span>`; continue; }
     let saved = null;
     try { saved = JSON.parse(localStorage.getItem(`tl_daily_${iso}`)); } catch (e) {}
     const done = saved && saved.done;
-    cells += `<button type="button" class="mcal-day playable${done ? " done" : ""}" data-day="${iso}" title="${iso}">${d}${done ? `<span class="mcal-score">${t("archDone")}</span>` : ""}</button>`;
+    cells += `<button type="button" class="ha-day${done ? " is-solved" : ""}" data-day="${iso}" title="${iso}"><span class="ha-number">${d}</span><span class="ha-note-day">${done?t("archDone"):"play"}</span></button>`;
   }
-  $("game-box").innerHTML = `
-    <div class="mcal">
-      <div class="mcal-head">
-        <button type="button" class="mcal-nav" id="mcal-prev" ${cur <= lo ? "disabled" : ""}>&#9664;</button>
-        <strong>${monthName}</strong>
-        <button type="button" class="mcal-nav" id="mcal-next" ${cur >= hi ? "disabled" : ""}>&#9654;</button>
-      </div>
-      <div class="mcal-dows">${dows.map(d => `<span>${d}</span>`).join("")}</div>
-      <div class="mcal-grid">${cells}</div>
-      <div class="mcal-legend">
-        <span><i class="mcal-key done"></i>${t("archDone")}</span>
-        <span><i class="mcal-key"></i>—</span>
-      </div>
-    </div>`;
+  $("archive-month").innerHTML=`<span>${monthName}</span><span class="ha-month-sub">${solved}/${days.length} solved · ${days.length?Math.round(solved/days.length*100):0}%</span>`;
+  $("archive-grid").innerHTML=cells;
+  $("mcal-prev").disabled=cur<=lo; $("mcal-next").disabled=cur>=hi;
   const nav = (id, delta) => {
     const b = $(id);
     if (b) b.addEventListener("click", () => {
@@ -1381,9 +1416,12 @@ function renderArchiveCalendar() {
     });
   };
   nav("mcal-prev", -1); nav("mcal-next", 1);
-  $("game-box").querySelectorAll("[data-day]").forEach(b =>
-    b.addEventListener("click", () => { state.dateKey = b.dataset.day; startGame(); }));
+  $("archive-grid").querySelectorAll("[data-day]").forEach(b => b.addEventListener("click", () => selectArchiveDay(b.dataset.day)));
+  const pool=days.filter(d=>{try{return !JSON.parse(localStorage.getItem(`tl_daily_${d}`))}catch(e){return true}}); $("archive-random").dataset.pool=JSON.stringify(pool.length?pool:days);
 }
+function openArchive(){calYear=calMonth=null;renderArchiveCalendar();$("archive-modal").hidden=false;$("archive-backdrop").hidden=false;document.body.style.overflow="hidden";$("archive-close").focus()}
+function closeArchive(){$("archive-modal").hidden=true;$("archive-backdrop").hidden=true;document.body.style.overflow=""}
+function selectArchiveDay(day){closeArchive();state.mode="archive";state.dateKey=day;document.querySelectorAll("[data-mode]").forEach(b=>b.classList.toggle("is-active",b.dataset.mode==="archive"));startGame()}
 
 /* ── game flow ── */
 function startGame() {
@@ -1391,7 +1429,7 @@ function startGame() {
   $("mode-tools").hidden = state.mode !== "unlimited";
   if (state.mode === "daily") state.dateKey = todayKey();
   if (state.mode === "unlimited") state.dateKey = null;
-  if (state.mode === "archive" && !state.dateKey) { calYear = calMonth = null; renderArchiveCalendar(); return; }
+  if (state.mode === "archive" && !state.dateKey) { openArchive(); return; }
 
   if (state.mode === "unlimited") {
     const rnd = mulberry32(seedFromString(`tl-free-${Date.now()}-${Math.random()}`));
@@ -1524,7 +1562,7 @@ function render() {
       <span class="tl-info">
         <span class="tl-title">${escHtml(s.title)}</span>
         <span class="tl-subrow">
-          <span class="tl-artist">${escHtml(s.artist || s.artistString || "")}</span>
+          <span class="tl-artist">${escHtml(VocaSongFixes.artist(s))}</span>
           ${combined(s) != null ? `<span class="tl-views" title="${combined(s).toLocaleString()}">${fmtViews(combined(s))}<span class="tv-cap">views</span></span>` : ""}
           <span class="tl-date">${fmtDate(s.publishDate)}</span>
         </span>
@@ -1568,7 +1606,7 @@ function render() {
     const nb = $("new-btn");
     if (nb) nb.addEventListener("click", startGame);
     const bb = $("back-btn");
-    if (bb) bb.addEventListener("click", () => { state.dateKey = null; startGame(); });
+    if (bb) bb.addEventListener("click", openArchive);
     $("game-box").querySelectorAll(".tl-card.revealed").forEach(card =>
       card.addEventListener("click", e => {
         if (e.target.closest("a")) return; // in-card links keep working
@@ -1640,7 +1678,7 @@ function openDetail(id) {
   $("detail-body").innerHTML = `
     ${chain.length ? `<div class="sd-cover">${thumbImgHtml(song)}</div>` : ""}
     <div class="sd-title">${escHtml(song.title)}</div>
-    <div class="sd-artist">${escHtml(song.artist || song.artistString || "")}</div>
+    <div class="sd-artist">${escHtml(VocaSongFixes.artist(song))}</div>
     <table class="sd-table">
       <tr><td>${t("sdReleased")}</td><td>${song.publishDate ? fmtDate(song.publishDate) : EM}</td></tr>
       <tr><td>${t("sdCombined")}</td><td class="is-red">${total != null ? total.toLocaleString() : EM}</td></tr>
@@ -1754,18 +1792,18 @@ function wireDrag() {
 
 /* ── share ── */
 function shareText() {
-  const dayNum = Math.max(1, Math.floor((new Date(todayKey()) - new Date(EPOCH)) / 864e5) + 1);
   const art = state.result.map(r => r === "right" ? "🟩" : r === "close" ? "🟨" : "⬛").join("");
   const rightN = state.result.filter(r => r === "right").length;
   const totalN = state.result.length;
-  const head = state.mode === "daily" ? `VOCALOID Timeline #${dayNum}`
-    : state.mode === "archive" ? `VOCALOID Timeline ${state.dateKey} (archive)`
-    : "VOCALOID Timeline (unlimited)";
-  return `${head} · ${rightN}/${totalN}\n${art}\nhttps://vocaloidle.sodapines.dev/timeline/`;
+  const head = state.mode === "daily" ? `VOCALOID Timeline · Daily · ${state.dateKey || todayKey()}`
+    : state.mode === "archive" ? `VOCALOID Timeline · Archive · ${state.dateKey}`
+    : "VOCALOID Timeline · Unlimited";
+  return `${head}\nResult · ${rightN}/${totalN} correct\n${art}`;
 }
 
 /* ── events ── */
 document.querySelectorAll("[data-mode]").forEach(btn => btn.addEventListener("click", () => {
+  if (btn.dataset.mode === "archive") { openArchive(); return; }
   if (btn.dataset.mode === state.mode) return;
   state.mode = btn.dataset.mode;
   state.dateKey = null;
@@ -1786,9 +1824,11 @@ document.querySelectorAll(".language-button").forEach(btn => btn.addEventListene
   try { localStorage.setItem("tl_lang", LANG); } catch (e) {}
   applyStatic();
   renderAchievements();
-  if (state.mode === "archive" && !state.dateKey) renderArchiveCalendar();
+  if (!$("archive-modal").hidden) renderArchiveCalendar();
   else if (state.puzzle) render();
 }));
+$("archive-close").addEventListener("click",closeArchive);$("archive-backdrop").addEventListener("click",closeArchive);
+$("archive-random").addEventListener("click",function(){let p=[];try{p=JSON.parse(this.dataset.pool||"[]")}catch(e){}if(p.length)selectArchiveDay(p[Math.floor(Math.random()*p.length)])});
 document.querySelectorAll(".nnd-mobile-settings a[data-proxy]").forEach(a =>
   a.addEventListener("click", e => { e.preventDefault(); const el = $(a.dataset.proxy); if (el) el.click(); }));
 
