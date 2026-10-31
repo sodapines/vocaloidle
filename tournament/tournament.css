@@ -13,3 +13,18 @@
 .tn-tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--ls)}.tn-tabs button{flex:1;padding:5px 4px;border:0;border-right:1px solid var(--ls);background:linear-gradient(var(--surface),var(--sf));color:var(--muted);font:11px Arial,sans-serif;cursor:pointer}.tn-tabs button:last-child{border-right:0}.tn-tabs button.is-active{color:#fff;font-weight:700;background:var(--red)}
 .tn-empty{padding:18px;text-align:center;color:var(--faint);font-size:12px}.tn-archive a{display:flex;justify-content:space-between;gap:8px;padding:5px 9px;border-bottom:1px solid var(--line);font-size:12px}
 @media(max-width:520px){.tn-match{grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);padding:5px}}
+/* Three-column game shell with compact 39charts-style cards. */
+:root{--red:#b5121b;--red-dark:#7d0a10}
+html.dark-mode{--red:#e0564f;--red-dark:#8c1f1b}
+.tn-mark{background:linear-gradient(#e2bc44,#a87c0a);border-color:#a87c0a;display:grid!important;place-items:center}
+.nnd-marquee-inner{color:#555500}
+.mode-tabs .mode-btn{padding-inline:12px}.mode-btn:disabled{opacity:.45;cursor:default}
+.tn-table td{padding:4px 9px}.tn-table td:last-child{white-space:nowrap}
+.tn-match{grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);gap:4px;padding:5px;background:var(--sf)}.tn-match:nth-child(even){background:var(--surface)}
+.tn-song{box-shadow:0 1px 2px #0000001a}.tn-thumb{position:relative;overflow:hidden;background:#111}
+.tn-thumb::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,#0000000f 0 1px,transparent 1px 3px)}
+.tn-seed{position:absolute;top:0;left:0;z-index:1;min-width:24px;padding:2px 5px;text-align:center;color:#fff;background:#111d;border-right:2px solid var(--red);font:700 12px Consolas,monospace}
+.tn-info b{font-size:12px}.tn-info small{font-size:10px}
+.tn-actions a,.tn-actions button{font-size:10px;padding:4px 2px}.tn-actions a:hover{color:var(--red);text-decoration:none}.tn-actions button:hover{background:color-mix(in srgb,var(--red) 10%,var(--surface))}
+.tn-archive .tn-empty{padding:8px;font-size:10px}.tn-archive a{font-size:11px;padding:4px 9px}
+.tn-submit{position:sticky;bottom:0;z-index:5;background:var(--sf);border-top:1px solid var(--ls)}

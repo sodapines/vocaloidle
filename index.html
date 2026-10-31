@@ -664,6 +664,7 @@
     .ver-cover { --sv-color: #b65383; }
     .tp-cell.cover, .tpd-card.cover { border-left-color: #b65383; }
     .cover .proj-icon, .cover .tpd-icon { background:linear-gradient(#cb72a0,#773254); }
+    .tourney .proj-icon { background:linear-gradient(#e2bc44,#a87c0a); }
     .today-strip { flex-wrap:wrap; }
     .ver-mikudle { --sv-color: #20aed0; }
     .stats-ver strong {
@@ -952,9 +953,9 @@
         <span class="proj-body"><span class="proj-name">VOCALOID Cover Reveal <span class="card-tag">NEW</span></span><span class="proj-desc">A small crop, a familiar song. Guess the artwork in six reveals; wrong guesses and skips show more.</span></span>
         <span class="proj-meta">New daily at local midnight</span><span class="launch">Play &#9654;</span>
       </a>
-      <a class="proj cover" href="tournament/">
-        <span class="proj-icon" aria-hidden="true"><img src="cover-reveal/logo.svg" width="24" height="24" alt=""></span>
-        <span class="proj-thumb" aria-hidden="true"><img src="favicon.jpg" alt=""></span>
+      <a class="proj tourney" href="tournament/">
+        <span class="proj-icon" aria-hidden="true"><img src="tournament/logo.svg" width="24" height="24" alt=""></span>
+        <span class="proj-thumb" aria-hidden="true"><img id="tourney-preview" src="favicon.jpg" alt="" referrerpolicy="no-referrer"></span>
         <span class="proj-body"><span class="proj-name">VOCALOID Song Tournament <span class="card-tag">NEW</span></span><span class="proj-desc">Sixty-four songs, one round a week. Listen, vote, and follow the bracket to a champion.</span></span>
         <span class="proj-meta">New round every week</span><span class="launch">Play &#9654;</span>
       </a>
@@ -1044,6 +1045,7 @@
   </footer>
 
   <script src="result-art.js?v=1"></script>
+  <script>fetch("data/tournament/current.json").then(r => r.ok ? r.json() : null).then(t => { const song = t && t.entrants.find(e => e.seed === 1); if (song && song.cover) document.getElementById("tourney-preview").src = song.cover; }).catch(() => {});</script>
   <script>
     var homeSongsReady = fetch("data/songs.json").then(r => r.ok ? r.json() : []).catch(() => []);
     // Dark-mode toggle

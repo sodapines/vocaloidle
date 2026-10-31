@@ -8,18 +8,18 @@ function entrantsFor(round){return round===0?data.entrants:data.rounds[round-1].
 function songHtml(song,match,side,round,result){
   const open=!isArchive&&round===data.open;
   const state=result?(result.winner===side?' is-winner':' is-loser'):(open&&picks[match]===side?' is-picked':'');
-  return '<div class="tn-song'+state+'"><img src="'+esc(song.cover||'../favicon.jpg')+'" alt="" loading="lazy" referrerpolicy="no-referrer"><div class="tn-info"><b title="'+esc(song.title)+'">'+esc(song.title)+'</b><small>'+esc(song.artist)+'</small><small>#'+song.seed+(song.year?' · '+esc(song.year):'')+'</small>'+(result?'<span class="tn-votes">'+result.votes[side]+' votes</span>':'')+'</div><div class="tn-actions"><a href="'+esc(song.link.url)+'" target="_blank" rel="noopener">Listen on '+esc(song.link.service)+' ↗</a>'+(open&&CONFIG.api?'<button type="button" data-match="'+match+'" data-side="'+side+'" aria-pressed="'+(picks[match]===side)+'">Vote</button>':'')+'</div></div>';
+  return '<div class="tn-song'+state+'"><div class="tn-thumb"><img src="'+esc(song.cover||'../favicon.jpg')+'" alt="" loading="lazy" referrerpolicy="no-referrer"><span class="tn-seed">'+song.seed+'</span></div><div class="tn-info"><b title="'+esc(song.title)+'">'+esc(song.title)+'</b><small>'+esc(song.artist)+'</small><small>'+esc(song.year)+'</small>'+(result?'<span class="tn-votes">'+result.votes[side]+' votes</span>':'')+'</div><div class="tn-actions"><a href="'+esc(song.link.url)+'" target="_blank" rel="noopener">Listen on '+esc(song.link.service)+' ↗</a>'+(open&&CONFIG.api?'<button type="button" data-match="'+match+'" data-side="'+side+'" aria-pressed="'+(picks[match]===side)+'">Vote</button>':'')+'</div></div>';
 }
-function renderTabs(){const last=isArchive?data.rounds.length-1:data.open;$('tn-tabs').innerHTML=T.ROUNDS.slice(0,last+1).map((name,i)=>'<button type="button" data-round="'+i+'" class="'+(i===shown?'is-active':'')+'">'+name+'</button>').join('');}
+function renderTabs(){const last=isArchive?data.rounds.length-1:data.open;$('tn-tabs').innerHTML=['R64','R32','R16','QF','SF','Final'].map((name,i)=>'<button type="button" class="mode-btn'+(i===shown?' is-active':'')+'" '+(i>last?'disabled':'data-round="'+i+'"')+'>'+name+'</button>').join('');}
 function renderRound(){
   const round=data.rounds[shown],open=!isArchive&&shown===data.open,pairs=T.pairs(entrantsFor(shown));
-  $('tn-round').textContent='[ '+T.ROUNDS[shown]+' ]';
+  $('tn-round').textContent='[ '+T.ROUNDS[shown]+' ]';$('tn-side-round').textContent=T.ROUNDS[shown];$('tn-side-matches').textContent=pairs.length;
   $('tn-matches').innerHTML=pairs.map((pair,i)=>'<div class="tn-match">'+songHtml(pair[0],i,0,shown,round.results?.[i])+'<span class="tn-vs">VS</span>'+songHtml(pair[1],i,1,shown,round.results?.[i])+'</div>').join('');
   $('tn-submit').hidden=!open||!CONFIG.api;
   if(open&&!CONFIG.api)$('tn-matches').insertAdjacentHTML('afterbegin','<p class="tn-empty">Voting opens soon.</p>');
   updateProgress(pairs.length);renderTabs();
 }
-function updateProgress(total){const count=Object.keys(picks).length;$('tn-progress').textContent=count+' of '+total+' matchups picked';$('tn-send').disabled=!count||!turnstileToken;}
+function updateProgress(total){const count=Object.keys(picks).length;$('tn-side-picks').textContent=count+' / '+total;$('tn-progress-top').textContent=total+' matchups';$('tn-progress').textContent=count+' of '+total+' matchups picked';$('tn-send').disabled=!count||!turnstileToken;}
 async function send(){
   const total=entrantsFor(data.open).length/2;$('tn-send').disabled=true;$('tn-progress').textContent='Sending…';
   try{const res=await fetch(CONFIG.api+'/vote',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({tournament:data.number,round:data.open,picks,token:turnstileToken})});
@@ -42,7 +42,7 @@ async function boot(){
   if(!data){$('tn-title').textContent='The first tournament starts soon.';$('tn-matches').innerHTML='<p class="tn-empty">Check back soon.</p>';return;}
   $('tn-title').innerHTML='Tournament <b>#'+data.number+'</b>'+(data.champion?' · ★ '+esc(data.champion.title):'');
   shown=isArchive?data.rounds.length-1:data.open;
-  if(!isArchive){try{picks=JSON.parse(localStorage.getItem(storeKey()))||{};}catch(_){picks={};}$('tn-closes').textContent='Round closes '+new Date(data.rounds[data.open].closesAt).toLocaleString();loadTurnstile();}
+  if(!isArchive){try{picks=JSON.parse(localStorage.getItem(storeKey()))||{};}catch(_){picks={};}const tick=()=>{const left=Math.max(0,Date.parse(data.rounds[data.open].closesAt)-Date.now());$('tn-closes').textContent=Math.floor(left/864e5)+'d '+Math.floor(left/36e5)%24+'h '+Math.floor(left/6e4)%60+'m';};tick();setInterval(tick,30000);loadTurnstile();}
   renderRound();
 }
 boot();
