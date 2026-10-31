@@ -28,3 +28,95 @@ html.dark-mode{--red:#e0564f;--red-dark:#8c1f1b}
 .tn-actions a,.tn-actions button{font-size:10px;padding:4px 2px}.tn-actions a:hover{color:var(--red);text-decoration:none}.tn-actions button:hover{background:color-mix(in srgb,var(--red) 10%,var(--surface))}
 .tn-archive .tn-empty{padding:8px;font-size:10px}.tn-archive a{font-size:11px;padding:4px 9px}
 .tn-submit{position:sticky;bottom:0;z-index:5;background:var(--sf);border-top:1px solid var(--ls)}
+/* One matchup at a time, laid out like Higher / Lower. */
+@media(min-width:1051px){.nnd-body{max-width:1060px;grid-template-columns:165px minmax(0,1fr) 165px}}
+.tn-board{display:grid;grid-template-columns:minmax(0,1fr) 92px minmax(0,1fr);gap:6px;padding:7px}
+.tn-card{min-width:0;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--ls)}
+.tn-card h3{margin:0;padding:4px 8px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#fff;font-size:13px;text-shadow:0 1px #0006;background:linear-gradient(#cf3b34,#8f1610)}
+.tn-side-1 h3{background:linear-gradient(#4778d4,#174690)}
+.tn-thumb img{aspect-ratio:16/9}
+.tn-tags{position:absolute;right:4px;bottom:4px;left:4px;z-index:1;display:flex;flex-wrap:wrap;justify-content:flex-end;gap:2px}
+.tn-tags span{padding:0 4px;color:#fff;background:#000b;font-size:9px;line-height:14px}
+.tn-meta{display:flex;gap:10px;padding:5px 8px;min-height:42px;font-size:11px}.tn-meta>div:nth-child(2){flex:1;min-width:0}
+.tn-meta small{display:block;color:var(--faint);font-size:10px}.tn-meta b{font-size:14px}.tn-meta span{display:-webkit-box;overflow:hidden;-webkit-line-clamp:2;-webkit-box-orient:vertical;line-height:1.2}
+.tn-links{display:grid;grid-template-columns:2fr 1fr;gap:4px;margin-top:auto;padding:5px;background:var(--sf)}
+.tn-links a{padding:5px 2px;text-align:center;color:var(--text);background:linear-gradient(var(--surface),var(--sf));border:1px solid var(--ls);font:700 10px Arial,sans-serif}
+.tn-card.is-winner{border-color:#278b42;box-shadow:0 0 0 1px #278b42}.tn-card.is-loser{opacity:.6}
+.tn-mid{display:flex;flex-direction:column;align-items:center;gap:4px;padding:6px 4px;background:var(--sf);border:1px solid var(--line)}
+.tn-mid small{color:var(--faint);font-size:9px}.tn-mid strong{font:700 20px/1 Consolas,monospace}.tn-mid em{width:100%;padding:2px;text-align:center;font:700 11px Consolas,monospace;border:1px solid var(--line);background:var(--surface)}
+.tn-vote{width:100%;min-height:50px;color:#fff;font:700 12px Arial,sans-serif;border:1px solid #8f1610;background:linear-gradient(#df4a42,#a81c15);box-shadow:inset 0 1px #fff5,inset 0 -2px #0003;cursor:pointer}
+.tn-vote-1{border-color:#174690;background:linear-gradient(#4f82dd,#1c4ea0)}.tn-vote.is-picked{outline:2px solid #e2bc44;outline-offset:1px}
+.tn-step{display:grid;grid-template-columns:1fr 1fr;gap:3px;width:100%;margin-top:auto}.tn-step button{padding:3px;color:var(--muted);background:linear-gradient(var(--surface),var(--sf));border:1px solid var(--ls);cursor:pointer}
+.tn-dots{display:grid;grid-template-columns:repeat(16,1fr);gap:2px;padding:0 7px 7px}
+.tn-dots button{padding:2px 0;color:var(--muted);background:var(--surface);border:1px solid var(--line);font:10px Consolas,monospace;cursor:pointer}.tn-dots button.is-done{color:#fff;background:#278b42;border-color:#1a7d3c}.tn-dots button.is-current{outline:2px solid var(--red);outline-offset:-1px}
+.tn-submit{position:static}.tn-archive a span:last-child{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.tn-dialog{margin:auto;width:min(380px,calc(100vw - 32px));padding:0;color:var(--text);background:var(--surface);border:2px solid var(--ls);border-top:3px solid var(--red)}.tn-dialog::backdrop{background:#0008}#tn-settings-body{padding:4px 12px}#tn-close-settings{width:22px;height:22px;background:var(--sf);color:var(--text);border:1px solid var(--ls)}
+@media(max-width:640px){.tn-board{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.tn-mid{grid-column:1/-1;grid-row:2;flex-direction:row;flex-wrap:wrap;justify-content:center}.tn-vote{flex:1;min-height:38px}.tn-step{width:auto;margin:0}.tn-dots{grid-template-columns:repeat(8,1fr)}}
+.tn-thumb img{display:block;width:100%;object-fit:cover}
+body .page-rail-left{right:calc(50% + 540px)}body .page-rail-right{left:calc(50% + 540px)}
+@media(max-width:1130px){.page-rail{display:none}}
+
+/* Copied from Higher / Lower; teal and pink replace its two side colours. */
+.game-area{display:grid;grid-template-columns:minmax(0,1fr) 96px minmax(0,1fr);gap:8px;align-items:stretch;padding:7px}
+.vs-col{display:flex;flex-direction:column;align-items:stretch;gap:5px;min-width:0;padding:7px 6px;background:#f7f2e6;border:1px solid #b9b3a6;box-shadow:inset 0 0 0 1px #fff}
+.vs-text{display:flex;align-items:center;justify-content:center;height:20px;background:#fffdf4;border:1px solid #b9b3a6;color:#777064;font-size:10px;font-weight:900;letter-spacing:.08em}
+.vs-round-label{font-size:8px;color:var(--faint);text-align:center;text-transform:uppercase}.vs-round-num{font-size:15px;font-weight:900;text-align:center}
+.song-col{display:flex;flex-direction:column;min-width:0;background:#e6e6e6;border:1px solid #777;box-shadow:inset 0 0 0 1px #fff,0 1px 0 #fffc}
+.song-col-header{min-height:21px;display:flex;align-items:center;gap:6px;padding:2px 7px;margin:1px 1px 0;border-bottom:1px solid #000}
+.col-header-title{flex:1 1 auto;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;font-size:11px;font-weight:700;color:#fff;text-shadow:0 1px #0007}.col-header-status{font-size:9px;color:#fff}
+.is-a .song-col-header{background:linear-gradient(#35b8ae 0%,#129488 48%,#0b7168 52%,#0f867b 100%);border-color:#085a53}
+.is-b .song-col-header{background:linear-gradient(#e2559c 0%,#c62a7b 48%,#9b1a5c 52%,#b5216e 100%);border-color:#7a1349}
+.song-thumb{position:relative;aspect-ratio:16/9;overflow:hidden;background:#000;margin:0 1px;box-shadow:inset 0 0 0 1px #777}.song-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.thumb-scanlines{position:absolute;inset:0;z-index:2;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0 2px,#0000000d 2px 3px)}
+.tier-badges{position:absolute;right:3px;bottom:3px;z-index:4;display:flex;gap:3px}.tier-badge{padding:0 4px;color:#fff;background:linear-gradient(#7a7a7a,#565656);border:1px solid #3f3f3f;font-size:9px;font-weight:700;line-height:13px}
+.song-meta-bar{display:flex;align-items:flex-start;padding:4px 7px 5px;margin:0 1px;background:#f7f7f7;border-top:1px solid #999}
+.meta-field{display:flex;flex-direction:column;flex-shrink:0;padding-right:10px;margin-right:9px;border-right:1px solid #ddd}.meta-field:last-child{flex:1;min-width:0;padding:0;margin:0;border:0}
+.meta-key{font-size:9px;font-weight:700;color:#444}.meta-val{font-size:15px;font-weight:900;color:var(--text)}.meta-val.meta-artist{display:-webkit-box;overflow:hidden;font-size:11px;font-weight:700;line-height:1.25;-webkit-line-clamp:2;-webkit-box-orient:vertical}.meta-sub{margin-top:2px;font-size:8px;color:var(--faint)}
+.song-links{display:grid;grid-template-columns:3fr 2fr;gap:5px;margin:auto 1px 1px;padding:5px;background:#e6e6e6}.song-link{padding:6px 2px;text-align:center;color:#333;background:linear-gradient(#fff,#ddd);border:1px solid #999;font-size:11px;font-weight:700}
+.song-col.is-loser{opacity:.6}.song-col.is-winner{outline:3px solid #4caf50;outline-offset:-2px}
+.guess-btns{display:flex;flex-direction:column;gap:9px;width:100%}.guess-btn{position:relative;width:100%;min-height:58px;padding:6px 2px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:#fff;font-family:inherit;font-size:12px;font-weight:900;letter-spacing:.05em;text-transform:uppercase;text-shadow:0 1px #0006;border:1px solid;cursor:pointer}
+.guess-btn::after{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(45deg,#ffffff0d 0 4px,transparent 4px 9px)}
+.guess-arrow{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;font-size:14px;background:#ffffff29;border:1px solid #fff6}
+.guess-a{background:linear-gradient(#35b8ae 0%,#129488 48%,#0b7168 52%,#0f867b 100%);border-color:#085a53;box-shadow:inset 0 1px #fff7,inset 0 -2px #0003,0 2px #064741,0 3px 4px #0005}
+.guess-b{background:linear-gradient(#e2559c 0%,#c62a7b 48%,#9b1a5c 52%,#b5216e 100%);border-color:#7a1349;box-shadow:inset 0 1px #fff7,inset 0 -2px #0003,0 2px #5e0e38,0 3px 4px #0005}
+.guess-btn:hover{filter:brightness(1.1)}.guess-btn.is-picked{outline:2px solid #e2bc44;outline-offset:2px}.tn-step{margin-top:auto}
+html.dark-mode .song-col,html.dark-mode .song-links{background:#222}html.dark-mode .song-col{border-color:#444;box-shadow:none}html.dark-mode .song-meta-bar{background:#1a1a1a;border-color:#444}html.dark-mode .meta-key{color:#bbb}html.dark-mode .song-link{color:#ddd;background:linear-gradient(#2e2e2e,#1e1e1e);border-color:#444}html.dark-mode .vs-col,html.dark-mode .vs-text{background:#1c1c1c;border-color:#444;box-shadow:none;color:#bbb}
+@media(max-width:640px){.game-area{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.vs-col{grid-column:1/-1;grid-row:2;flex-direction:row;flex-wrap:wrap;justify-content:center}.guess-btns{flex-direction:row;flex:1 1 100%}.guess-btn{min-height:42px}}
+
+/* Yellow accent from the icon; the matchup strip is a slim segmented track. */
+:root{--red:#a67c00;--red-dark:#755700}
+html.dark-mode{--red:#e2bc44;--red-dark:#8a6a10}
+.tn-mark{background:linear-gradient(#e2bc44,#a87c0a)}
+.tn-dots{display:flex;gap:2px;grid-template-columns:none;padding:0 7px 8px}
+.tn-dots button{flex:1;height:10px;min-width:0;padding:0;background:#2a2a2a;border:1px solid #111;box-shadow:inset 0 1px 2px #0007}
+.tn-dots button:hover{background:#666}
+.tn-dots button.is-done{background:linear-gradient(#e2bc44,#a87c0a);border-color:#755700}
+.tn-dots button.is-current{height:14px;margin-top:-2px;outline:1px solid var(--red);outline-offset:1px}
+.tn-table{table-layout:auto}.tn-table td{padding:4px 9px;font-size:11px;line-height:1.3}.tn-table td:first-child{white-space:nowrap}
+/* Empty segments sit on the page's warm greys; Submit leads, Turnstile sits right. */
+.tn-dots button{background:linear-gradient(#f7f3e6,#e4dcc6);border:1px solid #c4b98f;box-shadow:inset 0 1px #fff9}
+.tn-dots button:hover{background:#f0dfa0}
+.tn-dots button.is-done{background:linear-gradient(#e2bc44,#a87c0a);border-color:#755700}
+.tn-dots button.is-current{border-color:var(--red-dark);outline-color:var(--red)}
+html.dark-mode .tn-dots button:not(.is-done){background:#2a2a2a;border-color:#444;box-shadow:none}
+.tn-submit{flex-wrap:nowrap}#tn-send{order:1;flex:0 0 auto}#tn-progress{order:2}#tn-turnstile{order:3;margin-left:auto}
+.tier-badges{left:3px;justify-content:flex-end}.tier-badge{max-width:40%;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+@media(max-width:640px){.tn-submit{flex-wrap:wrap}#tn-turnstile{margin-left:0}}
+
+/* One continuous track split into 32 cells, evenly spaced above and below. */
+.game-area{padding-bottom:0}
+.tn-dots{gap:0;margin:8px 7px;padding:0;height:14px;border:1px solid #a89a6a;background:#efe8d3;box-shadow:inset 0 1px 2px #0002}
+.tn-dots button,.tn-dots button.is-current{height:100%;margin:0;background:none;border:0;border-right:1px solid #c4b98f;box-shadow:none;outline:0}
+.tn-dots button:last-child{border-right:0}
+.tn-dots button:hover{background:#f0dfa0}
+.tn-dots button.is-done{background:linear-gradient(#e2bc44,#a87c0a);border-right-color:#755700}
+.tn-dots button.is-current{box-shadow:inset 0 0 0 2px var(--red-dark)}
+html.dark-mode .tn-dots{background:#2a2a2a;border-color:#555}html.dark-mode .tn-dots button:not(.is-done){background:none;border-color:#444}
+.tn-submit{align-items:center;padding:8px}#tn-turnstile{display:flex;line-height:0}
+/* Same track as Heardle's clip bar, in gold. */
+.tn-dots{height:14px;background:#2a2a2a;border:1px solid #111;box-shadow:inset 0 2px 3px #00000080}
+.tn-dots button,.tn-dots button.is-current{background:none;border:0;border-right:1px solid #ffffff40;box-shadow:none}
+.tn-dots button:hover{background:#ffffff26}
+.tn-dots button.is-done{background:repeating-linear-gradient(-45deg,#ffffff29 0 5px,transparent 5px 10px),linear-gradient(#e2bc44,#a87c0a);border-right-color:#ffffff40;box-shadow:inset 0 1px #ffffff59}
+.tn-dots button.is-current{box-shadow:inset 0 0 0 1px #fff}
+html.dark-mode .tn-dots{background:#2a2a2a;border-color:#111}

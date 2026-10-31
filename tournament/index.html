@@ -5,14 +5,14 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>VOCALOID Song Tournament · vote for a weekly winner</title>
 <meta name="description" content="Sixty-four VOCALOID songs, one round a week. Listen, vote, and follow the bracket to a champion.">
-<link rel="icon" href="../favicon.jpg"><link rel="stylesheet" href="../cover-reveal/styles.css?v=13"><link rel="stylesheet" href="../shared-chrome.css?v=1"><link rel="stylesheet" href="../game-rails.css?v=1"><link rel="stylesheet" href="tournament.css?v=2">
+<link rel="icon" href="../favicon.jpg"><link rel="stylesheet" href="../cover-reveal/styles.css?v=13"><link rel="stylesheet" href="../shared-chrome.css?v=1"><link rel="stylesheet" href="../game-rails.css?v=1"><link rel="stylesheet" href="tournament.css?v=9">
 <script>try{if(localStorage.getItem('vl-global-theme')==='dark')document.documentElement.classList.add('dark-mode')}catch(e){}</script>
-<script src="core.js?v=1" defer></script><script src="config.js?v=1" defer></script><script src="app.js?v=2" defer></script>
+<script src="core.js?v=1" defer></script><script src="config.js?v=1" defer></script><script src="app.js?v=6" defer></script>
 </head>
 <body>
 <div class="nnd-topbar"><span>Games &gt; Music &gt; VOCALOID &gt; Song Tournament</span></div>
 <div class="page-rail page-rail-left" aria-hidden="true"><span>VOCALOID SONG TOURNAMENT</span></div><div class="page-rail page-rail-right" aria-hidden="true"><span>WEEKLY · 64 SONGS · ONE WINNER</span></div>
-<header class="nnd-mainbar"><a class="nnd-logo" href="../"><span class="nnd-logo-mark tn-mark" aria-hidden="true"><img src="logo.svg" width="22" height="22" alt=""></span><span class="nnd-logo-text">VOCALOID Song Tournament<span class="nnd-logo-sub">sixty-four songs, one winner</span></span></a></header>
+<header class="nnd-mainbar"><a class="nnd-logo" href="../"><span class="nnd-logo-mark tn-mark" aria-hidden="true"><img src="logo.svg" width="22" height="22" alt=""></span><span class="nnd-logo-text">VOCALOID Song Tournament<span class="nnd-logo-sub">sixty-four songs, one winner</span></span></a><nav class="nnd-header-links"><a href="../39charts/">39charts</a><span class="nnd-divider" aria-hidden="true">|</span><button type="button" id="tn-open-settings">Settings</button><span class="nnd-divider" aria-hidden="true">|</span><a class="nnd-kofi" href="https://ko-fi.com/sodapines" target="_blank" rel="noopener">Support on Ko-fi</a></nav></header>
 <div class="nnd-marquee-bar"><span class="nnd-marquee-label">[INFO]</span><div class="nnd-marquee-wrap"><div class="nnd-marquee-inner">★ Sixty-four songs, one round a week · Listen on the original upload, then vote · Results appear when each round closes ★</div></div></div>
 <div class="nnd-tag-row"><span class="nnd-tag-label">Tags:</span><span class="nnd-tag">VOCALOID</span><span class="nnd-tag">投票</span><span class="nnd-tag">Song Tournament</span><span class="nnd-tag">Weekly</span><span class="nnd-tag">Fan-made</span></div>
 <main class="nnd-body">
@@ -24,13 +24,14 @@
 <section class="panel"><h2 class="panel-header">[ Links ]</h2><div class="links-list"><a href="../">VOCALOIDLE</a><a href="../39charts/">39charts</a><a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB ↗</a></div></section>
 </aside>
 <aside class="nnd-side-right">
-<section class="panel"><h2 class="panel-header">[ How It Works ]</h2><div class="side-body"><div class="side-row"><span class="sr-num">1</span><span>Listen to both songs on the original upload.</span></div><div class="side-row"><span class="sr-num">2</span><span>Vote in as many matchups as you like.</span></div><div class="side-row"><span class="sr-num">3</span><span>Results appear when the round closes.</span></div><div class="side-row"><span class="sr-num">4</span><span>Winners advance each week. Ties go to the higher seed.</span></div></div></section>
+<section class="panel"><h2 class="panel-header">[ How It Works ]</h2><div class="side-body"><div class="side-row"><span class="sr-num">1</span><span>Listen to both songs on the original upload.</span></div><div class="side-row"><span class="sr-num">2</span><span>Vote in as many matchups as you like.</span></div><div class="side-row"><span class="sr-num">3</span><span>Results appear when the round closes. Press 1 or 2 to vote, ← and → to move.</span></div><div class="side-row"><span class="sr-num">4</span><span>Winners advance each week. Ties go to the higher seed.</span></div></div></section>
 </aside>
 </div>
 <div class="nnd-main">
 <section class="panel"><h2 class="panel-header"><span id="tn-round">[ Bracket ]</span><span class="panel-note" id="tn-progress-top"></span></h2><div id="tn-matches"><p class="tn-empty">Loading bracket…</p></div><div class="tn-submit" id="tn-submit" hidden><div id="tn-turnstile"></div><button id="tn-send" disabled>Submit votes</button><span id="tn-progress" role="status"></span></div></section>
 </div>
 </main>
+<dialog id="tn-settings" class="tn-dialog" aria-labelledby="tn-settings-title"><div class="panel-header"><span id="tn-settings-title">Settings</span><button type="button" id="tn-close-settings" aria-label="Close">✕</button></div><div id="tn-settings-body"></div></dialog>
 <footer class="site-footer">VOCALOID Song Tournament: fan-made weekly song poll (c) 2026 | Not affiliated with Crypton Future Media or NicoNico | Song data from <a href="https://vocadb.net" target="_blank" rel="noopener">VocaDB</a></footer>
 <noscript>This page needs JavaScript to show the bracket.</noscript>
 </body></html>
