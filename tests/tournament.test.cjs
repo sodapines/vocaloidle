@@ -1,0 +1,22 @@
+const {test}=require('node:test');
+const assert=require('node:assert/strict');
+const fs=require('node:fs'),os=require('node:os'),path=require('node:path');
+const T=require('../tournament/core.js');
+const catalogue=Array.from({length:1000},(_,i)=>({id:String(i),views:1000-i}));
+const bracket=seed=>T.buildBracket(T.pickField(catalogue,seed));
+test('field is 16/32/16, unique, and repeatable',()=>{const f=T.pickField(catalogue,7),all=[...f.top,...f.mid,...f.gem];assert.deepEqual([f.top.length,f.mid.length,f.gem.length],[16,32,16]);assert.equal(new Set(all.map(s=>s.id)).size,64);assert.deepEqual(T.pickField(catalogue,7),f);assert.ok(Math.min(...f.top.map(s=>s.views))>Math.max(...f.gem.map(s=>s.views)));});
+test('top two seeds sit in opposite halves',()=>{const b=bracket(3),one=b.findIndex(s=>s.seed===1),two=b.findIndex(s=>s.seed===2);assert.notEqual(one<32,two<32);});
+test('six rounds crown one winner and ties go to the higher seed',()=>{let e=bracket(3),rounds=0;while(e.length>1){e=T.resolveRound(e,{}).winners;rounds++;}assert.equal(rounds,6);assert.equal(e[0].seed,1);});
+test('ballots tally only valid picks',()=>{assert.deepEqual(T.tallyBallots([{0:0,1:1},{0:1},{9:0}],2),{0:[1,1],1:[0,1]});assert.equal(T.validBallot({0:1},2),true);for(const bad of [{},[],null,{2:0},{0:2},{x:0}])assert.equal(T.validBallot(bad,2),false);});
+test('worker keeps one changeable ballot per voter and rejects closed rounds',async()=>{
+ const file=path.join(os.tmpdir(),'tw-'+process.pid+'.mjs');fs.copyFileSync('scripts/tournament-worker.js',file);const {handle}=await import(file);
+ const rows=new Map(),DB={prepare:sql=>({bind:(...a)=>({run:async()=>{rows.set(a.slice(0,3).join(),a[3]);},all:async()=>({results:[...rows.values()].map(picks=>({picks}))})})})};
+ const env={DB,ALLOWED_ORIGIN:'https://x',ADMIN_TOKEN:'t',VOTER_SALT:'s',TURNSTILE_SECRET:'k'};
+ let closesAt=new Date(Date.now()+1e6).toISOString();
+ const fetcher=async url=>new Response(JSON.stringify(String(url).includes('turnstile')?{success:true}:{number:1,open:0,entrants:Array(64).fill({}),rounds:[{closesAt}]}));
+ const vote=picks=>handle(new Request('https://w/vote',{method:'POST',headers:{Origin:'https://x','CF-Connecting-IP':'1.1.1.1'},body:JSON.stringify({tournament:1,round:0,picks,token:'a'})}),env,fetcher);
+ assert.equal((await vote({0:0})).status,200);assert.equal((await vote({0:1})).status,200);assert.equal(rows.size,1);assert.doesNotMatch([...rows.keys()][0],/1\.1\.1\.1/);
+ assert.equal((await handle(new Request('https://w/tally?tournament=1&round=0'),env,fetcher)).status,401);
+ const tally=await handle(new Request('https://w/tally?tournament=1&round=0',{headers:{Authorization:'Bearer t'}}),env,fetcher);assert.deepEqual((await tally.json()).ballots,[{0:1}]);
+ closesAt=new Date(Date.now()-1).toISOString();assert.equal((await vote({0:0})).status,409);fs.unlinkSync(file);
+});

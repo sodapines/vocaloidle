@@ -1,0 +1,33 @@
+name: Weekly song tournament
+
+on:
+  schedule:
+    # Sunday 23:00 UTC
+    - cron: "0 23 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  advance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Advance tournament
+        env:
+          TOURNAMENT_API: ${{ secrets.TOURNAMENT_API }}
+          TOURNAMENT_ADMIN_TOKEN: ${{ secrets.TOURNAMENT_ADMIN_TOKEN }}
+        run: node scripts/advance-tournament.js
+      - name: Commit and push
+        run: |
+          git config user.name "sodapines"
+          git config user.email "kzen@sodapines.dev"
+          git add data/tournament
+          git diff --cached --quiet && exit 0
+          git commit -m "chore(data): advance song tournament"
+          git pull --rebase origin main
+          git push
