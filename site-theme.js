@@ -10,6 +10,12 @@
     storage.setItem('vl-theme-change',JSON.stringify({dark,nonce:Date.now()+Math.random()}));
   }
   if(typeof module==='object'&&module.exports){module.exports={setGlobal};return;}
+  // Shared page background. Injected here because every page loads this file; the repeated :root outranks every page's own !important rules.
+  const base=document.currentScript.src.replace(/site-theme\.js.*$/,'');
+  const backdrop=document.createElement('style');
+  const top=':root:root:root:root';
+  backdrop.textContent=`${top},${top} body{background:#ebebe9 url("${base}home-bg.svg") 0 0/80px 40px !important}${top}.dark-mode,${top}.dark-mode body,${top} body.dark-mode{background:#121212 url("${base}home-bg-dark.svg") 0 0/80px 40px !important}${top} body .page-rail span{background:#ebebe9 !important}${top}.dark-mode body .page-rail span,${top} body.dark-mode .page-rail span{background:#121212 !important}`;
+  document.head.appendChild(backdrop);
   function apply(dark){document.documentElement.classList.toggle('dark-mode',dark);if(document.body)document.body.classList.toggle('dark-mode',dark);root.dispatchEvent(new CustomEvent('vocaloidle-theme',{detail:{dark}}));}
   root.SiteTheme={setGlobal(dark){try{setGlobal(localStorage,dark);}catch(_){}apply(dark);}};
   root.addEventListener('storage',event=>{if(event.key==='vl-theme-change'&&event.newValue){try{apply(JSON.parse(event.newValue).dark);}catch(_){}}});
