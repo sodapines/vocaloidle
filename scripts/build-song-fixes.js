@@ -63,12 +63,13 @@ async function main() {
   const TOPIC=new Set(${JSON.stringify(checks.topic)});
   const CREDITS=${JSON.stringify(credits)};
   const VIDEO=/(?:ytimg\\.com|youtube\\.com)\\/vi\\/([\\w-]{11})/;
+  const PAGE=/^https?:\\/\\/(?:[\\w-]*\\.)*(?:bandcamp\\.com|soundcloud\\.com|nicovideo\\.jp|bilibili\\.com|piapro\\.jp|vimeo\\.com|creofuga\\.net)\\//i;
   const isTopic=url=>{const match=String(url).match(VIDEO);return !!match&&TOPIC.has(match[1]);};
   window.VocaSongFixes={
     artist:song=>CREDITS[song.vocadbId]||song.artistString||song.artist||'',
     applyCredits(song){const credit=CREDITS[song.vocadbId];if(credit){song.artistString=credit;song.displayArtist=credit;song.suggestionArtistString=credit;}return song;},
-    // Songs with no other image keep what they have rather than losing their cover.
-    withoutTopic(urls){const kept=urls.filter(url=>!isTopic(url));return kept.length?kept:urls;}
+    // Links to song pages are not images. Songs with no other image keep their Topic thumbnail.
+    withoutTopic(urls){const images=urls.filter(url=>!PAGE.test(url));const kept=images.filter(url=>!isTopic(url));return kept.length?kept:images;}
   };
 })();
 `);
